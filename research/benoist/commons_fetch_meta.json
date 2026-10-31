@@ -1,0 +1,34 @@
+[
+ {
+  "title": "File:Hennebont église par félix benoist 1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hennebont_église_par_félix_benoist_1.jpg",
+  "file_sha1_commons": "d7dbdfda4274775bc2675fdeaf246dfaf5350d78",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Hennebont_%C3%A9glise_par_f%C3%A9lix_benoist_1.jpg/960px-Hennebont_%C3%A9glise_par_f%C3%A9lix_benoist_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "thumb_sha256": "ac6e0ffb4c979d55b77913c2970edc9b756d0d4928aceec0ecec583e81f2c653",
+  "local": "Hennebont_glise_par_f_lix_benoist_1.jpg",
+  "w": 1100,
+  "h": 1539,
+  "artist": "Félix Benoist (1818-1896)",
+  "date": "1865-01-01",
+  "license": "Public domain",
+  "license_url": "",
+  "credit": "site web du musée de Bretagne",
+  "coords": null
+ },
+ {
+  "title": "File:Hennebont place du marché et église.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hennebont_place_du_marché_et_église.jpg",
+  "file_sha1_commons": "44caaa3e0c9c2233fdbefea1fe08bdba84472692",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Hennebont_place_du_march%C3%A9_et_%C3%A9glise.jpg/960px-Hennebont_place_du_march%C3%A9_et_%C3%A9glise.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "thumb_sha256": "a5b8ff445d236b6565c1d2e07862fbe18f4fb10e37c3eeb8af15e0f274c85f15",
+  "local": "Hennebont_place_du_march_et_glise.jpg",
+  "w": 1385,
+  "h": 885,
+  "artist": "carte postale ancienne, auteur inconnu",
+  "date": "1900",
+  "license": "Public domain",
+  "license_url": "",
+  "credit": "site de vente en ligne de cartes postales anciennes delcampe.net",
+  "coords": null
+ }
+]
