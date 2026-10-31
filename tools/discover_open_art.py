@@ -76,7 +76,7 @@ def met(query, limit):
         found.append(candidate("met", obj_id, data.get("title"),
             data.get("artistDisplayName"), data.get("objectDate"),
             data.get("objectURL") or f"https://www.metmuseum.org/art/collection/search/{obj_id}",
-            data["primaryImageSmall"] or data["primaryImage"], "CC0",
+            data.get("primaryImageSmall") or data["primaryImage"], "CC0",
             "https://creativecommons.org/publicdomain/zero/1.0/"))
     return found
 
@@ -107,8 +107,9 @@ def cleveland(query, limit):
     for obj in data.get("data") or []:
         if obj.get("share_license_status") != "CC0":
             continue
-        image = (obj.get("images") or {}).get("web") or {}
-        image_url = image.get("url") or (obj.get("images") or {}).get("print", {}).get("url")
+        images = obj.get("images") or {}
+        image = images.get("web") or {}
+        image_url = image.get("url") or (images.get("print") or {}).get("url")
         if not image_url:
             continue
         creators = obj.get("creators") or []
