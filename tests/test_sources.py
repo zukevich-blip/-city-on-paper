@@ -121,6 +121,11 @@ def test_http_cache_roundtrip(tmp_path):
     ("Philippe (1813) Benoist; Félix Benoist", "1865", "felix+philippe"),
     ("Benoist, Ch.", "1870", "unresolved_other_benoist"),
     ("Eugène Cicéri", "1850", "not_benoist"),
+    ("Benoist, Antoine", "1704", "antoine_royal"),
+    ("Benoist, Antoine", "1690", "antoine_royal"),
+    ("Antoine Benoist (1632–1717)", "", "antoine_royal"),
+    ("Antoine Benoist ; French 1721–1770", "", "antoine"),
+    ("Antoine Benoist (prentmaker)", "", "uncertain"),
 ])
 def test_benoist_disambiguation(creator, date, hint):
     assert benoist_hint(creator, date)["hint"] == hint
@@ -133,3 +138,11 @@ def test_committed_candidate_file_is_consistent():
     assert all(i["published"] is False for i in d["items"])
     assert all(i["preview_url"] == "" for i in d["items"] if i["rights_category"] == "restricted")
     assert "wskey=api2demo" not in json.dumps(d)  # keys redacted / not stored
+
+def test_antoines_cannot_be_auto_conflated():
+    d = json.load(open("data/candidates/candidates-2026-11-01.json", encoding="utf-8"))
+    by_id = {item["id"]: item for item in d["items"]}
+    assert by_id["loc:2021670758"]["benoist_identity_hint"]["candidates"][0]["wikidata"] == "Q2853671"
+    assert by_id["loc:2021670757"]["benoist_identity_hint"]["candidates"][0]["wikidata"] == "Q2853671"
+    assert by_id["met:695277"]["benoist_identity_hint"]["candidates"][0]["wikidata"] == "Q18526511"
+    assert by_id["rijksmuseum:200156702"]["benoist_identity_hint"]["hint"] == "uncertain"
