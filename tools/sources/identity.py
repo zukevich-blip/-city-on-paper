@@ -6,6 +6,8 @@ Wikidata checked 2026-11-01 (wbgetentities / wbsearchentities):
             (LoC and Commons give "approximately 1905"; BnF via Europeana gives 1813-1905: CONFLICT)
   Q5616064  Guillaume Philippe Benoist, engraver, 1725 – 1770 per Wikidata (Met says 1725–1800: CONFLICT)
   Q18526511 Antoine Benoist, draughtsman/engraver 1721–1770 (different person)
+  Antoine Benoist, painter / wax modeller 1632–1717 (LoC items dated 1690/1704; Q2853671 per review,
+            not re-verified 2026-11-01b because Wikidata answered 429) -> hint "uncertain", never Q18526511
   Q117312510 is a Renaissance composer, NOT a duplicate of Philippe Benoist (PR #3 said otherwise).
 """
 
@@ -38,6 +40,11 @@ def benoist_hint(creator: str, date: str = "") -> dict:
     if "felix" in c:
         found.append("felix")
     if "antoine" in c:
+        y = _year(date)
+        if (y and y < 1735) or re.search(r"\b16\d\d\b", creator):
+            return {"hint": "uncertain", "reason": f"'Antoine Benoist' with year {y} < 1735: likely the "
+                    "painter/wax modeller Antoine Benoist (1632-1717; Wikidata Q2853671 per reviewer, "
+                    "not re-verified here: Wikidata answered 429), NOT Q18526511 (1721-1770)"}
         found.append("antoine")
     if "guillaume" not in c and re.search(r"philippe|phillipe|\bph\b|\bp\b", c):
         y = _year(date)

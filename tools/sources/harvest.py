@@ -19,16 +19,27 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from tools.sources.connectors import MATCH_FIELDS, PROVIDERS, SCHEMA_ID, Http, ProviderError, merge, relevant
+from tools.sources.connectors import (
+    MATCH_FIELDS,
+    PROVIDERS,
+    SCHEMA_ID,
+    Http,
+    ProviderError,
+    excluded,
+    merge,
+    relevant,
+    resolve_loc_rights,
+)
 from tools.sources.identity import benoist_hint
 
 CSV_FIELDS = ["id", "provider", "institution", "object_number", "title", "creator_display", "date_display",
               "medium", "place_display", "theme_tags", "rights_category", "rights_statement", "rights_uri",
-              "source_url", "iiif_manifest", "preview_url", "search_queries", "possible_duplicates"]
+              "source_url", "iiif_manifest", "preview_url", "search_queries", "possible_duplicates",
+              "identifiers", "commons_category"]
 
 
 def run(plan: dict, http: Http) -> dict:
-    items, errors, dropped = [], [], Counter()
+    items, errors, dropped, dropped_homonym = [], [], Counter(), Counter()
     attempts = []
     for job in plan["jobs"]:
         query, limit = job["query"], int(job.get("limit", 10))
@@ -46,6 +57,9 @@ def run(plan: dict, http: Http) -> dict:
                 if not relevant(rec, job.get("match", query), tuple(job.get("match_in", MATCH_FIELDS))):
                     dropped[provider] += 1
                     continue
+                if job.get("exclude") and excluded(rec, job["exclude"]):
+                    dropped_homonym[provider] += 1
+                    continue
                 rec["search_queries"] = [query]
                 items.append(rec)
                 kept += 1
@@ -53,9 +67,15 @@ def run(plan: dict, http: Http) -> dict:
                              "returned": len(got), "kept": kept})
             print(f"  . {provider:<11} {query!r}: {len(got)} returned, {kept} kept", file=sys.stderr)
     items = merge(items)
+    loc_stats = resolve_loc_rights(http, items, int(plan.get("loc_rights_max_requests", 80)))
     for i in items:
         if "benoist" in i["creator_display"].lower():
             i["benoist_identity_hint"] = benoist_hint(i["creator_display"], i["date_display"])
+        elif "benoist" in (i.get("commons_category") or "").lower():
+            # in a Benoist category but the file itself names no Benoist: never inherit the attribution
+            i["benoist_identity_hint"] = {"hint": "category_only_not_attribution",
+                                          "reason": f"file is in {i['commons_category']} but its Artist "
+                                                    "field names no Benoist"}
     return {
         "schema": SCHEMA_ID, "published": False,
         "note": "Search results only. Not approved images. Attribution/licence/geo/viewpoint need human review.",
@@ -69,6 +89,11 @@ def run(plan: dict, http: Http) -> dict:
                 Counter(i["benoist_identity_hint"]["hint"] for i in items if "benoist_identity_hint" in i)
             ),
             "dropped_as_irrelevant": dict(dropped),
+            "dropped_as_homonym_place": dict(dropped_homonym),
+            "loc_rights_resolution": loc_stats,
+            "records_with_possible_duplicates": sum(1 for i in items if i["possible_duplicates"]),
+            "duplicate_evidence": dict(Counter(
+                v.split(" ")[0] for i in items for v in i.get("duplicate_evidence", {}).values())),
             "requests_made": http.requests_made, "cache_hits": http.cache_hits,
         },
         "attempts": attempts, "errors": errors, "items": items,
@@ -83,7 +108,7 @@ def write(result: dict, out: Path) -> None:
         w.writeheader()
         for i in result["items"]:
             w.writerow({**i, **{k: "; ".join(i.get(k) or []) for k in
-                                ("theme_tags", "search_queries", "possible_duplicates")}})
+                                ("theme_tags", "search_queries", "possible_duplicates", "identifiers")}})
 
 
 def main(argv: list[str] | None = None) -> int:

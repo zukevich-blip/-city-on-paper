@@ -1,0 +1,41 @@
+{
+ "loc_item_pga": {
+  "item": {
+   "rights": [
+    "<p>The Library of Congress does not&nbsp;own rights to material in its collections.</p>"
+   ],
+   "item": {
+    "call_number": "PGA - Lemercier--Paris. Jardin du Palais Royal (A size) [P&P]",
+    "contributor_names": [
+     "Benoist, Philippe, 1813-approximately 1905, artist "
+    ],
+    "control_number": "2016652451",
+    "digital_id": [
+     "pga 14314 //hdl.loc.gov/loc.pnp/pga.14314"
+    ],
+    "reproduction_number": "LC-DIG-pga-14314 (digital file from original print)",
+    "resource_links": [
+     "//hdl.loc.gov/loc.pnp/pga.14314"
+    ],
+    "rights_advisory": "No known restrictions on publication.",
+    "rights_information": "No known restrictions on publication.",
+    "stmt_of_responsibility": "Ph. Benoist del. ; Imp. Lemercier, R de Seine 57, Paris.",
+    "title": "Paris. Jardin du Palais Royal"
+   }
+  }
+ },
+ "loc_item_wdl": {
+  "item": {
+   "rights": [
+    "<p>The Library of Congress is unaware of any copyright or other restrictions in the World Digital Library Collection. Absent any such restrictions, these materials are free to use and reuse.</p>"
+   ],
+   "item": {
+    "control_number": "2021670758",
+    "digital_id": [
+     "https://hdl.loc.gov/loc.wdl/wdl.14767"
+    ],
+    "title": "Portraits of the Royal Family."
+   }
+  }
+ }
+}

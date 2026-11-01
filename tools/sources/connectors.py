@@ -50,7 +50,21 @@ class ProviderError(Exception):
 
 def redact(url: str) -> str:
     """Never write API keys into exported files."""
-    return re.sub(r"(wskey|api_key|apikey|key|token)=[^&]+", r"\1=REDACTED", url)
+    return re.sub(r"(wskey|api_key|apikey|key|token|utm_campaign)=[^&\s\"']+", r"\1=REDACTED", url)
+
+
+SECRET_FIELDS = re.compile(r"^(wskey|api_?key|apikey|key|token|access_token|secret)$", re.I)
+
+
+def scrub(obj: Any) -> Any:
+    """Remove key-like fields (Europeana echoes ``apikey`` in its body) before anything is cached."""
+    if isinstance(obj, dict):
+        return {k: scrub(v) for k, v in obj.items() if not SECRET_FIELDS.match(str(k))}
+    if isinstance(obj, list):
+        return [scrub(v) for v in obj]
+    if isinstance(obj, str) and "=" in obj:
+        return redact(obj)
+    return obj
 
 
 @dataclass
@@ -60,6 +74,8 @@ class Http:
     delay: float = 1.0
     timeout: int = 25
     offline: bool = False  # serve from cache only (tests / reproducible re-runs)
+    # stricter per-host pauses: Wikimedia answers 429 to the shared egress IP at ~1 req/s
+    host_delay: dict[str, float] = field(default_factory=lambda: {"commons.wikimedia.org": 6.0})
     _last: dict[str, float] = field(default_factory=dict)
     requests_made: int = 0
     cache_hits: int = 0
@@ -85,7 +101,7 @@ class Http:
         hdrs = {"User-Agent": USER_AGENT, "Accept": "application/json"}
         hdrs.update(headers or {})
         for attempt in range(3):
-            wait = self.delay - (time.monotonic() - self._last.get(host, 0))
+            wait = max(self.delay, self.host_delay.get(host, 0)) - (time.monotonic() - self._last.get(host, 0))
             if wait > 0:
                 time.sleep(wait)
             self.budget -= 1
@@ -97,14 +113,18 @@ class Http:
                 data = json.loads(raw.decode("utf-8"))
                 if cpath:
                     cpath.parent.mkdir(parents=True, exist_ok=True)
-                    cpath.write_text(json.dumps(data, ensure_ascii=False), "utf-8")
+                    cpath.write_text(json.dumps(scrub(data), ensure_ascii=False), "utf-8")
                 return data
             except HTTPError as exc:
                 retryable = exc.code in (429, 500, 502, 503, 504)
                 if not retryable or attempt == 2 or self.budget <= 0:
                     raise ProviderError(provider, url, exc.code, str(exc.reason)) from None
                 retry_after = exc.headers.get("Retry-After", "")
-                time.sleep(min(int(retry_after) if retry_after.isdigit() else 5 * (attempt + 1), 30))
+                pause = int(retry_after) if retry_after.isdigit() else 5 * (attempt + 1)
+                if pause > 30:  # provider asks for a long back-off: record it, do not hammer
+                    raise ProviderError(provider, url, exc.code,
+                                        f"{exc.reason}; Retry-After {pause}s > 30s, not retried") from None
+                time.sleep(pause)
             except (URLError, TimeoutError, OSError, http.client.HTTPException) as exc:
                 if attempt == 2 or self.budget <= 0:
                     raise ProviderError(provider, url, None, f"network: {exc}") from None
@@ -166,14 +186,17 @@ def theme_tags(text: str) -> list[str]:
 
 
 OPEN_RIGHTS = ("publicdomain", "public domain", "cc0", "/licenses/by/", "/licenses/by-sa/",
+               "cc-by", "cc by", "etalab", "licence ouverte",
                "noc-us", "/noc/", "nkc", "no known copyright", "no known restrictions")
 
 
 def rights_category(statement: str, uri: str = "") -> str:
     """open = image reuse plausible after review; restricted = keep metadata/link only."""
     s = fold(f"{statement} {uri}")
-    if any(k in s for k in ("inc/", "in copyright", "/inc", "noc-nc", "noc-oklr", "-nc", "non-commercial",
-                            "/by-nc", "all rights reserved", "terms of use")):
+    if s.strip() in ("inc", "inc-edu", "inc-nc", "inc-ruu", "inc-ow-eu") or any(
+            k in s for k in ("inc/", "inc-", "in copyright", "/inc", "noc-nc", "noc-oklr", "-nc", " nc ",
+                             "non-commercial", "noncommercial", "/by-nc", "all rights reserved",
+                             "terms of use")):
         return "restricted"
     if any(k in s for k in OPEN_RIGHTS):
         return "open"
@@ -227,6 +250,12 @@ MATCH_FIELDS = ("title", "creator_display", "description", "subjects", "place_di
 def relevant(rec: dict[str, Any], query: str, fields: tuple[str, ...] = MATCH_FIELDS) -> bool:
     hay = fold(" ".join(str(rec.get(k, "")) for k in fields))
     return all(t in hay for t in tokens(query))
+
+
+def excluded(rec: dict[str, Any], words: list[str]) -> bool:
+    """Homonym guard: drop e.g. St. Petersburg (Florida) or Lisbon (New Hampshire) for a European city job."""
+    hay = fold(" ".join(str(rec.get(k, "")) for k in ("title", "place_display", "subjects")))
+    return any(re.search(r"(?<!\w)" + re.escape(fold(w)) + r"(?!\w)", hay) for w in words)
 
 
 # --------------------------------------------------------------------------- providers
@@ -308,13 +337,14 @@ def cleveland(http: Http, query: str, limit: int) -> list[dict]:
     return out
 
 
-def commons(http: Http, query: str, limit: int) -> list[dict]:
-    d = http.get_json("commons", "https://commons.wikimedia.org/w/api.php", {
-        "action": "query", "format": "json", "generator": "search", "gsrsearch": query,
-        "gsrnamespace": 6, "gsrlimit": min(limit * 2, 50), "prop": "imageinfo",
-        "iiprop": "url|size|extmetadata", "iiurlwidth": 800})
+COMMONS_API = "https://commons.wikimedia.org/w/api.php"
+COMMONS_INSTITUTION = "Wikimedia Commons (aggregator; see 'Credit' for holding institution)"
+
+
+def _commons_records(d: dict) -> list[dict]:
     out = []
-    for p in ((d.get("query") or {}).get("pages") or {}).values():
+    pages = sorted(((d.get("query") or {}).get("pages") or {}).values(), key=lambda p: p.get("index", 0))
+    for p in pages:
         info = (p.get("imageinfo") or [{}])[0]
         meta = info.get("extmetadata") or {}
 
@@ -323,17 +353,56 @@ def commons(http: Http, query: str, limit: int) -> list[dict]:
 
         title = p.get("title", "").removeprefix("File:")
         lat, lon = get("GPSLatitude"), get("GPSLongitude")
-        out.append(record(
-            "commons", "Wikimedia Commons (aggregator; see 'Credit' for holding institution)", p.get("pageid"),
+        rec = record(
+            "commons", COMMONS_INSTITUTION, p.get("pageid"),
             title=get("ObjectName") or title, creator=get("Artist"), date=get("DateTimeOriginal") or get("DateTime"),
             description=get("ImageDescription"), subjects=get("Categories").replace("|", "; "),
             institution_override="", source_url=info.get("descriptionurl") or "",
             preview_url=info.get("thumburl") or "", rights_statement=get("LicenseShortName"),
             rights_uri=get("LicenseUrl"), lat=float(lat) if lat else None, lon=float(lon) if lon else None,
             rights_granularity="per-file; artwork vs. scan vs. photo rights must be read on the file page",
-            object_number=f"{info.get('width')}x{info.get('height')}px"))
-        out[-1]["credit"] = get("Credit")[:300]
+            object_number=f"{info.get('width')}x{info.get('height')}px")
+        rec["credit"] = get("Credit")[:300]
+        rec["file_title"] = title
+        # LoC reproduction numbers / LCCN / handles quoted in description or credit (dedup hint only)
+        rec["identifiers"] = lc_identifiers(" ".join([get("ImageDescription"), get("Credit"),
+                                                      info.get("descriptionurl") or "", title]))
+        out.append(rec)
     return out
+
+
+IMAGEINFO = {"prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 800}
+
+
+def commons(http: Http, query: str, limit: int) -> list[dict]:
+    d = http.get_json("commons", COMMONS_API, {
+        "action": "query", "format": "json", "generator": "search", "gsrsearch": query,
+        "gsrnamespace": 6, "gsrlimit": min(limit * 2, 50), **IMAGEINFO})
+    return _commons_records(d)
+
+
+def commons_category(http: Http, category: str, limit: int) -> list[dict]:
+    """Files (namespace 6) directly in a Commons category, e.g. an album such as 'La Bretagne contemporaine'.
+
+    Category membership is curation by Commons volunteers, NOT attribution: every record keeps the
+    file's own Artist field, and the Benoist identity hint is computed from that field only.
+    """
+    title = category if category.startswith("Category:") else f"Category:{category}"
+    out: list[dict] = []
+    cont: dict = {}
+    while len(out) < limit:
+        d = http.get_json("commons", COMMONS_API, {
+            "action": "query", "format": "json", "generator": "categorymembers", "gcmtitle": title,
+            "gcmnamespace": 6, "gcmtype": "file", "gcmlimit": min(limit - len(out), 50), **IMAGEINFO, **cont})
+        for rec in _commons_records(d):
+            rec["commons_category"] = title
+            rec["category_is_not_attribution"] = True
+            out.append(rec)
+        cont = d.get("continue") or {}
+        if not cont.get("gcmcontinue"):
+            break
+        cont = {"gcmcontinue": cont["gcmcontinue"], "continue": cont.get("continue", "")}
+    return out[:limit]
 
 
 def europeana_key() -> str:
@@ -367,6 +436,82 @@ def europeana(http: Http, query: str, limit: int) -> list[dict]:
     return out
 
 
+LC_REPRO = re.compile(r"\bLC-(?:DIG-[A-Za-z]{2,6}|USZ[A-Z0-9]*)-\d{3,6}\b", re.I)
+LC_HDL = re.compile(r"hdl\.loc\.gov/loc\.(?:pnp|wdl)/([a-z]{2,6})[./](\w+)", re.I)
+LC_ITEM = re.compile(r"loc\.gov/(?:pictures/item|item|resource/[a-z]+)/(\d{8,10}|[a-z]{2,4}\d{8,10})", re.I)
+LC_LCCN = re.compile(r"\b(?:LCCN|control number)[:\s#]*(\d{8,10})\b", re.I)
+
+
+def lc_identifiers(text: str) -> list[str]:
+    """Library of Congress identifiers quoted in free text (Commons description/credit, LoC fields).
+
+    Normalised: ``lc-repro:lc-dig-pga-14314``, ``lc-hdl:pga.14314``, ``lccn:2016652451``.
+    """
+    found: list[str] = []
+
+    def add(x: str) -> None:
+        if x not in found:
+            found.append(x)
+
+    for m in LC_REPRO.finditer(text or ""):
+        add("lc-repro:" + m.group(0).lower())
+    for m in LC_HDL.finditer(text or ""):
+        add(f"lc-hdl:{m.group(1).lower()}.{m.group(2).lower()}")
+    for m in LC_ITEM.finditer(text or ""):
+        add("lccn:" + m.group(1).lower())
+    for m in LC_LCCN.finditer(text or ""):
+        add("lccn:" + m.group(1))
+    return found
+
+
+def loc_rights(advisory: str, collection_rights: str = "") -> tuple[str, str]:
+    """(rights_category, statement) from LoC P&P ``rights_advisory`` or, failing that, collection rights text.
+
+    Only the item-level "No known restrictions on publication" is treated as open; anything else stays
+    restricted/unknown with LoC's own words. ``collection_rights`` is accepted for the caller's note only.
+    """
+    adv = re.split(r"<p>|\n\s*\n", advisory or "")[0].strip()
+    a = fold(adv)
+    if adv:
+        if a.startswith("no known restrictions on publication"):
+            return "open", adv
+        if "rights status not evaluated" in a or "not evaluated" in a:
+            return "unknown", adv
+        if any(k in a for k in ("restrict", "copyright", "permission", "publication may be")):
+            return "restricted", adv
+        return "unknown", adv
+    # e.g. World Digital Library items: only a collection-level text. Kept as a note, never as a licence.
+    return "unknown", "no rights advisory on item"
+
+
+def _loc_apply_item(rec: dict, item: dict, collection_rights: str = "") -> None:
+    cat, stmt = loc_rights(clean(item.get("rights_advisory") or item.get("rights_information")),
+                           collection_rights)
+    rec["rights_category"], rec["rights_statement"] = cat, stmt
+    rec["rights_granularity"] = ("per-item rights advisory (LoC P&P)" if item.get("rights_advisory")
+                                 else "item checked: no item-level rights advisory")
+    if collection_rights:
+        rec["rights_collection_note"] = clean(collection_rights)[:300]
+    names = item.get("contributor_names") or item.get("contributors")
+    if names:  # proper-case names with dates/roles, unlike the lower-cased search facet
+        rec["creator_display"] = clean([n.strip().rstrip(".") for n in names])
+    ids = list(rec.get("identifiers") or [])
+    for extra in lc_identifiers(" ".join([clean(item.get("reproduction_number")),
+                                          " ".join(item.get("digital_id") or []),
+                                          " ".join(item.get("resource_links") or [])])):
+        if extra not in ids:
+            ids.append(extra)
+    if item.get("control_number") and f"lccn:{item['control_number']}" not in ids:
+        ids.append(f"lccn:{item['control_number']}")
+    rec["identifiers"] = ids
+    if item.get("call_number"):
+        rec["object_number"] = clean(item["call_number"])[:200]
+    if item.get("stmt_of_responsibility"):
+        rec["statement_of_responsibility"] = clean(item["stmt_of_responsibility"])[:300]
+    if cat == "restricted":
+        rec["preview_url"] = ""
+
+
 def loc(http: Http, query: str, limit: int) -> list[dict]:
     params = {"q": query, "fo": "json", "c": min(limit * 2, 50), "at": "results,pagination"}
     d = http.get_json("loc", "https://www.loc.gov/photos/", params)
@@ -374,15 +519,54 @@ def loc(http: Http, query: str, limit: int) -> list[dict]:
     for o in d.get("results") or []:
         imgs = [u.split("#")[0] for u in o.get("image_url") or []]
         restricted = o.get("access_restricted") is True
-        out.append(record(
-            "loc", "Library of Congress", (o.get("id") or "").rstrip("/").split("/")[-1],
+        lccn = (o.get("id") or "").rstrip("/").split("/")[-1]
+        rec = record(
+            "loc", "Library of Congress", lccn,
             title=o.get("title"), creator=o.get("contributor"), date=o.get("date"),
             description=o.get("description"), subjects=o.get("subject"), place=o.get("location"),
             source_url=o.get("url") or o.get("id"), iiif_manifest=(o.get("url") or "") + "manifest.json",
             preview_url=imgs[-1] if imgs and not restricted else "",
-            rights_statement="Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
-            rights_uri=(o.get("url") or "") + "#rights", rights_category="unknown" if not restricted else "restricted"))
+            rights_statement="rights advisory not in search result (item JSON checked later)",
+            rights_uri=(o.get("url") or "") + "#rights", rights_category="unknown" if not restricted else "restricted")
+        rec["identifiers"] = [f"lccn:{lccn}"] if lccn else []
+        item = o.get("item") if isinstance(o.get("item"), dict) else {}
+        if item.get("rights_advisory") or item.get("rights_information"):
+            # P&P search results embed the item-level advisory: no extra request needed
+            _loc_apply_item(rec, item)
+            if restricted:
+                rec["rights_category"], rec["preview_url"] = "restricted", ""
+        elif item:
+            keep = rec["rights_statement"], rec["rights_granularity"], rec["preview_url"]
+            _loc_apply_item(rec, item)  # identifiers / call number only; rights resolved later
+            rec["rights_statement"], rec["rights_granularity"], rec["preview_url"] = keep
+            rec["rights_category"] = "restricted" if restricted else "unknown"
+        out.append(rec)
     return out
+
+
+def resolve_loc_rights(http: Http, records: list[dict], max_requests: int = 80) -> dict[str, int]:
+    """Fetch ``/item/{id}/?fo=json&at=item`` for LoC records still ``unknown`` (budgeted, cached)."""
+    stats = {"checked": 0, "resolved": 0, "still_unknown": 0, "errors": 0, "skipped_budget": 0}
+    for rec in records:
+        if rec.get("provider") != "loc" or rec.get("rights_category") != "unknown":
+            continue
+        if stats["checked"] >= max_requests:
+            stats["skipped_budget"] += 1
+            continue
+        stats["checked"] += 1
+        try:
+            d = http.get_json("loc", f"https://www.loc.gov/item/{rec['source_id']}/", {"fo": "json", "at": "item"})
+        except ProviderError as exc:
+            stats["errors"] += 1
+            rec.setdefault("rights_check_errors", []).append(exc.as_dict())
+            continue
+        top = d.get("item") or {}
+        inner = dict(top.get("item") or {})
+        inner.setdefault("contributor_names", top.get("contributor_names"))
+        _loc_apply_item(rec, inner, clean(top.get("rights")))
+        rec["rights_checked_url"] = f"https://www.loc.gov/item/{rec['source_id']}/"
+        stats["resolved" if rec["rights_category"] != "unknown" else "still_unknown"] += 1
+    return stats
 
 
 def _la_lookup(obj: dict, aat: str) -> str:
@@ -495,7 +679,7 @@ def panoramax(http: Http, bbox: str, limit: int) -> list[dict]:
             date=p.get("datetime"), source_url=links.get("self", ""),
             preview_url=((f.get("assets") or {}).get("thumb") or {}).get("href", ""),
             rights_statement=lic, rights_uri=links.get("license", ""),
-            rights_category="open" if lic.upper().startswith(("CC-BY", "ETALAB", "CC0")) else "unknown",
+            rights_category=rights_category(lic, links.get("license", "")),
             lat=lat, lon=lon)
         rec["kind"] = "modern_photo"
         rec["azimuth"] = p.get("view:azimuth")
@@ -524,6 +708,7 @@ def wikidata_entities(http: Http, qids: list[str]) -> dict[str, dict]:
 PROVIDERS: dict[str, Callable[[Http, str, int], list[dict]]] = {
     "met": met, "artic": artic, "cleveland": cleveland, "commons": commons, "europeana": europeana,
     "loc": loc, "rijksmuseum": rijksmuseum, "vam": vam, "smithsonian": smithsonian,
+    "commons_category": commons_category,
 }
 
 
@@ -535,18 +720,85 @@ def dedup_key(rec: dict) -> str:
                         .encode()).hexdigest()[:12]
 
 
+def creator_surname(creator: str) -> str:
+    """'Benoist, Philippe, 1813-…' -> 'benoist'; 'Philippe Benoist (1813–1905)' -> 'benoist'."""
+    first = re.split(r"[;|]| and | et ", clean(creator))[0]
+    first = re.sub(r"\(.*?\)|\[.*?\]|\d{3,4}|\b(?:after|d'apres|del|lith|artist|ca|approximately)\b\.?",
+                   " ", fold(first))
+    if "," in first:
+        name = first.split(",")[0]
+    else:
+        parts = re.findall(r"[^\W\d_]{3,}", first)
+        name = parts[-1] if parts else ""
+    return re.sub(r"[^\w]", "", name.strip())
+
+
+def title_surname_key(rec: dict) -> str:
+    """Normalised title + creator surname, e.g. 'paris jardin du palais royal|benoist'. Empty if too weak."""
+    t = re.sub(r"\.(jpe?g|tiff?|png)$", "", fold(rec.get("title") or ""))
+    t = " ".join(re.findall(r"[^\W_]+", t))
+    sur = creator_surname(rec.get("creator_display") or "")
+    if len(t) < 12 or not sur:
+        return ""
+    return f"{t}|{sur}"
+
+
 def merge(records: list[dict]) -> list[dict]:
+    """Merge identical provider ids; link *possible* cross-provider duplicates (hints only).
+
+    Evidence, strongest first: a shared LoC identifier (reproduction number / handle / LCCN quoted in a
+    Commons description or credit), the same normalised title + creator surname, or the legacy
+    title+creator+date hash. Records are never collapsed across providers.
+    """
     by_id: dict[str, dict] = {}
     for r in records:
         if r["id"] in by_id:
-            q = by_id[r["id"]].setdefault("search_queries", [])
+            kept = by_id[r["id"]]
+            q = kept.setdefault("search_queries", [])
             q.extend(x for x in r.get("search_queries", []) if x not in q)
+            for k in ("identifiers",):
+                if r.get(k):
+                    kept[k] = list(dict.fromkeys((kept.get(k) or []) + r[k]))
+            if r.get("commons_category") and not kept.get("commons_category"):
+                kept["commons_category"] = r["commons_category"]
             continue
         by_id[r["id"]] = r
-    groups: dict[str, list[str]] = {}
+    ids = list(by_id)
+    parent = {i: i for i in ids}
+
+    def find(x: str) -> str:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    reasons: dict[str, dict[str, str]] = {i: {} for i in ids}
+    buckets: dict[tuple[str, str], list[str]] = {}
     for r in by_id.values():
         r["dedup_group"] = dedup_key(r)
-        groups.setdefault(r["dedup_group"], []).append(r["id"])
-    for r in by_id.values():
-        r["possible_duplicates"] = [x for x in groups[r["dedup_group"]] if x != r["id"]]
+        if r["creator_display"] or r["date_display"]:  # a bare title ("Istanbul", "Menu") is not evidence
+            buckets.setdefault(("hash", r["dedup_group"]), []).append(r["id"])
+        tk = title_surname_key(r)
+        if tk:
+            buckets.setdefault(("title+surname", tk), []).append(r["id"])
+        for ident in r.get("identifiers") or []:
+            buckets.setdefault(("identifier", ident), []).append(r["id"])
+    for (kind, value), members in buckets.items():
+        if len(members) < 2:
+            continue
+        for m in members[1:]:
+            parent[find(m)] = find(members[0])
+        label = "same title+creator+date" if kind == "hash" else f"{kind} {value}"
+        for a in members:
+            for b in members:
+                if a != b:
+                    reasons[a].setdefault(b, label)
+    groups: dict[str, list[str]] = {}
+    for i in ids:
+        groups.setdefault(find(i), []).append(i)
+    for i, r in by_id.items():
+        root = find(i)
+        r["dedup_group"] = by_id[root]["dedup_group"] if len(groups[root]) > 1 else r["dedup_group"]
+        r["possible_duplicates"] = [x for x in groups[root] if x != i]
+        r["duplicate_evidence"] = {x: reasons[i].get(x, "transitive") for x in r["possible_duplicates"]}
     return list(by_id.values())

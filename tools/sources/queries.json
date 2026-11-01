@@ -1,5 +1,5 @@
 {
- "description": "Issue #6 first-increment plan. 'match' = tokens that must appear in the record's own metadata.",
+ "description": "Issue #6 plan. 'match' = tokens that must appear in the record's own metadata (folded, substring). Update 2 (2026-11-01b): original-language city names and alternate spellings, FR/IT/DE/PL market/café/menu terms, Commons album categories. Category membership is not attribution.",
  "jobs": [
   {
    "query": "Benoist",
@@ -139,6 +139,537 @@
     "smithsonian"
    ],
    "limit": 8
+  },
+  {
+   "query": "Rome dans sa grandeur",
+   "match": "rome",
+   "providers": [
+    "europeana",
+    "loc"
+   ],
+   "limit": 12,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Roma veduta",
+   "match": "roma",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 12
+  },
+  {
+   "query": "Venise vue lithographie",
+   "match": "venise",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 12
+  },
+  {
+   "query": "Venice lithograph",
+   "match": "venice",
+   "providers": [
+    "loc",
+    "artic"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Naples vue",
+   "match": "naples",
+   "providers": [
+    "europeana",
+    "loc"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Firenze veduta",
+   "match": "firenze",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Florence view",
+   "match": "florence",
+   "providers": [
+    "loc"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Saint-Pétersbourg vue",
+   "match": "petersbourg",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Петербург",
+   "match": "петербург",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "St. Petersburg",
+   "match": "petersburg",
+   "providers": [
+    "loc"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Вильна",
+   "match": "вильна",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Vilnius",
+   "match": "vilnius",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Wilna",
+   "match": "wilna",
+   "providers": [
+    "loc"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Nantes et la Loire-Inférieure",
+   "match": "nantes",
+   "providers": [
+    "europeana",
+    "loc"
+   ],
+   "limit": 12
+  },
+  {
+   "query": "Bretagne contemporaine",
+   "match": "bretagne",
+   "providers": [
+    "loc"
+   ],
+   "limit": 10,
+   "note": "LoC added in update 2"
+  },
+  {
+   "query": "Lisboa vista",
+   "match": "lisboa",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Lisbon",
+   "match": "lisbon",
+   "providers": [
+    "loc"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Praha pohled",
+   "match": "praha",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Prague view",
+   "match": "prague",
+   "providers": [
+    "loc"
+   ],
+   "limit": 10,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "Kraków widok",
+   "match": "krakow",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Cracovie vue",
+   "match": "cracovie",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "Constantinople vue",
+   "match": "constantinople",
+   "providers": [
+    "europeana",
+    "loc"
+   ],
+   "limit": 12,
+   "exclude": [
+    "united states",
+    "florida",
+    "fla",
+    "new hampshire",
+    "maryland",
+    "ohio",
+    "maine",
+    "iowa",
+    "alabama",
+    "south carolina",
+    "kentucky",
+    "oregon",
+    "arizona",
+    "massachusetts",
+    "new york",
+    "illinois",
+    "pennsylvania",
+    "texas",
+    "wisconsin",
+    "minnesota"
+   ],
+   "note": "exclude = homonym places in the USA (LoC returns St. Petersburg FL, Lisbon NH, Wilna MD)"
+  },
+  {
+   "query": "İstanbul",
+   "match": "istanbul",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Les Halles Paris",
+   "match": "halles",
+   "providers": [
+    "europeana",
+    "loc"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "marché aux fleurs",
+   "match": "marche fleurs",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "mercato veduta",
+   "match": "mercato",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Marktplatz Ansicht",
+   "match": "markt",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "rynek widok",
+   "match": "rynek",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "caffè Venezia",
+   "match": "caffe",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "Kaffeehaus Wien",
+   "match": "kaffeehaus",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "kawiarnia",
+   "match": "kawiarnia",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "menu dîner",
+   "match": "menu",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Speisekarte",
+   "match": "speisekarte",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "bill of fare",
+   "match": "bill fare",
+   "providers": [
+    "loc"
+   ],
+   "limit": 12
+  },
+  {
+   "query": "fish market",
+   "match": "fish market",
+   "providers": [
+    "loc"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "Category:Félix Benoist",
+   "match": "",
+   "providers": [
+    "commons_category"
+   ],
+   "limit": 70,
+   "note": "album/artist category; membership is not attribution"
+  },
+  {
+   "query": "Category:Philippe Benoist",
+   "match": "",
+   "providers": [
+    "commons_category"
+   ],
+   "limit": 100,
+   "note": "album/artist category; membership is not attribution"
+  },
+  {
+   "query": "Category:La Bretagne contemporaine",
+   "match": "",
+   "providers": [
+    "commons_category"
+   ],
+   "limit": 50,
+   "note": "album/artist category; membership is not attribution"
+  },
+  {
+   "query": "Category:Paris dans sa splendeur",
+   "match": "",
+   "providers": [
+    "commons_category"
+   ],
+   "limit": 25,
+   "note": "album/artist category; membership is not attribution"
   }
- ]
+ ],
+ "loc_rights_max_requests": 80
 }
