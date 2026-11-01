@@ -1,0 +1,94 @@
+{
+ "id": "palais-royal-ph-benoist",
+ "status": "candidate_real_pair",
+ "condition": "real: opposite viewing direction (lithograph from an elevated point at the north end looking SSW to the Galerie d'Orléans; photo at ground level at the south end looking NNE); no common plane visible",
+ "expected_confidence": "viewpoint_mismatch",
+ "historic": {
+  "title": "Paris. Jardin du Palais Royal / Ph. Benoist del. ; Imp. Lemercier, R de Seine 57, Paris.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "wikidata": "Q26309223",
+    "role": "draughtsman (del.)"
+   },
+   {
+    "name": "Imprimerie Lemercier et cie",
+    "role": "printer"
+   }
+  ],
+  "date": "[between 1845 and 1860] (LoC); plate 6",
+  "medium": "hand-colored lithograph; sheet 22.4 x 30.7 cm",
+  "holding": "Library of Congress, Prints and Photographs Division, Popular Graphic Arts collection",
+  "object_url": "https://www.loc.gov/item/2016652451/",
+  "reproduction_number": "LC-DIG-pga-14314",
+  "rights": "LoC rights advisory: No known restrictions on publication (checked 2026-11-01 via https://www.loc.gov/item/2016652451/?fo=json&at=item)",
+  "file": "palais-royal-historic-loc-pga14314v.jpg",
+  "file_source_url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14314v.jpg",
+  "file_note": "LoC 1024 px service derivative, byte-identical to the download (sha256 below). Full-resolution TIFF is at the object URL.",
+  "sha256": "56114d4d0780d315fdc19d9fcfae5744470d1fbb242ba3d4142066e9794cb00a",
+  "size": [
+   1024,
+   756
+  ],
+  "credit": "Ph. Benoist del.; Imp. Lemercier, Paris. Library of Congress, LC-DIG-pga-14314"
+ },
+ "photo": {
+  "title": "Jardin du Palais-Royal from the south end, looking NNE, 19 Jul 2020",
+  "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
+  "panoramax_id": "200a3dee-8fbc-4429-ba62-45e963950ab1",
+  "object_url": "https://api.panoramax.xyz/api/collections/efd10d6e-7408-4f8f-a0a5-2cd464622541/items/200a3dee-8fbc-4429-ba62-45e963950ab1",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=200a3dee-8fbc-4429-ba62-45e963950ab1",
+  "author": "fgouget (Panoramax account)",
+  "date": "2020-07-19",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "azimuth_deg": 20,
+  "camera": "Samsung SM-G930F, 69° horizontal FOV (Panoramax metadata)",
+  "file": "palais-royal-photo-panoramax-200a3dee.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/20/0a/3d/ee/8fbc-4429-ba62-45e963950ab1/sd.jpg",
+  "source_sha256": "9f205c8a43948a987eb94766ed354c02eb21bf0c0767a1eea4abeb2c0ef81039",
+  "sha256": "f391b3b2dbcccb8e3051a6e4e988f24e2e7bfd8b1e66d64a29b4489d92f39027",
+  "file_note": "Panoramax 'sd' derivative (faces already blurred by Panoramax). Re-encoded once (JPEG q92) only to strip EXIF/GPS; no geometric or colour change.",
+  "size": [
+   2048,
+   1152
+  ],
+  "credit": "Photo: fgouget / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded once (JPEG q92) to strip EXIF/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under CC BY-SA 4.0"
+ },
+ "control_points": [],
+ "control_points_note": "No control points: no architectural plane is visible in both images. The photo shows the north end (buildings behind the Péristyle de Beaujolais), which is behind the lithograph's viewpoint; the lithograph's subject (Galerie d'Orléans colonnade and the palace) is behind the photographer. Side facades (galeries de Valois / Montpensier) are hidden by the lime alleys in the photo.",
+ "photo_search": {
+  "date": "2026-11-01",
+  "query": "https://api.panoramax.xyz/api/search?bbox=...&limit=200 over 0.0003° cells covering the OSM polygon of the Jardin du Palais-Royal (Nominatim)",
+  "result": "2 pictures inside the garden polygon: 200a3dee (flat, CC BY-SA 4.0, used here) and c6cef439 (equirectangular 360°, etalab-2.0, 2021-02-10, no azimuth, ground level). All other hits were vehicle imagery in the surrounding streets.",
+  "not_used": "c6cef439 would need a rectilinear view extracted from the 360° panorama and is still ground level; the lithograph is drawn from about first-floor/roof height. Left as a future candidate."
+ },
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch",
+  "observations": [
+   "Same place (Jardin du Palais-Royal, Paris 1er), confirmed by the LoC subject headings and by the photo location inside the garden polygon.",
+   "Opposite viewing direction: lithograph looks SSW towards the Galerie d'Orléans and the palace; the photo (azimuth 20°) looks NNE towards rue de Beaujolais.",
+   "Lithograph is drawn from an elevated point above the north end; the photo is at ground level among trees.",
+   "Therefore no homography is attempted; the viewer shows both originals side by side."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-01"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1024,
+   756
+  ],
+  "photo_size": [
+   2048,
+   1152
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

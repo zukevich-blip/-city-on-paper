@@ -37,6 +37,7 @@
   "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
   "panoramax_id": "38b6d262-648f-461e-b9a3-ab05eb22d92a",
   "object_url": "https://api.panoramax.xyz/api/collections/732a0136-de7a-4ee5-94d7-07853d4d9f08/items/38b6d262-648f-461e-b9a3-ab05eb22d92a",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=38b6d262-648f-461e-b9a3-ab05eb22d92a",
   "author": "jerome92370 (Panoramax account)",
   "date": "2026-04-30",
   "license": "CC BY-SA 4.0",
@@ -52,7 +53,8 @@
    2048,
    1536
   ],
-  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0"
+  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded once (JPEG q92) to strip EXIF/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under CC BY-SA 4.0"
  },
  "control_points": [
   {
@@ -248,8 +250,8 @@
    ]
   ],
   "scope": "local: control points span 7% of the historic image; trust only the outlined region",
-  "confidence": "medium",
-  "reason": "fit usable; check marked areas",
+  "confidence": "low",
+  "reason": "local fit only (medium inside the outlined region): control points cover 7% < 15% of the historic image",
   "cv2_version": "4.10.0",
   "derived_label": "Photo geometry adjusted (reversible, display only)"
  }

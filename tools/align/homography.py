@@ -24,6 +24,7 @@ THRESHOLDS = {  # relative to the historical image diagonal
 }
 
 
+COVERAGE_MIN = 0.15  # below this the verdict is capped at "low" (local fit only)
 RANSAC_MIN_POINTS = 8  # with fewer hand-picked points RANSAC just picks an exact 4-point subset
 
 
@@ -76,13 +77,18 @@ def estimate(photo_pts, historic_pts, historic_size, photo_size, robust: bool = 
     roundtrip = float(np.max(np.linalg.norm(project(H_inv, project(H, src)) - src, axis=1)))
     # orientation / fold check on the photo frame
     w, h = photo_size
+    # projective denominator at the photo corners: if it is <= 0 anywhere, the horizon line of the
+    # transform crosses the photo frame (part of the photo maps "behind the camera"; CSS matrix3d breaks)
+    wc = np.array([[0, 0, 1], [w, 0, 1], [w, h, 1], [0, h, 1]], np.float64) @ H[2]
     corners = project(H, np.array([[0, 0], [w, 0], [w, h], [0, h]], np.float64))
     signed = sum(corners[i][0] * corners[(i + 1) % 4][1] - corners[(i + 1) % 4][0] * corners[i][1]
                  for i in range(4))
     hull = cv2.convexHull(dst.astype(np.float32))
     coverage = float(cv2.contourArea(hull) / (historic_size[0] * historic_size[1]))
     rel_rms, rel_loo = rms / diag, (loo_max / diag if loo_max is not None else None)
-    if signed <= 0:
+    if np.any(wc <= 0):
+        conf, reason = "viewpoint_mismatch", "photo frame crosses the horizon line of the transform"
+    elif signed <= 0:
         conf, reason = "viewpoint_mismatch", "transform folds or mirrors the photo frame"
     elif inliers.mean() < 0.75:
         conf, reason = "low", "RANSAC rejected >25% of points: off-plane structures / parallax"
@@ -96,6 +102,11 @@ def estimate(photo_pts, historic_pts, historic_size, photo_size, robust: bool = 
         conf, reason = "low", "points disagree: likely parallax (several depth planes) or drawing licence"
     else:
         conf, reason = "viewpoint_mismatch", "no single homography explains the control points"
+    if coverage < COVERAGE_MIN and conf in ("high", "medium"):
+        # a good fit on a small patch says nothing about the rest of the sheet
+        reason = (f"local fit only ({conf} inside the outlined region): control points cover "
+                  f"{coverage:.0%} < {COVERAGE_MIN:.0%} of the historic image")
+        conf = "low"
     return {
         **out, "method": "cv2.findHomography " + (f"RANSAC {ransac_px:.1f}px" if robust and n >= RANSAC_MIN_POINTS
                                             else "least squares (all points)"),
@@ -107,18 +118,32 @@ def estimate(photo_pts, historic_pts, historic_size, photo_size, robust: bool = 
         "loo_max_rel_diag": round(rel_loo, 5) if rel_loo is not None else None,
         "roundtrip_max_px": round(roundtrip, 6), "control_point_coverage": round(coverage, 4),
         "valid_region_historic": hull.reshape(-1, 2).round(1).tolist(),
-        "scope": "global" if coverage >= 0.15 else
+        "scope": "global" if coverage >= COVERAGE_MIN else
                  f"local: control points span {coverage:.0%} of the historic image; trust only the outlined region",
         "confidence": conf, "reason": reason, "cv2_version": cv2.__version__,
     }
 
 
+def align_pair(pair: dict) -> dict:
+    """Alignment block for a pair dict. A human/visual review that already found the views
+    incompatible (``viewpoint_review.status == "viewpoint_mismatch"``) wins over any fit: we never
+    force a homography onto views that do not share a plane."""
+    cps = pair.get("control_points") or []
+    review = (pair.get("viewpoint_review") or {}).get("status")
+    if review == "viewpoint_mismatch":
+        result = {"n_points": len(cps), "maps": "photo_px -> historic_px",
+                  "historic_size": list(pair["historic"]["size"]), "photo_size": list(pair["photo"]["size"]),
+                  "confidence": "viewpoint_mismatch", "H": None,
+                  "reason": "viewpoint review: no common plane / different camera position; no fit attempted"}
+    else:
+        result = estimate([c["photo"] for c in cps], [c["historic"] for c in cps],
+                          pair["historic"]["size"], pair["photo"]["size"])
+    return {**result, "derived_label": "Photo geometry adjusted (reversible, display only)"}
+
+
 def align_pair_file(path: Path) -> dict:
     pair = json.loads(path.read_text("utf-8"))
-    cps = pair["control_points"]
-    result = estimate([c["photo"] for c in cps], [c["historic"] for c in cps],
-                      pair["historic"]["size"], pair["photo"]["size"])
-    pair["alignment"] = {**result, "derived_label": "Photo geometry adjusted (reversible, display only)"}
+    pair["alignment"] = align_pair(pair)
     path.write_text(json.dumps(pair, ensure_ascii=False, indent=1) + "\n", "utf-8")
     return pair
 

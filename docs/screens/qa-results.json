@@ -1,8 +1,13 @@
 {
- "when": "2026-11-01T14:53:15.967Z",
- "passed": 100,
+ "when": "2026-11-01T23:31:43.728Z",
+ "passed": 187,
  "failed": 0,
  "results": [
+  {
+   "name": "iphone-375 madeleine-ph-benoist: 'low' opens with the untouched photo",
+   "ok": true,
+   "detail": ""
+  },
   {
    "name": "iphone-375 madeleine-ph-benoist: CSS matrix3d reproduces offline residuals",
    "ok": true,
@@ -20,6 +25,26 @@
   },
   {
    "name": "iphone-375 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 palais-royal-ph-benoist: viewpoint_mismatch opens side by side, alignment button disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 palais-royal-ph-benoist: viewpoint_mismatch never applies matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 palais-royal-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 palais-royal-ph-benoist: no horizontal page scroll",
    "ok": true,
    "detail": ""
   },
@@ -109,12 +134,17 @@
    "detail": "0 too small"
   },
   {
-   "name": "iphone-375: toggle to original photo removes matrix3d",
+   "name": "iphone-375: low-confidence pair starts uncorrected",
    "ok": true,
    "detail": ""
   },
   {
-   "name": "iphone-375: badge says uncorrected",
+   "name": "iphone-375: toggle applies matrix3d + adjusted badge",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: toggle back to original photo",
    "ok": true,
    "detail": ""
   },
@@ -124,7 +154,42 @@
    "detail": ""
   },
   {
+   "name": "iphone-375: heading levels do not skip (h1 → h2)",
+   "ok": true,
+   "detail": "H1,H2,H2,H2"
+  },
+  {
+   "name": "iphone-375: EN toggle switches labels, badge, alt text and lang attribute",
+   "ok": true,
+   "detail": "{\"lang\":\"en\",\"badge\":\"Photo geometry adjusted · reversible\",\"slider\":\"Slider\",\"help\":\"How to read the verdict\",\"alt\":\"Historic image: Paris. La Madeleine / Ph. Benoist del. ; Imp. Lemercier, Paris.\"}"
+  },
+  {
+   "name": "iphone-375: help explainer opens in the active language",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: language choice remembered after reload",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: RU toggle back",
+   "ok": true,
+   "detail": ""
+  },
+  {
    "name": "iphone-375: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: no off-site requests",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 madeleine-ph-benoist: 'low' opens with the untouched photo",
    "ok": true,
    "detail": ""
   },
@@ -145,6 +210,26 @@
   },
   {
    "name": "iphone-390 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 palais-royal-ph-benoist: viewpoint_mismatch opens side by side, alignment button disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 palais-royal-ph-benoist: viewpoint_mismatch never applies matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 palais-royal-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 palais-royal-ph-benoist: no horizontal page scroll",
    "ok": true,
    "detail": ""
   },
@@ -234,12 +319,17 @@
    "detail": "0 too small"
   },
   {
-   "name": "iphone-390: toggle to original photo removes matrix3d",
+   "name": "iphone-390: low-confidence pair starts uncorrected",
    "ok": true,
    "detail": ""
   },
   {
-   "name": "iphone-390: badge says uncorrected",
+   "name": "iphone-390: toggle applies matrix3d + adjusted badge",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: toggle back to original photo",
    "ok": true,
    "detail": ""
   },
@@ -249,7 +339,42 @@
    "detail": ""
   },
   {
+   "name": "iphone-390: heading levels do not skip (h1 → h2)",
+   "ok": true,
+   "detail": "H1,H2,H2,H2"
+  },
+  {
+   "name": "iphone-390: EN toggle switches labels, badge, alt text and lang attribute",
+   "ok": true,
+   "detail": "{\"lang\":\"en\",\"badge\":\"Photo geometry adjusted · reversible\",\"slider\":\"Slider\",\"help\":\"How to read the verdict\",\"alt\":\"Historic image: Paris. La Madeleine / Ph. Benoist del. ; Imp. Lemercier, Paris.\"}"
+  },
+  {
+   "name": "iphone-390: help explainer opens in the active language",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: language choice remembered after reload",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: RU toggle back",
+   "ok": true,
+   "detail": ""
+  },
+  {
    "name": "iphone-390: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: no off-site requests",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 madeleine-ph-benoist: 'low' opens with the untouched photo",
    "ok": true,
    "detail": ""
   },
@@ -270,6 +395,26 @@
   },
   {
    "name": "ipad-820 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 palais-royal-ph-benoist: viewpoint_mismatch opens side by side, alignment button disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 palais-royal-ph-benoist: viewpoint_mismatch never applies matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 palais-royal-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 palais-royal-ph-benoist: no horizontal page scroll",
    "ok": true,
    "detail": ""
   },
@@ -359,12 +504,17 @@
    "detail": "0 too small"
   },
   {
-   "name": "ipad-820: toggle to original photo removes matrix3d",
+   "name": "ipad-820: low-confidence pair starts uncorrected",
    "ok": true,
    "detail": ""
   },
   {
-   "name": "ipad-820: badge says uncorrected",
+   "name": "ipad-820: toggle applies matrix3d + adjusted badge",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: toggle back to original photo",
    "ok": true,
    "detail": ""
   },
@@ -374,7 +524,42 @@
    "detail": ""
   },
   {
+   "name": "ipad-820: heading levels do not skip (h1 → h2)",
+   "ok": true,
+   "detail": "H1,H2,H2,H2"
+  },
+  {
+   "name": "ipad-820: EN toggle switches labels, badge, alt text and lang attribute",
+   "ok": true,
+   "detail": "{\"lang\":\"en\",\"badge\":\"Photo geometry adjusted · reversible\",\"slider\":\"Slider\",\"help\":\"How to read the verdict\",\"alt\":\"Historic image: Paris. La Madeleine / Ph. Benoist del. ; Imp. Lemercier, Paris.\"}"
+  },
+  {
+   "name": "ipad-820: help explainer opens in the active language",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: language choice remembered after reload",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: RU toggle back",
+   "ok": true,
+   "detail": ""
+  },
+  {
    "name": "ipad-820: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: no off-site requests",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 madeleine-ph-benoist: 'low' opens with the untouched photo",
    "ok": true,
    "detail": ""
   },
@@ -395,6 +580,26 @@
   },
   {
    "name": "desktop-1440 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 palais-royal-ph-benoist: viewpoint_mismatch opens side by side, alignment button disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 palais-royal-ph-benoist: viewpoint_mismatch never applies matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 palais-royal-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 palais-royal-ph-benoist: no horizontal page scroll",
    "ok": true,
    "detail": ""
   },
@@ -484,12 +689,17 @@
    "detail": "0 too small"
   },
   {
-   "name": "desktop-1440: toggle to original photo removes matrix3d",
+   "name": "desktop-1440: low-confidence pair starts uncorrected",
    "ok": true,
    "detail": ""
   },
   {
-   "name": "desktop-1440: badge says uncorrected",
+   "name": "desktop-1440: toggle applies matrix3d + adjusted badge",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: toggle back to original photo",
    "ok": true,
    "detail": ""
   },
@@ -499,7 +709,232 @@
    "detail": ""
   },
   {
+   "name": "desktop-1440: heading levels do not skip (h1 → h2)",
+   "ok": true,
+   "detail": "H1,H2,H2,H2"
+  },
+  {
+   "name": "desktop-1440: EN toggle switches labels, badge, alt text and lang attribute",
+   "ok": true,
+   "detail": "{\"lang\":\"en\",\"badge\":\"Photo geometry adjusted · reversible\",\"slider\":\"Slider\",\"help\":\"How to read the verdict\",\"alt\":\"Historic image: Paris. La Madeleine / Ph. Benoist del. ; Imp. Lemercier, Paris.\"}"
+  },
+  {
+   "name": "desktop-1440: help explainer opens in the active language",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: language choice remembered after reload",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: RU toggle back",
+   "ok": true,
+   "detail": ""
+  },
+  {
    "name": "desktop-1440: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: no off-site requests",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "noscript: fallback visible with links to both untouched originals",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "image error: visible alert with a direct link, historic image and credits still shown",
+   "ok": true,
+   "detail": "Изображение не загрузилось. Сравнение недоступно. Попробуйте открыть файл напрямую: madeleine-photo-panoramax-38b6d262.jpg"
+  },
+  {
+   "name": "image error: no uncaught exceptions",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "security: no javascript:/data: links rendered from pair JSON",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "security: markup in JSON is escaped, not injected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "security: invalid ?mode= falls back to slider",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: JS homography = OpenCV H on Madeleine control points (≤ 0.5 px)",
+   "ok": true,
+   "detail": "max 0.00002 px on points, 0.0000 px on a photo-frame grid"
+  },
+  {
+   "name": "iphone-390 editor: JS RMS / LOO / verdict match offline",
+   "ok": true,
+   "detail": "rms 6.545 loo 22.890 low"
+  },
+  {
+   "name": "iphone-390 editor: metrics panel shows the fit",
+   "ok": true,
+   "detail": "Точек: 7 · RMS 6.55 px · LOO max 22.89 px · покрытие 7 % · предварительный вердикт low (local fit only (medium inside th"
+  },
+  {
+   "name": "iphone-390 editor: export keeps control points, drops alignment, keeps sources",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: export → import → export round-trips byte-identically",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: click historic → click photo adds one numbered pair",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: dragging a marker moves the point",
+   "ok": true,
+   "detail": "100,181.1 → 190.9,241.7"
+  },
+  {
+   "name": "iphone-390 editor: ArrowRight on a focused marker nudges it 1 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: Delete removes the focused point",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: keyboard Enter in both panes adds a point",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: label edits reach the export",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: historic image zooms by size only (no transform/filter)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: main controls ≥44 px tall",
+   "ok": true,
+   "detail": "0 too small"
+  },
+  {
+   "name": "iphone-390 editor: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 editor: nothing requested outside the local server",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: JS homography = OpenCV H on Madeleine control points (≤ 0.5 px)",
+   "ok": true,
+   "detail": "max 0.00002 px on points, 0.0000 px on a photo-frame grid"
+  },
+  {
+   "name": "desktop-1440 editor: JS RMS / LOO / verdict match offline",
+   "ok": true,
+   "detail": "rms 6.545 loo 22.890 low"
+  },
+  {
+   "name": "desktop-1440 editor: metrics panel shows the fit",
+   "ok": true,
+   "detail": "Точек: 7 · RMS 6.55 px · LOO max 22.89 px · покрытие 7 % · предварительный вердикт low (local fit only (medium inside th"
+  },
+  {
+   "name": "desktop-1440 editor: export keeps control points, drops alignment, keeps sources",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: export → import → export round-trips byte-identically",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: download is the same JSON (madeleine-ph-benoist.json)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: click historic → click photo adds one numbered pair",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: dragging a marker moves the point",
+   "ok": true,
+   "detail": "101.2,99.3 → 147.9,130.4"
+  },
+  {
+   "name": "desktop-1440 editor: ArrowRight on a focused marker nudges it 1 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: Delete removes the focused point",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: keyboard Enter in both panes adds a point",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: label edits reach the export",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: historic image zooms by size only (no transform/filter)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: main controls ≥44 px tall",
+   "ok": true,
+   "detail": "0 too small"
+  },
+  {
+   "name": "desktop-1440 editor: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 editor: nothing requested outside the local server",
    "ok": true,
    "detail": ""
   }
