@@ -173,6 +173,9 @@ function renderMeta(){
   v.className = "verdict " + conf;
   v.innerHTML = `<strong>${esc(conf.replace("_"," "))}</strong> — ${esc(VERDICT[conf] || "")}`
     + (a.scope && a.scope !== "global" ? `<br>Зона действия: ${esc(a.scope)}` : "")
+    + (a.control_point_coverage != null && a.control_point_coverage < 0.15
+      ? `<br><strong>Только локальное совпадение: ${Math.round(a.control_point_coverage * 100)}% исторического листа. Фото по умолчанию без подгонки, за пределами выделенной зоны достоверность не подтверждена.</strong>`
+      : "")
     + (pair.status === "synthetic_test" ? `<br><em>Синтетические тестовые данные (${esc(pair.condition)}). Ожидалось: ${esc(pair.expected_confidence)}.</em>` : `<br>${esc(pair.condition)}`);
   const badge = $("badge");
   badge.textContent = aligned && canAlign() ? "Геометрия фото скорректирована · обратимо" : "Фото без коррекции";
@@ -212,7 +215,9 @@ function renderMeta(){
 async function loadPair(id){
   pair = await (await fetch(`pairs/${id}.json`)).json();
   // low confidence: never force a fit by default; the attempt stays one click away
-  aligned = canAlign() && ["high", "medium"].includes(pair.alignment.confidence);
+  // A mathematically good fit over a tiny region is NOT a verified full-frame match.
+  aligned = canAlign() && ["high", "medium"].includes(pair.alignment.confidence) &&
+    (pair.alignment.control_point_coverage ?? 0) >= 0.15;
   const hi = $("histImg"), pi = $("photoImg");
   hi.src = $("sbsHist").src = `pairs/${pair.historic.file}`;
   pi.src = $("sbsPhoto").src = `pairs/${pair.photo.file}`;
