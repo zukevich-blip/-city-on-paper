@@ -1,0 +1,104 @@
+{
+  "id": "ph-benoist-thierry-fontainebleau-cour-des-adieux-met-656125",
+  "alternate_ids": [
+    "met:656125"
+  ],
+  "titles": [
+    {
+      "text": "Souvenir de Fontainebleau, Cour des Adieux, autre-fois cour du cheval blanc (Souvenir of Fontainebleau: Court of Farewells, or, Court of the White Horse)",
+      "lang": "fr",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "artist",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/656125",
+      "dates": "Geneva 1813–ca. 1905 (Met)"
+    },
+    {
+      "name": "Thierry Frères",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/656125"
+    }
+  ],
+  "date": {
+    "display": "19th century (Met)",
+    "earliest": 1800,
+    "latest": 1900
+  },
+  "medium": "Lithograph with tint stone; image and text 24.1 × 28.7 cm",
+  "place": {
+    "name_historic": "Fontainebleau, cour du Cheval blanc / cour des Adieux",
+    "name_modern": "Château de Fontainebleau, cour des Adieux",
+    "city": "Fontainebleau",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "The Metropolitan Museum of Art, Department of Drawings and Prints",
+    "object_id": "656125",
+    "shelfmark": "24.63.955",
+    "object_url": "https://www.metmuseum.org/art/collection/search/656125"
+  },
+  "media": {},
+  "rights": {
+    "artwork": "19th-century print (no artwork rights statement)",
+    "image": "Met API isPublicDomain=false; no primaryImage returned",
+    "constraints": "Not in Met Open Access; metadata and link only. Credit line: Gift of Georgiana W. Sargent, in memory of John Osborne Sargent, 1924",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/656125",
+        "https://www.metmuseum.org/art/collection/search/656125"
+      ],
+      "comment": "Met constituents: Philippe Benoist (Artist), Thierry Frères (Lithographer)"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/656125"
+      ],
+      "comment": "isPublicDomain=false"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/656125"
+      ],
+      "comment": "city-level: from the Met title"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "curatorial",
+      "text": "Met date is only '19th century' (objectBeginDate 1800 – objectEndDate 1900); a narrower date needs the sheet or a catalogue raisonné.",
+      "source_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/656125",
+      "lang": "en"
+    }
+  ]
+}

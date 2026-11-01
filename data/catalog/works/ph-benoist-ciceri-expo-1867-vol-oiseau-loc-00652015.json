@@ -1,0 +1,141 @@
+{
+  "id": "ph-benoist-ciceri-expo-1867-vol-oiseau-loc-00652015",
+  "alternate_ids": [
+    "loc:00652015"
+  ],
+  "titles": [
+    {
+      "text": "Vue officielle a vol d'oiseau de l'exposition universelle de 1867 / Eug. Cicéri et Ph. Benoist del & lith. ; imp. Lemercier & Cie., Paris.",
+      "lang": "fr",
+      "kind": "inscribed"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/00652015/",
+      "dates": "1813–approximately 1905 (LoC)"
+    },
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/00652015/"
+    },
+    {
+      "name": "Eugène Cicéri",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/00652015/",
+      "dates": "1813–1890 (LoC)"
+    },
+    {
+      "name": "Eugène Cicéri",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/00652015/"
+    },
+    {
+      "name": "Imprimerie Lemercier & Cie",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/00652015/"
+    },
+    {
+      "name": "Goupil & Cie (Paris, Berlin) / M. Knoedler (New York)",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/00652015/"
+    }
+  ],
+  "date": {
+    "display": "1867",
+    "earliest": 1867,
+    "latest": 1867
+  },
+  "medium": "Lithograph, hand-colored; sheet 68 x 98.5 cm",
+  "place": {
+    "name_historic": "Paris, Champ-de-Mars (Exposition universelle 1867)",
+    "name_modern": "Paris",
+    "city": "Paris",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "city_view",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Library of Congress, Prints and Photographs Division",
+    "object_id": "00652015",
+    "shelfmark": "PGA - Ciceri--Vue officielle [...] (D size) [P&P]",
+    "object_url": "https://www.loc.gov/item/00652015/"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "https://tile.loc.gov/storage-services/service/pnp/pga/00400/00497v.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "LoC rights advisory: 'No known restrictions on publication.'",
+    "image": "LoC digital file LC-DIG-pga-00497; LoC states it does not own rights and cannot grant or deny permission",
+    "uri": "https://www.loc.gov/rr/print/res/248_pga.html",
+    "attribution_required": "Library of Congress, Prints & Photographs Division, LC-DIG-pga-00497",
+    "constraints": "Researcher must assess rights (LoC general statement); LoC IIIF manifest.json returned 403 in PR A probe",
+    "checked": "2026-11-01",
+    "redistribution": "allowed"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/00652015/",
+        "https://www.loc.gov/item/00652015/?fo=json"
+      ],
+      "comment": "LoC contributor_names + title transcription"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/00652015/",
+        "https://www.loc.gov/item/00652015/?fo=json"
+      ],
+      "comment": "rights_advisory read on item JSON"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/00652015/",
+        "https://www.loc.gov/item/00652015/?fo=json"
+      ],
+      "comment": "city-level only: LoC location/place 'France--Paris'; no coordinates"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "curatorial",
+      "text": "LoC lists Cicéri as 'lithographer' and Benoist as 'artist' in contributor_names, while the inscription reads 'Eug. Cicéri et Ph. Benoist del & lith.' (both drew and lithographed).",
+      "source_url": "https://www.loc.gov/item/00652015/",
+      "lang": "en"
+    }
+  ]
+}

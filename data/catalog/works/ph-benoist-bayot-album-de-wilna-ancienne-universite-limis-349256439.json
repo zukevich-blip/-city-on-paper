@@ -1,0 +1,135 @@
+{
+  "id": "ph-benoist-bayot-album-de-wilna-ancienne-universite-limis-349256439",
+  "alternate_ids": [
+    "europeana:2021802/LIMIS_349256439",
+    "limis:349256439"
+  ],
+  "titles": [
+    {
+      "text": "Widoki Wilna. Byłi uniwersytet Wileński",
+      "lang": "pl",
+      "kind": "inscribed"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+    },
+    {
+      "name": "Adolphe Jean-Baptiste Bayot",
+      "role": "figures",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+    },
+    {
+      "name": "Imprimerie Lemercier, Paris",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+    },
+    {
+      "name": "Jan Kazimierz Wilczyński (Jonas Kazimieras Vilčinskis)",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+    }
+  ],
+  "series": {
+    "title": "Album de Wilna",
+    "volume": "2e Série, 3e Livraison",
+    "plate": "No 36",
+    "publisher": "J. K. Wilczyński (éditeur)"
+  },
+  "date": {
+    "display": "XIX a. vid. (mid-19th century, per holder)"
+  },
+  "medium": "litografija, dažai, popierius (lithograph, colour, paper) — lakšto 56,5 x 40,1 cm; vaizdo 41,4 x 28,7 cm",
+  "place": {
+    "name_historic": "Wilno, dawny uniwersytet / kościół św. Jana",
+    "name_modern": "Vilniaus universitetas, Šv. Jonų bažnyčia",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "square_street",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Šiaulių „Aušros“ muziejus (Šiauliai Aušros Museum)",
+    "object_id": "LIMIS-349256439",
+    "object_url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/349256439",
+    "via": "Europeana record API (LIMIS)"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "thumbnail",
+        "url": "https://www.epaveldas.lt/static/sam-bucket/LIMIS-349256439/thumbnail-original/349256473.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "19th-century lithograph (no artwork rights statement in record)",
+    "image": "edm:rights CC BY-NC-ND 4.0 (digital image, as stated via Europeana); dc:rights 'Šiaulių „Aušros“ muziejus'",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "attribution_required": "Šiaulių „Aušros“ muziejus, LIMIS",
+    "constraints": "NonCommercial-NoDerivatives or In Copyright: do not redistribute bytes without permission",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+      ],
+      "comment": "Holder lists Philippe Benoist + Bayot as dc:contributor; inscription 'Lith. par Ph. Benoist … Fig par Bayot'. Draughtsman of the model not named."
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights CC BY-NC-ND 4.0"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo"
+      ],
+      "comment": "city-level from the holder's description/inscription. NOTE: Europeana place entity = France (47.0, 2.0) is the PRINTING place, not the depicted place — not used"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "Inscription transcribed by the holder: „Album de Wilna 2e Série 3e Liv.“ … „Lith. par Ph. Benoist / Imp. Lemercier à Paris. / No 36 / Fig par Bayot / WIDOKI WILNA / BYŁI UNIWERSYTET WILEŃSKI / VUES DE WILNA. / L'ANCIENNE UNIVERSITÉ DE VILNA / Dédié a Monsieur J.I.Kraszewski / par l'Editeur J.K.Wilczyński.“",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo",
+      "lang": "fr"
+    },
+    {
+      "kind": "curatorial",
+      "text": "Holder records J. K. Wilczyński (Vilčinskis) as dc:creator and Lemercier as dc:publisher; the inscription calls Wilczyński 'l'Editeur' and Lemercier 'Imp.' (printer). Roles here follow the inscription.",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349256439.json?wskey=api2demo",
+      "lang": "en"
+    }
+  ]
+}

@@ -13,7 +13,7 @@
         "kind": {"enum": ["original", "inscribed", "catalogue", "translation", "transliteration"]}}}},
     "agents": {"type": "array", "items": {"type": "object", "required": ["name", "role", "certainty"],
       "properties": {"name": {"type": "string"}, "wikidata": {"type": "string", "pattern": "^Q[0-9]+$"}, "ulan": {"type": "string"},
-        "dates": {"type": "string"}, "role": {"enum": ["draughtsman", "painter", "lithographer", "engraver", "figures", "printer", "publisher", "photographer", "author", "after"]},
+        "dates": {"type": "string"}, "role": {"enum": ["draughtsman", "painter", "lithographer", "engraver", "figures", "printer", "publisher", "photographer", "author", "after", "artist"], "description": "artist = role not specified by the holder (e.g. Met Artist, BN dc:creator without role)"},
         "certainty": {"enum": ["documented", "attributed", "uncertain"]}, "evidence_url": {"type": "string", "format": "uri"}}}},
     "series": {"type": "object", "properties": {"title": {"type": "string"}, "volume": {"type": "string"}, "plate": {"type": "string"}, "publisher": {"type": "string"}, "year": {"type": "string"}}},
     "date": {"type": "object", "properties": {"display": {"type": "string"}, "earliest": {"type": "integer"}, "latest": {"type": "integer"}}},

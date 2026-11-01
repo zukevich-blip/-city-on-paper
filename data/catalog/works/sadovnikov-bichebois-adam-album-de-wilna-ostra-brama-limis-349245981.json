@@ -1,0 +1,145 @@
+{
+  "id": "sadovnikov-bichebois-adam-album-de-wilna-ostra-brama-limis-349245981",
+  "alternate_ids": [
+    "europeana:2021802/LIMIS_349245981",
+    "limis:349245981"
+  ],
+  "titles": [
+    {
+      "text": "Album de Wilna. Widoki Wilna. Wnętrze kaplicy ostrobramskiey",
+      "lang": "pl",
+      "kind": "inscribed"
+    },
+    {
+      "text": "Vilniaus vaizdai. Aušros vartų koplyčios interjeras",
+      "lang": "lt",
+      "kind": "translation"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Vasily Sadovnikov (Sadownikoff)",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+    },
+    {
+      "name": "Louis Philippe Alphonse Bichebois",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+    },
+    {
+      "name": "Victor Vincent Adam",
+      "role": "figures",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+    },
+    {
+      "name": "Imprimerie Lemercier, Paris",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+    },
+    {
+      "name": "Jan Kazimierz Wilczyński (Jonas Kazimieras Vilčinskis)",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+    }
+  ],
+  "series": {
+    "title": "Album de Wilna",
+    "plate": "No. 3",
+    "publisher": "J. K. Wilczyński (éditeur)"
+  },
+  "date": {
+    "display": "1847 m. (per holder)",
+    "earliest": 1847,
+    "latest": 1847
+  },
+  "medium": "litografija, dažai, popierius (lithograph, colour, paper) — lakšto 47,4 x 56,3 cm",
+  "place": {
+    "name_historic": "Wilno, kaplica Ostrobramska (wnętrze)",
+    "name_modern": "Aušros vartų koplyčia, Vilnius",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Šiaulių „Aušros“ muziejus (Šiauliai Aušros Museum)",
+    "object_id": "LIMIS-349245981",
+    "object_url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/349245981",
+    "via": "Europeana record API (LIMIS)"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "thumbnail",
+        "url": "https://www.epaveldas.lt/static/sam-bucket/LIMIS-349245981/thumbnail-original/354377764.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "19th-century lithograph (no artwork rights statement in record)",
+    "image": "edm:rights CC BY-NC-ND 4.0 (digital image, as stated via Europeana); dc:rights 'Šiaulių „Aušros“ muziejus'",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "attribution_required": "Šiaulių „Aušros“ muziejus, LIMIS",
+    "constraints": "NonCommercial-NoDerivatives or In Copyright: do not redistribute bytes without permission",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+      ],
+      "comment": "NOT Benoist: inscription names Sadownikoff (drawing), Bichebois (lithography), V. Adam (figures)"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights CC BY-NC-ND 4.0"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo"
+      ],
+      "comment": "city-level from the holder's description/inscription. NOTE: Europeana place entity = France (47.0, 2.0) is the PRINTING place, not the depicted place — not used"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "Inscription transcribed by the holder: „Dessiné par Sadownikoff . / Imp. par Lemercier a Paris. / Lith. par Bichebois. Fig. par V. Adam. / No. 3. / WIDOKI WILNA / WNĘTRZE KAPLICY OSTROBRAMSKIEY …“",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo",
+      "lang": "fr"
+    },
+    {
+      "kind": "curatorial",
+      "text": "Included as a control record: an Album de Wilna plate that must NOT be credited to Benoist.",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349245981.json?wskey=api2demo",
+      "lang": "en"
+    }
+  ]
+}
