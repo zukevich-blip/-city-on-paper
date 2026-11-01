@@ -18,17 +18,22 @@ CONTENT = {
     "walk": [
         {"n": 1, "place": "Église de la Madeleine", "work": "Ph. Benoist, «La Madeleine»", "status": "кандидат · совмещение medium (только портик)"},
         {"n": 2, "place": "Jardin du Palais-Royal", "work": "Ph. Benoist, «Jardin du Palais Royal»", "status": "кандидат · фото не подобрано"},
-        {"n": 3, "place": "Colonne Vendôme", "work": "«Colonne Vendôme vue de la rue de Castiglione», 1862", "status": "кандидат · ракурс не проверен"},
+        {"n": 3, "place": "Jardin des Tuileries (дворец утрачен в 1871)",
+         "work": "Ph. Benoist, A. Bayot, «Chateau des Tuileries, côté du carrousel», 1833 (LoC 2013650023)",
+         "status": "кандидат · пары не будет: здания нет — показываем «тогда» честно, без подделки «сейчас»"},
     ],
     "card2": {"img": "assets/loc-pga14314v.jpg", "title": "Paris. Jardin du Palais Royal",
               "credit": "Ph. Benoist del.; Imp. Lemercier. Library of Congress, LC-DIG-pga-14314",
               "alt": "Lithograph of the Palais-Royal garden with strolling figures and arcades"},
     "food": [
         {"title": "Menu. Café restaurant de la place Blanche", "date": "1894", "inst": "BnF via Europeana",
+         "url": "https://www.europeana.eu/item/9200518/ark__12148_btv1b10524412v",
          "rights": "NoC-OKLR — только ссылка", "kind": "исторический источник"},
         {"title": "Marché à Pontoise (C. Pissarro)", "date": "1895", "inst": "BnF via Europeana",
+         "url": "https://www.europeana.eu/item/9200518/ark__12148_btv1b69552845",
          "rights": "NoC-OKLR — только ссылка", "kind": "исторический источник"},
         {"title": "Mlle Bécat at the Café des Ambassadeurs (E. Degas)", "date": "1877–78", "inst": "Cleveland Museum of Art",
+         "url": "https://www.clevelandart.org/art/2007.194",
          "rights": "CC0", "kind": "исторический источник"},
     ],
 }
@@ -111,7 +116,8 @@ def page(key: str, d: dict) -> str:
                     f'<small>{escape(s["work"])}</small><small>{escape(s["status"])}</small></div></div>' for s in c["walk"])
     food = "".join(f'<article class="card"><span class="tag">{escape(f["kind"])}</span><h3 style="font-size:1rem;margin:4px 0">'
                    f'{escape(f["title"])}</h3><div class="nolink">изображение не встраивается · {escape(f["rights"])}</div>'
-                   f'<p class="credit">{escape(f["date"])} · {escape(f["inst"])} · открыть у держателя →</p></article>'
+                   f'<p class="credit">{escape(f["date"])} · {escape(f["inst"])} · '
+                   f'<a href="{escape(f["url"])}" rel="noopener">открыть у держателя →</a></p></article>'
                    for f in c["food"])
     chips = "".join(f'<button class="chip">{escape(x)}</button>' for x in c["facets"])
     h, c2 = c["hero"], c["card2"]
@@ -124,7 +130,7 @@ def page(key: str, d: dict) -> str:
 <style>{BASE_CSS}{d['css']}</style></head><body><div class="wrap">
 <header><h1>Город на бумаге <span class="lang">/ City on Paper</span></h1><span><span class="mock">макет · {escape(d['name'])}</span> <span class="lang">RU · EN</span></span></header>
 <p class="pitch">{escape(d['pitch'])}</p>
-<div class="chips" role="list">{chips}</div>
+<div class="chips" role="group" aria-label="Фасеты">{chips}</div>
 {food_top}<div class="layout">
  <section class="hero"><figure><img src="{h['img']}" alt="{escape(h['alt'])}"><figcaption>{escape(h['title'])} — {escape(h['credit'])}. Оригинал без изменений.</figcaption></figure></section>
  <section class="map" aria-label="Схема карты (заглушка, без тайлов)">
