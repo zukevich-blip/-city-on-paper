@@ -76,11 +76,12 @@
    "cafe_restaurant": 84
   },
   "benoist_hints": {
-   "antoine": 14,
+   "antoine_royal": 2,
    "philippe": 30,
    "unresolved_other_benoist": 13,
+   "uncertain": 10,
    "guillaume_philippe": 24,
-   "uncertain": 2,
+   "antoine": 4,
    "felix": 11,
    "felix+philippe": 6
   },
@@ -366,14 +367,14 @@
    "dedup_group": "df15eaf4ecf0",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "antoine_royal",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
-      "wikidata": "Q18526511"
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Work predates second Antoine Benoist's birth or creator life dates match; confirm with source institution"
    }
   },
   {
@@ -417,14 +418,14 @@
    "dedup_group": "c6ffc4235c85",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "antoine_royal",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
-      "wikidata": "Q18526511"
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Work predates second Antoine Benoist's birth or creator life dates match; confirm with source institution"
    }
   },
   {
@@ -935,14 +936,18 @@
    "dedup_group": "f78084c96cd2",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -985,14 +990,18 @@
    "dedup_group": "a97ee1351f47",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1035,14 +1044,18 @@
    "dedup_group": "b75f87d4e310",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1085,14 +1098,18 @@
    "dedup_group": "aceebe378dfd",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1135,14 +1152,18 @@
    "dedup_group": "e6c6f5f99a6b",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1185,14 +1206,18 @@
    "dedup_group": "f52c4c91a7c9",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1235,14 +1260,18 @@
    "dedup_group": "3d0d933de209",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1285,14 +1314,18 @@
    "dedup_group": "fa41312aa7ff",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1487,11 +1520,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -1539,11 +1572,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -1591,11 +1624,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -1733,11 +1766,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -5002,8 +5035,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market"
    ],
@@ -5391,8 +5424,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -5602,7 +5635,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -5683,8 +5716,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -5764,7 +5797,7 @@
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [
     "architecture",
     "square_street",
@@ -5808,7 +5841,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -6614,8 +6647,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -7121,8 +7154,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -9256,8 +9289,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -9298,8 +9331,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -11746,8 +11779,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by/4.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -11788,8 +11821,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -11913,8 +11946,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12039,8 +12072,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12081,8 +12114,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12123,8 +12156,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12165,8 +12198,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -13254,7 +13287,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13299,7 +13332,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13342,7 +13375,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13429,7 +13462,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13642,7 +13675,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13685,7 +13718,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13728,7 +13761,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13897,7 +13930,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -14443,8 +14476,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14485,8 +14518,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14527,8 +14560,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14569,8 +14602,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
