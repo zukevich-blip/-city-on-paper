@@ -25,11 +25,20 @@ const check = (name, ok, detail = "") => { results.push({ name, ok, detail }); c
         document.getElementById("histImg").complete && document.getElementById("photoLayer").style.transform !== "" &&
         document.getElementById("credits").textContent.length > 50, id);
       await page.waitForTimeout(150);
-      const conf = await page.evaluate(async (id) => (await (await fetch(`pairs/${id}.json`)).json()).alignment.confidence, id);
-      if (!["high", "medium"].includes(conf)) {
+      const evidence = await page.evaluate(async (id) => {
+        const a = (await (await fetch(`pairs/${id}.json`)).json()).alignment;
+        return { confidence: a.confidence, coverage: a.control_point_coverage ?? 0 };
+      }, id);
+      const conf = evidence.confidence;
+      const safeInitial = !["high", "medium"].includes(conf) || evidence.coverage < 0.15;
+      if (safeInitial) {
         check(`${vp.name} ${id}: '${conf}' opens with the untouched photo`,
           (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
         await page.click("#alignBtn");
+      }
+      if (id === "madeleine-ph-benoist") {
+        check(`${vp.name} Madeleine: small coverage is stated explicitly`,
+          (await page.textContent("#verdict")).includes("7%"));
       }
       // math check: CSS transform of the photo layer must send each photo control point onto its historic point
       const err = await page.evaluate(async (id) => {
@@ -67,6 +76,11 @@ const check = (name, ok, detail = "") => { results.push({ name, ok, detail }); c
     // interactions on the real pair
     await page.goto(`${base}#madeleine-ph-benoist`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.getElementById("photoLayer").style.transform !== "");
+    check(`${vp.name}: Madeleine starts with unmodified photo`,
+      (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
+    await page.click("#alignBtn");
+    check(`${vp.name}: explicit alignment turns on corrected photo`,
+      (await page.$eval("#photoLayer", e => e.style.transform)).includes("matrix3d"));
     await page.focus("#handle"); await page.keyboard.press("Home");
     check(`${vp.name}: keyboard Home moves slider to 0`, (await page.getAttribute("#handle", "aria-valuenow")) === "0");
     await page.keyboard.press("ArrowRight");
