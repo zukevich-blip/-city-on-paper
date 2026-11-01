@@ -1,0 +1,131 @@
+{
+  "id": "ph-benoist-album-de-varsovie-lazienki-interieur-polona-9970636",
+  "alternate_ids": [
+    "europeana:9200479/item_9970636_",
+    "polona:9970636"
+  ],
+  "titles": [
+    {
+      "text": "Widoki Warszawy : wnętrze pałacu zwanego Łazienki = Vues de Warsovie : l'intérieur du palais nommé Lazienki",
+      "lang": "pl",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "artist",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo",
+      "dates": "1813–ca 1905 (BN)"
+    },
+    {
+      "name": "Marcin Zaleski",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo",
+      "dates": "1796–1877 (BN; 'Aut. wzoru')"
+    },
+    {
+      "name": "Joseph Lemercier",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo",
+      "dates": "1803–1887 (BN)"
+    },
+    {
+      "name": "Jan Kazimierz Wilczyński",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo",
+      "dates": "1806–1885 (BN; 'Red.')"
+    }
+  ],
+  "series": {
+    "title": "Album Wileńskie, ser. 1, poszyt 2 (BN) / inscribed 'Album de Varsovie 1er Serie 1er Liv.'",
+    "publisher": "J. K. Wilczyński",
+    "year": "1851"
+  },
+  "date": {
+    "display": "[1851] (BN)",
+    "earliest": 1851,
+    "latest": 1851
+  },
+  "medium": "litografia barwna (colour lithograph), grafika francuska",
+  "place": {
+    "name_historic": "Warszawa, Łazienki, pałac Na Wodzie (wnętrze)",
+    "name_modern": "Pałac na Wyspie, Łazienki Królewskie",
+    "city": "Warsaw",
+    "country": "Poland",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Biblioteka Narodowa (National Library of Poland)",
+    "object_id": "polona:9970636",
+    "object_url": "http://polona.pl/item/9970636/",
+    "via": "Europeana record API (Polona)"
+  },
+  "media": {},
+  "rights": {
+    "artwork": "Public Domain Mark 1.0 (per Biblioteka Narodowa via Europeana)",
+    "image": "Domena Publiczna (Polona)",
+    "uri": "http://creativecommons.org/publicdomain/mark/1.0/",
+    "attribution_required": "Courtesy: Biblioteka Narodowa / Polona (good practice)",
+    "checked": "2026-11-01",
+    "redistribution": "allowed"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo"
+      ],
+      "comment": "BN dc:creator 'Benoist, Philippe (1813-ca 1905)'; role not specified (recorded as lithographer = 'attributed', verify on the sheet)"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo"
+      ],
+      "comment": "PDM 1.0 in dc:rights and edm:rights"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo"
+      ],
+      "comment": "city-level from BN subject headings; Europeana place entity is a country centroid, not used"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "BN: 'Ryc. z: Album Wileńskie, wyd. J.K. Wilczyński, ser. 1, Paryż 1845-1875, poszyt 2.' 'Nad kompoz. napis: \"Album de Varsovie 1er Serie 1er Liv.\"'. 'Sygn. pod kompoz.'",
+      "source_url": "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo",
+      "lang": "pl"
+    },
+    {
+      "kind": "curatorial",
+      "text": "Series conflict inside one record: BN files the plate under 'Album Wileńskie ser. 1, poszyt 2' while the plate header reads 'Album de Varsovie 1er Serie 1er Liv.'",
+      "source_url": "https://api.europeana.eu/record/v2/9200479/item_9970636_.json?wskey=api2demo",
+      "lang": "en"
+    }
+  ]
+}

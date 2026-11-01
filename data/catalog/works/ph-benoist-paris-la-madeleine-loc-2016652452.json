@@ -1,0 +1,120 @@
+{
+  "id": "ph-benoist-paris-la-madeleine-loc-2016652452",
+  "alternate_ids": [
+    "loc:2016652452"
+  ],
+  "titles": [
+    {
+      "text": "Paris. La Madeleine / Ph. Benoist del. ; Imp. Lemercier, Paris.",
+      "lang": "fr",
+      "kind": "inscribed"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/2016652452/",
+      "dates": "1813–approximately 1905 (LoC)"
+    },
+    {
+      "name": "Imprimerie Lemercier et Cie",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/2016652452/"
+    }
+  ],
+  "date": {
+    "display": "[between 1845 and 1860] (LoC); LoC sort date 1845",
+    "earliest": 1845,
+    "latest": 1860
+  },
+  "medium": "Hand-colored lithograph; sheet 23.5 x 32.4 cm",
+  "place": {
+    "name_historic": "Église de la Madeleine",
+    "name_modern": "Église de la Madeleine, Paris",
+    "city": "Paris",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "square_street",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Library of Congress, Prints and Photographs Division",
+    "object_id": "2016652452",
+    "shelfmark": "PGA - Lemercier--Paris. La Madeleine (A size) [P&P]",
+    "object_url": "https://www.loc.gov/item/2016652452/"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14315v.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "LoC rights advisory: 'No known restrictions on publication.'",
+    "image": "LoC digital file LC-DIG-pga-14315; LoC states it does not own rights and cannot grant or deny permission",
+    "uri": "https://www.loc.gov/rr/print/res/248_pga.html",
+    "attribution_required": "Library of Congress, Prints & Photographs Division, LC-DIG-pga-14315",
+    "constraints": "Researcher must assess rights (LoC general statement); LoC IIIF manifest.json returned 403 in PR A probe",
+    "checked": "2026-11-01",
+    "redistribution": "allowed"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/2016652452/",
+        "https://www.loc.gov/item/2016652452/?fo=json"
+      ],
+      "comment": "LoC contributor_names + title transcription"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/2016652452/",
+        "https://www.loc.gov/item/2016652452/?fo=json"
+      ],
+      "comment": "rights_advisory read on item JSON"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/2016652452/",
+        "https://www.loc.gov/item/2016652452/?fo=json"
+      ],
+      "comment": "city-level only: LoC location/place 'France--Paris'; no coordinates"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "series": {
+    "title": "Promenade dans Paris et ses environs (later edition?) — LoC: 'possibly'",
+    "plate": "8"
+  },
+  "notes": [
+    {
+      "kind": "curatorial",
+      "text": "LoC: '[Plate] 8'; same 'possibly from a later edition of Promenade dans Paris et ses environs' note as plate 6 (2016652451).",
+      "source_url": "https://www.loc.gov/item/2016652452/",
+      "lang": "en"
+    }
+  ]
+}

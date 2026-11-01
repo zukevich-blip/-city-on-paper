@@ -1,0 +1,145 @@
+{
+  "id": "adam-bichebois-album-de-wilna-rue-ostrabrama-polona-7047686",
+  "alternate_ids": [
+    "europeana:9200479/item_7047686_",
+    "polona:7047686"
+  ],
+  "titles": [
+    {
+      "text": "Widoki Wilna : ulica Ostrobramska = Vues de Wilna : rue d'Ostrabrama",
+      "lang": "pl",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Jean Victor Adam",
+      "role": "artist",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "dates": "1801–1867 (BN)"
+    },
+    {
+      "name": "Alphonse Bichebois",
+      "role": "lithographer",
+      "certainty": "attributed",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "dates": "1801–1850 (BN)"
+    },
+    {
+      "name": "Karol Rypiński",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "dates": "1808–1892 (BN; 'Aut. wzoru')"
+    },
+    {
+      "name": "Marcin Zaleski",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "dates": "1796–1877 (BN; 'Aut. wzoru')"
+    },
+    {
+      "name": "Joseph Lemercier",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "dates": "1803–1887 (BN)"
+    },
+    {
+      "name": "Jan Kazimierz Wilczyński",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "dates": "1806–1885 (BN; 'Red.')"
+    }
+  ],
+  "series": {
+    "title": "Album de Wilna (Album Wileńskie), ser. 1, poszyt 1",
+    "plate": "No. 1",
+    "publisher": "J. K. Wilczyński",
+    "year": "1845-1846"
+  },
+  "date": {
+    "display": "[1845-1846] (BN)",
+    "earliest": 1845,
+    "latest": 1846
+  },
+  "medium": "litografia barwna (colour lithograph), grafika francuska",
+  "place": {
+    "name_historic": "Wilno, ulica Ostrobramska, kościół św. Teresy",
+    "name_modern": "Aušros Vartų gatvė, Vilnius",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "square_street",
+    "architecture"
+  ],
+  "holding": {
+    "institution": "Biblioteka Narodowa (National Library of Poland)",
+    "object_id": "polona:7047686",
+    "object_url": "http://polona.pl/item/7047686/",
+    "via": "Europeana record API (Polona)"
+  },
+  "media": {},
+  "rights": {
+    "artwork": "Public Domain Mark 1.0 (per Biblioteka Narodowa via Europeana)",
+    "image": "Domena Publiczna (Polona)",
+    "uri": "http://creativecommons.org/publicdomain/mark/1.0/",
+    "attribution_required": "Courtesy: Biblioteka Narodowa / Polona (good practice)",
+    "checked": "2026-11-01",
+    "redistribution": "allowed"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo"
+      ],
+      "comment": "NOT Benoist: BN names Adam (creator), Bichebois, Rypiński and Zaleski ('Aut. wzoru')"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo"
+      ],
+      "comment": "PDM 1.0 in dc:rights and edm:rights"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo"
+      ],
+      "comment": "city-level from BN subject headings; Europeana place entity is a country centroid, not used"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "BN: 'Nad kompoz. napis: \"Album de Wilna\".' 'Pod kompoz. ozn.: \"No. 1\".' 'Ryc. z: Album Wileńskie, wyd. J.K. Wilczyński, ser. 1, Paryż 1845-1875, poszyt 1.'",
+      "source_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "lang": "pl"
+    },
+    {
+      "kind": "curatorial",
+      "text": "Control record: Album de Wilna plate No. 1 with no Benoist involvement. BN gives Bichebois without a role; recorded as lithographer = 'attributed'.",
+      "source_url": "https://api.europeana.eu/record/v2/9200479/item_7047686_.json?wskey=api2demo",
+      "lang": "en"
+    }
+  ]
+}
