@@ -1,0 +1,144 @@
+{
+ "description": "Issue #6 first-increment plan. 'match' = tokens that must appear in the record's own metadata.",
+ "jobs": [
+  {
+   "query": "Benoist",
+   "match": "benoist",
+   "providers": [
+    "loc",
+    "europeana",
+    "vam",
+    "rijksmuseum",
+    "artic",
+    "cleveland",
+    "met"
+   ],
+   "limit": 12,
+   "match_in": [
+    "creator_display"
+   ]
+  },
+  {
+   "query": "Félix Benoist",
+   "match": "benoist",
+   "providers": [
+    "commons"
+   ],
+   "limit": 15,
+   "match_in": [
+    "creator_display"
+   ]
+  },
+  {
+   "query": "Philippe Benoist",
+   "match": "benoist",
+   "providers": [
+    "commons",
+    "europeana"
+   ],
+   "limit": 15,
+   "match_in": [
+    "creator_display"
+   ]
+  },
+  {
+   "query": "Album de Wilna",
+   "match": "wilna",
+   "providers": [
+    "europeana",
+    "commons"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Bretagne contemporaine",
+   "match": "bretagne",
+   "providers": [
+    "europeana",
+    "commons"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Paris dans sa splendeur",
+   "match": "paris",
+   "providers": [
+    "europeana",
+    "loc"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "marché lithographie",
+   "match": "marche",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 15
+  },
+  {
+   "query": "market lithograph",
+   "match": "market",
+   "providers": [
+    "loc",
+    "artic",
+    "met"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "café Paris",
+   "match": "cafe",
+   "providers": [
+    "europeana",
+    "loc",
+    "cleveland"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "restaurant menu",
+   "match": "menu",
+   "providers": [
+    "loc",
+    "europeana"
+   ],
+   "limit": 10
+  },
+  {
+   "query": "Venezia veduta",
+   "match": "venezia",
+   "providers": [
+    "europeana",
+    "rijksmuseum"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "Napoli veduta",
+   "match": "napoli",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "Wilno widok",
+   "match": "wilno",
+   "providers": [
+    "europeana"
+   ],
+   "limit": 8
+  },
+  {
+   "query": "view of Paris lithograph",
+   "match": "paris",
+   "providers": [
+    "artic",
+    "cleveland",
+    "smithsonian"
+   ],
+   "limit": 8
+  }
+ ]
+}

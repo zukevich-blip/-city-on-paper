@@ -1,0 +1,23 @@
+[project]
+name = "city-on-paper-tools"
+version = "0.2.0"
+description = "Research tooling for City on Paper (metadata harvest, alignment QA). Not the exhibition app."
+requires-python = ">=3.10"
+dependencies = []  # harvester is standard-library only
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.16.9"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"tools/sources/probe.py" = ["E501"]
