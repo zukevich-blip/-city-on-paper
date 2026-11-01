@@ -56,6 +56,15 @@ def test_restricted_record_never_exposes_preview():
     assert rec["published"] is False and rec["status"]["viewpoint"] == "not_checked"
 
 
+def test_unknown_rights_never_exposes_preview():
+    rec = c.record("loc", "Library of Congress", "L1", title="x",
+                   preview_url="https://example.org/photo.jpg", rights_statement="Rights need item review",
+                   rights_category="unknown")
+    assert rec["preview_url"] == ""
+    assert rec["rights_category"] == "unknown"
+    assert rec["published"] is False
+
+
 def test_artic_requires_header_and_maps_iiif():
     http = FakeHttp({"artic.edu": {"config": {"iiif_url": "https://www.artic.edu/iiif/2"}, "data": [
         {"id": 5, "title": "Market", "artist_display": "A", "is_public_domain": True, "image_id": "abc"},
