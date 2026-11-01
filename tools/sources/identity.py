@@ -6,6 +6,7 @@ Wikidata checked 2026-11-01 (wbgetentities / wbsearchentities):
             (LoC and Commons give "approximately 1905"; BnF via Europeana gives 1813-1905: CONFLICT)
   Q5616064  Guillaume Philippe Benoist, engraver, 1725 – 1770 per Wikidata (Met says 1725–1800: CONFLICT)
   Q18526511 Antoine Benoist, draughtsman/engraver 1721–1770 (different person)
+  Q2853671  Antoine Benoist, painter / wax sculptor 1632–1717 (BnF, INHA, Getty ULAN 500006880)
   Q117312510 is a Renaissance composer, NOT a duplicate of Philippe Benoist (PR #3 said otherwise).
 """
 
@@ -19,7 +20,8 @@ IDENTITIES = {
     "felix": {"label": "Félix Benoist", "wikidata": "Q277187"},
     "philippe": {"label": "Philippe Benoist", "wikidata": "Q26309223"},
     "guillaume_philippe": {"label": "Guillaume Philippe Benoist", "wikidata": "Q5616064"},
-    "antoine": {"label": "Antoine Benoist (1721–1770)", "wikidata": "Q18526511"},
+    "antoine": {"label": "Antoine Benoist (1721–1770), engraver", "wikidata": "Q18526511"},
+    "antoine_royal": {"label": "Antoine Benoist (1632–1717), painter and wax sculptor", "wikidata": "Q2853671"},
 }
 
 
@@ -38,7 +40,19 @@ def benoist_hint(creator: str, date: str = "") -> dict:
     if "felix" in c:
         found.append("felix")
     if "antoine" in c:
-        found.append("antoine")
+        # Two distinct artists share this forename. Do not assign a QID based on
+        # the forename alone. Museum life dates take precedence over work dates.
+        work_year = _year(date)
+        if "1632" in c or "1717" in c or (work_year is not None and 1632 <= work_year <= 1717):
+            found.append("antoine_royal")
+        elif "1721" in c or "1770" in c or (work_year is not None and 1721 <= work_year <= 1770):
+            found.append("antoine")
+        else:
+            return {
+                "hint": "uncertain",
+                "candidates": [IDENTITIES["antoine_royal"], IDENTITIES["antoine"]],
+                "reason": "Two distinct Antoine Benoists (1632–1717 and 1721–1770); no authoritative identity evidence",
+            }
     if "guillaume" not in c and re.search(r"philippe|phillipe|\bph\b|\bp\b", c):
         y = _year(date)
         if (y and y < 1800) or "18th century" in c:
