@@ -76,11 +76,12 @@
    "cafe_restaurant": 84
   },
   "benoist_hints": {
-   "antoine": 14,
+   "antoine_royal": 2,
    "philippe": 30,
    "unresolved_other_benoist": 13,
+   "uncertain": 10,
    "guillaume_philippe": 24,
-   "uncertain": 2,
+   "antoine": 4,
    "felix": 11,
    "felix+philippe": 6
   },
@@ -342,7 +343,7 @@
    "source_url": "https://www.loc.gov/item/2021670758/",
    "iiif_manifest": "https://www.loc.gov/item/2021670758/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:14:76:7:wdl_14767:E0000001/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2021670758/#rights",
    "rights_category": "unknown",
@@ -366,14 +367,14 @@
    "dedup_group": "df15eaf4ecf0",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "antoine_royal",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
-      "wikidata": "Q18526511"
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Work predates second Antoine Benoist's birth or creator life dates match; confirm with source institution"
    }
   },
   {
@@ -393,7 +394,7 @@
    "source_url": "https://www.loc.gov/item/2021670757/",
    "iiif_manifest": "https://www.loc.gov/item/2021670757/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:14:76:6:wdl_14766:E0000001/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2021670757/#rights",
    "rights_category": "unknown",
@@ -417,14 +418,14 @@
    "dedup_group": "c6ffc4235c85",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "antoine_royal",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
-      "wikidata": "Q18526511"
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Work predates second Antoine Benoist's birth or creator life dates match; confirm with source institution"
    }
   },
   {
@@ -444,7 +445,7 @@
    "source_url": "https://www.loc.gov/item/00652015/",
    "iiif_manifest": "https://www.loc.gov/item/00652015/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/00400/00497v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/00652015/#rights",
    "rights_category": "unknown",
@@ -495,7 +496,7 @@
    "source_url": "https://www.loc.gov/item/2016652451/",
    "iiif_manifest": "https://www.loc.gov/item/2016652451/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14314v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2016652451/#rights",
    "rights_category": "unknown",
@@ -547,7 +548,7 @@
    "source_url": "https://www.loc.gov/item/2016652452/",
    "iiif_manifest": "https://www.loc.gov/item/2016652452/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14315v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2016652452/#rights",
    "rights_category": "unknown",
@@ -600,7 +601,7 @@
    "source_url": "https://www.loc.gov/item/2013650023/",
    "iiif_manifest": "https://www.loc.gov/item/2013650023/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/05700/05798v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2013650023/#rights",
    "rights_category": "unknown",
@@ -653,7 +654,7 @@
    "source_url": "https://www.loc.gov/item/ms0182/",
    "iiif_manifest": "https://www.loc.gov/item/ms0182/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ms/ms0100/ms0182/photos/092957pv.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/ms0182/#rights",
    "rights_category": "unknown",
@@ -935,14 +936,18 @@
    "dedup_group": "f78084c96cd2",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -985,14 +990,18 @@
    "dedup_group": "a97ee1351f47",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1035,14 +1044,18 @@
    "dedup_group": "b75f87d4e310",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1085,14 +1098,18 @@
    "dedup_group": "aceebe378dfd",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1135,14 +1152,18 @@
    "dedup_group": "e6c6f5f99a6b",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1185,14 +1206,18 @@
    "dedup_group": "f52c4c91a7c9",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1235,14 +1260,18 @@
    "dedup_group": "3d0d933de209",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1285,14 +1314,18 @@
    "dedup_group": "fa41312aa7ff",
    "possible_duplicates": [],
    "benoist_identity_hint": {
-    "hint": "antoine",
+    "hint": "uncertain",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1632–1717), painter and wax sculptor",
+      "wikidata": "Q2853671"
+     },
+     {
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Forename alone does not establish which Antoine Benoist made this work; museum verification required"
    }
   },
   {
@@ -1487,11 +1520,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -1539,11 +1572,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -1591,11 +1624,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -1733,11 +1766,11 @@
     "hint": "antoine",
     "candidates": [
      {
-      "label": "Antoine Benoist (1721–1770)",
+      "label": "Antoine Benoist (1721–1770), engraver",
       "wikidata": "Q18526511"
      }
     ],
-    "reason": "forename match in provider creator field; confirm against holding institution"
+    "reason": "Creator life dates or work date consistent with later Antoine Benoist; confirm with source institution"
    }
   },
   {
@@ -5002,8 +5035,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market"
    ],
@@ -5391,8 +5424,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -5602,7 +5635,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -5683,8 +5716,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -5764,7 +5797,7 @@
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [
     "architecture",
     "square_street",
@@ -5808,7 +5841,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -6614,8 +6647,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -7121,8 +7154,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -7319,7 +7352,7 @@
    "source_url": "https://www.loc.gov/item/2021670358/",
    "iiif_manifest": "https://www.loc.gov/item/2021670358/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:43:3:wdl_09433:W227-3/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2021670358/#rights",
    "rights_category": "unknown",
@@ -7404,7 +7437,7 @@
    "source_url": "https://www.loc.gov/item/2004673336/",
    "iiif_manifest": "https://www.loc.gov/item/2004673336/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3b20000/3b24000/3b24000/3b24059v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2004673336/#rights",
    "rights_category": "unknown",
@@ -7446,7 +7479,7 @@
    "source_url": "https://www.loc.gov/item/2001699168/",
    "iiif_manifest": "https://www.loc.gov/item/2001699168/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/08600/08695v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2001699168/#rights",
    "rights_category": "unknown",
@@ -7487,7 +7520,7 @@
    "source_url": "https://www.loc.gov/item/90712006/",
    "iiif_manifest": "https://www.loc.gov/item/90712006/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/06200/06211v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/90712006/#rights",
    "rights_category": "unknown",
@@ -7528,7 +7561,7 @@
    "source_url": "https://www.loc.gov/item/90711748/",
    "iiif_manifest": "https://www.loc.gov/item/90711748/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/06100/06167v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/90711748/#rights",
    "rights_category": "unknown",
@@ -7569,7 +7602,7 @@
    "source_url": "https://www.loc.gov/item/2002718729/",
    "iiif_manifest": "https://www.loc.gov/item/2002718729/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3g00000/3g04000/3g04000/3g04043v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2002718729/#rights",
    "rights_category": "unknown",
@@ -7610,7 +7643,7 @@
    "source_url": "https://www.loc.gov/item/96506765/",
    "iiif_manifest": "https://www.loc.gov/item/96506765/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/02800/02857v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/96506765/#rights",
    "rights_category": "unknown",
@@ -7651,7 +7684,7 @@
    "source_url": "https://www.loc.gov/item/2021670189/",
    "iiif_manifest": "https://www.loc.gov/item/2021670189/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:26:1:wdl_09261:W032/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2021670189/#rights",
    "rights_category": "unknown",
@@ -7694,7 +7727,7 @@
    "source_url": "https://www.loc.gov/item/2021670214/",
    "iiif_manifest": "https://www.loc.gov/item/2021670214/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:28:8:wdl_09288:W243/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2021670214/#rights",
    "rights_category": "unknown",
@@ -7738,7 +7771,7 @@
    "source_url": "https://www.loc.gov/item/2021670197/",
    "iiif_manifest": "https://www.loc.gov/item/2021670197/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:26:9:wdl_09269:W320/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2021670197/#rights",
    "rights_category": "unknown",
@@ -7823,7 +7856,7 @@
    "source_url": "https://www.loc.gov/item/2008661330/",
    "iiif_manifest": "https://www.loc.gov/item/2008661330/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3b30000/3b35000/3b35900/3b35934r.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2008661330/#rights",
    "rights_category": "unknown",
@@ -7864,7 +7897,7 @@
    "source_url": "https://www.loc.gov/item/93512408/",
    "iiif_manifest": "https://www.loc.gov/item/93512408/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3b30000/3b39000/3b39400/3b39494r.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/93512408/#rights",
    "rights_category": "unknown",
@@ -7948,7 +7981,7 @@
    "source_url": "https://www.loc.gov/item/98501397/",
    "iiif_manifest": "https://www.loc.gov/item/98501397/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pga/11700/11716v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/98501397/#rights",
    "rights_category": "unknown",
@@ -9256,8 +9289,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -9298,8 +9331,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -9816,7 +9849,7 @@
    "source_url": "https://www.loc.gov/item/2003663025/",
    "iiif_manifest": "https://www.loc.gov/item/2003663025/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3g10000/3g11000/3g11100/3g11144v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2003663025/#rights",
    "rights_category": "unknown",
@@ -9857,7 +9890,7 @@
    "source_url": "https://www.loc.gov/item/2003663028/",
    "iiif_manifest": "https://www.loc.gov/item/2003663028/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3g10000/3g11000/3g11100/3g11142v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2003663028/#rights",
    "rights_category": "unknown",
@@ -10064,7 +10097,7 @@
    "source_url": "https://www.loc.gov/item/2019641928/",
    "iiif_manifest": "https://www.loc.gov/item/2019641928/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s20000/1s23000/1s23700/1s23788v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2019641928/#rights",
    "rights_category": "unknown",
@@ -10107,7 +10140,7 @@
    "source_url": "https://www.loc.gov/item/2019641930/",
    "iiif_manifest": "https://www.loc.gov/item/2019641930/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s20000/1s23000/1s23700/1s23790v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2019641930/#rights",
    "rights_category": "unknown",
@@ -10191,7 +10224,7 @@
    "source_url": "https://www.loc.gov/item/2026163799/",
    "iiif_manifest": "https://www.loc.gov/item/2026163799/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/vrg/23900/23931v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2026163799/#rights",
    "rights_category": "unknown",
@@ -10233,7 +10266,7 @@
    "source_url": "https://www.loc.gov/item/2023635350/",
    "iiif_manifest": "https://www.loc.gov/item/2023635350/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s40000/1s46000/1s46700/1s46791v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2023635350/#rights",
    "rights_category": "unknown",
@@ -10274,7 +10307,7 @@
    "source_url": "//lccn.loc.gov/96518008",
    "iiif_manifest": "//lccn.loc.gov/96518008manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://www.loc.gov/static/images/original-format/group-of-images.svg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "//lccn.loc.gov/96518008#rights",
    "rights_category": "unknown",
@@ -10316,7 +10349,7 @@
    "source_url": "https://www.loc.gov/item/92520969/",
    "iiif_manifest": "https://www.loc.gov/item/92520969/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c06000/3c06500/3c06574v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/92520969/#rights",
    "rights_category": "unknown",
@@ -10399,7 +10432,7 @@
    "source_url": "https://www.loc.gov/item/2025163625/",
    "iiif_manifest": "https://www.loc.gov/item/2025163625/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/vrg/22900/22920v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2025163625/#rights",
    "rights_category": "unknown",
@@ -10482,7 +10515,7 @@
    "source_url": "https://www.loc.gov/item/2023635351/",
    "iiif_manifest": "https://www.loc.gov/item/2023635351/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s40000/1s46000/1s46700/1s46792v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2023635351/#rights",
    "rights_category": "unknown",
@@ -10770,7 +10803,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002724/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002724/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07615/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002724/#rights",
    "rights_category": "unknown",
@@ -10821,7 +10854,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002725/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002725/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07616/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002725/#rights",
    "rights_category": "unknown",
@@ -10872,7 +10905,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002726/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002726/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07617/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002726/#rights",
    "rights_category": "unknown",
@@ -10923,7 +10956,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002727/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002727/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07618/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002727/#rights",
    "rights_category": "unknown",
@@ -10974,7 +11007,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002728/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002728/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07619/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002728/#rights",
    "rights_category": "unknown",
@@ -11025,7 +11058,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002729/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002729/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07620/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002729/#rights",
    "rights_category": "unknown",
@@ -11076,7 +11109,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001245/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001245/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03416/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip001245/#rights",
    "rights_category": "unknown",
@@ -11127,7 +11160,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001246/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001246/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03417/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip001246/#rights",
    "rights_category": "unknown",
@@ -11178,7 +11211,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001247/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001247/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03418/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip001247/#rights",
    "rights_category": "unknown",
@@ -11229,7 +11262,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001248/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001248/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03419/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip001248/#rights",
    "rights_category": "unknown",
@@ -11280,7 +11313,7 @@
    "source_url": "https://www.loc.gov/item/2018664212/",
    "iiif_manifest": "https://www.loc.gov/item/2018664212/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/64400/64475v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2018664212/#rights",
    "rights_category": "unknown",
@@ -11321,7 +11354,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002731/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002731/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc077:afc1995028_mcc07702/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002731/#rights",
    "rights_category": "unknown",
@@ -11365,7 +11398,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002732/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002732/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc077:afc1995028_mcc07703/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002732/#rights",
    "rights_category": "unknown",
@@ -11409,7 +11442,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002730/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002730/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc077:afc1995028_mcc07701/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/afcwip002730/#rights",
    "rights_category": "unknown",
@@ -11453,7 +11486,7 @@
    "source_url": "https://www.loc.gov/item/2017724870/",
    "iiif_manifest": "https://www.loc.gov/item/2017724870/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/fsa/8a11000/8a11000/8a11074v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2017724870/#rights",
    "rights_category": "unknown",
@@ -11535,7 +11568,7 @@
    "source_url": "https://www.loc.gov/item/2017783876/",
    "iiif_manifest": "https://www.loc.gov/item/2017783876/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/fsa/8b22000/8b22400/8b22441v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2017783876/#rights",
    "rights_category": "unknown",
@@ -11576,7 +11609,7 @@
    "source_url": "https://www.loc.gov/item/2017782552/",
    "iiif_manifest": "https://www.loc.gov/item/2017782552/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/fsa/8b21000/8b21100/8b21172v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2017782552/#rights",
    "rights_category": "unknown",
@@ -11617,7 +11650,7 @@
    "source_url": "https://www.loc.gov/item/2023632526/",
    "iiif_manifest": "https://www.loc.gov/item/2023632526/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/85700/85775v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights advisory on item page (P&P); many 19th-c. prints: no known restrictions",
    "rights_uri": "https://www.loc.gov/item/2023632526/#rights",
    "rights_category": "unknown",
@@ -11746,8 +11779,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by/4.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -11788,8 +11821,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -11913,8 +11946,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12039,8 +12072,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12081,8 +12114,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12123,8 +12156,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12165,8 +12198,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -13254,7 +13287,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13299,7 +13332,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13342,7 +13375,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13429,7 +13462,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13642,7 +13675,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13685,7 +13718,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13728,7 +13761,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13897,7 +13930,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -14443,8 +14476,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14485,8 +14518,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14527,8 +14560,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14569,8 +14602,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],

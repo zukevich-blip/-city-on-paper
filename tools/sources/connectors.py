@@ -205,7 +205,7 @@ def record(provider: str, institution: str, source_id: Any, **kw: Any) -> dict[s
         "iiif_manifest": kw.get("iiif_manifest") or "",
         "iiif_image_service": kw.get("iiif_image_service") or "",
         # preview is a link to the provider's own derivative; we never mirror it
-        "preview_url": (kw.get("preview_url") or "") if cat != "restricted" else "",
+        "preview_url": (kw.get("preview_url") or "") if cat == "open" else "",
         "rights_statement": rights_statement,
         "rights_uri": rights_uri,
         "rights_category": cat,
