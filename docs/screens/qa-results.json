@@ -1,0 +1,507 @@
+{
+ "when": "2026-11-01T14:53:15.967Z",
+ "passed": 100,
+ "failed": 0,
+ "results": [
+  {
+   "name": "iphone-375 madeleine-ph-benoist: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0502 px"
+  },
+  {
+   "name": "iphone-375 madeleine-ph-benoist: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 madeleine-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-near-identical: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0034 px"
+  },
+  {
+   "name": "iphone-375 synthetic-near-identical: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-near-identical: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-near-identical: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-rotation-only: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0566 px"
+  },
+  {
+   "name": "iphone-375 synthetic-rotation-only: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-rotation-only: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-rotation-only: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-parallax: 'low' opens with the untouched photo",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-parallax: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0043 px"
+  },
+  {
+   "name": "iphone-375 synthetic-parallax: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-parallax: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375 synthetic-parallax: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: keyboard Home moves slider to 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: ArrowRight steps slider",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: pointer moves slider",
+   "ok": true,
+   "detail": "value=70"
+  },
+  {
+   "name": "iphone-375: visible controls ≥44 px tall",
+   "ok": true,
+   "detail": "0 too small"
+  },
+  {
+   "name": "iphone-375: toggle to original photo removes matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: badge says uncorrected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: all images have alt text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-375: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 madeleine-ph-benoist: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0517 px"
+  },
+  {
+   "name": "iphone-390 madeleine-ph-benoist: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 madeleine-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-near-identical: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0034 px"
+  },
+  {
+   "name": "iphone-390 synthetic-near-identical: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-near-identical: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-near-identical: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-rotation-only: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0556 px"
+  },
+  {
+   "name": "iphone-390 synthetic-rotation-only: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-rotation-only: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-rotation-only: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-parallax: 'low' opens with the untouched photo",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-parallax: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0050 px"
+  },
+  {
+   "name": "iphone-390 synthetic-parallax: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-parallax: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390 synthetic-parallax: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: keyboard Home moves slider to 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: ArrowRight steps slider",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: pointer moves slider",
+   "ok": true,
+   "detail": "value=70"
+  },
+  {
+   "name": "iphone-390: visible controls ≥44 px tall",
+   "ok": true,
+   "detail": "0 too small"
+  },
+  {
+   "name": "iphone-390: toggle to original photo removes matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: badge says uncorrected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: all images have alt text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "iphone-390: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 madeleine-ph-benoist: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0505 px"
+  },
+  {
+   "name": "ipad-820 madeleine-ph-benoist: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 madeleine-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-near-identical: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0034 px"
+  },
+  {
+   "name": "ipad-820 synthetic-near-identical: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-near-identical: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-near-identical: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-rotation-only: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0562 px"
+  },
+  {
+   "name": "ipad-820 synthetic-rotation-only: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-rotation-only: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-rotation-only: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-parallax: 'low' opens with the untouched photo",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-parallax: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0048 px"
+  },
+  {
+   "name": "ipad-820 synthetic-parallax: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-parallax: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820 synthetic-parallax: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: keyboard Home moves slider to 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: ArrowRight steps slider",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: pointer moves slider",
+   "ok": true,
+   "detail": "value=70"
+  },
+  {
+   "name": "ipad-820: visible controls ≥44 px tall",
+   "ok": true,
+   "detail": "0 too small"
+  },
+  {
+   "name": "ipad-820: toggle to original photo removes matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: badge says uncorrected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: all images have alt text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ipad-820: no console/page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 madeleine-ph-benoist: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0507 px"
+  },
+  {
+   "name": "desktop-1440 madeleine-ph-benoist: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 madeleine-ph-benoist: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 madeleine-ph-benoist: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-near-identical: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0041 px"
+  },
+  {
+   "name": "desktop-1440 synthetic-near-identical: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-near-identical: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-near-identical: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-rotation-only: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0555 px"
+  },
+  {
+   "name": "desktop-1440 synthetic-rotation-only: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-rotation-only: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-rotation-only: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-parallax: 'low' opens with the untouched photo",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-parallax: CSS matrix3d reproduces offline residuals",
+   "ok": true,
+   "detail": "max |Δ| = 0.0044 px"
+  },
+  {
+   "name": "desktop-1440 synthetic-parallax: slider mode hides side-by-side panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-parallax: historic image has no transform/filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440 synthetic-parallax: no horizontal page scroll",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: keyboard Home moves slider to 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: ArrowRight steps slider",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: pointer moves slider",
+   "ok": true,
+   "detail": "value=70"
+  },
+  {
+   "name": "desktop-1440: visible controls ≥44 px tall",
+   "ok": true,
+   "detail": "0 too small"
+  },
+  {
+   "name": "desktop-1440: toggle to original photo removes matrix3d",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: badge says uncorrected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: all images have alt text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-1440: no console/page errors",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

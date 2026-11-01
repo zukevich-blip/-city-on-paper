@@ -1,0 +1,256 @@
+{
+ "id": "madeleine-ph-benoist",
+ "status": "candidate_real_pair",
+ "condition": "real: different viewpoint (lithograph three-quarter from SW, photo frontal from the south); only the front portico plane can be aligned",
+ "expected_confidence": "low|medium (plane-only)",
+ "historic": {
+  "title": "Paris. La Madeleine / Ph. Benoist del. ; Imp. Lemercier, Paris.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "wikidata": "Q26309223",
+    "role": "draughtsman (del.)"
+   },
+   {
+    "name": "Imprimerie Lemercier et cie",
+    "role": "printer"
+   }
+  ],
+  "date": "[between 1845 and 1860] (LoC); plate 8",
+  "medium": "hand-colored lithograph; sheet 23.5 x 32.4 cm",
+  "holding": "Library of Congress, Prints and Photographs Division, Popular Graphic Arts collection",
+  "object_url": "https://www.loc.gov/item/2016652452/",
+  "reproduction_number": "LC-DIG-pga-14315",
+  "rights": "LoC rights advisory: No known restrictions on publication (checked 2026-11-01)",
+  "file": "madeleine-historic-loc-pga14315v.jpg",
+  "file_source_url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14315v.jpg",
+  "file_note": "LoC 1024 px service derivative, byte-identical to the download (sha256 below). Full-resolution TIFF is at the object URL.",
+  "sha256": "ad6ec25a6b3b5dfb1356599c8979cbfb5e959e790e29ddd16fdfc160882c675e",
+  "size": [
+   1024,
+   750
+  ],
+  "credit": "Ph. Benoist del.; Imp. Lemercier, Paris. Library of Congress, LC-DIG-pga-14315"
+ },
+ "photo": {
+  "title": "Église de la Madeleine, south portico, 30 Apr 2026",
+  "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
+  "panoramax_id": "38b6d262-648f-461e-b9a3-ab05eb22d92a",
+  "object_url": "https://api.panoramax.xyz/api/collections/732a0136-de7a-4ee5-94d7-07853d4d9f08/items/38b6d262-648f-461e-b9a3-ab05eb22d92a",
+  "author": "jerome92370 (Panoramax account)",
+  "date": "2026-04-30",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "azimuth_deg": 21,
+  "distance_to_building_m_approx": 89,
+  "file": "madeleine-photo-panoramax-38b6d262.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/38/b6/d2/62/648f-461e-b9a3-ab05eb22d92a/sd.jpg",
+  "source_sha256": "6229b1c4d7e331569ecd60c5cb76f8a12a0b04c981d1ebee14812bb01bcf76ff",
+  "sha256": "3493d570d149616d37947072a4e6d1e365635d88f856dd43b3ec09f5eb72f0c6",
+  "file_note": "Panoramax 'sd' derivative (faces already blurred by Panoramax). Re-encoded once (JPEG q92) only to strip EXIF/GPS; no geometric or colour change.",
+  "size": [
+   2048,
+   1536
+  ],
+  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0"
+ },
+ "control_points": [
+  {
+   "label": "pediment apex",
+   "historic": [
+    493.3,
+    231.0
+   ],
+   "photo": [
+    1066.7,
+    197.8
+   ]
+  },
+  {
+   "label": "cornice, left end of front",
+   "historic": [
+    350.0,
+    266.0
+   ],
+   "photo": [
+    315.6,
+    403.3
+   ]
+  },
+  {
+   "label": "cornice, right end of front",
+   "historic": [
+    601.7,
+    335.0
+   ],
+   "photo": [
+    1824.4,
+    416.7
+   ]
+  },
+  {
+   "label": "left corner column, top of capital",
+   "historic": [
+    355.0,
+    332.0
+   ],
+   "photo": [
+    385.6,
+    558.9
+   ]
+  },
+  {
+   "label": "right corner column, top of capital",
+   "historic": [
+    578.3,
+    368.0
+   ],
+   "photo": [
+    1748.9,
+    575.6
+   ]
+  },
+  {
+   "label": "left corner column, foot of base",
+   "historic": [
+    355.0,
+    490.0
+   ],
+   "photo": [
+    255.0,
+    1226.0
+   ]
+  },
+  {
+   "label": "right corner column, foot of base",
+   "historic": [
+    578.0,
+    495.0
+   ],
+   "photo": [
+    1850.0,
+    1228.0
+   ]
+  }
+ ],
+ "control_points_note": "Picked by Claude on gridded zooms (1 px = 1 image px); expected picking error 2-4 px in the lithograph. All points lie on the front (south) portico plane. The side colonnade and the street are NOT on this plane and will not align.",
+ "viewpoint_review": {
+  "status": "uncertain",
+  "observations": [
+   "Same building and same portico (8 front columns, pediment with relief) in both images.",
+   "Lithograph is drawn from the south-west at a strong oblique angle and shows the west colonnade; the photo is nearly frontal and does not show it.",
+   "Pediment relief and inscription positions agree in layout; artist's proportions are not guaranteed to be photogrammetric."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-01"
+ },
+ "alignment": {
+  "n_points": 7,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1024,
+   750
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "method": "cv2.findHomography least squares (all points)",
+  "H": [
+   [
+    0.3804841286,
+    0.226579976,
+    230.225274736
+   ],
+   [
+    0.1361919235,
+    0.6021808751,
+    61.5455379133
+   ],
+   [
+    0.0002633769,
+    0.0005141091,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    2.8777074462,
+    -0.5458389404,
+    -628.9270362201
+   ],
+   [
+    -0.6051704682,
+    1.613260529,
+    40.0365502454
+   ],
+   [
+    -0.0004467981,
+    -0.0006856305,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   4.81,
+   8.37,
+   4.05,
+   10.7,
+   5.84,
+   2.18,
+   6.09
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 6.55,
+  "rms_all_points_px": 6.55,
+  "rms_rel_diag": 0.00516,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   12.43,
+   19.33,
+   7.39,
+   17.56,
+   8.35,
+   16.08,
+   22.89
+  ],
+  "loo_max_px": 22.89,
+  "loo_max_rel_diag": 0.01803,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.072,
+  "valid_region_historic": [
+   [
+    601.7000122070312,
+    335.0
+   ],
+   [
+    578.0,
+    495.0
+   ],
+   [
+    355.0,
+    490.0
+   ],
+   [
+    350.0,
+    266.0
+   ],
+   [
+    493.29998779296875,
+    231.0
+   ]
+  ],
+  "scope": "local: control points span 7% of the historic image; trust only the outlined region",
+  "confidence": "medium",
+  "reason": "fit usable; check marked areas",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}
