@@ -1,0 +1,242 @@
+{
+ "probed_at": "2026-11-01T14:41:33+00:00",
+ "network": "Claude Code cloud container via egress proxy (results may differ elsewhere)",
+ "routes": [
+  {
+   "provider": "met",
+   "route": "search v1.1",
+   "url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=Benoist&hasImages=true",
+   "status": 200,
+   "content_type": "application/json",
+   "ms": 393,
+   "sample": "{\"total\":78,\"objectIDs\":[695277,695323,695333,695343,695445,752038,435650,694500,694571,694572,371462,371456,626363,22017,400455,400653,400664,400665,492554,699"
+  },
+  {
+   "provider": "met",
+   "route": "search v1 (retired)",
+   "url": "https://collectionapi.metmuseum.org/public/collection/v1/search?q=Benoist",
+   "status": 410,
+   "error": "Gone",
+   "ms": 145
+  },
+  {
+   "provider": "artic",
+   "route": "search + AIC-User-Agent",
+   "url": "https://api.artic.edu/api/v1/artworks/search?q=market&limit=1",
+   "status": 200,
+   "content_type": "application/json",
+   "ms": 271,
+   "sample": "{\"preference\":null,\"pagination\":{\"total\":133169,\"limit\":1,\"offset\":0,\"total_pages\":133169,\"current_page\":1},\"data\":[{\"_score\":52.96457,\"id\":896,\"api_model\":\"art"
+  },
+  {
+   "provider": "artic",
+   "route": "search without AIC-User-Agent",
+   "url": "https://api.artic.edu/api/v1/artworks/search?q=market&limit=1",
+   "status": 403,
+   "error": "Forbidden",
+   "ms": 124
+  },
+  {
+   "provider": "cleveland",
+   "route": "artworks",
+   "url": "https://openaccess-api.clevelandart.org/api/artworks/?q=Paris&limit=1",
+   "status": 200,
+   "content_type": "application/json",
+   "ms": 441,
+   "sample": "{\"info\": {\"total\": 3429, \"parameters\": {\"skip\": 0, \"limit\": 1, \"q\": \"Paris\", \"select\": \"accession_number,accession_number_sortable,cover_accession_number,depart"
+  },
+  {
+   "provider": "commons",
+   "route": "api.php search",
+   "url": "https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=Benoist&srnamespace=6&format=json",
+   "status": 429,
+   "error": "Too Many Requests",
+   "ms": 196
+  },
+  {
+   "provider": "wikidata",
+   "route": "wbsearchentities",
+   "url": "https://www.wikidata.org/w/api.php?action=wbsearchentities&search=Benoist&language=fr&format=json",
+   "status": 429,
+   "error": "Too Many Requests",
+   "ms": 199
+  },
+  {
+   "provider": "wikidata",
+   "route": "SPARQL",
+   "url": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fx%20WHERE%20%7Bwd%3AQ277187%20wdt%3AP31%20%3Fx%7D",
+   "status": 200,
+   "content_type": "application/sparql-results+json;charset=utf-8",
+   "ms": 294,
+   "sample": "{\n  \"head\" : {\n    \"vars\" : [ \"x\" ]\n  },\n  \"results\" : {\n    \"bindings\" : [ {\n      \"x\" : {\n        \"type\" : \"uri\",\n        \"value\" : \"http://www.wikidata.org/e"
+  },
+  {
+   "provider": "europeana",
+   "route": "search (api2demo key)",
+   "url": "https://api.europeana.eu/record/v2/search.json?wskey=REDACTED&query=Benoist&rows=1",
+   "status": 200,
+   "content_type": "application/json;charset=UTF-8",
+   "ms": 268,
+   "sample": "{\"apikey\":\"api2demo\",\"success\":true,\"requestNumber\":999,\"itemsCount\":1,\"totalResults\":8212,\"items\":[{\"completeness\":6,\"country\":[\"France\"],\"dataProvider\":[\"Nati"
+  },
+  {
+   "provider": "loc",
+   "route": "photos ?fo=json",
+   "url": "https://www.loc.gov/photos/?q=Benoist&fo=json&c=1&at=pagination",
+   "status": 200,
+   "content_type": "application/json",
+   "ms": 2577,
+   "sample": "{\"pagination\": {\"current\": 1, \"first\": null, \"from\": 1, \"last\": \"https://www.loc.gov/photos/?c=1&fo=json&q=benoist&sp=4\", \"next\": \"https://www.loc.gov/photos/?c"
+  },
+  {
+   "provider": "loc",
+   "route": "item IIIF manifest",
+   "url": "https://www.loc.gov/item/2016652452/manifest.json",
+   "status": 403,
+   "error": "Forbidden",
+   "ms": 128
+  },
+  {
+   "provider": "rijksmuseum",
+   "route": "Linked Art search",
+   "url": "https://data.rijksmuseum.nl/search/collection?creator=Benoist",
+   "status": 200,
+   "content_type": "application/ld+json",
+   "ms": 627,
+   "sample": "{\"@context\":\"https://linked.art/ns/v1/search.json\",\"id\":\"https://data.rijksmuseum.nl/search/collection?creator=Benoist\",\"type\":\"OrderedCollectionPage\",\"partOf\":"
+  },
+  {
+   "provider": "vam",
+   "route": "objects/search v2",
+   "url": "https://api.vam.ac.uk/v2/objects/search?q=Benoist&page_size=1",
+   "status": 200,
+   "content_type": "application/json",
+   "ms": 380,
+   "sample": "{\"info\":{\"version\":\"2.0\",\"record_count\":54,\"record_count_exact\":true,\"parameters\":{},\"page_size\":1,\"pages\":54,\"page\":1,\"image_count\":33},\"records\":[{\"systemNumb"
+  },
+  {
+   "provider": "smithsonian",
+   "route": "openaccess search (DEMO_KEY)",
+   "url": "https://api.si.edu/openaccess/api/v1.0/search?q=Paris&rows=1&api_key=REDACTED",
+   "status": 429,
+   "error": "Too Many Requests",
+   "ms": 552
+  },
+  {
+   "provider": "panoramax",
+   "route": "STAC search bbox",
+   "url": "https://api.panoramax.xyz/api/search?bbox=25.28,54.68,25.29,54.69&limit=1",
+   "status": 200,
+   "content_type": "application/json",
+   "ms": 379,
+   "sample": "{\"features\":[{\"id\":\"59474f06-4037-404c-91de-bf83354274a0\",\"bbox\":[25.286631674,54.685809295,25.286631674,54.685809295],\"type\":\"Feature\",\"links\":[{\"rel\":\"license"
+  },
+  {
+   "provider": "gallica",
+   "route": "SRU",
+   "url": "https://gallica.bnf.fr/SRU?operation=searchRetrieve&version=1.2&query=dc.creator%20all%20%22Benoist%22&maximumRecords=1",
+   "status": 403,
+   "error": "Forbidden",
+   "ms": 197
+  },
+  {
+   "provider": "gallica",
+   "route": "IIIF info.json",
+   "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b8453856h/f1/info.json",
+   "status": 403,
+   "error": "Forbidden",
+   "ms": 127
+  },
+  {
+   "provider": "getty",
+   "route": "Linked Art / data.getty.edu",
+   "url": "https://data.getty.edu/museum/collection/object/search?q=Benoist",
+   "status": null,
+   "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1035)>",
+   "ms": 210
+  },
+  {
+   "provider": "getty",
+   "route": "www search page",
+   "url": "https://www.getty.edu/art/collection/search?q=Benoist",
+   "status": 200,
+   "content_type": "text/html; charset=utf-8",
+   "ms": 247,
+   "sample": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"/><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/><meta name=\"viewport\" content=\"width=device-wi"
+  },
+  {
+   "provider": "nypl",
+   "route": "new collections API docs",
+   "url": "https://api-collections.nypl.org/docs",
+   "status": 200,
+   "content_type": "text/html; charset=utf-8",
+   "ms": 271,
+   "sample": "\n    <!DOCTYPE html>\n    <html>\n    <head><script type=\"text/javascript\">window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"gov-bam.nr-data.net\",\"errorBeacon\":\"gov-"
+  },
+  {
+   "provider": "nypl",
+   "route": "legacy api.repo.nypl.org (retired 2026-08-01)",
+   "url": "https://api.repo.nypl.org/api/v2/items/search?q=menu",
+   "status": 401,
+   "error": "Unauthorized",
+   "ms": 315
+  },
+  {
+   "provider": "harvard",
+   "route": "object (no key)",
+   "url": "https://api.harvardartmuseums.org/object?q=Benoist",
+   "status": 401,
+   "error": "Unauthorized",
+   "ms": 326
+  },
+  {
+   "provider": "dpla",
+   "route": "items (no key)",
+   "url": "https://api.dp.la/v2/items?q=Benoist",
+   "status": 403,
+   "error": "Forbidden",
+   "ms": 473
+  },
+  {
+   "provider": "british_library",
+   "route": "api.bl.uk",
+   "url": "https://api.bl.uk/",
+   "status": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>",
+   "ms": 80
+  },
+  {
+   "provider": "ddb",
+   "route": "Deutsche Digitale Bibliothek search",
+   "url": "https://api.deutsche-digitale-bibliothek.de/2/search/index/search/select?query=Benoist",
+   "status": 500,
+   "error": "Internal Server Error",
+   "ms": 606
+  },
+  {
+   "provider": "onb",
+   "route": "ÖNB IIIF",
+   "url": "https://iiif.onb.ac.at/",
+   "status": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+   "ms": 10729
+  },
+  {
+   "provider": "polona",
+   "route": "Polona (PL national library)",
+   "url": "https://polona.pl/api/",
+   "status": 404,
+   "error": "Not Found",
+   "ms": 632
+  },
+  {
+   "provider": "ethz",
+   "route": "ETH e-pics Bildarchiv",
+   "url": "https://ba.e-pics.ethz.ch/",
+   "status": 200,
+   "content_type": "text/html",
+   "ms": 827,
+   "sample": "<!DOCTYPE html>\r\n<html lang=\"en\" class=\"has-navbar-fixed-top\">\r\n<head>\r\n\t<!-- Matomo Tag Manager -->\r\n\t<script>\r\n\t\tvar _mtm = window._mtm = window._mtm || [];\r\n"
+  }
+ ]
+}

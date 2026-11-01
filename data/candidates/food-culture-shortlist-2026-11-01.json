@@ -1,0 +1,324 @@
+{
+ "note": "Manual shortlist from keyword-tagged candidates. Food-culture claims need museum/archive text before any story is written.",
+ "count": 22,
+ "items": [
+  {
+   "id": "europeana:9200518/ark__12148_btv1b69552845",
+   "institution": "National Library of France",
+   "title": "Marché à Pontoise : [estampe] ([3e état]) / C. Pissarro",
+   "date_display": "1895",
+   "source_url": "http://gallica.bnf.fr/ark:/12148/btv1b69552845",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "market (Pissarro, Pontoise, 1895)",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "europeana:1542/IMA00085108",
+   "institution": "Catalogo Collettivo digitale IMAGO",
+   "title": "Place du marché a Neuchatel (Suisse)",
+   "date_display": "1859",
+   "source_url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00085108",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "food_market",
+    "square_street"
+   ],
+   "curator_note": "market square, Neuchâtel, 1859",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "europeana:1542/IMA00094179",
+   "institution": "Catalogo Collettivo digitale IMAGO",
+   "title": "Depart pour le marché",
+   "date_display": "1843; 1838",
+   "source_url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00094179",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "food_market",
+    "square_street"
+   ],
+   "curator_note": "going to market, 1838/1843",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:2004673336",
+   "institution": "Library of Congress",
+   "title": "Fish market Canton",
+   "date_display": "1856-01-01",
+   "source_url": "https://www.loc.gov/item/2004673336/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "food_market",
+    "square_street"
+   ],
+   "curator_note": "fish market, Canton, 1856",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:98501397",
+   "institution": "Library of Congress",
+   "title": "Le Marché",
+   "date_display": "1820-01-01",
+   "source_url": "https://www.loc.gov/item/98501397/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "'Le Marché', 1820",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:2008661330",
+   "institution": "Library of Congress",
+   "title": "The great Rohan & the cattle market",
+   "date_display": "1838-01-01",
+   "source_url": "https://www.loc.gov/item/2008661330/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "cattle market, 1838",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "artic:111655",
+   "institution": "Art Institute of Chicago",
+   "title": "The Apple Market",
+   "date_display": "c. 1880",
+   "source_url": "https://www.artic.edu/artworks/111655",
+   "rights_category": "open",
+   "theme_tags": [
+    "food_market",
+    "architecture"
+   ],
+   "curator_note": "The Apple Market, c.1880",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "artic:69704",
+   "institution": "Art Institute of Chicago",
+   "title": "The Market",
+   "date_display": "c. 1895",
+   "source_url": "https://www.artic.edu/artworks/69704",
+   "rights_category": "open",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "The Market, c.1895",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "artic:896",
+   "institution": "Art Institute of Chicago",
+   "title": "The Road to Market",
+   "date_display": "1858–59",
+   "source_url": "https://www.artic.edu/artworks/896",
+   "rights_category": "open",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "The Road to Market, 1858–59",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "artic:15480",
+   "institution": "Art Institute of Chicago",
+   "title": "Melon Market, Peking",
+   "date_display": "n.d.",
+   "source_url": "https://www.artic.edu/artworks/15480",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "Melon Market, Peking",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "artic:62042",
+   "institution": "Art Institute of Chicago",
+   "title": "Still Life with Dead Game, Fruits, and Vegetables in a Market",
+   "date_display": "1614",
+   "source_url": "https://www.artic.edu/artworks/62042",
+   "rights_category": "open",
+   "theme_tags": [
+    "food_market"
+   ],
+   "curator_note": "market still life, 1614",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "cleveland:165259",
+   "institution": "Cleveland Museum of Art",
+   "title": "Mlle Bécat at the Café des Ambassadeurs",
+   "date_display": "1877–78",
+   "source_url": "https://clevelandart.org/art/2007.194",
+   "rights_category": "open",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "Café des Ambassadeurs, 1877–78",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "cleveland:324444",
+   "institution": "Cleveland Museum of Art",
+   "title": "At the Café",
+   "date_display": "1874",
+   "source_url": "https://clevelandart.org/art/2019.57",
+   "rights_category": "open",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "At the Café, 1874",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "cleveland:128074",
+   "institution": "Cleveland Museum of Art",
+   "title": "Café Wepler",
+   "date_display": "c. 1908–10, reworked in 1912",
+   "source_url": "https://clevelandart.org/art/1950.90",
+   "rights_category": "open",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "Café Wepler, c.1908–10",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:2003663025",
+   "institution": "Library of Congress",
+   "title": "[Café chantant]",
+   "date_display": "1893-01-01",
+   "source_url": "https://www.loc.gov/item/2003663025/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "café chantant, 1893",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:2003663028",
+   "institution": "Library of Congress",
+   "title": "Café barcadère restaurante, St. Germaine",
+   "date_display": "1893-01-01",
+   "source_url": "https://www.loc.gov/item/2003663028/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "café-restaurant, St-Germain, 1893",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:2019641928",
+   "institution": "Library of Congress",
+   "title": "The finest of French cafés, grand hotel, Paris, France",
+   "date_display": "1903-01-01",
+   "source_url": "https://www.loc.gov/item/2019641928/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "French café, Grand Hôtel Paris, 1903",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "loc:92520969",
+   "institution": "Library of Congress",
+   "title": "[Moroccan café on \"a street in Cairo\", Paris Exposition, 1889]",
+   "date_display": "1889-01-01",
+   "source_url": "https://www.loc.gov/item/92520969/",
+   "rights_category": "unknown",
+   "theme_tags": [
+    "cafe_restaurant",
+    "square_street"
+   ],
+   "curator_note": "Moroccan café, Paris Exposition 1889",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "europeana:9200518/ark__12148_btv1b10524412v",
+   "institution": "National Library of France",
+   "title": "Menu, Café restaurant de la place Blanche, même maison Restaurant du rat mort : [menu] / Henry Somm",
+   "date_display": "1894",
+   "source_url": "http://gallica.bnf.fr/ark:/12148/btv1b10524412v",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "cafe_restaurant",
+    "square_street"
+   ],
+   "curator_note": "menu, café-restaurant place Blanche, 1894",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "europeana:9200518/ark__12148_btv1b102013980",
+   "institution": "National Library of France",
+   "title": "Menu. 6 juillet 1895. Grand restaurant de l'exposition",
+   "date_display": "1895",
+   "source_url": "http://gallica.bnf.fr/ark:/12148/btv1b102013980",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "menu, grand restaurant de l'exposition, 1895",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "europeana:2058201/10970_objects_H608612",
+   "institution": "Frederic Marès Museum",
+   "title": "Restaurant Nou Noé. Menú Humoristich",
+   "date_display": "1898",
+   "source_url": "http://hdl.handle.net/10970/objects/H608612",
+   "rights_category": "restricted",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "menu, Restaurant Nou Noé, 1898",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  },
+  {
+   "id": "europeana:1100/5618",
+   "institution": "Chester Beatty",
+   "title": "Restaurant Larue menu",
+   "date_display": "",
+   "source_url": "https://viewer.cbl.ie/viewer/ppnresolver?id=WEp_0958a",
+   "rights_category": "open",
+   "theme_tags": [
+    "cafe_restaurant"
+   ],
+   "curator_note": "Restaurant Larue menu",
+   "check": "title/date read from provider metadata by Claude 2026-11-01; image NOT inspected; not approved"
+  }
+ ],
+ "excluded_examples": [
+  {
+   "id_prefix": "loc:2002718729",
+   "reason": "slave market: not food culture; sensitive subject, needs separate curatorial framing"
+  },
+  {
+   "id_prefix": "artic:97908",
+   "reason": "slave market: not food culture; sensitive subject"
+  },
+  {
+   "id_prefix": "europeana:2064108/Museu_ProvidedCHO_Kupf",
+   "reason": "'Marché aux nègres': not food culture; sensitive subject"
+  },
+  {
+   "id_prefix": "loc:2021670358",
+   "reason": "street name 'Market Street', not a market scene (keyword false positive)"
+  },
+  {
+   "id_prefix": "artic:7765",
+   "reason": "coffee pot (object), not a café scene (keyword false positive)"
+  },
+  {
+   "id_prefix": "loc:afcwip002724",
+   "reason": "1994 photographs: outside historic scope"
+  }
+ ]
+}
