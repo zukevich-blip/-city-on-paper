@@ -4,44 +4,420 @@
   "title": "City on Paper - curated historical work (catalog record)",
   "description": "One historical work (lithograph, engraving, drawing, painting, postcard, photograph, menu...). Separate review states for attribution, licensing, geo and viewpoint. The original image is never modified; derived files are labelled as such.",
   "type": "object",
-  "required": ["id", "titles", "agents", "holding", "rights", "review", "media"],
+  "required": [
+    "id",
+    "titles",
+    "agents",
+    "holding",
+    "rights",
+    "review",
+    "media"
+  ],
   "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "description": "canonical work id, e.g. ph-benoist-album-de-wilna-pl12"},
-    "alternate_ids": {"type": "array", "items": {"type": "string"}, "description": "provider:id of every harvested candidate merged into this work"},
-    "titles": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["text", "lang", "kind"],
-      "properties": {"text": {"type": "string"}, "lang": {"type": "string", "description": "BCP-47; original title keeps its own language"},
-        "kind": {"enum": ["original", "inscribed", "catalogue", "translation", "transliteration"]}}}},
-    "agents": {"type": "array", "items": {"type": "object", "required": ["name", "role", "certainty"],
-      "properties": {"name": {"type": "string"}, "wikidata": {"type": "string", "pattern": "^Q[0-9]+$"}, "ulan": {"type": "string"},
-        "dates": {"type": "string"}, "role": {"enum": ["draughtsman", "painter", "lithographer", "engraver", "figures", "printer", "publisher", "photographer", "author", "after"]},
-        "certainty": {"enum": ["documented", "attributed", "uncertain"]}, "evidence_url": {"type": "string", "format": "uri"}}}},
-    "series": {"type": "object", "properties": {"title": {"type": "string"}, "volume": {"type": "string"}, "plate": {"type": "string"}, "publisher": {"type": "string"}, "year": {"type": "string"}}},
-    "date": {"type": "object", "properties": {"display": {"type": "string"}, "earliest": {"type": "integer"}, "latest": {"type": "integer"}}},
-    "medium": {"type": "string"},
-    "is_retrospective_reconstruction": {"type": "boolean", "description": "e.g. 'compositions retrospectives' of old Paris: not drawn from life"},
-    "place": {"type": "object", "properties": {"name_historic": {"type": "string"}, "name_modern": {"type": "string"}, "city": {"type": "string"}, "country": {"type": "string"},
-      "wikidata": {"type": "string"}, "lat": {"type": "number"}, "lon": {"type": "number"}, "precision": {"enum": ["exact", "building", "street", "city", "unknown"]}}},
-    "subjects": {"type": "array", "items": {"type": "string"}},
-    "theme_tags": {"type": "array", "items": {"enum": ["architecture", "square_street", "city_view", "food_market", "cafe_restaurant", "bakery_shop", "menu", "canal_port", "promenade", "landmark"]}},
-    "holding": {"type": "object", "required": ["institution", "object_url"], "properties": {
-      "institution": {"type": "string"}, "object_id": {"type": "string"}, "shelfmark": {"type": "string"}, "object_url": {"type": "string", "format": "uri"},
-      "iiif_manifest": {"type": "string"}, "iiif_image_service": {"type": "string"}, "via": {"type": "string", "description": "aggregator, e.g. Europeana / Commons (source-of-source)"}}},
-    "media": {"type": "object", "properties": {
-      "original": {"type": "object", "properties": {"url": {"type": "string"}, "width": {"type": "integer"}, "height": {"type": "integer"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "fetched": {"type": "string", "format": "date"}, "stored_locally": {"type": "boolean"}}},
-      "derived": {"type": "array", "items": {"type": "object", "required": ["kind", "url"], "properties": {"kind": {"enum": ["thumbnail", "tile", "web"]}, "url": {"type": "string"}, "from_sha256": {"type": "string"}}}}}},
-    "rights": {"type": "object", "required": ["artwork", "image", "checked"], "properties": {
-      "artwork": {"type": "string", "description": "copyright status of the work itself"},
-      "image": {"type": "string", "description": "status of the scan/photo as stated by holder"},
-      "metadata": {"type": "string"}, "uri": {"type": "string"}, "attribution_required": {"type": "string"},
-      "constraints": {"type": "string", "description": "e.g. BnF: commercial reuse needs licence"}, "checked": {"type": "string", "format": "date"},
-      "redistribution": {"enum": ["allowed", "link_only", "blocked"], "description": "link_only = store metadata/links, never image bytes"}}},
-    "review": {"type": "object", "required": ["attribution", "licensing", "geo"], "properties": {
-      "attribution": {"$ref": "#/$defs/state"}, "licensing": {"$ref": "#/$defs/state"}, "geo": {"$ref": "#/$defs/state"}, "viewpoint": {"$ref": "#/$defs/state"}}},
-    "notes": {"type": "array", "items": {"type": "object", "properties": {"kind": {"enum": ["curatorial", "historical_source", "editorial_interpretation", "modern_status"]}, "text": {"type": "string"}, "source_url": {"type": "string"}, "lang": {"type": "string"}}}}
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "canonical work id, e.g. ph-benoist-album-de-wilna-pl12"
+    },
+    "alternate_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "provider:id of every harvested candidate merged into this work"
+    },
+    "titles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "lang",
+          "kind"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string",
+            "description": "BCP-47; original title keeps its own language"
+          },
+          "kind": {
+            "enum": [
+              "original",
+              "inscribed",
+              "catalogue",
+              "translation",
+              "transliteration"
+            ]
+          }
+        }
+      }
+    },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "role",
+          "certainty"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "wikidata": {
+            "type": "string",
+            "pattern": "^Q[0-9]+$"
+          },
+          "ulan": {
+            "type": "string"
+          },
+          "dates": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "draughtsman",
+              "painter",
+              "lithographer",
+              "engraver",
+              "figures",
+              "printer",
+              "publisher",
+              "photographer",
+              "author",
+              "after",
+              "artist"
+            ]
+          },
+          "certainty": {
+            "enum": [
+              "documented",
+              "attributed",
+              "uncertain"
+            ]
+          },
+          "evidence_url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "series": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "string"
+        },
+        "plate": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        }
+      }
+    },
+    "date": {
+      "type": "object",
+      "properties": {
+        "display": {
+          "type": "string"
+        },
+        "earliest": {
+          "type": "integer"
+        },
+        "latest": {
+          "type": "integer"
+        }
+      }
+    },
+    "medium": {
+      "type": "string"
+    },
+    "is_retrospective_reconstruction": {
+      "type": "boolean",
+      "description": "e.g. 'compositions retrospectives' of old Paris: not drawn from life"
+    },
+    "place": {
+      "type": "object",
+      "properties": {
+        "name_historic": {
+          "type": "string"
+        },
+        "name_modern": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "wikidata": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "lon": {
+          "type": "number"
+        },
+        "precision": {
+          "enum": [
+            "exact",
+            "building",
+            "street",
+            "city",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "theme_tags": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "architecture",
+          "square_street",
+          "city_view",
+          "food_market",
+          "cafe_restaurant",
+          "bakery_shop",
+          "menu",
+          "canal_port",
+          "promenade",
+          "landmark"
+        ]
+      }
+    },
+    "holding": {
+      "type": "object",
+      "required": [
+        "institution",
+        "object_url"
+      ],
+      "properties": {
+        "institution": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "shelfmark": {
+          "type": "string"
+        },
+        "object_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "iiif_manifest": {
+          "type": "string"
+        },
+        "iiif_image_service": {
+          "type": "string"
+        },
+        "via": {
+          "type": "string",
+          "description": "aggregator, e.g. Europeana / Commons (source-of-source)"
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "properties": {
+        "original": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "fetched": {
+              "type": "string",
+              "format": "date"
+            },
+            "stored_locally": {
+              "type": "boolean"
+            }
+          }
+        },
+        "derived": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "url"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "thumbnail",
+                  "tile",
+                  "web"
+                ]
+              },
+              "url": {
+                "type": "string"
+              },
+              "from_sha256": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "required": [
+        "artwork",
+        "image",
+        "checked"
+      ],
+      "properties": {
+        "artwork": {
+          "type": "string",
+          "description": "copyright status of the work itself"
+        },
+        "image": {
+          "type": "string",
+          "description": "status of the scan/photo as stated by holder"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "attribution_required": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "string",
+          "description": "e.g. BnF: commercial reuse needs licence"
+        },
+        "checked": {
+          "type": "string",
+          "format": "date"
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "link_only",
+            "blocked"
+          ],
+          "description": "link_only = store metadata/links, never image bytes"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "attribution",
+        "licensing",
+        "geo"
+      ],
+      "properties": {
+        "attribution": {
+          "$ref": "#/$defs/state"
+        },
+        "licensing": {
+          "$ref": "#/$defs/state"
+        },
+        "geo": {
+          "$ref": "#/$defs/state"
+        },
+        "viewpoint": {
+          "$ref": "#/$defs/state"
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "curatorial",
+              "historical_source",
+              "editorial_interpretation",
+              "modern_status"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        }
+      }
+    }
   },
   "$defs": {
-    "state": {"type": "object", "required": ["status"], "properties": {
-      "status": {"enum": ["candidate", "verified", "uncertain", "blocked", "not_applicable"]},
-      "evidence_urls": {"type": "array", "items": {"type": "string"}}, "reviewer": {"type": "string"}, "date": {"type": "string", "format": "date"}, "comment": {"type": "string"}}}
+    "state": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "candidate",
+            "verified",
+            "uncertain",
+            "blocked",
+            "not_applicable"
+          ]
+        },
+        "evidence_urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewer": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
   }
 }
