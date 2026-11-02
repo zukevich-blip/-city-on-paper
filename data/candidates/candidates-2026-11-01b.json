@@ -763,7 +763,7 @@
    "source_url": "https://www.loc.gov/item/2021670758/",
    "iiif_manifest": "https://www.loc.gov/item/2021670758/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:14:76:7:wdl_14767:E0000001/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670758/#rights",
    "rights_category": "unknown",
@@ -815,7 +815,7 @@
    "source_url": "https://www.loc.gov/item/2021670757/",
    "iiif_manifest": "https://www.loc.gov/item/2021670757/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:14:76:6:wdl_14766:E0000001/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670757/#rights",
    "rights_category": "unknown",
@@ -4165,8 +4165,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market"
    ],
@@ -4567,8 +4567,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -4787,7 +4787,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -4870,8 +4870,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -4953,7 +4953,7 @@
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [
     "architecture",
     "square_street",
@@ -4998,7 +4998,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 55.2,
-   "lon": 24.0,
+   "lon": 24,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -6115,8 +6115,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -6646,8 +6646,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -6849,7 +6849,7 @@
    "source_url": "https://www.loc.gov/item/2021670358/",
    "iiif_manifest": "https://www.loc.gov/item/2021670358/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:43:3:wdl_09433:W227-3/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670358/#rights",
    "rights_category": "unknown",
@@ -7245,7 +7245,7 @@
    "source_url": "https://www.loc.gov/item/2021670189/",
    "iiif_manifest": "https://www.loc.gov/item/2021670189/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:26:1:wdl_09261:W032/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670189/#rights",
    "rights_category": "unknown",
@@ -7295,7 +7295,7 @@
    "source_url": "https://www.loc.gov/item/2021670214/",
    "iiif_manifest": "https://www.loc.gov/item/2021670214/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:28:8:wdl_09288:W243/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670214/#rights",
    "rights_category": "unknown",
@@ -7346,7 +7346,7 @@
    "source_url": "https://www.loc.gov/item/2021670197/",
    "iiif_manifest": "https://www.loc.gov/item/2021670197/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:26:9:wdl_09269:W320/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670197/#rights",
    "rights_category": "unknown",
@@ -8934,8 +8934,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -8977,8 +8977,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -10080,7 +10080,7 @@
    "source_url": "https://www.loc.gov/item/92520969/",
    "iiif_manifest": "https://www.loc.gov/item/92520969/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c06000/3c06500/3c06574v.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/92520969/#rights",
    "rights_category": "unknown",
@@ -10575,7 +10575,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002724/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002724/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07615/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002724/#rights",
    "rights_category": "unknown",
@@ -10642,7 +10642,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002725/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002725/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07616/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002725/#rights",
    "rights_category": "unknown",
@@ -10709,7 +10709,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002726/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002726/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07617/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002726/#rights",
    "rights_category": "unknown",
@@ -10776,7 +10776,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002727/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002727/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07618/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002727/#rights",
    "rights_category": "unknown",
@@ -10843,7 +10843,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002728/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002728/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07619/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002728/#rights",
    "rights_category": "unknown",
@@ -10910,7 +10910,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002729/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002729/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc076:afc1995028_mcc07620/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002729/#rights",
    "rights_category": "unknown",
@@ -10977,7 +10977,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001245/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001245/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03416/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip001245/#rights",
    "rights_category": "unknown",
@@ -11044,7 +11044,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001246/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001246/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03417/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip001246/#rights",
    "rights_category": "unknown",
@@ -11111,7 +11111,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001247/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001247/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03418/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip001247/#rights",
    "rights_category": "unknown",
@@ -11178,7 +11178,7 @@
    "source_url": "https://www.loc.gov/item/afcwip001248/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip001248/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcb034:afc1995028_mcb03419/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip001248/#rights",
    "rights_category": "unknown",
@@ -11294,7 +11294,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002731/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002731/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc077:afc1995028_mcc07702/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002731/#rights",
    "rights_category": "unknown",
@@ -11347,7 +11347,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002732/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002732/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc077:afc1995028_mcc07703/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002732/#rights",
    "rights_category": "unknown",
@@ -11400,7 +11400,7 @@
    "source_url": "https://www.loc.gov/item/afcwip002730/",
    "iiif_manifest": "https://www.loc.gov/item/afcwip002730/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1995028:afc1995028_mcc077:afc1995028_mcc07701/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afcwip002730/#rights",
    "rights_category": "unknown",
@@ -11638,7 +11638,7 @@
    "source_url": "https://www.loc.gov/item/2023632526/",
    "iiif_manifest": "https://www.loc.gov/item/2023632526/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/85700/85775v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights status not evaluated. For general information see: \"Copyright and Other Restrictions...,\" https://hdl.loc.gov/loc.pnp/res.195.copr",
    "rights_uri": "https://www.loc.gov/item/2023632526/#rights",
    "rights_category": "unknown",
@@ -11779,8 +11779,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by/4.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -11822,8 +11822,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -11950,8 +11950,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12079,8 +12079,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12122,8 +12122,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12165,8 +12165,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -12208,8 +12208,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/zero/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 59.0,
-   "lon": 26.0,
+   "lat": 59,
+   "lon": 26,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -13342,7 +13342,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13392,7 +13392,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13442,7 +13442,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13535,7 +13535,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13753,7 +13753,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13797,7 +13797,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -13845,7 +13845,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -14026,7 +14026,7 @@
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
    "lat": 38.5,
-   "lon": 23.0,
+   "lon": 23,
    "theme_tags": [
     "square_street",
     "city_view"
@@ -14599,8 +14599,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14642,8 +14642,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14685,8 +14685,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -14728,8 +14728,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "city_view"
    ],
@@ -20735,7 +20735,7 @@
    "source_url": "https://www.loc.gov/item/2021670735/",
    "iiif_manifest": "https://www.loc.gov/item/2021670735/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:14:39:3:wdl_14393:DelaG_35_Florence/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/2021670735/#rights",
    "rights_category": "unknown",
@@ -20972,7 +20972,7 @@
    "source_url": "https://www.loc.gov/item/96512438/",
    "iiif_manifest": "https://www.loc.gov/item/96512438/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3b30000/3b37000/3b37700/3b37700r.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/96512438/#rights",
    "rights_category": "unknown",
@@ -21210,7 +21210,7 @@
    "source_url": "//lccn.loc.gov/2005683298",
    "iiif_manifest": "//lccn.loc.gov/2005683298manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://www.loc.gov/static/images/original-format/group-of-images.svg",
+   "preview_url": "",
    "rights_statement": "Rights status of individual images not evaluated. For general information see: \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "//lccn.loc.gov/2005683298#rights",
    "rights_category": "unknown",
@@ -22217,8 +22217,8 @@
    "rights_uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 57.0,
-   "lon": 25.0,
+   "lat": 57,
+   "lon": 25,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -25508,7 +25508,7 @@
    "source_url": "//lccn.loc.gov/2005686271",
    "iiif_manifest": "//lccn.loc.gov/2005686271manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://www.loc.gov/static/images/original-format/group-of-images.svg",
+   "preview_url": "",
    "rights_statement": "Rights status of individual images not evaluated. For general information see: \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "//lccn.loc.gov/2005686271#rights",
    "rights_category": "unknown",
@@ -26077,8 +26077,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/InC/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "city_view"
    ],
@@ -28420,8 +28420,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/InC/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 50.0,
-   "lon": 15.0,
+   "lat": 50,
+   "lon": 15,
    "theme_tags": [],
    "status": {
     "attribution": "candidate",
@@ -28552,7 +28552,7 @@
    "source_url": "//lccn.loc.gov/2005690232",
    "iiif_manifest": "//lccn.loc.gov/2005690232manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://www.loc.gov/static/images/original-format/group-of-images.svg",
+   "preview_url": "",
    "rights_statement": "Rights status of individual images not evaluated. For general information see: \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "//lccn.loc.gov/2005690232#rights",
    "rights_category": "unknown",
@@ -28693,7 +28693,7 @@
    "source_url": "//lccn.loc.gov/2005690960",
    "iiif_manifest": "//lccn.loc.gov/2005690960manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://www.loc.gov/static/images/original-format/group-of-images.svg",
+   "preview_url": "",
    "rights_statement": "Rights status of individual images not evaluated. For general information see: \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "//lccn.loc.gov/2005690960#rights",
    "rights_category": "unknown",
@@ -29344,7 +29344,7 @@
    "source_url": "//lccn.loc.gov/2005678450",
    "iiif_manifest": "//lccn.loc.gov/2005678450manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://www.loc.gov/static/images/original-format/group-of-images.svg",
+   "preview_url": "",
    "rights_statement": "Rights status of individual images not evaluated. For general information see: \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "//lccn.loc.gov/2005678450#rights",
    "rights_category": "unknown",
@@ -29614,8 +29614,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "city_view"
@@ -29702,8 +29702,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "city_view"
@@ -29746,8 +29746,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "city_view"
@@ -29833,8 +29833,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "city_view"
@@ -29963,8 +29963,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "city_view"
@@ -30095,8 +30095,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "square_street",
@@ -30144,8 +30144,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "square_street",
@@ -30377,8 +30377,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "food_market",
     "architecture",
@@ -30427,8 +30427,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "food_market",
     "architecture",
@@ -30661,8 +30661,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "food_market",
     "architecture",
@@ -30795,8 +30795,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "architecture",
     "square_street",
@@ -32887,8 +32887,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market"
    ],
@@ -34800,8 +34800,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market"
    ],
@@ -34843,8 +34843,8 @@
    "rights_uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
    "rights_category": "restricted",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 47.0,
-   "lon": 2.0,
+   "lat": 47,
+   "lon": 2,
    "theme_tags": [
     "food_market",
     "square_street"
@@ -37849,8 +37849,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "food_market",
     "city_view"
@@ -39568,8 +39568,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 52.0,
-   "lon": 19.0,
+   "lat": 52,
+   "lon": 19,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -39829,8 +39829,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 49.0,
-   "lon": 32.0,
+   "lat": 49,
+   "lon": 32,
    "theme_tags": [
     "cafe_restaurant",
     "square_street"
@@ -39961,8 +39961,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 49.0,
-   "lon": 32.0,
+   "lat": 49,
+   "lon": 32,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -40305,8 +40305,8 @@
    "rights_uri": "http://creativecommons.org/publicdomain/mark/1.0/",
    "rights_category": "open",
    "rights_granularity": "per-record (as reported by provider)",
-   "lat": 4.0,
-   "lon": -56.0,
+   "lat": 4,
+   "lon": -56,
    "theme_tags": [
     "cafe_restaurant"
    ],
@@ -41377,7 +41377,7 @@
    "source_url": "https://www.loc.gov/item/2023635181/",
    "iiif_manifest": "https://www.loc.gov/item/2023635181/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a41000/3a41000/3a41022r.jpg",
+   "preview_url": "",
    "rights_statement": "Rights status not evaluated. For general information see \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "https://www.loc.gov/item/2023635181/#rights",
    "rights_category": "unknown",
@@ -41516,7 +41516,7 @@
    "source_url": "https://www.loc.gov/item/2023635188/",
    "iiif_manifest": "https://www.loc.gov/item/2023635188/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a41000/3a41000/3a41030r.jpg",
+   "preview_url": "",
    "rights_statement": "Rights status not evaluated. For general information see \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
    "rights_uri": "https://www.loc.gov/item/2023635188/#rights",
    "rights_category": "unknown",
@@ -41999,7 +41999,7 @@
    "source_url": "https://www.loc.gov/item/afc1989022_kl_b031/",
    "iiif_manifest": "https://www.loc.gov/item/afc1989022_kl_b031/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/image-services/iiif/service:afc:afc1989022:afc1989022_kl_b031:afc1989022_kl_b031_02/full/pct:100/0/default.jpg",
+   "preview_url": "",
    "rights_statement": "no rights advisory on item",
    "rights_uri": "https://www.loc.gov/item/afc1989022_kl_b031/#rights",
    "rights_category": "unknown",
@@ -42254,7 +42254,7 @@
    "source_url": "https://www.loc.gov/item/2024693616/",
    "iiif_manifest": "https://www.loc.gov/item/2024693616/manifest.json",
    "iiif_image_service": "",
-   "preview_url": "https://tile.loc.gov/storage-services/service/pnp/pcrd/1d00000/1d07000/1d07200/1d07235v.jpg",
+   "preview_url": "",
    "rights_statement": "Rights status not evaluated. For general information see: \"Copyright and Other Restrictions...\" https://hdl.loc.gov/loc.pnp/res.195.copr",
    "rights_uri": "https://www.loc.gov/item/2024693616/#rights",
    "rights_category": "unknown",
