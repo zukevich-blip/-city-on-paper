@@ -1,0 +1,51 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>A · Архивная бумага — макет</title>
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.45}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:8px}
+.lang{font:13px system-ui,sans-serif;color:var(--muted)}
+.mock{font:12px system-ui,sans-serif;color:var(--accent);border:1px solid var(--accent);padding:1px 6px;border-radius:3px}
+.pitch{color:var(--muted);font-size:.95rem}
+.layout{display:flex;flex-direction:column;gap:16px}
+.hero figure{margin:0}
+.hero img,.card img{display:block;width:100%;height:auto;max-height:68vh;object-fit:contain}
+figcaption,.credit{font:12px/1.4 system-ui,sans-serif;color:var(--muted);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{font:14px system-ui,sans-serif;padding:10px 14px;min-height:44px;color:var(--fg)}
+h2{font-size:1.1rem;margin:18px 0 8px}
+.stop{display:grid;grid-template-columns:40px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.stop small{display:block;color:var(--muted);font:12px system-ui,sans-serif}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{padding:12px}
+.card .tag{font:11px system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.nolink{font:12px system-ui,sans-serif;color:var(--muted);border:1px dashed var(--rule);padding:18px 8px;text-align:center;margin:6px 0}
+.map{border:1px solid var(--rule);min-height:220px;position:relative;border-radius:inherit}
+.pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--bg);display:grid;place-items:center;font:700 13px system-ui}
+.map .note{position:absolute;left:8px;bottom:8px;font:11px system-ui,sans-serif;color:var(--muted)}
+footer{font:12px system-ui,sans-serif;color:var(--muted);border-top:1px solid var(--rule);margin-top:24px;padding-top:8px}
+
+:root{--bg:#f3ecdc;--fg:#2a2118;--muted:#76674f;--rule:#cdbf9f;--accent:#7b2f17;--card:#fbf7ee}
+body{font-family:Georgia,'Times New Roman',serif}
+h1{font-weight:normal;letter-spacing:.04em;text-transform:uppercase;font-size:1.3rem}
+.hero figure{background:var(--card);border:1px solid var(--rule);padding:16px}
+.chip{border:1px solid var(--rule);border-radius:0;background:transparent;font-variant:small-caps}
+.stop .n{font-family:Georgia,serif;font-style:italic;color:var(--accent)}
+.card{border:1px solid var(--rule);background:var(--card)}
+.map{background:repeating-linear-gradient(0deg,#0000 0 23px,#d9cdb0 23px 24px),repeating-linear-gradient(90deg,#0000 0 23px,#d9cdb0 23px 24px)}
+</style></head><body><div class="wrap">
+<header><h1>Город на бумаге <span class="lang">/ City on Paper</span></h1><span><span class="mock">макет · A · Архивная бумага</span> <span class="lang">RU · EN</span></span></header>
+<p class="pitch">Музейный каталог: кремовая бумага, тёмно-коричневые чернила, антиква, тонкие линейки. Изображение — в паспарту, без эффектов.</p>
+<div class="chips" role="group" aria-label="Фасеты"><button class="chip">Города</button><button class="chip">Художники</button><button class="chip">Альбомы и серии</button><button class="chip">Эпохи</button><button class="chip">Архитектура</button><button class="chip">Рынки и кафе</button><button class="chip">Меню</button></div>
+<div class="layout">
+ <section class="hero"><figure><img src="assets/loc-pga14315v.jpg" alt="Hand-coloured lithograph of the Madeleine church in Paris seen from the south-west, with carriages"><figcaption>Paris. La Madeleine — Ph. Benoist del.; Imp. Lemercier, [1845–1860]. Library of Congress, LC-DIG-pga-14315. Оригинал без изменений.</figcaption></figure></section>
+ <section class="map" aria-label="Схема карты (заглушка, без тайлов)">
+  <span class="pin" style="left:38%;top:30%">1</span><span class="pin" style="left:62%;top:58%">2</span><span class="pin" style="left:45%;top:48%">3</span>
+  <span class="note">Карта: Leaflet + свободные тайлы — в реализации. Здесь заглушка.</span></section>
+</div>
+<h2>Прогулка во времени · Париж, 1840–1860 → сегодня</h2><div class="stop"><span class="n">1</span><div><strong>Église de la Madeleine</strong><small>Ph. Benoist, «La Madeleine»</small><small>кандидат · совмещение medium (только портик)</small></div></div><div class="stop"><span class="n">2</span><div><strong>Jardin du Palais-Royal</strong><small>Ph. Benoist, «Jardin du Palais Royal»</small><small>кандидат · фото не подобрано</small></div></div><div class="stop"><span class="n">3</span><div><strong>Jardin des Tuileries (дворец утрачен в 1871)</strong><small>Ph. Benoist, A. Bayot, «Chateau des Tuileries, côté du carrousel», 1833 (LoC 2013650023)</small><small>кандидат · пары не будет: здания нет — показываем «тогда» честно, без подделки «сейчас»</small></div></div>
+<section class="food"><h2>Жизнь на площади: рынки, кафе, меню</h2><p class="credit">Исторический источник ≠ редакционная интерпретация ≠ современный статус заведения. Мы не утверждаем, что заведение работает сегодня.</p><div class="grid"><article class="card"><span class="tag">исторический источник</span><h3 style="font-size:1rem;margin:4px 0">Menu. Café restaurant de la place Blanche</h3><div class="nolink">изображение не встраивается · NoC-OKLR — только ссылка</div><p class="credit">1894 · BnF via Europeana · <a href="https://www.europeana.eu/item/9200518/ark__12148_btv1b10524412v" rel="noopener">открыть у держателя →</a></p></article><article class="card"><span class="tag">исторический источник</span><h3 style="font-size:1rem;margin:4px 0">Marché à Pontoise (C. Pissarro)</h3><div class="nolink">изображение не встраивается · NoC-OKLR — только ссылка</div><p class="credit">1895 · BnF via Europeana · <a href="https://www.europeana.eu/item/9200518/ark__12148_btv1b69552845" rel="noopener">открыть у держателя →</a></p></article><article class="card"><span class="tag">исторический источник</span><h3 style="font-size:1rem;margin:4px 0">Mlle Bécat at the Café des Ambassadeurs (E. Degas)</h3><div class="nolink">изображение не встраивается · CC0</div><p class="credit">1877–78 · Cleveland Museum of Art · <a href="https://www.clevelandart.org/art/2007.194" rel="noopener">открыть у держателя →</a></p></article></div></section>
+<h2>В коллекции</h2><div class="grid"><article class="card"><img src="assets/loc-pga14314v.jpg" alt="Lithograph of the Palais-Royal garden with strolling figures and arcades"><p class="credit">Paris. Jardin du Palais Royal — Ph. Benoist del.; Imp. Lemercier. Library of Congress, LC-DIG-pga-14314</p></article></div>
+<footer>Макет для Issue #6 (PR C). Изображения: Library of Congress, «No known restrictions on publication». Записи BnF показаны только ссылкой. Без сгенерированной декоративной графики.</footer>
+</div></body></html>

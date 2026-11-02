@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тогда / Сейчас — прототип</title>
+<style>
+:root{
+  --paper:#f4efe4; --ink:#2b241c; --muted:#6d6254; --line:#d8cdb8; --accent:#8a3b1e;
+  --ok:#2f6b3a; --warn:#9a6a00; --bad:#a3271b; --panel:#fffdf8; --focus:#1d5fbf;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#1b1814; --ink:#efe7d8; --muted:#b3a792; --line:#3b342b; --accent:#e0915f;
+        --ok:#7cc48a; --warn:#e2b34a; --bad:#f0806f; --panel:#24201b; --focus:#8bb6ff;}
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 Georgia,"Times New Roman",serif}
+header,main,footer{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:16px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+h1{font-size:1.4rem;margin:0 0 4px;font-weight:normal;letter-spacing:.02em}
+h2{font-size:1rem;margin:12px 0 4px}
+.sub{color:var(--muted);margin:0 0 12px;font-size:.92rem}
+.poc{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:0 6px;border-radius:3px;font:12px/1.6 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+select,button{font:15px system-ui,sans-serif;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.bar label{font:14px system-ui,sans-serif;color:var(--muted)}
+.verdict{font:14px/1.4 system-ui,sans-serif;border-left:4px solid var(--muted);background:var(--panel);padding:8px 12px;margin:8px 0}
+.verdict.high{border-color:var(--ok)} .verdict.medium{border-color:var(--warn)}
+.verdict.low,.verdict.viewpoint_mismatch,.verdict.insufficient_points{border-color:var(--bad)}
+.stage{position:relative;width:100%;overflow:hidden;background:#0000;border:1px solid var(--line);touch-action:pan-y;user-select:none}
+.stage img{display:block;-webkit-user-drag:none}
+.hist{width:100%;height:auto}
+.overlay{position:absolute;inset:0;overflow:hidden}
+.photoLayer{position:absolute;left:0;top:0;transform-origin:0 0}
+.photoLayer img{width:100%;height:100%}
+.region{position:absolute;inset:0;pointer-events:none}
+.handle{position:absolute;top:0;bottom:0;width:44px;margin-left:-22px;cursor:ew-resize;display:flex;justify-content:center}
+.handle::before{content:"";width:2px;background:#fff;box-shadow:0 0 0 1px #0008}
+.handle span{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;color:#222;border:1px solid #0006;display:grid;place-items:center;font:16px system-ui}
+.badge{position:absolute;right:8px;top:8px;background:#000b;color:#fff;font:12px/1.3 system-ui,sans-serif;padding:4px 8px;border-radius:4px;max-width:60%}
+.tag{position:absolute;bottom:8px;font:12px system-ui,sans-serif;background:#000a;color:#fff;padding:2px 6px;border-radius:3px}
+.tag.l{left:8px} .tag.r{right:8px}
+.creditline{font:12px/1.4 system-ui,sans-serif;color:var(--muted);margin:4px 0 0}
+.imgerr{font:14px/1.4 system-ui,sans-serif;border:1px dashed var(--bad);color:var(--bad);background:var(--panel);padding:10px 12px;margin:8px 0}
+.stage.broken{min-height:120px}
+.sbs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sbs figure{margin:0} .sbs img{width:100%;height:auto;border:1px solid var(--line)}
+.sbs figcaption{font:13px system-ui,sans-serif;color:var(--muted)}
+@media (max-width:600px){.sbs{grid-template-columns:1fr}}
+details{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:10px 0;font:14px/1.5 system-ui,sans-serif}
+summary{cursor:pointer;padding:12px 0;line-height:20px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;margin:6px 0} dt{color:var(--muted)} dd{margin:0;word-break:break-word}
+@media (max-width:480px){dl{grid-template-columns:1fr} dt{margin-top:6px}}
+a{color:var(--accent)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;font-size:13px} td,th{border:1px solid var(--line);padding:2px 6px;text-align:right}
+.help table td,.help table th{text-align:left;vertical-align:top}
+.zoomwrap.zoomed{overflow:auto;max-height:80vh} .zoomwrap.zoomed .stage{width:250%}
+footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
+.noscript{border:2px solid var(--bad);background:var(--panel);padding:12px;font:15px/1.5 system-ui,sans-serif;margin:12px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <span class="poc" data-i18n="poc">Прототип · не выставка</span>
+    <button id="langBtn" lang="en" aria-label="Switch interface to English">EN</button>
+  </div>
+  <h1><span data-i18n="title">Тогда / Сейчас</span> <span id="titleAlt" lang="en" style="color:var(--muted)">· Then / Now</span></h1>
+  <p class="sub" data-i18n="intro">Историческое изображение никогда не меняется. Геометрию можно (обратимо) подогнать только у современного фото — и это всегда помечено.</p>
+  <div class="bar">
+    <label for="pairSel" data-i18n="pair">Пара</label>
+    <select id="pairSel"></select>
+  </div>
+</header>
+<main>
+  <noscript><div class="noscript">
+    <p><strong>Для сравнения нужен JavaScript.</strong> Без него можно открыть оба оригинала без изменений:</p>
+    <p lang="en"><strong>The comparison needs JavaScript.</strong> Without it you can still open both untouched originals:</p>
+    <ul>
+      <li>Ph. Benoist, «Paris. La Madeleine» (LoC LC-DIG-pga-14315): <a href="pairs/madeleine-historic-loc-pga14315v.jpg">историческое / historic</a> · <a href="pairs/madeleine-photo-panoramax-38b6d262.jpg">фото / photo</a> (jerome92370 / Panoramax, CC BY-SA 4.0) · <a href="pairs/madeleine-ph-benoist.json">JSON</a></li>
+      <li>Ph. Benoist, «Paris. Jardin du Palais Royal» (LoC LC-DIG-pga-14314): <a href="pairs/palais-royal-historic-loc-pga14314v.jpg">историческое / historic</a> · <a href="pairs/palais-royal-photo-panoramax-200a3dee.jpg">фото / photo</a> (fgouget / Panoramax, CC BY-SA 4.0) · <a href="pairs/palais-royal-ph-benoist.json">JSON</a></li>
+    </ul>
+    <p>Источники и лицензии / sources and licences: <a href="pairs/CREDITS.md">pairs/CREDITS.md</a></p>
+  </div></noscript>
+  <div class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
+    <button data-mode="slider" aria-pressed="true" data-i18n="m_slider">Шторка</button>
+    <button data-mode="opacity" aria-pressed="false" data-i18n="m_opacity">Прозрачность</button>
+    <button data-mode="flicker" aria-pressed="false" data-i18n="m_flicker">Мерцание A/B</button>
+    <button data-mode="sbs" aria-pressed="false" data-i18n="m_sbs">Рядом</button>
+  </div>
+  <div class="bar">
+    <button id="alignBtn" aria-pressed="true">Фото: совмещённое</button>
+    <button id="regionBtn" aria-pressed="true" data-i18n="region">Зона доверия</button>
+    <button id="zoomBtn" aria-pressed="false" data-i18n="zoom">Увеличить ×2.5</button>
+    <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
+    <span id="flickerCtl" hidden><button id="flickBtn">A ⇄ B</button> <button id="flickPlay" aria-pressed="false" data-i18n="auto">Авто</button></span>
+  </div>
+  <div id="verdict" class="verdict" role="status"></div>
+  <div id="imgError" class="imgerr" role="alert" hidden></div>
+  <details class="help" id="help">
+    <summary data-i18n="helpSum">Как читать вердикт</summary>
+    <div data-lang="ru">
+      <p>Совмещение подгоняет <strong>только фото</strong> к неизменной литографии одной матрицей 3×3 (гомографией). Она честна лишь для одной плоскости (фасад) или для поворота камеры на месте.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Вердикт</th><th>Что значит</th><th>Что показано</th></tr></thead>
+        <tbody>
+          <tr><td>high</td><td>RMS &lt; 0.5 % и leave-one-out &lt; 1.5 % диагонали листа; точки покрывают ≥ 15 % листа</td><td>совмещённое фото</td></tr>
+          <tr><td>medium</td><td>RMS &lt; 1.5 %, leave-one-out &lt; 4 %, покрытие ≥ 15 %</td><td>совмещённое фото и предупреждение</td></tr>
+          <tr><td>low</td><td>точки противоречат друг другу (параллакс, вольность художника) <em>или</em> точки покрывают &lt; 15 % листа (совмещение только локальное)</td><td>оригинал фото; попытка — по кнопке</td></tr>
+          <tr><td>viewpoint mismatch</td><td>ракурсы несовместимы: нет общей плоскости, фото отражено или «за горизонтом»</td><td>только оригиналы рядом</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Leave-one-out</strong>: точку убирают из подгонки и смотрят, насколько хорошо её предсказывают остальные. Большая ошибка — признак другой точки съёмки или нескольких планов глубины.
+      <strong>Зона доверия</strong> (красный контур) — область, охваченная контрольными точками; вне её совмещение не проверено.
+      Генеративное дорисовывание не используется; оба оригинала всегда можно открыть без изменений в блоке «Источники».</p>
+    </div>
+    <div data-lang="en" lang="en" hidden>
+      <p>Alignment fits <strong>only the photo</strong> onto the unchanged print with one 3×3 matrix (a homography). That is honest only for a single plane (a facade) or a camera turning on the spot.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Verdict</th><th>Meaning</th><th>Shown</th></tr></thead>
+        <tbody>
+          <tr><td>high</td><td>RMS &lt; 0.5 % and leave-one-out &lt; 1.5 % of the sheet diagonal; points cover ≥ 15 % of the sheet</td><td>aligned photo</td></tr>
+          <tr><td>medium</td><td>RMS &lt; 1.5 %, leave-one-out &lt; 4 %, coverage ≥ 15 %</td><td>aligned photo with a warning</td></tr>
+          <tr><td>low</td><td>points disagree (parallax, artistic licence) <em>or</em> points cover &lt; 15 % of the sheet (local fit only)</td><td>original photo; the attempt is one click away</td></tr>
+          <tr><td>viewpoint mismatch</td><td>views are incompatible: no shared plane, mirrored, or the photo crosses the horizon of the transform</td><td>originals side by side only</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Leave-one-out</strong>: drop one point from the fit and see how well the others predict it. A large error means a different camera position or several depth planes.
+      The <strong>trust zone</strong> (red outline) is the area spanned by the control points; outside it the alignment is unchecked.
+      No generative fill is used; both originals can always be opened untouched from the Sources panel.</p>
+    </div>
+  </details>
+  <div class="zoomwrap" id="zoomwrap">
+    <div class="stage" id="stage">
+      <img class="hist" id="histImg" alt="">
+      <div class="overlay" id="overlay"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div>
+      <svg class="region" id="region" aria-hidden="true"></svg>
+      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
+      <div class="badge" id="badge"></div>
+      <span class="tag l" data-i18n="then">Тогда</span><span class="tag r" data-i18n="now">Сейчас</span>
+    </div>
+  </div>
+  <p class="creditline" id="creditLine"></p>
+  <div class="sbs" id="sbs" hidden>
+    <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
+    <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
+  </div>
+  <details id="credits" open>
+    <summary data-i18n="creditsSum">Источники, права и параметры совмещения</summary>
+    <div id="creditBody"></div>
+  </details>
+</main>
+<footer><span data-i18n="footer">Прототип для Issue #6. Не публиковать без проверки владельцем.</span>
+  <a href="editor.html" data-i18n="editorLink">Редактор контрольных точек</a> ·
+  <code>pairs/*.json</code> · <code>tools/align/homography.py</code> (OpenCV)</footer>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const MODES = ["slider", "opacity", "flicker", "sbs"];
+const T = {
+  ru: {
+    poc: "Прототип · не выставка", title: "Тогда / Сейчас", alt: "· Then / Now",
+    intro: "Историческое изображение никогда не меняется. Геометрию можно (обратимо) подогнать только у современного фото — и это всегда помечено.",
+    pair: "Пара", modes: "Режим сравнения", m_slider: "Шторка", m_opacity: "Прозрачность", m_flicker: "Мерцание A/B", m_sbs: "Рядом",
+    region: "Зона доверия", zoom: "Увеличить ×2.5", photoPct: "Фото, %", auto: "Авто", helpSum: "Как читать вердикт",
+    then: "Тогда", now: "Сейчас", capHist: "Историческое изображение — без изменений", capPhoto: "Фото — оригинал, без коррекции",
+    creditsSum: "Источники, права и параметры совмещения", footer: "Прототип для Issue #6. Не публиковать без проверки владельцем.",
+    editorLink: "Редактор контрольных точек", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
+    alignTitle: "Переключить фото между оригиналом и совмещённым видом",
+    badgeOn: "Геометрия фото скорректирована · обратимо", badgeOff: "Фото без коррекции",
+    handle: "Граница между историческим изображением и фото",
+    histAlt: "Историческое изображение: ", photoAlt: "Современное фото: ",
+    scope: "Зона действия", synthetic: "Синтетические тестовые данные", expected: "Ожидалось",
+    hThen: "Тогда", hNow: "Сейчас", hAlign: "Совмещение (только фото)",
+    tTitle: "Название", tCredit: "Атрибуция", tDate: "Дата", tHolding: "Хранение", tRights: "Права", tRecord: "Карточка",
+    tFile: "Оригинал файла", openHist: "открыть без изменений", openPhoto: "открыть без коррекции", tAuthor: "Автор / лицензия",
+    licence: "лицензия", tShot: "Дата съёмки", tMeta: "Метаданные (API)", tChanges: "Изменения", tNote: "Примечание",
+    tMethod: "Метод", tPoints: "Точек", tMatrix: "Матрица H", roundtrip: "обратимость", tPoint: "Точка", tRes: "остаток, px",
+    review: "Проверка ракурса", photoBy: "Фото", changesShort: "изменения",
+    imgErr: "Изображение не загрузилось", imgErrHelp: "Сравнение недоступно. Попробуйте открыть файл напрямую:",
+    loadErr: "Ошибка загрузки данных: ",
+    confirmFlicker: "Включить автоматическое мерцание? В системе выбран режим уменьшения движения.",
+    verdict: {
+      high: "Высокая уверенность: одна плоскость / поворот камеры объясняет все точки.",
+      medium: "Средняя уверенность: совмещение пригодно, но проверьте отмеченные места.",
+      low: "Низкая уверенность: точки противоречат друг другу или охватывают лишь малую часть листа. По умолчанию показан оригинал фото; сравнивайте рядом.",
+      viewpoint_mismatch: "Ракурсы не совпадают: честное совмещение невозможно. Показаны оригиналы без подгонки.",
+      insufficient_points: "Недостаточно контрольных точек."
+    }
+  },
+  en: {
+    poc: "Prototype · not the exhibition", title: "Then / Now", alt: "· Тогда / Сейчас",
+    intro: "The historic image is never altered. Only the modern photo may be reversibly re-projected, and that is always labelled.",
+    pair: "Pair", modes: "Comparison mode", m_slider: "Slider", m_opacity: "Opacity", m_flicker: "Flicker A/B", m_sbs: "Side by side",
+    region: "Trust zone", zoom: "Zoom ×2.5", photoPct: "Photo, %", auto: "Auto", helpSum: "How to read the verdict",
+    then: "Then", now: "Now", capHist: "Historic image — unaltered", capPhoto: "Photo — original, uncorrected",
+    creditsSum: "Sources, rights and alignment parameters", footer: "Prototype for Issue #6. Do not publish without owner review.",
+    editorLink: "Control-point editor", alignOn: "Photo: aligned", alignOff: "Photo: original",
+    alignTitle: "Toggle the photo between the original and the aligned view",
+    badgeOn: "Photo geometry adjusted · reversible", badgeOff: "Photo not corrected",
+    handle: "Boundary between the historic image and the photo",
+    histAlt: "Historic image: ", photoAlt: "Modern photo: ",
+    scope: "Scope", synthetic: "Synthetic test data", expected: "Expected",
+    hThen: "Then", hNow: "Now", hAlign: "Alignment (photo only)",
+    tTitle: "Title", tCredit: "Attribution", tDate: "Date", tHolding: "Holding", tRights: "Rights", tRecord: "Record",
+    tFile: "Original file", openHist: "open unaltered", openPhoto: "open uncorrected", tAuthor: "Author / licence",
+    licence: "licence", tShot: "Taken", tMeta: "Metadata (API)", tChanges: "Changes", tNote: "Note",
+    tMethod: "Method", tPoints: "Points", tMatrix: "Matrix H", roundtrip: "round-trip", tPoint: "Point", tRes: "residual, px",
+    review: "Viewpoint review", photoBy: "Photo", changesShort: "changes",
+    imgErr: "Image failed to load", imgErrHelp: "Comparison unavailable. Try opening the file directly:",
+    loadErr: "Data loading error: ",
+    confirmFlicker: "Start automatic flicker? Your system asks for reduced motion.",
+    verdict: {
+      high: "High confidence: one plane / camera rotation explains all points.",
+      medium: "Medium confidence: alignment usable, but check the marked areas.",
+      low: "Low confidence: points disagree or cover only a small part of the sheet. The original photo is shown by default; compare side by side.",
+      viewpoint_mismatch: "Viewpoints do not match: an honest alignment is impossible. Originals are shown without fitting.",
+      insufficient_points: "Not enough control points."
+    }
+  }
+};
+let lang = "ru";
+try { if (localStorage.getItem("cop-lang") === "en") lang = "en"; } catch { /* storage unavailable */ }
+const q0 = new URLSearchParams(location.search);
+if (q0.get("lang") === "en" || q0.get("lang") === "ru") lang = q0.get("lang");
+const t = (k) => T[lang][k];
+
+let pair = null, mode = "slider", userMode = false, aligned = true, split = 50, showRegion = true, flickA = true, timer = null;
+const imgFailed = { hist: false, photo: false };
+
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
+const num = (v) => (typeof v === "number" && isFinite(v)) ? String(v) : "—";
+// only http(s) links or files inside pairs/ — never javascript: or data: URLs from JSON
+function safeUrl(u){ u = String(u ?? ""); return (/^https?:\/\/[^\s"'<>]+$/i.test(u) || /^pairs\/[\w.-]+$/.test(u)) ? u : null; }
+function link(u, text){ const s = safeUrl(u); return s ? `<a href="${esc(s)}" target="_blank" rel="noopener noreferrer">${esc(text || s)}</a>` : "—"; }
+const fileUrl = (f) => /^[\w.-]+$/.test(String(f || "")) ? `pairs/${f}` : "";
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.title = lang === "en" ? "Then / Now — prototype" : "Тогда / Сейчас — прототип";
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", t(el.dataset.i18nAria)));
+  document.querySelectorAll("[data-lang]").forEach(el => { el.hidden = el.dataset.lang !== lang; });
+  $("titleAlt").textContent = t("alt"); $("titleAlt").lang = lang === "en" ? "ru" : "en";
+  const b = $("langBtn");
+  b.textContent = lang === "en" ? "RU" : "EN"; b.lang = lang === "en" ? "ru" : "en";
+  b.setAttribute("aria-label", lang === "en" ? "Переключить интерфейс на русский" : "Switch interface to English");
+  $("handle").setAttribute("aria-label", t("handle"));
+  $("alignBtn").title = t("alignTitle");
+  if (pair) { renderMeta(); layout(); }
+}
+
+function matrix3d(H){
+  const [[a,b,c],[d,e,f],[g,h,i]] = H.map(r => r.map(Number));
+  return `matrix3d(${a},${d},0,${g},${b},${e},0,${h},0,0,1,0,${c},${f},0,${i})`;
+}
+
+function canAlign(){ const a = pair.alignment; return !!(a && a.H && ["high","medium","low"].includes(a.confidence)); }
+
+function layout(){
+  if (!pair) return;
+  applyMode(); // show/hide panels first: a hidden stage measures 0 px wide
+  const stage = $("stage"), [hw, hh] = pair.historic.size.map(Number), [pw, ph] = pair.photo.size.map(Number);
+  const s = stage.clientWidth / hw;
+  const L = $("photoLayer");
+  L.style.width = pw + "px"; L.style.height = ph + "px";
+  if (aligned && canAlign()) {
+    L.style.transform = `scale(${s}) ${matrix3d(pair.alignment.H)}`;
+  } else { // untouched photo, fitted inside the historic frame ("contain")
+    const k = Math.min(stage.clientWidth / pw, (stage.clientHeight || stage.clientWidth * hh / hw) / ph);
+    const dx = (stage.clientWidth - pw * k) / 2, dy = ((stage.clientHeight || stage.clientWidth * hh / hw) - ph * k) / 2;
+    L.style.transform = `translate(${dx}px,${dy}px) scale(${k})`;
+  }
+  const svg = $("region");
+  svg.setAttribute("viewBox", `0 0 ${hw} ${hh}`);
+  const r = pair.alignment && pair.alignment.valid_region_historic;
+  svg.innerHTML = (showRegion && aligned && canAlign() && Array.isArray(r))
+    ? `<polygon points="${r.map(p => p.map(Number).join(",")).join(" ")}" fill="none" stroke="#ff3b30" stroke-width="${hw/300}" stroke-dasharray="${hw/80} ${hw/160}"/>`
+      + pair.control_points.map(c => `<circle cx="${Number(c.historic[0])}" cy="${Number(c.historic[1])}" r="${hw/170}" fill="none" stroke="#ffd60a" stroke-width="${hw/400}"><title>${esc(c.label)}</title></circle>`).join("")
+    : "";
+  applyMode();
+}
+
+function applyMode(){
+  const ov = $("overlay"), h = $("handle");
+  $("stage").hidden = $("zoomwrap").hidden = mode === "sbs";
+  $("sbs").hidden = mode !== "sbs";
+  $("opacityCtl").hidden = mode !== "opacity";
+  $("flickerCtl").hidden = mode !== "flicker";
+  h.hidden = mode !== "slider";
+  ov.style.clipPath = "none"; ov.style.opacity = 1; ov.style.visibility = "visible";
+  if (mode === "slider") { ov.style.clipPath = `inset(0 0 0 ${split}%)`; h.style.left = split + "%"; h.setAttribute("aria-valuenow", Math.round(split)); }
+  if (mode === "opacity") ov.style.opacity = $("opacity").value / 100;
+  if (mode === "flicker") ov.style.visibility = flickA ? "hidden" : "visible";
+  document.querySelectorAll("[data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
+}
+
+function setSplit(clientX){
+  const r = $("stage").getBoundingClientRect();
+  split = Math.max(0, Math.min(100, (clientX - r.left) / r.width * 100));
+  applyMode();
+}
+
+function renderMeta(){
+  const a = pair.alignment || {}, conf = a.confidence || "insufficient_points";
+  const v = $("verdict");
+  v.className = "verdict " + conf;
+  v.innerHTML = `<strong>${esc(conf.replace("_"," "))}</strong> — ${esc(t("verdict")[conf] || "")}`
+    + (a.reason ? ` <small>(${esc(a.reason)})</small>` : "")
+    + (a.scope && a.scope !== "global" ? `<br>${esc(t("scope"))}: ${esc(a.scope)}` : "")
+    + (pair.status === "synthetic_test" ? `<br><em>${esc(t("synthetic"))} (${esc(pair.condition)}). ${esc(t("expected"))}: ${esc(pair.expected_confidence)}.</em>` : `<br>${esc(pair.condition)}`);
+  const on = aligned && canAlign();
+  $("badge").textContent = on ? t("badgeOn") : t("badgeOff");
+  $("alignBtn").textContent = on ? t("alignOn") : t("alignOff");
+  $("alignBtn").setAttribute("aria-pressed", on);
+  $("alignBtn").disabled = !canAlign();
+  const H = pair.historic, P = pair.photo;
+  $("histImg").alt = t("histAlt") + (H.title || "");
+  $("photoImg").alt = t("photoAlt") + (P.title || "");
+  $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
+  const synthetic = pair.status === "synthetic_test";
+  $("creditLine").textContent = `${t("then")}: ${H.credit || ""} · ${t("now")}: ${P.credit || ""}`
+    + (!synthetic && P.license ? ` · ${t("changesShort")}: ${lang === "en" ? "re-encoded to strip metadata; the aligned view is a derivative" : "перекодировано для удаления метаданных; совмещённый вид — производная работа"} (${P.license})` : "");
+  const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
+  const changes = P.changes || "";
+  $("creditBody").innerHTML = `
+   <h2>${esc(t("hThen"))}</h2><dl>
+    <dt>${esc(t("tTitle"))}</dt><dd>${esc(H.title)}</dd>
+    <dt>${esc(t("tCredit"))}</dt><dd>${esc(H.credit)}</dd>
+    ${H.date ? `<dt>${esc(t("tDate"))}</dt><dd>${esc(H.date)}</dd>` : ""}
+    ${H.holding ? `<dt>${esc(t("tHolding"))}</dt><dd>${esc(H.holding)}</dd>` : ""}
+    <dt>${esc(t("tRights"))}</dt><dd>${esc(H.rights)}</dd>
+    <dt>${esc(t("tRecord"))}</dt><dd>${link(H.object_url)}</dd>
+    <dt>${esc(t("tFile"))}</dt><dd>${link(fileUrl(H.file), t("openHist"))}${H.sha256 ? ` · sha256 <code>${esc(String(H.sha256).slice(0,16))}…</code>` : ""}</dd></dl>
+   <h2>${esc(t("hNow"))}</h2><dl>
+    <dt>${esc(t("tTitle"))}</dt><dd>${esc(P.title)}</dd>
+    <dt>${esc(t("tAuthor"))}</dt><dd>${esc(P.credit)} ${P.license_url ? link(P.license_url, t("licence")) : ""}</dd>
+    ${P.date ? `<dt>${esc(t("tShot"))}</dt><dd>${esc(P.date)}</dd>` : ""}
+    <dt>${esc(t("tRecord"))}</dt><dd>${link(P.viewer_url || P.object_url)}</dd>
+    ${P.viewer_url && P.object_url ? `<dt>${esc(t("tMeta"))}</dt><dd>${link(P.object_url, "JSON")}</dd>` : ""}
+    <dt>${esc(t("tFile"))}</dt><dd>${link(fileUrl(P.file), t("openPhoto"))}</dd>
+    ${changes ? `<dt>${esc(t("tChanges"))}</dt><dd>${esc(changes)}</dd>` : ""}
+    ${P.file_note ? `<dt>${esc(t("tNote"))}</dt><dd>${esc(P.file_note)}</dd>` : ""}</dl>
+   <h2>${esc(t("hAlign"))}</h2><dl>
+    <dt>${esc(t("tMethod"))}</dt><dd>${esc(a.method || "—")}</dd>
+    <dt>${esc(t("tPoints"))}</dt><dd>${num(a.n_points)} · RMS ${num(a.rms_px)} px · LOO max ${num(a.loo_max_px)} px · ${esc(t("roundtrip"))} ${num(a.roundtrip_max_px)} px</dd>
+    <dt>${esc(t("tMatrix"))}</dt><dd><code>${esc(JSON.stringify(a.H ?? null))}</code></dd></dl>
+   ${res ? `<div class="tablewrap"><table><thead><tr><th style="text-align:left">${esc(t("tPoint"))}</th><th>${esc(t("tRes"))}</th><th>LOO, px</th></tr></thead><tbody>${res}</tbody></table></div>` : ""}
+   ${pair.viewpoint_review ? `<p>${esc(t("review"))}: <strong>${esc(pair.viewpoint_review.status)}</strong> — ${esc((pair.viewpoint_review.observations || []).join(" "))} (${esc(pair.viewpoint_review.reviewer)})</p>` : ""}`;
+}
+
+function showImgError(){
+  const box = $("imgError"), list = [];
+  if (imgFailed.hist) list.push(link(fileUrl(pair.historic.file), pair.historic.file));
+  if (imgFailed.photo) list.push(link(fileUrl(pair.photo.file), pair.photo.file));
+  box.hidden = !list.length;
+  box.innerHTML = list.length ? `<strong>${esc(t("imgErr"))}.</strong> ${esc(t("imgErrHelp"))} ${list.join(" · ")}` : "";
+  $("stage").classList.toggle("broken", !!list.length);
+  $("photoImg").style.visibility = imgFailed.photo ? "hidden" : "";
+}
+
+async function loadPair(id){
+  pair = await (await fetch(`pairs/${encodeURIComponent(id)}.json`)).json();
+  // low confidence: never force a fit by default; the attempt stays one click away
+  aligned = canAlign() && ["high", "medium"].includes(pair.alignment.confidence);
+  if (!userMode) mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider";
+  imgFailed.hist = imgFailed.photo = false; showImgError();
+  const hi = $("histImg"), pi = $("photoImg");
+  const settle = (im, key) => new Promise(r => {
+    if (im.complete) { if (!im.naturalWidth) { imgFailed[key] = true; showImgError(); } return r(); }
+    im.addEventListener("load", () => r(), { once: true });
+    im.addEventListener("error", () => { imgFailed[key] = true; showImgError(); r(); }, { once: true });
+  });
+  hi.src = $("sbsHist").src = fileUrl(pair.historic.file);
+  pi.src = $("sbsPhoto").src = fileUrl(pair.photo.file);
+  renderMeta();
+  await Promise.all([settle(hi, "hist"), settle(pi, "photo")]);
+  layout();
+  history.replaceState(null, "", location.pathname + location.search + "#" + id);
+}
+
+async function init(){
+  applyLang();
+  const idx = await (await fetch("pairs/index.json")).json();
+  const ids = (idx.pairs || []).filter(p => /^[\w-]+$/.test(p));
+  const sel = $("pairSel");
+  sel.innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+  const start = location.hash.slice(1);
+  if (ids.includes(start)) sel.value = start;
+  const q = new URLSearchParams(location.search);
+  if (MODES.includes(q.get("mode"))) { mode = q.get("mode"); userMode = true; }
+  sel.onchange = () => loadPair(sel.value);
+  await loadPair(sel.value);
+  if (q.get("aligned") === "0") { aligned = false; renderMeta(); layout(); }
+  if (q.get("split") && isFinite(+q.get("split"))) { split = Math.max(0, Math.min(100, +q.get("split"))); applyMode(); }
+  if (q.get("opacity") && isFinite(+q.get("opacity"))) { $("opacity").value = q.get("opacity"); applyMode(); }
+}
+
+document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; userMode = true; stopFlicker(); layout(); });
+$("langBtn").onclick = () => { lang = lang === "en" ? "ru" : "en"; try { localStorage.setItem("cop-lang", lang); } catch { /* ignore */ } applyLang(); };
+$("alignBtn").onclick = () => { aligned = !aligned; renderMeta(); layout(); };
+$("regionBtn").onclick = () => { showRegion = !showRegion; $("regionBtn").setAttribute("aria-pressed", showRegion); layout(); };
+$("zoomBtn").onclick = () => { const z = $("zoomwrap").classList.toggle("zoomed"); $("zoomBtn").setAttribute("aria-pressed", z); layout(); };
+$("opacity").oninput = applyMode;
+$("flickBtn").onclick = () => { flickA = !flickA; applyMode(); };
+function stopFlicker(){ clearInterval(timer); timer = null; $("flickPlay").setAttribute("aria-pressed", false); }
+$("flickPlay").onclick = () => {
+  if (timer) return stopFlicker();
+  if (reduceMotion && !confirm(t("confirmFlicker"))) return;
+  $("flickPlay").setAttribute("aria-pressed", true);
+  timer = setInterval(() => { flickA = !flickA; applyMode(); }, 800);
+};
+const stage = $("stage");
+stage.addEventListener("pointerdown", e => { if (mode !== "slider") return; stage.setPointerCapture(e.pointerId); setSplit(e.clientX); });
+stage.addEventListener("pointermove", e => { if (mode === "slider" && stage.hasPointerCapture(e.pointerId)) setSplit(e.clientX); });
+$("handle").addEventListener("keydown", e => {
+  const step = e.shiftKey ? 10 : 2;
+  if (e.key === "ArrowLeft") split = Math.max(0, split - step);
+  else if (e.key === "ArrowRight") split = Math.min(100, split + step);
+  else if (e.key === "Home") split = 0; else if (e.key === "End") split = 100; else return;
+  e.preventDefault(); applyMode();
+});
+addEventListener("resize", layout);
+addEventListener("hashchange", () => { const id = location.hash.slice(1); const sel = $("pairSel");
+  if ([...sel.options].some(o => o.value === id) && (!pair || pair.id !== id)) { sel.value = id; loadPair(id); } });
+init().catch(err => { $("verdict").textContent = t("loadErr") + err; });
+</script>
+</body>
+</html>
