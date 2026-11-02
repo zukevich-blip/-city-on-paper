@@ -22,7 +22,9 @@ for(const [name,width,height] of cases){
   check(name+" five functional steps",(await page.locator("[data-step]").count())===5);
   await page.locator("[data-step='2']").click();
   check(name+" change step",await page.locator("#stage-title").textContent().then(s=>s.includes("контур")));
-  const canvas=page.locator("#drawing"),b=await canvas.boundingBox();
+  const canvas=page.locator("#drawing");
+  await canvas.scrollIntoViewIfNeeded();
+  const b=await canvas.boundingBox();
   const start={x:b.x+b.width*.25,y:b.y+b.height*.25},end={x:b.x+b.width*.65,y:b.y+b.height*.64};
   await page.mouse.move(start.x,start.y);await page.mouse.down();await page.mouse.move(end.x,end.y,{steps:12});await page.mouse.up();
   check(name+" one stroke drawn",await page.locator("#stroke-count").textContent().then(s=>s.includes("1 линия")));
