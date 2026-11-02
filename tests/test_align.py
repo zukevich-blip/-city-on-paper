@@ -20,7 +20,10 @@ def built(tmp_path_factory):
 
 def run(pair):
     c = pair["control_points"]
-    return estimate(\n        [x["photo"] for x in c], [x["historic"] for x in c],\n        pair["historic"]["size"], pair["photo"]["size"],\n    )
+    return estimate(
+        [x["photo"] for x in c], [x["historic"] for x in c],
+        pair["historic"]["size"], pair["photo"]["size"],
+    )
 
 
 @pytest.mark.parametrize("cid,allowed", [
@@ -119,7 +122,10 @@ def test_reviewed_viewpoint_mismatch_is_never_fitted():
 def test_horizon_crossing_the_photo_frame_is_a_mismatch():
     """Reviewer repro: exact points, but w <= 0 at two photo corners -> must not be 'high'."""
     H = np.array([[1, 0, 0], [0, 1, 0], [-0.0015, 0, 1]], float)
-    photo = np.array(\n        [[50, 50], [300, 80], [550, 60], [100, 400], [400, 420], [600, 700], [200, 750], [450, 600]],\n        float,\n    )
+    photo = np.array(
+        [[50, 50], [300, 80], [550, 60], [100, 400], [400, 420], [600, 700], [200, 750], [450, 600]],
+        float,
+    )
     hist = project(H, photo)
     r = estimate(photo.tolist(), hist.tolist(), (1000, 800), (1000, 800))
     assert r["confidence"] == "viewpoint_mismatch" and "horizon" in r["reason"]
