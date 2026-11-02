@@ -8,6 +8,7 @@ on:
       - 'schemas/**'
       - 'poc/**'
       - 'index.html'
+      - 'journeys/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 
@@ -68,10 +69,13 @@ jobs:
         run: |
           mkdir -p /tmp/city-on-paper-screens
           node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
+          node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
+          cp journeys/index.html /tmp/city-on-paper-package/journeys/
+          cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
           cp data/catalog/ledger-2026-11-01.csv /tmp/city-on-paper-package/data/catalog/
           cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
           cp -R poc/compare /tmp/city-on-paper-package/poc/
