@@ -1,0 +1,127 @@
+{
+  "id": "ph-benoist-jacottet-nouvelles-vues-de-paris-met-345889",
+  "alternate_ids": [
+    "met:345889"
+  ],
+  "titles": [
+    {
+      "text": "Nouvelles Vues de Paris",
+      "lang": "fr",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "artist",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889",
+      "dates": "Geneva 1813–ca. 1905 (Met)"
+    },
+    {
+      "name": "Louis Julien Jacottet",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+    },
+    {
+      "name": "Louis Julien Jacottet",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+    },
+    {
+      "name": "A. Provost",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+    },
+    {
+      "name": "Gibaut Frères, Editions (sic, Met spelling)",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+    },
+    {
+      "name": "Auguste Bry",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+    }
+  ],
+  "date": {
+    "display": "ca. 1850 (Met)",
+    "earliest": 1845,
+    "latest": 1855
+  },
+  "medium": "Lithographs (bound book); overall 28.5 x 38 x 1.2 cm",
+  "place": {
+    "name_historic": "Paris",
+    "name_modern": "Paris",
+    "city": "Paris",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "city_view"
+  ],
+  "holding": {
+    "institution": "The Metropolitan Museum of Art, Department of Drawings and Prints",
+    "object_id": "345889",
+    "shelfmark": "50.576.1",
+    "object_url": "https://www.metmuseum.org/art/collection/search/345889"
+  },
+  "media": {},
+  "rights": {
+    "artwork": "19th-century print (no artwork rights statement)",
+    "image": "Met API isPublicDomain=false; no primaryImage returned",
+    "constraints": "Not in Met Open Access; metadata and link only. Credit line: Gift of Joseph Verner Reed, 1950",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889",
+        "https://www.metmuseum.org/art/collection/search/345889"
+      ],
+      "comment": "Met constituents: Philippe Benoist (Artist, Q26309223), Jacottet ('Drawn and lithographed by'), A. Provost, Gibaut Frères, Auguste Bry"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+      ],
+      "comment": "isPublicDomain=false"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889"
+      ],
+      "comment": "city-level: Met city field 'Paris'"
+    },
+    "viewpoint": {
+      "status": "not_applicable",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "bound book, not a single view"
+    }
+  },
+  "notes": [
+    {
+      "kind": "curatorial",
+      "text": "Met spells the publisher 'Gibaut Frères'; LoC records 'Gihaut frères' for Benoist's Vues de Paris (2013650023). Probably the same firm — unverified. Album-level record: individual plates not itemised.",
+      "source_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/345889",
+      "lang": "en"
+    }
+  ]
+}

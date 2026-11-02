@@ -1,0 +1,118 @@
+{
+  "id": "ph-benoist-bayot-pavillon-denon-paris-splendeur-bnf-btv1b53024785d",
+  "alternate_ids": [
+    "europeana:9200518/ark__12148_btv1b53024785d",
+    "gallica:ark:/12148/btv1b53024785d"
+  ],
+  "titles": [
+    {
+      "text": "\"Pavillon du Louvre - Place Napoléon III\". Le pavillon Denon, Première pl. et page de titre de l'album Paris dans sa splendeur (voir le n° De Vinck 16.355) : [estampe]",
+      "lang": "fr",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b53024785d.json?wskey=api2demo"
+    },
+    {
+      "name": "A. Bayot",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b53024785d.json?wskey=api2demo"
+    }
+  ],
+  "date": {
+    "display": "not stated in the BnF record"
+  },
+  "medium": "1 est. : lithographie en camaïeu ; 37 x 25 cm",
+  "place": {
+    "name_historic": "Louvre, pavillon Denon, place Napoléon III",
+    "name_modern": "Musée du Louvre, pavillon Denon",
+    "city": "Paris",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark",
+    "square_street"
+  ],
+  "holding": {
+    "institution": "Bibliothèque nationale de France, département Estampes et photographie",
+    "object_id": "ark:/12148/btv1b53024785d",
+    "shelfmark": "RESERVE FT 4-QB-370 (158)",
+    "object_url": "https://gallica.bnf.fr/ark:/12148/btv1b53024785d",
+    "iiif_image_service": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b53024785d/f1",
+    "via": "Europeana record API (BnF provider proxy); Gallica itself returned 403 to this container"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b53024785d/f1/full/512,/0/native.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "No copyright – other known legal restrictions (edm:rights NoC-OKLR, per BnF via Europeana)",
+    "image": "Gallica digitisation; reuse governed by Gallica conditions of use",
+    "uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
+    "attribution_required": "Source gallica.bnf.fr / BnF",
+    "constraints": "Gallica conditions: non-commercial reuse free with credit 'Source gallica.bnf.fr / BnF'; commercial reuse needs a BnF licence. Conditions page not re-read from this container (Gallica 403).",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b53024785d.json?wskey=api2demo",
+        "http://gallica.bnf.fr/ark:/12148/btv1b53024785d"
+      ],
+      "comment": "BnF dc:creator: 'Benoist, Ph. Lithographe' + 'Bayot, A.. Dessinateur du modèle' (here Bayot is the draughtsman of the model, not only figures)"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b53024785d.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights NoC-OKLR read in Europeana record; redistribution kept link_only until owner decides commercial/non-commercial status"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b53024785d.json?wskey=api2demo"
+      ],
+      "comment": "city-level only, from BnF subject headings; no coordinates"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "BnF bibliographic reference: De Vinck, 18999",
+      "source_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b53024785d.json?wskey=api2demo",
+      "lang": "fr"
+    }
+  ],
+  "series": {
+    "title": "Paris dans sa splendeur",
+    "plate": "première planche et page de titre (per BnF)"
+  }
+}

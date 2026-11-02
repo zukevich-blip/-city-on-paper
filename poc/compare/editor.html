@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Редактор контрольных точек — прототип</title>
+<style>
+:root{
+  --paper:#f4efe4; --ink:#2b241c; --muted:#6d6254; --line:#d8cdb8; --accent:#8a3b1e;
+  --ok:#2f6b3a; --warn:#9a6a00; --bad:#a3271b; --panel:#fffdf8; --focus:#1d5fbf;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#1b1814; --ink:#efe7d8; --muted:#b3a792; --line:#3b342b; --accent:#e0915f;
+        --ok:#7cc48a; --warn:#e2b34a; --bad:#f0806f; --panel:#24201b; --focus:#8bb6ff;}
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 system-ui,sans-serif}
+header,main,footer{max-width:1400px;margin:0 auto;padding:0 16px}
+header{padding-top:14px}
+h1{font:normal 1.35rem Georgia,"Times New Roman",serif;margin:0 0 4px}
+h2{font-size:1rem;margin:14px 0 6px}
+.sub{color:var(--muted);margin:0 0 8px;font-size:.9rem}
+.poc{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:0 6px;border-radius:3px;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+select,button,.filebtn{font:14px system-ui,sans-serif;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);cursor:pointer}
+.filebtn{display:inline-flex;align-items:center}
+.filebtn input{position:absolute;width:1px;height:1px;opacity:0}
+.filebtn:focus-within{outline:3px solid var(--focus);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.status{border-left:4px solid var(--accent);background:var(--panel);padding:8px 12px;margin:8px 0}
+.panes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media (max-width:760px){.panes{grid-template-columns:minmax(0,1fr)}}
+.pane{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px}
+.pane.expect{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.pane h2{margin:0 0 4px;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.view{position:relative;overflow:auto;height:min(60vh,560px);background:#0001;border:1px solid var(--line);touch-action:none;cursor:crosshair}
+.wrap{position:relative;display:inline-block;line-height:0}
+.wrap img{display:block;-webkit-user-drag:none;user-select:none;max-width:none}
+.wrap svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.mk{cursor:grab}
+.mk circle{fill:#ffd60acc;stroke:#000;}
+.mk.sel circle{fill:#ff3b30;}
+.mk.pending circle{fill:#5ac8fa;}
+.mk text{font:bold 12px system-ui,sans-serif;fill:#000;pointer-events:none}
+.resline{stroke:#ff3b30;stroke-width:2;vector-effect:non-scaling-stroke}
+.cross{position:absolute;pointer-events:none;width:0;height:0}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:3px 6px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child,td.lbl{text-align:left}
+td.lbl input{width:100%;min-width:9em;font:16px system-ui,sans-serif;min-height:36px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;padding:2px 6px}
+tr.sel{background:#ffd60a33}
+.tablewrap{overflow-x:auto}
+td button{min-height:36px;padding:2px 8px}
+.metrics{font-variant-numeric:tabular-nums}
+.verdict{display:inline-block;padding:1px 8px;border-radius:3px;border:1px solid var(--muted)}
+.verdict.high{border-color:var(--ok);color:var(--ok)} .verdict.medium{border-color:var(--warn);color:var(--warn)}
+.verdict.low,.verdict.viewpoint_mismatch,.verdict.insufficient_points{border-color:var(--bad);color:var(--bad)}
+.stage{position:relative;width:100%;max-width:900px;overflow:hidden;border:1px solid var(--line)}
+.stage img.hist{width:100%;height:auto;display:block}
+.overlay{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.photoLayer{position:absolute;left:0;top:0;transform-origin:0 0}
+.photoLayer img{width:100%;height:100%;display:block}
+.badge{position:absolute;right:8px;top:8px;background:#000b;color:#fff;font-size:12px;padding:4px 8px;border-radius:4px}
+textarea{width:100%;min-height:10em;font:12px/1.4 ui-monospace,monospace;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-radius:3px;padding:0 4px;background:var(--panel)}
+footer{color:var(--muted);font-size:13px;padding:16px 16px 24px}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <span class="poc">Прототип · инструмент эксперта</span>
+  <h1>Редактор контрольных точек <span lang="en" style="color:var(--muted)">· Control-point editor</span></h1>
+  <p class="sub">Всё считается в этом окне; ничего не отправляется в сеть (загружаются только локальные файлы пары).
+    Историческое изображение только показывается — масштаб меняется размером окна просмотра, без <code>transform</code> и фильтров.
+    Итоговое совмещение считает офлайн <code>python3 -m tools.align.homography файл.json</code> (OpenCV).
+    <span lang="en">Nothing is uploaded. The JS fit is a live preview; the authoritative result comes from the offline OpenCV tool.</span></p>
+  <div class="bar">
+    <label for="pairSel">Пара / pair</label>
+    <select id="pairSel"></select>
+    <label class="filebtn">Открыть JSON… <input id="jsonFile" type="file" accept=".json,application/json"></label>
+    <label class="filebtn">Своё историческое… <input id="histFile" type="file" accept="image/*"></label>
+    <label class="filebtn">Своё фото… <input id="photoFile" type="file" accept="image/*"></label>
+  </div>
+</header>
+<main>
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <details>
+    <summary>Как пользоваться / how to use</summary>
+    <ul>
+      <li>Щёлкните точку на одном изображении, затем ту же деталь на другом — появится пара с номером. Начинать можно с любого окна; повторный щелчок в том же окне переставляет незавершённую точку.</li>
+      <li>Перетаскивание метки двигает точку. Перетаскивание по пустому месту двигает вид. <kbd>Ctrl</kbd>+колесо или кнопки −/+ — масштаб.</li>
+      <li>Клавиатура: в окне просмотра <kbd>←↑→↓</kbd> — сдвиг вида, <kbd>+</kbd>/<kbd>−</kbd> — масштаб, <kbd>Enter</kbd> — поставить точку в центр окна. На метке: стрелки — сдвиг на 1 px (с <kbd>Shift</kbd> — 10 px), <kbd>Delete</kbd> — удалить.</li>
+      <li>Выбирайте 6–12 точек <strong>на одной плоскости</strong> (один фасад): углы, карнизы, основания колонн. Точки на разной глубине дают параллакс — это честно покажет leave-one-out.</li>
+    </ul>
+  </details>
+  <div class="panes">
+    <section class="pane" id="paneHist" aria-labelledby="hHist">
+      <h2 id="hHist"><span>Тогда — историческое (не меняется)</span>
+        <span class="bar" style="margin:0"><button data-zoom="hist" data-k="0.667" aria-label="Уменьшить историческое">−</button><button data-zoom="hist" data-k="1.5" aria-label="Увеличить историческое">+</button><button data-fit="hist">Вписать</button></span></h2>
+      <div class="view" id="viewHist" tabindex="0" aria-label="Историческое изображение: щелчок или Enter ставит точку"><div class="wrap" id="wrapHist"><img id="imgHist" alt=""><svg id="svgHist" aria-label="Метки на историческом изображении"></svg></div></div>
+    </section>
+    <section class="pane" id="panePhoto" aria-labelledby="hPhoto">
+      <h2 id="hPhoto"><span>Сейчас — фото (оригинал)</span>
+        <span class="bar" style="margin:0"><button data-zoom="photo" data-k="0.667" aria-label="Уменьшить фото">−</button><button data-zoom="photo" data-k="1.5" aria-label="Увеличить фото">+</button><button data-fit="photo">Вписать</button></span></h2>
+      <div class="view" id="viewPhoto" tabindex="0" aria-label="Фото: щелчок или Enter ставит точку"><div class="wrap" id="wrapPhoto"><img id="imgPhoto" alt=""><svg id="svgPhoto" aria-label="Метки на фото"></svg></div></div>
+    </section>
+  </div>
+
+  <h2>Точки <span lang="en" style="color:var(--muted);font-weight:normal">· points</span></h2>
+  <p class="metrics" id="metrics" aria-live="polite"></p>
+  <div class="tablewrap"><table id="ptTable">
+    <thead><tr><th>#</th><th>Подпись / label</th><th>тогда x</th><th>тогда y</th><th>фото x</th><th>фото y</th><th>остаток, px</th><th>LOO, px</th><th></th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="bar"><button id="clearBtn">Удалить все точки</button></div>
+
+  <h2>Предпросмотр совмещения (JS) <span lang="en" style="color:var(--muted);font-weight:normal">· live preview</span></h2>
+  <div class="bar"><label for="prevOpacity">Фото, %</label><input id="prevOpacity" type="range" min="0" max="100" value="50"></div>
+  <div class="stage" id="prevStage">
+    <img class="hist" id="prevHist" alt="">
+    <div class="overlay"><div class="photoLayer" id="prevLayer"><img id="prevPhoto" alt=""></div></div>
+    <div class="badge" id="prevBadge">Геометрия фото скорректирована · предпросмотр</div>
+  </div>
+
+  <h2>Экспорт <span lang="en" style="color:var(--muted);font-weight:normal">· export</span></h2>
+  <p class="sub">JSON пары с новыми <code>control_points</code>. Блок <code>alignment</code> удаляется: его пересчитывает офлайн-инструмент. Файл сохраняется на вашем устройстве.</p>
+  <div class="bar"><button id="exportBtn">Скачать JSON</button><button id="copyBtn">Скопировать</button></div>
+  <textarea id="exportText" readonly aria-label="Экспортируемый JSON"></textarea>
+</main>
+<footer>Прототип для Issue #6. <a href="./">← к просмотру пар</a>. Офлайн: <code>python3 -m tools.align.homography poc/compare/pairs/&lt;id&gt;.json</code>.</footer>
+<script src="homography.js"></script>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const HG = window.CoPHomography;
+const S = {
+  pair: null, base: "pairs/", points: [], sel: -1,
+  zoom: { hist: 1, photo: 1 }, nat: { hist: [0, 0], photo: [0, 0] },
+  urls: { hist: null, photo: null }, result: null
+};
+const KEYS = { hist: "historic", photo: "photo" };
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
+const r1 = (v) => Math.round(v * 10) / 10;
+const say = (t) => { $("status").textContent = t; };
+
+function pendingIndex() { return S.points.findIndex(p => !p.historic || !p.photo); }
+function complete() { return S.points.filter(p => p.historic && p.photo); }
+
+function updateExpect() {
+  const i = pendingIndex();
+  const want = i < 0 ? null : (S.points[i].historic ? "photo" : "hist");
+  $("paneHist").classList.toggle("expect", want === "hist");
+  $("panePhoto").classList.toggle("expect", want === "photo");
+  return want;
+}
+
+function setZoom(which, z, keepCenter = true) {
+  const view = $(which === "hist" ? "viewHist" : "viewPhoto"), img = $(which === "hist" ? "imgHist" : "imgPhoto");
+  const [nw, nh] = S.nat[which];
+  if (!nw) return;
+  const old = S.zoom[which];
+  z = Math.max(0.05, Math.min(8, z));
+  const cx = (view.scrollLeft + view.clientWidth / 2) / old, cy = (view.scrollTop + view.clientHeight / 2) / old;
+  S.zoom[which] = z;
+  // display size only; no CSS transform or filter is ever applied to either <img>
+  img.style.width = nw * z + "px"; img.style.height = nh * z + "px";
+  if (keepCenter) { view.scrollLeft = cx * z - view.clientWidth / 2; view.scrollTop = cy * z - view.clientHeight / 2; }
+  drawMarkers();
+}
+function fit(which) {
+  const view = $(which === "hist" ? "viewHist" : "viewPhoto"), [nw, nh] = S.nat[which];
+  if (!nw) return;
+  setZoom(which, Math.min(view.clientWidth / nw, view.clientHeight / nh), false);
+  view.scrollLeft = view.scrollTop = 0;
+}
+
+function drawMarkers() {
+  for (const which of ["hist", "photo"]) {
+    const svg = $(which === "hist" ? "svgHist" : "svgPhoto"), [nw, nh] = S.nat[which], z = S.zoom[which] || 1;
+    if (!nw) { svg.innerHTML = ""; continue; }
+    svg.setAttribute("viewBox", `0 0 ${nw} ${nh}`);
+    const r = 9 / z, key = KEYS[which];
+    let html = "";
+    if (which === "hist" && S.result && S.result.H) {
+      complete().forEach((p) => {
+        const q = HG.project(S.result.H, p.photo);
+        html += `<line class="resline" x1="${+p.historic[0]}" y1="${+p.historic[1]}" x2="${+q[0]}" y2="${+q[1]}"/>`;
+      });
+    }
+    S.points.forEach((p, i) => {
+      const c = p[key];
+      if (!c) return;
+      const cls = "mk" + (i === S.sel ? " sel" : "") + (!p.historic || !p.photo ? " pending" : "");
+      html += `<g class="${cls}" data-i="${i}" data-w="${which}" tabindex="0" role="button" aria-label="Точка ${i + 1}${p.label ? " (" + esc(p.label) + ")" : ""}: ${r1(c[0])}, ${r1(c[1])}">`
+        + `<circle cx="${+c[0]}" cy="${+c[1]}" r="${r}" stroke-width="${1.5 / z}"/>`
+        + `<text x="${+c[0] + r * 1.1}" y="${+c[1] - r * 1.1}" transform="translate(${+c[0] + r * 1.1} ${+c[1] - r * 1.1}) scale(${1 / z}) translate(${-(+c[0] + r * 1.1)} ${-(+c[1] - r * 1.1)})">${i + 1}</text></g>`;
+    });
+    svg.innerHTML = html;
+  }
+}
+
+function recompute() {
+  const pts = complete();
+  const P = S.pair;
+  S.result = (P && pts.length >= 4) ? HG.evaluate(pts.map(p => p.photo), pts.map(p => p.historic), P.historic.size, P.photo.size) : null;
+  const m = $("metrics");
+  if (!S.result) {
+    m.innerHTML = `Полных пар точек: ${pts.length}. Нужно минимум 4 (лучше 6–12, для проверки leave-one-out — от 5).`;
+  } else {
+    const R = S.result, f = (v) => (v === null || v === undefined || !isFinite(v)) ? "—" : (+v).toFixed(2);
+    m.innerHTML = `Точек: ${pts.length} · RMS ${f(R.rms_px)} px · LOO max ${f(R.loo_max_px)} px · покрытие ${R.control_point_coverage !== undefined ? Math.round(R.control_point_coverage * 100) : "—"} % · `
+      + `предварительный вердикт <span class="verdict ${esc(R.confidence)}">${esc(R.confidence)}</span> <small>(${esc(R.reason || "")}; окончательный — офлайн)</small>`;
+  }
+  renderTable(); drawMarkers(); renderPreview(); renderExport(); updateExpect();
+}
+
+function renderTable() {
+  const tb = $("ptTable").tBodies[0], R = S.result, cp = complete();
+  tb.innerHTML = S.points.map((p, i) => {
+    const k = cp.indexOf(p);
+    const res = R && R.residuals_px && k >= 0 ? (+R.residuals_px[k]).toFixed(2) : "";
+    const loo = R && R.loo_px && R.loo_px.length && k >= 0 ? (isFinite(R.loo_px[k]) ? (+R.loo_px[k]).toFixed(2) : "∞") : "";
+    const xy = (c) => c ? `<td>${r1(c[0])}</td><td>${r1(c[1])}</td>` : `<td colspan="2"><em>щёлкните</em></td>`;
+    return `<tr data-i="${i}" class="${i === S.sel ? "sel" : ""}"><td>${i + 1}</td>`
+      + `<td class="lbl"><input data-i="${i}" value="${esc(p.label || "")}" aria-label="Подпись точки ${i + 1}"></td>`
+      + xy(p.historic) + xy(p.photo) + `<td>${res}</td><td>${loo}</td>`
+      + `<td><button data-del="${i}" aria-label="Удалить точку ${i + 1}">✕</button></td></tr>`;
+  }).join("");
+}
+
+function matrix3d(H) {
+  const [[a, b, c], [d, e, f], [g, h, i]] = H;
+  return `matrix3d(${a},${d},0,${g},${b},${e},0,${h},0,0,1,0,${c},${f},0,${i})`;
+}
+function renderPreview() {
+  const P = S.pair, L = $("prevLayer"), st = $("prevStage");
+  if (!P) return;
+  const [hw] = P.historic.size, [pw, ph] = P.photo.size, s = st.clientWidth / hw;
+  L.style.width = pw + "px"; L.style.height = ph + "px";
+  L.parentElement.style.opacity = $("prevOpacity").value / 100;
+  const ok = S.result && S.result.H && S.result.confidence !== "viewpoint_mismatch";
+  L.style.transform = ok ? `scale(${s}) ${matrix3d(S.result.H)}` : "";
+  L.hidden = !ok;
+  $("prevBadge").textContent = ok ? "Геометрия фото скорректирована · предпросмотр · обратимо" : "Нет совмещения (мало точек или ракурсы несовместимы)";
+}
+
+function exportPair() {
+  const P = JSON.parse(JSON.stringify(S.pair || {}));
+  P.control_points = complete().map(p => ({ label: p.label || "", historic: [r1(p.historic[0]), r1(p.historic[1])], photo: [r1(p.photo[0]), r1(p.photo[1])] }));
+  delete P.alignment;
+  const R = S.result;
+  P.editor = {
+    tool: "poc/compare/editor.html",
+    note: "alignment removed: run `python3 -m tools.align.homography <this file>` to compute the authoritative OpenCV result",
+    js_preview: R && R.H ? { method: R.method, confidence: R.confidence, rms_px: +R.rms_px.toFixed(2),
+      loo_max_px: R.loo_max_px === null ? null : +R.loo_max_px.toFixed(2), coverage: +R.control_point_coverage.toFixed(4),
+      H: R.H.map(r => r.map(v => +v.toPrecision(10))) } : null
+  };
+  return P;
+}
+function renderExport() { $("exportText").value = S.pair ? JSON.stringify(exportPair(), null, 1) + "\n" : ""; }
+
+function loadImage(which, src) {
+  const img = $(which === "hist" ? "imgHist" : "imgPhoto");
+  return new Promise((resolve) => {
+    img.onload = () => { S.nat[which] = [img.naturalWidth, img.naturalHeight]; fit(which); resolve(true); };
+    img.onerror = () => { S.nat[which] = [0, 0]; img.removeAttribute("style"); resolve(false); };
+    img.src = src;
+  });
+}
+
+async function usePair(pair, fromIndex) {
+  S.pair = pair;
+  S.points = (pair.control_points || []).map(c => ({ label: c.label || "", historic: c.historic.slice(), photo: c.photo.slice() }));
+  S.sel = -1;
+  const hsrc = S.urls.hist || S.base + pair.historic.file, psrc = S.urls.photo || S.base + pair.photo.file;
+  $("imgHist").alt = $("prevHist").alt = "Историческое изображение: " + (pair.historic.title || "");
+  $("imgPhoto").alt = $("prevPhoto").alt = "Современное фото: " + (pair.photo.title || "");
+  $("prevHist").src = hsrc; $("prevPhoto").src = psrc;
+  const [okH, okP] = await Promise.all([loadImage("hist", hsrc), loadImage("photo", psrc)]);
+  const warn = [];
+  if (!okH || !okP) warn.push("Изображение не загрузилось — выберите файлы кнопками «Своё историческое… / Своё фото…».");
+  if (okH && pair.historic.size && (S.nat.hist[0] !== pair.historic.size[0] || S.nat.hist[1] !== pair.historic.size[1]))
+    warn.push(`Размер исторического файла ${S.nat.hist.join("×")} не совпадает с size ${pair.historic.size.join("×")} в JSON.`);
+  if (okP && pair.photo.size && (S.nat.photo[0] !== pair.photo.size[0] || S.nat.photo[1] !== pair.photo.size[1]))
+    warn.push(`Размер фото ${S.nat.photo.join("×")} не совпадает с size ${pair.photo.size.join("×")} в JSON.`);
+  say((fromIndex ? `Пара «${pair.id}» загружена` : `JSON «${pair.id || "без id"}» открыт`) + `: ${S.points.length} точек. ` + (warn.join(" ") || "Щёлкните деталь на любом изображении, чтобы добавить точку."));
+  recompute();
+}
+
+function newPairFromImages() {
+  const name = (f) => f ? f.name : "";
+  return { id: "new-pair", status: "draft", condition: "", historic: { title: name($("histFile").files[0]), file: name($("histFile").files[0]), size: S.nat.hist.slice() },
+    photo: { title: name($("photoFile").files[0]), file: name($("photoFile").files[0]), size: S.nat.photo.slice() }, control_points: [] };
+}
+
+function imgCoords(which, e) {
+  const wrap = $(which === "hist" ? "wrapHist" : "wrapPhoto"), r = wrap.getBoundingClientRect(), z = S.zoom[which];
+  const [nw, nh] = S.nat[which];
+  return [Math.max(0, Math.min(nw, (e.clientX - r.left) / z)), Math.max(0, Math.min(nh, (e.clientY - r.top) / z))];
+}
+
+function placePoint(which, xy) {
+  const key = KEYS[which];
+  let i = pendingIndex();
+  if (i >= 0 && (!S.points[i][key] || !S.points[i][KEYS[which === "hist" ? "photo" : "hist"]])) {
+    S.points[i][key] = xy; // fill the missing side, or move the pending one
+  } else {
+    S.points.push({ label: "", historic: null, photo: null });
+    i = S.points.length - 1;
+    S.points[i][key] = xy;
+  }
+  S.sel = i;
+  const want = updateExpect();
+  say(want ? `Точка ${i + 1}: теперь отметьте ту же деталь на ${want === "hist" ? "историческом изображении" : "фото"}.` : `Точка ${i + 1} добавлена.`);
+  recompute();
+}
+
+function deletePoint(i) {
+  S.points.splice(i, 1);
+  S.sel = -1;
+  say(`Точка ${i + 1} удалена.`);
+  recompute();
+}
+
+function bindView(which) {
+  const view = $(which === "hist" ? "viewHist" : "viewPhoto"), key = KEYS[which];
+  let drag = null;
+  view.addEventListener("pointerdown", (e) => {
+    if (!S.nat[which][0] || e.button > 0) return;
+    const g = e.target.closest && e.target.closest(".mk");
+    view.setPointerCapture(e.pointerId);
+    if (g) { drag = { kind: "mk", i: +g.dataset.i }; S.sel = drag.i; }
+    else drag = { kind: "pan", x: e.clientX, y: e.clientY, sl: view.scrollLeft, st: view.scrollTop, moved: false };
+    e.preventDefault();
+  });
+  view.addEventListener("pointermove", (e) => {
+    if (!drag || !view.hasPointerCapture(e.pointerId)) return;
+    if (drag.kind === "mk") { S.points[drag.i][key] = imgCoords(which, e); drawMarkers(); }
+    else {
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.hypot(dx, dy) > 5) drag.moved = true;
+      if (drag.moved) { view.scrollLeft = drag.sl - dx; view.scrollTop = drag.st - dy; }
+    }
+  });
+  view.addEventListener("pointerup", (e) => {
+    if (!drag) return;
+    const d = drag; drag = null;
+    if (d.kind === "mk") { say(`Точка ${d.i + 1} перемещена.`); recompute(); }
+    else if (!d.moved) placePoint(which, imgCoords(which, e));
+  });
+  view.addEventListener("pointercancel", () => { drag = null; });
+  view.addEventListener("wheel", (e) => { if (!e.ctrlKey) return; e.preventDefault(); setZoom(which, S.zoom[which] * (e.deltaY < 0 ? 1.2 : 1 / 1.2)); }, { passive: false });
+  view.addEventListener("keydown", (e) => {
+    const g = e.target.closest && e.target.closest(".mk");
+    if (g) { // nudge / delete a focused marker
+      const i = +g.dataset.i, step = e.shiftKey ? 10 : 1, c = S.points[i][key];
+      const d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] }[e.key];
+      if (d) { c[0] = r1(c[0] + d[0]); c[1] = r1(c[1] + d[1]); S.sel = i; recompute(); focusMarker(which, i); e.preventDefault(); }
+      else if (e.key === "Delete" || e.key === "Backspace") { deletePoint(i); view.focus(); e.preventDefault(); }
+      return;
+    }
+    if (e.target !== view) return;
+    const pan = { ArrowLeft: [-40, 0], ArrowRight: [40, 0], ArrowUp: [0, -40], ArrowDown: [0, 40] }[e.key];
+    if (pan) { view.scrollLeft += pan[0]; view.scrollTop += pan[1]; e.preventDefault(); }
+    else if (e.key === "+" || e.key === "=") { setZoom(which, S.zoom[which] * 1.5); e.preventDefault(); }
+    else if (e.key === "-") { setZoom(which, S.zoom[which] / 1.5); e.preventDefault(); }
+    else if (e.key === "Enter" || e.key === " ") {
+      const z = S.zoom[which];
+      placePoint(which, [r1((view.scrollLeft + view.clientWidth / 2) / z), r1((view.scrollTop + view.clientHeight / 2) / z)]);
+      e.preventDefault();
+    }
+  });
+}
+function focusMarker(which, i) {
+  const g = $(which === "hist" ? "svgHist" : "svgPhoto").querySelector(`.mk[data-i="${i}"]`);
+  if (g) g.focus();
+}
+
+bindView("hist"); bindView("photo");
+document.querySelectorAll("[data-zoom]").forEach(b => b.onclick = () => setZoom(b.dataset.zoom, S.zoom[b.dataset.zoom] * +b.dataset.k));
+document.querySelectorAll("[data-fit]").forEach(b => b.onclick = () => fit(b.dataset.fit));
+$("ptTable").addEventListener("input", (e) => {
+  if (e.target.matches("input[data-i]")) { S.points[+e.target.dataset.i].label = e.target.value; drawMarkers(); renderExport(); }
+});
+$("ptTable").addEventListener("click", (e) => {
+  const del = e.target.closest("[data-del]");
+  if (del) return deletePoint(+del.dataset.del);
+  const tr = e.target.closest("tr[data-i]");
+  if (tr && !e.target.matches("input")) { S.sel = +tr.dataset.i; renderTable(); drawMarkers(); }
+});
+$("clearBtn").onclick = () => { if (!S.points.length || confirm("Удалить все точки?")) { S.points = []; S.sel = -1; say("Все точки удалены."); recompute(); } };
+$("prevOpacity").oninput = renderPreview;
+$("exportBtn").onclick = () => {
+  const blob = new Blob([$("exportText").value], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = ((S.pair && S.pair.id) || "pair") + ".json";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  say("JSON сохранён на устройство. Пересчитайте: python3 -m tools.align.homography " + a.download);
+};
+$("copyBtn").onclick = async () => {
+  try { await navigator.clipboard.writeText($("exportText").value); say("JSON скопирован."); }
+  catch { $("exportText").select(); say("Не удалось скопировать автоматически — текст выделен, нажмите Ctrl+C."); }
+};
+$("jsonFile").onchange = async () => {
+  const f = $("jsonFile").files[0];
+  if (!f) return;
+  try {
+    const pair = JSON.parse(await f.text());
+    if (!pair.historic || !pair.photo) throw new Error("нет полей historic / photo");
+    await usePair(pair, false);
+  } catch (err) { say("Не удалось прочитать JSON: " + err.message); }
+};
+async function ownImage(which) {
+  const f = $(which === "hist" ? "histFile" : "photoFile").files[0];
+  if (!f) return;
+  if (S.urls[which]) URL.revokeObjectURL(S.urls[which]);
+  S.urls[which] = URL.createObjectURL(f); // local object URL; the file never leaves the device
+  const ok = await loadImage(which, S.urls[which]);
+  $(which === "hist" ? "prevHist" : "prevPhoto").src = S.urls[which];
+  // a local image replaces one side of the pair: old points refer to the other file, so start over
+  const base = S.pair ? JSON.parse(JSON.stringify(S.pair)) : newPairFromImages();
+  if (base.status !== "draft") { base.id = (base.id || "pair") + "-draft"; base.status = "draft"; delete base.alignment; }
+  base[KEYS[which]] = { title: f.name, file: f.name, size: S.nat[which].slice(),
+    note: "local file chosen in the editor: add source, author, licence and sha256 before committing" };
+  S.pair = base; S.points = []; S.sel = -1;
+  say(ok ? `Файл «${f.name}» открыт локально (${S.nat[which].join("×")}).` : `Файл «${f.name}» не читается как изображение.`);
+  recompute();
+}
+$("histFile").onchange = () => ownImage("hist");
+$("photoFile").onchange = () => ownImage("photo");
+$("pairSel").onchange = async () => { S.urls = { hist: null, photo: null }; await usePair(await (await fetch(`pairs/${encodeURIComponent($("pairSel").value)}.json`)).json(), true); history.replaceState(null, "", "#" + $("pairSel").value); };
+addEventListener("resize", renderPreview);
+
+(async function init() {
+  try {
+    const idx = await (await fetch("pairs/index.json")).json();
+    const ids = idx.pairs.filter(p => /^[\w-]+$/.test(p));
+    $("pairSel").innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+    const start = location.hash.slice(1);
+    if (ids.includes(start)) $("pairSel").value = start;
+    await $("pairSel").onchange();
+  } catch (err) { say("Не удалось загрузить список пар: " + err.message + ". Можно открыть свой JSON и изображения."); }
+})();
+</script>
+</body>
+</html>

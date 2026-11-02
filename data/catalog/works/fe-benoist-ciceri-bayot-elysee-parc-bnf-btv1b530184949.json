@@ -1,0 +1,131 @@
+{
+  "id": "fe-benoist-ciceri-bayot-elysee-parc-bnf-btv1b530184949",
+  "alternate_ids": [
+    "europeana:9200518/ark__12148_btv1b530184949",
+    "gallica:ark:/12148/btv1b530184949"
+  ],
+  "titles": [
+    {
+      "text": "Palais de l'Élysée (Façade sur le Parc) : [estampe]",
+      "lang": "fr",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Félix Benoist",
+      "wikidata": "Q277187",
+      "dates": "1818–1896",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo"
+    },
+    {
+      "name": "Eugène Cicéri",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo",
+      "dates": "1813–1890 (BnF)"
+    },
+    {
+      "name": "Charpentier (Nantes, Paris)",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo"
+    },
+    {
+      "name": "A. Bayot",
+      "role": "figures",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo"
+    }
+  ],
+  "date": {
+    "display": "not stated in the BnF record"
+  },
+  "medium": "1 est. : lithographie en camaïeu ; 25,3 x 36,4 cm",
+  "place": {
+    "name_historic": "Palais de l'Élysée, façade sur le parc",
+    "name_modern": "Palais de l'Élysée",
+    "city": "Paris",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Bibliothèque nationale de France, département Estampes et photographie",
+    "object_id": "ark:/12148/btv1b530184949",
+    "shelfmark": "RESERVE QB-370 (125)-FT4",
+    "object_url": "https://gallica.bnf.fr/ark:/12148/btv1b530184949",
+    "iiif_image_service": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b530184949/f1",
+    "via": "Europeana record API (BnF provider proxy); Gallica itself returned 403 to this container"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b530184949/f1/full/512,/0/native.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "No copyright – other known legal restrictions (edm:rights NoC-OKLR, per BnF via Europeana)",
+    "image": "Gallica digitisation; reuse governed by Gallica conditions of use",
+    "uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
+    "attribution_required": "Source gallica.bnf.fr / BnF",
+    "constraints": "Gallica conditions: non-commercial reuse free with credit 'Source gallica.bnf.fr / BnF'; commercial reuse needs a BnF licence. Conditions page not re-read from this container (Gallica 403).",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo",
+        "http://gallica.bnf.fr/ark:/12148/btv1b530184949"
+      ],
+      "comment": "BnF dc:creator lists Bayot as 'Dessinateur du modèle'; publisher line says 'Fig. par A. Bayot' -> recorded as figures"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights NoC-OKLR read in Europeana record; redistribution kept link_only until owner decides commercial/non-commercial status"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo"
+      ],
+      "comment": "city-level only, from BnF subject headings; no coordinates"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "BnF bibliographic reference: De Vinck, 15518",
+      "source_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b530184949.json?wskey=api2demo",
+      "lang": "fr"
+    }
+  ],
+  "series": {
+    "publisher": "Charpentier, Nantes / Paris",
+    "plate": "24"
+  }
+}

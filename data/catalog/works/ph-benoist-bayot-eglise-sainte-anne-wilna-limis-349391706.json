@@ -1,0 +1,138 @@
+{
+  "id": "ph-benoist-bayot-eglise-sainte-anne-wilna-limis-349391706",
+  "alternate_ids": [
+    "europeana:2021802/LIMIS_349391706",
+    "limis:349391706"
+  ],
+  "titles": [
+    {
+      "text": "Starożytny kościół Sy Anny w Wilnie",
+      "lang": "pl",
+      "kind": "inscribed"
+    },
+    {
+      "text": "Šv. Onos bažnyčia",
+      "lang": "lt",
+      "kind": "translation"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+    },
+    {
+      "name": "Adolphe Jean-Baptiste Bayot",
+      "role": "figures",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+    },
+    {
+      "name": "Imprimerie Lemercier, Paris",
+      "role": "printer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+    },
+    {
+      "name": "Jan Kazimierz Wilczyński (Jonas Kazimieras Vilčinskis)",
+      "role": "publisher",
+      "certainty": "uncertain",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+    }
+  ],
+  "series": {
+    "title": "Album de Wilna (series not stated in this record; candidate)"
+  },
+  "date": {
+    "display": "1850 m. (per holder)",
+    "earliest": 1850,
+    "latest": 1850
+  },
+  "medium": "litografija, dažai, popierius (lithograph, colour, paper) — 34 x 47 cm",
+  "place": {
+    "name_historic": "Wilno, kościół św. Anny i Bernardynów",
+    "name_modern": "Šv. Onos bažnyčia, Vilnius",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Šiaulių „Aušros“ muziejus (Šiauliai Aušros Museum)",
+    "object_id": "LIMIS-349391706",
+    "object_url": "https://www.limis.lt/valuables/e/805391/349391706",
+    "via": "Europeana record API (LIMIS)"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "thumbnail",
+        "url": "https://www.epaveldas.lt/static/sam-bucket/LIMIS-349391706/thumbnail-original/get.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "19th-century lithograph (no artwork rights statement in record)",
+    "image": "edm:rights In Copyright (InC) (digital image, as stated via Europeana); dc:rights 'Šiaulių „Aušros“ muziejus'",
+    "uri": "http://rightsstatements.org/vocab/InC/1.0/",
+    "attribution_required": "Šiaulių „Aušros“ muziejus, LIMIS",
+    "constraints": "NonCommercial-NoDerivatives or In Copyright: do not redistribute bytes without permission",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+      ],
+      "comment": "Holder dc:contributor Philippe Benoist + Bayot; inscription 'Lith par Ph. Benoist … Figures par Bayot'"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights In Copyright (InC)"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo"
+      ],
+      "comment": "city-level from the holder's description/inscription. NOTE: Europeana place entity = France (47.0, 2.0) is the PRINTING place, not the depicted place — not used"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "Inscription transcribed by the holder: „Lith par Ph. Benoist. / Imp. Lemercier, rue de Seine 57 à Paris. / Figures par Bayot. / STAROŻYTNY KOŚCIÓŁ S-Y ANNY W WILNIE. / ÉGLISE SAINTE ANNE À WILNA. / Dédié à Monsieur Eustach…“ (truncated in record)",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo",
+      "lang": "fr"
+    },
+    {
+      "kind": "curatorial",
+      "text": "The record does not quote an 'Album de Wilna' header; series membership is a candidate only. Rights differ from sibling LIMIS records (InC here vs CC BY-NC-ND 4.0).",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349391706.json?wskey=api2demo",
+      "lang": "en"
+    }
+  ]
+}

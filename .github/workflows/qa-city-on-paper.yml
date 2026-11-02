@@ -1,0 +1,92 @@
+name: City on Paper vNext QA
+on:
+  pull_request:
+    paths:
+      - 'tools/**'
+      - 'tests/**'
+      - 'data/**'
+      - 'schemas/**'
+      - 'poc/**'
+      - 'index.html'
+      - '.github/workflows/qa-city-on-paper.yml'
+  workflow_dispatch:
+
+jobs:
+  source-and-catalog:
+    name: Sources, catalog, image geometry
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned QA dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/align/requirements.txt pytest==9.1.1 ruff==0.16.9
+      - name: Lint
+        run: ruff check tools tests
+      - name: Validate catalog
+        run: python -m tools.catalog.validate
+      - name: Unit tests
+        run: pytest -q tests
+      - name: Verify artwork fields and candidates metadata
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          d=json.loads(pathlib.Path('data/candidates/candidates-2026-11-01b.json').read_text())
+          items=d['items']
+          assert len(items) == 1019, len(items)
+          assert len({x['id'] for x in items}) == len(items)
+          assert all(not x.get('published',False) for x in items)
+          assert all(not x.get('preview_url') for x in items if x['rights_category'] != 'open')
+          print('PASS: 1019 unique research records, all unpublished, restricted previews blocked')
+          PY
+  browser-viewer:
+    name: Then/Now responsive Chromium
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve local museum
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 > /tmp/city-http.log 2>&1 &
+          sleep 3
+          curl -f http://127.0.0.1:8765/index.html -o /dev/null
+      - name: Test comparison, control editor, responsive layouts
+        run: |
+          mkdir -p /tmp/city-on-paper-screens
+          node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
+      - name: Package runnable vNext museum preview
+        run: |
+          mkdir -p /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          cp index.html /tmp/city-on-paper-package/
+          cp data/catalog/ledger-2026-11-01.csv /tmp/city-on-paper-package/data/catalog/
+          cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
+          cp -R poc/compare /tmp/city-on-paper-package/poc/
+          cp -R docs/ux/mockups /tmp/city-on-paper-package/docs/ux/
+          printf '%s\n' 'Запуск: из этой папки python3 -m http.server 8765 ; затем откройте http://localhost:8765/' > /tmp/city-on-paper-package/README_RUN.txt
+      - name: Upload standalone preview bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: city-on-paper-vnext-preview
+          path: /tmp/city-on-paper-package
+          retention-days: 14
+      - name: Archive QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: then-now-qa-screenshots
+          path: /tmp/city-on-paper-screens
+          retention-days: 7

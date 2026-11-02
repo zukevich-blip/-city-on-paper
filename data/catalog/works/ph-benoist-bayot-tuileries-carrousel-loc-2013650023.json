@@ -1,0 +1,139 @@
+{
+  "id": "ph-benoist-bayot-tuileries-carrousel-loc-2013650023",
+  "alternate_ids": [
+    "loc:2013650023"
+  ],
+  "titles": [
+    {
+      "text": "Chateau des Tuileries, côté du carrousel / dessiné d'apre nature et lith: par Ph. Benoist ; figures par A. Bayot ; lith. de Gihaut frères Editeurs, Boulevart des Italiens, 5.",
+      "lang": "fr",
+      "kind": "inscribed"
+    },
+    {
+      "text": "Palace of the Tuileries, side of the carrousel",
+      "lang": "en",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/2013650023/",
+      "dates": "1813–approximately 1905 (LoC)"
+    },
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/2013650023/"
+    },
+    {
+      "name": "Adolphe Jean-Baptiste Bayot",
+      "role": "figures",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/2013650023/",
+      "dates": "1810–1871 (LoC)"
+    },
+    {
+      "name": "Gihaut frères",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://www.loc.gov/item/2013650023/"
+    }
+  ],
+  "date": {
+    "display": "[between 1833 and 1839] (LoC)",
+    "earliest": 1833,
+    "latest": 1839
+  },
+  "medium": "Lithograph; 40.4 x 55.8 cm (sheet)",
+  "place": {
+    "name_historic": "Château des Tuileries, côté du Carrousel",
+    "name_modern": "Place du Carrousel / Jardin des Tuileries, Paris",
+    "city": "Paris",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "square_street",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Library of Congress, Prints and Photographs Division",
+    "object_id": "2013650023",
+    "shelfmark": "PGA - Gihaut Frères--Chateau des Tuileries, ... (C size) [P&P]",
+    "object_url": "https://www.loc.gov/item/2013650023/"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "https://tile.loc.gov/storage-services/service/pnp/pga/05700/05798v.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "LoC rights advisory: 'No known restrictions on publication.'",
+    "image": "LoC digital file LC-DIG-pga-05798; LoC states it does not own rights and cannot grant or deny permission",
+    "uri": "https://www.loc.gov/rr/print/res/248_pga.html",
+    "attribution_required": "Library of Congress, Prints & Photographs Division, LC-DIG-pga-05798",
+    "constraints": "Researcher must assess rights (LoC general statement); LoC IIIF manifest.json returned 403 in PR A probe",
+    "checked": "2026-11-01",
+    "redistribution": "allowed"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/2013650023/",
+        "https://www.loc.gov/item/2013650023/?fo=json"
+      ],
+      "comment": "LoC contributor_names + title transcription"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/2013650023/",
+        "https://www.loc.gov/item/2013650023/?fo=json"
+      ],
+      "comment": "rights_advisory read on item JSON"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://www.loc.gov/item/2013650023/",
+        "https://www.loc.gov/item/2013650023/?fo=json"
+      ],
+      "comment": "city-level only: LoC location/place 'France--Paris'; no coordinates"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "series": {
+    "title": "Vues de Paris",
+    "publisher": "Gihaut frères"
+  },
+  "notes": [
+    {
+      "kind": "curatorial",
+      "text": "LoC: 'From series: Vues de Paris.' LoC names Gihaut Frères as 'lithographer' in contributor_names; inscription says 'lith. de Gihaut frères Editeurs' (publisher-printer).",
+      "source_url": "https://www.loc.gov/item/2013650023/",
+      "lang": "en"
+    }
+  ]
+}

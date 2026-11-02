@@ -1,0 +1,129 @@
+{
+  "id": "benoist-rome-grandeur-vatican-hertziana-bhfc135a54",
+  "alternate_ids": [
+    "europeana:366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ"
+  ],
+  "titles": [
+    {
+      "text": "PALAIS ET JARDINS DU VATICAN",
+      "lang": "fr",
+      "kind": "inscribed"
+    },
+    {
+      "text": "Rome dans sa grandeur: vues, monuments anciens et modernes ... dessins d'après nature par Philippe Benoist et Félix Benoist ... Paris: Charpentier, 1870. Band 3: Rome moderne., Rom, Vatikan",
+      "lang": "fr",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "draughtsman",
+      "certainty": "uncertain",
+      "evidence_url": "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo",
+      "dates": "b. 1813 (Hertziana)"
+    },
+    {
+      "name": "Félix Benoist",
+      "wikidata": "Q277187",
+      "dates": "1818–1896",
+      "role": "draughtsman",
+      "certainty": "uncertain",
+      "evidence_url": "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo"
+    },
+    {
+      "name": "Franz de Champagny",
+      "role": "author",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo"
+    },
+    {
+      "name": "Charpentier",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo"
+    }
+  ],
+  "series": {
+    "title": "Rome dans sa grandeur",
+    "volume": "3: Rome moderne",
+    "publisher": "Charpentier, Paris",
+    "year": "1870"
+  },
+  "date": {
+    "display": "1870 (publication of the book, per Hertziana title)",
+    "earliest": 1870,
+    "latest": 1870
+  },
+  "medium": "Lithographie (Technik)",
+  "place": {
+    "name_historic": "Palais Et Jardins Du Vatican",
+    "name_modern": "Palazzi e Giardini Vaticani",
+    "city": "Rome",
+    "country": "Italy",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark",
+    "city_view"
+  ],
+  "holding": {
+    "institution": "Bibliotheca Hertziana – Max-Planck-Institut für Kunstgeschichte, Rom (Bibliothek / Fotothek)",
+    "object_id": "08003574-T-003_bhfc135a54",
+    "object_url": "http://foto.biblhertz.it/obj08003574",
+    "via": "Europeana record API"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "http://fotothek.biblhertz.it/bh/2048px/bhfc135a54.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "19th-century lithograph (no artwork rights statement in record)",
+    "image": "Photograph by Bibliotheca Hertziana; edm:rights InC (In Copyright); 'Es gelten die Nutzungsbedingungen der Bibliotheca Hertziana'",
+    "uri": "http://rightsstatements.org/vocab/InC/1.0/",
+    "constraints": "Hertziana terms of use; not open licence",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "uncertain",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo"
+      ],
+      "comment": "Holder credits the BOOK jointly to Philippe and Félix Benoist ('dessins d'après nature par Philippe Benoist et Félix Benoist'); which of the two drew this plate is not stated"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo"
+      ],
+      "comment": "InC for the Hertziana photograph"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ.json?wskey=api2demo"
+      ],
+      "comment": "city-level, from plate inscription transcribed by holder"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  }
+}

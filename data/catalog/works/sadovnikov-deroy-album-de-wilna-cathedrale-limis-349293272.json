@@ -1,0 +1,127 @@
+{
+  "id": "sadovnikov-deroy-album-de-wilna-cathedrale-limis-349293272",
+  "alternate_ids": [
+    "europeana:2021802/LIMIS_349293272",
+    "limis:349293272"
+  ],
+  "titles": [
+    {
+      "text": "Widoki Wilna. Koscioł katedralny R. K.",
+      "lang": "pl",
+      "kind": "inscribed"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Vasily Sadovnikov (Sadownikoff)",
+      "role": "draughtsman",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo"
+    },
+    {
+      "name": "Isidore Laurent Deroy",
+      "role": "lithographer",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo"
+    },
+    {
+      "name": "Jan Kazimierz Wilczyński (Jonas Kazimieras Vilčinskis)",
+      "role": "publisher",
+      "certainty": "documented",
+      "evidence_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo"
+    }
+  ],
+  "series": {
+    "title": "Album de Wilna",
+    "plate": "No 7",
+    "publisher": "J. K. Wilczyński (éditeur)"
+  },
+  "date": {
+    "display": "XIX a. vid. (mid-19th century, per holder)"
+  },
+  "medium": "litografija, dažai, popierius (lithograph, colour, paper) — lakšto 43,6 x 63,4 cm",
+  "place": {
+    "name_historic": "Wilno, katedra rzymskokatolicka",
+    "name_modern": "Vilniaus arkikatedra, Katedros aikštė",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "square_street",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Šiaulių „Aušros“ muziejus (Šiauliai Aušros Museum)",
+    "object_id": "LIMIS-349293272",
+    "object_url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/349293272",
+    "via": "Europeana record API (LIMIS)"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "thumbnail",
+        "url": "https://www.epaveldas.lt/static/sam-bucket/LIMIS-349293272/thumbnail-original/349293310.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "19th-century lithograph (no artwork rights statement in record)",
+    "image": "edm:rights CC BY-NC-ND 4.0 (digital image, as stated via Europeana); dc:rights 'Šiaulių „Aušros“ muziejus'",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "attribution_required": "Šiaulių „Aušros“ muziejus, LIMIS",
+    "constraints": "NonCommercial-NoDerivatives or In Copyright: do not redistribute bytes without permission",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo"
+      ],
+      "comment": "NOT Benoist: inscription names Sadownikoff (drawing d'après nature) and Deroy (lithography)"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights CC BY-NC-ND 4.0"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo"
+      ],
+      "comment": "city-level from the holder's description/inscription. NOTE: Europeana place entity = France (47.0, 2.0) is the PRINTING place, not the depicted place — not used"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "Inscription transcribed by the holder: „Album de Wilna“ … „Dessiné d’apres nature par Sadownikoff. / No 7 / Lith. par Deroy. / WIDOKI WILNA / KOSCIOŁ KATEDRALNY R. K. …“",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo",
+      "lang": "fr"
+    },
+    {
+      "kind": "curatorial",
+      "text": "Control record (non-Benoist Album de Wilna plate).",
+      "source_url": "https://api.europeana.eu/record/v2/2021802/LIMIS_349293272.json?wskey=api2demo",
+      "lang": "en"
+    }
+  ]
+}

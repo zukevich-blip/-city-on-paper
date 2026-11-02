@@ -1,0 +1,110 @@
+{
+  "id": "ph-benoist-bayeux-cathedrale-interieur-bnf-btv1b77407767",
+  "alternate_ids": [
+    "europeana:9200518/ark__12148_btv1b77407767",
+    "gallica:ark:/12148/btv1b77407767"
+  ],
+  "titles": [
+    {
+      "text": "Cathédrale de Bayeux. [Vue intérieure de la cathédrale] : [dessin] / [Philippe Benoist ?]",
+      "lang": "fr",
+      "kind": "catalogue"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Philippe Benoist",
+      "wikidata": "Q26309223",
+      "role": "draughtsman",
+      "certainty": "uncertain",
+      "evidence_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b77407767.json?wskey=api2demo",
+      "dates": "1813–1905 (BnF)"
+    }
+  ],
+  "date": {
+    "display": "18..",
+    "earliest": 1800,
+    "latest": 1899
+  },
+  "medium": "Dessin à la mine de plomb légèrement estompée ; 24,1 x 26 cm",
+  "place": {
+    "name_historic": "Bayeux, cathédrale Notre-Dame (intérieur)",
+    "name_modern": "Cathédrale Notre-Dame de Bayeux",
+    "city": "Bayeux",
+    "country": "France",
+    "precision": "city"
+  },
+  "theme_tags": [
+    "architecture",
+    "landmark"
+  ],
+  "holding": {
+    "institution": "Bibliothèque nationale de France, département Estampes et photographie",
+    "object_id": "ark:/12148/btv1b77407767",
+    "shelfmark": "EST RESERVE VE-26 (H)",
+    "object_url": "https://gallica.bnf.fr/ark:/12148/btv1b77407767",
+    "iiif_image_service": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b77407767/f1",
+    "via": "Europeana record API (BnF provider proxy); Gallica itself returned 403 to this container"
+  },
+  "media": {
+    "derived": [
+      {
+        "kind": "web",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b77407767/f1/full/512,/0/native.jpg"
+      }
+    ]
+  },
+  "rights": {
+    "artwork": "No copyright – other known legal restrictions (edm:rights NoC-OKLR, per BnF via Europeana)",
+    "image": "Gallica digitisation; reuse governed by Gallica conditions of use",
+    "uri": "http://rightsstatements.org/vocab/NoC-OKLR/1.0/",
+    "attribution_required": "Source gallica.bnf.fr / BnF",
+    "constraints": "Gallica conditions: non-commercial reuse free with credit 'Source gallica.bnf.fr / BnF'; commercial reuse needs a BnF licence. Conditions page not re-read from this container (Gallica 403).",
+    "checked": "2026-11-01",
+    "redistribution": "link_only"
+  },
+  "review": {
+    "attribution": {
+      "status": "uncertain",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b77407767.json?wskey=api2demo",
+        "http://gallica.bnf.fr/ark:/12148/btv1b77407767"
+      ],
+      "comment": "BnF title has '[Philippe Benoist ?]' — doubtful per holder"
+    },
+    "licensing": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b77407767.json?wskey=api2demo"
+      ],
+      "comment": "edm:rights NoC-OKLR read in Europeana record; redistribution kept link_only until owner decides commercial/non-commercial status"
+    },
+    "geo": {
+      "status": "verified",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "evidence_urls": [
+        "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b77407767.json?wskey=api2demo"
+      ],
+      "comment": "city-level only, from BnF subject headings; no coordinates"
+    },
+    "viewpoint": {
+      "status": "candidate",
+      "reviewer": "Claude (automated) — needs human review",
+      "date": "2026-11-01",
+      "comment": "not assessed"
+    }
+  },
+  "notes": [
+    {
+      "kind": "historical_source",
+      "text": "BnF bibliographic reference: Destailleur Province, t. 3, 774",
+      "source_url": "https://api.europeana.eu/record/v2/9200518/ark__12148_btv1b77407767.json?wskey=api2demo",
+      "lang": "fr"
+    }
+  ]
+}
