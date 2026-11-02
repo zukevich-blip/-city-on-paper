@@ -1,0 +1,51 @@
+name: City on Paper safe public preview
+on:
+  push:
+    branches:
+      - integration/claude-vnext-20261102
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: city-on-paper-pages-preview
+  cancel-in-progress: true
+
+jobs:
+  publish-preview:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Prepare publication-safe files
+        run: |
+          mkdir -p public
+          cp index.html public/
+          mkdir -p public/data/catalog public/data/candidates public/poc public/docs/ux
+          cp data/catalog/ledger-2026-11-01.csv public/data/catalog/
+          cp data/candidates/candidates-2026-11-01b.json public/data/candidates/
+          cp -R poc/compare public/poc/
+          cp -R docs/ux/mockups public/docs/ux/
+          test -f public/index.html
+          python - <<'PY'
+          import json
+          p='public/data/candidates/candidates-2026-11-01b.json'
+          j=json.load(open(p))
+          assert len(j['items']) == 1019
+          assert all(not x.get('preview_url') for x in j['items'] if x['rights_category'] != 'open')
+          assert all(not x.get('published',False) for x in j['items'])
+          print('Allowed: 1019 unapproved records without restricted thumbnails; published gallery uses source attribution.')
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - uses: actions/deploy-pages@v4
+        id: deployment
