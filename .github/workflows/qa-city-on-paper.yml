@@ -7,6 +7,7 @@ on:
       - 'data/**'
       - 'schemas/**'
       - 'poc/**'
+      - 'atelier/**'
       - 'index.html'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
@@ -68,6 +69,8 @@ jobs:
         run: |
           mkdir -p /tmp/city-on-paper-screens
           node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
+      - name: Test Bargue drawing academy responsive browser UI
+        run: node tests/browser/qa_bargue.js http://127.0.0.1:8765/atelier/bargue/ /tmp/city-on-paper-screens
       - name: Package runnable vNext museum preview
         run: |
           mkdir -p /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
@@ -75,6 +78,7 @@ jobs:
           cp data/catalog/ledger-2026-11-01.csv /tmp/city-on-paper-package/data/catalog/
           cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
           cp -R poc/compare /tmp/city-on-paper-package/poc/
+          cp -R atelier /tmp/city-on-paper-package/
           cp -R docs/ux/mockups /tmp/city-on-paper-package/docs/ux/
           printf '%s\n' 'Запуск: из этой папки python3 -m http.server 8765 ; затем откройте http://localhost:8765/' > /tmp/city-on-paper-package/README_RUN.txt
       - name: Upload standalone preview bundle
