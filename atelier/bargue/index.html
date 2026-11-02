@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Школа художника | Город на бумаге</title>
+<meta name="description" content="Академический рисунок по методике Барга и Жерома: геометрия, пропорции, светотень. Интерактивная музейная мастерская.">
+<style>
+:root{--paper:#f3ede3;--sheet:#fffdf8;--ink:#292823;--muted:#70685e;--line:#d5cbbe;--red:#873d32;--gold:#ad8a5e;--blue:#66788a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:#fffcf7;border-bottom:1px solid var(--line)}
+.top{max-width:1220px;margin:auto;padding:19px 25px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font:23px Georgia,serif;text-decoration:none}.nav{font-size:13px;color:var(--muted);text-decoration:none}
+main{max-width:1220px;margin:auto;padding:36px 25px 75px}
+.eyebrow{letter-spacing:.15em;text-transform:uppercase;font-size:11px;color:var(--red);font-weight:700}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(39px,5vw,66px);letter-spacing:-.04em;margin:9px 0 15px}
+h2{font-size:31px;margin:0 0 10px}h3{font-size:22px;margin:0 0 9px}
+.intro{max-width:815px;color:#655d53;font-size:16px;margin:0 0 24px}
+.lesson{display:grid;grid-template-columns:275px minmax(0,1fr);gap:23px;align-items:start}
+.sidebar,.studio,.bottom{background:var(--sheet);border:1px solid var(--line)}
+.sidebar{padding:25px}.sidebar p{color:var(--muted);font-size:14px}.steps{display:grid;gap:7px;margin-top:25px}
+.step{background:transparent;text-align:left;border:1px solid var(--line);min-height:53px;padding:13px;color:var(--ink);display:flex;gap:13px;align-items:center;border-radius:2px}
+.step[aria-current=true]{background:#eee4d6;border-color:var(--gold);color:var(--red);font-weight:700}
+.step span{color:var(--muted);font-size:11px;min-width:23px}
+.tip{border-left:2px solid var(--red);padding:8px 0 8px 14px;margin-top:25px;font-size:13px;color:var(--muted)}
+.studio{padding:22px}
+.stagebar{display:flex;justify-content:space-between;align-items:start;gap:16px;flex-wrap:wrap}
+.stagebar p{max-width:720px;color:var(--muted);margin:0;font-size:14px}
+.tools{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 15px}
+.tools button,.tools label{background:#fffaf3;border:1px solid var(--line);color:var(--ink);font:13px system-ui,sans-serif;padding:10px 13px;cursor:pointer;border-radius:3px}
+.tools button:hover,.tools button:focus-visible{background:#eee6da}
+.tools button.primary{background:var(--red);border-color:var(--red);color:white}
+.tools button:disabled{opacity:.45;cursor:not-allowed}
+.tools label{display:flex;align-items:center;gap:8px}
+input[type=checkbox]{accent-color:var(--red)}
+.papers{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.paper{min-width:0}.paper-title{font-size:12px;color:var(--muted);margin:0 0 6px;display:flex;justify-content:space-between;gap:8px}
+.frame{background:#fcfaf5;border:1px solid #e2dacf;aspect-ratio:360/420;min-height:0;position:relative;overflow:hidden}
+.frame svg,.frame canvas{display:block;width:100%;height:100%}
+.frame canvas{touch-action:none;cursor:crosshair}
+.frame svg{filter:sepia(.05)}
+.meta{color:var(--muted);font-size:12px;margin-top:16px}
+.bottom{padding:25px;margin-top:22px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
+.bottom p{font-size:14px;color:var(--muted);margin:0 0 8px}
+.bottom ul{color:var(--muted);font-size:14px;padding-left:19px;margin:8px 0}
+.bottom a{color:var(--red)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.small{font-size:12px;color:var(--muted)}
+@media(max-width:970px){.lesson{grid-template-columns:1fr}.steps{grid-template-columns:repeat(5,1fr)}.step{font-size:12px;display:block}.step span{display:block;margin-bottom:3px}.sidebar{padding:20px}.tip{margin-top:15px}}
+@media(max-width:580px){main{padding:25px 12px 45px}.top{padding:14px}.brand{font-size:19px}.steps{grid-template-columns:repeat(5,1fr);gap:4px}.step{padding:8px 6px;font-size:10px;min-height:56px}.studio{padding:12px}.papers{gap:5px}.frame{border-width:1px}.paper-title{font-size:10px}.bottom{grid-template-columns:1fr;padding:18px}.tools button,.tools label{font-size:12px;padding:9px}h2{font-size:27px}}
+</style>
+</head>
+<body>
+<header><div class="top"><a class="brand" href="../../index.html">Город на бумаге</a><a class="nav" href="../../index.html">Вернуться к выставке ↗</a></div></header>
+<main>
+<div class="eyebrow">Мастерская художника · Урок 01 из 05</div>
+<h1>Учимся видеть форму</h1>
+<p class="intro">Практикум по методу <strong>Шарля Барга и Жана-Леона Жерома</strong>. Исследуйте пропорции классического архитектурного фрагмента: сначала большие размеры и углы, затем силуэт и тени. Здесь используется <strong>новая учебная схема</strong>, разработанная специально для проекта, а не копия литографии из современного переиздания.</p>
+<div class="lesson">
+<aside class="sidebar">
+  <div class="eyebrow">Ход занятия</div><h2>Пять шагов</h2>
+  <p>Рисуйте пальцем на iPhone или стилусом на планшете. На компьютере используйте мышь.</p>
+  <div class="steps" role="group" aria-label="Этапы урока">
+    <button class="step" data-step="0" aria-current="true"><span>01</span> Границы</button>
+    <button class="step" data-step="1"><span>02</span> Вертикаль</button>
+    <button class="step" data-step="2"><span>03</span> Прямые</button>
+    <button class="step" data-step="3"><span>04</span> Тени</button>
+    <button class="step" data-step="4"><span>05</span> Проверка</button>
+  </div>
+  <div class="tip" id="focus-tip">Определите четыре крайние точки: верх, низ, левый и правый край. Сначала общая пропорция, затем детали.</div>
+</aside>
+<section class="studio" aria-label="Интерактивное занятие">
+  <div class="stagebar"><div><div class="eyebrow" id="stage-n">Этап 01 / Границы</div><h2 id="stage-title">Определите габариты</h2><p id="stage-desc">Сравните высоту и ширину. На рабочем листе отметьте крайние точки архитектурного фрагмента.</p></div></div>
+  <div class="tools"><button id="undo" type="button">Отменить линию</button><button id="clear" type="button">Очистить рисунок</button><label><input type="checkbox" id="guide" checked> Подсказки</label><button class="primary" id="save" type="button">Сохранить PNG</button></div>
+  <div class="papers">
+   <div class="paper"><div class="paper-title"><span>Образец</span><span>Авторская схема</span></div><div class="frame">
+   <svg id="reference" viewBox="0 0 360 420" role="img" aria-label="Самостоятельно созданный рисунок классического архитектурного фрагмента: арка, колонны и тени">
+    <rect width="360" height="420" fill="#fcfaf5"/>
+    <g fill="none" stroke="#746d62" stroke-width="1.7" stroke-linejoin="round">
+      <path d="M58 359 L302 359 L302 375 L58 375 Z"/>
+      <path d="M65 344 L295 344 L302 359 L58 359 Z"/>
+      <path d="M82 325 L111 325 L111 344 L82 344Z M249 325 L278 325 L278 344 L249 344Z"/>
+      <path d="M85 152 L108 152 L108 325 L85 325Z M252 152 L275 152 L275 325 L252 325Z"/>
+      <path d="M78 142 L114 142 L114 156 L78 156Z M246 142 L282 142 L282 156 L246 156Z"/>
+      <path d="M73 128 L287 128 L291 141 L69 141Z"/>
+      <path d="M73 115 L287 115 L287 128 L73 128Z"/>
+      <path d="M90 115 L90 99 L180 44 L270 99 L270 115 Z"/>
+      <path d="M100 112 L100 103 L180 55 L260 103 L260 112"/>
+      <path d="M120 325 L120 218 C120 138 240 138 240 218 L240 325Z"/>
+      <path d="M133 325 L133 218 C133 157 227 157 227 218 L227 325"/>
+      <path d="M86 169 L105 169 M255 169 L274 169 M86 305 L105 305 M255 305 L274 305"/>
+      <path d="M162 85 L180 75 L198 85 M111 139 L111 146 M249 139 L249 146"/>
+    </g>
+    <g fill="#bcb5aa" opacity=".54">
+      <path d="M227 218 C227 157 133 157 133 218 L133 325 L120 325 L120 218 C120 138 240 138 240 218 L240 325 L227 325Z"/>
+      <path d="M252 153 L275 153 L275 325 L264 325 L264 157 L252 157Z"/>
+      <path d="M90 99 L180 44 L270 99 L270 115 L258 108 L180 60 L103 108 L90 115Z"/>
+      <path d="M73 115 L287 115 L287 128 L73 128Z"/>
+      <path d="M58 359 L302 359 L302 375 L291 375 L291 363 L58 363Z"/>
+    </g>
+    <g fill="none" stroke="#4a4742" stroke-width="1">
+      <path d="M85 152 L85 325 M252 152 L252 325 M120 217 C120 138 240 138 240 217"/>
+    </g>
+   </svg>
+   </div></div>
+   <div class="paper"><div class="paper-title"><span>Ваш рисунок</span><span id="stroke-count">0 линий</span></div><div class="frame"><canvas id="drawing" width="720" height="840" aria-label="Место для рисования на основе архитектурного образца"></canvas></div></div>
+  </div>
+  <div class="meta">Сохраняется автоматически в этом браузере. Оценку точности выполняете вы, сверяя размеры и углы; автоматическая проверка качества пока не применяется.</div>
+</section>
+</div>
+<section class="bottom">
+ <div><div class="eyebrow">Первоисточник</div><h3>Как работал курс XIX века</h3><p>Исторический курс состоял из трёх частей: рисунок с гипсовых слепков, копирование произведений мастеров, подготовка к академическому рисунку фигуры. Авторский принцип, используемый здесь: от общего контура и основных вертикалей к прямым отрезкам, границам теней и тональным переходам.</p><p>Основание: Барг, Жером. <i>Курс рисования</i>, русское издание АСТ 2020, печатные страницы 25–31; оригинальные литографии 1867–1873 годов.</p></div>
+ <div><div class="eyebrow">Открытые архивы</div><h3>Исторические листы</h3><ul>
+   <li><a href="https://gallica.bnf.fr/ark:/12148/btv1b52517498w" target="_blank" rel="noopener noreferrer">BnF / Gallica. Часть I, рисунки со слепков (1867)</a></li>
+   <li><a href="https://gallica.bnf.fr/ark:/12148/btv1b108855988" target="_blank" rel="noopener noreferrer">BnF / Gallica. Часть II, рисунки мастеров (1868)</a></li>
+   <li><a href="https://collections-goupil.opacweb.fr/fr/notice/90-i-1-606-1-bras-bras-d-homme-vertical-23710e73-15e9-45b5-a1d3-13a4f1ee051e" target="_blank" rel="noopener noreferrer">Музей Гупиля. Оригинальный лист I, №18</a></li>
+ </ul><p class="small">Ни одна страница современного защищённого издания не встроена в этот урок. Иллюстрация для упражнения создана специально для проекта.</p></div>
+</section>
+</main>
+<script>
+(function(){
+"use strict";
+var lessons=[
+["01 / Границы","Определите габариты","Сравните высоту и ширину. На рабочем листе отметьте крайние точки архитектурного фрагмента.","Сначала определите самые верхнюю, нижнюю, левую и правую точки. Не начинайте с мелкого орнамента."],
+["02 / Вертикаль","Найдите ось симметрии","Проведите центральную вертикаль и определите по ней соотношения арки, основания и фронтона.","Проверяйте, как форма располагается относительно отвеса. Дополните горизонталями уровня карниза."],
+["03 / Прямые","Постройте контур","Сначала передайте скаты фронтона, колонны и основные изгибы арки короткими прямыми отрезками.","Кривые удобно разбирать на углы и небольшие прямые. Затем уточнять их легче, чем произвольную дугу."],
+["04 / Тени","Найдите большие массы","Нарисуйте границу самой крупной тени, затем равномерно заполните основные тёмные участки.","Пока не прорисовывайте полутон. Сохраните различие света и тени и целостность формы."],
+["05 / Проверка","Сравните пропорции","Сверьте крайние точки, направление основных линий, ширину колонн и высоту арки. Исправьте неточности.","Проверяйте целое: одинаковы ли отношения частей, прежде чем заниматься мелочами."]
+];
+var canvas=document.getElementById("drawing"),ctx=canvas.getContext("2d");
+var scale=2, W=360,H=420, strokes=[], active=null, phase=0;
+var key="city-paper-bargue-lesson01-v1";
+try{var saved=JSON.parse(localStorage.getItem(key)||"[]");if(Array.isArray(saved))strokes=saved.filter(x=>x&&Array.isArray(x.points)&&x.points.length>0).slice(0,500);}catch(e){}
+function saveLocal(){try{localStorage.setItem(key,JSON.stringify(strokes));}catch(e){}}
+function screenPoint(e){var r=canvas.getBoundingClientRect();return{x:Math.max(0,Math.min(W,(e.clientX-r.left)/r.width*W)),y:Math.max(0,Math.min(H,(e.clientY-r.top)/r.height*H))};}
+function guide(){if(!document.getElementById("guide").checked)return;ctx.save();ctx.strokeStyle="#c6ac8a";ctx.lineWidth=1;ctx.setLineDash([6,5]);if(phase===0){ctx.strokeRect(56,43,249,334);}else if(phase===1){ctx.beginPath();ctx.moveTo(180,25);ctx.lineTo(180,392);ctx.moveTo(45,128);ctx.lineTo(315,128);ctx.moveTo(45,359);ctx.lineTo(315,359);ctx.stroke();}else if(phase===2){ctx.beginPath();ctx.moveTo(90,115);ctx.lineTo(90,99);ctx.lineTo(180,44);ctx.lineTo(270,99);ctx.lineTo(270,115);ctx.moveTo(120,325);ctx.lineTo(120,218);ctx.lineTo(145,168);ctx.lineTo(180,147);ctx.lineTo(215,168);ctx.lineTo(240,218);ctx.lineTo(240,325);ctx.stroke();}else if(phase===3){ctx.fillStyle="#ddd2c1";ctx.fillRect(254,159,17,162);ctx.fillRect(74,117,212,9);}ctx.restore();}
+function paintStroke(stroke){var pts=stroke.points;if(!pts.length)return;ctx.save();ctx.strokeStyle=stroke.phase===3?"#48433f":"#35332f";ctx.fillStyle=ctx.strokeStyle;ctx.lineWidth=stroke.phase===3?6:1.7;ctx.lineCap="round";ctx.lineJoin="round";ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);if(pts.length===1){ctx.lineTo(pts[0].x+.08,pts[0].y+.08);}else{for(var j=1;j<pts.length;j++)ctx.lineTo(pts[j].x,pts[j].y);}ctx.stroke();ctx.restore();}
+function render(){ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,W,H);ctx.fillStyle="#fcfaf5";ctx.fillRect(0,0,W,H);guide();strokes.forEach(paintStroke);if(active)paintStroke(active);var n=strokes.length;document.getElementById("stroke-count").textContent=n+" "+(n===1?"линия":(n>=2&&n<=4?"линии":"линий"));document.getElementById("undo").disabled=!n;}
+canvas.addEventListener("pointerdown",function(e){if(e.button!==0&&e.pointerType==="mouse")return;e.preventDefault();canvas.setPointerCapture(e.pointerId);active={phase:phase,points:[screenPoint(e)]};render();});
+canvas.addEventListener("pointermove",function(e){if(!active)return;e.preventDefault();var p=screenPoint(e),prev=active.points[active.points.length-1];if(Math.hypot(p.x-prev.x,p.y-prev.y)>.7){active.points.push(p);render();}});
+function finish(){if(active){strokes.push(active);active=null;saveLocal();render();}}
+canvas.addEventListener("pointerup",finish);canvas.addEventListener("pointercancel",finish);canvas.addEventListener("lostpointercapture",finish);
+function selectStep(i){phase=i;var s=lessons[i];document.getElementById("stage-n").textContent=s[0];document.getElementById("stage-title").textContent=s[1];document.getElementById("stage-desc").textContent=s[2];document.getElementById("focus-tip").textContent=s[3];document.querySelectorAll("[data-step]").forEach(function(b){b.setAttribute("aria-current",String(+b.dataset.step===i));});render();}
+document.querySelectorAll("[data-step]").forEach(function(b){b.addEventListener("click",function(){selectStep(+b.dataset.step);});});
+document.getElementById("guide").addEventListener("change",render);
+document.getElementById("undo").addEventListener("click",function(){strokes.pop();saveLocal();render();});
+document.getElementById("clear").addEventListener("click",function(){if(strokes.length&&confirm("Очистить все линии упражнения?")){strokes=[];saveLocal();render();}});
+document.getElementById("save").addEventListener("click",function(){var a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download="city-on-paper-bargue-lesson-01.png";a.click();});
+selectStep(0);
+})();
+</script>
+</body></html>
