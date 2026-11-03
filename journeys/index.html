@@ -18,12 +18,63 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:980px){.heroInner{grid-template-columns:1fr 1fr;gap:20px;min-height:560px}.heroVisual{min-height:400px}.cards{grid-template-columns:repeat(2,1fr)}.routes{grid-template-columns:repeat(2,1fr)}.topin{gap:15px}.top nav{gap:12px}}
 @media(max-width:670px){.wrap{padding:0 16px}.topin{height:auto;min-height:72px;flex-wrap:wrap;gap:7px;padding-top:10px;padding-bottom:10px}.top nav{width:100%;order:3;overflow-x:auto;padding:7px 0;gap:20px}.back{margin-left:auto}.heroInner{grid-template-columns:1fr;padding-top:44px;padding-bottom:45px}.hero h1{font-size:57px}.hero p{font-size:15px}.heroVisual{min-height:265px}.heroVisual figure{padding:9px 9px 20px}.heroVisual figure:first-child{width:64%}.heroVisual figure:last-child{width:58%}.ticker .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #cfc5b6}.section{padding:56px 0}.sectionHead{display:block}.sectionHead p{margin-top:12px}.timeline{grid-template-columns:repeat(3,1fr)}.epoch:nth-child(3){border-right:0}.epoch:nth-child(-n+3){border-bottom:1px solid var(--edge)}.cards{grid-template-columns:1fr}.routes{grid-template-columns:1fr 1fr}.route{min-height:200px;padding:16px}.route strong{font-size:27px}.culture{grid-template-columns:1fr}footer .wrap{display:block}.detail{padding:23px}.detail h2{font-size:32px}.detail dl{grid-template-columns:1fr;gap:4px}.detail dd{margin-bottom:10px}}
 @media(max-width:410px){.routes{grid-template-columns:1fr}.hero h1{font-size:52px}.stat{padding:16px 11px}.epoch{padding:15px 10px;min-height:86px}}
+
+/* Visual collection, source-backed images and detail zoom */
+.salon{background:#faf6ed;border-bottom:1px solid var(--edge);padding:70px 0}
+.salonGrid{display:grid;grid-template-columns:1.18fr .82fr .82fr;gap:15px}
+.salonCard{margin:0;background:#e5dccb;position:relative;border:1px solid #cabfad;overflow:hidden;min-height:325px}
+.salonCard:first-child{grid-row:span 2;min-height:570px}
+.salonCard:nth-child(4){grid-column:span 2}
+.salonCard a{display:block;height:100%;text-decoration:none}
+.salonCard img{width:100%;height:100%;min-height:325px;object-fit:cover;display:block;filter:saturate(.84);transition:transform .4s}
+.salonCard:first-child img{min-height:570px}
+.salonCard:hover img{transform:scale(1.035)}
+.salonCard figcaption{position:absolute;bottom:0;left:0;right:0;padding:27px 17px 14px;color:white;background:linear-gradient(transparent,#211d1bcf);font:19px/1.2 Georgia,serif}
+.salonCard figcaption small{display:block;font:11px/1.5 system-ui,sans-serif;margin-top:6px;color:#e8e2d7}
+.collectionIntro{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 26px}.collectionIntro span{border:1px solid #d5c8b4;padding:8px 12px;font-size:11px;color:#685e50}
+.visualTip{color:var(--sub);font-size:12px;margin-top:17px}
+.card .art img{transition:transform .35s}.card:hover .art img{transform:scale(1.04)}
+.card .art img.failed{display:none}.art .imageFail{font:italic 17px Georgia,serif;color:#8b7761;text-align:center;padding:30px}
+.artLink{border:0;background:transparent;padding:0;display:block;width:100%;height:100%;position:relative;color:inherit}
+.artLink:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.artLink .zoomMark{position:absolute;right:12px;bottom:12px;background:#fff9efeb;font-size:11px;padding:7px 9px;color:#3a382f}
+.cardFoot .textBtn{flex:1;text-align:left}
+.rightsTag{color:#47705a;font-size:11px;letter-spacing:.03em}.rightsTag.restricted{color:#995648}
+#detailImg{display:none;width:100%;max-height:270px;object-fit:contain;background:#e9e2d5;margin:0 0 20px}
+#detailImg[src]{display:block}
+#zoomDialog{max-width:min(94vw,1250px);width:100%;max-height:92vh;background:#211f1b;color:#faf2e2;border:0}
+#zoomDialog .zoomTop{position:sticky;top:0;z-index:3;background:#211f1b;padding:13px 17px;display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+#zoomDialog .zoomTop strong{font:19px Georgia,serif;flex:1}
+#zoomDialog .zoomTop button{border:1px solid #aaa497;background:transparent;color:#fff;padding:8px 12px}
+#zoomDialog .zoomTop label{font-size:12px}
+#zoomDialog .zoomCanvas{max-height:70vh;overflow:auto;text-align:center;background:#352f26}
+#zoomDialog img{display:block;width:100%;height:auto;min-height:220px;object-fit:contain;max-width:none;margin:0 auto}
+#zoomDialog p{font-size:11px;padding:6px 18px;color:#c1baa9}
+#zoomScale{max-width:125px;accent-color:#d7b58d}
+.eraStat{display:block;color:#796b58;font-size:12px}
+.previewCompare{background:#ddd5c6;padding:70px 0}.previewCompareGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:30px 0}
+.previewCompareGrid figure{margin:0;padding:13px;background:#f9f4e9;border:1px solid #d1c3b1}.previewCompareGrid img{display:block;width:100%;height:335px;object-fit:contain;background:#e7dece}
+.previewCompareGrid figcaption{padding:13px 6px 4px;font:15px Georgia,serif}
+@media(max-width:900px){.salonGrid{grid-template-columns:1fr 1fr}.salonCard:first-child{grid-row:span 2}.salonCard:nth-child(4){grid-column:span 1}}
+@media(max-width:670px){.salon{padding:52px 0}.salonGrid{grid-template-columns:1fr 1fr;gap:9px}.salonCard{min-height:195px}.salonCard:first-child{grid-column:span 2;grid-row:auto;min-height:310px}.salonCard:first-child img{min-height:310px}.salonCard img{min-height:195px}.salonCard:nth-child(4){grid-column:span 1}.salonCard figcaption{font-size:15px;padding:23px 10px 10px}.salonCard figcaption small{font-size:10px}.previewCompareGrid{grid-template-columns:1fr}.previewCompareGrid img{height:235px}#zoomDialog .zoomTop{gap:8px}#zoomDialog .zoomTop strong{min-width:100%;font-size:16px}}
+
+.todaySection{background:#faf6ef;padding:72px 0}
+.todayGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.todayPair{border:1px solid var(--edge);background:#fffdfa;padding:15px}
+.todayPair h3{font:26px Georgia,serif;margin:12px 5px 5px}
+.todayPair p{font-size:12px;color:var(--sub);margin:6px 5px 12px}
+.todayPictures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.todayPictures a{display:flex;flex-direction:column;min-width:0;text-decoration:none;background:#e9e2d7}
+.todayPictures img{display:block;width:100%;height:225px;object-fit:contain;background:#e6ddcd}
+.todayPictures small{display:block;padding:8px 8px 11px;font-size:11px;color:#6b6054}
+.todayPair .pairLicense{font-size:11px;color:var(--forest)}
+@media(max-width:800px){.todayGrid{grid-template-columns:1fr}}
+@media(max-width:410px){.todayPictures img{height:165px}.todayPair h3{font-size:22px}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap topin">
 <a class="logo" href="../index.html#home"><strong>Город на бумаге</strong><small>City on Paper · collection</small></a>
-<nav aria-label="Разделы атласа"><a href="#collection">Коллекция</a><a href="#routes">Путешествия</a><a href="#culture">Культура и стили</a></nav>
+<nav aria-label="Разделы атласа"><a href="#salon">Галерея</a><a href="#today">Сейчас</a><a href="#collection">Коллекция</a><a href="#routes">Путешествия</a><a href="#culture">Культура и стили</a></nav>
 <a class="back" href="../index.html#home">К выставке ↗</a>
 </div></header>
 <main>
@@ -42,6 +93,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="stat"><b id="statCities">6</b><span>Городов в первой подборке</span></div>
 <div class="stat"><b>2</b><span>Связанные пары сравнения</span></div>
 </div></div>
+
+<section id="salon" class="salon"><div class="wrap">
+<div class="sectionHead"><div><div class="kicker">Новый зал / Настоящие оригиналы CC0</div><h2>Из музейных собраний</h2></div>
+<p>Дополняем Бенуа другими мастерами городской графики. Эти четыре изображения принадлежат открытому фонду Cleveland Museum of Art. Их можно изучать и использовать с указанием источника.</p></div>
+<div class="salonGrid">
+<figure class="salonCard"><a href="https://clevelandart.org/art/1946.36.21" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1946.36.21/1946.36.21_web.jpg" alt="Литография Томаса Шоттера Бойса, церковь Сент-Этьен-дю-Мон в Париже, 1839" loading="lazy"><figcaption>Париж. Сент-Этьен-дю-Мон<small>Томас Шоттер Бойс · 1839 · литография · CC0</small></figcaption></a></figure>
+<figure class="salonCard"><a href="https://clevelandart.org/art/1922.225" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1922.225/1922.225_web.jpg" alt="Офорт Пиранези, римский Колизей, 1776" loading="lazy"><figcaption>Рим. Колизей<small>Джованни Баттиста Пиранези · 1776 · CC0</small></figcaption></a></figure>
+<figure class="salonCard"><a href="https://clevelandart.org/art/1963.84" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1963.84/1963.84_web.jpg" alt="Рембрандт, вид Амстердама с северо-запада, около 1640 года" loading="lazy"><figcaption>Амстердам. XVII век<small>Рембрандт · около 1640 · офорт · CC0</small></figcaption></a></figure>
+<figure class="salonCard"><a href="https://clevelandart.org/art/1946.10.x" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1946.10.x/1946.10.x_web.jpg" alt="Литография собора Святого Павла с Ладгейт-хилл в Лондоне, 1842" loading="lazy"><figcaption>Лондон. Собор Святого Павла<small>Томас Шоттер Бойс · 1842 · CC0</small></figcaption></a></figure>
+</div><p class="visualTip">Полные версии, история работ и проверяемые ссылки доступны в карточках коллекции. Для изображений из внешнего музея нужен доступ к интернету.</p>
+</div></section>
 <section id="collection" class="section"><div class="wrap">
 <div class="sectionHead"><div><div class="kicker">I / Собрание</div><h2>Листы, места, эпохи</h2></div><p>В центре XIX век и литографии. Гравюры XVII–XVIII веков дают глубину, а фотографии XX–XXI веков продолжают историю. Сначала выбирайте столетие, затем тему или город.</p></div>
 <div class="timeline" id="epochs" role="group" aria-label="Фильтр по векам">
@@ -52,11 +114,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <button class="epoch" data-era="20" aria-pressed="false"><strong>XX</strong><small>Город меняется</small></button>
 <button class="epoch" data-era="21" aria-pressed="false"><strong>XXI</strong><small>Взгляд сегодня</small></button>
 </div>
+<div class="collectionIntro"><span>Литографии и гравюры</span><span>Музейные авторские подписи</span><span>Открытые цифровые репродукции CC0</span><span>Исторические альбомы</span></div>
 <div class="filters">
 <input id="query" type="search" placeholder="Город, автор, произведение, стиль…" aria-label="Поиск по коллекции">
 <select id="city" aria-label="Выбор города"><option value="all">Все города</option></select>
 <select id="theme" aria-label="Выбор темы"><option value="all">Все темы</option><option value="архитектура">Архитектура</option><option value="город">Городская жизнь</option><option value="культура">Культура и быт</option><option value="стили">Стили и орнамент</option><option value="путешествия">Путешествия</option></select>
-<button id="savedOnly" class="smallBtn" aria-pressed="false">Моя коллекция ♡</button>
+<select id="technique" aria-label="Художественная техника"><option value="all">Все техники</option><option value="Литография">Литографии</option><option value="Офорт">Офорты</option><option value="Гравюра">Гравюры</option><option value="Живопись">Живопись</option></select><select id="sortCards" aria-label="Сортировка"><option value="date">По эпохе</option><option value="name">По названию</option><option value="city">По городу</option></select><button id="withImages" class="smallBtn" aria-pressed="false">С изображениями</button><button id="savedOnly" class="smallBtn" aria-pressed="false">Моя коллекция ♡</button>
 <button id="reset" class="smallBtn">Сбросить</button>
 </div><div class="count"><span id="count" role="status">Подготавливаем каталог…</span><button id="export" class="smallBtn">Выгрузить сохранённое ↓</button></div>
 <div id="cards" class="cards" aria-live="polite"></div>
@@ -69,7 +132,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <button class="route" data-route="amsterdam"><span class="routeIndex">02 / Нидерланды</span><strong>Амстердам</strong><p>Площадь Дам в разных веках. Улицы, ратуша, весовая и повседневная жизнь старого торгового города.</p><em>Открыть подборку ↗</em></button>
 <button class="route" data-route="rome"><span class="routeIndex">03 / Италия</span><strong>Рим</strong><p>Офорты Пиранези и литографические виды Бенуа. Один город глазами художников разных эпох.</p><em>Открыть подборку ↗</em></button>
 <button class="route" data-route="vilnius"><span class="routeIndex">04 / Литва</span><strong>Вильнюс</strong><p>Album de Wilna. Университет, исторические улицы и архитектура старого города.</p><em>Открыть подборку ↗</em></button>
+<button class="route" data-route="london"><span class="routeIndex">05 / Великобритания</span><strong>Лондон</strong><p>Литографии Бойса, мосты, клубы и улицы. Город 1700–1920-х годов.</p><em>Смотреть коллекцию ↗</em></button>
+<button class="route" data-route="venice"><span class="routeIndex">06 / Италия</span><strong>Венеция</strong><p>Сан-Марко, каналы и архитектурные фантазии художников XVIII века.</p><em>Смотреть коллекцию ↗</em></button>
+<button class="route" data-route="rouen"><span class="routeIndex">07 / Нормандия</span><strong>Руан</strong><p>Цветные литографии городской готики и старых аббатств.</p><em>Смотреть коллекцию ↗</em></button>
+<button class="route" data-route="newyork"><span class="routeIndex">08 / США</span><strong>Нью-Йорк</strong><p>На рубеже веков: как новые художественные способы меняли представление о городе.</p><em>Смотреть коллекцию ↗</em></button>
 </div></div></section>
+
+<section id="visualComparison" class="previewCompare"><div class="wrap"><div class="sectionHead"><div><div class="kicker">Проверка ракурса / Старинный и новый город</div><h2>Мадлен. Два разных взгляда</h2></div><p>Здесь подлинная литография Филиппа Бенуа и современная фотография Panoramax. Ракурсы различаются, поэтому изображения показаны честно, рядом. Совпадение перспективы не заявляется.</p></div>
+<div class="previewCompareGrid"><figure><img src="../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" loading="lazy" alt="Литография Филиппа Бенуа с церковью Мадлен"><figcaption>1845–1860 · Филипп Бенуа · Library of Congress</figcaption></figure><figure><img src="../poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" loading="lazy" alt="Современное фото церкви Мадлен, снятое в апреле 2026 года"><figcaption>30.04.2026 · jerome92370 / Panoramax · CC BY-SA 4.0</figcaption></figure></div>
+<a href="../poc/compare/index.html#madeleine-ph-benoist" class="button">Открыть подробное сравнение и редактор</a></div></section>
+<section id="today" class="todaySection"><div class="wrap"><div class="sectionHead"><div><div class="kicker">IV / От прошлого к сегодняшнему дню</div><h2>Те же места. Другой век.</h2></div><p>Четыре современных фотографии 2024–2025 годов с лицензией CC0 и первоисточниками. Исторические произведения рядом относятся к тому же памятнику, но совпадение точки зрения не подтверждено.</p></div><div id="modernPairs" class="todayGrid" aria-live="polite"><div class="empty">Подбираем подтверждённые фотографии…</div></div>
+<p class="visualTip">Все четыре современные фотографии CC0; владельцы и даты проверены на страницах Wikimedia Commons. При работе с парами нельзя включать «совмещённый ползунок», пока ракурс не сверит исследователь.</p></div></section>
 <section id="culture" class="section"><div class="wrap">
 <div class="sectionHead"><div><div class="kicker">III / За пределами фасада</div><h2>Как жили города</h2></div><p>Литография становится точкой входа. Дальше можно исследовать архитектурную деталь, привычки улицы, транспорт, костюм или еду эпохи.</p></div>
 <div class="culture"><div class="cultureMain"><div class="kicker">Культурный атлас</div><h3>Один рисунок.<br>Несколько историй.</h3>
@@ -85,36 +158,93 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 </div></section>
 </main>
 <footer><div class="wrap"><div><div class="serif" style="font-size:30px">City on Paper</div><p>Исследовательская выставка. Литографии Бенуа остаются ядром. Музейные источники и права на конкретную цифровую репродукцию указываются на карточке. Исторические альбомы не объявляются свободными для публикации автоматически.</p></div><div><a href="../index.html#home">Основная выставка</a><p>Собрание v1 · 2 ноября 2026</p></div></div></footer>
-<dialog id="detail" aria-labelledby="detailTitle"><div class="detail"><button id="closeDetail" aria-label="Закрыть карточку">Закрыть ✕</button><div class="kicker">Из архива / Экземпляр</div><h2 id="detailTitle"></h2><p id="detailNote"></p><dl id="detailMeta"></dl><div class="detailActions" id="detailLinks"></div></div></dialog>
+<dialog id="detail" aria-labelledby="detailTitle"><div class="detail"><button id="closeDetail" aria-label="Закрыть карточку">Закрыть ✕</button><div class="kicker">Из архива / Экземпляр</div><h2 id="detailTitle"></h2><img id="detailImg" alt="Изображение выбранного произведения"><p id="detailNote"></p><dl id="detailMeta"></dl><div class="detailActions" id="detailLinks"></div></div></dialog>
+<dialog id="zoomDialog" aria-labelledby="zoomTitle"><div class="zoomTop"><strong id="zoomTitle">Исследовать изображение</strong><label for="zoomScale">Масштаб</label><input id="zoomScale" type="range" min="100" max="300" value="100" step="25"><button id="zoomClose" aria-label="Закрыть увеличение">Закрыть ✕</button></div><div class="zoomCanvas"><img id="zoomImage" alt=""></div><p>Подлинный цифровой файл музея. Увеличение не меняет оригинал. Условия CC0 и ссылка на музей указаны в карточке.</p></dialog>
 <script>
 "use strict";
 (function(){
 const byId=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
-let data=[],era="all",route="all",savedOnly=false;
+let data=[],era="all",route="all",savedOnly=false,onlyImages=false;
 let favorites=new Set();
 try{const raw=JSON.parse(localStorage.getItem("cop-journeys-favorites-v1")||"[]");if(Array.isArray(raw))favorites=new Set(raw.filter(x=>typeof x==="string"));}catch(e){}
 const allowLink=u=>{try{const x=new URL(u,location.href);return ["https:","http:"].includes(x.protocol)?x.href:null;}catch(e){return null;}};
 const node=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
 function save(){try{localStorage.setItem("cop-journeys-favorites-v1",JSON.stringify([...favorites]));}catch(e){}}
 function chooseEra(next){era=next;route="all";document.querySelectorAll("[data-era]").forEach(b=>{const on=b.dataset.era===era;b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});render();}
-function selectRoute(next){route=next;era="all";byId("query").value="";byId("city").value="all";byId("theme").value="all";savedOnly=false;byId("savedOnly").setAttribute("aria-pressed","false");byId("savedOnly").classList.remove("selected");document.querySelectorAll("[data-era]").forEach(b=>{const on=b.dataset.era==="all";b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});render();byId("collection").scrollIntoView({behavior:"smooth",block:"start"});}
+function selectRoute(next){route=next;era="all";byId("query").value="";byId("city").value="all";byId("theme").value="all";byId("technique").value="all";onlyImages=false;byId("withImages").setAttribute("aria-pressed","false");byId("withImages").classList.remove("selected");savedOnly=false;byId("savedOnly").setAttribute("aria-pressed","false");byId("savedOnly").classList.remove("selected");document.querySelectorAll("[data-era]").forEach(b=>{const on=b.dataset.era==="all";b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});render();byId("collection").scrollIntoView({behavior:"smooth",block:"start"});}
 function toggleFav(id){favorites.has(id)?favorites.delete(id):favorites.add(id);save();render();}
-function makeCard(item){const card=node("article","card");const art=node("div","art");if(item.image){const img=node("img");img.src=item.image;img.alt=item.name+" · "+item.source;img.loading="lazy";art.append(img);}else{const holder=node("div","noArt");holder.append(node("span","",item.era==="17"?"XVII":item.era==="18"?"XVIII":item.era==="19"?"XIX":item.era==="20"?"XX":"XXI"),node("small","",item.kind));art.append(holder);}art.append(node("span","tag",item.kind));card.append(art);
-const body=node("div","cardBody");body.append(node("div","cardMeta",item.city+" · "+item.date));body.append(node("h3","",item.name));body.append(node("p","",item.maker));const status=item.image?"Иллюстрация в проекте":"Перейти к первоисточнику";body.append(node("small","",status));card.append(body);
-const foot=node("div","cardFoot");const more=node("button","textBtn","История и источник");more.type="button";more.addEventListener("click",()=>openDetail(item));const fav=node("button","fav",favorites.has(item.id)?"♥":"♡");fav.type="button";fav.title=favorites.has(item.id)?"Убрать из избранного":"Сохранить в коллекцию";fav.setAttribute("aria-label",fav.title);fav.setAttribute("aria-pressed",String(favorites.has(item.id)));fav.addEventListener("click",()=>toggleFav(item.id));foot.append(more,fav);card.append(foot);return card;}
-function render(){const q=byId("query").value.toLocaleLowerCase("ru").trim(),city=byId("city").value,theme=byId("theme").value;const visible=data.filter(w=>(era==="all"||w.era===era)&&(route==="all"||w.route===route)&&(city==="all"||w.city===city)&&(theme==="all"||w.theme===theme)&&(!savedOnly||favorites.has(w.id))&&(!q||[w.name,w.city,w.maker,w.medium,w.style,w.note,w.source].join(" ").toLocaleLowerCase("ru").includes(q)));
-byId("count").textContent="Показано "+visible.length+" из "+data.length+" записей · в моей коллекции "+favorites.size;const grid=byId("cards");grid.replaceChildren();if(!visible.length){grid.append(node("div","empty","Ничего не найдено. Попробуйте другое столетие, город или сбросьте фильтры."));return;}visible.forEach(w=>grid.append(makeCard(w)));}
-function openDetail(w){byId("detailTitle").textContent=w.name;byId("detailNote").textContent=w.note;const dl=byId("detailMeta");dl.replaceChildren();for(const [k,v] of [["Город",w.city],["Дата",w.date],["Авторство",w.maker],["Техника",w.medium],["Стиль / тема",w.style],["Хранитель",w.source],["Статус",w.rights==="source_link"?"Только ссылка на держателя":w.rights==="licensed_photo"?"Фото CC BY-SA 4.0":"См. уведомление о правах у источника"]]){dl.append(node("dt","",k),node("dd","",v));}const links=byId("detailLinks");links.replaceChildren();const url=allowLink(w.url);if(url){const a=node("a","button","Открыть оригинал ↗");a.href=url;a.target="_blank";a.rel="noopener noreferrer";links.append(a);}if(w.compare){const a=node("a","button","Тогда / Сейчас ↗");a.href=w.compare;links.append(a);}byId("detail").showModal();}
-byId("closeDetail").addEventListener("click",()=>byId("detail").close());byId("detail").addEventListener("click",e=>{if(e.target===byId("detail"))byId("detail").close();});
+
+async function loadModernPhotos(){
+const holder=byId("modernPairs");try{
+ const response=await fetch("../data/curation/modern-photos-cc0-20261103.json");
+ if(!response.ok)throw Error("HTTP "+response.status);
+ const photos=(await response.json()).items;if(!Array.isArray(photos))throw Error("Invalid photo catalog");
+ holder.replaceChildren();
+ for(const p of photos){
+   const historic=data.find(w=>w.id===p.historic_ref);
+   if(!historic||historic.rights!=="cc0"||p.rights!=="cc0"||p.alignment!=="not_evaluated")continue;
+   const card=node("article","todayPair");card.append(node("h3","",historic.city+" · "+historic.name),node("p","",p.note));
+   const pics=node("div","todayPictures");
+   for(const frame of [{img:historic.image,url:historic.url,caption:historic.date+" · "+historic.maker+" · The Cleveland Museum of Art"},
+    {img:p.image,url:p.source_page,caption:p.date+" · Фото: "+p.photographer+" · Wikimedia Commons"}]){
+     const link=node("a");const destination=allowLink(frame.url);
+     if(destination){link.href=destination;link.target="_blank";link.rel="noopener noreferrer";}
+     const img=node("img");img.loading="lazy";img.src=frame.img;img.alt=frame.caption;
+     img.onerror=()=>{img.style.display="none";link.prepend(node("div","imageFail","Файл недоступен · открыть источник"));};
+     link.append(img,node("small","",frame.caption));pics.append(link);
+   }
+   card.append(pics,node("p","pairLicense","Оба изображения CC0 · Ракурс не совмещён"));holder.append(card);
+ }
+ if(!holder.childElementCount)throw Error("Нет подходящих исторических пар");
+}catch(err){holder.replaceChildren(node("div","empty","Сейчас фотографии недоступны. Для изучения откройте первоисточники в исследовательском каталоге."));}
+}
+function makeCard(item){const card=node("article","card");const art=node("div","art");
+if(item.image){const frame=node("button","artLink");frame.type="button";frame.setAttribute("aria-label","Увеличить произведение: "+item.name);
+const img=node("img");img.src=item.image;img.alt=item.name+" · "+item.source;img.loading="lazy";
+img.onerror=()=>{img.classList.add("failed");frame.append(node("div","imageFail","Изображение временно недоступно · откройте музейный оригинал"));};
+frame.append(img,node("span","zoomMark","Увеличить +"));frame.addEventListener("click",()=>openZoom(item));art.append(frame);
+}else{const holder=node("div","noArt");holder.append(node("span","",item.era==="17"?"XVII":item.era==="18"?"XVIII":item.era==="19"?"XIX":item.era==="20"?"XX":"XXI"),node("small","",item.kind));art.append(holder);}
+const tag=node("span","tag",item.rights==="cc0"?"CC0 · Музей":item.kind);art.append(tag);card.append(art);
+const body=node("div","cardBody");body.append(node("div","cardMeta",item.city+" · "+item.date));body.append(node("h3","",item.name));body.append(node("p","",item.maker));
+const status=node("small","rightsTag"+(item.rights==="source_link"?" restricted":""),item.rights==="cc0"?"Изображение открыто · CC0":item.image?"Изображение с оговоркой по правам":"Ссылка на первоисточник");body.append(status);card.append(body);
+const foot=node("div","cardFoot");const more=node("button","textBtn","История и источник");more.type="button";more.addEventListener("click",()=>openDetail(item));
+const fav=node("button","fav",favorites.has(item.id)?"♥":"♡");fav.type="button";fav.title=favorites.has(item.id)?"Убрать из избранного":"Сохранить в коллекцию";fav.setAttribute("aria-label",fav.title);fav.setAttribute("aria-pressed",String(favorites.has(item.id)));fav.addEventListener("click",()=>toggleFav(item.id));foot.append(more,fav);card.append(foot);return card;}
+function render(){const q=byId("query").value.toLocaleLowerCase("ru").trim(),city=byId("city").value,theme=byId("theme").value,technique=byId("technique").value,sort=byId("sortCards").value;
+const visible=data.filter(w=>(era==="all"||w.era===era)&&(route==="all"||w.route===route)&&(city==="all"||w.city===city)&&(theme==="all"||w.theme===theme)&&(technique==="all"||w.style===technique)&&(!onlyImages||!!w.image)&&(!savedOnly||favorites.has(w.id))&&(!q||[w.name,w.city,w.maker,w.medium,w.style,w.note,w.source,w.title_original||""].join(" ").toLocaleLowerCase("ru").includes(q)));
+if(sort==="date")visible.sort((a,b)=>Number(a.era)-Number(b.era)||a.name.localeCompare(b.name,"ru"));
+if(sort==="city")visible.sort((a,b)=>a.city.localeCompare(b.city,"ru")||a.name.localeCompare(b.name,"ru"));
+if(sort==="name")visible.sort((a,b)=>a.name.localeCompare(b.name,"ru"));
+byId("count").textContent="Показано "+visible.length+" из "+data.length+" записей · с изображениями "+data.filter(x=>!!x.image).length+" · в моей коллекции "+favorites.size;
+const grid=byId("cards");grid.replaceChildren();if(!visible.length){grid.append(node("div","empty","Ничего не найдено. Попробуйте другое столетие, город или сбросьте фильтры."));return;}
+visible.forEach(w=>grid.append(makeCard(w)));}
+function openZoom(w){if(!w.image)return;byId("zoomTitle").textContent=w.name+" · "+w.source;const img=byId("zoomImage");img.src=w.image_large||w.image;img.alt=w.name+" · "+w.maker;img.style.width="100%";byId("zoomScale").value="100";byId("zoomDialog").showModal();}
+function openDetail(w){byId("detailTitle").textContent=w.name;byId("detailNote").textContent=w.note;
+const img=byId("detailImg");img.removeAttribute("src");if(w.image){img.src=w.image;img.alt=w.name+" · "+w.source;img.style.display="block";}else{img.style.display="none";}
+const dl=byId("detailMeta");dl.replaceChildren();for(const [k,v] of [["Город",w.city],["Дата",w.date],["Авторство",w.maker],["Оригинальное название",w.title_original||w.name],["Техника",w.medium],["Стиль / тема",w.style],["Хранитель",w.source],["Инвентарный номер",w.source_id||"См. первоисточник"],["Права",w.rights==="cc0"?"CC0 · свободное повторное использование цифрового изображения":w.rights==="source_link"?"Только ссылка на держателя":w.rights==="licensed_photo"?"Фото CC BY-SA 4.0":"Уточняйте условия на странице держателя"]]){dl.append(node("dt","",k),node("dd","",v));}
+const links=byId("detailLinks");links.replaceChildren();const url=allowLink(w.url);
+if(url){const a=node("a","button","Открыть музейную карточку ↗");a.href=url;a.target="_blank";a.rel="noopener noreferrer";links.append(a);}
+if(w.rights==="cc0"&&w.image_large){const u=allowLink(w.image_large);if(u){const a=node("a","button","Оригинал высокого разрешения ↗");a.href=u;a.target="_blank";a.rel="noopener noreferrer";links.append(a);}}
+if(w.image){const b=node("button","button","Увеличить работу +");b.addEventListener("click",()=>{byId("detail").close();openZoom(w);});links.append(b);}
+if(w.compare){const a=node("a","button","Тогда / Сейчас ↗");a.href=w.compare;links.append(a);}byId("detail").showModal();}
+byId("closeDetail").addEventListener("click",()=>byId("detail").close());
+byId("zoomClose").addEventListener("click",()=>byId("zoomDialog").close());
+byId("zoomScale").addEventListener("input",e=>{byId("zoomImage").style.width=e.target.value+"%";});
+byId("zoomDialog").addEventListener("click",e=>{if(e.target===byId("zoomDialog"))byId("zoomDialog").close();});byId("detail").addEventListener("click",e=>{if(e.target===byId("detail"))byId("detail").close();});
 document.querySelectorAll("[data-era]").forEach(b=>b.addEventListener("click",()=>chooseEra(b.dataset.era)));document.querySelectorAll("[data-route]").forEach(b=>b.addEventListener("click",()=>selectRoute(b.dataset.route)));
-["query","city","theme"].forEach(id=>byId(id).addEventListener(id==="query"?"input":"change",()=>{route="all";render();}));
+["query","city","theme","technique","sortCards"].forEach(id=>byId(id).addEventListener(id==="query"?"input":"change",()=>{route="all";render();}));
+byId("withImages").addEventListener("click",()=>{onlyImages=!onlyImages;byId("withImages").classList.toggle("selected",onlyImages);byId("withImages").setAttribute("aria-pressed",String(onlyImages));render();});
 byId("savedOnly").addEventListener("click",()=>{savedOnly=!savedOnly;byId("savedOnly").setAttribute("aria-pressed",String(savedOnly));byId("savedOnly").classList.toggle("selected",savedOnly);render();});
-byId("reset").addEventListener("click",()=>{byId("query").value="";byId("city").value="all";byId("theme").value="all";savedOnly=false;byId("savedOnly").classList.remove("selected");byId("savedOnly").setAttribute("aria-pressed","false");chooseEra("all");});
+byId("reset").addEventListener("click",()=>{byId("query").value="";byId("city").value="all";byId("theme").value="all";byId("technique").value="all";onlyImages=false;byId("withImages").classList.remove("selected");byId("withImages").setAttribute("aria-pressed","false");savedOnly=false;byId("savedOnly").classList.remove("selected");byId("savedOnly").setAttribute("aria-pressed","false");chooseEra("all");});
 byId("cabinetBtn").addEventListener("click",()=>{chooseEra("all");byId("query").value="";byId("city").value="all";byId("theme").value="all";savedOnly=true;byId("savedOnly").setAttribute("aria-pressed","true");byId("savedOnly").classList.add("selected");render();byId("collection").scrollIntoView({behavior:"smooth"});});
 byId("cultureBtn").addEventListener("click",()=>{chooseEra("all");byId("query").value="";byId("city").value="all";byId("theme").value="all";byId("theme").value="стили";render();byId("collection").scrollIntoView({behavior:"smooth"});});
 byId("export").addEventListener("click",()=>{const selected=data.filter(x=>favorites.has(x.id)).map(x=>({id:x.id,name:x.name,city:x.city,date:x.date,source:x.source,url:x.url,rights:x.rights}));const blob=new Blob([JSON.stringify({collection:"City on Paper / Атлас времени",exported:new Date().toISOString(),items:selected},null,2)],{type:"application/json"});const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download="city-on-paper-my-collection.json";document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),1000);});
-fetch("../data/curation/era-journeys-20261102.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json();}).then(c=>{data=c.items;if(!Array.isArray(data))throw Error("Invalid catalog");byId("statWorks").textContent=String(data.length);byId("statCities").textContent=String(new Set(data.map(w=>w.city)).size);[...new Set(data.map(w=>w.city))].sort((a,b)=>a.localeCompare(b,"ru")).forEach(city=>{const o=node("option","",city);o.value=city;byId("city").append(o);});render();if(["17","18","19","20","21"].includes(params.get("era")))chooseEra(params.get("era"));}).catch(err=>{byId("count").textContent="Каталог пока недоступен";byId("cards").append(node("div","empty","Данные коллекции не загрузились. Откройте сайт через веб-сервер и повторите попытку. "+err.message));});
+const fetchCatalog=async url=>{const r=await fetch(url);if(!r.ok)throw Error("HTTP "+r.status+": "+url);const j=await r.json();if(!Array.isArray(j.items))throw Error("Неверная структура каталога: "+url);return j.items;};
+Promise.allSettled([fetchCatalog("../data/curation/era-journeys-20261102.json"),fetchCatalog("../data/curation/cc0-gallery-20261103.json")]).then(results=>{
+data=results.filter(x=>x.status==="fulfilled").flatMap(x=>x.value);
+if(!data.length)throw Error("Нет доступных данных");
+if(results.some(x=>x.status==="rejected")){byId("count").title="Один из каталогов временно не загрузился. Часть коллекции может отсутствовать.";}
+const uniq=new Set();data=data.filter(x=>{if(!x.id||uniq.has(x.id))return false;uniq.add(x.id);return true;});byId("statWorks").textContent=String(data.length);byId("statCities").textContent=String(new Set(data.map(w=>w.city)).size);[...new Set(data.map(w=>w.city))].sort((a,b)=>a.localeCompare(b,"ru")).forEach(city=>{const o=node("option","",city);o.value=city;byId("city").append(o);});render();loadModernPhotos();if(["17","18","19","20","21"].includes(params.get("era")))chooseEra(params.get("era"));}).catch(err=>{byId("count").textContent="Каталог пока недоступен";byId("cards").append(node("div","empty","Данные коллекции не загрузились. Откройте сайт через веб-сервер и повторите попытку. "+err.message));});
 })();
 </script>
 </body></html>

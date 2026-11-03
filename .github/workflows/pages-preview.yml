@@ -32,6 +32,7 @@ jobs:
           mkdir -p public/journeys public/data/curation
           cp journeys/index.html public/journeys/index.html
           cp data/curation/era-journeys-20261102.json public/data/curation/
+          python tools/curation/build_open_art_cache.py --out public --workers 8
           mkdir -p public/data/catalog public/data/candidates public/poc public/docs/ux
           cp data/catalog/ledger-2026-11-01.csv public/data/catalog/
           cp data/candidates/candidates-2026-11-01b.json public/data/candidates/

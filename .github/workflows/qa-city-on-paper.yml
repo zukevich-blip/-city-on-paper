@@ -76,6 +76,7 @@ jobs:
           cp index.html /tmp/city-on-paper-package/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
+          python tools/curation/build_open_art_cache.py --out /tmp/city-on-paper-package --workers 8
           cp data/catalog/ledger-2026-11-01.csv /tmp/city-on-paper-package/data/catalog/
           cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
           cp -R poc/compare /tmp/city-on-paper-package/poc/
