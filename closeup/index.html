@@ -16,7 +16,7 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible
 .toolbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:13px 15px;border-bottom:1px solid #465147;background:#28332b}
 .toolbar .spacer{flex:1}.toolbar button{background:#39483e;color:#fbf0d9;border:1px solid #6a7769;border-radius:3px;padding:6px 11px;min-width:42px;min-height:40px}
 .toolbar button:hover{background:#55695a}.toolbar strong{font:13px var(--ui);min-width:45px;text-align:center}
-#stage{height:clamp(350px,61vh,790px);position:relative;overflow:hidden;touch-action:none;cursor:grab;background:radial-gradient(ellipse at 50% 48%,#41463b,#141b17 72%)}
+#stage{height:clamp(350px,61vh,790px);position:relative;overflow:hidden;touch-action:pan-y;cursor:grab;background:radial-gradient(ellipse at 50% 48%,#41463b,#141b17 72%)}
 #stage:active{cursor:grabbing}#studyImage{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:50% 50%;user-select:none;-webkit-user-drag:none;pointer-events:none}
 #imageStatus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:360px;text-align:center;background:#1e2925ee;color:#f1e4d0;border:1px solid #7f7561;padding:20px;font-size:13px}
 #imageStatus[hidden]{display:none}#stageHelp{position:absolute;bottom:13px;left:14px;right:14px;text-align:center;font-size:12px;pointer-events:none;color:#ede2ce;text-shadow:0 2px 5px #000;opacity:.9}
@@ -76,7 +76,7 @@ function saveNote(){if(!active)return;try{localStorage.setItem(storeKey(active.i
 function setImageStatus(message){$('imageStatus').hidden=!message;$('imageStatus').textContent=message||''}
 function limit(n,min,max){return Math.max(min,Math.min(max,n))}
 function clampPan(){const width=stage.clientWidth,height=stage.clientHeight;offsetX=limit(offsetX,-width*(scale-1)/2,width*(scale-1)/2);offsetY=limit(offsetY,-height*(scale-1)/2,height*(scale-1)/2)}
-function drawTransform(){clampPan();photo.style.transform='translate('+offsetX+'px,'+offsetY+'px) scale('+scale+')';$('zoomLabel').textContent=Math.round(scale*100)+'%';$('zoomOut').disabled=scale<=1;$('zoomIn').disabled=scale>=4}
+function drawTransform(){clampPan();stage.style.touchAction=scale>1?'none':'pan-y';photo.style.transform='translate('+offsetX+'px,'+offsetY+'px) scale('+scale+')';$('zoomLabel').textContent=Math.round(scale*100)+'%';$('zoomOut').disabled=scale<=1;$('zoomIn').disabled=scale>=4}
 function zoom(to){scale=limit(Math.round(to*100)/100,1,4);if(scale===1){offsetX=0;offsetY=0}drawTransform()}
 function reset(){scale=1;offsetX=0;offsetY=0;drawTransform()}
 function current(){return lessons.find(x=>x.id===active?.id)}
