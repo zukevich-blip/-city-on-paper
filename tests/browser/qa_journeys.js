@@ -45,7 +45,9 @@ async function run() {
       await page.locator("#reset").click();
       await page.locator("#cards .card").first().locator(".textBtn").click();
       check(vp.name + " details dialog accessible", await page.locator("dialog[open] #detailTitle").isVisible());
-      await page.locator("#closeDetail").click();
+      // Escape closes native <dialog> reliably while scrolling on touch viewports.
+      await page.keyboard.press("Escape");
+      check(vp.name + " details dialog closes with Escape", !await page.locator("#detail").evaluate(el=>el.open));
       await page.locator("#cards .card").first().locator(".fav").click();
       await page.locator("#savedOnly").click();
       check(vp.name + " collector saves favorite", await page.locator("#cards .card").count() === 1);
