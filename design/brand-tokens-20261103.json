@@ -1,0 +1,139 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "project": "City on Paper | Город на бумаге",
+  "version": "2026-11-03",
+  "editorial_principles": {
+    "artwork": "Original museum image always distinguished from contemporary reconstruction, decoration, or mockup.",
+    "attribution": "Every work links to holding institution, accession/source_id, maker role, rights.",
+    "photography": "Then/Now aligned wipe only when viewpoint match is documented. Otherwise use two panes.",
+    "motion": "Subtle and optional; prefers-reduced-motion must be honored."
+  },
+  "color": {
+    "paper": {
+      "$type": "color",
+      "$value": "#F3EDE3",
+      "$description": "Museum page background"
+    },
+    "paper_light": {
+      "$type": "color",
+      "$value": "#FFFDF7",
+      "$description": "Art-card background"
+    },
+    "forest": {
+      "$type": "color",
+      "$value": "#28433C",
+      "$description": "Deep reading green"
+    },
+    "forest_deep": {
+      "$type": "color",
+      "$value": "#18342E",
+      "$description": "Hero dark green"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#272E29",
+      "$description": "Primary text"
+    },
+    "terracotta": {
+      "$type": "color",
+      "$value": "#9A5340",
+      "$description": "Evidence hotspots and links"
+    },
+    "gold": {
+      "$type": "color",
+      "$value": "#C4A078",
+      "$description": "Period accents"
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "#756E62",
+      "$description": "Supporting copy"
+    },
+    "rule": {
+      "$type": "color",
+      "$value": "#D7CAB9",
+      "$description": "Thin dividers"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "#3C7054",
+      "$description": "Documented provenance"
+    },
+    "unknown": {
+      "$type": "color",
+      "$value": "#98513B",
+      "$description": "Open issue, must not imply confirmed"
+    }
+  },
+  "typography": {
+    "heading": {
+      "$type": "fontFamily",
+      "$value": [
+        "Georgia",
+        "Times New Roman",
+        "serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "system-ui",
+        "-apple-system",
+        "sans-serif"
+      ]
+    },
+    "body_base": {
+      "$type": "dimension",
+      "$value": "15px"
+    },
+    "readable_line_height": {
+      "$type": "number",
+      "$value": 1.6
+    }
+  },
+  "layout": {
+    "max_width": {
+      "$type": "dimension",
+      "$value": "1220px"
+    },
+    "tap_target_min": {
+      "$type": "dimension",
+      "$value": "44px"
+    },
+    "mobile_breakpoint": {
+      "$type": "dimension",
+      "$value": "670px"
+    },
+    "spacing_unit": {
+      "$type": "dimension",
+      "$value": "8px"
+    }
+  },
+  "templates": [
+    {
+      "id": "art-mystery",
+      "purpose": "90s annotated image and 3 questions",
+      "location": "discover/"
+    },
+    {
+      "id": "long-dossier",
+      "purpose": "Architecture, politics, production, provenances",
+      "location": "detective/"
+    },
+    {
+      "id": "collector",
+      "purpose": "Source-led identification and private journal",
+      "location": "studio/"
+    },
+    {
+      "id": "short-social-video",
+      "purpose": "20–40s source-led excerpt, 9:16 video editing in Canva; no fake image morphing",
+      "location": "canva"
+    },
+    {
+      "id": "editorial-carousel",
+      "purpose": "5-frame source-led story in Canva 4:5 or 1:1",
+      "location": "canva"
+    }
+  ]
+}
