@@ -25,7 +25,8 @@ function check(n,val){const ok=!!val;results.push({name:n,pass:ok});console.log(
  await page.locator("#answers button").nth(1).click();
  check(vp.name+" correct evidence response",await page.locator("#answers button.correct").count()===1);
  await page.locator("#quizNext").click();
- check(vp.name+" quiz changes question",await page.locator("#quizCount").innerText()==="Вопрос 2 из 3");
+ const quizState=await page.locator("#quizCount").textContent(); console.log("QUIZ_STATE "+vp.name+" "+JSON.stringify(quizState));
+ check(vp.name+" quiz changes question",quizState==="Вопрос 2 из 3");
  await page.locator('[data-path="collector"]').click();
  check(vp.name+" collector path links notebook",await page.locator("#pathGo").getAttribute("href")==="../studio/");
  check(vp.name+" shareable permalink path",new URL(page.url()).searchParams.get("path")==="collector");
