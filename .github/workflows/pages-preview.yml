@@ -29,8 +29,8 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/
-          cp discover/index.html public/discover/index.html
           mkdir -p public/discover public/atelier/ornament public/ornaments public/atelier/bargue public/journeys public/detective public/studio public/data/stories public/data/research public/data/curation
+          cp discover/index.html public/discover/index.html
           cp journeys/index.html public/journeys/index.html
           cp detective/index.html public/detective/index.html
           cp studio/index.html public/studio/index.html
