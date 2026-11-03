@@ -18,12 +18,50 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:980px){.heroInner{grid-template-columns:1fr 1fr;gap:20px;min-height:560px}.heroVisual{min-height:400px}.cards{grid-template-columns:repeat(2,1fr)}.routes{grid-template-columns:repeat(2,1fr)}.topin{gap:15px}.top nav{gap:12px}}
 @media(max-width:670px){.wrap{padding:0 16px}.topin{height:auto;min-height:72px;flex-wrap:wrap;gap:7px;padding-top:10px;padding-bottom:10px}.top nav{width:100%;order:3;overflow-x:auto;padding:7px 0;gap:20px}.back{margin-left:auto}.heroInner{grid-template-columns:1fr;padding-top:44px;padding-bottom:45px}.hero h1{font-size:57px}.hero p{font-size:15px}.heroVisual{min-height:265px}.heroVisual figure{padding:9px 9px 20px}.heroVisual figure:first-child{width:64%}.heroVisual figure:last-child{width:58%}.ticker .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #cfc5b6}.section{padding:56px 0}.sectionHead{display:block}.sectionHead p{margin-top:12px}.timeline{grid-template-columns:repeat(3,1fr)}.epoch:nth-child(3){border-right:0}.epoch:nth-child(-n+3){border-bottom:1px solid var(--edge)}.cards{grid-template-columns:1fr}.routes{grid-template-columns:1fr 1fr}.route{min-height:200px;padding:16px}.route strong{font-size:27px}.culture{grid-template-columns:1fr}footer .wrap{display:block}.detail{padding:23px}.detail h2{font-size:32px}.detail dl{grid-template-columns:1fr;gap:4px}.detail dd{margin-bottom:10px}}
 @media(max-width:410px){.routes{grid-template-columns:1fr}.hero h1{font-size:52px}.stat{padding:16px 11px}.epoch{padding:15px 10px;min-height:86px}}
+
+/* Visual collection, source-backed images and detail zoom */
+.salon{background:#faf6ed;border-bottom:1px solid var(--edge);padding:70px 0}
+.salonGrid{display:grid;grid-template-columns:1.18fr .82fr .82fr;gap:15px}
+.salonCard{margin:0;background:#e5dccb;position:relative;border:1px solid #cabfad;overflow:hidden;min-height:325px}
+.salonCard:first-child{grid-row:span 2;min-height:570px}
+.salonCard:nth-child(4){grid-column:span 2}
+.salonCard a{display:block;height:100%;text-decoration:none}
+.salonCard img{width:100%;height:100%;min-height:325px;object-fit:cover;display:block;filter:saturate(.84);transition:transform .4s}
+.salonCard:first-child img{min-height:570px}
+.salonCard:hover img{transform:scale(1.035)}
+.salonCard figcaption{position:absolute;bottom:0;left:0;right:0;padding:27px 17px 14px;color:white;background:linear-gradient(transparent,#211d1bcf);font:19px/1.2 Georgia,serif}
+.salonCard figcaption small{display:block;font:11px/1.5 system-ui,sans-serif;margin-top:6px;color:#e8e2d7}
+.collectionIntro{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 26px}.collectionIntro span{border:1px solid #d5c8b4;padding:8px 12px;font-size:11px;color:#685e50}
+.visualTip{color:var(--sub);font-size:12px;margin-top:17px}
+.card .art img{transition:transform .35s}.card:hover .art img{transform:scale(1.04)}
+.card .art img.failed{display:none}.art .imageFail{font:italic 17px Georgia,serif;color:#8b7761;text-align:center;padding:30px}
+.artLink{border:0;background:transparent;padding:0;display:block;width:100%;height:100%;position:relative;color:inherit}
+.artLink:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.artLink .zoomMark{position:absolute;right:12px;bottom:12px;background:#fff9efeb;font-size:11px;padding:7px 9px;color:#3a382f}
+.cardFoot .textBtn{flex:1;text-align:left}
+.rightsTag{color:#47705a;font-size:11px;letter-spacing:.03em}.rightsTag.restricted{color:#995648}
+#detailImg{display:none;width:100%;max-height:270px;object-fit:contain;background:#e9e2d5;margin:0 0 20px}
+#detailImg[src]{display:block}
+#zoomDialog{max-width:min(94vw,1250px);width:100%;max-height:92vh;background:#211f1b;color:#faf2e2;border:0}
+#zoomDialog .zoomTop{position:sticky;top:0;z-index:3;background:#211f1b;padding:13px 17px;display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+#zoomDialog .zoomTop strong{font:19px Georgia,serif;flex:1}
+#zoomDialog .zoomTop button{border:1px solid #aaa497;background:transparent;color:#fff;padding:8px 12px}
+#zoomDialog .zoomTop label{font-size:12px}
+#zoomDialog .zoomCanvas{max-height:70vh;overflow:auto;text-align:center;background:#352f26}
+#zoomDialog img{display:block;width:100%;height:auto;max-width:none;margin:0 auto}
+#zoomDialog p{font-size:11px;padding:6px 18px;color:#c1baa9}
+#zoomScale{max-width:125px;accent-color:#d7b58d}
+.eraStat{display:block;color:#796b58;font-size:12px}
+.previewCompare{background:#ddd5c6;padding:70px 0}.previewCompareGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:30px 0}
+.previewCompareGrid figure{margin:0;padding:13px;background:#f9f4e9;border:1px solid #d1c3b1}.previewCompareGrid img{display:block;width:100%;height:335px;object-fit:contain;background:#e7dece}
+.previewCompareGrid figcaption{padding:13px 6px 4px;font:15px Georgia,serif}
+@media(max-width:900px){.salonGrid{grid-template-columns:1fr 1fr}.salonCard:first-child{grid-row:span 2}.salonCard:nth-child(4){grid-column:span 1}}
+@media(max-width:670px){.salon{padding:52px 0}.salonGrid{grid-template-columns:1fr 1fr;gap:9px}.salonCard{min-height:195px}.salonCard:first-child{grid-column:span 2;grid-row:auto;min-height:310px}.salonCard:first-child img{min-height:310px}.salonCard img{min-height:195px}.salonCard:nth-child(4){grid-column:span 1}.salonCard figcaption{font-size:15px;padding:23px 10px 10px}.salonCard figcaption small{font-size:10px}.previewCompareGrid{grid-template-columns:1fr}.previewCompareGrid img{height:235px}#zoomDialog .zoomTop{gap:8px}#zoomDialog .zoomTop strong{min-width:100%;font-size:16px}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap topin">
 <a class="logo" href="../index.html#home"><strong>Город на бумаге</strong><small>City on Paper · collection</small></a>
-<nav aria-label="Разделы атласа"><a href="#collection">Коллекция</a><a href="#routes">Путешествия</a><a href="#culture">Культура и стили</a></nav>
+<nav aria-label="Разделы атласа"><a href="#salon">Галерея</a><a href="#collection">Коллекция</a><a href="#routes">Путешествия</a><a href="#culture">Культура и стили</a></nav>
 <a class="back" href="../index.html#home">К выставке ↗</a>
 </div></header>
 <main>
@@ -42,6 +80,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="stat"><b id="statCities">6</b><span>Городов в первой подборке</span></div>
 <div class="stat"><b>2</b><span>Связанные пары сравнения</span></div>
 </div></div>
+
+<section id="salon" class="salon"><div class="wrap">
+<div class="sectionHead"><div><div class="kicker">Новый зал / Настоящие оригиналы CC0</div><h2>Из музейных собраний</h2></div>
+<p>Дополняем Бенуа другими мастерами городской графики. Эти четыре изображения принадлежат открытому фонду Cleveland Museum of Art. Их можно изучать и использовать с указанием источника.</p></div>
+<div class="salonGrid">
+<figure class="salonCard"><a href="https://clevelandart.org/art/1946.36.21" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1946.36.21/1946.36.21_web.jpg" alt="Литография Томаса Шоттера Бойса, церковь Сент-Этьен-дю-Мон в Париже, 1839" loading="lazy"><figcaption>Париж. Сент-Этьен-дю-Мон<small>Томас Шоттер Бойс · 1839 · литография · CC0</small></figcaption></a></figure>
+<figure class="salonCard"><a href="https://clevelandart.org/art/1922.225" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1922.225/1922.225_web.jpg" alt="Офорт Пиранези, римский Колизей, 1776" loading="lazy"><figcaption>Рим. Колизей<small>Джованни Баттиста Пиранези · 1776 · CC0</small></figcaption></a></figure>
+<figure class="salonCard"><a href="https://clevelandart.org/art/1963.84" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1963.84/1963.84_web.jpg" alt="Рембрандт, вид Амстердама с северо-запада, около 1640 года" loading="lazy"><figcaption>Амстердам. XVII век<small>Рембрандт · около 1640 · офорт · CC0</small></figcaption></a></figure>
+<figure class="salonCard"><a href="https://clevelandart.org/art/1946.10.x" target="_blank" rel="noopener noreferrer"><img src="https://openaccess-cdn.clevelandart.org/1946.10.x/1946.10.x_web.jpg" alt="Литография собора Святого Павла с Ладгейт-хилл в Лондоне, 1842" loading="lazy"><figcaption>Лондон. Собор Святого Павла<small>Томас Шоттер Бойс · 1842 · CC0</small></figcaption></a></figure>
+</div><p class="visualTip">Полные версии, история работ и проверяемые ссылки доступны в карточках коллекции. Для изображений из внешнего музея нужен доступ к интернету.</p>
+</div></section>
 <section id="collection" class="section"><div class="wrap">
 <div class="sectionHead"><div><div class="kicker">I / Собрание</div><h2>Листы, места, эпохи</h2></div><p>В центре XIX век и литографии. Гравюры XVII–XVIII веков дают глубину, а фотографии XX–XXI веков продолжают историю. Сначала выбирайте столетие, затем тему или город.</p></div>
 <div class="timeline" id="epochs" role="group" aria-label="Фильтр по векам">
@@ -52,11 +101,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <button class="epoch" data-era="20" aria-pressed="false"><strong>XX</strong><small>Город меняется</small></button>
 <button class="epoch" data-era="21" aria-pressed="false"><strong>XXI</strong><small>Взгляд сегодня</small></button>
 </div>
+<div class="collectionIntro"><span>Литографии и гравюры</span><span>Музейные авторские подписи</span><span>Открытые цифровые репродукции CC0</span><span>Исторические альбомы</span></div>
 <div class="filters">
 <input id="query" type="search" placeholder="Город, автор, произведение, стиль…" aria-label="Поиск по коллекции">
 <select id="city" aria-label="Выбор города"><option value="all">Все города</option></select>
 <select id="theme" aria-label="Выбор темы"><option value="all">Все темы</option><option value="архитектура">Архитектура</option><option value="город">Городская жизнь</option><option value="культура">Культура и быт</option><option value="стили">Стили и орнамент</option><option value="путешествия">Путешествия</option></select>
-<button id="savedOnly" class="smallBtn" aria-pressed="false">Моя коллекция ♡</button>
+<select id="technique" aria-label="Художественная техника"><option value="all">Все техники</option><option value="Литография">Литографии</option><option value="Офорт">Офорты</option><option value="Гравюра">Гравюры</option><option value="Живопись">Живопись</option></select><select id="sortCards" aria-label="Сортировка"><option value="date">По эпохе</option><option value="name">По названию</option><option value="city">По городу</option></select><button id="withImages" class="smallBtn" aria-pressed="false">С изображениями</button><button id="savedOnly" class="smallBtn" aria-pressed="false">Моя коллекция ♡</button>
 <button id="reset" class="smallBtn">Сбросить</button>
 </div><div class="count"><span id="count" role="status">Подготавливаем каталог…</span><button id="export" class="smallBtn">Выгрузить сохранённое ↓</button></div>
 <div id="cards" class="cards" aria-live="polite"></div>
@@ -69,7 +119,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <button class="route" data-route="amsterdam"><span class="routeIndex">02 / Нидерланды</span><strong>Амстердам</strong><p>Площадь Дам в разных веках. Улицы, ратуша, весовая и повседневная жизнь старого торгового города.</p><em>Открыть подборку ↗</em></button>
 <button class="route" data-route="rome"><span class="routeIndex">03 / Италия</span><strong>Рим</strong><p>Офорты Пиранези и литографические виды Бенуа. Один город глазами художников разных эпох.</p><em>Открыть подборку ↗</em></button>
 <button class="route" data-route="vilnius"><span class="routeIndex">04 / Литва</span><strong>Вильнюс</strong><p>Album de Wilna. Университет, исторические улицы и архитектура старого города.</p><em>Открыть подборку ↗</em></button>
+<button class="route" data-route="london"><span class="routeIndex">05 / Великобритания</span><strong>Лондон</strong><p>Литографии Бойса, мосты, клубы и улицы. Город 1700–1920-х годов.</p><em>Смотреть коллекцию ↗</em></button>
+<button class="route" data-route="venice"><span class="routeIndex">06 / Италия</span><strong>Венеция</strong><p>Сан-Марко, каналы и архитектурные фантазии художников XVIII века.</p><em>Смотреть коллекцию ↗</em></button>
+<button class="route" data-route="rouen"><span class="routeIndex">07 / Нормандия</span><strong>Руан</strong><p>Цветные литографии городской готики и старых аббатств.</p><em>Смотреть коллекцию ↗</em></button>
+<button class="route" data-route="newyork"><span class="routeIndex">08 / США</span><strong>Нью-Йорк</strong><p>На рубеже веков: как новые художественные способы меняли представление о городе.</p><em>Смотреть коллекцию ↗</em></button>
 </div></div></section>
+
+<section id="visualComparison" class="previewCompare"><div class="wrap"><div class="sectionHead"><div><div class="kicker">Проверка ракурса / Старинный и новый город</div><h2>Мадлен. Два разных взгляда</h2></div><p>Здесь подлинная литография Филиппа Бенуа и современная фотография Panoramax. Ракурсы различаются, поэтому изображения показаны честно, рядом. Совпадение перспективы не заявляется.</p></div>
+<div class="previewCompareGrid"><figure><img src="../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" loading="lazy" alt="Литография Филиппа Бенуа с церковью Мадлен"><figcaption>1845–1860 · Филипп Бенуа · Library of Congress</figcaption></figure><figure><img src="../poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" loading="lazy" alt="Современное фото церкви Мадлен, снятое в апреле 2026 года"><figcaption>30.04.2026 · jerome92370 / Panoramax · CC BY-SA 4.0</figcaption></figure></div>
+<a href="../poc/compare/index.html#madeleine-ph-benoist" class="button">Открыть подробное сравнение и редактор</a></div></section>
 <section id="culture" class="section"><div class="wrap">
 <div class="sectionHead"><div><div class="kicker">III / За пределами фасада</div><h2>Как жили города</h2></div><p>Литография становится точкой входа. Дальше можно исследовать архитектурную деталь, привычки улицы, транспорт, костюм или еду эпохи.</p></div>
 <div class="culture"><div class="cultureMain"><div class="kicker">Культурный атлас</div><h3>Один рисунок.<br>Несколько историй.</h3>
@@ -85,7 +143,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 </div></section>
 </main>
 <footer><div class="wrap"><div><div class="serif" style="font-size:30px">City on Paper</div><p>Исследовательская выставка. Литографии Бенуа остаются ядром. Музейные источники и права на конкретную цифровую репродукцию указываются на карточке. Исторические альбомы не объявляются свободными для публикации автоматически.</p></div><div><a href="../index.html#home">Основная выставка</a><p>Собрание v1 · 2 ноября 2026</p></div></div></footer>
-<dialog id="detail" aria-labelledby="detailTitle"><div class="detail"><button id="closeDetail" aria-label="Закрыть карточку">Закрыть ✕</button><div class="kicker">Из архива / Экземпляр</div><h2 id="detailTitle"></h2><p id="detailNote"></p><dl id="detailMeta"></dl><div class="detailActions" id="detailLinks"></div></div></dialog>
+<dialog id="detail" aria-labelledby="detailTitle"><div class="detail"><button id="closeDetail" aria-label="Закрыть карточку">Закрыть ✕</button><div class="kicker">Из архива / Экземпляр</div><h2 id="detailTitle"></h2><img id="detailImg" alt="Изображение выбранного произведения"><p id="detailNote"></p><dl id="detailMeta"></dl><div class="detailActions" id="detailLinks"></div></div></dialog>
+<dialog id="zoomDialog" aria-labelledby="zoomTitle"><div class="zoomTop"><strong id="zoomTitle">Исследовать изображение</strong><label for="zoomScale">Масштаб</label><input id="zoomScale" type="range" min="100" max="300" value="100" step="25"><button id="zoomClose" aria-label="Закрыть увеличение">Закрыть ✕</button></div><div class="zoomCanvas"><img id="zoomImage" alt=""></div><p>Подлинный цифровой файл музея. Увеличение не меняет оригинал. Условия CC0 и ссылка на музей указаны в карточке.</p></dialog>
 <script>
 "use strict";
 (function(){
