@@ -15,6 +15,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG = ROOT / "data/curation/cc0-gallery-20261103.json"
+PHOTOS = ROOT / "data/curation/modern-photos-cc0-20261103.json"
 MAX_BYTES = 6 * 1024 * 1024
 HOST = "openaccess-cdn.clevelandart.org"
 
@@ -32,8 +33,23 @@ def validated_url(item: dict) -> str:
     return url
 
 
-def fetch(item: dict, directory: Path) -> tuple[str, str | None, str]:
-    url = validated_url(item)
+def validated_photo_url(item: dict) -> str:
+    """Only permit exact Wikimedia Commons CC0 thumbnail hosts, not arbitrary URLs."""
+    if item.get("rights") != "cc0" or item.get("verified") != "commons_api":
+        raise ValueError("Unreviewed modern photo or non-CC0 license")
+    if not item.get("source_id", "").startswith("File:"):
+        raise ValueError("Missing Commons filename")
+    url = item["image"]
+    parsed = urlsplit(url)
+    if parsed.scheme != "https" or parsed.hostname != "thumb.wikimedia.org":
+        raise ValueError(f"Invalid Commons thumbnail: {url}")
+    if not parsed.path.startswith("/wikipedia/commons/thumb/") or not parsed.path.endswith(".jpg"):
+        raise ValueError("Only Wikimedia JPG thumbnails are allowed")
+    return url
+
+
+def fetch(item: dict, directory: Path, validator=validated_url) -> tuple[str, str | None, str]:
+    url = validator(item)
     filename = item["id"] + ".jpg"
     dest = directory / filename
     if dest.exists() and dest.stat().st_size > 1000:
@@ -84,12 +100,34 @@ def build(out: Path, workers: int) -> dict:
         for remote, local in local_map.items():
             html = html.replace(f'src="{remote}"', f'src="{local}"')
         index.write_text(html, encoding="utf-8")
+    photo_source = json.loads(PHOTOS.read_text(encoding="utf-8"))
+    modern = photo_source["items"]
+    photo_target = out / "assets/photos/cc0"
+    photo_target.mkdir(parents=True, exist_ok=True)
+    photo_results = {}
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(fetch, item, photo_target, validated_photo_url): item["id"] for item in modern}
+        for fut in as_completed(futures):
+            identity, filename, status = fut.result()
+            photo_results[identity] = {"file": filename, "status": status}
+    modified_photos = json.loads(json.dumps(photo_source))
+    for photo in modified_photos["items"]:
+        cached = photo_results[photo["id"]]
+        if cached["file"]:
+            photo["image_remote"] = photo["image"]
+            photo["image"] = "../assets/photos/cc0/" + cached["file"]
+    (target_data / PHOTOS.name).write_text(
+        json.dumps(modified_photos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     summary = {
         "source": "Cleveland Museum of Art, CC0 image dataset",
         "total": len(items),
         "cached": len(local_map),
         "remote_fallback": len(items) - len(local_map),
         "bytes": sum(p.stat().st_size for p in target.glob("*.jpg")),
+        "modern_photos_total": len(modern),
+        "modern_photos_cached": sum(bool(r["file"]) for r in photo_results.values()),
+        "modern_photos_failed": [{"id": key, **value} for key, value in sorted(photo_results.items()) if not value["file"]],
         "failed": [
             {"id": key, **value}
             for key, value in sorted(results.items())
