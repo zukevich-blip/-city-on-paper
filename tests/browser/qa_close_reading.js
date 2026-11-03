@@ -18,6 +18,8 @@ fs.mkdirSync(outDir,{recursive:true});
    await page.waitForFunction(()=>document.querySelector("#title")?.textContent?.includes("Мадлен"),{timeout:15000});
    if(await page.locator("#work option").count()!==11)throw Error(label+": 11 lessons missing");
    if(!(await page.locator("#licenseStatus").textContent()).includes("не CC0"))throw Error(label+": rights notice missing");
+   await page.waitForFunction(()=>document.querySelector("#studyImage")?.naturalWidth>0,{timeout:15000});
+   await page.screenshot({path:outDir+"/"+label+"-benoist-close-reading.jpg",type:"jpeg",quality:75,fullPage:true});
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error(label+": horizontal overflow");
    await page.locator("#zoomIn").click();
    if((await page.locator("#zoomLabel").textContent()).trim()!=="150%")throw Error(label+": zoom unavailable");
