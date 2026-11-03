@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171a18"><title>Салон открытий | City on Paper</title>
+<style>
+:root{color-scheme:dark;font-family:Georgia,'Times New Roman',serif;background:#151917;color:#f4edda}
+*{box-sizing:border-box}body{margin:0}a{color:#d7c796}header{padding:35px max(24px,5vw) 28px;border-bottom:1px solid #44483e;background:linear-gradient(120deg,#202b29,#151917)}
+.eyebrow{font:11px system-ui;letter-spacing:.22em;text-transform:uppercase;color:#bdb294}h1{font-weight:normal;font-size:clamp(36px,6vw,70px);margin:12px 0}header p{max-width:670px;line-height:1.6;color:#d0cbbd}
+main{padding:25px max(18px,5vw) 60px}nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+input,select,button{font:14px system-ui;background:#252e2b;color:#fff;border:1px solid #666a60;border-radius:6px;padding:12px}input{min-width:200px;flex:1}button{cursor:pointer}button:hover{background:#414b42}
+small,.meta{font:12px/1.5 system-ui;color:#bcb8ab}.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.art{background:#242925;border:1px solid #474b42;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.art img{height:260px;width:100%;object-fit:contain;background:#161917;padding:8px;cursor:zoom-in}
+.art .details{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}.art h2{font-size:19px;font-weight:normal;line-height:1.23;margin:0}.art p{margin:0;font:12px/1.6 system-ui;color:#c4beb1}
+.actions{display:flex;gap:9px;margin-top:auto;padding-top:8px}.actions a,.actions button{font:12px system-ui;padding:8px 10px}.actions button{margin-left:auto}
+#viewer{border:0;padding:0;max-width:96vw;max-height:95vh;background:#151917;color:#f2e9d7}#viewer::backdrop{background:#080a08ef}
+#viewer img{display:block;max-width:94vw;max-height:77vh;object-fit:contain}#viewer .viewerbar{display:flex;justify-content:space-between;gap:10px;padding:12px;font:14px system-ui;align-items:center}
+#viewer button{padding:6px 12px}#empty{font:15px system-ui;line-height:1.6}footer{padding:22px max(18px,5vw);border-top:1px solid #494d46;font:12px system-ui;color:#b6b2a6}
+@media(prefers-reduced-motion:no-preference){.art{transition:transform .15s}.art:hover{transform:translateY(-3px)}}
+</style></head><body>
+<header><div class="eyebrow">City on Paper · Кураторская коллекция</div><h1>Салон открытий</h1><p>Города, архитектура, печатная графика. Откройте историческое произведение, рассмотрите детали и сохраните любимые работы. Изображения с музейных источников, с указанием атрибуции и прав.</p><a href="../index.html">← В музей</a></header>
+<main><nav aria-label="Поиск произведений">
+<input id="query" type="search" aria-label="Поиск по названию, автору, городу" placeholder="Найти город, художника или произведение">
+<select id="city" aria-label="Город"><option value="">Все города</option></select>
+<select id="era" aria-label="Век"><option value="">Все века</option></select>
+<button id="surprise">Случайное открытие</button>
+<button id="saved" aria-pressed="false">Моя подборка</button>
+</nav><p class="meta" id="count" aria-live="polite">Загружаем проверенную коллекцию…</p>
+<div class="gallery" id="gallery"></div><p id="empty" role="status"></p></main>
+<dialog id="viewer" aria-label="Просмотр произведения"><div class="viewerbar"><span id="viewerLabel"></span><button id="close">Закрыть ×</button></div><img id="viewerImage" alt=""><div class="viewerbar"><a id="museumLink" target="_blank" rel="noopener noreferrer">Карточка музея</a><span>Изображение предоставлено музеем</span></div></dialog>
+<footer>City on Paper · Источники и права смотрите в карточке каждого произведения. Личная подборка сохраняется только на этом устройстве.</footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);let items=[],favorites=new Set(),savedOnly=false;const key='city-on-paper-salon-favorites-v1';
+try{favorites=new Set(JSON.parse(localStorage.getItem(key)||'[]'))}catch{}
+function clean(x){return String(x??'').trim()}
+function putOptions(id,values){[...new Set(values.map(clean).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru')).forEach(v=>{let opt=document.createElement('option');opt.value=v;opt.textContent=v;$(id).append(opt)})}
+function filtered(){let q=clean($('query').value).toLocaleLowerCase('ru'),c=$('city').value,e=$('era').value;return items.filter(a=>(!savedOnly||favorites.has(a.id))&&(!c||a.city===c)&&(!e||a.era===e)&&(!q||[a.name,a.maker,a.city,a.title_original].some(v=>clean(v).toLocaleLowerCase('ru').includes(q))))}
+function show(a){$('viewerLabel').textContent=[a.name,a.date].filter(Boolean).join(' · ');$('viewerImage').src=a.image_large||a.image;$('viewerImage').alt=a.name;$('museumLink').href=a.url;$('viewer').showModal()}
+function render(){const list=filtered();$('count').textContent=list.length+' произведений из '+items.length+' проверенных музейных записей';$('gallery').replaceChildren();$('empty').textContent=list.length?'':'Ничего не найдено. Измените поиск или фильтры.';for(const a of list){let article=document.createElement('article');article.className='art';let img=document.createElement('img');img.loading='lazy';img.decoding='async';img.src=a.image;img.alt=a.name;img.addEventListener('click',()=>show(a));img.addEventListener('keydown',e=>{if(e.key==='Enter')show(a)});img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Рассмотреть: '+a.name);
+let content=document.createElement('div');content.className='details';let h=document.createElement('h2');h.textContent=a.name;let info=document.createElement('p');info.textContent=[a.maker,a.city,a.date].filter(Boolean).join(' · ');let credit=document.createElement('p');credit.textContent=[a.source,a.rights==='cc0'?'CC0':'Права уточняются'].join(' · ');let actions=document.createElement('div');actions.className='actions';let link=document.createElement('a');link.href=a.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Источник ↗';let fav=document.createElement('button');function update(){fav.textContent=favorites.has(a.id)?'★ Сохранено':'☆ Сохранить';fav.setAttribute('aria-pressed',favorites.has(a.id))}update();fav.addEventListener('click',()=>{favorites.has(a.id)?favorites.delete(a.id):favorites.add(a.id);try{localStorage.setItem(key,JSON.stringify([...favorites]))}catch{}if(savedOnly)render();else update()});actions.append(link,fav);content.append(h,info,credit,actions);article.append(img,content);$('gallery').append(article)}}
+$('query').addEventListener('input',render);$('city').addEventListener('change',render);$('era').addEventListener('change',render);
+$('saved').addEventListener('click',()=>{savedOnly=!savedOnly;$('saved').setAttribute('aria-pressed',savedOnly);$('saved').textContent=savedOnly?'Показать все':'Моя подборка';render()});
+$('surprise').addEventListener('click',()=>{let list=filtered();if(list.length)show(list[Math.floor(Math.random()*list.length)])});
+$('close').addEventListener('click',()=>$('viewer').close());$('viewer').addEventListener('click',e=>{if(e.target===$('viewer'))$('viewer').close()});
+fetch('../data/curation/cc0-gallery-20261103.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{items=(data.items||[]).filter(a=>a.id&&a.name&&a.image&&a.url&&a.rights==='cc0');putOptions('city',items.map(x=>x.city));putOptions('era',items.map(x=>x.era));render()}).catch(()=>{$('count').textContent='Коллекция недоступна';$('empty').textContent='Не удалось загрузить музейный каталог. Откройте сайт через HTTP-сервер, а не локальный файл.'});
+</script></body></html>
