@@ -121,7 +121,28 @@ jobs:
           cp -R docs/ux/mockups /tmp/city-on-paper-package/docs/ux/
           mkdir -p /tmp/city-on-paper-package/docs/consilium
           cp docs/consilium/MASTER_DIRECTION_20261103.md /tmp/city-on-paper-package/docs/consilium/
-          printf '%s\n' 'Запуск: из этой папки python3 -m http.server 8765 ; затем откройте http://localhost:8765/' > /tmp/city-on-paper-package/README_RUN.txt
+          cat > /tmp/city-on-paper-package/README_RUN.txt <<'EOF'
+CITY ON PAPER | ГОРОД НА БУМАГЕ
+Частная демонстрационная версия (vNext). Не опубликована как официальный сайт.
+
+1. Распакуйте архив на Mac/Windows/Linux, откройте терминал в папке с index.html.
+2. Запустите: python3 -m http.server 8765
+   На Windows при необходимости: py -m http.server 8765
+3. Откройте на компьютере: http://localhost:8765/
+4. В разделах «Тогда / Сейчас» и «Кабинет деталей» работают интерактивные сравнения и увеличение.
+   Для iPhone/iPad потребуется открыть страницу на доступном локальном веб-сервере или защищённом хостинге.
+   Запуск index.html прямо из ZIP/Files не гарантирует загрузку JSON и изображений.
+5. Проверенный источник и права смотрите в карточке каждого произведения.
+   Два листа Philippe Benoist из Library of Congress имеют пометку «No known restrictions», НЕ CC0.
+6. Источник старой Site v7 в этот пакет НЕ перенесён; старые семь исторических сравнений НЕ прошли независимую проверку.
+EOF
+      - name: Audit and browser-test the ACTUAL delivered package
+        run: |
+          python tools/release/validate_bundle.py --root /tmp/city-on-paper-package
+          python -m http.server 8766 --directory /tmp/city-on-paper-package --bind 127.0.0.1 >/tmp/city-preview.log 2>&1 &
+          sleep 2
+          curl -fsS http://127.0.0.1:8766/index.html -o /dev/null
+          node tests/browser/qa_packaged.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
