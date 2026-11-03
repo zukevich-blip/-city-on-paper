@@ -45,7 +45,9 @@ async function run() {
       await page.locator("#reset").click();
       await page.locator("#cards .card").first().locator(".textBtn").click();
       check(vp.name + " details dialog accessible", await page.locator("dialog[open] #detailTitle").isVisible());
-      await page.locator("#closeDetail").click();
+      // Escape closes native <dialog> reliably while scrolling on touch viewports.
+      await page.keyboard.press("Escape");
+      check(vp.name + " details dialog closes with Escape", !await page.locator("#detail").evaluate(el=>el.open));
       await page.locator("#cards .card").first().locator(".fav").click();
       await page.locator("#savedOnly").click();
       check(vp.name + " collector saves favorite", await page.locator("#cards .card").count() === 1);
@@ -75,7 +77,7 @@ async function run() {
       check(vp.name + " zoom closes with Escape", !await page.locator("#zoomDialog").evaluate(el => el.open));
       await page.locator("#cards .card .textBtn").first().click();
       check(vp.name + " provenance card links original institution", await page.locator("#detailLinks a").count() >= 1);
-      await page.locator("#closeDetail").click();
+      await page.keyboard.press("Escape"); // Native dialog close path remains reliable on touch-emulated viewports.
       check(vp.name + " no JS runtime errors", errors.length === 0);
       await page.locator("#reset").click();
       // Full-resolution QA screenshot capped to 12 cards: 56 cards on a phone would exceed browser texture limits.

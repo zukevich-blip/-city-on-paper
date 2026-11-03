@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "collection_id": "bargue-drawing-academy",
+  "section_title_ru": "Школа художника",
+  "exhibition_status": "educational_independent_branch",
+  "book": {
+    "title_ru": "Курс рисования. Основы учебного академического рисунка",
+    "authors": [
+      "Шарль Барг",
+      "Жан-Леон Жером"
+    ],
+    "editor": "Джеральд М. Акерман",
+    "translator_ru": "Л. И. Степанова",
+    "publication": "Москва: АСТ, 2020",
+    "isbn": "978-5-17-118142-0",
+    "printed_pages": 384,
+    "source": "user-provided PDF",
+    "page_map_notice": "PDF physical page count can vary by reader: reference printed page numbers from the book and explicit PDF page numbers separately.",
+    "rights": "2020 Russian translation, editorial apparatus, typesetting and page scans not licensed for public redistribution; user upload is research reference only"
+  },
+  "historical_work": {
+    "title": "Cours de dessin",
+    "creators": [
+      "Charles Bargue",
+      "Jean-Léon Gérôme (collaborator)"
+    ],
+    "publisher": "Goupil & Cie, Paris",
+    "parts": [
+      {
+        "part": "I",
+        "title": "Modèles d'après la bosse",
+        "original_year": 1867,
+        "plate_count": 70,
+        "library_url": "https://gallica.bnf.fr/ark:/12148/btv1b52517498w"
+      },
+      {
+        "part": "II",
+        "title": "Modèles d'après les maîtres",
+        "original_year": 1868,
+        "plate_count": null,
+        "library_url": "https://gallica.bnf.fr/ark:/12148/btv1b108855988",
+        "count_note": "Uploaded book, printed p.18 says sixty lithographs for part II. Historical course total 197; do not assert a reconciled per-part sum until inventory is reviewed."
+      },
+      {
+        "part": "III",
+        "title": "Exercices au fusain pour préparer à l'étude de l'académie d'après nature",
+        "original_year": 1873,
+        "plate_count": 60,
+        "library_url": null,
+        "library_url_status": "needs source verification"
+      }
+    ],
+    "total_original_plates": 197,
+    "source_note": "The uploaded 2020 book p.10 explicitly says 197 plates; other text describes 70, 60 and 60, indicating edition/issue count differences to reconcile rather than assert arithmetic."
+  },
+  "lesson": {
+    "id": "lesson01-architectural-block-in",
+    "title": "Учимся видеть форму",
+    "type": "interactive_browser_canvas",
+    "exercise_artwork": "original_svg_classic_portal_drawn_for_project",
+    "source_pdf_printed_pages": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "method": [
+      "mark_outer_extents",
+      "plumb_and_level_reference",
+      "short_segments_for_contour",
+      "large_shadow_masses",
+      "compare_and_correct"
+    ],
+    "no_automated_scoring": true,
+    "no_original_plate_embedded": true,
+    "published": false
+  },
+  "research_leads": [
+    {
+      "source": "BnF bibliographic list for Gérôme",
+      "url": "https://www.bnf.fr/sites/default/files/2025-02/jean_leon_gerome_bibliographie.pdf"
+    },
+    {
+      "source": "Collection Goupil / Bordeaux, original part I plate 18",
+      "url": "https://collections-goupil.opacweb.fr/fr/notice/90-i-1-606-1-bras-bras-d-homme-vertical-23710e73-15e9-45b5-a1d3-13a4f1ee051e"
+    },
+    {
+      "source": "Collection Goupil / Bordeaux, original part III plate 44",
+      "url": "https://collections-goupil.opacweb.fr/fr/notice/96-i-1-112-1-jeune-homme-allonge-b7083dd8-0c64-479b-bc05-684a91ce8e3d"
+    }
+  ],
+  "editorial_guards": [
+    "Never confuse Gérôme with Benoist artists; different historical creators and editorial collection.",
+    "Never publish or transcribe whole pages, translation or modern editorial commentary from 2020 book.",
+    "Original nineteenth-century works may be public domain but confirm specific digital reproduction rights and attribution by host.",
+    "Do not claim student assessment by AI or exact reproductions of Bargue originals: first interactive exercise deliberately uses custom architecture artwork.",
+    "Preserve historical work/plate metadata separately from reprint layout and owner-upload physical PDF pages."
+  ]
+}

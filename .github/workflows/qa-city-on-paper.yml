@@ -11,6 +11,8 @@ on:
       - 'journeys/**'
       - 'detective/**'
       - 'studio/**'
+      - 'ornaments/**'
+      - 'atelier/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 
@@ -74,13 +76,20 @@ jobs:
           node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
           node tests/browser/qa_detective.js http://127.0.0.1:8765/detective/ /tmp/city-on-paper-screens
           node tests/browser/qa_studio.js http://127.0.0.1:8765/studio/ /tmp/city-on-paper-screens
+          node tests/browser/qa_museum_rooms.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_ateliers.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
+          cp ornaments/index.html /tmp/city-on-paper-package/ornaments/
+          cp atelier/ornament/index.html /tmp/city-on-paper-package/atelier/ornament/
+          cp atelier/bargue/index.html /tmp/city-on-paper-package/atelier/bargue/
+          cp data/catalog/ornament-workshop-2026-11-02.json /tmp/city-on-paper-package/data/catalog/
+          cp data/catalog/bargue-academy-2026-11-02.json /tmp/city-on-paper-package/data/catalog/
           cp data/research/benoist-production-network-v1.json /tmp/city-on-paper-package/data/research/
           cp data/stories/madeleine-dossier-20261103.json /tmp/city-on-paper-package/data/stories/
           cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
