@@ -29,8 +29,12 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/
-          mkdir -p public/discover public/atelier/ornament public/ornaments public/atelier/bargue public/journeys public/detective public/studio public/data/stories public/data/research public/data/curation
+          mkdir -p public/ideas public/printlab public/fieldwork public/data/ideas public/discover public/atelier/ornament public/ornaments public/atelier/bargue public/journeys public/detective public/studio public/data/stories public/data/research public/data/curation
           cp discover/index.html public/discover/index.html
+          cp ideas/index.html public/ideas/index.html
+          cp printlab/index.html public/printlab/index.html
+          cp fieldwork/index.html public/fieldwork/index.html
+          cp data/ideas/radar-20261103.json public/data/ideas/
           cp journeys/index.html public/journeys/index.html
           cp detective/index.html public/detective/index.html
           cp studio/index.html public/studio/index.html
