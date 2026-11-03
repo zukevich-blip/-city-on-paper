@@ -29,7 +29,7 @@ async function run(){
   await page.locator("#quizAnswers button").nth(1).click();
   test(vp.name+" quiz correct answer",await page.locator(".answers .correct").count()===1);
   await page.locator("#quizNext").click();
-  test(vp.name+" quiz moves",await page.locator("#quizProgress").innerText()==="Вопрос 2 из 3");
+  const quizStep=await page.locator("#quizProgress").textContent();console.log("QUIZ_STATUS "+vp.name+" "+JSON.stringify(quizStep));test(vp.name+" quiz moves",quizStep==="Вопрос 2 из 3");
   test(vp.name+" no JS errors",errors.length===0);
   await page.screenshot({path:directory+"/"+vp.name+"-detective.jpg",type:"jpeg",quality:70,fullPage:true});
   await ctx.close();
