@@ -14,6 +14,9 @@ on:
       - 'ornaments/**'
       - 'atelier/**'
       - 'discover/**'
+      - 'ideas/**'
+      - 'printlab/**'
+      - 'fieldwork/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 
@@ -80,11 +83,16 @@ jobs:
           node tests/browser/qa_museum_rooms.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_ateliers.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_discover.js http://127.0.0.1:8765/discover/ /tmp/city-on-paper-screens
+          node tests/browser/qa_idea_lab.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
           cp discover/index.html /tmp/city-on-paper-package/discover/
+          cp ideas/index.html /tmp/city-on-paper-package/ideas/
+          cp printlab/index.html /tmp/city-on-paper-package/printlab/
+          cp fieldwork/index.html /tmp/city-on-paper-package/fieldwork/
+          cp data/ideas/radar-20261103.json /tmp/city-on-paper-package/data/ideas/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/

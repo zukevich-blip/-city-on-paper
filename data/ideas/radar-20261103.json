@@ -1,0 +1,429 @@
+{
+  "updated": "2026-11-03",
+  "schema": "city-on-paper-ideas-v1",
+  "rank_method": {
+    "note": "Кураторская оценка проекта, не опрос посетителей и не данные поисковых запросов.",
+    "scale": "Пять критериев по шкале 1–5, итог 0–10.",
+    "weights": {
+      "visual": 0.28,
+      "learning": 0.25,
+      "originality": 0.18,
+      "source_readiness": 0.19,
+      "rights_safety": 0.1
+    },
+    "calculation": "10 × Σ(weight × score/5)",
+    "confidence": "Гипотеза до первого измерения аудитории"
+  },
+  "schemes": [
+    {
+      "id": "knowledge",
+      "title": "Архив → музей",
+      "tag": "Достоверность",
+      "flow": [
+        "Найти оригинал",
+        "Проверить автора и дату",
+        "Проверить права",
+        "Собрать досье",
+        "Опубликовать с источниками"
+      ],
+      "explanation": "Exa выявляет архивы. Firecrawl извлекает только допустимые публичные данные. Библиотека и куратор подтверждают атрибуцию. GitHub фиксирует изменения; CI не выпускает непроверенное.",
+      "outputs": [
+        "Паспорт литографии",
+        "Цепочка доказательств",
+        "Проверяемая публикация"
+      ]
+    },
+    {
+      "id": "audience",
+      "title": "История → читатель",
+      "tag": "Аудитория",
+      "flow": [
+        "Короткая история",
+        "90 секунд исследования",
+        "Выбор интереса",
+        "Глубокий зал",
+        "Возврат / поделиться"
+      ],
+      "explanation": "Вход через настоящую литографию, а не общую рекламу. Эксперименты с заголовками после реального запуска, без выдуманных показателей.",
+      "outputs": [
+        "Образовательный сюжет",
+        "Визит в музей",
+        "Повторный интерес"
+      ]
+    },
+    {
+      "id": "field",
+      "title": "Город → свидетельство",
+      "tag": "Участие",
+      "flow": [
+        "Выбрать историческое место",
+        "Открыть литографию",
+        "Сделать свою фотографию",
+        "Сравнить ракурсы честно",
+        "Сохранить личное досье"
+      ],
+      "explanation": "Фотографии остаются на устройстве, не загружаются на сервер. Для публичного участия понадобится отдельно согласовать согласие, лицензии, модерацию и защиту персональных данных.",
+      "outputs": [
+        "Сравнительный кадр",
+        "Личные заметки",
+        "Потенциальные новые точки съёмки"
+      ]
+    }
+  ],
+  "ideas": [
+    {
+      "id": "detective",
+      "title": "Литография под лупой",
+      "category": "Исследование",
+      "status": "implemented",
+      "metrics": {
+        "visual": 5,
+        "learning": 5,
+        "originality": 5,
+        "source_readiness": 5,
+        "rights_safety": 5
+      },
+      "module": "detective/",
+      "effort": "Работает",
+      "evidence": "5 улик Мадлен, авторство, печатник, история здания и исключение непроверенных заказчиков.",
+      "sources": [
+        {
+          "label": "LoC: La Madeleine",
+          "url": "https://www.loc.gov/item/2016652452/"
+        },
+        {
+          "label": "Google Arts & Culture: Talking Museum",
+          "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/the-talking-museum-museum-memory/"
+        }
+      ],
+      "next": "Сделать серию из десяти независимых досье."
+    },
+    {
+      "id": "then-now",
+      "title": "Тогда / Сейчас без подмены ракурса",
+      "category": "Город",
+      "status": "implemented",
+      "metrics": {
+        "visual": 5,
+        "learning": 4,
+        "originality": 4,
+        "source_readiness": 5,
+        "rights_safety": 5
+      },
+      "module": "poc/compare/",
+      "effort": "Работает",
+      "evidence": "Две подлинные литографии и современные фотографии с указанием авторов и лицензий.",
+      "sources": [
+        {
+          "label": "Old Maps Online: compare",
+          "url": "https://www.oldmapsonline.org/compare"
+        },
+        {
+          "label": "Panoramax",
+          "url": "https://panoramax.fr/"
+        }
+      ],
+      "next": "Добавить 10 подтверждённых ракурсов и шкалу точности."
+    },
+    {
+      "id": "mystery",
+      "title": "90 секунд с произведением",
+      "category": "Аудитория",
+      "status": "implemented",
+      "metrics": {
+        "visual": 5,
+        "learning": 4,
+        "originality": 4,
+        "source_readiness": 5,
+        "rights_safety": 5
+      },
+      "module": "discover/",
+      "effort": "Работает",
+      "evidence": "Квиз, пять точек, маршруты для путешественников, историков, художников и коллекционеров.",
+      "sources": [
+        {
+          "label": "Google Arts & Culture: Museum Memory",
+          "url": "https://artsandculture.google.com/experiment/UwFgDuAF8A7n0A"
+        }
+      ],
+      "next": "Проверить участие первых посетителей, а затем выпускать другие истории."
+    },
+    {
+      "id": "printlab",
+      "title": "Как работает литографский камень",
+      "category": "Ремесло",
+      "status": "pilot",
+      "metrics": {
+        "visual": 5,
+        "learning": 5,
+        "originality": 4,
+        "source_readiness": 5,
+        "rights_safety": 5
+      },
+      "module": "printlab/",
+      "effort": "Новый интерактив",
+      "evidence": "Учебная интерактивная схема: рисунок, обработка, смачивание, накатывание краски, пресс.",
+      "sources": [
+        {
+          "label": "Met Museum: Lithograph",
+          "url": "https://www.metmuseum.org/ja/perspectives/materials-and-techniques-printmaking-lithograph"
+        },
+        {
+          "label": "V&A: What is print",
+          "url": "https://www.vam.ac.uk/articles/what-is-print"
+        }
+      ],
+      "next": "Добавить отдельную демонстрацию многокрасочной хромолитографии."
+    },
+    {
+      "id": "fieldwork",
+      "title": "Найти тот же памятник сегодня",
+      "category": "Город",
+      "status": "pilot",
+      "metrics": {
+        "visual": 5,
+        "learning": 5,
+        "originality": 4,
+        "source_readiness": 4,
+        "rights_safety": 5
+      },
+      "module": "fieldwork/",
+      "effort": "Новый интерактив",
+      "evidence": "Оригинал Бенуа, локальная фотография посетителя, два ракурса, личный экспорт без передачи файла.",
+      "sources": [
+        {
+          "label": "Old Maps Online: compare",
+          "url": "https://www.oldmapsonline.org/compare"
+        },
+        {
+          "label": "MIRL Collate",
+          "url": "https://github.com/mirl-ucsb/mirl-collate"
+        }
+      ],
+      "next": "После теста разработать проверяемую полевую инструкцию по точкам съёмки."
+    },
+    {
+      "id": "zoom",
+      "title": "IIIF-альбом и увеличение штрихов",
+      "category": "Музей",
+      "status": "research",
+      "metrics": {
+        "visual": 5,
+        "learning": 5,
+        "originality": 4,
+        "source_readiness": 4,
+        "rights_safety": 4
+      },
+      "module": null,
+      "effort": "Источники и прототип",
+      "evidence": "LoC и BnF дают IIIF API, OpenSeadragon поддерживает tiled изображения; для листов Бенуа нужно сверить конкретный endpoint.",
+      "sources": [
+        {
+          "label": "LoC IIIF",
+          "url": "https://www.loc.gov/apis/micro-services/image-services/"
+        },
+        {
+          "label": "BnF Gallica IIIF",
+          "url": "https://api.bnf.fr/index.php/fr/api-iiif-de-recuperation-des-images-de-gallica"
+        },
+        {
+          "label": "OpenSeadragon",
+          "url": "https://openseadragon.github.io/examples/tilesource-iiif/"
+        }
+      ],
+      "next": "Подобрать настоящий info.json к одному листу и доказать CORS/качество/права."
+    },
+    {
+      "id": "catalog",
+      "title": "Кабинет происхождения Бенуа",
+      "category": "Исследование",
+      "status": "implemented",
+      "metrics": {
+        "visual": 4,
+        "learning": 5,
+        "originality": 5,
+        "source_readiness": 5,
+        "rights_safety": 5
+      },
+      "module": "studio/",
+      "effort": "Работает",
+      "evidence": "Две LoC литографии, Ph. Benoist del., Imp. Lemercier и неизвестный заказчик; личные заметки остаются в браузере.",
+      "sources": [
+        {
+          "label": "LoC: Palais Royal",
+          "url": "https://www.loc.gov/item/2016652451/"
+        }
+      ],
+      "next": "Расширить сеть проверенных издателей и серий, не делать догадку фактом."
+    },
+    {
+      "id": "art-class",
+      "title": "Мастерская академического рисунка",
+      "category": "Ремесло",
+      "status": "implemented",
+      "metrics": {
+        "visual": 4,
+        "learning": 5,
+        "originality": 4,
+        "source_readiness": 5,
+        "rights_safety": 5
+      },
+      "module": "atelier/bargue/",
+      "effort": "Работает",
+      "evidence": "5 шагов, рисунок в браузере, сохранение PNG; современные PDF-сканы не используются в публикации.",
+      "sources": [
+        {
+          "label": "BnF Gallica",
+          "url": "https://gallica.bnf.fr/"
+        }
+      ],
+      "next": "Последовательный курс из десяти оригинальных задач."
+    },
+    {
+      "id": "atlas",
+      "title": "Атлас истории и городских эпох",
+      "category": "Город",
+      "status": "implemented",
+      "metrics": {
+        "visual": 4,
+        "learning": 5,
+        "originality": 4,
+        "source_readiness": 4,
+        "rights_safety": 5
+      },
+      "module": "journeys/",
+      "effort": "Работает",
+      "evidence": "Хронология, музейные карточки, тематические маршруты, избранное.",
+      "sources": [
+        {
+          "label": "TimelineJS",
+          "url": "https://github.com/NUKnightLab/TimelineJS"
+        },
+        {
+          "label": "Old Maps Online",
+          "url": "https://www.oldmapsonline.org/compare"
+        }
+      ],
+      "next": "Добавить координированную карту с верифицированными точками и источниками геометрии."
+    },
+    {
+      "id": "annotations",
+      "title": "Кураторские аннотации на листе",
+      "category": "Исследование",
+      "status": "research",
+      "metrics": {
+        "visual": 4,
+        "learning": 5,
+        "originality": 5,
+        "source_readiness": 3,
+        "rights_safety": 5
+      },
+      "module": null,
+      "effort": "План",
+      "evidence": "Архивный графический слой с W3C Web Annotations, объекты и цитаты должны иметь стабильные координаты.",
+      "sources": [
+        {
+          "label": "Archie: IIIF exhibitions",
+          "url": "https://github.com/micahchoo/Archie"
+        },
+        {
+          "label": "OpenSeadragon overlays",
+          "url": "https://openseadragon.github.io/examples/ui-overlays/"
+        }
+      ],
+      "next": "Выбрать для одного листа пять точек с цитированием и координатами."
+    },
+    {
+      "id": "ornament",
+      "title": "История фабричного орнамента",
+      "category": "Ремесло",
+      "status": "implemented",
+      "metrics": {
+        "visual": 4,
+        "learning": 4,
+        "originality": 4,
+        "source_readiness": 4,
+        "rights_safety": 5
+      },
+      "module": "ornaments/",
+      "effort": "Работает",
+      "evidence": "14 индексированных элементов двух исторических каталогов без неопределённых сканов.",
+      "sources": [
+        {
+          "label": "Bakewell (1887)",
+          "url": "https://archive.org/details/designsofarchite00bake"
+        }
+      ],
+      "next": "Найти фотографии конкретных сохранившихся архитектурных деталей с доказуемыми соответствиями."
+    },
+    {
+      "id": "audio",
+      "title": "Аудиогид по одной литографии",
+      "category": "Аудитория",
+      "status": "research",
+      "metrics": {
+        "visual": 3,
+        "learning": 4,
+        "originality": 3,
+        "source_readiness": 4,
+        "rights_safety": 4
+      },
+      "module": null,
+      "effort": "План",
+      "evidence": "Текст есть в музейном досье; фактическое русское произношение имён, адаптация для слабовидящих и права на запись требуют проверки.",
+      "sources": [
+        {
+          "label": "Google Talking Museum",
+          "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/the-talking-museum-museum-memory/"
+        }
+      ],
+      "next": "Тест 90-секундной озвучки по проверенному тексту без подписок."
+    },
+    {
+      "id": "map-overlay",
+      "title": "Старые планы на современной карте",
+      "category": "Город",
+      "status": "research",
+      "metrics": {
+        "visual": 5,
+        "learning": 5,
+        "originality": 3,
+        "source_readiness": 3,
+        "rights_safety": 4
+      },
+      "module": null,
+      "effort": "План",
+      "evidence": "Исторические карты и точная геопривязка доступны у Old Maps Online, но координаты оригиналов Бенуа не являются камерными GPS.",
+      "sources": [
+        {
+          "label": "Old Maps Online: overlays",
+          "url": "https://www.oldmapsonline.org/compare"
+        }
+      ],
+      "next": "Одна локальная карта Парижа с историческим планом и лицензированным basemap."
+    },
+    {
+      "id": "revenue",
+      "title": "Авторский печатный атлас и репродукции",
+      "category": "Экономика",
+      "status": "later",
+      "metrics": {
+        "visual": 5,
+        "learning": 3,
+        "originality": 3,
+        "source_readiness": 2,
+        "rights_safety": 2
+      },
+      "module": null,
+      "effort": "Рано для продажи",
+      "evidence": "Не установлены права воспроизведения выбранных сканов во всех юрисдикциях, типография, себестоимость и реальный спрос.",
+      "sources": [
+        {
+          "label": "LoC rights note",
+          "url": "https://www.loc.gov/item/2016652452/"
+        }
+      ],
+      "next": "Только после 10 эталонных досье и первого теста аудитории; начать с исследования издательской экономики."
+    }
+  ]
+}
