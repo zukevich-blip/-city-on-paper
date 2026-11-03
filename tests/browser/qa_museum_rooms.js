@@ -48,7 +48,7 @@ function verify(name,condition){checks.push({name,pass:!!condition});console.log
     await page.goto(origin,{waitUntil:"domcontentloaded"});
     verify("home links to two new integrated rooms",
       await page.locator('a[href="ornaments/"]').count()>0&&
-      await page.locator('a[href="atelier/bargue/"]').count()>0);
+      await page.locator('a[href="atelier/bargue/index.html"]').count()>0);
   }finally{await browser.close();}
   fs.writeFileSync(outDir+"/qa_museum_rooms.json",JSON.stringify(checks,null,2));
   console.log(checks.length+" checks, "+checks.filter(x=>!x.pass).length+" failures");
