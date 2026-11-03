@@ -5,7 +5,7 @@ from urllib.parse import urlsplit
 
 import pytest
 
-from tools.curation.build_open_art_cache import validated_url
+from tools.curation.build_open_art_cache import validated_url, validated_photo_url
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data/curation/cc0-gallery-20261103.json"
@@ -61,3 +61,28 @@ def test_public_atlas_links_both_sources_and_true_modern_photo():
     assert "madeleine-photo-panoramax-38b6d262.jpg" in html
     assert "ракурсы различаются" in html.lower()
     assert "Cleveland Museum of Art" in html
+
+
+def test_four_real_modern_photos_are_cc0_and_not_pretend_aligned():
+    modern = json.loads((ROOT / "data/curation/modern-photos-cc0-20261103.json").read_text(encoding="utf-8"))
+    historic = json.loads(CATALOG.read_text(encoding="utf-8"))
+    available = {item["id"] for item in historic["items"]}
+    assert len(modern["items"]) == 4
+    for photo in modern["items"]:
+        assert photo["rights"] == "cc0"
+        assert photo["verified"] == "commons_api"
+        assert photo["alignment"] == "not_evaluated"
+        assert photo["historic_ref"] in available
+        assert photo["date"].startswith("2024") or photo["date"].startswith("2025")
+        assert photo["photographer"]
+        assert urlsplit(photo["source_page"]).hostname == "commons.wikimedia.org"
+        assert validated_photo_url(photo).startswith("https://thumb.wikimedia.org/")
+
+
+def test_modern_image_ingestor_rejects_untrusted_host():
+    modern = json.loads((ROOT / "data/curation/modern-photos-cc0-20261103.json").read_text(encoding="utf-8"))
+    photo = modern["items"][0]
+    with pytest.raises(ValueError):
+        validated_photo_url({**photo, "image": "https://evil.invalid/commons/thumb/picture.jpg"})
+    with pytest.raises(ValueError):
+        validated_photo_url({**photo, "rights": "unknown"})
