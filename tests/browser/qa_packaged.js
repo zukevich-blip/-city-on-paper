@@ -16,7 +16,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    p.on("pageerror",e=>errs.push(e.message));
    for(const path of paths){const resp=await p.goto(new URL(path,base).href,{waitUntil:"domcontentloaded"});
     if(!resp||resp.status()!==200)throw Error(label+": missing "+path+": "+resp?.status());
-    if(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2))throw Error(label+": horizontal overflow "+path);
+    const overflow=await p.evaluate(()=>({scroll:document.documentElement.scrollWidth,view:innerWidth,offenders:[...document.querySelectorAll("body *")].filter(e=>{let r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+3}).slice(0,6).map(e=>({tag:e.tagName,cls:typeof e.className==="string"?e.className.slice(0,60):"",id:e.id,right:Math.round(e.getBoundingClientRect().right)}))}));if(overflow.scroll>overflow.view+2)throw Error(label+": horizontal overflow "+path+" "+JSON.stringify(overflow));
    }
    await p.goto(new URL("salon/",base).href,{waitUntil:"domcontentloaded"});
    await p.waitForFunction(()=>document.querySelectorAll("#gallery .art").length===41,{timeout:15000});
