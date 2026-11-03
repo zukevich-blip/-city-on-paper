@@ -45,7 +45,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #c99a
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
-const text=(tag,value,cls)=>{const el=document.createElement(tag);el.textContent=value;if(cls)el.className=cls;return el;};
+const text=(tag,value,cls)=>{const el=document.createElement(tag);if(value!==undefined)el.textContent=value;if(cls)el.className=cls;return el;};
 const safeUrl=url=>{try{let x=new URL(url,location.href);return ["https:","http:"].includes(x.protocol)?x.href:null;}catch(e){return null;}};
 let casefile=null,selectedClue=0,activeFilter="all",questionIndex=0,score=0,answered=false;
 function link(url,label){const a=text("a",label,"sourceLink");if(safeUrl(url)){a.href=url;a.target="_blank";a.rel="noopener noreferrer";}return a;}
