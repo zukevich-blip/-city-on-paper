@@ -28,6 +28,8 @@ def test_provenance_graph_has_two_real_lithographs_and_only_sourced_edges():
     for work in d["works"]:
         assert urlparse(work["url"]).hostname == "www.loc.gov"
         assert work["image_id"].startswith("LC-DIG-pga-")
+        assert urlparse(work["hires_url"]).hostname == "cdn.loc.gov"
+        assert work["hires_url"].endswith("u.tif")
         assert (ROOT / "studio" / work["image"]).resolve().is_file()
     assert all(h["certainty"] == "candidate" and h["source"] for h in d["hypotheses"])
 
