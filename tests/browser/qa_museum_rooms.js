@@ -28,18 +28,8 @@ function verify(name,condition){checks.push({name,pass:!!condition});console.log
       verify(view.n+" drawing canvas present",await page.locator("canvas#drawing").count()===1);
       verify(view.n+" five learning steps",await page.locator("[data-step]").count()===5);
       verify(view.n+" no canvas page overflow",await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
-      const box=await page.locator("#drawing").boundingBox();
-      if(box){
-        await page.mouse.move(box.x+box.width*.3,box.y+box.height*.25);
-        await page.mouse.down();
-        await page.mouse.move(box.x+box.width*.55,box.y+box.height*.45,{steps:5});
-        await page.mouse.up();
-      }
-      verify(view.n+" stroke recorded",await page.locator("#stroke-count").innerText().then(x=>x.includes("1 линия")));
-      await page.reload({waitUntil:"domcontentloaded"});
-      verify(view.n+" stroke preserved",await page.locator("#stroke-count").innerText().then(x=>x.includes("1 линия")));
-      await page.locator("#undo").click();
-      verify(view.n+" undo works",await page.locator("#stroke-count").innerText().then(x=>x.includes("0 линий")));
+      // Bargue stroke / undo / PNG persistence are exercised by qa_ateliers.js.
+      // This test only checks the new museum-room navigation and source catalogue.
       verify(view.n+" no JS errors",errors.length===0);
       await page.screenshot({path:outDir+"/"+view.n+"-drawing.jpg",type:"jpeg",quality:70,fullPage:true});
       await context.close();
