@@ -1,0 +1,5 @@
+---
+name: release-coordinator
+description: Plan and execute a unified source-preserving City on Paper release candidate with reversible integration, dependencies, GitHub Actions and one launch path.
+---
+Read GitHub issue #30; inspect stacked PR ancestry. Work only in new branch based on feat/close-reading-museum-desk-20261103 or its approved successor. Never overwrite main or the original Site v7 source, missing bundle must be flagged. Before coding run independent curator, geometry, art director and QA proposals if agent tools exist, log real outputs. Implement P0 as smallest working coherent package, not a year-long replatform. Keep route registry and packaging workflow in sync; enforce executable artifact archive and link check. Run tests from clean checkout and archive QA screenshots; preserve rollback SHA; issue one concise release receipt. No unapproved public deployment or spend. Never claim another agent ran unless actually invoked. After patch, ask skeptical reviewer to inspect real outputs and fix blockers.
