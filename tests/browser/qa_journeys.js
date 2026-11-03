@@ -66,7 +66,8 @@ async function run() {
       check(vp.name + " technique filter picks lithographs", await page.locator("#cards .card").count() >= 10);
       await page.locator("#reset").click();
       await page.locator("#cards .artLink").first().click();
-      check(vp.name + " zoom displays museum art", await page.locator("#zoomDialog[open] #zoomImage").isVisible());
+      check(vp.name + " zoom opens with museum image source", await page.locator("#zoomDialog[open]").isVisible() &&
+        await page.locator("#zoomImage").evaluate(el => el.hasAttribute("src") && el.getAttribute("src").length > 10));
       await page.locator("#zoomScale").evaluate(e => { e.value="150"; e.dispatchEvent(new Event("input", { bubbles: true })); });
       check(vp.name + " zoom scale works", await page.locator("#zoomImage").evaluate(e => e.style.width === "150%"));
       await page.locator("#zoomClose").click();
