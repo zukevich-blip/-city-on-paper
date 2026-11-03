@@ -42,7 +42,7 @@ def test_closeup_accessibility_privacy_and_navigation():
                      'id="reset"', 'id="stepDots"', 'id="notes"', 'id="original"'):
         assert fragment in html
     assert "pointerdown" in html and "pointermove" in html
-    assert "touch-action:none" in html
+    assert "touch-action:pan-y" in html and "stage.style.touchAction" in html
     assert "localStorage" in html and "textContent" in html
     assert "innerHTML" not in html
     assert "CC0" in html and "No known restrictions on publication" in html
