@@ -33,7 +33,7 @@ def test_gallery_and_studio_are_navigable_and_built():
         assert (ROOT/path).is_file()
     home=(ROOT/"index.html").read_text(encoding="utf-8")
     assert 'href="ornaments/"' in home
-    assert 'href="atelier/bargue/"' in home
+    assert 'href="atelier/bargue/index.html"' in home
     ornaments=(ROOT/"ornaments/index.html").read_text(encoding="utf-8")
     assert "ornament-workshop-2026-11-02.json" in ornaments
     assert "../atelier/bargue/" in ornaments
