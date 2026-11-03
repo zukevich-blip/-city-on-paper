@@ -40,7 +40,10 @@ def test_fieldwork_local_only_and_publication_boundaries():
     assert "image/jpeg" in text and "15*1024*1024" in text
     assert "URL.createObjectURL" in text and "URL.revokeObjectURL" in text
     assert "photo_filename" in text and "No image bytes" in text
-    assert "Никаких загрузок фотографии на сервер" in text or "Снимок, выбранный с вашего устройства, в интернет не отправляется" in text
+    assert (
+        "Никаких загрузок фотографии на сервер" in text
+        or "Снимок, выбранный с вашего устройства, в интернет не отправляется" in text
+    )
     assert "CC BY-SA 4.0" in text
     assert "геометрическое совмещение" in text
     assert "navigator.geolocation" not in text
