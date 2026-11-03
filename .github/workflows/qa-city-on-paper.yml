@@ -10,6 +10,7 @@ on:
       - 'index.html'
       - 'journeys/**'
       - 'detective/**'
+      - 'studio/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 
@@ -72,12 +73,15 @@ jobs:
           node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
           node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
           node tests/browser/qa_detective.js http://127.0.0.1:8765/detective/ /tmp/city-on-paper-screens
+          node tests/browser/qa_studio.js http://127.0.0.1:8765/studio/ /tmp/city-on-paper-screens
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
+          cp studio/index.html /tmp/city-on-paper-package/studio/
+          cp data/research/benoist-production-network-v1.json /tmp/city-on-paper-package/data/research/
           cp data/stories/madeleine-dossier-20261103.json /tmp/city-on-paper-package/data/stories/
           cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
           python tools/curation/build_open_art_cache.py --out /tmp/city-on-paper-package --workers 8
