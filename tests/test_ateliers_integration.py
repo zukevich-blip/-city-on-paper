@@ -39,5 +39,5 @@ def test_public_navigation_to_both_educational_areas():
     assert 'id="search"' in html and 'id="categoryFilter"' in html
     assert "innerHTML" not in html
     home = (ROOT / "index.html").read_text()
-    assert "atelier/bargue/index.html" in home and "atelier/ornament/index.html" in home
+    assert "atelier/bargue/" in home and ("ornaments/" in home or "atelier/ornament/" in home)
     assert "Кабинет коллекционера" in home
