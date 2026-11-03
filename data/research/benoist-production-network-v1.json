@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Сеть двух парижских литографий Филиппа Бенуа",
+  "checked_on": "2026-11-03",
+  "policy": {
+    "provenance": "Каждое достоверное ребро основано на каталоге держателя. Неизвестный заказчик не подменяется правителем или издателем.",
+    "image_rights": "LoC: No known restrictions on publication; отдельная оценка исследователем обязательна.",
+    "viewpoint": "Сравнения с Panoramax в основном проекте имеют различный ракурс; не следует выдавать их за метрически совпадающие."
+  },
+  "works": [
+    {
+      "id": "madeleine",
+      "title": "Paris. La Madeleine",
+      "city": "Париж",
+      "date": "1845–1860 (диапазон LoC)",
+      "year_start": 1845,
+      "year_end": 1860,
+      "medium": "Hand-colored lithograph",
+      "size": "23,5 × 32,4 см",
+      "plate": "8",
+      "loc_id": "2016652452",
+      "image_id": "LC-DIG-pga-14315",
+      "image": "../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg",
+      "url": "https://www.loc.gov/item/2016652452/",
+      "casefile": "../detective/",
+      "comparison": "../poc/compare/index.html#madeleine-ph-benoist",
+      "subject": "Неоклассическая церковь с фасадом и боковой колоннадой, карета и прохожие.",
+      "research": [
+        "Найти документ о заказе и первом издателе именно этого листа",
+        "Определить, кто и в каком ателье переносил рисунок на камень",
+        "Искать тираж, цену и варианты ручной раскраски"
+      ]
+    },
+    {
+      "id": "palais_royal",
+      "title": "Paris. Jardin du Palais Royal",
+      "city": "Париж",
+      "date": "1845–1860 (диапазон LoC)",
+      "year_start": 1845,
+      "year_end": 1860,
+      "medium": "Hand-colored lithograph",
+      "size": "22,4 × 30,7 см",
+      "plate": "6",
+      "loc_id": "2016652451",
+      "image_id": "LC-DIG-pga-14314",
+      "image": "../poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg",
+      "url": "https://www.loc.gov/item/2016652451/",
+      "casefile": "",
+      "comparison": "../poc/compare/index.html#palais-royal-ph-benoist",
+      "subject": "Сад, колоннады, фонтан и люди на территории Пале-Рояль. Вид сверху, с художественной перспективой.",
+      "research": [
+        "Уточнить маршрут художника и точку исторического наблюдения",
+        "Проверить, были ли листы №6 и №8 опубликованы в одном выпуске",
+        "Найти объявление о продаже, цену и печатный тираж"
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "benoist",
+      "name": "Филипп Бенуа",
+      "role": "Рисовальщик",
+      "status": "documented",
+      "what": "На двух листах читается Ph. Benoist del.; это означает авторство рисунка, но не подтверждает работу Бенуа непосредственно на камне.",
+      "sources": [
+        "https://www.loc.gov/item/2016652451/",
+        "https://www.loc.gov/item/2016652452/"
+      ]
+    },
+    {
+      "id": "lemercier",
+      "name": "Imprimerie Lemercier",
+      "role": "Типография",
+      "status": "documented",
+      "what": "На обоих листах указано Imp. Lemercier. Печатник известен, но это само по себе не устанавливает торгового издателя или заказчика.",
+      "sources": [
+        "https://www.loc.gov/item/2016652451/",
+        "https://www.loc.gov/item/2016652452/"
+      ]
+    },
+    {
+      "id": "loc",
+      "name": "Library of Congress",
+      "role": "Современный хранитель",
+      "status": "documented",
+      "what": "Оригиналы находятся в Popular Graphic Art, Prints and Photographs Division. Оцифрованные листы имеют разные инвентарные номера.",
+      "sources": [
+        "https://www.loc.gov/item/2016652451/",
+        "https://www.loc.gov/item/2016652452/"
+      ]
+    },
+    {
+      "id": "publisher_unknown",
+      "name": "Первоначальный издатель / заказчик",
+      "role": "Не установлен",
+      "status": "unknown",
+      "what": "В данных LoC нет имени заказчика обеих конкретных литографий. Формулировка 'Possibly from a later edition' не доказывает издателя или общий выпуск.",
+      "sources": [
+        "https://www.loc.gov/item/2016652451/",
+        "https://www.loc.gov/item/2016652452/"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "bn1",
+      "from": "benoist",
+      "to": "madeleine",
+      "label": "выполнил рисунок",
+      "certainty": "documented",
+      "source": "https://www.loc.gov/item/2016652452/"
+    },
+    {
+      "id": "bn2",
+      "from": "benoist",
+      "to": "palais_royal",
+      "label": "выполнил рисунок",
+      "certainty": "documented",
+      "source": "https://www.loc.gov/item/2016652451/"
+    },
+    {
+      "id": "le1",
+      "from": "lemercier",
+      "to": "madeleine",
+      "label": "напечатал",
+      "certainty": "documented",
+      "source": "https://www.loc.gov/item/2016652452/"
+    },
+    {
+      "id": "le2",
+      "from": "lemercier",
+      "to": "palais_royal",
+      "label": "напечатал",
+      "certainty": "documented",
+      "source": "https://www.loc.gov/item/2016652451/"
+    },
+    {
+      "id": "lc1",
+      "from": "loc",
+      "to": "madeleine",
+      "label": "хранит экземпляр",
+      "certainty": "documented",
+      "source": "https://www.loc.gov/item/2016652452/"
+    },
+    {
+      "id": "lc2",
+      "from": "loc",
+      "to": "palais_royal",
+      "label": "хранит экземпляр",
+      "certainty": "documented",
+      "source": "https://www.loc.gov/item/2016652451/"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "series",
+      "title": "Оба листа могут относиться к позднему выпуску Promenade dans Paris et ses environs",
+      "certainty": "candidate",
+      "grounds": "Библиотека Конгресса использует слово 'Possibly' для обоих листов, указывая номера 6 и 8. Это основание для поиска по каталогам и экземплярам, но не подтверждённая связь.",
+      "source": "https://www.loc.gov/item/2016652451/",
+      "next_action": "Сопоставить титульные листы, состав и нумерацию разных изданий, найти каталоги Gihaut frères и Lemercier."
+    }
+  ],
+  "research_questions": [
+    {
+      "id": "commission",
+      "title": "Кто заплатил за создание листа?",
+      "status": "open",
+      "needs": "договор, переписка, счет или объявление о выпуске",
+      "caution": "Известная типография ≠ доказанный заказчик."
+    },
+    {
+      "id": "edition",
+      "title": "Один ли это альбом или два разных выпуска?",
+      "status": "open",
+      "needs": "полный экземпляр с титулом, номерами листов и выходными сведениями",
+      "caution": "Библиотека пишет «possibly»."
+    },
+    {
+      "id": "process",
+      "title": "Кто переносил рисунок на литографский камень?",
+      "status": "open",
+      "needs": "написание роли lith. на иных отпечатках или документах мастерской",
+      "caution": "del. не равно lith."
+    },
+    {
+      "id": "economy",
+      "title": "Какая была цена и тираж?",
+      "status": "open",
+      "needs": "реклама, прайс-лист или книга издателя",
+      "caution": "Точная цена не установлена."
+    }
+  ],
+  "method": {
+    "sources": [
+      "https://www.loc.gov/item/2016652451/",
+      "https://www.loc.gov/item/2016652452/"
+    ],
+    "last_verified": "2026-11-03",
+    "image_policy": "Original local LoC derivatives; do not recolor, crop or geometrically warp source."
+  }
+}
