@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#18221f"><meta name="description" content="Изучайте архитектурную графику крупным планом: девять музейных произведений, три шага чтения изображения и ссылки на оригиналы.">
+<title>Кабинет деталей · City on Paper</title>
+<style>
+:root{--paper:#f3ecdf;--ink:#282d29;--mute:#676b62;--line:#d1c8b9;--dark:#18221f;--gold:#b99b65;--serif:Georgia,'Times New Roman',serif;--ui:system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--paper);font:16px/1.6 var(--ui)}
+*{box-sizing:border-box}body{margin:0}a{color:inherit}a:hover{text-decoration-thickness:2px}button,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}
+button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,#stage:focus-visible{outline:3px solid #bb8542;outline-offset:3px}
+.top{background:var(--dark);color:#f7f0e2;border-bottom:1px solid #586159;padding:16px clamp(18px,4vw,65px);display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;font:13px/1.5 var(--ui)}
+.top a{color:#e6d5ad;text-decoration:none}.brand{font:23px var(--serif);letter-spacing:.015em}.toplinks{display:flex;gap:20px;flex-wrap:wrap}
+.hero{padding:44px clamp(18px,4vw,65px) 31px}.eyebrow{font:11px var(--ui);text-transform:uppercase;letter-spacing:.21em;color:#7d6952}
+.hero h1{font:normal clamp(39px,5.6vw,66px)/1.05 var(--serif);margin:9px 0 16px;letter-spacing:-.025em}
+.hero p{max-width:790px;color:#605e55;margin:0}
+.workbench{padding:0 clamp(12px,3vw,54px) 35px;display:grid;grid-template-columns:minmax(0,1.58fr) minmax(310px,.83fr);gap:18px;align-items:start}
+.viewer{background:#202823;color:#f2e9d5;min-width:0;border:1px solid #5b645a;box-shadow:0 17px 55px #373b2a1c}
+.toolbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:13px 15px;border-bottom:1px solid #465147;background:#28332b}
+.toolbar .spacer{flex:1}.toolbar button{background:#39483e;color:#fbf0d9;border:1px solid #6a7769;border-radius:3px;padding:6px 11px;min-width:42px;min-height:40px}
+.toolbar button:hover{background:#55695a}.toolbar strong{font:13px var(--ui);min-width:45px;text-align:center}
+#stage{height:clamp(350px,61vh,790px);position:relative;overflow:hidden;touch-action:pan-y;cursor:grab;background:radial-gradient(ellipse at 50% 48%,#41463b,#141b17 72%)}
+#stage:active{cursor:grabbing}#studyImage{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:50% 50%;user-select:none;-webkit-user-drag:none;pointer-events:none}
+#imageStatus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:360px;text-align:center;background:#1e2925ee;color:#f1e4d0;border:1px solid #7f7561;padding:20px;font-size:13px}
+#imageStatus[hidden]{display:none}#stageHelp{position:absolute;bottom:13px;left:14px;right:14px;text-align:center;font-size:12px;pointer-events:none;color:#ede2ce;text-shadow:0 2px 5px #000;opacity:.9}
+.sourcebar{border-top:1px solid #4d574e;padding:13px 16px;display:flex;align-items:center;gap:15px;flex-wrap:wrap;justify-content:space-between;font:12px/1.5 var(--ui)}
+.sourcebar a{color:#e8d3a8}.sourcebar span{color:#c2c7b7}
+.panel{background:#fbf8f1;border:1px solid var(--line);box-shadow:0 13px 37px #4843330e;padding:clamp(17px,2.5vw,32px);min-width:0}
+.panel label{display:block;font:12px var(--ui);color:#595e54;letter-spacing:.05em;margin-bottom:7px}
+.panel select{display:block;width:100%;padding:12px 36px 12px 12px;background:white;border:1px solid #bdb4a4;color:var(--ink);border-radius:3px;margin-bottom:18px;white-space:normal}
+.panel h2{font:normal clamp(27px,3vw,38px)/1.16 var(--serif);margin:10px 0}
+.panel .sub{font:13px/1.6 var(--ui);color:var(--mute)}
+.panel .essay{font:16px/1.68 var(--serif);color:#343a32}
+.panel .rule{height:1px;background:var(--line);margin:22px 0}
+.lessonHead{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.lessonHead b{font:12px var(--ui);letter-spacing:.11em;text-transform:uppercase;color:#815e32}
+.dots{display:flex;gap:6px}.dots button{height:15px;width:15px;border:1px solid #9f9077;border-radius:50%;background:transparent;padding:0}
+.dots button[aria-current=step]{background:#665237}
+#question{font:normal 23px/1.35 var(--serif);margin:16px 0 10px}
+#hint{font:14px/1.65 var(--ui);color:#60695f;margin:0}
+.lessonbuttons{display:flex;justify-content:space-between;gap:10px;margin:20px 0}
+.lessonbuttons button{background:#263d31;color:#f6eddb;border:1px solid #263d31;padding:10px 14px;border-radius:3px}
+.lessonbuttons button:first-child{background:transparent;color:#314234;border-color:#979486}
+textarea{display:block;resize:vertical;width:100%;min-height:90px;border:1px solid #bcb5aa;padding:12px;background:#fffefa;color:#252b26;border-radius:3px}
+.notetools{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;color:#6b7166;font:12px var(--ui)}
+.notetools button{border:none;background:transparent;text-decoration:underline;color:#625238;padding:6px}
+.sources{padding:12px clamp(18px,4vw,65px) 55px;max-width:1100px}
+.sources h2{font:normal 30px var(--serif)}.sources p{color:#63635c}.sourcecards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.sourcecards article{padding:18px;border-left:3px solid #9d875d;background:#ebe2d2}.sourcecards h3{font:21px var(--serif);margin:0 0 8px}.sourcecards p{font:13px/1.6 var(--ui);margin:0}
+footer{border-top:1px solid var(--line);padding:24px clamp(18px,4vw,65px);font:12px/1.7 var(--ui);color:#777163}
+@media(max-width:960px){.workbench{grid-template-columns:1fr}.panel{max-width:none}#stage{height:clamp(340px,53vh,700px)}}
+@media(max-width:610px){.hero{padding-top:26px}.toplinks{gap:10px}.toolbar{gap:5px}.toolbar button{min-width:40px}.sourcecards{grid-template-columns:1fr}.panel h2{font-size:30px}}
+@media(prefers-reduced-motion:no-preference){#studyImage{transition:transform .12s ease-out}}
+</style></head><body>
+<div class="top"><a href="../index.html" class="brand">City on Paper</a><div class="toplinks"><a href="../salon/">Салон</a><a href="../exhibitions/city-as-evidence/">Истории городов</a><a href="../poc/compare/">Тогда / Сейчас</a></div></div>
+<header class="hero"><div class="eyebrow">Исследовательский кабинет · 01</div><h1>Рассмотреть город</h1><p>Увеличьте подлинное изображение, изучите работу художника и запишите собственное наблюдение. Три вопроса помогут увидеть композицию, художественную технику и границу между свидетельством и интерпретацией.</p></header>
+<main class="workbench">
+<div class="viewer"><div class="toolbar"><span class="eyebrow" style="color:#dfcda9">Оптический стол</span><div class="spacer"></div><button id="zoomOut" aria-label="Уменьшить изображение" title="Уменьшить">−</button><strong id="zoomLabel" aria-live="polite">100%</strong><button id="zoomIn" aria-label="Увеличить изображение" title="Увеличить">+</button><button id="reset" title="Вернуть масштаб">Сброс</button></div>
+<div id="stage" role="region" tabindex="0" aria-label="Изображение. Перемещайте мышью или пальцем, клавиши со стрелками меняют положение, плюс и минус меняют масштаб."><img id="studyImage" alt="" draggable="false"><div id="imageStatus" role="status" hidden></div><div id="stageHelp">Тяните изображение пальцем или мышью · двойное нажатие увеличивает</div></div>
+<div class="sourcebar"><span id="credit">Музейный источник</span><a id="original" target="_blank" rel="noopener noreferrer">Открыть музейный оригинал ↗</a></div></div>
+<aside class="panel"><label for="work">Выберите произведение</label><select id="work" aria-label="Произведение"></select>
+<div class="eyebrow" id="tag">Музейный лист</div><h2 id="title">Загружаем коллекцию…</h2><p id="attribution" class="sub"></p><p id="intro" class="essay"></p><p id="licenseStatus" class="sub"></p><div class="rule"></div>
+<div class="lessonHead"><b id="stepName">Шаг 1</b><div id="stepDots" class="dots" aria-label="Шаги исследования"></div></div>
+<h3 id="question">Выберите работу для исследования</h3><p id="hint"></p>
+<div class="lessonbuttons"><button id="prev">← Назад</button><button id="next">Дальше →</button></div><div class="rule"></div>
+<label for="notes">Ваше наблюдение · хранится только в этом браузере</label><textarea id="notes" maxlength="2500" placeholder="Что заметили на листе? Можно записать детали, к которым хочется вернуться."></textarea><div class="notetools"><span id="notesState" role="status">Личные заметки</span><button id="clearNotes">Удалить заметку</button></div>
+</aside></main>
+<section class="sources"><h2>Как читать историческое изображение</h2><p>Эти три вопроса применимы не только к Бенуа. Они помогают исследовать гравюры Пиранези, городские виды Каналетто, литографии Бойса и другие работы, не подменяя художественную интерпретацию историческим документом.</p>
+<div class="sourcecards"><article><h3>Что перед нами?</h3><p>Название, автор, техника и музейная запись. Сначала проверяем, какое именно произведение изучаем.</p></article><article><h3>Что показано?</h3><p>Композиция, перспектива, ритм, мелкие фигуры, свет и характер линий. Наблюдение можно обосновать самим изображением.</p></article><article><h3>Чего мы не знаем?</h3><p>Дата состояния улицы, точный ракурс и реальные события требуют самостоятельного архивного подтверждения.</p></article></div></section>
+<footer>Изображения Cleveland Museum of Art обозначены CC0; два листа Филиппа Бенуа предоставлены Library of Congress с пометкой «No known restrictions on publication», что не равнозначно CC0. Никаких загрузок личных фото, аналитических трекеров и передачи заметок на сервер нет. Если музейная ссылка недоступна, исходную карточку всегда можно открыть отдельно.</footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+let items=new Map(),lessons=[],active=null,step=0,scale=1,offsetX=0,offsetY=0,imageToken=0;
+const stage=$('stage'),photo=$('studyImage'),pointers=new Map();
+let drag=null,pinch=null;
+function storeKey(id){return 'city-on-paper-close-reading-notes-v1:'+id}
+function saveNote(){if(!active)return;try{localStorage.setItem(storeKey(active.id),$('notes').value);$('notesState').textContent='Сохранено на устройстве'}catch{$('notesState').textContent='Сохранить заметку не удалось'}}
+function setImageStatus(message){$('imageStatus').hidden=!message;$('imageStatus').textContent=message||''}
+function limit(n,min,max){return Math.max(min,Math.min(max,n))}
+function clampPan(){const width=stage.clientWidth,height=stage.clientHeight;offsetX=limit(offsetX,-width*(scale-1)/2,width*(scale-1)/2);offsetY=limit(offsetY,-height*(scale-1)/2,height*(scale-1)/2)}
+function drawTransform(){clampPan();stage.style.touchAction=scale>1?'none':'pan-y';photo.style.transform='translate('+offsetX+'px,'+offsetY+'px) scale('+scale+')';$('zoomLabel').textContent=Math.round(scale*100)+'%';$('zoomOut').disabled=scale<=1;$('zoomIn').disabled=scale>=4}
+function zoom(to){scale=limit(Math.round(to*100)/100,1,4);if(scale===1){offsetX=0;offsetY=0}drawTransform()}
+function reset(){scale=1;offsetX=0;offsetY=0;drawTransform()}
+function current(){return lessons.find(x=>x.id===active?.id)}
+function renderStep(){let lesson=current();if(!lesson)return;let s=lesson.steps[step];$('stepName').textContent=s.label+' · '+(step+1)+' из 3';$('question').textContent=s.question;$('hint').textContent=s.hint;$('prev').disabled=step===0;$('next').textContent=step===2?'Начать вопросы заново ↺':'Следующий вопрос →';$('stepDots').replaceChildren();for(let i=0;i<3;i++){let b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Шаг '+(i+1));if(i===step)b.setAttribute('aria-current','step');b.addEventListener('click',()=>{step=i;renderStep()});$('stepDots').append(b)}}
+function select(id){const lesson=lessons.find(x=>x.id===id),art=items.get(id);if(!lesson||!art)return;active=art;step=0;$('work').value=id;$('tag').textContent=lesson.tag;$('title').textContent=art.name;$('attribution').textContent=[art.maker,art.date,art.medium].filter(Boolean).join(' · ');$('intro').textContent=art.note||lesson.theme;$('licenseStatus').textContent=art.rights==='cc0'?'Изображение CC0 · открытый музейный источник': 'Library of Congress: нет известных ограничений на публикацию; статус не CC0. '+(art.image_note||'');$('credit').textContent=[art.source,art.title_original||art.name,art.rights==='cc0'?'CC0':'LoC: no known restrictions'].filter(Boolean).join(' · ');$('original').href=art.url;$('notes').value='';try{$('notes').value=localStorage.getItem(storeKey(id))||''}catch{}$('notesState').textContent='Личная заметка · только здесь';reset();const token=++imageToken;photo.removeAttribute('src');setImageStatus('Загружаем музейную репродукцию…');photo.alt=art.name;photo.dataset.phase='preview';photo.onload=()=>{if(token===imageToken)setImageStatus('')};photo.onerror=()=>{if(token!==imageToken)return;if(photo.dataset.phase==='full'){photo.dataset.phase='preview';photo.src=art.image}else{setImageStatus('Изображение недоступно. Откройте карточку музейного источника.')}};photo.src=art.image;if(art.image_large&&art.image_large!==art.image){const full=new Image();full.onload=()=>{if(token===imageToken&&photo.dataset.phase==='preview'){photo.dataset.phase='full';photo.src=full.src}};full.onerror=()=>{};full.src=art.image_large}renderStep();const u=new URL(location.href);u.searchParams.set('art',id);history.replaceState(null,'',u.toString())}
+$('work').addEventListener('change',e=>select(e.target.value));
+$('zoomIn').addEventListener('click',()=>zoom(scale+.5));$('zoomOut').addEventListener('click',()=>zoom(scale-.5));$('reset').addEventListener('click',reset);
+$('prev').addEventListener('click',()=>{if(step>0){step--;renderStep()}});$('next').addEventListener('click',()=>{step=(step+1)%3;renderStep()});
+$('notes').addEventListener('input',saveNote);$('clearNotes').addEventListener('click',()=>{$('notes').value='';saveNote()});
+stage.addEventListener('dblclick',()=>zoom(scale===1?2:1));stage.addEventListener('wheel',e=>{if(!e.ctrlKey)return;e.preventDefault();zoom(scale+(e.deltaY<0?.25:-.25))},{passive:false});
+stage.addEventListener('keydown',e=>{let d=30;if(e.key==='+'||e.key==='='){e.preventDefault();zoom(scale+.5)}else if(e.key==='-'){e.preventDefault();zoom(scale-.5)}else if(e.key==='0'){e.preventDefault();reset()}else if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();if(e.key==='ArrowLeft')offsetX+=d;if(e.key==='ArrowRight')offsetX-=d;if(e.key==='ArrowUp')offsetY+=d;if(e.key==='ArrowDown')offsetY-=d;drawTransform()}});
+function distance(){let a=[...pointers.values()];return a.length<2?0:Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}
+stage.addEventListener('pointerdown',e=>{stage.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===1){drag={x:e.clientX,y:e.clientY,startX:offsetX,startY:offsetY};pinch=null}else if(pointers.size>=2){pinch={distance:distance(),scale};drag=null}});
+stage.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size>=2&&pinch&&pinch.distance>0){zoom(pinch.scale*distance()/pinch.distance)}else if(drag&&pointers.size===1){offsetX=drag.startX+e.clientX-drag.x;offsetY=drag.startY+e.clientY-drag.y;drawTransform()}});
+function endPointer(e){pointers.delete(e.pointerId);pinch=null;if(pointers.size===1){let p=[...pointers.values()][0];drag={x:p.x,y:p.y,startX:offsetX,startY:offsetY}}else drag=null}
+stage.addEventListener('pointerup',endPointer);stage.addEventListener('pointercancel',endPointer);stage.addEventListener('lostpointercapture',endPointer);
+Promise.all([fetch('../data/curation/cc0-gallery-20261103.json').then(r=>{if(!r.ok)throw Error('catalog HTTP '+r.status);return r.json()}),fetch('../data/curation/close-reading-20261103.json').then(r=>{if(!r.ok)throw Error('lessons HTTP '+r.status);return r.json()}),fetch('../data/curation/close-reading-benoist-20261103.json').then(r=>{if(!r.ok)throw Error('LoC HTTP '+r.status);return r.json()})]).then(([catalog,study,benoist])=>{const cc0=(catalog.items||[]).filter(x=>x.rights==='cc0'&&x.image&&x.url);const loc=(benoist.records||[]).filter(x=>x.rights==='loc_no_known_restrictions'&&x.image&&x.url);items=new Map([...cc0,...loc].map(x=>[x.id,x]));lessons=(study.lessons||[]).filter(x=>items.has(x.id)&&x.steps?.length===3);for(const l of lessons){let art=items.get(l.id);let o=document.createElement('option');o.value=l.id;o.textContent=art.city+' · '+art.name;$('work').append(o)}if(!lessons.length)throw Error('No available artworks');let requested=new URL(location.href).searchParams.get('art');select(lessons.some(l=>l.id===requested)?requested:lessons[0].id)}).catch(err=>{setImageStatus('Кабинет не удалось загрузить. Обновите страницу или откройте музейный каталог.');$('title').textContent='Коллекция временно недоступна';$('question').textContent='Музейные материалы не найдены';console.error(err)});
+reset();
+</script></body></html>

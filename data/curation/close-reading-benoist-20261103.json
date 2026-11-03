@@ -1,0 +1,42 @@
+{
+  "version": "2026-11-03",
+  "scope": "Two Philippe Benoist lithographs from the Library of Congress with source-derived attribution and local LoC derivatives already tracked in the project. Neither object is asserted to be CC0.",
+  "records": [
+    {
+      "id": "loc-2016652452",
+      "city": "Париж",
+      "name": "Церковь Мадлен",
+      "title_original": "Paris. La Madeleine",
+      "maker": "Philippe Benoist (рисунок); Imprimerie Lemercier (печать)",
+      "date": "1845–1860 (интервал каталога LoC)",
+      "medium": "Раскрашенная вручную литография",
+      "source": "Library of Congress, Prints and Photographs Division",
+      "url": "https://www.loc.gov/item/2016652452/",
+      "image": "../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg",
+      "image_large": "../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg",
+      "image_note": "Местная копия 1024 px сервисного файла LoC; цифровое увеличение не добавляет недостающих пикселей.",
+      "rights": "loc_no_known_restrictions",
+      "rights_note": "Library of Congress advisory: No known restrictions on publication; LoC does not own or grant rights to the work. Human rights review still recommended.",
+      "note": "Мадлен показана под углом. Попробуйте рассмотреть портик, боковую колоннаду и то, как автор подчеркнул объем здания.",
+      "source_id": "2016652452"
+    },
+    {
+      "id": "loc-2016652451",
+      "city": "Париж",
+      "name": "Сад Пале-Рояль",
+      "title_original": "Paris. Jardin du Palais Royal",
+      "maker": "Philippe Benoist (рисунок); Imprimerie Lemercier (печать)",
+      "date": "1845–1860 (интервал каталога LoC)",
+      "medium": "Раскрашенная вручную литография",
+      "source": "Library of Congress, Prints and Photographs Division",
+      "url": "https://www.loc.gov/item/2016652451/",
+      "image": "../poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg",
+      "image_large": "../poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg",
+      "image_note": "Местная копия 1024 px сервисного файла LoC; точное местоположение рисовальщика не доказано.",
+      "rights": "loc_no_known_restrictions",
+      "rights_note": "Library of Congress advisory: No known restrictions on publication; LoC does not own or grant rights to the work. Human rights review still recommended.",
+      "note": "Крытые галереи и зелёные аллеи формируют перспективу сада. Не следует принимать этот ракурс за точное фотограмметрическое измерение.",
+      "source_id": "2016652451"
+    }
+  ]
+}

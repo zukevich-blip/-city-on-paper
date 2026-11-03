@@ -18,6 +18,7 @@ on:
       - 'printlab/**'
       - 'fieldwork/**'
       - 'salon/**'
+      - 'closeup/**'
       - 'exhibitions/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
@@ -87,17 +88,21 @@ jobs:
           node tests/browser/qa_discover.js http://127.0.0.1:8765/discover/ /tmp/city-on-paper-screens
           node tests/browser/qa_idea_lab.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_salon_exhibition.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_close_reading.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/closeup /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
           cp discover/index.html /tmp/city-on-paper-package/discover/
           cp ideas/index.html /tmp/city-on-paper-package/ideas/
           cp salon/index.html /tmp/city-on-paper-package/salon/
+          cp closeup/index.html /tmp/city-on-paper-package/closeup/
           cp exhibitions/city-as-evidence/index.html /tmp/city-on-paper-package/exhibitions/city-as-evidence/
           cp printlab/index.html /tmp/city-on-paper-package/printlab/
           cp fieldwork/index.html /tmp/city-on-paper-package/fieldwork/
           cp data/ideas/radar-20261103.json /tmp/city-on-paper-package/data/ideas/
+          cp data/curation/close-reading-20261103.json /tmp/city-on-paper-package/data/curation/
+          cp data/curation/close-reading-benoist-20261103.json /tmp/city-on-paper-package/data/curation/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
