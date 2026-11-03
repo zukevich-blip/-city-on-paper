@@ -89,6 +89,8 @@ jobs:
           cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
           cp -R poc/compare /tmp/city-on-paper-package/poc/
           cp -R docs/ux/mockups /tmp/city-on-paper-package/docs/ux/
+          mkdir -p /tmp/city-on-paper-package/docs/consilium
+          cp docs/consilium/MASTER_DIRECTION_20261103.md /tmp/city-on-paper-package/docs/consilium/
           printf '%s\n' 'Запуск: из этой папки python3 -m http.server 8765 ; затем откройте http://localhost:8765/' > /tmp/city-on-paper-package/README_RUN.txt
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
