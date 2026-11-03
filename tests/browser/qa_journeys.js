@@ -67,7 +67,7 @@ async function run() {
       await page.locator("#reset").click();
       await page.locator("#cards .artLink").first().click();
       check(vp.name + " zoom displays museum art", await page.locator("#zoomDialog[open] #zoomImage").isVisible());
-      await page.locator("#zoomScale").fill("150");
+      await page.locator("#zoomScale").evaluate(e => { e.value="150"; e.dispatchEvent(new Event("input", { bubbles: true })); });
       check(vp.name + " zoom scale works", await page.locator("#zoomImage").evaluate(e => e.style.width === "150%"));
       await page.locator("#zoomClose").click();
       await page.locator("#cards .card .textBtn").first().click();
