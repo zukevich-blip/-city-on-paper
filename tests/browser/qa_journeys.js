@@ -70,7 +70,9 @@ async function run() {
         await page.locator("#zoomImage").evaluate(el => el.hasAttribute("src") && el.getAttribute("src").length > 10));
       await page.locator("#zoomScale").evaluate(e => { e.value="150"; e.dispatchEvent(new Event("input", { bubbles: true })); });
       check(vp.name + " zoom scale works", await page.locator("#zoomImage").evaluate(e => e.style.width === "150%"));
-      await page.locator("#zoomClose").click();
+      // On touch emulation the sticky modal header can shift during scroll; Escape is the native accessible close path.
+      await page.keyboard.press("Escape");
+      check(vp.name + " zoom closes with Escape", !await page.locator("#zoomDialog").evaluate(el => el.open));
       await page.locator("#cards .card .textBtn").first().click();
       check(vp.name + " provenance card links original institution", await page.locator("#detailLinks a").count() >= 1);
       await page.locator("#closeDetail").click();

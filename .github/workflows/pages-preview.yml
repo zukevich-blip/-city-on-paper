@@ -29,9 +29,11 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/
-          mkdir -p public/journeys public/detective public/data/stories public/data/curation
+          mkdir -p public/journeys public/detective public/studio public/data/stories public/data/research public/data/curation
           cp journeys/index.html public/journeys/index.html
           cp detective/index.html public/detective/index.html
+          cp studio/index.html public/studio/index.html
+          cp data/research/benoist-production-network-v1.json public/data/research/
           cp data/stories/madeleine-dossier-20261103.json public/data/stories/
           cp data/curation/era-journeys-20261102.json public/data/curation/
           python tools/curation/build_open_art_cache.py --out public --workers 8
