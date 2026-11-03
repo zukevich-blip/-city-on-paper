@@ -127,7 +127,11 @@ def build(out: Path, workers: int) -> dict:
         "bytes": sum(p.stat().st_size for p in target.glob("*.jpg")),
         "modern_photos_total": len(modern),
         "modern_photos_cached": sum(bool(r["file"]) for r in photo_results.values()),
-        "modern_photos_failed": [{"id": key, **value} for key, value in sorted(photo_results.items()) if not value["file"]],
+        "modern_photos_failed": [
+            {"id": key, **value}
+            for key, value in sorted(photo_results.items())
+            if not value["file"]
+        ],
         "failed": [
             {"id": key, **value}
             for key, value in sorted(results.items())
