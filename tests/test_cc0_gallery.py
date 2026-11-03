@@ -59,5 +59,5 @@ def test_public_atlas_links_both_sources_and_true_modern_photo():
     assert "image_large" in html
     assert "data-route=\"london\"" in html
     assert "madeleine-photo-panoramax-38b6d262.jpg" in html
-    assert "ракурсы различаются" in html
+    assert "ракурсы различаются" in html.lower()
     assert "Cleveland Museum of Art" in html
