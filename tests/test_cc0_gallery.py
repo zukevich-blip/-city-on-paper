@@ -5,7 +5,7 @@ from urllib.parse import urlsplit
 
 import pytest
 
-from tools.curation.build_open_art_cache import validated_url, validated_photo_url
+from tools.curation.build_open_art_cache import validated_photo_url, validated_url
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data/curation/cc0-gallery-20261103.json"
