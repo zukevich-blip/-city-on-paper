@@ -54,7 +54,7 @@ for(const [label,w,h] of [["phone-390",390,844],["ipad-820",820,1180],["desktop-
  await page.waitForFunction(()=>document.querySelector("#old").getAttribute("src").includes("palais-royal"));
  check(label+" second verified monument",await page.locator("#oldCaption").textContent().then(x=>x.includes("pga-14314")));
  // A synthetic 1px PNG, never a real user's image.
- const testPng=Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLttAAAAABJRU5ErkJggg==","base64");
+ const testPng=Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAIAAADZSiLoAAAAF0lEQVR4nGOsWBrFwMDAwMDAxAADCBYAKZoBfchCQtYAAAAASUVORK5CYII=","base64");
  await page.locator("#upload").setInputFiles({name:"my-test-photo.png",mimeType:"image/png",buffer:testPng});
  await page.waitForFunction(()=>document.querySelector("#photoKind").textContent.includes("Личный снимок"));
  check(label+" local upload stays on device",await page.locator("#modern").getAttribute("src").then(x=>x.startsWith("blob:")));
