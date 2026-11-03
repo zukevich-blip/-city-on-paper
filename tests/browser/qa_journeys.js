@@ -50,7 +50,7 @@ async function run() {
       await page.locator("#savedOnly").click();
       check(vp.name + " collector saves favorite", await page.locator("#cards .card").count() === 1);
       await page.reload({ waitUntil: "domcontentloaded" });
-      await page.waitForFunction(() => document.querySelectorAll("#cards .card").length === 15);
+      await page.waitForFunction(() => document.querySelectorAll("#cards .card").length === 56);
       await page.locator("#savedOnly").click();
       check(vp.name + " favorite persisted", await page.locator("#cards .card").count() === 1);
       await page.locator("#export").click();
