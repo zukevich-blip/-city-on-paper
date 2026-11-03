@@ -14,7 +14,7 @@ const fs=require("fs");fs.mkdirSync(outDir,{recursive:true});
    if(salon.status()!==200)throw Error("Salon is not served");
    await page.waitForFunction(()=>document.querySelectorAll(".art").length===41,{timeout:15000});
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error(label+": salon horizontal overflow");
-   await page.locator("#query").fill("Пиранези");
+   await page.locator("#query").fill("Giovanni Battista Piranesi");
    let n=await page.locator(".art").count();
    if(n<5||n>=41)throw Error(label+": search no-op ("+n+")");
    await page.locator("#query").fill("");
