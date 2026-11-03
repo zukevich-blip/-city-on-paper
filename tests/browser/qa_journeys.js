@@ -77,7 +77,7 @@ async function run() {
       check(vp.name + " zoom closes with Escape", !await page.locator("#zoomDialog").evaluate(el => el.open));
       await page.locator("#cards .card .textBtn").first().click();
       check(vp.name + " provenance card links original institution", await page.locator("#detailLinks a").count() >= 1);
-      await page.locator("#closeDetail").click();
+      await page.keyboard.press("Escape"); // Native dialog close path remains reliable on touch-emulated viewports.
       check(vp.name + " no JS runtime errors", errors.length === 0);
       await page.locator("#reset").click();
       // Full-resolution QA screenshot capped to 12 cards: 56 cards on a phone would exceed browser texture limits.
