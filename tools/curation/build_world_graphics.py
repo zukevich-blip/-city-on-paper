@@ -41,7 +41,7 @@ VIEW = re.compile(
     re.I,
 )
 REJECT = re.compile(
-    r"\b(portrait|vanity fair|lady |duchess|princess|prince|fashion|"
+    r"\b(portrait|vanity fair|lady |duchess|princess|prince|fashion|photo|photograph|snapshot|"
     r"artist's portrait|coin|stamp|logo|trade mark|vase|ceramic|"
     r"advertising|newspaper|autograph|letterhead|family album|"
     r"costume|woman in|man in|self.portrait|coat of arms|"
@@ -72,7 +72,7 @@ ALIASES = {
     "Прага": ["Prague", "Praha"], "Брюссель": ["Brussels", "Bruxelles"],
     "Антверпен": ["Antwerp", "Anvers"], "Краков": ["Krakow", "Cracow"],
     "Алжир": ["Algiers", "Alger"], "Лиссабон": ["Lisbon", "Lisboa"],
-    "Порту": ["Porto", "Oporto"], "Буэнос-Айрес": ["Buenos Aires"],
+    "Порту": ["Porto", "Oporto"],
     "Зальцбург": ["Salzburg"], "Лима": ["Lima"],
 }
 # Some query hits refer to the artist's home city, not the depicted city.
@@ -249,8 +249,14 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int) -> dict:
     artifact = {
         "version": date.today().isoformat(),
         "scope": "Wikimedia Commons openly licensed or Commons-designated public-domain city print discoveries",
-        "editorial_status": "Machine-screened; original object/date/depicted place not independently art-historically verified",
-        "rights_note": "public_domain_commons is NOT the same as CC0; each Commons file page is the source of its rights claim",
+        "editorial_status": (
+            "Machine-screened; original object, dating, depicted place and technique "
+            "not independently art-historically verified"
+        ),
+        "rights_note": (
+            "public_domain_commons is NOT the same as CC0; each Commons file page "
+            "is the source of its rights claim"
+        ),
         "items": works,
     }
     (folder / "world-graphic-archive-v1.json").write_text(
