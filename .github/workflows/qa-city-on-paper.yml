@@ -1,5 +1,8 @@
 name: City on Paper vNext QA
 on:
+  push:
+    branches:
+      - release/city-on-paper-private-preview-20261104
   pull_request:
     paths:
       - 'tools/**'
