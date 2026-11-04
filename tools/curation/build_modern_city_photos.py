@@ -85,7 +85,7 @@ def parse_photo(page: dict, city: str, query: str) -> dict | None:
         return None
     if any(y < 1970 for y in known_years):
         return None
-    if city == "Флоренция" and re.search(r"\\b(milan|milano)\\b", title, re.I):
+    if city == "Флоренция" and re.search(r"\b(milan|milano)\b", title, re.I):
         return None
     url = ii.get("thumburl") or ii.get("url") or ""
     full = ii.get("url") or url
