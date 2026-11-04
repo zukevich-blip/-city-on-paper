@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 PAGES = (
-    "index.html", "salon/index.html", "closeup/index.html",
+    "index.html", "salon/index.html", "closeup/index.html", "photography/index.html",
     "exhibitions/city-as-evidence/index.html", "discover/index.html",
     "journeys/index.html", "detective/index.html", "fieldwork/index.html",
     "printlab/index.html", "ideas/index.html", "studio/index.html",
@@ -24,9 +24,11 @@ DATA = (
     "data/curation/close-reading-benoist-20261103.json",
     "data/curation/era-journeys-20261102.json",
     "data/curation/museum-expansion-v1.json",
+    "data/curation/modern-city-photography-v1.json",
     "data/candidates/candidates-2026-11-01b.json",
     "poc/compare/pairs/index.json",
     "museum-expansion-report.json",
+    "modern-photo-discovery-report.json",
 )
 
 
@@ -127,6 +129,20 @@ def main() -> None:
             else:
                 cached_expansion += 1
 
+    photos = json.loads((root / "data/curation/modern-city-photography-v1.json").read_text(encoding="utf-8"))["items"]
+    assert len({p["id"] for p in photos}) == len(photos)
+    allowed_photos = {
+        "CC0", "CC BY 4.0", "CC BY-SA 4.0", "CC BY 3.0", "CC BY-SA 3.0"
+    }
+    for photo in photos:
+        assert photo["rights"] in allowed_photos
+        assert photo["verified"] == "commons_api_extmetadata"
+        assert photo["license_url"].startswith("https://creativecommons.org/")
+        assert photo["url"].startswith("https://commons.wikimedia.org/wiki/File:")
+        assert photo["image"].startswith("https://upload.wikimedia.org/")
+        assert photo["maker"] and photo["original_width"] >= 1600
+        assert photo["can_exact_overlay"] is False
+
     candidates = json.loads((root / DATA[4]).read_text(encoding="utf-8"))["items"]
     assert all(not x.get("published") for x in candidates), "unapproved research candidates must remain unpublished"
     assert all(not x.get("preview_url") for x in candidates if x["rights_category"] != "open")
@@ -146,6 +162,7 @@ def main() -> None:
         "expanded_museum_items": len(additions),
         "expanded_museum_sources": archive_sources,
         "expanded_locally_cached_images": cached_expansion,
+        "credited_modern_photographs": len(photos),
         "benoist_loc_not_cc0": len(loc),
         "guided_lessons": len(study),
         "unapproved_candidates": len(candidates),
