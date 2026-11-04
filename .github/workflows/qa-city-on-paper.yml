@@ -26,7 +26,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: city-on-paper-qa-${{ github.ref }}
+  group: city-on-paper-world-rc2-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
