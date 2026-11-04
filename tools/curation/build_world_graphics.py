@@ -77,7 +77,6 @@ ALIASES = {
 }
 # Some query hits refer to the artist's home city, not the depicted city.
 # Requiring a city name in the title cuts false geography, at the cost of some omissions.
-ROMAN_CITY = re.compile(r"^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .-]+$")
 GENERIC = {"city", "lithograph", "engraving", "old", "town", "view", "harbour", "harbor", "print", "photo"}
 
 
@@ -171,6 +170,7 @@ def normalize(page: dict, city: dict) -> tuple[dict, int] | None:
     source_page = details.get("descriptionurl") or ""
     if (urlsplit(thumbnail).scheme != "https" or
             urlsplit(thumbnail).hostname not in {"thumb.wikimedia.org", "upload.wikimedia.org"} or
+            urlsplit(full).scheme != "https" or
             urlsplit(full).hostname != "upload.wikimedia.org" or
             not source_page.startswith("https://commons.wikimedia.org/wiki/File:")):
         return None
@@ -206,24 +206,38 @@ def search(city: dict, limit: int = 22) -> dict:
     params = {
         "action": "query", "format": "json", "formatversion": "2",
         "generator": "search", "gsrsearch": city["query"],
-        "gsrnamespace": 6, "gsrlimit": limit, "prop": "imageinfo",
+        "gsrnamespace": 6, "gsrlimit": limit, "maxlag": 5, "prop": "imageinfo",
         "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1000,
     }
     url = API + "?" + urlencode(params)
-    with urlopen(Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"}), timeout=20) as resp:
+    with urlopen(Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"}), timeout=10) as resp:
         content = resp.read(2_200_001)
     if len(content) > 2_200_000:
         raise ValueError("Oversize Commons search reply")
     return json.loads(content)
 
 
-def build(cities_path: Path, out: Path, per_city: int, budget: int) -> dict:
+def build(cities_path: Path, out: Path, per_city: int, budget: int, max_seconds: int = 480) -> dict:
     cities = json.loads(cities_path.read_text(encoding="utf-8"))["cities"]
+    by_region = {}
+    for item in cities:
+        by_region.setdefault(item["region"], []).append(item)
+    # Round-robin guarantees worldwide attempts even when rate limits end the import early.
+    scheduled = []
+    while any(by_region.values()):
+        for region in by_region:
+            if by_region[region]:
+                scheduled.append(by_region[region].pop(0))
     total = {}
     errors = []
     found_cities = set()
     regions = set()
-    for city in cities[:budget]:
+    attempts = 0
+    started_at = time.monotonic()
+    for city in scheduled[:budget]:
+        if time.monotonic() - started_at >= max_seconds:
+            break
+        attempts += 1
         try:
             response = search(city)
             relevant = []
@@ -240,7 +254,7 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int) -> dict:
                     regions.add(city["region"])
         except (OSError, ValueError, TimeoutError, json.JSONDecodeError) as exc:
             errors.append({"city": city["name"], "error": str(exc)[:140]})
-        time.sleep(0.27)
+        time.sleep(0.5)
     # Keep the source's city caption when duplicate files appear across city searches.
     works = [v[0] for v in total.values()]
     works.sort(key=lambda a: (a["region"], a["country"], a["city"], a["name"]))
@@ -263,7 +277,8 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int) -> dict:
         json.dumps(artifact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     report = {
-        "attempted_cities": min(len(cities), budget), "found_cities": len(found_cities),
+        "attempted_cities": attempts, "found_cities": len(found_cities),
+        "city_seed_total": len(cities), "time_limited": attempts < min(len(cities), budget),
         "regions": len(regions), "item_count": len(works),
         "art_types": dict(Counter(x["medium"] for x in works)),
         "rights": dict(Counter(x["rights"] for x in works)),
@@ -282,8 +297,9 @@ def main() -> None:
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--per-city", type=int, default=9)
     p.add_argument("--city-budget", type=int, default=150)
+    p.add_argument("--max-seconds", type=int, default=480)
     args = p.parse_args()
-    report = build(args.cities, args.out, max(1, min(args.per_city, 15)), args.city_budget)
+    report = build(args.cities, args.out, max(1, min(args.per_city, 15)), args.city_budget, args.max_seconds)
     print(json.dumps(report, ensure_ascii=False))
     if report["item_count"] < 50 or report["regions"] < 3:
         raise SystemExit("Worldwide graphics expansion insufficient: fail closed")
