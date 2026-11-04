@@ -1,0 +1,287 @@
+#!/usr/bin/env python3
+"""Worldwide source-attributed city print discovery from Wikimedia Commons.
+
+The source file page is the licensing authority, not a claim of CC0 for every old print.
+Commons' public-domain status is labelled as Commons' assessment, not a legal guarantee.
+A geographic match derived from a search query is not proof of the depicted camera/view.
+"""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import re
+import time
+from collections import Counter
+from datetime import date
+from pathlib import Path
+from urllib.parse import urlencode, urlsplit
+from urllib.request import Request, urlopen
+
+API = "https://commons.wikimedia.org/w/api.php"
+USER_AGENT = "CityOnPaper/2.1 (rights-reviewed cultural discovery; contact via GitHub project)"
+RIGHTS = {
+    "CC0": ("cc0", "https://creativecommons.org/publicdomain/zero/1.0/"),
+    "CC BY 4.0": ("cc_by", "https://creativecommons.org/licenses/by/4.0/"),
+    "CC BY-SA 4.0": ("cc_by_sa", "https://creativecommons.org/licenses/by-sa/4.0/"),
+    "CC BY 3.0": ("cc_by", "https://creativecommons.org/licenses/by/3.0/"),
+    "CC BY-SA 3.0": ("cc_by_sa", "https://creativecommons.org/licenses/by-sa/3.0/"),
+    "CC BY 2.0": ("cc_by", "https://creativecommons.org/licenses/by/2.0/"),
+    "CC BY-SA 2.0": ("cc_by_sa", "https://creativecommons.org/licenses/by-sa/2.0/"),
+}
+VIEW = re.compile(
+    r"\b(view|vista|veduta|vue|ansicht|stadt|city|town|street|rue|via|"
+    r"piazza|place|square|palace|palazzo|schloss|cathedral|church|basilica|"
+    r"bridge|pont|puente|river|canal|port|harbour|harbor|marina|quai|"
+    r"architecture|temple|mosque|monument|ruins?|tower|castle|garden|"
+    r"panorama|scenery|landscape|street|old town|markt|market|"
+    r"lithograph|lithography|litografia|engraving|etching|gravure|"
+    r"woodblock|woodcut|print|ukiyo.e|chromolithograph|hills?|mountain|"
+    r"silhouette|historic district|tomb|fortress|esplanade|plaza)\b",
+    re.I,
+)
+REJECT = re.compile(
+    r"\b(portrait|vanity fair|lady |duchess|princess|prince|fashion|"
+    r"artist's portrait|coin|stamp|logo|trade mark|vase|ceramic|"
+    r"advertising|newspaper|autograph|letterhead|family album|"
+    r"costume|woman in|man in|self.portrait|coat of arms|"
+    r"medical diagram|anatomy|label|advertisement)\b",
+    re.I,
+)
+FORMAT = re.compile(r"\.(jpe?g|png)$", re.I)
+ALIASES = {
+    "Токио": ["Tokyo", "Edo"], "Киото": ["Kyoto"], "Осака": ["Osaka"],
+    "Стамбул": ["Constantinople", "Istanbul", "Stamboul"],
+    "Рим": ["Rome", "Roma"], "Флоренция": ["Florence", "Firenze"],
+    "Венеция": ["Venice", "Venezia"], "Неаполь": ["Naples", "Napoli"],
+    "Москва": ["Moscow", "Moscou", "Moskva"], "Санкт-Петербург": ["Saint Petersburg", "St Petersburg"],
+    "Лондон": ["London", "Londres"], "Париж": ["Paris"],
+    "Нью-Йорк": ["New York"], "Гонконг": ["Hong Kong"],
+    "Мехико": ["Mexico City", "Ciudad de Mexico"],
+    "Пекин": ["Peking", "Beijing"], "Мумбаи": ["Bombay", "Mumbai"],
+    "Калькутта": ["Calcutta", "Kolkata"], "Дели": ["Delhi"],
+    "Будапешт": ["Budapest", "Buda", "Pest"],
+    "Амстердам": ["Amsterdam"], "Вена": ["Vienna", "Wien"],
+    "Афины": ["Athens", "Athenes"], "Каир": ["Cairo", "Le Caire"],
+    "Буэнос-Айрес": ["Buenos Aires"], "Рио-де-Жанейро": ["Rio de Janeiro"],
+    "Кейптаун": ["Cape Town"], "Сидней": ["Sydney"],
+    "Александрия": ["Alexandria", "Alexandrie"], "Иерусалим": ["Jerusalem"],
+    "Джакарта": ["Batavia", "Jakarta"], "Тбилиси": ["Tiflis", "Tbilisi"],
+    "Киев": ["Kiev", "Kyiv"], "Гуанчжоу": ["Canton", "Guangzhou"],
+    "Осло": ["Christiania", "Oslo"], "Варшава": ["Warsaw", "Varsovie"],
+    "Прага": ["Prague", "Praha"], "Брюссель": ["Brussels", "Bruxelles"],
+    "Антверпен": ["Antwerp", "Anvers"], "Краков": ["Krakow", "Cracow"],
+    "Алжир": ["Algiers", "Alger"], "Лиссабон": ["Lisbon", "Lisboa"],
+    "Порту": ["Porto", "Oporto"], "Буэнос-Айрес": ["Buenos Aires"],
+    "Зальцбург": ["Salzburg"], "Лима": ["Lima"],
+}
+# Some query hits refer to the artist's home city, not the depicted city.
+# Requiring a city name in the title cuts false geography, at the cost of some omissions.
+ROMAN_CITY = re.compile(r"^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .-]+$")
+GENERIC = {"city", "lithograph", "engraving", "old", "town", "view", "harbour", "harbor", "print", "photo"}
+
+
+def clean(value: object, limit: int = 240) -> str:
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", str(value or ""))).split())[:limit]
+
+
+def from_metadata(data: dict, key: str) -> str:
+    part = data.get(key, {})
+    return str(part.get("value", "")) if isinstance(part, dict) else ""
+
+
+def source_city_title(title: str, city: dict) -> bool:
+    text = title.casefold()
+    aliases = ALIASES.get(city["name"])
+    if not aliases:
+        query = city["query"].split()
+        aliases = [query[0]]
+        if len(query) > 1 and query[1].lower() not in GENERIC and len(query[1]) > 3:
+            aliases.append(" ".join(query[:2]))
+    return any(
+        bool(re.search(r"(?<!\w)" + re.escape(alias.casefold()) + r"(?!\w)", text))
+        for alias in aliases if alias
+    )
+
+
+def classify(title: str) -> str:
+    lower = title.casefold()
+    if re.search(r"woodblock|woodcut|ukiyo|nishiki", lower):
+        return "Ксилография"
+    if re.search(r"lithograph|lithography|litho\b|litograf|chromolithograph", lower):
+        return "Литография"
+    if re.search(r"engraving|etching|gravure|radierung|steel engraving|gravura", lower):
+        return "Гравюра / офорт"
+    if re.search(r"watercolor|watercolour|drawing|aquarelle", lower):
+        return "Рисунок"
+    return "Городская графика"
+
+
+def label_quality(width: int) -> str:
+    if width >= 2500:
+        return "высокое"
+    if width >= 900:
+        return "экранное"
+    return "невысокое"
+
+
+def score(title: str, city: dict, width: int) -> int:
+    x = title.casefold()
+    if not source_city_title(title, city) or not VIEW.search(x) or REJECT.search(x):
+        return -1
+    pts = 3
+    if re.search(r"lithograph|litho|litograf|chromolithograph", x):
+        pts += 5
+    if re.search(r"veduta|vue|view|vista|engraving|architecture|city|street", x):
+        pts += 3
+    if width >= 1800:
+        pts += 2
+    if width >= 3000:
+        pts += 1
+    if "file:" in x and len(x) < 22:
+        pts -= 2
+    return pts
+
+
+def normalize(page: dict, city: dict) -> tuple[dict, int] | None:
+    if page.get("ns") != 6 or not FORMAT.search(str(page.get("title", ""))):
+        return None
+    details = (page.get("imageinfo") or [{}])[0]
+    if details.get("mime") not in {"image/jpeg", "image/png"}:
+        return None
+    width = int(details.get("width") or 0)
+    if width < 550:
+        return None
+    title = page["title"]
+    pts = score(title, city, width)
+    if pts < 0:
+        return None
+    extra = details.get("extmetadata") or {}
+    license_name = clean(from_metadata(extra, "LicenseShortName"), 80)
+    if license_name in RIGHTS:
+        rights, lic = RIGHTS[license_name]
+    elif license_name.casefold() in {"public domain", "public domain mark"} and (
+        clean(from_metadata(extra, "Copyrighted")).casefold() in {"false", "0", "no"}
+    ):
+        rights, lic = "public_domain_commons", "https://commons.wikimedia.org/wiki/Commons:Copyright_rules"
+    else:
+        return None
+    thumbnail = details.get("thumburl") or details.get("url") or ""
+    full = details.get("url") or ""
+    source_page = details.get("descriptionurl") or ""
+    if (urlsplit(thumbnail).scheme != "https" or
+            urlsplit(thumbnail).hostname not in {"thumb.wikimedia.org", "upload.wikimedia.org"} or
+            urlsplit(full).hostname != "upload.wikimedia.org" or
+            not source_page.startswith("https://commons.wikimedia.org/wiki/File:")):
+        return None
+    ident = page.get("pageid")
+    if not isinstance(ident, int) or ident < 1:
+        return None
+    author = clean(from_metadata(extra, "Artist"), 140) or "Автор по источнику не установлен"
+    display_title = clean(title.removeprefix("File:").rsplit(".", 1)[0].replace("_", " "), 200)
+    if not display_title:
+        return None
+    record = {
+        "id": "commons-art-" + str(ident), "name": display_title,
+        "title_original": display_title, "city": city["name"], "country": city["country"],
+        "region": city["region"], "maker": author, "date": "",
+        "date_note": "Датировка оригинала не установлена автоматически",
+        "medium": classify(display_title), "theme": "Исторические города",
+        "source": "Wikimedia Commons", "source_id": title,
+        "url": source_page, "image": thumbnail, "image_large": thumbnail,
+        "original_url": full, "original_width": width,
+        "quality_tier": label_quality(width), "rights": rights,
+        "license_label": license_name, "license_url": lic,
+        "verified": "commons_api_extmetadata",
+        "selection": "machine_selected_title_relevance",
+        "geography_confidence": "title_mentions_city",
+        "original_viewpoint_verified": False,
+        "note": "Поисковая находка. Проверьте датировку, автора и вид объекта в архиве.",
+        "checked": date.today().isoformat(), "provider": "commons_world",
+    }
+    return record, pts
+
+
+def search(city: dict, limit: int = 22) -> dict:
+    params = {
+        "action": "query", "format": "json", "formatversion": "2",
+        "generator": "search", "gsrsearch": city["query"],
+        "gsrnamespace": 6, "gsrlimit": limit, "prop": "imageinfo",
+        "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1000,
+    }
+    url = API + "?" + urlencode(params)
+    with urlopen(Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"}), timeout=20) as resp:
+        content = resp.read(2_200_001)
+    if len(content) > 2_200_000:
+        raise ValueError("Oversize Commons search reply")
+    return json.loads(content)
+
+
+def build(cities_path: Path, out: Path, per_city: int, budget: int) -> dict:
+    cities = json.loads(cities_path.read_text(encoding="utf-8"))["cities"]
+    total = {}
+    errors = []
+    found_cities = set()
+    regions = set()
+    for city in cities[:budget]:
+        try:
+            response = search(city)
+            relevant = []
+            for row in (response.get("query") or {}).get("pages", []):
+                artwork = normalize(row, city)
+                if artwork is not None:
+                    relevant.append(artwork)
+            relevant.sort(key=lambda item: (-item[1], item[0]["id"]))
+            for record, pts in relevant[:per_city]:
+                key = record["id"]
+                if key not in total or pts > total[key][1]:
+                    total[key] = (record, pts)
+                    found_cities.add(city["name"])
+                    regions.add(city["region"])
+        except (OSError, ValueError, TimeoutError, json.JSONDecodeError) as exc:
+            errors.append({"city": city["name"], "error": str(exc)[:140]})
+        time.sleep(0.27)
+    # Keep the source's city caption when duplicate files appear across city searches.
+    works = [v[0] for v in total.values()]
+    works.sort(key=lambda a: (a["region"], a["country"], a["city"], a["name"]))
+    folder = out / "data/curation"
+    folder.mkdir(parents=True, exist_ok=True)
+    artifact = {
+        "version": date.today().isoformat(),
+        "scope": "Wikimedia Commons openly licensed or Commons-designated public-domain city print discoveries",
+        "editorial_status": "Machine-screened; original object/date/depicted place not independently art-historically verified",
+        "rights_note": "public_domain_commons is NOT the same as CC0; each Commons file page is the source of its rights claim",
+        "items": works,
+    }
+    (folder / "world-graphic-archive-v1.json").write_text(
+        json.dumps(artifact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    report = {
+        "attempted_cities": min(len(cities), budget), "found_cities": len(found_cities),
+        "regions": len(regions), "item_count": len(works),
+        "art_types": dict(Counter(x["medium"] for x in works)),
+        "rights": dict(Counter(x["rights"] for x in works)),
+        "errors": errors[:35], "failures_count": len(errors),
+        "not_all_cities": True, "not_curator_approved": True,
+    }
+    (out / "world-graphic-report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    return report
+
+
+def main() -> None:
+    p = argparse.ArgumentParser()
+    p.add_argument("--cities", type=Path, default=Path("data/curation/world-cities-v1.json"))
+    p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--per-city", type=int, default=9)
+    p.add_argument("--city-budget", type=int, default=150)
+    args = p.parse_args()
+    report = build(args.cities, args.out, max(1, min(args.per_city, 15)), args.city_budget)
+    print(json.dumps(report, ensure_ascii=False))
+    if report["item_count"] < 50 or report["regions"] < 3:
+        raise SystemExit("Worldwide graphics expansion insufficient: fail closed")
+
+
+if __name__ == "__main__":
+    main()
