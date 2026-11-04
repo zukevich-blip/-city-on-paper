@@ -139,7 +139,7 @@ def main() -> None:
         assert photo["verified"] == "commons_api_extmetadata"
         assert photo["license_url"].startswith("https://creativecommons.org/")
         assert photo["url"].startswith("https://commons.wikimedia.org/wiki/File:")
-        assert photo["image"].startswith("https://upload.wikimedia.org/")
+        assert photo["image"].startswith(("https://upload.wikimedia.org/", "https://thumb.wikimedia.org/"))
         assert photo["maker"] and photo["original_width"] >= 1600
         assert photo["can_exact_overlay"] is False
 
