@@ -17,6 +17,8 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 STATIC_DIRS = (
     "poc/compare", "docs/ux/mockups", "world", "salon", "photography",
     "closeup", "exhibitions/city-as-evidence", "discover", "journeys",
@@ -125,7 +127,7 @@ def main() -> None:
     parser.add_argument("--skip-network", action="store_true", help="Only copy source files (incomplete preview)")
     args = parser.parse_args()
     out = args.out.resolve()
-    if not str(out).startswith(str(ROOT)) or out == ROOT:
+    if not out.is_relative_to(ROOT) or out == ROOT:
         parser.error("Output directory must be a separate subfolder of this source repository")
     copy_sources(out)
     if args.skip_network:
