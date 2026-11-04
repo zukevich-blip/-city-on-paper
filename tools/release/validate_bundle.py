@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 PAGES = (
-    "index.html", "salon/index.html", "closeup/index.html", "photography/index.html",
+    "index.html", "salon/index.html", "closeup/index.html", "photography/index.html", "world/index.html",
     "exhibitions/city-as-evidence/index.html", "discover/index.html",
     "journeys/index.html", "detective/index.html", "fieldwork/index.html",
     "printlab/index.html", "ideas/index.html", "studio/index.html",
@@ -25,10 +25,13 @@ DATA = (
     "data/curation/era-journeys-20261102.json",
     "data/curation/museum-expansion-v1.json",
     "data/curation/modern-city-photography-v1.json",
+    "data/curation/world-cities-v1.json",
+    "data/curation/world-graphic-archive-v1.json",
     "data/candidates/candidates-2026-11-01b.json",
     "poc/compare/pairs/index.json",
     "museum-expansion-report.json",
     "modern-photo-discovery-report.json",
+    "world-graphic-report.json",
 )
 
 
@@ -143,6 +146,29 @@ def main() -> None:
         assert photo["maker"] and photo["original_width"] >= 1600
         assert photo["can_exact_overlay"] is False
 
+    city_seed = json.loads((root / "data/curation/world-cities-v1.json").read_text(encoding="utf-8"))["cities"]
+    world = json.loads((root / "data/curation/world-graphic-archive-v1.json").read_text(encoding="utf-8"))["items"]
+    assert len(city_seed) >= 120 and len({c["name"] for c in city_seed}) == len(city_seed)
+    assert len({c["region"] for c in city_seed}) == 6, "six-regions registry required"
+    assert len(world) >= 50, f"world artwork coverage too narrow: {len(world)}"
+    assert len({a["id"] for a in world}) == len(world), "duplicate Commons work IDs"
+    cities_found = {a["city"] for a in world}
+    assert cities_found.issubset({c["name"] for c in city_seed})
+    assert len({a["region"] for a in world}) >= 3, "three or more regions with real images required"
+    valid_world_rights = {"cc0", "cc_by", "cc_by_sa", "public_domain_commons"}
+    by_technique = {}
+    for art in world:
+        assert art["rights"] in valid_world_rights
+        assert art["provider"] == "commons_world"
+        assert art["verified"] == "commons_api_extmetadata"
+        assert art["selection"] == "machine_selected_title_relevance"
+        assert art["license_label"] and art["license_url"].startswith("https://")
+        assert art["url"].startswith("https://commons.wikimedia.org/wiki/File:")
+        assert art["image"].startswith(("https://thumb.wikimedia.org/", "https://upload.wikimedia.org/"))
+        assert art["original_width"] >= 550
+        assert art["original_viewpoint_verified"] is False
+        by_technique[art["medium"]] = by_technique.get(art["medium"], 0) + 1
+
     candidates = json.loads((root / "data/candidates/candidates-2026-11-01b.json").read_text(encoding="utf-8"))["items"]
     assert all(not x.get("published") for x in candidates), "unapproved research candidates must remain unpublished"
     assert all(not x.get("preview_url") for x in candidates if x["rights_category"] != "open")
@@ -163,6 +189,10 @@ def main() -> None:
         "expanded_museum_sources": archive_sources,
         "expanded_locally_cached_images": cached_expansion,
         "credited_modern_photographs": len(photos),
+        "world_prints": len(world),
+        "world_cities_with_images": len(cities_found),
+        "world_regions_with_images": len({a["region"] for a in world}),
+        "world_print_techniques": by_technique,
         "benoist_loc_not_cc0": len(loc),
         "guided_lessons": len(study),
         "unapproved_candidates": len(candidates),
