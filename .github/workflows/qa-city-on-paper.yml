@@ -99,6 +99,8 @@ jobs:
         run: |
           mkdir -p /tmp/city-on-paper-package/world /tmp/city-on-paper-package/photography /tmp/city-on-paper-package/closeup /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
+          cp tools/release/serve_local.py /tmp/city-on-paper-package/serve_local.py
+          cp docs/PORTABLE_SITE_HANDOFF.md /tmp/city-on-paper-package/PROJECT_HANDOFF.md
           cp discover/index.html /tmp/city-on-paper-package/discover/
           cp ideas/index.html /tmp/city-on-paper-package/ideas/
           cp salon/index.html /tmp/city-on-paper-package/salon/
@@ -134,6 +136,8 @@ jobs:
           cp -R docs/ux/mockups /tmp/city-on-paper-package/docs/ux/
           mkdir -p /tmp/city-on-paper-package/docs/consilium
           cp docs/consilium/MASTER_DIRECTION_20261103.md /tmp/city-on-paper-package/docs/consilium/
+          cp docs/consilium/BEFORE_RELEASE.md /tmp/city-on-paper-package/docs/consilium/
+          cp docs/consilium/AFTER_RELEASE.md /tmp/city-on-paper-package/docs/consilium/
           cat > /tmp/city-on-paper-package/README_RUN.txt <<'EOF'
           CITY ON PAPER | ГОРОД НА БУМАГЕ
           Частная демонстрационная версия (vNext). Не опубликована как официальный сайт.
@@ -142,6 +146,13 @@ jobs:
           2. Запустите: python3 -m http.server 8765
              На Windows при необходимости: py -m http.server 8765
           3. Откройте на компьютере: http://localhost:8765/
+          Для комфортного запуска есть serve_local.py: python3 serve_local.py
+          Для iPad/iPhone по доверенному домашнему Wi-Fi: python3 serve_local.py --lan
+          Программа покажет LAN-адрес для Safari; доступ без пароля, не использовать общественный Wi-Fi.
+          3A. Мировой атлас: /world/; Салон: /salon/; Фотографии: /photography/;
+          Всё хранится в одном ZIP/проекте, дополнительный сайт не создаётся.
+          В пакет включены PROJECT_HANDOFF.md и RELEASE_QA.json.
+          Историческая графика Commons и некоторые музейные файлы требуют подключения к Интернету.
           4. В разделах «Тогда / Сейчас» и «Кабинет деталей» работают интерактивные сравнения и увеличение.
              Для iPhone/iPad потребуется открыть страницу на доступном локальном веб-сервере или защищённом хостинге.
              Запуск index.html прямо из ZIP/Files не гарантирует загрузку JSON и изображений.
@@ -149,6 +160,22 @@ jobs:
              Два листа Philippe Benoist из Library of Congress имеют пометку «No known restrictions», НЕ CC0.
           6. Источник старой Site v7 в этот пакет НЕ перенесён; старые семь исторических сравнений НЕ прошли независимую проверку.
           EOF
+      - name: Stamp portable bundle provenance
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          base=pathlib.Path('/tmp/city-on-paper-package')
+          data={
+            'project':'City on Paper',
+            'source_repository':'zukevich-blip/-city-on-paper',
+            'source_revision':os.getenv('GITHUB_SHA'),
+            'source_branch':os.getenv('GITHUB_HEAD_REF') or os.getenv('GITHUB_REF_NAME'),
+            'content':'private, source-labelled museum preview',
+            'hosting':'local HTTP or separately authorized protected hosting',
+            'user_data':'no visitor photographs or notes uploaded'
+          }
+          (base/'VERSION.json').write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n')
+          PY
       - name: Audit and browser-test the ACTUAL delivered package
         run: |
           python tools/release/validate_bundle.py --root /tmp/city-on-paper-package
