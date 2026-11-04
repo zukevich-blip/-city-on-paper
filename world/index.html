@@ -45,8 +45,8 @@ function valid(a){return a?.id&&a?.name&&a?.city&&a?.image&&a?.url?.startsWith("
 function tech(a){let m=(a.medium||a.style||a.name||"").toLowerCase();if(/litho|литограф|litograf|chromolitho/.test(m))return "Литография";if(/woodblock|woodcut|ксилограф|ukiyo/.test(m))return "Ксилография";if(/engraving|etching|gravure|гравюр|офорт/.test(m))return "Гравюра / офорт";if(/watercol|drawing|рисунок|акварель/.test(m))return "Рисунок";return "Городская графика"}
 function info(name){return citySeed.get(name)||null}
 function build(){
- const data=new Map();
- for(const art of catalogue){if(!valid(art))continue;const city=info(art.city);if(!city)continue;let row=data.get(city.name);if(!row){row={...city,all:[],preview:null};data.set(city.name,row)}row.all.push(art);if(!row.preview||art.image.startsWith("../assets"))row.preview=art}
+ const data=new Map(),seen=new Set();
+ for(const art of catalogue){if(!valid(art))continue;const key=(art.source||"")+":"+(art.source_id||art.id);if(seen.has(key))continue;seen.add(key);const city=info(art.city);if(!city)continue;let row=data.get(city.name);if(!row){row={...city,all:[],preview:null};data.set(city.name,row)}row.all.push(art);if(!row.preview||art.image.startsWith("../assets"))row.preview=art}
  all=[...data.values()].sort((a,b)=>b.all.length-a.all.length||a.name.localeCompare(b.name,"ru"));
  $("works").textContent=all.reduce((n,c)=>n+c.all.length,0).toLocaleString("ru");
  $("cities").textContent=all.length.toLocaleString("ru");
