@@ -58,7 +58,7 @@ jobs:
   browser-viewer:
     name: Then/Now responsive Chromium
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -115,6 +115,8 @@ jobs:
           cp data/stories/madeleine-dossier-20261103.json /tmp/city-on-paper-package/data/stories/
           cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
           python tools/curation/build_open_art_cache.py --out /tmp/city-on-paper-package --workers 8
+          python -m pip install Pillow==12.3.0
+          python tools/curation/expand_open_archives.py --out /tmp/city-on-paper-package --cma 220 --aic 110 --met 60 --cache 180
           cp data/catalog/ledger-2026-11-01.csv /tmp/city-on-paper-package/data/catalog/
           cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
           cp -R poc/compare /tmp/city-on-paper-package/poc/
