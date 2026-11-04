@@ -323,7 +323,10 @@ def build(out: Path, cma: int, aic: int, met: int, cache_limit: int) -> dict:
         "version": date.today().isoformat(),
         "scope": "API-verified rights; algorithmically selected visual candidates, NOT curator approved.",
         "data_quality": "official museum metadata; uneven image resolution is disclosed",
-        "rights_note": "All expansion images are from API records explicitly tagged CC0/public domain. No restricted items.",
+        "rights_note": (
+            "All expansion images are from API records explicitly tagged CC0/public domain. "
+            "No restricted items."
+        ),
         "items": items,
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report = {
