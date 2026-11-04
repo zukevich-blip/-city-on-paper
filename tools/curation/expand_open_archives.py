@@ -104,7 +104,8 @@ def score(title: str, technique: str, query: str) -> int:
         pts += 5
     if GRAPHICS.search(technique):
         pts += 4
-    if any(x in t for x in ("view", "city", "street", "canal", "boulevard", "market", "bridge", "palace", "ruin", "cathedral")):
+    keywords = ("view", "city", "street", "canal", "boulevard", "market", "bridge", "palace", "ruin", "cathedral")
+    if any(x in t for x in keywords):
         pts += 3
     return pts
 
@@ -183,7 +184,8 @@ def collect_cma(max_items: int) -> tuple[list[dict], list[str]]:
 def collect_aic(max_items: int) -> tuple[list[dict], list[str]]:
     found = {}
     errors = []
-    fields = "id,title,artist_title,date_display,date_start,artwork_type_title,medium_display,image_id,is_public_domain,api_link"
+    fields = ("id,title,artist_title,date_display,date_start,artwork_type_title,"
+              "medium_display,image_id,is_public_domain,api_link")
     for query in AIC_TERMS:
         url = url_with(AIC, {"q": query, "query[term][is_public_domain]": "true", "limit": 100, "fields": fields})
         try:
@@ -202,7 +204,8 @@ def collect_aic(max_items: int) -> tuple[list[dict], list[str]]:
                 img = "https://www.artic.edu/iiif/2/" + imgid + "/full/843,/0/default.jpg"
                 large = "https://www.artic.edu/iiif/2/" + imgid + "/full/2000,/0/default.jpg"
                 found["aic-" + ident] = {
-                    "id": "aic-" + ident, "city": next((loc for loc, q in CITIES if q.lower() in t.lower()), "Города мира"),
+                    "id": "aic-" + ident,
+                    "city": next((loc for loc, q in CITIES if q.lower() in t.lower()), "Города мира"),
                     "era": year_to_era(a.get("date_start")), "date": a.get("date_display") or "",
                     "name": t, "title_original": t, "maker": a.get("artist_title") or "Автор не установлен",
                     "medium": technique, "image": img, "image_large": large,
@@ -249,7 +252,8 @@ def collect_met(max_items: int) -> tuple[list[dict], list[str]]:
                 continue
             ident = str(a["objectID"])
             result.append({
-                "id": "met-" + ident, "city": next((loc for loc, q in CITIES if q.lower() in title.lower()), "Города мира"),
+                "id": "met-" + ident,
+                "city": next((loc for loc, q in CITIES if q.lower() in title.lower()), "Города мира"),
                 "era": year_to_era(a.get("objectBeginDate")), "date": a.get("objectDate") or "",
                 "name": title, "title_original": title, "maker": a.get("artistDisplayName") or "Автор не установлен",
                 "medium": med, "image": img, "image_large": large,
