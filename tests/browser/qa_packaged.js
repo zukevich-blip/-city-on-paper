@@ -5,7 +5,7 @@ const fs = require("fs");
 const [,,base,outDir]=process.argv;
 if(!base||!outDir)throw Error("Usage: qa_packaged.js <http-origin> <screenshots-directory>");
 fs.mkdirSync(outDir,{recursive:true});
-const paths=["","salon/","photography/","closeup/","exhibitions/city-as-evidence/","poc/compare/","fieldwork/",
+const paths=["","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","poc/compare/","fieldwork/",
  "journeys/","detective/","discover/","studio/","ideas/","printlab/","ornaments/","atelier/bargue/","atelier/ornament/"];
 async function requireImage(page,id,min=80){await page.waitForFunction(({selector,min})=>{const n=document.querySelector(selector);return n instanceof HTMLImageElement&&n.complete&&n.naturalWidth>=min;},{selector:id,min},{timeout:22000})}
 (async()=>{
@@ -23,7 +23,19 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    await p.waitForFunction(()=>document.querySelector("#archiveStatus")?.textContent?.includes("Расширенный фонд:"),null,{timeout:25000});
    const countLine=await p.locator("#count").textContent();const n=Number(countLine.split(" · ").find(x=>x.includes("архивных находок"))?.split(" ")[0]||0);if(n<60)throw Error(label+": expanded visible museum artworks only "+n);
    await requireImage(p,"#gallery .art img");
+   await p.locator("#scope").selectOption("world");
+   await p.waitForFunction(()=>document.querySelectorAll("#gallery .art").length>=6,null,{timeout:20000});
+   await requireImage(p,"#gallery .art img");
+   await p.locator("#scope").selectOption("all");
    await p.screenshot({path:outDir+"/"+label+"-artifact-salon.jpg",type:"jpeg",quality:70});
+   await p.goto(new URL("world/",base).href,{waitUntil:"domcontentloaded"});
+   await p.waitForFunction(()=>Number(document.querySelector("#cities")?.textContent)>10,null,{timeout:30000});
+   if(await p.locator("#regionButtons button").count()!==7)throw Error(label+": atlas lacks six world regions");
+   if(await p.locator("#cityGrid .city").count()<10)throw Error(label+": city atlas has fewer than 10 real city cards");
+   await requireImage(p,"#cityGrid .city img");
+   await p.locator("#journey").click();
+   if(await p.locator("#route").isHidden())throw Error(label+": five-city journey did not open");
+   await p.screenshot({path:outDir+"/"+label+"-artifact-world-atlas.jpg",type:"jpeg",quality:70});
    await p.goto(new URL("photography/",base).href,{waitUntil:"domcontentloaded"});
    await p.waitForFunction(()=>document.querySelectorAll(".gallery .photo").length>=4,{timeout:15000});
    const photoCredits=await p.locator(".gallery .photo .links a").count();if(photoCredits<8)throw Error(label+": photo sources or license credits missing");
@@ -49,7 +61,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    await p.screenshot({path:outDir+"/"+label+"-artifact-then-now.jpg",type:"jpeg",quality:70});
    if(errs.length)throw Error(label+": JS runtime errors: "+errs.slice(0,5).join(" / "));
    await c.close();
-   console.log("PASS "+label+": 16 routes + museum expansion + modern photos + Benoist + source slider");
+   console.log("PASS "+label+": 18 routes + world atlas + museum expansion + modern photos + Benoist + source slider");
   }
  }finally{await browser.close()}
 })().catch(err=>{console.error(err);process.exitCode=1});
