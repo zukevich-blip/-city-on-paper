@@ -146,7 +146,8 @@ def build(out: Path, per_query: int = 4, max_items: int = 68) -> dict:
     payload = {
         "version": date.today().isoformat(),
         "scope": "Wikimedia Commons API verified free licenses; photographer attribution on each image",
-        "warning": "Automatically discovered photographs, camera angle and shooting date are NOT independently checked.",
+        "warning": ("Automatically discovered photographs; camera angle and shooting "
+                    "date are NOT independently checked."),
         "items": list(picked.values()),
     }
     (folder / "modern-city-photography-v1.json").write_text(
