@@ -46,7 +46,9 @@ ALLOWED = {
 }
 ANCIENT = re.compile(r"(?<!\d)(?:1[0-8]\d\d|19[0-6]\d)(?!\d)")
 IMAGE = re.compile(r"\.(jpe?g)$", re.I)
-HISTORIC_REPRODUCTION = re.compile(r"\b(gezicht op|titel op object|rp-f-|postcard|antique engraving|vintage print)\b", re.I)
+HISTORIC_REPRODUCTION = re.compile(
+    r"\b(gezicht op|titel op object|rp-f-|postcard|antique engraving|vintage print)\b", re.I
+)
 DATE_YEARS = re.compile(r"(?<!\d)(1[5-9]\d\d|20\d\d)(?!\d)")
 
 
