@@ -23,8 +23,10 @@ DATA = (
     "data/curation/close-reading-20261103.json",
     "data/curation/close-reading-benoist-20261103.json",
     "data/curation/era-journeys-20261102.json",
+    "data/curation/museum-expansion-v1.json",
     "data/candidates/candidates-2026-11-01b.json",
     "poc/compare/pairs/index.json",
+    "museum-expansion-report.json",
 )
 
 
@@ -106,6 +108,25 @@ def main() -> None:
     all_ids = {x["id"] for x in works} | {x["id"] for x in loc}
     assert all(x["id"] in all_ids and len(x["steps"]) == 3 for x in study)
 
+    additions = json.loads((root / "data/curation/museum-expansion-v1.json").read_text(encoding="utf-8"))["items"]
+    assert len(additions) >= 60, f"archive expansion insufficient: {len(additions)}"
+    assert len({a["id"] for a in additions}) == len(additions)
+    archive_sources = {}
+    cached_expansion = 0
+    for art in additions:
+        assert art["rights"] == "cc0" and art["verified"] == "museum_api"
+        assert art["selection"] == "machine_selected_title_relevance"
+        assert art["url"].startswith("https://")
+        assert art["quality_tier"] and art["license_url"].startswith("https://")
+        assert art["provider"] in {"cleveland", "aic", "met"}
+        archive_sources[art["provider"]] = archive_sources.get(art["provider"], 0) + 1
+        img_path = resolve("salon/index.html", art["image"])
+        if img_path:
+            if not (root / img_path).is_file():
+                missing.append("expanded image: " + art["id"] + " -> " + img_path)
+            else:
+                cached_expansion += 1
+
     candidates = json.loads((root / DATA[4]).read_text(encoding="utf-8"))["items"]
     assert all(not x.get("published") for x in candidates), "unapproved research candidates must remain unpublished"
     assert all(not x.get("preview_url") for x in candidates if x["rights_category"] != "open")
@@ -122,6 +143,9 @@ def main() -> None:
         "source_cma_cc0_count": len(works),
         "local_cma_images": cached,
         "modern_photos_cached": photos_cached,
+        "expanded_museum_items": len(additions),
+        "expanded_museum_sources": archive_sources,
+        "expanded_locally_cached_images": cached_expansion,
         "benoist_loc_not_cc0": len(loc),
         "guided_lessons": len(study),
         "unapproved_candidates": len(candidates),
