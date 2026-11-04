@@ -143,7 +143,7 @@ def main() -> None:
         assert photo["maker"] and photo["original_width"] >= 1600
         assert photo["can_exact_overlay"] is False
 
-    candidates = json.loads((root / DATA[4]).read_text(encoding="utf-8"))["items"]
+    candidates = json.loads((root / "data/candidates/candidates-2026-11-01b.json").read_text(encoding="utf-8"))["items"]
     assert all(not x.get("published") for x in candidates), "unapproved research candidates must remain unpublished"
     assert all(not x.get("preview_url") for x in candidates if x["rights_category"] != "open")
 
