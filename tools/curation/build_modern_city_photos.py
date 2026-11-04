@@ -78,8 +78,11 @@ def parse_photo(page: dict, city: str, query: str) -> dict | None:
         return None
     url = ii.get("thumburl") or ii.get("url") or ""
     full = ii.get("url") or url
-    if not all(urlsplit(x).scheme == "https" and urlsplit(x).hostname == "upload.wikimedia.org"
-               for x in (url, full)):
+    thumbnail_host = urlsplit(url).hostname
+    original_host = urlsplit(full).hostname
+    if (urlsplit(url).scheme != "https" or
+            thumbnail_host not in {"thumb.wikimedia.org", "upload.wikimedia.org"} or
+            urlsplit(full).scheme != "https" or original_host != "upload.wikimedia.org"):
         return None
     source_url = ii.get("descriptionurl") or ""
     if not source_url.startswith("https://commons.wikimedia.org/wiki/File:"):
@@ -100,7 +103,7 @@ def parse_photo(page: dict, city: str, query: str) -> dict | None:
         "maker": artist, "rights": label, "license_url": ALLOWED[label],
         "url": source_url, "source": "Wikimedia Commons", "source_id": title,
         "verified": "commons_api_extmetadata", "selection": "machine_selected_by_search",
-        "date_taken": "не установлена",
+        "date_taken": clean(meta(extra, "DateTimeOriginal"), 40) or "не установлена",
         "uploaded_at": str(ii.get("timestamp") or ""),
         "search_subject": query, "checked": date.today().isoformat(),
         "can_exact_overlay": False,
