@@ -202,7 +202,7 @@ def collect_aic(max_items: int) -> tuple[list[dict], list[str]]:
                 if not re.fullmatch(r"[\w-]{12,80}", imgid):
                     continue
                 img = "https://www.artic.edu/iiif/2/" + imgid + "/full/843,/0/default.jpg"
-                large = "https://www.artic.edu/iiif/2/" + imgid + "/full/2000,/0/default.jpg"
+                large = "https://www.artic.edu/iiif/2/" + imgid + "/full/1686,/0/default.jpg"
                 found["aic-" + ident] = {
                     "id": "aic-" + ident,
                     "city": next((loc for loc, q in CITIES if q.lower() in t.lower()), "Города мира"),
