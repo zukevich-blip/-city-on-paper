@@ -46,6 +46,8 @@ ALLOWED = {
 }
 ANCIENT = re.compile(r"(?<!\d)(?:1[0-8]\d\d|19[0-6]\d)(?!\d)")
 IMAGE = re.compile(r"\.(jpe?g)$", re.I)
+HISTORIC_REPRODUCTION = re.compile(r"\b(gezicht op|titel op object|rp-f-|postcard|antique engraving|vintage print)\b", re.I)
+DATE_YEARS = re.compile(r"(?<!\d)(1[5-9]\d\d|20\d\d)(?!\d)")
 
 
 def clean(value: str, limit: int = 180) -> str:
@@ -74,7 +76,14 @@ def parse_photo(page: dict, city: str, query: str) -> dict | None:
     if license_url and not license_url.startswith(("https://creativecommons.org/", "http://creativecommons.org/")):
         return None
     title = page["title"]
-    if ANCIENT.search(title):
+    shot_date = clean(meta(extra, "DateTimeOriginal"), 100)
+    known_years = [int(v) for v in DATE_YEARS.findall(shot_date)]
+    # Historic prints with recent Commons upload timestamps must never be labelled modern photography.
+    if ANCIENT.search(title) or HISTORIC_REPRODUCTION.search(title):
+        return None
+    if any(y < 1970 for y in known_years):
+        return None
+    if city == "Флоренция" and re.search(r"\\b(milan|milano)\\b", title, re.I):
         return None
     url = ii.get("thumburl") or ii.get("url") or ""
     full = ii.get("url") or url
@@ -103,7 +112,7 @@ def parse_photo(page: dict, city: str, query: str) -> dict | None:
         "maker": artist, "rights": label, "license_url": ALLOWED[label],
         "url": source_url, "source": "Wikimedia Commons", "source_id": title,
         "verified": "commons_api_extmetadata", "selection": "machine_selected_by_search",
-        "date_taken": clean(meta(extra, "DateTimeOriginal"), 40) or "не установлена",
+        "date_taken": shot_date or "не установлена",
         "uploaded_at": str(ii.get("timestamp") or ""),
         "search_subject": query, "checked": date.today().isoformat(),
         "can_exact_overlay": False,
