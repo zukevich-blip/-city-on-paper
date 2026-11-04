@@ -44,3 +44,20 @@ def test_reject_unsafe_or_missing_license():
     page = fixture()
     page["imageinfo"][0]["thumburl"] = "https://untrusted.example/pic.jpg"
     assert parse_photo(page, "Париж", "Notre Dame") is None
+
+
+def test_historic_prints_are_not_labeled_contemporary_photographs():
+    old = fixture()
+    old["title"] = "File:Gezicht op La Madeleine te Parijs RP-F-00-3983.jpg"
+    old["imageinfo"][0]["extmetadata"]["DateTimeOriginal"]["value"] = "ca. 1875 - ca. 1900"
+    assert parse_photo(old, "Париж", "La Madeleine") is None
+    old = fixture()
+    old["title"] = "File:View of the Cathedral in 1890.jpg"
+    old["imageinfo"][0]["extmetadata"]["DateTimeOriginal"]["value"] = "1889"
+    assert parse_photo(old, "Париж", "cathedral") is None
+
+
+def test_cross_city_milan_result_not_mislabeled_florence():
+    wrong = fixture()
+    wrong["title"] = "File:Milano-Piazza del Duomo photo.jpg"
+    assert parse_photo(wrong, "Флоренция", "Florence Cathedral") is None
