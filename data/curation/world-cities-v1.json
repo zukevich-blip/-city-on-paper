@@ -1,0 +1,915 @@
+{
+  "version": "2026-11-04",
+  "scope": "Global research seed for rights-checked public-domain and open-licensed city graphics; no city is presented as covered until real images found.",
+  "city_count": 150,
+  "regions": [
+    "Европа",
+    "Азия",
+    "Африка",
+    "Северная Америка",
+    "Латинская Америка",
+    "Океания"
+  ],
+  "cities": [
+    {
+      "name": "Рим",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Rome 19th century lithograph"
+    },
+    {
+      "name": "Венеция",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Venice city lithograph"
+    },
+    {
+      "name": "Флоренция",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Florence city lithograph"
+    },
+    {
+      "name": "Неаполь",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Naples city lithograph"
+    },
+    {
+      "name": "Милан",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Milan city lithograph"
+    },
+    {
+      "name": "Генуя",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Genoa lithograph port"
+    },
+    {
+      "name": "Верона",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Verona engraving city"
+    },
+    {
+      "name": "Турин",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Turin city lithograph"
+    },
+    {
+      "name": "Палермо",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Palermo city lithograph"
+    },
+    {
+      "name": "Пиза",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Pisa city lithograph"
+    },
+    {
+      "name": "Болонья",
+      "region": "Европа",
+      "country": "Италия",
+      "query": "Bologna city lithograph"
+    },
+    {
+      "name": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Paris architecture lithograph"
+    },
+    {
+      "name": "Версаль",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Versailles palace lithograph"
+    },
+    {
+      "name": "Лион",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Lyon city lithograph"
+    },
+    {
+      "name": "Марсель",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Marseille old port lithograph"
+    },
+    {
+      "name": "Ницца",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Nice seaside lithograph"
+    },
+    {
+      "name": "Бордо",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Bordeaux port lithograph"
+    },
+    {
+      "name": "Страсбург",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Strasbourg city lithograph"
+    },
+    {
+      "name": "Руан",
+      "region": "Европа",
+      "country": "Франция",
+      "query": "Rouen cathedral lithograph"
+    },
+    {
+      "name": "Лондон",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "London city lithograph"
+    },
+    {
+      "name": "Эдинбург",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "Edinburgh old town lithograph"
+    },
+    {
+      "name": "Оксфорд",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "Oxford architecture lithograph"
+    },
+    {
+      "name": "Кембридж",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "Cambridge town engraving"
+    },
+    {
+      "name": "Ливерпуль",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "Liverpool port lithograph"
+    },
+    {
+      "name": "Йорк",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "York Minster engraving"
+    },
+    {
+      "name": "Бат",
+      "region": "Европа",
+      "country": "Великобритания",
+      "query": "Bath England town engraving"
+    },
+    {
+      "name": "Мадрид",
+      "region": "Европа",
+      "country": "Испания",
+      "query": "Madrid city lithograph"
+    },
+    {
+      "name": "Барселона",
+      "region": "Европа",
+      "country": "Испания",
+      "query": "Barcelona city lithograph"
+    },
+    {
+      "name": "Севилья",
+      "region": "Европа",
+      "country": "Испания",
+      "query": "Seville architecture lithograph"
+    },
+    {
+      "name": "Гранада",
+      "region": "Европа",
+      "country": "Испания",
+      "query": "Granada Alhambra lithograph"
+    },
+    {
+      "name": "Валенсия",
+      "region": "Европа",
+      "country": "Испания",
+      "query": "Valencia city engraving"
+    },
+    {
+      "name": "Толедо",
+      "region": "Европа",
+      "country": "Испания",
+      "query": "Toledo Spain lithograph"
+    },
+    {
+      "name": "Лиссабон",
+      "region": "Европа",
+      "country": "Португалия",
+      "query": "Lisbon city lithograph"
+    },
+    {
+      "name": "Порту",
+      "region": "Европа",
+      "country": "Португалия",
+      "query": "Porto Portugal city engraving"
+    },
+    {
+      "name": "Синтра",
+      "region": "Европа",
+      "country": "Португалия",
+      "query": "Sintra palace engraving"
+    },
+    {
+      "name": "Амстердам",
+      "region": "Европа",
+      "country": "Нидерланды",
+      "query": "Amsterdam canals lithograph"
+    },
+    {
+      "name": "Роттердам",
+      "region": "Европа",
+      "country": "Нидерланды",
+      "query": "Rotterdam port engraving"
+    },
+    {
+      "name": "Гаага",
+      "region": "Европа",
+      "country": "Нидерланды",
+      "query": "The Hague city engraving"
+    },
+    {
+      "name": "Харлем",
+      "region": "Европа",
+      "country": "Нидерланды",
+      "query": "Haarlem city engraving"
+    },
+    {
+      "name": "Брюссель",
+      "region": "Европа",
+      "country": "Бельгия",
+      "query": "Brussels Grand Place lithograph"
+    },
+    {
+      "name": "Брюгге",
+      "region": "Европа",
+      "country": "Бельгия",
+      "query": "Bruges city engraving"
+    },
+    {
+      "name": "Гент",
+      "region": "Европа",
+      "country": "Бельгия",
+      "query": "Ghent city lithograph"
+    },
+    {
+      "name": "Антверпен",
+      "region": "Европа",
+      "country": "Бельгия",
+      "query": "Antwerp port lithograph"
+    },
+    {
+      "name": "Берлин",
+      "region": "Европа",
+      "country": "Германия",
+      "query": "Berlin city lithograph"
+    },
+    {
+      "name": "Дрезден",
+      "region": "Европа",
+      "country": "Германия",
+      "query": "Dresden city lithograph"
+    },
+    {
+      "name": "Мюнхен",
+      "region": "Европа",
+      "country": "Германия",
+      "query": "Munich city lithograph"
+    },
+    {
+      "name": "Кёльн",
+      "region": "Европа",
+      "country": "Германия",
+      "query": "Cologne cathedral engraving"
+    },
+    {
+      "name": "Гамбург",
+      "region": "Европа",
+      "country": "Германия",
+      "query": "Hamburg port lithograph"
+    },
+    {
+      "name": "Гейдельберг",
+      "region": "Европа",
+      "country": "Германия",
+      "query": "Heidelberg city engraving"
+    },
+    {
+      "name": "Вена",
+      "region": "Европа",
+      "country": "Австрия",
+      "query": "Vienna Austria city lithograph"
+    },
+    {
+      "name": "Зальцбург",
+      "region": "Европа",
+      "country": "Австрия",
+      "query": "Salzburg city engraving"
+    },
+    {
+      "name": "Прага",
+      "region": "Европа",
+      "country": "Чехия",
+      "query": "Prague architecture lithograph"
+    },
+    {
+      "name": "Карловы Вары",
+      "region": "Европа",
+      "country": "Чехия",
+      "query": "Karlsbad city lithograph"
+    },
+    {
+      "name": "Будапешт",
+      "region": "Европа",
+      "country": "Венгрия",
+      "query": "Budapest city engraving"
+    },
+    {
+      "name": "Краков",
+      "region": "Европа",
+      "country": "Польша",
+      "query": "Krakow city lithograph"
+    },
+    {
+      "name": "Варшава",
+      "region": "Европа",
+      "country": "Польша",
+      "query": "Warsaw city lithograph"
+    },
+    {
+      "name": "Гданьск",
+      "region": "Европа",
+      "country": "Польша",
+      "query": "Danzig city lithograph"
+    },
+    {
+      "name": "Афины",
+      "region": "Европа",
+      "country": "Греция",
+      "query": "Athens Acropolis lithograph"
+    },
+    {
+      "name": "Салоники",
+      "region": "Европа",
+      "country": "Греция",
+      "query": "Thessaloniki engraving"
+    },
+    {
+      "name": "Стокгольм",
+      "region": "Европа",
+      "country": "Швеция",
+      "query": "Stockholm city lithograph"
+    },
+    {
+      "name": "Копенгаген",
+      "region": "Европа",
+      "country": "Дания",
+      "query": "Copenhagen city lithograph"
+    },
+    {
+      "name": "Осло",
+      "region": "Европа",
+      "country": "Норвегия",
+      "query": "Christiania Norway city lithograph"
+    },
+    {
+      "name": "Берген",
+      "region": "Европа",
+      "country": "Норвегия",
+      "query": "Bergen Norway engraving"
+    },
+    {
+      "name": "Хельсинки",
+      "region": "Европа",
+      "country": "Финляндия",
+      "query": "Helsinki city lithograph"
+    },
+    {
+      "name": "Москва",
+      "region": "Европа",
+      "country": "Россия",
+      "query": "Moscow city lithograph"
+    },
+    {
+      "name": "Санкт-Петербург",
+      "region": "Европа",
+      "country": "Россия",
+      "query": "Saint Petersburg city lithograph"
+    },
+    {
+      "name": "Казань",
+      "region": "Европа",
+      "country": "Россия",
+      "query": "Kazan city lithograph"
+    },
+    {
+      "name": "Нижний Новгород",
+      "region": "Европа",
+      "country": "Россия",
+      "query": "Nizhny Novgorod city engraving"
+    },
+    {
+      "name": "Киев",
+      "region": "Европа",
+      "country": "Украина",
+      "query": "Kiev city lithograph"
+    },
+    {
+      "name": "Одесса",
+      "region": "Европа",
+      "country": "Украина",
+      "query": "Odessa port lithograph"
+    },
+    {
+      "name": "Стамбул",
+      "region": "Азия",
+      "country": "Турция",
+      "query": "Constantinople city lithograph"
+    },
+    {
+      "name": "Измир",
+      "region": "Азия",
+      "country": "Турция",
+      "query": "Smyrna port engraving"
+    },
+    {
+      "name": "Бурса",
+      "region": "Азия",
+      "country": "Турция",
+      "query": "Bursa Turkey engraving"
+    },
+    {
+      "name": "Токио",
+      "region": "Азия",
+      "country": "Япония",
+      "query": "Edo city woodblock print"
+    },
+    {
+      "name": "Киото",
+      "region": "Азия",
+      "country": "Япония",
+      "query": "Kyoto woodblock city view"
+    },
+    {
+      "name": "Осака",
+      "region": "Азия",
+      "country": "Япония",
+      "query": "Osaka city woodblock print"
+    },
+    {
+      "name": "Нагасаки",
+      "region": "Азия",
+      "country": "Япония",
+      "query": "Nagasaki harbor woodblock print"
+    },
+    {
+      "name": "Пекин",
+      "region": "Азия",
+      "country": "Китай",
+      "query": "Peking city engraving"
+    },
+    {
+      "name": "Шанхай",
+      "region": "Азия",
+      "country": "Китай",
+      "query": "Shanghai city lithograph"
+    },
+    {
+      "name": "Гонконг",
+      "region": "Азия",
+      "country": "Китай",
+      "query": "Hong Kong harbour lithograph"
+    },
+    {
+      "name": "Гуанчжоу",
+      "region": "Азия",
+      "country": "Китай",
+      "query": "Canton China city engraving"
+    },
+    {
+      "name": "Макао",
+      "region": "Азия",
+      "country": "Китай",
+      "query": "Macau old city engraving"
+    },
+    {
+      "name": "Дели",
+      "region": "Азия",
+      "country": "Индия",
+      "query": "Delhi architecture lithograph"
+    },
+    {
+      "name": "Агра",
+      "region": "Азия",
+      "country": "Индия",
+      "query": "Agra Taj Mahal lithograph"
+    },
+    {
+      "name": "Мумбаи",
+      "region": "Азия",
+      "country": "Индия",
+      "query": "Bombay city lithograph"
+    },
+    {
+      "name": "Калькутта",
+      "region": "Азия",
+      "country": "Индия",
+      "query": "Calcutta city lithograph"
+    },
+    {
+      "name": "Джайпур",
+      "region": "Азия",
+      "country": "Индия",
+      "query": "Jaipur palace lithograph"
+    },
+    {
+      "name": "Варанаси",
+      "region": "Азия",
+      "country": "Индия",
+      "query": "Benares Ganges lithograph"
+    },
+    {
+      "name": "Ханой",
+      "region": "Азия",
+      "country": "Вьетнам",
+      "query": "Hanoi colonial city lithograph"
+    },
+    {
+      "name": "Хюэ",
+      "region": "Азия",
+      "country": "Вьетнам",
+      "query": "Hue Vietnam engraving"
+    },
+    {
+      "name": "Бангкок",
+      "region": "Азия",
+      "country": "Таиланд",
+      "query": "Bangkok city engraving"
+    },
+    {
+      "name": "Джакарта",
+      "region": "Азия",
+      "country": "Индонезия",
+      "query": "Batavia Indonesia city lithograph"
+    },
+    {
+      "name": "Сингапур",
+      "region": "Азия",
+      "country": "Сингапур",
+      "query": "Singapore port lithograph"
+    },
+    {
+      "name": "Сеул",
+      "region": "Азия",
+      "country": "Южная Корея",
+      "query": "Seoul old city engraving"
+    },
+    {
+      "name": "Самарканд",
+      "region": "Азия",
+      "country": "Узбекистан",
+      "query": "Samarkand city lithograph"
+    },
+    {
+      "name": "Бухара",
+      "region": "Азия",
+      "country": "Узбекистан",
+      "query": "Bukhara city engraving"
+    },
+    {
+      "name": "Тбилиси",
+      "region": "Азия",
+      "country": "Грузия",
+      "query": "Tiflis city lithograph"
+    },
+    {
+      "name": "Баку",
+      "region": "Азия",
+      "country": "Азербайджан",
+      "query": "Baku old city lithograph"
+    },
+    {
+      "name": "Исфахан",
+      "region": "Азия",
+      "country": "Иран",
+      "query": "Isfahan city engraving"
+    },
+    {
+      "name": "Тегеран",
+      "region": "Азия",
+      "country": "Иран",
+      "query": "Teheran city lithograph"
+    },
+    {
+      "name": "Иерусалим",
+      "region": "Азия",
+      "country": "Израиль",
+      "query": "Jerusalem city lithograph"
+    },
+    {
+      "name": "Дамаск",
+      "region": "Азия",
+      "country": "Сирия",
+      "query": "Damascus city engraving"
+    },
+    {
+      "name": "Бейрут",
+      "region": "Азия",
+      "country": "Ливан",
+      "query": "Beirut port lithograph"
+    },
+    {
+      "name": "Каир",
+      "region": "Африка",
+      "country": "Египет",
+      "query": "Cairo lithograph 19th century"
+    },
+    {
+      "name": "Александрия",
+      "region": "Африка",
+      "country": "Египет",
+      "query": "Alexandria Egypt lithograph"
+    },
+    {
+      "name": "Луксор",
+      "region": "Африка",
+      "country": "Египет",
+      "query": "Luxor temple lithograph"
+    },
+    {
+      "name": "Марракеш",
+      "region": "Африка",
+      "country": "Марокко",
+      "query": "Marrakech old city engraving"
+    },
+    {
+      "name": "Фес",
+      "region": "Африка",
+      "country": "Марокко",
+      "query": "Fez Morocco engraving"
+    },
+    {
+      "name": "Танжер",
+      "region": "Африка",
+      "country": "Марокко",
+      "query": "Tangier Morocco lithograph"
+    },
+    {
+      "name": "Тунис",
+      "region": "Африка",
+      "country": "Тунис",
+      "query": "Tunis city engraving"
+    },
+    {
+      "name": "Алжир",
+      "region": "Африка",
+      "country": "Алжир",
+      "query": "Algiers city lithograph"
+    },
+    {
+      "name": "Кейптаун",
+      "region": "Африка",
+      "country": "ЮАР",
+      "query": "Cape Town harbor lithograph"
+    },
+    {
+      "name": "Занзибар",
+      "region": "Африка",
+      "country": "Танзания",
+      "query": "Zanzibar town engraving"
+    },
+    {
+      "name": "Дакар",
+      "region": "Африка",
+      "country": "Сенегал",
+      "query": "Dakar old port engraving"
+    },
+    {
+      "name": "Нью-Йорк",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "New York city lithograph"
+    },
+    {
+      "name": "Бостон",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Boston harbor lithograph"
+    },
+    {
+      "name": "Филадельфия",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Philadelphia city lithograph"
+    },
+    {
+      "name": "Вашингтон",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Washington DC architecture lithograph"
+    },
+    {
+      "name": "Чикаго",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Chicago city lithograph"
+    },
+    {
+      "name": "Сан-Франциско",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "San Francisco city lithograph"
+    },
+    {
+      "name": "Новый Орлеан",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "New Orleans lithograph"
+    },
+    {
+      "name": "Чарльстон",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Charleston South Carolina lithograph"
+    },
+    {
+      "name": "Саванна",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Savannah Georgia lithograph"
+    },
+    {
+      "name": "Лос-Анджелес",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Los Angeles old city lithograph"
+    },
+    {
+      "name": "Сент-Луис",
+      "region": "Северная Америка",
+      "country": "США",
+      "query": "Saint Louis city lithograph"
+    },
+    {
+      "name": "Монреаль",
+      "region": "Северная Америка",
+      "country": "Канада",
+      "query": "Montreal city lithograph"
+    },
+    {
+      "name": "Квебек",
+      "region": "Северная Америка",
+      "country": "Канада",
+      "query": "Quebec City lithograph"
+    },
+    {
+      "name": "Торонто",
+      "region": "Северная Америка",
+      "country": "Канада",
+      "query": "Toronto city lithograph"
+    },
+    {
+      "name": "Ванкувер",
+      "region": "Северная Америка",
+      "country": "Канада",
+      "query": "Vancouver city lithograph"
+    },
+    {
+      "name": "Мехико",
+      "region": "Латинская Америка",
+      "country": "Мексика",
+      "query": "Mexico City lithograph"
+    },
+    {
+      "name": "Гуанахуато",
+      "region": "Латинская Америка",
+      "country": "Мексика",
+      "query": "Guanajuato city lithograph"
+    },
+    {
+      "name": "Веракрус",
+      "region": "Латинская Америка",
+      "country": "Мексика",
+      "query": "Veracruz city lithograph"
+    },
+    {
+      "name": "Гавана",
+      "region": "Латинская Америка",
+      "country": "Куба",
+      "query": "Havana city lithograph"
+    },
+    {
+      "name": "Богота",
+      "region": "Латинская Америка",
+      "country": "Колумбия",
+      "query": "Bogota city lithograph"
+    },
+    {
+      "name": "Картахена",
+      "region": "Латинская Америка",
+      "country": "Колумбия",
+      "query": "Cartagena Colombia engraving"
+    },
+    {
+      "name": "Лима",
+      "region": "Латинская Америка",
+      "country": "Перу",
+      "query": "Lima Peru city lithograph"
+    },
+    {
+      "name": "Куско",
+      "region": "Латинская Америка",
+      "country": "Перу",
+      "query": "Cusco city engraving"
+    },
+    {
+      "name": "Кито",
+      "region": "Латинская Америка",
+      "country": "Эквадор",
+      "query": "Quito Ecuador city engraving"
+    },
+    {
+      "name": "Рио-де-Жанейро",
+      "region": "Латинская Америка",
+      "country": "Бразилия",
+      "query": "Rio de Janeiro city lithograph"
+    },
+    {
+      "name": "Салвадор",
+      "region": "Латинская Америка",
+      "country": "Бразилия",
+      "query": "Salvador Bahia city engraving"
+    },
+    {
+      "name": "Сан-Паулу",
+      "region": "Латинская Америка",
+      "country": "Бразилия",
+      "query": "Sao Paulo city lithograph"
+    },
+    {
+      "name": "Буэнос-Айрес",
+      "region": "Латинская Америка",
+      "country": "Аргентина",
+      "query": "Buenos Aires lithograph 19th century"
+    },
+    {
+      "name": "Сантьяго",
+      "region": "Латинская Америка",
+      "country": "Чили",
+      "query": "Santiago Chile city engraving"
+    },
+    {
+      "name": "Вальпараисо",
+      "region": "Латинская Америка",
+      "country": "Чили",
+      "query": "Valparaiso port lithograph"
+    },
+    {
+      "name": "Сидней",
+      "region": "Океания",
+      "country": "Австралия",
+      "query": "Sydney Australia city lithograph"
+    },
+    {
+      "name": "Мельбурн",
+      "region": "Океания",
+      "country": "Австралия",
+      "query": "Melbourne Australia city lithograph"
+    },
+    {
+      "name": "Аделаида",
+      "region": "Океания",
+      "country": "Австралия",
+      "query": "Adelaide city lithograph"
+    },
+    {
+      "name": "Хобарт",
+      "region": "Океания",
+      "country": "Австралия",
+      "query": "Hobart city lithograph"
+    },
+    {
+      "name": "Окленд",
+      "region": "Океания",
+      "country": "Новая Зеландия",
+      "query": "Auckland city lithograph"
+    },
+    {
+      "name": "Веллингтон",
+      "region": "Океания",
+      "country": "Новая Зеландия",
+      "query": "Wellington New Zealand lithograph"
+    }
+  ]
+}
