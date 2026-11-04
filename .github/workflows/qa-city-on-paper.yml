@@ -24,6 +24,10 @@ on:
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 
+concurrency:
+  group: city-on-paper-qa-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   source-and-catalog:
     name: Sources, catalog, image geometry
