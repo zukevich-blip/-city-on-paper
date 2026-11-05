@@ -44,7 +44,8 @@
       "verified": "official_iiif_manifest",
       "selection": "curator_verified_primary_source",
       "curated": true,
-      "note": "Вид бульвара Итальянцев. Издание с печатью Lemercier и Daziaro. Не путать с другим листом серии."
+      "note": "Вид бульвара Итальянцев. Издание с печатью Lemercier и Daziaro. Не путать с другим листом серии.",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=eH7GMMCG"
     },
     {
       "id": "parismusees-320289583",
@@ -86,7 +87,8 @@
       "verified": "official_iiif_manifest",
       "selection": "curator_verified_primary_source",
       "curated": true,
-      "note": "Отдельный лист серии Vues de Paris. Два названных автора и типография Gihaut Frères. Датировка оригинала не указана."
+      "note": "Отдельный лист серии Vues de Paris. Два названных автора и типография Gihaut Frères. Датировка оригинала не указана.",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=CeEi3wBT"
     }
   ]
 }
