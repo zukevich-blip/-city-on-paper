@@ -15,6 +15,7 @@ import time
 from collections import Counter
 from datetime import date
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
@@ -218,24 +219,57 @@ def search(city: dict, limit: int = 22) -> dict:
 
 
 def build(cities_path: Path, out: Path, per_city: int, budget: int, max_seconds: int = 480) -> dict:
+    """Incrementally collect responsibly; never lose previously cleared source records.
+
+    A 429/503 stops further requests for this run. The next run resumes only the
+    unqueried cities from an on-disk progress snapshot restored by the CI cache.
+    """
     cities = json.loads(cities_path.read_text(encoding="utf-8"))["cities"]
+    folder = out / "data/curation"
+    folder.mkdir(parents=True, exist_ok=True)
+    manifest_path = folder / "world-graphic-archive-v1.json"
+    progress_path = folder / "world-graphic-progress-v1.json"
+    valid_names = {c["name"] for c in cities}
+    previous = {}
+    done = set()
+    if manifest_path.exists():
+        try:
+            doc = json.loads(manifest_path.read_text(encoding="utf-8"))
+            previous = {
+                a["id"]: a for a in doc.get("items", [])
+                if a.get("id") and a.get("city") in valid_names
+                and a.get("provider") == "commons_world"
+                and a.get("rights") in {"cc0", "cc_by", "cc_by_sa", "public_domain_commons"}
+            }
+        except (ValueError, OSError, TypeError, KeyError):
+            previous = {}
+    if progress_path.exists():
+        try:
+            state = json.loads(progress_path.read_text(encoding="utf-8"))
+            if state.get("version") == 2:
+                done = set(state.get("completed_cities", [])) & valid_names
+        except (ValueError, OSError, TypeError):
+            done = set()
+
     by_region = {}
     for item in cities:
-        by_region.setdefault(item["region"], []).append(item)
-    # Round-robin guarantees worldwide attempts even when rate limits end the import early.
+        if item["name"] not in done:
+            by_region.setdefault(item["region"], []).append(item)
+    # Visit the six regions in a round-robin order to avoid European bias.
     scheduled = []
     while any(by_region.values()):
         for region in by_region:
             if by_region[region]:
                 scheduled.append(by_region[region].pop(0))
-    total = {}
+
+    total = dict(previous)
     errors = []
-    found_cities = set()
-    regions = set()
     attempts = 0
+    throttled = False
+    retry_after = None
     started_at = time.monotonic()
-    for city in scheduled[:budget]:
-        if time.monotonic() - started_at >= max_seconds:
+    for city in scheduled:
+        if attempts >= budget or time.monotonic() - started_at >= max_seconds:
             break
         attempts += 1
         try:
@@ -246,47 +280,71 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int, max_seconds:
                 if artwork is not None:
                     relevant.append(artwork)
             relevant.sort(key=lambda item: (-item[1], item[0]["id"]))
-            for record, pts in relevant[:per_city]:
-                key = record["id"]
-                if key not in total or pts > total[key][1]:
-                    total[key] = (record, pts)
-                    found_cities.add(city["name"])
-                    regions.add(city["region"])
+            for record, _ in relevant[:per_city]:
+                # Preserve the first source's geolocation when a Commons file is
+                # returned by multiple cities; do not inflate the item total.
+                total.setdefault(record["id"], record)
+            done.add(city["name"])
+        except HTTPError as exc:
+            if exc.code in {429, 503}:
+                retry_after = exc.headers.get("Retry-After") if exc.headers else None
+                errors.append({
+                    "city": city["name"], "error": f"HTTP {exc.code}",
+                    "retry_after": retry_after or "not provided",
+                })
+                throttled = True
+                # No more requests: respects Retry-After without blocking runner.
+                break
+            errors.append({"city": city["name"], "error": f"HTTP {exc.code}"})
         except (OSError, ValueError, TimeoutError, json.JSONDecodeError) as exc:
             errors.append({"city": city["name"], "error": str(exc)[:140]})
-        time.sleep(0.5)
-    # Keep the source's city caption when duplicate files appear across city searches.
-    works = [v[0] for v in total.values()]
+        time.sleep(1.2)
+
+    works = list(total.values())
     works.sort(key=lambda a: (a["region"], a["country"], a["city"], a["name"]))
-    folder = out / "data/curation"
-    folder.mkdir(parents=True, exist_ok=True)
+    found_cities = {a["city"] for a in works}
+    regions = {a["region"] for a in works}
     artifact = {
         "version": date.today().isoformat(),
-        "scope": "Wikimedia Commons openly licensed or Commons-designated public-domain city print discoveries",
+        "scope": "Wikimedia Commons open-licensed / Commons-designated public-domain print discoveries",
         "editorial_status": (
-            "Machine-screened; original object, dating, depicted place and technique "
-            "not independently art-historically verified"
+            "Machine-screened. Original attribution, dating, depicted place "
+            "and technique have not all been checked by an art historian."
         ),
         "rights_note": (
-            "public_domain_commons is NOT the same as CC0; each Commons file page "
-            "is the source of its rights claim"
+            "public_domain_commons is NOT CC0; each Commons file page is the source "
+            "of its rights claim."
         ),
         "items": works,
     }
-    (folder / "world-graphic-archive-v1.json").write_text(
-        json.dumps(artifact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    manifest_path.write_text(json.dumps(artifact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    progress_path.write_text(
+        json.dumps({
+            "version": 2, "completed_cities": sorted(done), "total_seed_cities": len(cities),
+            "last_refresh_date": date.today().isoformat(),
+        }, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
     )
     report = {
-        "attempted_cities": attempts, "found_cities": len(found_cities),
-        "city_seed_total": len(cities), "time_limited": attempts < min(len(cities), budget),
-        "regions": len(regions), "item_count": len(works),
-        "art_types": dict(Counter(x["medium"] for x in works)),
-        "rights": dict(Counter(x["rights"] for x in works)),
-        "errors": errors[:35], "failures_count": len(errors),
-        "not_all_cities": True, "not_curator_approved": True,
+        "attempted_cities_this_run": attempts,
+        "completed_cities_total": len(done),
+        "city_seed_total": len(cities),
+        "found_cities": len(found_cities),
+        "regions": len(regions),
+        "item_count": len(works),
+        "retained_previous_items": len(previous),
+        "rate_limited": throttled,
+        "retry_after": retry_after,
+        "art_types": dict(Counter(a["medium"] for a in works)),
+        "rights": dict(Counter(a["rights"] for a in works)),
+        "errors": errors[:35],
+        "failures_count": len(errors),
+        "not_all_cities": len(done) < len(cities),
+        "not_curator_approved": True,
     }
     (out / "world-graphic-report.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
     )
     return report
 
@@ -296,13 +354,13 @@ def main() -> None:
     p.add_argument("--cities", type=Path, default=Path("data/curation/world-cities-v1.json"))
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--per-city", type=int, default=9)
-    p.add_argument("--city-budget", type=int, default=150)
+    p.add_argument("--city-budget", type=int, default=35)
     p.add_argument("--max-seconds", type=int, default=480)
     args = p.parse_args()
     report = build(args.cities, args.out, max(1, min(args.per_city, 15)), args.city_budget, args.max_seconds)
     print(json.dumps(report, ensure_ascii=False))
-    if report["item_count"] < 50 or report["regions"] < 3:
-        raise SystemExit("Worldwide graphics expansion insufficient: fail closed")
+    # Wikimedia 429 must not block the entire museum. The packaged validator
+    # decides whether the current partial collection is usable.
 
 
 if __name__ == "__main__":
