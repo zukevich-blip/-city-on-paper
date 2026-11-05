@@ -26,10 +26,10 @@ main{padding:19px clamp(18px,5vw,75px) 75px;max-width:1650px;margin:auto}.eyebro
 .empty{padding:40px;border:1px dashed var(--line);text-align:center;color:#655d52}#more{display:block;margin:30px auto;border:1px solid var(--dark);background:var(--dark);padding:12px 28px;color:white}#more[hidden]{display:none}
 .route{background:#e6dccb;padding:20px;margin:28px 0;border:1px solid #c8bbaa}.route[hidden]{display:none}.route h2{font:normal 32px Georgia,serif;margin:0 0 9px}.route p{margin:0 0 17px;color:#6d6151}.routeGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.routeGrid a{background:#faf6ee;border:1px solid #cabbab;text-decoration:none;padding:12px}.routeGrid img{width:100%;height:125px;object-fit:cover}.routeGrid b{font:20px Georgia,serif;display:block}.routeGrid small{font-size:11px;color:#777168}
 footer{padding:29px clamp(18px,5vw,75px);background:#e7dfd2;font:12px/1.55 sans-serif;color:#736c61}
-@media(max-width:650px){header{gap:10px}header strong{flex-basis:100%;font-size:22px}.hero{padding:23px 18px 23px}.hero h1{font-size:45px;line-height:1.03}.hero p{font-size:14px;line-height:1.45}.hero:before{width:330px;height:330px;right:-230px;top:-150px}.stats{gap:18px}.stats b{font-size:28px}main{padding:22px 18px}.tools input{flex:1 1 100%}.tools button{flex:1 1 100%}.grid{grid-template-columns:1fr}.city figure{height:215px}.regions{overflow-x:auto;flex-wrap:nowrap;padding-bottom:12px}.regions button{white-space:nowrap;flex-shrink:0}}
+@media(max-width:650px){header{gap:10px;padding:12px 18px}header strong{flex-basis:100%;font-size:21px}.hero{padding:16px 18px 17px}.hero h1{font-size:40px;line-height:1.01;margin:7px 0 10px}.hero p{font-size:13px;line-height:1.4;margin:8px 0}.hero .kicker{font-size:9px;letter-spacing:.12em}.hero small{display:none}.hero:before{width:250px;height:250px;right:-160px;top:-120px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}.stats b{font-size:24px}.stats span{font-size:10px;line-height:1.2;display:block}main{padding:12px 18px}.tools{gap:7px;margin:7px 0 10px}.tools input{flex:1 1 100%;min-height:41px;padding:8px 10px}.tools select{flex:1 1 38%;min-width:0;min-height:40px;padding:8px}.tools button{flex:1 1 47%;min-width:0;padding:8px;font-size:12px;min-height:40px}.note{font-size:11px;line-height:1.4;padding:7px 10px;margin:9px 0 11px}.sectionTitle{margin:9px 0 11px}.sectionTitle h2{font-size:32px}.sectionTitle small{display:none}.grid{grid-template-columns:1fr}.city figure{height:215px}.regions{overflow-x:auto;flex-wrap:nowrap;padding-bottom:9px}.regions button{white-space:nowrap;flex-shrink:0;padding:7px 9px;font-size:12px}}
 </style></head><body>
 <header><strong>City on Paper</strong><a href="../">Главная</a><a href="../salon/">Все работы</a><a href="../photography/">Город сегодня</a><a href="../poc/compare/">Тогда / Сейчас</a><a href="../closeup/">Кабинет деталей</a></header>
-<section class="hero"><div class="kicker">Мировое собрание · 6 регионов</div><h1>Атлас городов<br>на бумаге</h1><p>От Рима до Киото: исторические литографии, гравюры и ксилографии. Выбирайте город, рассматривайте детали и открывайте оригиналы в архиве.</p><div class="stats"><div><b id="works">...</b><span>найдено произведений</span></div><div><b id="cities">...</b><span>городов с изображениями</span></div><div><b id="regions">...</b><span>регионов с изображениями</span></div></div><small>Показаны только найденные изображения; реестр городов значительно шире.</small></section>
+<section class="hero"><div class="kicker">Мировое собрание · 6 регионов</div><h1>Атлас городов<br>на бумаге</h1><p>От Рима до Киото: исторические литографии, гравюры и ксилографии. Выбирайте город, рассматривайте детали и открывайте оригиналы в архиве.</p><div class="stats"><div><b id="works">...</b><span>изображений в каталоге</span></div><div><b id="cities">...</b><span>городов с изображениями</span></div><div><b id="regions">...</b><span>регионов с изображениями</span></div></div><small>Показаны только найденные изображения; реестр городов значительно шире.</small></section>
 <main><div class="eyebrow">Откройте место · Сравните эпохи</div><div class="tools"><input id="query" type="search" placeholder="Город или страна" aria-label="Поиск города или страны"><select id="tech" aria-label="Техника"><option value="">Все техники</option><option>Литография</option><option>Гравюра / офорт</option><option>Ксилография</option><option>Рисунок</option></select><button id="journey">Путешествие по пяти городам</button></div>
 <div class="regions" id="regionButtons" role="group" aria-label="Регионы мира"></div>
 <div class="note" id="status" role="status">Загружаем архив. Для новых находок автоматически проверяются источник и статус прав, но точность датировки и изображения места может потребовать куратора. Пометка «общественное достояние» по Commons не означает CC0.</div>
@@ -44,9 +44,19 @@ let all=[], active="Все регионы", limit=45, catalogue=[], citySeed=new
 function valid(a){return a?.id&&a?.name&&a?.city&&a?.image&&a?.url?.startsWith("https://")}
 function tech(a){let m=(a.medium||a.style||a.name||"").toLowerCase();if(/litho|литограф|litograf|chromolitho/.test(m))return "Литография";if(/woodblock|woodcut|ксилограф|ukiyo/.test(m))return "Ксилография";if(/engraving|etching|gravure|гравюр|офорт/.test(m))return "Гравюра / офорт";if(/watercol|drawing|рисунок|акварель/.test(m))return "Рисунок";return "Городская графика"}
 function info(name){return citySeed.get(name)||null}
+function previewRank(a){
+ const title=(a.name||'').toLowerCase();
+ let rank=a.curated?15:0;
+ if(a.image&&a.image.startsWith('../assets/'))rank+=6;
+ if(/lithograph|lithography|litho|литограф|woodblock|engraving|etching/.test([a.medium,a.name].join(' ').toLowerCase()))rank+=5;
+ if(/panorama|veduta|vue de|view of|cityscape|cathedral|harbo[u]?r|canal|rue |piazza|city view|street|bridge/.test(title))rank+=4;
+ if(/map|chart|plan|cigarette|card|portrait|postcard|mostra|exhibition|fire insurance/.test(title))rank-=9;
+ if(a.quality_tier==='высокое'||a.quality_tier==='IIIF · доступно увеличение')rank+=2;
+ return rank
+}
 function build(){
  const data=new Map(),seen=new Set();
- for(const art of catalogue){if(!valid(art))continue;const key=(art.source||"")+":"+(art.source_id||art.id);if(seen.has(key))continue;seen.add(key);const city=info(art.city);if(!city)continue;let row=data.get(city.name);if(!row){row={...city,all:[],preview:null};data.set(city.name,row)}row.all.push(art);if(!row.preview||art.image.startsWith("../assets"))row.preview=art}
+ for(const art of catalogue){if(!valid(art))continue;const key=(art.source||"")+":"+(art.source_id||art.id);if(seen.has(key))continue;seen.add(key);const city=info(art.city);if(!city)continue;let row=data.get(city.name);if(!row){row={...city,all:[],preview:null};data.set(city.name,row)}row.all.push(art);if(!row.preview||previewRank(art)>previewRank(row.preview))row.preview=art}
  all=[...data.values()].sort((a,b)=>b.all.length-a.all.length||a.name.localeCompare(b.name,"ru"));
  $("works").textContent=all.reduce((n,c)=>n+c.all.length,0).toLocaleString("ru");
  $("cities").textContent=all.length.toLocaleString("ru");
@@ -83,8 +93,10 @@ function render(){
 $("query").oninput=()=>{limit=45;render()};$("tech").onchange=()=>{limit=45;render()};
 $("more").onclick=()=>{limit+=45;render()};
 $("journey").onclick=()=>{
- let choices=[];for(const region of REGIONS.slice(1)){const c=all.filter(x=>x.region===region);if(c.length)choices.push(c[Math.floor(Math.random()*c.length)])}
- choices=choices.slice(0,5);const grid=$("routeGrid");grid.replaceChildren();
+ const available=REGIONS.slice(1).filter(region=>all.some(x=>x.region===region));
+ for(let i=available.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[available[i],available[j]]=[available[j],available[i]]}
+ const choices=available.slice(0,5).map(region=>{const c=all.filter(x=>x.region===region);return c[Math.floor(Math.random()*c.length)]});
+ const grid=$("routeGrid");grid.replaceChildren();
  for(const c of choices){let linkNode=document.createElement("a");linkNode.href=link("../salon/",c.name);
  let img=document.createElement("img");img.src=c.preview.image;img.alt=c.preview.name;img.loading="lazy";
  let b=document.createElement("b");b.textContent=c.name;let hint=document.createElement("small");hint.textContent=c.region+" · "+c.all.length+" листов";
