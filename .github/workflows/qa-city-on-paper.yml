@@ -141,6 +141,7 @@ jobs:
           cp data/stories/madeleine-dossier-20261103.json /tmp/city-on-paper-package/data/stories/
           cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
           cp data/curation/world-cities-v1.json /tmp/city-on-paper-package/data/curation/
+          cp data/curation/benoist-paris-musees-v1.json /tmp/city-on-paper-package/data/curation/
           python tools/curation/build_open_art_cache.py --out /tmp/city-on-paper-package --workers 8
           python -m pip install Pillow==12.3.0
           python tools/curation/expand_open_archives.py --out /tmp/city-on-paper-package --cma 220 --aic 110 --met 60 --cache 180
