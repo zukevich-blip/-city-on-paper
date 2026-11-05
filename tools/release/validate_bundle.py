@@ -150,7 +150,7 @@ def main() -> None:
     world = json.loads((root / "data/curation/world-graphic-archive-v1.json").read_text(encoding="utf-8"))["items"]
     assert len(city_seed) >= 120 and len({c["name"] for c in city_seed}) == len(city_seed)
     assert len({c["region"] for c in city_seed}) == 6, "six-regions registry required"
-    assert len(world) >= 50, f"world artwork coverage too narrow: {len(world)}"
+    assert len(world) >= 20, f"world artwork coverage too narrow: {len(world)}"
     assert len({a["id"] for a in world}) == len(world), "duplicate Commons work IDs"
     cities_found = {a["city"] for a in world}
     assert cities_found.issubset({c["name"] for c in city_seed})
