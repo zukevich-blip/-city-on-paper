@@ -49,7 +49,9 @@ REJECT = re.compile(
     r"artist's portrait|coin|stamp|logo|trade mark|vase|ceramic|"
     r"advertising|newspaper|autograph|letterhead|family album|"
     r"costume|woman in|man in|self.portrait|coat of arms|"
-    r"medical diagram|anatomy|label|advertisement)\b",
+    r"medical diagram|anatomy|label|advertisement|"
+    r"mostra di|city flags|cigarettes brands|"
+    r"steamship city of|city of london, ontario)\b",
     re.I,
 )
 FORMAT = re.compile(r"\.(jpe?g|png)$", re.I)
@@ -109,6 +111,8 @@ def source_city_title(title: str, city: dict) -> bool:
 
 def classify(title: str) -> str:
     lower = title.casefold()
+    if re.search(r"\b(map|chart|plan|atlas|fire insurance)\b", lower):
+        return "Архивный план / карта"
     if re.search(r"woodblock|woodcut|ukiyo|nishiki", lower):
         return "Ксилография"
     if re.search(r"lithograph|lithography|litho\b|litograf|chromolithograph", lower):
@@ -233,6 +237,7 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int, max_seconds:
     manifest_path = folder / "world-graphic-archive-v1.json"
     progress_path = folder / "world-graphic-progress-v1.json"
     valid_names = {c["name"] for c in cities}
+    seed_by_name = {c["name"]: c for c in cities}
     previous = {}
     done = set()
     if manifest_path.exists():
@@ -243,6 +248,7 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int, max_seconds:
                 if a.get("id") and a.get("city") in valid_names
                 and a.get("provider") == "commons_world"
                 and a.get("rights") in {"cc0", "cc_by", "cc_by_sa", "public_domain_commons"}
+                and score(str(a.get("name") or ""), seed_by_name[a["city"]], int(a.get("original_width") or 0)) >= 0
             }
         except (ValueError, OSError, TypeError, KeyError):
             previous = {}
