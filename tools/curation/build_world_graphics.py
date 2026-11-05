@@ -264,7 +264,14 @@ def build(cities_path: Path, out: Path, per_city: int, budget: int, max_seconds:
                 if a.get("id") and a.get("city") in valid_names
                 and a.get("provider") == "commons_world"
                 and a.get("rights") in {"cc0", "cc_by", "cc_by_sa", "public_domain_commons"}
-                and score(str(a.get("name") or ""), seed_by_name[a["city"]], int(a.get("original_width") or 0)) >= 0
+                and score(
+                    str(a.get("name") or ""), seed_by_name[a["city"]],
+                    int(a.get("original_width") or 0),
+                    a.get("geography_confidence") == "commons_category"
+                    and str(a.get("category_source_url") or "").startswith(
+                        "https://commons.wikimedia.org/wiki/Category:"
+                    ),
+                ) >= 0
             }
         except (ValueError, OSError, TypeError, KeyError):
             previous = {}
