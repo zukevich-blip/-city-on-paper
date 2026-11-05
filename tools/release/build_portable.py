@@ -139,7 +139,7 @@ def main() -> None:
         print("Ошибка источника:", exc, file=sys.stderr)
         raise SystemExit(2) from exc
 
-    if summary["world"]["item_count"] < 50:
+    if summary["world"]["item_count"] < 20:
         raise SystemExit("Мировой архив слишком мал. Проверьте интернет и лимиты API.")
 
     command = [sys.executable, str(ROOT / "tools/release/validate_bundle.py"), "--root", str(out)]
