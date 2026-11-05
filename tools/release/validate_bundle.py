@@ -27,6 +27,7 @@ DATA = (
     "data/curation/museum-expansion-v1.json",
     "data/curation/modern-city-photography-v1.json",
     "data/curation/world-cities-v1.json",
+    "data/curation/benoist-paris-musees-v1.json",
     "data/curation/world-graphic-archive-v1.json",
     "data/candidates/candidates-2026-11-01b.json",
     "poc/compare/pairs/index.json",
@@ -170,6 +171,14 @@ def main() -> None:
         assert art["original_viewpoint_verified"] is False
         by_technique[art["medium"]] = by_technique.get(art["medium"], 0) + 1
 
+    benoist = json.loads((root / "data/curation/benoist-paris-musees-v1.json").read_text(encoding="utf-8"))["items"]
+    assert {a["id"] for a in benoist} == {"parismusees-320289563", "parismusees-320289583"}
+    for art in benoist:
+        assert art["rights"] == "cc0" and art["verified"] == "official_iiif_manifest"
+        assert art["license_url"] == "https://creativecommons.org/publicdomain/zero/1.0/"
+        assert art["manifest_url"].startswith("https://apicollections.parismusees.paris.fr/iiif/")
+        assert art["image"].startswith("https://apicollections.parismusees.paris.fr/")
+        assert art["original_width"] >= 2000 and art["creator_roles"]
     candidates = json.loads((root / "data/candidates/candidates-2026-11-01b.json").read_text(encoding="utf-8"))["items"]
     assert all(not x.get("published") for x in candidates), "unapproved research candidates must remain unpublished"
     assert all(not x.get("preview_url") for x in candidates if x["rights_category"] != "open")
