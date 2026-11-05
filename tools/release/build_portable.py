@@ -93,9 +93,9 @@ def copy_sources(out: Path) -> None:
 def build_catalogues(out: Path, world_budget: int) -> dict:
     # The tools' source catalogues are not rewritten in the repo.
     from tools.curation.build_modern_city_photos import build as photos
-    from tools.curation.enrich_city_categories import build as targeted
     from tools.curation.build_open_art_cache import build as base_cache
     from tools.curation.build_world_graphics import build as world
+    from tools.curation.enrich_city_categories import build as targeted
     from tools.curation.expand_open_archives import build as expanded
 
     base = base_cache(out, workers=8)
