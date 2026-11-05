@@ -108,7 +108,8 @@ Promise.allSettled([
  read("../data/curation/world-cities-v1.json"),
  read("../data/curation/world-graphic-archive-v1.json"),
  read("../data/curation/museum-expansion-v1.json"),
- read("../data/curation/cc0-gallery-20261103.json")
+ read("../data/curation/cc0-gallery-20261103.json"),
+ read("../data/curation/benoist-paris-musees-v1.json")
 ]).then((r)=>{
  if(r[0].status!=="fulfilled"){ $("status").textContent="Недоступен реестр городов. Откройте сайт через HTTP, а не файлом из архива.";return}
  citySeed=new Map(r[0].value.cities.map(x=>[x.name,x]));
