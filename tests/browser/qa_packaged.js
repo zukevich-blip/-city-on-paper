@@ -5,7 +5,7 @@ const fs = require("fs");
 const [,,base,outDir]=process.argv;
 if(!base||!outDir)throw Error("Usage: qa_packaged.js <http-origin> <screenshots-directory>");
 fs.mkdirSync(outDir,{recursive:true});
-const paths=["","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","poc/compare/","fieldwork/",
+const paths=["","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","poc/compare/","fieldwork/",
  "journeys/","detective/","discover/","studio/","ideas/","printlab/","ornaments/","atelier/bargue/","atelier/ornament/"];
 async function requireImage(page,id,min=80){await page.waitForFunction(({selector,min})=>{const n=document.querySelector(selector);return n instanceof HTMLImageElement&&n.complete&&n.naturalWidth>=min;},{selector:id,min},{timeout:22000})}
 (async()=>{
@@ -42,6 +42,10 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    await p.locator("#journey").click();
    if(await p.locator("#route").isHidden()||await p.locator("#routeGrid a").count()<3)throw Error(label+": multi-region journey did not open");
    await p.screenshot({path:outDir+"/"+label+"-artifact-world-atlas.jpg",type:"jpeg",quality:70});
+   await p.goto(new URL("exhibitions/lost-florence/",base).href,{waitUntil:"domcontentloaded"});
+   const florencePage=await p.locator("h1").textContent();if(!florencePage.includes("Рынок"))throw Error(label+": lost Florence exhibit missing");
+   if(await p.locator(".sources a").count()<2)throw Error(label+": Florence historical source links missing");
+   await p.screenshot({path:outDir+"/"+label+"-artifact-lost-florence.jpg",type:"jpeg",quality:70});
    await p.goto(new URL("photography/",base).href,{waitUntil:"domcontentloaded"});
    await p.waitForFunction(()=>document.querySelectorAll(".gallery .photo").length>=4,{timeout:15000});
    const photoCredits=await p.locator(".gallery .photo .links a").count();if(photoCredits<8)throw Error(label+": photo sources or license credits missing");
