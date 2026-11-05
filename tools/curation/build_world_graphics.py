@@ -20,7 +20,10 @@ from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 API = "https://commons.wikimedia.org/w/api.php"
-USER_AGENT = "CityOnPaperMuseum/2.2 (https://city-on-paper-anatolii.tolyaz.chatgpt.site; archival research) Python-urllib/3.12"
+USER_AGENT = (
+    "CityOnPaperMuseum/2.2 (https://city-on-paper-anatolii.tolyaz.chatgpt.site; "
+    "archival research) Python-urllib/3.12"
+)
 RIGHTS = {
     "CC0": ("cc0", "https://creativecommons.org/publicdomain/zero/1.0/"),
     "CC BY 4.0": ("cc_by", "https://creativecommons.org/licenses/by/4.0/"),
