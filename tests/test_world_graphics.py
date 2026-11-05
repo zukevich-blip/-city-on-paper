@@ -77,3 +77,21 @@ def test_technique_quality_and_real_world_registry():
     assert source_city_title("View of the city of Rome", {
         "name": "Рим", "query": "Rome city lithograph"
     })
+
+
+def test_curation_blocks_wrong_city_and_promotional_cards():
+    bad = fixture()
+    bad["title"] = "File:Mostra di Louise Nevelson a Palazzo Fava, Bologna 05.jpg"
+    assert normalize(bad, {"name": "Болонья", "country": "Италия", "region": "Европа",
+                           "query": "Bologna city lithograph"}) is None
+    bad["title"] = "File:Algiers, from the City Flags series (N6) for Cigarettes Brands.jpg"
+    assert normalize(bad, {"name": "Алжир", "country": "Алжир", "region": "Африка",
+                           "query": "Algiers city lithograph"}) is None
+    bad["title"] = "File:Bank of Toronto, City of London, Ontario, Canada (1897).jpg"
+    assert normalize(bad, {"name": "Торонто", "country": "Канада", "region": "Северная Америка",
+                           "query": "Toronto city lithograph"}) is None
+
+
+def test_historic_maps_are_labelled_without_treating_them_as_lithographs():
+    assert classify("Admiralty Chart No 2434 Cartagena Harbour") == "Архивный план / карта"
+    assert classify("Sanborn Fire Insurance Map Mexico City") == "Архивный план / карта"
