@@ -30,6 +30,7 @@ STATIC_FILES = (
     "index.html",
     "data/ideas/radar-20261103.json",
     "data/curation/world-cities-v1.json",
+    "data/curation/benoist-paris-musees-v1.json",
     "data/curation/close-reading-20261103.json",
     "data/curation/close-reading-benoist-20261103.json",
     "data/curation/era-journeys-20261102.json",
