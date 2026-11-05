@@ -221,3 +221,67 @@ jobs:
           name: then-now-qa-screenshots
           path: /tmp/city-on-paper-screens
           retention-days: 7
+
+  publish-pages:
+    name: Optional public mobile preview (GitHub Pages)
+    needs: [source-and-catalog, browser-viewer]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/release/city-on-paper-private-preview-20261104' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check whether the owner has enabled GitHub Pages
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          status=$(curl -sS -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPOSITORY/pages")
+          if [ "$status" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is enabled; deploying the already validated artifact."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Pages is not enabled (HTTP $status)."
+            echo "Owner action: https://github.com/$REPOSITORY/settings/pages"
+            echo "Select Source: GitHub Actions. Nothing is published by this run."
+          fi
+      - uses: actions/checkout@v4
+        if: steps.pages.outputs.enabled == 'true'
+      - name: Download artifact that already passed tests
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: city-on-paper-vnext-preview
+          path: private-site
+      - name: Strip unpublished research and sensitive working files
+        if: steps.pages.outputs.enabled == 'true'
+        run: |
+          python tools/release/make_public_preview.py --source private-site --out published-site
+          test -f published-site/index.html
+          test -f published-site/world/index.html
+          test ! -e published-site/data/candidates
+          test ! -e published-site/docs/consilium
+      - name: Configure GitHub Pages
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: published-site
+      - name: Deploy Pages
+        if: steps.pages.outputs.enabled == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
