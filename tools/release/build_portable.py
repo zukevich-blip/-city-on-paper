@@ -21,7 +21,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 STATIC_DIRS = (
     "poc/compare", "docs/ux/mockups", "world", "salon", "photography",
-    "closeup", "exhibitions/city-as-evidence", "discover", "journeys",
+    "closeup", "exhibitions/city-as-evidence", "exhibitions/lost-florence",
+    "discover", "journeys",
     "detective", "fieldwork", "printlab", "ideas", "studio", "ornaments",
     "atelier/bargue", "atelier/ornament",
 )
