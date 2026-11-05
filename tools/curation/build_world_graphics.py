@@ -84,6 +84,13 @@ ALIASES = {
 # Some query hits refer to the artist's home city, not the depicted city.
 # Requiring a city name in the title cuts false geography, at the cost of some omissions.
 GENERIC = {"city", "lithograph", "engraving", "old", "town", "view", "harbour", "harbor", "print", "photo"}
+CATEGORY_SUBJECT = re.compile(
+    r"\b(mercato|vecchio|firenze|lithograph|etching|engraving|veduta|view|vue|"
+    r"piazza|ponte|bridge|via|street|palazzo|canal|panorama|print|"
+    r"church|basilica|cathedral|market|square|landscape|river|"
+    r"venice|venezia|rome|roma|paris|naples|napoli)\b", re.I,
+)
+
 
 
 def clean(value: object, limit: int = 240) -> str:
@@ -132,9 +139,14 @@ def label_quality(width: int) -> str:
     return "невысокое"
 
 
-def score(title: str, city: dict, width: int) -> int:
+def score(title: str, city: dict, width: int, category: bool = False) -> int:
     x = title.casefold()
-    if not source_city_title(title, city) or not VIEW.search(x) or REJECT.search(x):
+    if REJECT.search(x):
+        return -1
+    if category:
+        if not CATEGORY_SUBJECT.search(x):
+            return -1
+    elif not source_city_title(title, city) or not VIEW.search(x):
         return -1
     pts = 3
     if re.search(r"lithograph|litho|litograf|chromolithograph", x):
@@ -150,7 +162,7 @@ def score(title: str, city: dict, width: int) -> int:
     return pts
 
 
-def normalize(page: dict, city: dict) -> tuple[dict, int] | None:
+def normalize(page: dict, city: dict, category: str | None = None) -> tuple[dict, int] | None:
     if page.get("ns") != 6 or not FORMAT.search(str(page.get("title", ""))):
         return None
     details = (page.get("imageinfo") or [{}])[0]
@@ -160,7 +172,7 @@ def normalize(page: dict, city: dict) -> tuple[dict, int] | None:
     if width < 550:
         return None
     title = page["title"]
-    pts = score(title, city, width)
+    pts = score(title, city, width, bool(category))
     if pts < 0:
         return None
     extra = details.get("extmetadata") or {}
@@ -202,7 +214,11 @@ def normalize(page: dict, city: dict) -> tuple[dict, int] | None:
         "license_label": license_name, "license_url": lic,
         "verified": "commons_api_extmetadata",
         "selection": "machine_selected_title_relevance",
-        "geography_confidence": "title_mentions_city",
+        "geography_confidence": "commons_category" if category else "title_mentions_city",
+        "category_source_url": (
+            "https://commons.wikimedia.org/wiki/" + category.replace(" ", "_")
+            if category else ""
+        ),
         "original_viewpoint_verified": False,
         "note": "Поисковая находка. Проверьте датировку, автора и вид объекта в архиве.",
         "checked": date.today().isoformat(), "provider": "commons_world",
