@@ -112,7 +112,7 @@ jobs:
             world-v2-
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/world /tmp/city-on-paper-package/photography /tmp/city-on-paper-package/closeup /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/world /tmp/city-on-paper-package/photography /tmp/city-on-paper-package/closeup /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/exhibitions/lost-florence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
           cp tools/release/serve_local.py /tmp/city-on-paper-package/serve_local.py
           cp docs/PORTABLE_SITE_HANDOFF.md /tmp/city-on-paper-package/PROJECT_HANDOFF.md
@@ -123,6 +123,7 @@ jobs:
           cp world/index.html /tmp/city-on-paper-package/world/
           cp closeup/index.html /tmp/city-on-paper-package/closeup/
           cp exhibitions/city-as-evidence/index.html /tmp/city-on-paper-package/exhibitions/city-as-evidence/
+          cp exhibitions/lost-florence/index.html /tmp/city-on-paper-package/exhibitions/lost-florence/
           cp printlab/index.html /tmp/city-on-paper-package/printlab/
           cp fieldwork/index.html /tmp/city-on-paper-package/fieldwork/
           cp data/ideas/radar-20261103.json /tmp/city-on-paper-package/data/ideas/
