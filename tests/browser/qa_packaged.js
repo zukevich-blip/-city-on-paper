@@ -28,6 +28,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    if(!(await p.locator("#zoomValue").textContent()).includes("150%"))throw Error(label+": art viewer zoom broken");
    if(!await p.locator("#viewerLicense").getAttribute("href"))throw Error(label+": rights link missing");
    await p.locator("#close").click();
+   if(!(await p.locator("#scope").isVisible()))await p.locator("#toggleFilters").click();
    await p.locator("#scope").selectOption("world");
    await p.waitForFunction(()=>document.querySelectorAll("#gallery .art").length>=6,null,{timeout:20000});
    await p.waitForFunction(()=>[...document.querySelectorAll("#gallery .art img")].slice(0,15).some(i=>i.complete&&i.naturalWidth>80),null,{timeout:30000});
