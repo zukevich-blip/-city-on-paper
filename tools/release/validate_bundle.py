@@ -11,7 +11,8 @@ from urllib.parse import unquote, urlsplit
 
 PAGES = (
     "index.html", "salon/index.html", "closeup/index.html", "photography/index.html", "world/index.html",
-    "exhibitions/city-as-evidence/index.html", "discover/index.html",
+    "exhibitions/city-as-evidence/index.html", "exhibitions/lost-florence/index.html",
+    "discover/index.html",
     "journeys/index.html", "detective/index.html", "fieldwork/index.html",
     "printlab/index.html", "ideas/index.html", "studio/index.html",
     "ornaments/index.html", "atelier/bargue/index.html",
