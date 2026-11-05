@@ -20,7 +20,7 @@ from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 API = "https://commons.wikimedia.org/w/api.php"
-USER_AGENT = "CityOnPaper/2.1 (rights-reviewed cultural discovery; contact via GitHub project)"
+USER_AGENT = "CityOnPaperMuseum/2.2 (https://city-on-paper-anatolii.tolyaz.chatgpt.site; archival research) Python-urllib/3.12"
 RIGHTS = {
     "CC0": ("cc0", "https://creativecommons.org/publicdomain/zero/1.0/"),
     "CC BY 4.0": ("cc_by", "https://creativecommons.org/licenses/by/4.0/"),
@@ -354,7 +354,7 @@ def main() -> None:
     p.add_argument("--cities", type=Path, default=Path("data/curation/world-cities-v1.json"))
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--per-city", type=int, default=9)
-    p.add_argument("--city-budget", type=int, default=35)
+    p.add_argument("--city-budget", type=int, default=65)
     p.add_argument("--max-seconds", type=int, default=480)
     args = p.parse_args()
     report = build(args.cities, args.out, max(1, min(args.per_city, 15)), args.city_budget, args.max_seconds)
