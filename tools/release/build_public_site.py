@@ -105,11 +105,12 @@ def optimize(page: Path, rel: str) -> None:
             '<div class="stat"><strong>19</strong><span>Залов и инструментов</span></div>'
             '</div>'
         )
+        has_statistics = '<div class="stats">' in content
         content, changed = re.subn(
             r'<div class="stats"><div class="stat">.*?</div></div>',
             stats, content, count=1,
         )
-        if changed != 1:
+        if has_statistics and changed != 1:
             raise ValueError("Museum home statistics layout unexpectedly changed")
         content = content.replace(
             '</footer>',
