@@ -1,0 +1,111 @@
+name: Publish City on Paper public museum
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-museum.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '27 4 * * *'
+
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: city-on-paper-public-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy verified public museum to GitHub Pages
+    if: github.repository == 'zukevich-blip/-city-on-paper'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout canonical museum release (never unreviewed main)
+        uses: actions/checkout@v4
+        with:
+          ref: release/city-on-paper-private-preview-20261104
+
+      - name: Locate latest successful tested museum ZIP
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          IDS="$(gh api "repos/$GH_REPO/actions/workflows/qa-city-on-paper.yml/runs?branch=release%2Fcity-on-paper-private-preview-20261104&status=success&per_page=20" --jq '.workflow_runs[].id')"
+          for id in $IDS; do
+            count="$(gh api "repos/$GH_REPO/actions/runs/$id/artifacts" --jq '[.artifacts[] | select(.name=="city-on-paper-vnext-preview" and .expired==false)] | length')"
+            if [ "$count" -gt 0 ]; then
+              echo "run_id=$id" >> "$GITHUB_OUTPUT"
+              echo "Using verified CI run: $id"
+              exit 0
+            fi
+          done
+          echo "::error::No successful release run with unexpired museum ZIP found"
+          exit 1
+
+      - name: Download exactly the tested museum artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ steps.source.outputs.run_id }}
+        run: |
+          mkdir -p private-site
+          gh run download "$RUN_ID" --repo "$GH_REPO" --name city-on-paper-vnext-preview --dir private-site
+          test -f private-site/index.html
+          test -f private-site/world/index.html
+          test -f private-site/poc/compare/index.html
+
+      - name: Build strict allowlisted public site
+        run: |
+          python tools/release/build_public_site.py --source private-site --out public
+          test -s public/index.html
+          test -s public/salon/index.html
+          test -s public/world/index.html
+          test -s public/poc/compare/homography.js
+          test -s public/sitemap.xml
+          test -s public/robots.txt
+          test ! -e public/data/candidates
+          test ! -e public/docs/consilium
+          test ! -e public/PROJECT_HANDOFF.md
+
+      - name: Verify public-site safety and metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          site=Path("public")
+          manifest=json.loads((site/"PUBLIC_BUILD.json").read_text(encoding="utf-8"))
+          assert manifest["public_html_pages"] >= 20
+          assert not manifest["candidate_research_included"]
+          files=[p for p in site.rglob("*") if p.is_file()]
+          assert not any(p.suffix in {".env", ".pem", ".p12", ".key", ".sqlite", ".db"} for p in files)
+          assert not any("secrets" in p.parts or "consilium" in p.parts for p in files)
+          assert "sitemap.xml" in {p.name for p in files}
+          assert "index,follow" in (site/"index.html").read_text(encoding="utf-8")
+          assert "Allow: /" in (site/"robots.txt").read_text(encoding="utf-8")
+          print(f"PUBLIC SAFETY PASS: {len(files)} allowlisted site files, {manifest['public_html_pages']} pages")
+          PY
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload vetted Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
