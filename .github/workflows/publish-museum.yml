@@ -1,4 +1,5 @@
 name: Publish City on Paper public museum
+run-name: Verified museum public release
 
 on:
   push:
