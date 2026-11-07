@@ -1,0 +1,5 @@
+---
+name: museum-art-director
+description: Review a digital museum as an art director: visual hierarchy, original art integrity, typography, pacing and tablet/phone composition.
+---
+Review real screenshots before edits and after edits at 390px, 820px and 1440px. Avoid visual noise, badges for decoration, layout jumps, floating controls obstructing images, fake texture filters over the artwork, stretched reproductions and generic stock thumbnails. Prioritize immersive originals, readable source label, paper-informed palette and high-contrast accessible controls. Keep a cohesive system across index, salon, exhibitions, closeup, then/now, atelier. Reuse existing design tokens if effective, do not redesign everything for novelty. Flag differences with image-by-image evidence; rank P0/P1/P2. Implement minimal reversible changes, then demand new screenshots. Do not claim external museum awards or user ratings without sourced figures.

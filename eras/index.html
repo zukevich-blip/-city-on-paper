@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#22362f">
+<meta name="description" content="Атлас эпох: историческая карта, города и одно место в разные времена — литография, фотохром, современный снимок. Экспериментальный прототип City on Paper.">
+<title>Атлас эпох · Город на бумаге</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Атлас эпох">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+:root{--paper:#f3eee5;--paper2:#faf6ee;--ink:#29342d;--dark:#22362f;--line:#d9cbb5;--gold:#a8804e;--muted:#6f6f63;--bad:#9b3b2a;--ok:#2f6b3a;--warn:#8a6512;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0}
+a{color:inherit}button,select{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #c59446;outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px;z-index:9}
+header.top{background:var(--dark);color:#f1eadb;padding:14px clamp(16px,4vw,56px);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+header.top strong{font:23px/1.2 Georgia,serif;margin-right:auto}header.top a{font-size:13px;color:#eadfc9;text-decoration:none}
+.proto{display:inline-block;font:11px/1.6 system-ui;letter-spacing:.12em;text-transform:uppercase;border:1px solid #dcb88c;color:#dcb88c;padding:0 7px;border-radius:2px}
+main{max-width:1500px;margin:0 auto;padding:18px clamp(16px,4vw,56px) 60px}
+.crumbs{font:13px system-ui;color:var(--muted);margin:4px 0 12px;display:flex;flex-wrap:wrap;gap:6px}
+.crumbs a{color:#6d5430}
+h1,h2,h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:-.02em}
+h1{font-size:clamp(34px,5vw,62px);line-height:1.02;margin:6px 0 10px}
+h2{font-size:clamp(26px,3.2vw,40px);margin:10px 0}
+.lede{font:16px/1.6 Georgia,serif;color:#4c5248;max-width:820px}
+.eyebrow{color:#8c6e41;font:600 11px system-ui;letter-spacing:.19em;text-transform:uppercase}
+.note{border-left:3px solid var(--gold);background:var(--paper2);padding:8px 14px;font:13px/1.55 system-ui;color:#5e5d53;margin:12px 0}
+/* plate: historic image in a museum mount; never cropped, never filtered */
+.plate{margin:0;background:var(--paper2);border:1px solid var(--line);padding:clamp(8px,1.5vw,18px);box-shadow:0 1px 0 #fff inset,0 10px 30px -22px #3b2e1a}
+.plate .frame{position:relative;border:1px solid #cbb99b;outline:1px solid #e9dfcd;outline-offset:3px;background:#efe6d6}
+.plate img{display:block;width:100%;height:auto}
+.plate figcaption{font:12px/1.5 system-ui;color:var(--muted);margin-top:10px}
+.pins{position:absolute;inset:0}
+.pin{position:absolute;transform:translate(-14px,-50%);display:flex;align-items:center;gap:6px;background:none;border:0;padding:6px;min-width:44px;min-height:44px;color:var(--dark)}
+.pin i{width:16px;height:16px;border-radius:50%;background:#fbf4e4;border:2px solid #7a3f22;box-shadow:0 0 0 3px #7a3f2233;flex:none}
+.pin span{font:600 13px Georgia,serif;letter-spacing:.06em;background:#fbf4e4e6;padding:1px 6px;border:1px solid #c9b48f;white-space:nowrap}
+.pin[aria-disabled=true] i{border-color:#9a9284;background:#e6dfd2}.pin[aria-disabled=true] span{color:#7c776d}
+.pin:hover i,.pin:focus-visible i{background:#7a3f22}
+.pin.left{flex-direction:row-reverse;transform:translate(calc(-100% + 14px),-50%)}
+.pin span{max-width:46vw;overflow:hidden;text-overflow:ellipsis}
+.cam{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;pointer-events:none}
+.camlist{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.camlist button{min-height:44px;border:1px solid #b9ab94;background:#fffdf7;padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:13px}.camlist small{color:#6f6f63}.camlist button[disabled]{opacity:.55}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;background:#7a3f22}.sw.era-photo{background:#2c5d73}.sw.era-today{background:#5b6b2f}
+.cam svg{overflow:visible}.cam .dot{fill:#7a3f22;stroke:#fbf4e4;stroke-width:2}.cam .cone{fill:#7a3f2240;stroke:#7a3f22;stroke-width:1}
+.cam.era-photo .dot{fill:#2c5d73}.cam.era-photo .cone{fill:#2c5d7340;stroke:#2c5d73}
+.cam.era-today .dot{fill:#5b6b2f}.cam.era-today .cone{fill:#5b6b2f40;stroke:#5b6b2f}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font:12px system-ui;color:var(--muted);margin:8px 0}
+.legend b{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.eras{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.eras button{border:1px solid var(--line);background:var(--paper2);padding:9px 14px;min-height:44px;border-radius:2px;color:#4f4a42}
+.eras button[aria-pressed=true]{background:var(--dark);border-color:var(--dark);color:#fff}
+.eras button[disabled]{opacity:.5;cursor:not-allowed}
+.cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+.card{background:var(--paper2);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:6px;text-decoration:none}
+.card h3{margin:0;font-size:26px}.card p{margin:0;font:13px/1.5 system-ui;color:#5f6158}
+.card small{font:12px system-ui;color:var(--muted)}
+.twocol{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}
+@media(max-width:900px){.twocol{grid-template-columns:1fr}}
+.places a{display:block;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.places a b{font:21px Georgia,serif;font-weight:normal}.places a small{display:block;font:12px system-ui;color:var(--muted)}
+/* timeline */
+.timeline{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin:14px 0}
+.era-card{scroll-snap-align:start;background:var(--paper2);border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:6px}
+.era-card .yr{font:30px Georgia,serif;color:#7a3f22}.era-card img{width:100%;height:200px;object-fit:contain;background:#ebe2d2}
+.era-card p{margin:0;font:12px/1.45 system-ui;color:#5f6158}
+.era-card .kind{font:600 10px system-ui;letter-spacing:.14em;text-transform:uppercase;color:#8c6e41}
+.rights{font:11px system-ui;padding:1px 6px;border-radius:2px;display:inline-block;border:1px solid}
+.rights.open{color:var(--ok);border-color:#9cc3a3}.rights.link{color:var(--warn);border-color:#d9c08a}
+/* compare */
+.compare{background:var(--paper2);border:1px solid var(--line);padding:14px;margin:18px 0}
+.ctrls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.ctrls select,.ctrls button{min-height:44px;padding:6px 10px;border:1px solid #b9ab94;background:#fffdf7;border-radius:2px}
+.ctrls button[aria-pressed=true]{background:var(--dark);color:#fff}.ctrls button[disabled]{opacity:.45;cursor:not-allowed}
+.stage{position:relative;overflow:hidden;background:#1d241f;touch-action:pan-y;user-select:none}
+.stage img{display:block;width:100%;height:min(70vh,640px);object-fit:contain;-webkit-user-drag:none}
+.stage .top{position:absolute;inset:0}
+.handle{position:absolute;top:0;bottom:0;width:44px;margin-left:-22px;display:flex;justify-content:center;cursor:ew-resize}
+.handle:before{content:"";width:2px;background:#fff;box-shadow:0 0 0 1px #0007}
+.handle span{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;border:1px solid #0005;color:#222}
+.tag{position:absolute;bottom:8px;font:12px system-ui;background:#000a;color:#fff;padding:2px 7px;border-radius:2px}.tag.l{left:8px}.tag.r{right:8px}
+.sbs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.sbs img{width:100%;height:auto;background:#1d241f}
+@media(max-width:620px){.sbs{grid-template-columns:1fr}}
+.verdict{font:13px/1.5 system-ui;border-left:4px solid var(--muted);padding:8px 12px;background:#fff;margin:10px 0}
+.verdict.close{border-color:var(--ok)}.verdict.partial{border-color:var(--warn)}.verdict.different_viewpoint{border-color:var(--bad)}
+.hunt{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;background:#e9e0cf;border:1px solid #cdbd9f;padding:14px;margin:16px 0}
+@media(max-width:520px){.hunt{grid-template-columns:1fr}}
+.story{font:16px/1.75 Georgia,serif;max-width:760px}.story h3{font-size:24px}.story .src{font:12px system-ui;color:var(--muted)}
+details.credits{background:var(--paper2);border:1px solid var(--line);padding:8px 12px;font:13px/1.55 system-ui;margin:12px 0}
+details.credits summary{min-height:32px;cursor:pointer}
+dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;margin:6px 0}dl.kv dt{color:var(--muted)}dl.kv dd{margin:0;word-break:break-word}
+footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 system-ui;color:#6a645a}
+@media(prefers-reduced-motion:no-preference){.view{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}}
+@media(max-width:650px){.stage img{height:72vw}.plate .pins .pin[href^="#/city"]{pointer-events:none}.plate .pins .pin[href^="#/city"] span{display:none}}
+@media(max-width:650px){header.top strong{flex-basis:100%;font-size:20px}.pin span{font-size:11px;padding:0 4px}.pin i{width:13px;height:13px}h1{font-size:34px}}
+
+/* v2: all cities */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.tools input,.tools select{min-height:46px;border:1px solid #a69c8d;background:#fffcf5;padding:10px 12px;border-radius:3px;font:15px system-ui}.tools input{flex:1 1 260px}
+.zoombar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;font:12px system-ui;color:var(--muted)}.zoombar button{min-width:44px;min-height:44px;border:1px solid #b9ab94;background:#fffdf7;font-size:20px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;margin:0 3px 0 8px;vertical-align:-1px}.sw.benoist{background:#7a3f22}.sw.featured{background:#c59446;box-shadow:0 0 0 2px #7a3f22}.sw.other{background:#2f5f52}
+.mapwrap{overflow:auto;-webkit-overflow-scrolling:touch;max-height:82vh;border:1px solid #cbb99b}
+.mapwrap .frame{position:relative;min-width:100%}
+.dot{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;display:block;text-decoration:none}
+.dot i{position:absolute;inset:3px;border-radius:50%;background:#2f5f52;border:1.5px solid #fbf4e4;box-shadow:0 0 0 1px #0005}
+.dot.benoist i{background:#7a3f22}.dot.featured i{background:#c59446;box-shadow:0 0 0 2px #7a3f22;inset:1px}
+.dot span{display:none;position:absolute;left:14px;top:-4px;white-space:nowrap;font:600 12px Georgia,serif;background:#fbf4e4f0;border:1px solid #c9b48f;padding:0 5px;color:#22362f;z-index:2}
+.dot:hover span,.dot.featured span{display:block}.dot.dim{opacity:.18}
+@media(max-width:650px){.dot.featured span{display:none}}
+.citylist{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:10px 0 24px}
+.ccard{background:var(--paper2);border:1px solid var(--line);padding:12px;text-decoration:none;display:flex;flex-direction:column;gap:3px;min-height:44px}
+.ccard b{font:400 21px Georgia,serif}.ccard small{color:var(--muted);font:12px system-ui}.ccard span{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.badge{font:normal 11px system-ui;border:1px solid #cdbd9f;padding:0 6px;border-radius:2px;color:#5f5a50}.badge.b{border-color:#7a3f22;color:#7a3f22}.badge.f{background:#c59446;border-color:#c59446;color:#22362f}
+.coords{font:13px system-ui;color:var(--muted)}h1 .orig{font-size:.45em;color:var(--muted)}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:12px 0}
+.wcard{background:var(--paper2);border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:4px}
+.wcard img{display:block;width:100%;height:190px;object-fit:contain;background:#ebe2d2}
+.wcard h4{margin:4px 0 0;font:400 16px/1.25 Georgia,serif}.wcard p{margin:0;font:12px/1.45 system-ui;color:#5f6158}.wcard .src{color:var(--muted)}
+.noimg{height:190px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font:12px system-ui;color:var(--muted);border:1px dashed #cdbd9f}
+.morebtn{min-height:44px;border:1px solid var(--dark);background:var(--dark);color:#fff;padding:8px 18px}
+.hunt2{background:#e9e0cf;border:1px solid #cdbd9f;padding:14px;margin:18px 0;font:14px/1.6 system-ui}
+hr.sep{border:0;border-top:1px solid var(--line);margin:28px 0}
+.install{display:none;margin-left:auto}.install.show{display:inline-block;min-height:36px;border:1px solid #dcb88c;background:none;color:#dcb88c;padding:4px 10px;font:12px system-ui}
+.hbtn{min-height:44px;border:1px solid #dcb88c;background:none;color:#eadfc9;padding:4px 10px;font:13px system-ui;border-radius:2px}
+dialog#fb{border:1px solid #cbb99b;background:#faf6ee;color:#29342d;max-width:520px;width:calc(100% - 32px);padding:18px}dialog#fb::backdrop{background:#0008}
+#fb textarea{width:100%;font:15px system-ui;padding:8px;border:1px solid #b9ab94;background:#fff;margin:4px 0}
+.stars{display:flex;gap:6px;flex-wrap:wrap}.stars label{min-height:44px;min-width:44px;display:flex;align-items:center;gap:4px;border:1px solid #cdbd9f;padding:0 10px;background:#fff;font:15px system-ui}
+.fbrow{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}.fbrow button{min-height:44px;padding:6px 14px;font:14px system-ui}.solid{background:#22362f;color:#fff;border:1px solid #22362f}.ghost{background:none;border:1px solid #b9ab94}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">К содержанию</a>
+<header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
+<a href="#/">Карта</a><a href="../">Музей</a><button type="button" class="hbtn" id="shareBtn">Поделиться</button><button type="button" class="hbtn" id="fbBtn">Оставить отзыв</button></header>
+<dialog id="fb" aria-labelledby="fbTitle"><form method="dialog" id="fbForm"><h2 id="fbTitle" style="margin:0 0 6px;font-size:26px">Ваш отзыв об атласе</h2><p style="font:13px/1.5 system-ui;margin:0 0 10px;color:#6f6f63">Отзыв не сохраняется на сайте. Кнопка «Отправить» откроет меню «Поделиться» вашего телефона — выберите мессенджер или почту и отправьте автору. На компьютере текст скопируется.</p><fieldset style="border:0;padding:0;margin:0 0 8px"><legend style="font:13px system-ui">Оценка</legend><div class="stars"><label><input type="radio" name="r" value="1"> 1</label><label><input type="radio" name="r" value="2"> 2</label><label><input type="radio" name="r" value="3"> 3</label><label><input type="radio" name="r" value="4"> 4</label><label><input type="radio" name="r" value="5"> 5</label></div></fieldset><label for="fbText" style="font:13px system-ui">Что понравилось, что улучшить, какие города добавить</label><textarea id="fbText" rows="5" maxlength="2000"></textarea><div class="fbrow"><button type="submit" value="cancel" class="ghost">Закрыть</button><button type="button" id="fbSend" class="solid">Отправить автору</button></div><p id="fbStatus" role="status" style="font:13px system-ui;color:#2f6b3a;min-height:18px"></p></form></dialog>
+<main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
+<noscript><p class="note">Для атласа нужен JavaScript. Все источники перечислены в <a href="data/eras.json">eras.json</a>.</p></noscript>
+<footer>«Атлас эпох» — часть музея «Город на бумаге». На iPhone: «Поделиться» → «На экран „Домой“»; на Android: меню браузера → «Установить приложение». Исторические изображения показаны без изменений: без кадрирования, ретуши и перекраски. Современные фото не деформируются; совпадение ракурса оценивается вручную и подписано. Каждая работа ведёт к карточке хранителя — проверяйте права там.</footer>
+<script src="atlas.js"></script>
+<script src="eras.js"></script>
+<script>
+if ("serviceWorker" in navigator && (location.protocol === "https:" || ["127.0.0.1", "localhost"].includes(location.hostname))) {
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+
+const shareUrl = () => location.origin + location.pathname + location.hash;
+async function shareOrCopy(data, statusEl, okText) {
+  try {
+    if (navigator.share) { await navigator.share(data); if (statusEl) statusEl.textContent = okText; return; }
+    await navigator.clipboard.writeText([data.text, data.url].filter(Boolean).join("\n"));
+    if (statusEl) statusEl.textContent = "Скопировано: вставьте в письмо или мессенджер и отправьте автору.";
+  } catch (e) {
+    if (e && e.name !== "AbortError" && statusEl) statusEl.textContent = data.text && data.text.startsWith("Отзыв")
+      ? "Не удалось скопировать автоматически: выделите текст отзыва и отправьте его автору в мессенджере."
+      : "Скопируйте адрес страницы из браузера.";
+  }
+}
+document.getElementById("shareBtn").addEventListener("click", (e) => {
+  const b = e.currentTarget;
+  shareOrCopy({ title: "Город на бумаге — Атлас эпох", text: "Старинная карта Европы, города Бенуа и виды городов в разные эпохи.", url: shareUrl() }, null, "");
+  if (!navigator.share) { b.textContent = "Ссылка скопирована"; setTimeout(() => (b.textContent = "Поделиться"), 2500); }
+});
+const fb = document.getElementById("fb");
+document.getElementById("fbBtn").addEventListener("click", () => { document.getElementById("fbStatus").textContent = ""; fb.showModal(); });
+document.getElementById("fbSend").addEventListener("click", () => {
+  const r = (document.querySelector('#fb input[name="r"]:checked') || {}).value;
+  const t = document.getElementById("fbText").value.trim();
+  if (!r && !t) { document.getElementById("fbStatus").textContent = "Поставьте оценку или напишите пару слов."; return; }
+  const text = `Отзыв об «Атласе эпох»${r ? ` — оценка ${r}/5` : ""}\nСтраница: ${shareUrl()}\n\n${t}`;
+  shareOrCopy({ title: "Отзыв об Атласе эпох", text }, document.getElementById("fbStatus"), "Спасибо! Отзыв передан в выбранное приложение.");
+});
+let deferredInstall = null;
+addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredInstall = e; document.getElementById("install").classList.add("show"); });
+document.getElementById("install").addEventListener("click", async () => { if (!deferredInstall) return; deferredInstall.prompt(); await deferredInstall.userChoice; deferredInstall = null; document.getElementById("install").classList.remove("show"); });
+</script>
+</body>
+</html>

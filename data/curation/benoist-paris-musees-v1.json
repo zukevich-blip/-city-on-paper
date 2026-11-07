@@ -1,0 +1,94 @@
+{
+  "version": "2026-11-05",
+  "scope": "Two individually identified Philippe Benoist / Paris Musées Musée Carnavalet CC0 lithographs, verified from official IIIF Presentation 2 manifests",
+  "editorial_status": "Institution source metadata confirmed; work and publication roles must remain distinct",
+  "rights_note": "Both official IIIF manifests and object pages explicitly say CC0. Other Benoist reproductions are not covered by this status.",
+  "items": [
+    {
+      "id": "parismusees-320289563",
+      "name": "Paris / Boulevart des Italiens",
+      "title_original": "Paris / Boulevart des Italiens",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Philippe Benoist",
+      "creator_roles": [
+        {
+          "name": "Philippe Benoist",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Imprimerie Lemercier",
+          "role": "типография"
+        },
+        {
+          "name": "Daziaro",
+          "role": "издатель"
+        }
+      ],
+      "date": "около 1855",
+      "era": "19",
+      "medium": "Цветная литография",
+      "source": "Paris Musées / Musée Carnavalet",
+      "source_id": "320289563",
+      "url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-boulevart-des-italiens",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320289563/manifest",
+      "image": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=t1L1rWRx",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=t1L1rWRx",
+      "original_width": 2973,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Вид бульвара Итальянцев. Издание с печатью Lemercier и Daziaro. Не путать с другим листом серии.",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=eH7GMMCG"
+    },
+    {
+      "id": "parismusees-320289583",
+      "name": "Vues de Paris (11) / Le Boulevart des Italiens",
+      "title_original": "Vues de Paris. (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Philippe Benoist; Adolphe Bayot",
+      "creator_roles": [
+        {
+          "name": "Philippe Benoist",
+          "role": "автор, по музейной карточке"
+        },
+        {
+          "name": "Adolphe Jean Baptiste Bayot",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role": "типография"
+        }
+      ],
+      "date": "",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Paris Musées / Musée Carnavalet",
+      "source_id": "320289583",
+      "url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-11-views-of-paris-le-boulevart-des-italiens-the-boulevart-des",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320289583/manifest",
+      "image": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=FJU76V4F",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=FJU76V4F",
+      "original_width": 2748,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Отдельный лист серии Vues de Paris. Два названных автора и типография Gihaut Frères. Датировка оригинала не указана.",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=CeEi3wBT"
+    }
+  ]
+}

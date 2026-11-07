@@ -1,5 +1,8 @@
 name: City on Paper vNext QA
 on:
+  push:
+    branches:
+      - release/city-on-paper-private-preview-20261104
   pull_request:
     paths:
       - 'tools/**'
@@ -18,14 +21,21 @@ on:
       - 'printlab/**'
       - 'fieldwork/**'
       - 'salon/**'
+      - 'photography/**'
+      - 'world/**'
       - 'closeup/**'
       - 'exhibitions/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 
+concurrency:
+  group: city-on-paper-world-rc2-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   source-and-catalog:
     name: Sources, catalog, image geometry
+    if: ${{ github.event_name != 'pull_request' || github.head_ref != 'release/city-on-paper-private-preview-20261104' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -57,8 +67,9 @@ jobs:
           PY
   browser-viewer:
     name: Then/Now responsive Chromium
+    if: ${{ github.event_name != 'pull_request' || github.head_ref != 'release/city-on-paper-private-preview-20261104' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -81,6 +92,8 @@ jobs:
           mkdir -p /tmp/city-on-paper-screens
           node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
           node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
+          node tests/browser/qa_antique_atlas.js http://127.0.0.1:8765/atlas-prototype/ /tmp/city-on-paper-screens
+          node tests/browser/qa_eras.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_detective.js http://127.0.0.1:8765/detective/ /tmp/city-on-paper-screens
           node tests/browser/qa_studio.js http://127.0.0.1:8765/studio/ /tmp/city-on-paper-screens
           node tests/browser/qa_museum_rooms.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -89,20 +102,38 @@ jobs:
           node tests/browser/qa_idea_lab.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_salon_exhibition.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_close_reading.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+      - name: Restore resumable Commons archive
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            /tmp/city-on-paper-package/data/curation/world-graphic-archive-v1.json
+            /tmp/city-on-paper-package/data/curation/world-graphic-progress-v1.json
+          key: world-v2-${{ hashFiles('tools/curation/build_world_graphics.py', 'data/curation/world-cities-v1.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            world-v2-${{ hashFiles('tools/curation/build_world_graphics.py', 'data/curation/world-cities-v1.json') }}-
+            world-v2-
       - name: Package runnable vNext museum preview
         run: |
-          mkdir -p /tmp/city-on-paper-package/closeup /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
+          mkdir -p /tmp/city-on-paper-package/world /tmp/city-on-paper-package/photography /tmp/city-on-paper-package/closeup /tmp/city-on-paper-package/salon /tmp/city-on-paper-package/exhibitions/city-as-evidence /tmp/city-on-paper-package/exhibitions/lost-florence /tmp/city-on-paper-package/ideas /tmp/city-on-paper-package/printlab /tmp/city-on-paper-package/fieldwork /tmp/city-on-paper-package/data/ideas /tmp/city-on-paper-package/discover /tmp/city-on-paper-package/atelier/ornament /tmp/city-on-paper-package/ornaments /tmp/city-on-paper-package/atelier/bargue /tmp/city-on-paper-package/studio /tmp/city-on-paper-package/data/research /tmp/city-on-paper-package/data/catalog /tmp/city-on-paper-package/data/candidates /tmp/city-on-paper-package/data/curation /tmp/city-on-paper-package/data/stories /tmp/city-on-paper-package/detective /tmp/city-on-paper-package/journeys /tmp/city-on-paper-package/poc /tmp/city-on-paper-package/docs/ux
           cp index.html /tmp/city-on-paper-package/
+          cp tools/release/serve_local.py /tmp/city-on-paper-package/serve_local.py
+          cp docs/PORTABLE_SITE_HANDOFF.md /tmp/city-on-paper-package/PROJECT_HANDOFF.md
           cp discover/index.html /tmp/city-on-paper-package/discover/
           cp ideas/index.html /tmp/city-on-paper-package/ideas/
           cp salon/index.html /tmp/city-on-paper-package/salon/
+          cp photography/index.html /tmp/city-on-paper-package/photography/
+          cp world/index.html /tmp/city-on-paper-package/world/
           cp closeup/index.html /tmp/city-on-paper-package/closeup/
           cp exhibitions/city-as-evidence/index.html /tmp/city-on-paper-package/exhibitions/city-as-evidence/
+          cp exhibitions/lost-florence/index.html /tmp/city-on-paper-package/exhibitions/lost-florence/
           cp printlab/index.html /tmp/city-on-paper-package/printlab/
           cp fieldwork/index.html /tmp/city-on-paper-package/fieldwork/
           cp data/ideas/radar-20261103.json /tmp/city-on-paper-package/data/ideas/
           cp data/curation/close-reading-20261103.json /tmp/city-on-paper-package/data/curation/
           cp data/curation/close-reading-benoist-20261103.json /tmp/city-on-paper-package/data/curation/
+          mkdir -p /tmp/city-on-paper-package/atlas-prototype
+          cp atlas-prototype/index.html /tmp/city-on-paper-package/atlas-prototype/
+          cp -R eras /tmp/city-on-paper-package/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
@@ -114,14 +145,74 @@ jobs:
           cp data/research/benoist-production-network-v1.json /tmp/city-on-paper-package/data/research/
           cp data/stories/madeleine-dossier-20261103.json /tmp/city-on-paper-package/data/stories/
           cp data/curation/era-journeys-20261102.json /tmp/city-on-paper-package/data/curation/
+          cp data/curation/world-cities-v1.json /tmp/city-on-paper-package/data/curation/
+          cp data/curation/benoist-paris-musees-v1.json /tmp/city-on-paper-package/data/curation/
           python tools/curation/build_open_art_cache.py --out /tmp/city-on-paper-package --workers 8
+          python -m pip install Pillow==12.3.0
+          python tools/curation/expand_open_archives.py --out /tmp/city-on-paper-package --cma 220 --aic 110 --met 60 --cache 180
+          python tools/curation/build_modern_city_photos.py --out /tmp/city-on-paper-package
+          python tools/curation/build_world_graphics.py --out /tmp/city-on-paper-package --city-budget 65 --per-city 9
+          python -m tools.curation.enrich_city_categories --out /tmp/city-on-paper-package --budget 10
           cp data/catalog/ledger-2026-11-01.csv /tmp/city-on-paper-package/data/catalog/
           cp data/candidates/candidates-2026-11-01b.json /tmp/city-on-paper-package/data/candidates/
           cp -R poc/compare /tmp/city-on-paper-package/poc/
           cp -R docs/ux/mockups /tmp/city-on-paper-package/docs/ux/
           mkdir -p /tmp/city-on-paper-package/docs/consilium
           cp docs/consilium/MASTER_DIRECTION_20261103.md /tmp/city-on-paper-package/docs/consilium/
-          printf '%s\n' 'Запуск: из этой папки python3 -m http.server 8765 ; затем откройте http://localhost:8765/' > /tmp/city-on-paper-package/README_RUN.txt
+          cp docs/consilium/BEFORE_RELEASE.md /tmp/city-on-paper-package/docs/consilium/
+          cp docs/consilium/AFTER_RELEASE.md /tmp/city-on-paper-package/docs/consilium/
+          cat > /tmp/city-on-paper-package/README_RUN.txt <<'EOF'
+          CITY ON PAPER | ГОРОД НА БУМАГЕ
+          Частная демонстрационная версия (vNext). Не опубликована как официальный сайт.
+          
+          1. Распакуйте архив на Mac/Windows/Linux, откройте терминал в папке с index.html.
+          2. Запустите: python3 -m http.server 8765
+             На Windows при необходимости: py -m http.server 8765
+          3. Откройте на компьютере: http://localhost:8765/
+          Для комфортного запуска есть serve_local.py: python3 serve_local.py
+          Для iPad/iPhone по доверенному домашнему Wi-Fi: python3 serve_local.py --lan
+          Программа покажет LAN-адрес для Safari; доступ без пароля, не использовать общественный Wi-Fi.
+          3A. Мировой атлас: /world/; Салон: /salon/; Фотографии: /photography/;
+          Всё хранится в одном ZIP/проекте, дополнительный сайт не создаётся.
+          В пакет включены PROJECT_HANDOFF.md и RELEASE_QA.json.
+          Историческая графика Commons и некоторые музейные файлы требуют подключения к Интернету.
+          4. В разделах «Тогда / Сейчас» и «Кабинет деталей» работают интерактивные сравнения и увеличение.
+             Для iPhone/iPad потребуется открыть страницу на доступном локальном веб-сервере или защищённом хостинге.
+             Запуск index.html прямо из ZIP/Files не гарантирует загрузку JSON и изображений.
+          5. Проверенный источник и права смотрите в карточке каждого произведения.
+             Два листа Philippe Benoist из Library of Congress имеют пометку «No known restrictions», НЕ CC0.
+          6. Источник старой Site v7 в этот пакет НЕ перенесён; старые семь исторических сравнений НЕ прошли независимую проверку.
+          EOF
+      - name: Stamp portable bundle provenance
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          base=pathlib.Path('/tmp/city-on-paper-package')
+          data={
+            'project':'City on Paper',
+            'source_repository':'zukevich-blip/-city-on-paper',
+            'source_revision':os.getenv('GITHUB_SHA'),
+            'source_branch':os.getenv('GITHUB_HEAD_REF') or os.getenv('GITHUB_REF_NAME'),
+            'content':'private, source-labelled museum preview',
+            'hosting':'local HTTP or separately authorized protected hosting',
+            'user_data':'no visitor photographs or notes uploaded'
+          }
+          (base/'VERSION.json').write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n')
+          PY
+      - name: Preserve incremental world metadata for next build
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            /tmp/city-on-paper-package/data/curation/world-graphic-archive-v1.json
+            /tmp/city-on-paper-package/data/curation/world-graphic-progress-v1.json
+          key: world-v2-${{ hashFiles('tools/curation/build_world_graphics.py', 'data/curation/world-cities-v1.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Audit and browser-test the ACTUAL delivered package
+        run: |
+          python tools/release/validate_bundle.py --root /tmp/city-on-paper-package
+          python -m http.server 8766 --directory /tmp/city-on-paper-package --bind 127.0.0.1 >/tmp/city-preview.log 2>&1 &
+          sleep 2
+          curl -fsS http://127.0.0.1:8766/index.html -o /dev/null
+          node tests/browser/qa_packaged.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
@@ -135,3 +226,67 @@ jobs:
           name: then-now-qa-screenshots
           path: /tmp/city-on-paper-screens
           retention-days: 7
+
+  publish-pages:
+    name: Optional public mobile preview (GitHub Pages)
+    needs: [source-and-catalog, browser-viewer]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/release/city-on-paper-private-preview-20261104' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check whether the owner has enabled GitHub Pages
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          status=$(curl -sS -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPOSITORY/pages")
+          if [ "$status" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is enabled; deploying the already validated artifact."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Pages is not enabled (HTTP $status)."
+            echo "Owner action: https://github.com/$REPOSITORY/settings/pages"
+            echo "Select Source: GitHub Actions. Nothing is published by this run."
+          fi
+      - uses: actions/checkout@v4
+        if: steps.pages.outputs.enabled == 'true'
+      - name: Download artifact that already passed tests
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: city-on-paper-vnext-preview
+          path: private-site
+      - name: Strip unpublished research and sensitive working files
+        if: steps.pages.outputs.enabled == 'true'
+        run: |
+          python tools/release/make_public_preview.py --source private-site --out published-site
+          test -f published-site/index.html
+          test -f published-site/world/index.html
+          test ! -e published-site/data/candidates
+          test ! -e published-site/docs/consilium
+      - name: Configure GitHub Pages
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: published-site
+      - name: Deploy Pages
+        if: steps.pages.outputs.enabled == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,120 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#22362f">
+<meta name="description" content="Мировой атлас исторической городской графики: города Европы, Азии, Африки, Америки и Океании. Работы с проверяемыми архивными источниками.">
+<title>Атлас городов мира · City on Paper</title>
+<style>
+:root{--paper:#f3eee5;--ink:#29342d;--dark:#22362f;--line:#d9cbb5;--sand:#e6dac4;--gold:#a8804e;--muted:#737466;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #c59446;outline-offset:3px}
+header{background:var(--dark);color:#f1eadb;padding:17px clamp(16px,4vw,65px);display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+header strong{font:25px/1.2 Georgia,serif;margin-right:auto}header a{font-size:13px;text-decoration:none;color:#eadfc9}
+.hero{background:var(--dark);color:#f5f1e8;padding:clamp(24px,3vw,43px) clamp(19px,5vw,75px) 28px;position:relative;overflow:hidden;border-top:1px solid #586456}
+.hero:before{content:"";position:absolute;width:680px;height:680px;right:-240px;top:-250px;border:1px solid #8f9c806b;border-radius:50%;box-shadow:0 0 0 48px #72826b16,0 0 0 100px #72826b0d;pointer-events:none}
+.kicker{letter-spacing:.24em;font:11px/1.4 sans-serif;text-transform:uppercase;color:#dcb88c}.hero h1{font:normal clamp(44px,5.5vw,76px)/1.01 Georgia,serif;letter-spacing:-.055em;margin:9px 0 12px;max-width:870px}
+.hero p{color:#e0dacd;max-width:820px;font:15px/1.55 Georgia,serif}.hero small{font-size:12px;color:#b9bfb6}
+.stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:17px}.stats b{display:block;font:29px Georgia,serif}.stats span{font:12px sans-serif;color:#d0c5b3}
+main{padding:19px clamp(18px,5vw,75px) 75px;max-width:1650px;margin:auto}.eyebrow{color:#8c6e41;font-size:11px;font-weight:600;letter-spacing:.19em;text-transform:uppercase}
+ .tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 15px}.tools input,.tools select{border:1px solid #a69c8d;padding:12px 14px;min-height:45px;background:#fffcf5;color:#27372e;border-radius:3px}.tools input{min-width:200px;flex:1}.tools button{border:1px solid var(--dark);padding:12px 17px;background:var(--dark);color:white;border-radius:3px}
+.regions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px}.regions button{border:1px solid var(--line);background:#f9f5ec;padding:9px 13px;border-radius:2px;color:#554f48}.regions button[aria-pressed=true]{background:var(--dark);color:white;border-color:var(--dark)}
+.note{border-left:3px solid var(--gold);padding:9px 15px;margin:20px 0 30px;background:#f9f5ec;color:#69675d;font:13px/1.6 sans-serif}
+ .sectionTitle{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin:18px 0 14px}.sectionTitle h2{font:normal clamp(33px,4vw,54px)/1.08 Georgia,serif;letter-spacing:-.04em;margin:5px 0}.sectionTitle small{color:#706c62;max-width:410px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}.city{min-width:0;border:1px solid #d2c6b4;background:#fcf9f2;display:flex;flex-direction:column}
+.city figure{margin:0;position:relative;height:185px;background:#dcd5c8;overflow:hidden}.city figure img{height:100%;width:100%;object-fit:cover;display:block;filter:saturate(.78)}
+.city .place{padding:18px;flex:1;display:flex;flex-direction:column;gap:7px}.city .place small{font-size:11px;color:#7e7466;text-transform:uppercase;letter-spacing:.13em}
+.city h3{font:normal 27px/1.1 Georgia,serif;margin:0}.city p{font:13px/1.5 sans-serif;color:#66685e;margin:0}.city .actions{display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:11px;flex-wrap:wrap}.city .actions a{font:12px sans-serif;color:#66502e;text-decoration:underline;text-underline-offset:4px}
+.city .quality{color:#807d70;font:11px sans-serif;margin-top:4px}.city figcaption{position:absolute;bottom:9px;left:10px;background:#22362fe0;color:white;padding:5px 9px;font-size:11px}
+.empty{padding:40px;border:1px dashed var(--line);text-align:center;color:#655d52}#more{display:block;margin:30px auto;border:1px solid var(--dark);background:var(--dark);padding:12px 28px;color:white}#more[hidden]{display:none}
+.route{background:#e6dccb;padding:20px;margin:28px 0;border:1px solid #c8bbaa}.route[hidden]{display:none}.route h2{font:normal 32px Georgia,serif;margin:0 0 9px}.route p{margin:0 0 17px;color:#6d6151}.routeGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.routeGrid a{background:#faf6ee;border:1px solid #cabbab;text-decoration:none;padding:12px}.routeGrid img{width:100%;height:125px;object-fit:cover}.routeGrid b{font:20px Georgia,serif;display:block}.routeGrid small{font-size:11px;color:#777168}
+footer{padding:29px clamp(18px,5vw,75px);background:#e7dfd2;font:12px/1.55 sans-serif;color:#736c61}
+@media(max-width:650px){header{gap:10px;padding:12px 18px}header strong{flex-basis:100%;font-size:21px}.hero{padding:16px 18px 17px}.hero h1{font-size:40px;line-height:1.01;margin:7px 0 10px}.hero p{font-size:13px;line-height:1.4;margin:8px 0}.hero .kicker{font-size:9px;letter-spacing:.12em}.hero small{display:none}.hero:before{width:250px;height:250px;right:-160px;top:-120px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}.stats b{font-size:24px}.stats span{font-size:10px;line-height:1.2;display:block}main{padding:12px 18px}.tools{gap:7px;margin:7px 0 10px}.tools input{flex:1 1 100%;min-height:41px;padding:8px 10px}.tools select{flex:1 1 38%;min-width:0;min-height:40px;padding:8px}.tools button{flex:1 1 47%;min-width:0;padding:8px;font-size:12px;min-height:40px}.note{font-size:11px;line-height:1.4;padding:7px 10px;margin:9px 0 11px}.sectionTitle{margin:9px 0 11px}.sectionTitle h2{font-size:32px}.sectionTitle small{display:none}.grid{grid-template-columns:1fr}.city figure{height:215px}.regions{overflow-x:auto;flex-wrap:nowrap;padding-bottom:9px}.regions button{white-space:nowrap;flex-shrink:0;padding:7px 9px;font-size:12px}}
+.featuredStory{margin:22px 0 30px;background:#e8dfcf;border-left:3px solid #ab8350;padding:24px 28px}.featuredStory h2{font:normal 31px/1.12 Georgia,serif;margin:8px 0}.featuredStory p{font:14px/1.7 system-ui;color:#5f6359;max-width:760px}.featuredStory a{font:13px system-ui;color:#70552f;text-underline-offset:4px}.featuredStory .kicker{font:11px system-ui;letter-spacing:.18em;text-transform:uppercase;color:#89663f}@media(max-width:620px){.featuredStory{padding:20px}.featuredStory h2{font-size:27px}}</style></head><body>
+<header><strong>City on Paper</strong><a href="../">Главная</a><a href="../salon/">Все работы</a><a href="../photography/">Город сегодня</a><a href="../poc/compare/">Тогда / Сейчас</a><a href="../closeup/">Кабинет деталей</a></header>
+<section class="hero"><div class="kicker">Мировое собрание · 6 регионов</div><h1>Атлас городов<br>на бумаге</h1><p>От Рима до Киото: исторические литографии, гравюры и ксилографии. Выбирайте город, рассматривайте детали и открывайте оригиналы в архиве.</p><div class="stats"><div><b id="works">...</b><span>изображений в каталоге</span></div><div><b id="cities">...</b><span>городов с изображениями</span></div><div><b id="regions">...</b><span>регионов с изображениями</span></div></div><small>Показаны только найденные изображения; реестр городов значительно шире.</small></section>
+<main><div class="eyebrow">Откройте место · Сравните эпохи</div><div class="tools"><input id="query" type="search" placeholder="Город или страна" aria-label="Поиск города или страны"><select id="tech" aria-label="Техника"><option value="">Все техники</option><option>Литография</option><option>Гравюра / офорт</option><option>Ксилография</option><option>Рисунок</option></select><button id="journey">Путешествие по пяти городам</button></div>
+<div class="regions" id="regionButtons" role="group" aria-label="Регионы мира"></div><section class="featuredStory"><div><span class="kicker">Новая история / Флоренция</span><h2>Исчезнувший Mercato Vecchio</h2><p>Переустройство старого центра, утраченные переулки и сохранённые художниками городские виды. Реальные архивные работы, источники и три вопроса к изображениям.</p><a href="../exhibitions/lost-florence/">Пройти выставку о старой Флоренции ↗</a></div></section>
+<div class="note" id="status" role="status">Загружаем архив. Для новых находок автоматически проверяются источник и статус прав, но точность датировки и изображения места может потребовать куратора. Пометка «общественное достояние» по Commons не означает CC0.</div>
+<section class="route" id="route" hidden><h2>Пять городов, пять деталей</h2><p>Выберите город и попытайтесь заметить то, что художник счёл главным: реку, башню, площадь, колоннаду или повседневную жизнь.</p><div class="routeGrid" id="routeGrid"></div></section>
+<div class="sectionTitle"><div><span class="eyebrow">География изображений</span><h2 id="heading">Города мира</h2></div><small id="shown">Перечень формируется из работ с доступными изображениями, а не из пустых карточек.</small></div><div class="grid" id="cityGrid" aria-live="polite"></div><button id="more" hidden>Показать ещё города</button>
+</main><footer>City on Paper · Печатная графика, городская память и проверяемые первоисточники. Музейные изображения Cleveland / Chicago / Met и архивная графика Wikimedia Commons имеют разные статусы прав. Не все найденные работы проверены искусствоведом; для переиздания всегда открывайте карточку архивного источника. Сайт работает локально из одной папки при запуске через HTTP.</footer>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const REGIONS=["Все регионы","Европа","Азия","Африка","Северная Америка","Латинская Америка","Океания"];
+let all=[], active="Все регионы", limit=45, catalogue=[], citySeed=new Map();
+function valid(a){return a?.id&&a?.name&&a?.city&&a?.image&&a?.url?.startsWith("https://")}
+function tech(a){let m=(a.medium||a.style||a.name||"").toLowerCase();if(/litho|литограф|litograf|chromolitho/.test(m))return "Литография";if(/woodblock|woodcut|ксилограф|ukiyo/.test(m))return "Ксилография";if(/engraving|etching|gravure|гравюр|офорт/.test(m))return "Гравюра / офорт";if(/watercol|drawing|рисунок|акварель/.test(m))return "Рисунок";return "Городская графика"}
+function info(name){return citySeed.get(name)||null}
+function previewRank(a){
+ const title=(a.name||'').toLowerCase();
+ let rank=a.curated?15:0;
+ if(a.image&&a.image.startsWith('../assets/'))rank+=6;
+ if(/lithograph|lithography|litho|литограф|woodblock|engraving|etching/.test([a.medium,a.name].join(' ').toLowerCase()))rank+=5;
+ if(/panorama|veduta|vue de|view of|cityscape|cathedral|harbo[u]?r|canal|rue |piazza|city view|street|bridge/.test(title))rank+=4;
+ if(/map|chart|plan|cigarette|card|portrait|postcard|mostra|exhibition|fire insurance/.test(title))rank-=9;
+ if(a.quality_tier==='высокое'||a.quality_tier==='IIIF · доступно увеличение')rank+=2;
+ return rank
+}
+function build(){
+ const data=new Map(),seen=new Set();
+ for(const art of catalogue){if(!valid(art))continue;const key=(art.source||"")+":"+(art.source_id||art.id);if(seen.has(key))continue;seen.add(key);const city=info(art.city);if(!city)continue;let row=data.get(city.name);if(!row){row={...city,all:[],preview:null};data.set(city.name,row)}row.all.push(art);if(!row.preview||previewRank(art)>previewRank(row.preview))row.preview=art}
+ all=[...data.values()].sort((a,b)=>b.all.length-a.all.length||a.name.localeCompare(b.name,"ru"));
+ $("works").textContent=all.reduce((n,c)=>n+c.all.length,0).toLocaleString("ru");
+ $("cities").textContent=all.length.toLocaleString("ru");
+ $("regions").textContent=new Set(all.map(x=>x.region)).size;
+ $("status").textContent="В атласе показываются только города, для которых есть исторические изображения. Датировка и художественная атрибуция части находок требуют сверки с архивом. Изображения Commons с пометкой public domain не приравниваются к CC0.";
+ render();
+}
+function selected(){
+ let q=$("query").value.toLocaleLowerCase("ru"),t=$("tech").value;
+ return all.filter(x=>(active==="Все регионы"||x.region===active)&&(!q||[x.name,x.country,x.region].some(v=>v.toLocaleLowerCase("ru").includes(q)))&&(!t||x.all.some(a=>tech(a)===t)));
+}
+function link(path,city){return path+"?city="+encodeURIComponent(city)}
+function render(){
+ const buttons=$("regionButtons");buttons.replaceChildren();for(const reg of REGIONS){let n=document.createElement("button");n.textContent=reg;n.setAttribute("aria-pressed",active===reg);n.onclick=()=>{active=reg;limit=45;render()};buttons.append(n)}
+ const rows=selected();$("heading").textContent=active==="Все регионы"?"Города мира":active;
+ $("shown").textContent="Показано "+Math.min(limit,rows.length)+" из "+rows.length+" городов с реальными изображениями";
+ $("more").hidden=limit>=rows.length;$("cityGrid").replaceChildren();
+ if(!rows.length){$("cityGrid").textContent="В этой части коллекции произведения ещё не отобраны. Попробуйте другой город или технику.";return}
+ for(const c of rows.slice(0,limit)){
+  const node=document.createElement("article");node.className="city";
+  const fig=document.createElement("figure"),img=document.createElement("img");img.src=c.preview.image;img.alt=c.preview.name;img.loading="lazy";img.decoding="async";img.onerror=()=>{img.remove();fig.style.background="#e7d8c1"};fig.append(img);
+  const cap=document.createElement("figcaption");cap.textContent=c.all.length+" произведений";fig.append(cap);
+  const body=document.createElement("div");body.className="place";
+  const label=document.createElement("small");label.textContent=c.country+" · "+c.region;
+  const h=document.createElement("h3");h.textContent=c.name;
+  const p=document.createElement("p");p.textContent="Архитектура, улицы и городская память. Исторические виды из открытых архивов.";
+  const q=document.createElement("div");q.className="quality";q.textContent="Один из источников: "+c.preview.source;
+  const actions=document.createElement("div");actions.className="actions";
+  const artLink=document.createElement("a");artLink.href=link("../salon/",c.name);artLink.textContent="Смотреть графику ↗";
+  const photoLink=document.createElement("a");photoLink.href=link("../photography/",c.name);photoLink.textContent="Найти фотографии ↗";
+  actions.append(artLink,photoLink);body.append(label,h,p,q,actions);node.append(fig,body);$("cityGrid").append(node);
+ }
+}
+$("query").oninput=()=>{limit=45;render()};$("tech").onchange=()=>{limit=45;render()};
+$("more").onclick=()=>{limit+=45;render()};
+$("journey").onclick=()=>{
+ const available=REGIONS.slice(1).filter(region=>all.some(x=>x.region===region));
+ for(let i=available.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[available[i],available[j]]=[available[j],available[i]]}
+ const choices=available.slice(0,5).map(region=>{const c=all.filter(x=>x.region===region);return c[Math.floor(Math.random()*c.length)]});
+ const grid=$("routeGrid");grid.replaceChildren();
+ for(const c of choices){let linkNode=document.createElement("a");linkNode.href=link("../salon/",c.name);
+ let img=document.createElement("img");img.src=c.preview.image;img.alt=c.preview.name;img.loading="lazy";
+ let b=document.createElement("b");b.textContent=c.name;let hint=document.createElement("small");hint.textContent=c.region+" · "+c.all.length+" листов";
+ linkNode.append(img,b,hint);grid.append(linkNode)}
+ $("route").hidden=false;$("route").scrollIntoView({behavior:"smooth",block:"start"});
+};
+function read(p){return fetch(p).then(r=>{if(!r.ok)throw Error(p+" HTTP "+r.status);return r.json()})}
+Promise.allSettled([
+ read("../data/curation/world-cities-v1.json"),
+ read("../data/curation/world-graphic-archive-v1.json"),
+ read("../data/curation/museum-expansion-v1.json"),
+ read("../data/curation/cc0-gallery-20261103.json"),
+ read("../data/curation/benoist-paris-musees-v1.json")
+]).then((r)=>{
+ if(r[0].status!=="fulfilled"){ $("status").textContent="Недоступен реестр городов. Откройте сайт через HTTP, а не файлом из архива.";return}
+ citySeed=new Map(r[0].value.cities.map(x=>[x.name,x]));
+ for(let i=1;i<r.length;i++){if(r[i].status==="fulfilled")catalogue.push(...(r[i].value.items||[]))}
+ if(!catalogue.length){$("status").textContent="Фонд временно не загрузился: проверьте соединение или открытие через HTTP.";return}
+ build()
+});
+</script></body></html>
