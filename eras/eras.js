@@ -21,10 +21,10 @@
 
   const credits = (img) => `<dl class="kv">
     <dt>Название</dt><dd>${esc(img.title)}</dd>
-    <dt>Авторы</dt><dd>${esc((img.creators || []).map((c) => c.role ? `${c.name} (${c.role})` : c.name).join("; ") || "не указаны хранителем")}</dd>
+    <dt>Авторы</dt><dd>${esc((img.creators || []).filter((c) => c.name).map((c) => c.role ? `${c.name} (${c.role})` : c.name).join("; ") || "не указаны хранителем")}</dd>
     <dt>Дата</dt><dd>${esc(img.date)}</dd>
     <dt>Хранитель</dt><dd>${esc(img.institution)}</dd>
-    <dt>Права</dt><dd>${esc(img.rights)}${img.rights_checked ? ` (проверено ${esc(img.rights_checked)})` : ""}</dd>
+    <dt>Права</dt><dd>${esc(img.rights)}${img.rights_checked ? ` (проверено ${esc(img.rights_checked)})` : ""}${img.license_url ? ` · <a href="${esc(safeUrl(img.license_url))}" target="_blank" rel="noopener">текст лицензии ↗</a>` : ""}</dd>
     <dt>Карточка</dt><dd><a href="${esc(safeUrl(img.object_url))}" target="_blank" rel="noopener">открыть у хранителя ↗</a></dd>
     ${img.file ? `<dt>Файл</dt><dd><a href="${esc(safeUrl(img.file))}" target="_blank" rel="noopener">открыть без изменений</a>${img.note ? ` · ${esc(img.note)}` : ""}</dd>` : ""}
   </dl>`;
@@ -51,9 +51,10 @@
       <h1>Найдите город на старой карте<br>и пройдите сквозь время</h1>
       <p class="lede">Подлинная карта — это портал, а не навигатор: её геометрия XVIII века неточна, поэтому точки городов поставлены по самой карте. Внутри города — геопривязанный план и точки, откуда смотрели художник, фотограф и наш современник.</p>
       <div class="eras" role="group" aria-label="Эпохи">${eras}</div>
-      <figure class="plate"><div class="frame"><img src="${esc(P.image)}" width="${P.width}" height="${P.height}" alt="${esc(P.alt)}" fetchpriority="high">
+      <figure class="plate"><div class="frame"><img src="${esc(P.image)}" ${P.image_small ? `srcset="${esc(P.image_small)} 1000w, ${esc(P.image)} 2000w" sizes="(max-width: 700px) 100vw, 1400px"` : ""} width="${P.width}" height="${P.height}" alt="${esc(P.alt)}" fetchpriority="high">
         <div class="pins">${pins}</div></div>
         <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">карточка ↗</a>. Декоративная карта: расстояния и очертания не точны.</figcaption></figure>
+      <p class="note" id="eraStatus" role="status" aria-live="polite">Выберите эпоху, чтобы увидеть города с подтверждёнными материалами.</p>
       <h2>Города</h2>
       <div class="cities">${D.cities.map((c) => `<a class="card" href="#/city/${esc(c.id)}"><span class="eyebrow">${esc(c.country)}</span><h3>${esc(c.name)}</h3><p>${esc(c.summary)}</p><small>${c.places.length} мест · ${c.places.reduce((n, p) => n + p.images.length, 0)} записей с источниками</small></a>`).join("")}</div>
     </div>`;
@@ -67,6 +68,10 @@
         const has = !on || city.places.some((p) => p.images.some((i) => i.era === b.dataset.era));
         pin.style.opacity = has ? "1" : ".35";
       });
+      const names = D.cities.filter((c) => c.places.some((p) => p.images.some((i) => i.era === b.dataset.era))).map((c) => c.name);
+      document.getElementById("eraStatus").textContent = on
+        ? `Эпоха «${b.textContent}»: материалы есть для ${names.length ? names.join(", ") : "ни одного города"}.`
+        : "Показаны все города.";
     }));
   }
 
@@ -112,10 +117,10 @@
     for (const city of D.cities) for (const p of city.places) if (p.id === id) { pl = p; c = city; }
     if (!pl) return notFound();
     const imgs = pl.images;
-    const cards = imgs.map((img, i) => `<article class="era-card"><span class="yr">${esc(img.year_label)}</span><span class="kind">${esc(KIND[img.kind] || img.kind)}</span>
+    const cards = imgs.map((img, i) => `<article class="era-card" role="listitem"><span class="yr">${esc(img.year_label)}</span><span class="kind">${esc(KIND[img.kind] || img.kind)}</span>
       ${img.file ? `<img src="${esc(img.file)}" alt="${esc(img.alt || img.title)}" loading="lazy" decoding="async">` : `<p class="note">Изображение не встраивается (права): открыть у хранителя.</p>`}
       <p>${esc(img.title)}</p><p>${esc(img.institution)} · ${rightsBadge(img)}</p>
-      <button class="pick" data-i="${i}" style="min-height:40px;border:1px solid #b9ab94;background:#fffdf7">Сравнить</button></article>`).join("");
+      ${img.file ? `<button class="pick" data-i="${i}" aria-label="Сравнить: ${esc(img.year_label)}, ${esc(KIND[img.kind] || img.kind)}" style="min-height:44px;border:1px solid #b9ab94;background:#fffdf7">Сравнить</button>` : ""}</article>`).join("");
     const opts = (sel) => imgs.map((img, i) => img.file ? `<option value="${i}" ${i === sel ? "selected" : ""}>${esc(img.year_label)} · ${esc(KIND[img.kind] || img.kind)}</option>` : "").join("");
     const withFile = imgs.map((x, i) => (x.file ? i : -1)).filter((i) => i >= 0);
     const rank = { close: 0, partial: 1, different_viewpoint: 2 };
@@ -159,9 +164,14 @@
     function render() {
       const a = +$("selA").value, b = +$("selB").value, A = pl.images[a], B = pl.images[b];
       for (const [im, s] of [[$("imA"), A], [$("sA"), A], [$("imB"), B], [$("sB"), B]]) { im.src = s.file; im.alt = `${s.year_label}: ${s.alt || s.title}`; }
-      $("tagA").textContent = A.year_label; $("tagB").textContent = B.year_label;
+      const tag = (x) => x.year_label + (x.id.startsWith("derived-") ? " · фрагмент 360°-панорамы (производная)" : "");
+      $("tagA").textContent = tag(A); $("tagB").textContent = tag(B);
       const p = pair(A.id, B.id);
       const r = p ? p.rating : "unknown";
+      const opBtn = document.querySelector('.ctrls [data-m="opacity"]');
+      opBtn.disabled = r !== "close";
+      opBtn.title = r === "close" ? "" : "Наложение с прозрачностью доступно только для близких ракурсов: иначе оно создаёт ложное впечатление совмещения";
+      if (mode === "opacity" && r !== "close") mode = "slider";
       const v = $("verdict");
       v.className = "verdict " + r;
       v.innerHTML = `<strong>${esc({ close: "Близкий ракурс", partial: "Частичное совпадение", different_viewpoint: "Разные точки съёмки", unknown: "Не оценено" }[r])}</strong> — ${esc(VERDICT[r])}${p && p.reason ? `<br>${esc(p.reason)}` : ""}${p && p.by ? `<br><small>Оценил: ${esc(p.by)}. Ручная оценка, не автоматическое совмещение.</small>` : ""}`;

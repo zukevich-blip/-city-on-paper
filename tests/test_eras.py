@@ -94,3 +94,19 @@ def test_camera_points_fall_inside_the_plan_detail():
     assert len(cams) >= 5
     for c in cams:
         assert 0 <= c["px"] <= d["width"] and 0 <= c["py"] <= d["height"]
+
+
+def test_share_alike_and_derivatives_disclose_licence_and_changes():
+    imgs = {i["id"]: i for *_, i in IMAGES}
+    sa = imgs["panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a"]
+    assert sa["license_url"].startswith("https://creativecommons.org/licenses/by-sa/4.0")
+    assert "Изменения" in sa["rights"] and "jerome92370" in sa["rights"]
+    for i in imgs.values():
+        if i["id"].startswith("derived-"):
+            assert i["license_url"].startswith("https://") and "Производная" in i["rights"]
+
+
+def test_portal_pins_match_reviewed_glyph_positions():
+    pins = DATA["portal"]["pins"]
+    assert (pins["florence"]["x"], pins["florence"]["y"]) == (812, 1168)  # not Lucca (786,1161)
+    assert (pins["naples"]["x"], pins["naples"]["y"]) == (885, 1294)  # coast glyph, not the sea

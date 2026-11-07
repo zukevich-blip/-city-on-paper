@@ -12,11 +12,18 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     p.on("response", r => { if (r.status() >= 400) errs.push(`${r.status()} ${r.url()}`); });
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
     ok(`${vp.n} portal: 3 city pins`, (await p.locator(".pin").count()) === 3);
-    ok(`${vp.n} portal: map loaded`, await p.$eval(".plate img", i => i.complete && i.naturalWidth === 2000));
+    ok(`${vp.n} portal: map loaded`, await p.$eval(".plate img", i => i.complete && i.naturalWidth > 0));
     await p.screenshot({ path: `${out}/${vp.n}-1-portal.jpg`, type: "jpeg", quality: 60 });
     // era filter dims cities without material, disabled era is not clickable
     ok(`${vp.n} portal: unavailable era disabled`, await p.$eval('.eras button[data-era="mid20"]', b => b.disabled));
-    await p.locator(".pin", { hasText: "Париж" }).click();
+    await p.click('.eras button[data-era="print"]');
+    ok(`${vp.n} portal: era filter announces result`, /Париж/.test(await p.textContent("#eraStatus")));
+    if (vp.w < 650) {
+      ok(`${vp.n} portal: phone uses small map file`, await p.$eval(".plate img", i => /_w1000/.test(i.currentSrc)));
+      await p.locator(".card", { hasText: "Париж" }).click();
+    } else {
+      await p.locator(".pin", { hasText: "Париж" }).click();
+    }
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
     await p.screenshot({ path: `${out}/${vp.n}-2-paris.jpg`, type: "jpeg", quality: 60 });
@@ -39,6 +46,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} slider pointer`, Math.abs(+(await p.getAttribute("#handle", "aria-valuenow")) - 25) <= 2);
     await p.locator(".camlist button:not([disabled])").nth(1).click();
     ok(`${vp.n} camera list selects image`, (await p.$eval("#selA", s => s.options[s.selectedIndex].text)).includes("1860"));
+    ok(`${vp.n} opacity disabled for non-close pair`, await p.$eval('[data-m="opacity"]', b => b.disabled));
+    await p.selectOption("#selA", { label: "ок. 1890–1900 · Фотохром" }).catch(() => {});
+    const opts = await p.$$eval("#selB option", os => os.map(o => o.textContent));
+    const der = await p.$$eval("#selB option", os => os.findIndex(o => /2017/.test(o.textContent)));
+    if (der >= 0) { await p.selectOption("#selB", { index: der }); ok(`${vp.n} derived crop labelled in compare`, /производная/.test(await p.textContent("#tagB")), opts.join("/")); }
     await p.click('[data-m="sbs"]');
     ok(`${vp.n} side-by-side exclusive`, await p.evaluate(() => document.getElementById("stage").hidden && !document.getElementById("sbs").hidden));
     await p.click('[data-m="slider"]');

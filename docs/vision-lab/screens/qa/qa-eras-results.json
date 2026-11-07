@@ -1,6 +1,6 @@
 {
- "when": "2026-11-07T06:30:43.645Z",
- "passed": 60,
+ "when": "2026-11-07T14:06:38.495Z",
+ "passed": 70,
  "failed": 0,
  "results": [
   {
@@ -15,6 +15,16 @@
   },
   {
    "n": "phone-390 portal: unavailable era disabled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: era filter announces result",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: phone uses small map file",
    "c": true,
    "d": ""
   },
@@ -69,6 +79,16 @@
    "d": ""
   },
   {
+   "n": "phone-390 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
    "n": "phone-390 side-by-side exclusive",
    "c": true,
    "d": ""
@@ -115,6 +135,11 @@
   },
   {
    "n": "tablet-820 portal: unavailable era disabled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: era filter announces result",
    "c": true,
    "d": ""
   },
@@ -169,6 +194,16 @@
    "d": ""
   },
   {
+   "n": "tablet-820 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
    "n": "tablet-820 side-by-side exclusive",
    "c": true,
    "d": ""
@@ -215,6 +250,11 @@
   },
   {
    "n": "desktop-1440 portal: unavailable era disabled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: era filter announces result",
    "c": true,
    "d": ""
   },
@@ -267,6 +307,16 @@
    "n": "desktop-1440 camera list selects image",
    "c": true,
    "d": ""
+  },
+  {
+   "n": "desktop-1440 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
   },
   {
    "n": "desktop-1440 side-by-side exclusive",

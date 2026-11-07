@@ -25,6 +25,8 @@ IMG = ROOT / "eras" / "img"
 
 KIND_MAP = [("photochrom", "photochrom"), ("lithograph", "print"), ("etching", "print"), ("engraving", "print"),
             ("photograph", "photo"), ("albumen", "photo"), ("stereo", "photo"), ("today", "today")]
+KIND_RU = {"print": "Литография/гравюра", "photo": "Фотография", "photochrom": "Фотохром",
+           "today": "Современный снимок"}
 ERA_OF = {"print": "print", "photo": "photo", "photochrom": "photo", "today": "today"}
 
 
@@ -157,6 +159,22 @@ def build() -> dict:
         cam = src.get("camera") or {}
         if cam.get("lat") is not None:
             rec["camera"] = {k2: cam.get(k2) for k2 in ("lat", "lon", "radius_m", "azimuth_deg", "basis", "confidence")}
+        if src.get("license_url"):
+            rec["license_url"] = src["license_url"]
+        patch = ov.get("image_patches", {}).get(src["id"], {})
+        for key, val in patch.items():
+            if key == "camera":
+                rec["camera"] = {**rec.get("camera", {}), **val}
+            else:
+                rec[key] = val
+        return finish(rec)
+
+    def finish(rec: dict) -> dict:
+        """Russian-first alt text; the English holder summary stays available as `summary_en`."""
+        if rec.get("alt") and rec.get("alt") != rec.get("alt_ru"):
+            rec["summary_en"] = rec["alt"]
+        default = f'{KIND_RU.get(rec["kind"], rec["kind"])} {rec["year_label"]}: {rec["title"]}'
+        rec["alt"] = rec.pop("alt_ru", None) or default
         return rec
 
     cities = []
@@ -167,8 +185,9 @@ def build() -> dict:
             imgs = [img_rec(i) for i in src["images"] if i["id"] not in pdef.get("drop", [])]
             for extra in pdef.get("derived", []):
                 f = IMG / extra["file"].split("/")[-1]
-                extra = {**extra, "sha256": sha(f), "rights_class": "open", "rights_short": "etalab-2.0 (производная)"}
-                imgs.append(extra)
+                extra = {**extra, "sha256": sha(f), "rights_class": "open", "rights_short": "etalab-2.0 (производная)",
+                         "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"}
+                imgs.append(finish({**extra, "alt_ru": extra.get("alt")}))
             def first_year(r: dict) -> int:
                 m = re.search(r"\d{4}", r["year_label"])
                 return int(m.group(0)) if m else 9999

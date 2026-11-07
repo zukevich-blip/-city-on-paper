@@ -18,14 +18,15 @@
     "y": 931
    },
    "florence": {
-    "x": 786,
-    "y": 1161
+    "x": 812,
+    "y": 1168
    },
    "naples": {
-    "x": 867,
-    "y": 1300
+    "x": 885,
+    "y": 1294
    }
-  }
+  },
+  "image_small": "img/loc-97683588-carte-d-europe-1769_w1000.jpg"
  },
  "eras": [
   {
@@ -90,18 +91,19 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg",
-       "alt": "Print shows a street level view, from an oblique angle, of the neo-classical church La Madeleine in Paris, France, showing the front and left side colonnades, and with a horse-drawn carriage and pedestrians in the foreground.",
+       "alt": "Литография/гравюра 1845–1860: Paris. La Madeleine",
        "sha256": "ad6ec25a6b3b5dfb1356599c8979cbfb5e959e790e29ddd16fdfc160882c675e",
        "camera": {
-        "lat": 48.8691,
-        "lon": 2.3231,
+        "lat": 48.8694,
+        "lon": 2.3236,
         "radius_m": 60,
         "azimuth_deg": 45,
-        "basis": "South portico (pediment) on the right, west flank colonnade receding left => viewer in the SW quadrant of the church, looking NE. Church axis from OSM way 54180046 (Nominatim): facade faces ~207° (towards rue Royale). Ratio of drawn flank (~190 px) to facade (~250 px) vs real lengths (~128 m vs ~43 m, computed from OSM polygon) implies line of sight ~15-30° off the church axis. Tree-lined street at right horizon interpreted (not verified) as the start of the Grands Boulevards. Lithograph perspective may be constructed by the draughtsman; radius reflects this.",
+        "basis": "Портик справа, западная колоннада слева → взгляд из юго-западной части площади на северо-восток. Исходная оценка куратора (48.8691, 2.3231) попадала в квартал рынка Агессо; центр перенесён на тротуар площади, радиус ±60 м сохранён (ревью red-team).",
         "confidence": "low-medium",
-        "px": 377.1,
-        "py": 587.5
-       }
+        "px": 420.5,
+        "py": 547.0
+       },
+       "summary_en": "Print shows a street level view, from an oblique angle, of the neo-classical church La Madeleine in Paris, France, showing the front and left side colonnades, and with a horse-drawn carriage and pedestrians in the foreground."
       },
       {
        "id": "loc-2009632631",
@@ -111,8 +113,8 @@
        "title": "Boulevart de la Madeleine",
        "creators": [
         {
-         "name": "unknown",
-         "role": "not named in record"
+         "name": "Paul Lancel",
+         "role": "художник (по записи LoC: «Lancel, Paul»)"
         }
        ],
        "date": "[1852]",
@@ -123,7 +125,8 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": null,
-       "alt": "Print showing Eglise de la Madeleine and streets intersecting the Boulevard de la Madeleine in Paris, France: rue de la Ferme des Mathurins, fue Godot-de-Mauroy, rue Deseze, and rue Caumartin."
+       "alt": "Литография/гравюра 1852: Boulevart de la Madeleine",
+       "summary_en": "Print showing Eglise de la Madeleine and streets intersecting the Boulevard de la Madeleine in Paris, France: rue de la Ferme des Mathurins, fue Godot-de-Mauroy, rue Deseze, and rue Caumartin."
       },
       {
        "id": "aic-212069",
@@ -145,7 +148,7 @@
        "rights_class": "open",
        "rights_short": "общественное достояние (AIC)",
        "file": "img/paris_madeleine_c1860_baldus_aic-212069.jpg",
-       "alt": "Church of the Madeleine (Eglise de la Madeleine)",
+       "alt": "Фотография ок. 1860: Church of the Madeleine (Eglise de la Madeleine)",
        "sha256": "fdaa642ea2d63684c056855528a8fb22c2f1070f186d1d1e9ed5b5143f96605e",
        "camera": {
         "lat": 48.8693,
@@ -156,7 +159,8 @@
         "confidence": "medium",
         "px": 368.3,
         "py": 560.9
-       }
+       },
+       "summary_en": "Church of the Madeleine (Eglise de la Madeleine)"
       },
       {
        "id": "loc-2001698525",
@@ -178,7 +182,7 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/paris_madeleine_c1890-1900_photochrom_elevated_loc-ppmsc-05183.jpg",
-       "alt": "[The Madeleine, Paris, France]",
+       "alt": "Фотохром ок. 1890–1900: [The Madeleine, Paris, France]",
        "sha256": "cf9e64f55d30c260862978d14ca4f3e9df4f14844f333dacd833d75f04205cbb",
        "camera": {
         "lat": 48.8693,
@@ -189,7 +193,8 @@
         "confidence": "medium",
         "px": 394.4,
         "py": 560.6
-       }
+       },
+       "summary_en": "[The Madeleine, Paris, France]"
       },
       {
        "id": "loc-2001698526",
@@ -211,7 +216,7 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/paris_madeleine_c1890-1900_photochrom_rue-royale_loc-ppmsc-05184.jpg",
-       "alt": "[The Madeleine, and rue Royale, Paris, France]",
+       "alt": "Фотохром ок. 1890–1900: [The Madeleine, and rue Royale, Paris, France]",
        "sha256": "124648d19718ac0187c5e8febeaa200b85f24f915a0f6c5336d07238d7e3e963",
        "camera": {
         "lat": 48.86805,
@@ -222,7 +227,8 @@
         "confidence": "medium-high (axis), low (distance)",
         "px": 368.6,
         "py": 727.9
-       }
+       },
+       "summary_en": "[The Madeleine, and rue Royale, Paris, France]"
       },
       {
        "id": "loc-2017660005",
@@ -244,7 +250,8 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": null,
-       "alt": "Paris. La Madeleine"
+       "alt": "Фотохром ок. 1890–1906: Paris. La Madeleine",
+       "summary_en": "Paris. La Madeleine"
       },
       {
        "id": "derived-rue-royale-31",
@@ -282,7 +289,8 @@
        },
        "sha256": "97bb0073f19570dc3168fd8f62e3d6890b76ed68702f46c4a23af7e796c2ef19",
        "rights_class": "open",
-       "rights_short": "etalab-2.0 (производная)"
+       "rights_short": "etalab-2.0 (производная)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
       },
       {
        "id": "derived-sw-corner-100",
@@ -309,25 +317,26 @@
        "note": "производная проекция современного снимка, не исходный кадр",
        "alt": "Мадлен с юго-запада вблизи: портик справа, западная колоннада уходит влево",
        "camera": {
-        "lat": 48.86955,
-        "lon": 2.32385,
+        "lat": 48.869663,
+        "lon": 2.323637,
         "radius_m": 15,
         "azimuth_deg": 52,
-        "basis": "GPS Panoramax (оценка куратора); направление — по видимым фасадам",
+        "basis": "GPS Panoramax (API, 2026-11-07); направление — по видимым фасадам",
         "confidence": "medium",
-        "px": 442.2,
-        "py": 526.7
+        "px": 423.6,
+        "py": 511.8
        },
        "sha256": "4522cb193e394d3ba33672790575e04ca673471670310df430e46fe5ca2b8890",
        "rights_class": "open",
-       "rights_short": "etalab-2.0 (производная)"
+       "rights_short": "etalab-2.0 (производная)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
       },
       {
        "id": "panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a",
        "era": "today",
        "kind": "today",
        "year_label": "2026",
-       "title": "street-level photo (Panoramax)",
+       "title": "Портик Мадлен с юга, 30 апреля 2026",
        "creators": [
         {
          "name": "jerome92370",
@@ -337,12 +346,12 @@
        "date": "2026-04-30T15:42:51.507000+00:00",
        "institution": "Panoramax (federated instance: osm-fr)",
        "object_url": "https://api.panoramax.xyz/#focus=pic&pic=38b6d262-648f-461e-b9a3-ab05eb22d92a",
-       "rights": "License for this object (CC-BY-SA-4.0)",
+       "rights": "CC BY-SA 4.0, автор jerome92370 (Panoramax). Изменения: уменьшено до 1600 px, перекодировано, удалены EXIF/GPS. Производные распространяются на тех же условиях.",
        "rights_checked": "2026-11-07",
        "rights_class": "open",
        "rights_short": "CC BY-SA 4.0",
        "file": "img/paris_madeleine_2026_panoramax_facade_38b6d262.jpg",
-       "alt": "street-level photo (Panoramax)",
+       "alt": "Фасад церкви Мадлен с фронтоном и колоннадой, люди на ступенях, 2026",
        "sha256": "0fa512a5ae3c58f90c2a29e593a01053a4e28d5185cef115e14031d7f0edc759",
        "camera": {
         "lat": 48.869328,
@@ -353,7 +362,10 @@
         "confidence": null,
         "px": 450.9,
         "py": 556.3
-       }
+       },
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "note": "уменьшенная копия, лица размыты Panoramax",
+       "summary_en": "street-level photo (Panoramax)"
       }
      ],
      "pairs": [
@@ -409,24 +421,24 @@
      ],
      "hunt": {
       "title": "Встаньте туда, где стоял Бенуа",
-      "lat": 48.8692,
-      "lon": 2.3231,
+      "lat": 48.8694,
+      "lon": 2.3236,
       "radius_m": 60,
       "azimuth_deg": 45,
-      "instructions": "Юго-западная часть площади Мадлен, там, где в неё выходит улица Руаяль. Портик должен быть справа, западная колоннада — уходить влево. Камера на уровне глаз, без наклона, объектив 35–50 мм (экв.). Обычного, не панорамного, снимка с этой точки в Panoramax на 07.11.2026 нет."
+      "instructions": "Юго-западный тротуар площади Мадлен, у выхода улицы Руаяль на площадь (не внутри квартала). Портик должен быть справа, западная колоннада — уходить влево. Камера на уровне глаз, без наклона, объектив 35–50 мм (экв.). Обычного, не панорамного, снимка с этой точки в Panoramax на 07.11.2026 нет."
      },
-     "story": "<p><em>Город: Париж · Место: церковь Мадлен и улица Руаяль · Подготовлено 2026-11-07: агент «куратор архива», правка координатора после проверки ракурсов.</em> <em>Пометки: <strong>[факт]</strong> — подтверждено источником по ссылке; <strong>[интерпретация]</strong> — наш вывод по изображениям и геометрии; <strong>[наблюдение]</strong> — то, что видно на снимке, без внешнего подтверждения.</em></p>\n<h3>1. С карты — на площадь</h3>\n<p>На карте-портале точка ставится по современной геометрии здания: в OpenStreetMap церковь — объект <code>way/54180046</code>, центр 48.87013° с. ш., 2.32454° в. д. <strong>[факт]</strong> (<a href=\"https://nominatim.openstreetmap.org/search?q=%C3%89glise+de+la+Madeleine,+Paris&amp;format=jsonv2&amp;polygon_geojson=1&amp;limit=3\" target=\"_blank\" rel=\"noopener\">Nominatim/OSM</a>). По контуру из того же ответа мы вычислили: главный портик смотрит на юго-юго-запад (~207°), фасад ~43 м, боковая колоннада ~128 м <strong>[интерпретация: расчёт по полигону]</strong>. На плане «Paris et ses environs : 1878» (Dumas-Vorzet, Institut géographique de Paris; Library of Congress, Geography and Map Division) церковь подписана «Madeleine» в начале Бульвара Мадлен <strong>[факт]</strong> (<a href=\"https://www.loc.gov/item/2012586603/\" target=\"_blank\" rel=\"noopener\">LoC 2012586603</a>). Мы привязали этот план к современным координатам по 15 ориентирам; погрешность около 30–50 м в центре <strong>[интерпретация: аффинная геопривязка]</strong>.</p>\n<p>Ось была задумана заранее: Людовик XV планировал церковь как замыкающую перспективу новой улицы Руаяль, ведущей к площади Людовика XV, нынешней площади Согласия <strong>[факт]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia, La Madeleine, Paris</a>). Наш расчёт подтверждает это геометрически: направление от центра фасада к обелиску на площади Согласия — ~206°, то есть улица и портик стоят на одной линии <strong>[интерпретация]</strong>.</p>\n<h3>2. Литография: 1845–1860</h3>\n<p>Ручная раскраска, литография, лист 23,5 × 32,4 см; подпись «Ph. Benoist del.» и «Imp. Lemercier, Paris»: рисовальщик — Филипп Бенуа, печать — мастерская Лемерсье; датировка библиотеки — между 1845 и 1860 годами <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2016652452/\" target=\"_blank\" rel=\"noopener\">LoC 2016652452</a>). Каталог описывает вид «с уровня улицы, под острым углом», с портиком, левой колоннадой и экипажем на переднем плане <strong>[факт]</strong> (там же). Библиотека осторожно предполагает, что лист — из более позднего издания альбома «Promenade dans Paris et ses environs» (1838–1843) <strong>[факт: предположение каталога]</strong>. Кто переносил рисунок на камень, запись не называет — мы тоже не называем.</p>\n<p>К этому моменту здание было новым: строительство, прерванное Революцией и переосмысленное при Наполеоне (проект Виньона, 1806), завершили, и церковь освятили 24 июля 1842 года <strong>[факт]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>).</p>\n<p><strong>Где стоял художник.</strong> Портик справа, боковая колоннада уходит влево — значит, взгляд из юго-западной части площади на северо-восток, азимут ~45° (±10°), радиус неопределённости ~60 м <strong>[интерпретация]</strong>. Перспектива рисованная и могла быть «построена», поэтому уверенность низкая-средняя.</p>\n<h3>3. Фотография около 1860 года</h3>\n<p>Эдуар Бальдюс, альбуминовый отпечаток, «c. 1860» (диапазон 1855–1865), Art Institute of Chicago, запись помечена как public domain <strong>[факт]</strong> (<a href=\"https://www.artic.edu/artworks/212069\" target=\"_blank\" rel=\"noopener\">AIC 212069</a>). Ракурс почти тот же, что у Бенуа: портик справа, колоннада слева, чуть западнее и ближе <strong>[интерпретация]</strong>. На снимке видна ограда вокруг цоколя — та же, что нарисована у Бенуа <strong>[наблюдение]</strong>. Эта пара (литография ↔ фотография) оценена как <code>partial</code> — честно: близко, но не точка в точку.</p>\n<h3>4. Фотохром около 1890–1900</h3>\n<p>Два вида из коллекции фотохромов Библиотеки Конгресса, оба с отметкой «No known restrictions on reproduction» <strong>[факт]</strong>:</p>\n<ul><li>«The Madeleine, and rue Royale» — названия взяты из каталога Detroit Publishing Co. 1905 года, номер отпечатка 9808 <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2001698526/\" target=\"_blank\" rel=\"noopener\">LoC 2001698526</a>). Фасад строго фронтально в конце улицы Руаяль; мы оцениваем точку съёмки на оси улицы ~150–230 м от портика, около перекрёстка с улицей Сент-Оноре, азимут ~26° <strong>[интерпретация: ширина фасада в кадре + предполагаемый объектив]</strong>.</li><li>«The Madeleine» — высокая точка, номер отпечатка «6942» <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2001698525/\" target=\"_blank\" rel=\"noopener\">LoC 2001698525</a>); другой отпечаток того же вида издан Photoglob (Цюрих), ок. 1890–1906 <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2017660005/\" target=\"_blank\" rel=\"noopener\">LoC 2017660005</a>). Снято сверху, ~15–25 м, тоже с юго-запада <strong>[интерпретация]</strong>.</li></ul>\n<h3>5. Сегодня</h3>\n<p>На улице Руаяль у перекрёстка с Сент-Оноре в Panoramax есть 360°-панорама от 5 ноября 2017 года (лицензия etalab-2.0, автор — сервис geovelo); Мадлен стоит в её центре <strong>[факт: метаданные + наблюдение]</strong> (<a href=\"https://api.panoramax.xyz/#focus=pic&amp;pic=4a56a9ba-1e31-4dab-acb5-706bfd5973c5\" target=\"_blank\" rel=\"noopener\">Panoramax 4a56a9ba</a>). Она в пределах нашей оценки точки фотохрома. Чтобы проверить это, мы построили из панорамы перспективный фрагмент с углом обзора 31° — так портик занимает ту же долю кадра, что и на фотохроме <strong>[интерпретация: проекция только современного снимка]</strong>. Ось улицы и масштаб совпали, но камера панорамы стоит на западном тротуаре, примерно в 10 м от оси, и портик наполовину закрыт деревьями и гирляндой. Поэтому честная оценка — <code>partial</code>, а не «тот же кадр». Фронтальный снимок 30 апреля 2026 года (CC BY-SA 4.0, jerome92370) — с той же оси, но вблизи портика: <code>partial</code> (<a href=\"https://api.panoramax.xyz/#focus=pic&amp;pic=38b6d262-648f-461e-b9a3-ab05eb22d92a\" target=\"_blank\" rel=\"noopener\">Panoramax 38b6d262</a>).</p>\n<p>Для ракурса Бенуа/Бальдюса обычной (не 360°) фотографии с юго-запада в Panoramax на 2026-11-07 нет — только 360°-панорама 2017 года (<code>partial</code>). Это задание «Охота за кадром»: встать у юго-западного края площади, где в неё выходит улица Руаяль (≈48.8692, 2.3231, ±60 м), смотреть на северо-восток (~45°), объектив 35–50 мм, камера без наклона, портик справа.</p>\n<h3>6. Что изменилось</h3>\n<p>Документально подтверждённых утрат именно в этих кадрах мы не нашли и не придумываем. Видно другое <strong>[наблюдение]</strong>: на фотохроме улицы Руаяль — конные экипажи и велосипедисты, на снимках Panoramax — автомобили; ограда вдоль ступеней портика существует и сегодня. Сама же архитектура фасада — 52 коринфские колонны, рельеф «Страшного суда» Лемера на фронтоне, латинская надпись на фризе <strong>[факт]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>) — узнаётся во всех трёх эпохах. Надпись «D·O·M·SVB·INVOC·S·M·MAGDALENAE» отчётливо читается на снимке 2026 года <strong>[наблюдение]</strong>; на фотохроме в доступном разрешении (1024 px) она не различима.</p>",
+     "story": "<p><em>Город: Париж · Место: церковь Мадлен и улица Руаяль · Подготовлено 2026-11-07: агент «куратор архива», правка координатора после проверки ракурсов.</em> <em>Пометки: <strong>[факт]</strong> — подтверждено источником по ссылке; <strong>[интерпретация]</strong> — наш вывод по изображениям и геометрии; <strong>[наблюдение]</strong> — то, что видно на снимке, без внешнего подтверждения.</em></p>\n<h3>1. С карты — на площадь</h3>\n<p>На карте-портале точка ставится по современной геометрии здания: в OpenStreetMap церковь — объект <code>way/54180046</code>, центр 48.87013° с. ш., 2.32454° в. д. <strong>[факт]</strong> (<a href=\"https://nominatim.openstreetmap.org/search?q=%C3%89glise+de+la+Madeleine,+Paris&amp;format=jsonv2&amp;polygon_geojson=1&amp;limit=3\" target=\"_blank\" rel=\"noopener\">Nominatim/OSM</a>). По контуру из того же ответа мы вычислили: главный портик смотрит на юго-юго-запад (~207°), фасад ~43 м, боковая колоннада ~128 м <strong>[интерпретация: расчёт по полигону]</strong>. На плане «Paris et ses environs : 1878» (Dumas-Vorzet, Institut géographique de Paris; Library of Congress, Geography and Map Division) церковь подписана «Madeleine» в начале Бульвара Мадлен <strong>[факт]</strong> (<a href=\"https://www.loc.gov/item/2012586603/\" target=\"_blank\" rel=\"noopener\">LoC 2012586603</a>). Мы привязали этот план к современным координатам по 15 ориентирам; погрешность около 30–50 м в центре <strong>[интерпретация: аффинная геопривязка]</strong>.</p>\n<p>Ось была задумана заранее: Людовик XV планировал церковь как замыкающую перспективу новой улицы Руаяль, ведущей к площади Людовика XV, нынешней площади Согласия <strong>[справка: Wikipedia — третичный источник, нужна первичная проверка]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia, La Madeleine, Paris</a>). Наш расчёт подтверждает это геометрически: направление от центра фасада к обелиску на площади Согласия — ~206°, то есть улица и портик стоят на одной линии <strong>[интерпретация]</strong>.</p>\n<h3>2. Литография: 1845–1860</h3>\n<p>Ручная раскраска, литография, лист 23,5 × 32,4 см; подпись «Ph. Benoist del.» и «Imp. Lemercier, Paris»: рисовальщик — Филипп Бенуа, печать — мастерская Лемерсье; датировка библиотеки — между 1845 и 1860 годами <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2016652452/\" target=\"_blank\" rel=\"noopener\">LoC 2016652452</a>). Каталог описывает вид «с уровня улицы, под острым углом», с портиком, левой колоннадой и экипажем на переднем плане <strong>[факт]</strong> (там же). Библиотека осторожно предполагает, что лист — из более позднего издания альбома «Promenade dans Paris et ses environs» (1838–1843) <strong>[факт: предположение каталога]</strong>. Кто переносил рисунок на камень, запись не называет — мы тоже не называем.</p>\n<p>К этому моменту здание было новым: строительство, прерванное Революцией и переосмысленное при Наполеоне (проект Виньона, 1806), завершили, и церковь освятили 24 июля 1842 года <strong>[справка: Wikipedia — третичный источник, нужна первичная проверка]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>).</p>\n<p><strong>Где стоял художник.</strong> Портик справа, боковая колоннада уходит влево — значит, взгляд из юго-западной части площади на северо-восток, азимут ~45° (±10°), радиус неопределённости ~60 м <strong>[интерпретация]</strong>. Перспектива рисованная и могла быть «построена», поэтому уверенность низкая-средняя.</p>\n<h3>3. Фотография около 1860 года</h3>\n<p>Эдуар Бальдюс, альбуминовый отпечаток, «c. 1860» (диапазон 1855–1865), Art Institute of Chicago, запись помечена как public domain <strong>[факт]</strong> (<a href=\"https://www.artic.edu/artworks/212069\" target=\"_blank\" rel=\"noopener\">AIC 212069</a>). Ракурс почти тот же, что у Бенуа: портик справа, колоннада слева, чуть западнее и ближе <strong>[интерпретация]</strong>. На снимке видна ограда вокруг цоколя — та же, что нарисована у Бенуа <strong>[наблюдение]</strong>. Эта пара (литография ↔ фотография) оценена как <code>partial</code> — честно: близко, но не точка в точку.</p>\n<h3>4. Фотохром около 1890–1900</h3>\n<p>Два вида из коллекции фотохромов Библиотеки Конгресса, оба с отметкой «No known restrictions on reproduction» <strong>[факт]</strong>:</p>\n<ul><li>«The Madeleine, and rue Royale» — названия взяты из каталога Detroit Publishing Co. 1905 года, номер отпечатка 9808 <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2001698526/\" target=\"_blank\" rel=\"noopener\">LoC 2001698526</a>). Фасад строго фронтально в конце улицы Руаяль; мы оцениваем точку съёмки на оси улицы ~150–230 м от портика, около перекрёстка с улицей Сент-Оноре, азимут ~26° <strong>[интерпретация: ширина фасада в кадре + предполагаемый объектив]</strong>.</li><li>«The Madeleine» — высокая точка, номер отпечатка «6942» <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2001698525/\" target=\"_blank\" rel=\"noopener\">LoC 2001698525</a>); другой отпечаток того же вида издан Photoglob (Цюрих), ок. 1890–1906 <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2017660005/\" target=\"_blank\" rel=\"noopener\">LoC 2017660005</a>). Снято сверху, ~15–25 м, тоже с юго-запада <strong>[интерпретация]</strong>.</li></ul>\n<h3>5. Сегодня</h3>\n<p>На улице Руаяль у перекрёстка с Сент-Оноре в Panoramax есть 360°-панорама от 5 ноября 2017 года (лицензия etalab-2.0, автор — сервис geovelo); Мадлен стоит в её центре <strong>[факт: метаданные + наблюдение]</strong> (<a href=\"https://api.panoramax.xyz/#focus=pic&amp;pic=4a56a9ba-1e31-4dab-acb5-706bfd5973c5\" target=\"_blank\" rel=\"noopener\">Panoramax 4a56a9ba</a>). Она в пределах нашей оценки точки фотохрома. Чтобы проверить это, мы построили из панорамы перспективный фрагмент с углом обзора 31° — так портик занимает ту же долю кадра, что и на фотохроме <strong>[интерпретация: проекция только современного снимка]</strong>. Ось улицы и масштаб совпали, но камера панорамы стоит на западном тротуаре, примерно в 10 м от оси, и портик наполовину закрыт деревьями и гирляндой. Поэтому честная оценка — <code>partial</code>, а не «тот же кадр». Фронтальный снимок 30 апреля 2026 года (CC BY-SA 4.0, jerome92370) — с той же оси, но вблизи портика: <code>partial</code> (<a href=\"https://api.panoramax.xyz/#focus=pic&amp;pic=38b6d262-648f-461e-b9a3-ab05eb22d92a\" target=\"_blank\" rel=\"noopener\">Panoramax 38b6d262</a>).</p>\n<p>Для ракурса Бенуа/Бальдюса обычной (не 360°) фотографии с юго-запада в Panoramax на 2026-11-07 нет — только 360°-панорама 2017 года (<code>partial</code>). Это задание «Охота за кадром»: встать у юго-западного края площади, где в неё выходит улица Руаяль (≈48.8694, 2.3236, ±60 м, на тротуаре площади, а не в квартале), смотреть на северо-восток (~45°), объектив 35–50 мм, камера без наклона, портик справа.</p>\n<h3>6. Что изменилось</h3>\n<p>Документально подтверждённых утрат именно в этих кадрах мы не нашли и не придумываем. Видно другое <strong>[наблюдение]</strong>: на фотохроме улицы Руаяль — конные экипажи и велосипедисты, на снимках Panoramax — автомобили; ограда вдоль ступеней портика существует и сегодня. Сама же архитектура фасада — 52 коринфские колонны, рельеф «Страшного суда» Лемера на фронтоне, латинская надпись на фризе <strong>[справка: Wikipedia — третичный источник, нужна первичная проверка]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>) — узнаётся во всех трёх эпохах. Надпись «D·O·M·SVB·INVOC·S·M·MAGDALENAE» отчётливо читается на снимке 2026 года; ревьюер консилиума различил её также на фотографии Бальдюса и на фотохроме с высокой точки <strong>[наблюдение]</strong>.</p>",
      "plan_detail": {
       "image": "img/loc-2012586603-paris-1878_detail_x7140-y3640-w1000-h760.jpg",
       "width": 1000,
       "height": 760,
       "title": "Paris et ses environs : 1878 — деталь: площадь Мадлен и улица Руаяль",
-      "credit": "E. D. Vorzet; Institut géographique de Paris (Ch. Delagrave). Деталь листа через IIIF LoC: область x 7140–8140, y 3640–4400 полного скана (≈840 × 640 м), пиксели не изменены",
+      "credit": "Ed. Dumas-Vorzet; Institut géographique de Paris; печать Becquet frères (по записи LoC; на листе также указан Ch. Delagrave). Деталь листа через IIIF LoC: область x 7140–8140, y 3640–4400 полного скана (≈840 × 640 м), пиксели не изменены",
       "object_url": "https://www.loc.gov/item/2012586603/",
       "rights": "LoC Geography and Map Division: free to use and reuse (no Rights Advisory).",
       "rights_class": "open",
       "rights_short": "LoC G&M: свободно",
-      "alt": "Фрагмент плана Парижа 1878 года: площадь Мадлен, улица Руаяль, площадь Согласия, сад Тюильри и Пале-Рояль"
+      "alt": "Фрагмент плана Парижа 1878 года: церковь Мадлен, улица Руаяль, бульвар Малерб, рынок Агессо и Жокей-клуб"
      },
      "plan_xy": [
       973.2,
@@ -463,8 +475,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/paris_palaisroyal_1845-60_benoist_lemercier_loc-pga-14314.jpg",
-       "alt": "Print shows a bird's-eye view of the courtyard, gardens, fountain, and colonnade at the Palais Royal.",
-       "sha256": "56114d4d0780d315fdc19d9fcfae5744470d1fbb242ba3d4142066e9794cb00a"
+       "alt": "Литография/гравюра 1845–1860: Paris. Jardin du Palais Royal",
+       "sha256": "56114d4d0780d315fdc19d9fcfae5744470d1fbb242ba3d4142066e9794cb00a",
+       "summary_en": "Print shows a bird's-eye view of the courtyard, gardens, fountain, and colonnade at the Palais Royal."
       },
       {
        "id": "loc-2017660007",
@@ -486,8 +499,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/paris_palaisroyal_c1890-1906_photochrom_loc-ppmsca-52498.jpg",
-       "alt": "Paris. Palais Royal",
-       "sha256": "1bc7207dab2e8294d1605b836029060f5b4723dbc05815b29c25ee364e66f32b"
+       "alt": "Фотохром ок. 1890–1906: Paris. Palais Royal",
+       "sha256": "1bc7207dab2e8294d1605b836029060f5b4723dbc05815b29c25ee364e66f32b",
+       "summary_en": "Paris. Palais Royal"
       }
      ],
      "pairs": [
@@ -510,7 +524,7 @@
     "width": 2000,
     "height": 1448,
     "title": "Paris et ses environs : 1878",
-    "credit": "E. D. Vorzet; Institut géographique de Paris (Ch. Delagrave). Library of Congress, G5834.P3 1878 .D8",
+    "credit": "Ed. Dumas-Vorzet; Institut géographique de Paris; печать Becquet frères (по записи LoC; на листе также указан Ch. Delagrave). Library of Congress, G5834.P3 1878 .D8",
     "object_url": "https://www.loc.gov/item/2012586603/",
     "rights": "LoC Geography and Map Division: free to use and reuse (no Rights Advisory).",
     "rights_class": "open",
@@ -561,8 +575,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/florence_pontevecchio_1859-66_sommer-behles_stereo_loc-1s53703.jpg",
-       "alt": "Ponte vechio dagli Uffizi (Firenze)",
-       "sha256": "269619d4a739ca543caf4327aad66b3db6d2ce3321d0fabc5900397291670bbc"
+       "alt": "Фотография 1859–1866: Ponte vechio dagli Uffizi (Firenze)",
+       "sha256": "269619d4a739ca543caf4327aad66b3db6d2ce3321d0fabc5900397291670bbc",
+       "summary_en": "Ponte vechio dagli Uffizi (Firenze)"
       },
       {
        "id": "aic-194443",
@@ -584,8 +599,9 @@
        "rights_class": "open",
        "rights_short": "общественное достояние (AIC)",
        "file": "img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg",
-       "alt": "Ponte Vecchio, Florence",
-       "sha256": "fbf4247d435932611f948905e55aab75d7bedf4d74db0c32984bbe1743137348"
+       "alt": "Литография/гравюра 1883: Ponte Vecchio, Florence",
+       "sha256": "fbf4247d435932611f948905e55aab75d7bedf4d74db0c32984bbe1743137348",
+       "summary_en": "Ponte Vecchio, Florence"
       }
      ],
      "pairs": [
@@ -624,8 +640,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/florence_duomo_1859-66_sommer-behles_stereo_loc-1s53705.jpg",
-       "alt": "Il duomo di Firenze",
-       "sha256": "981720638d192abea8c97019156df684fb8377d7878f285efdb776f552c35e2d"
+       "alt": "Фотография 1859–1866: Il duomo di Firenze",
+       "sha256": "981720638d192abea8c97019156df684fb8377d7878f285efdb776f552c35e2d",
+       "summary_en": "Il duomo di Firenze"
       },
       {
        "id": "loc-00650554",
@@ -647,7 +664,8 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": null,
-       "alt": "Il Duomo, Firenze"
+       "alt": "Фотография 1869: Il Duomo, Firenze",
+       "summary_en": "Il Duomo, Firenze"
       },
       {
        "id": "loc-2001700794",
@@ -669,7 +687,8 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": null,
-       "alt": "[The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]"
+       "alt": "Фотохром ок. 1890–1900: [The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]",
+       "summary_en": "[The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]"
       },
       {
        "id": "loc-2001700795",
@@ -691,8 +710,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/florence_duomo_c1890-1900_photochrom_loc-ppmsc-06455.jpg",
-       "alt": "[The Cathedral and campanile, Florence, Italy]",
-       "sha256": "c2ae958f3b7151341e59cb01861e221acb95b821c683e0df8918fe80e3462d7f"
+       "alt": "Фотохром ок. 1890–1900: [The Cathedral and campanile, Florence, Italy]",
+       "sha256": "c2ae958f3b7151341e59cb01861e221acb95b821c683e0df8918fe80e3462d7f",
+       "summary_en": "[The Cathedral and campanile, Florence, Italy]"
       }
      ],
      "pairs": [
@@ -717,7 +737,7 @@
      "id": "naples-santa_lucia_castel_dell_ovo",
      "title": "Санта-Лючия и Кастель-дель-Ово",
      "short": "Санта-Лючия и Кастель-дель-Ово",
-     "summary": "Набережная 1846 года и Виа Партенопе около 1900: один район, разные точки.",
+     "summary": "Набережная Санта-Лючия под скалой Пиццофальконе в 1846 году и Виа Партенопе в сторону Кастель-дель-Ово около 1900: один прибрежный район, разные точки.",
      "images": [
       {
        "id": "aic-27086",
@@ -739,8 +759,9 @@
        "rights_class": "open",
        "rights_short": "общественное достояние (AIC)",
        "file": "img/naples_santalucia_1846_calvert-jones_aic-27086.jpg",
-       "alt": "St. Lucia, Naples",
-       "sha256": "f27a842bfbfa926182c1e0fbbb0e03448ab191839455b3c249bbf71aa46b13c2"
+       "alt": "Фотография 1846: St. Lucia, Naples",
+       "sha256": "f27a842bfbfa926182c1e0fbbb0e03448ab191839455b3c249bbf71aa46b13c2",
+       "summary_en": "St. Lucia, Naples"
       },
       {
        "id": "loc-2001700901",
@@ -762,8 +783,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/naples_viapartenope_c1890-1900_photochrom_loc-ppmsc-06561.jpg",
-       "alt": "[Partenope Street, Naples, Italy]",
-       "sha256": "889b656f0175237d9996864da99f967e7875b20ca528e6810fbd0cf91b0fcae7"
+       "alt": "Фотохром ок. 1890–1900: [Partenope Street, Naples, Italy]",
+       "sha256": "889b656f0175237d9996864da99f967e7875b20ca528e6810fbd0cf91b0fcae7",
+       "summary_en": "[Partenope Street, Naples, Italy]"
       },
       {
        "id": "loc-2001700914",
@@ -785,7 +807,8 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": null,
-       "alt": "[Il Posilippo and waterfront, Naples, Italy]"
+       "alt": "Фотохром ок. 1890–1900: [Il Posilippo and waterfront, Naples, Italy]",
+       "summary_en": "[Il Posilippo and waterfront, Naples, Italy]"
       }
      ],
      "pairs": [
@@ -802,7 +825,7 @@
      "id": "naples-piazza_plebiscito_palazzo_reale",
      "title": "Королевский дворец и площадь Плебисцита",
      "short": "Королевский дворец и площадь Плебисцита",
-     "summary": "Ворота сада дворца до 1852 года и церковь Сан-Франческо-ди-Паола около 1900: противоположные стороны площади.",
+     "summary": "Ворота сада Королевского дворца со статуями «Укротители коней» (до 1852) и церковь Сан-Франческо-ди-Паола около 1900: разные точки и разные стороны дворцового комплекса.",
      "images": [
       {
        "id": "cma-159761",
@@ -824,8 +847,9 @@
        "rights_class": "open",
        "rights_short": "CC0",
        "file": "img/naples_palazzoreale_pre1852_bridges_cma-1997.13.jpg",
-       "alt": "The King's Palace, Naples",
-       "sha256": "2f22749df2f08d5836fe49601df3d0fb5ee9e04b6842b6e2380782a6d1a211cc"
+       "alt": "Фотография до 1852: The King's Palace, Naples",
+       "sha256": "2f22749df2f08d5836fe49601df3d0fb5ee9e04b6842b6e2380782a6d1a211cc",
+       "summary_en": "The King's Palace, Naples"
       },
       {
        "id": "loc-2001700916",
@@ -835,8 +859,8 @@
        "title": "[Plaza and church of San Francesco di Paola, Naples, Italy]",
        "creators": [
         {
-         "name": null,
-         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+         "name": "не указан",
+         "role": "заглавие составлено сотрудниками LoC («Title devised by Library staff»)"
         }
        ],
        "date": "[between ca. 1890 and ca. 1900].",
@@ -847,8 +871,9 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": "img/naples_plebiscito_c1890-1900_photochrom_loc-ppmsc-06576.jpg",
-       "alt": "[Plaza and church of San Francesco di Paola, Naples, Italy]",
-       "sha256": "d34904de6771f05cb05e5027dde16a03a770848cc75b2faddfc7e43fff780d94"
+       "alt": "Фотохром ок. 1890–1900: [Plaza and church of San Francesco di Paola, Naples, Italy]",
+       "sha256": "d34904de6771f05cb05e5027dde16a03a770848cc75b2faddfc7e43fff780d94",
+       "summary_en": "[Plaza and church of San Francesco di Paola, Naples, Italy]"
       },
       {
        "id": "loc-2017660210",
@@ -870,7 +895,8 @@
        "rights_class": "open",
        "rights_short": "LoC: без известных ограничений",
        "file": null,
-       "alt": "Naples, Italy. Piazza of St. Ferdinando Church"
+       "alt": "Фотохром ок. 1890–1906: Naples, Italy. Piazza of St. Ferdinando Church",
+       "summary_en": "Naples, Italy. Piazza of St. Ferdinando Church"
       }
      ],
      "pairs": [
