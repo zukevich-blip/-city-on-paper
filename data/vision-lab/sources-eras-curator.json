@@ -1,0 +1,1310 @@
+{
+ "generated": "2026-11-07",
+ "checked_by": "archive-curator role (Claude subagent), consilium Issue #34",
+ "user_agent": "CityOnPaperResearch/0.3 (research; github.com/zukevich-blip/-city-on-paper)",
+ "conventions": {
+  "era": "free label with date range",
+  "camera": "estimated viewer position (WGS84) + azimuth (deg from N, clockwise); basis = reasoning; confidence",
+  "ratings": "close / partial / different_viewpoint"
+ },
+ "cities": {
+  "paris": {
+   "places": {
+    "la_madeleine": {
+     "hero": true,
+     "name": {
+      "fr": "Église de la Madeleine, place de la Madeleine",
+      "ru": "Церковь Мадлен"
+     },
+     "osm": "way/54180046",
+     "centroid": {
+      "lat": 48.8701338,
+      "lon": 2.3245425
+     },
+     "geometry_note": "Facade (south portico) faces ~207°; long axis ~27°; facade ~43 m, flank ~128 m (computed from OSM polygon via Nominatim, 2026-11-07).",
+     "images": [
+      {
+       "id": "loc-2016652452",
+       "era": "lithograph 1845-1860",
+       "kind": "hand-colored lithograph (plate 8)",
+       "title_original": "Paris. La Madeleine",
+       "creators": [
+        {
+         "name": "Philippe Benoist (1813-ca.1905)",
+         "role": "draughtsman (\"Ph. Benoist del.\")"
+        },
+        {
+         "name": "Imprimerie Lemercier, Paris",
+         "role": "printer (\"Imp. Lemercier, Paris\")"
+        }
+       ],
+       "date": "[between 1845 and 1860]",
+       "created_published": "Paris : Imp. Lemercier, Paris, [between 1845 and 1860]",
+       "medium": [
+        "1 print : hand-colored lithograph ; sheet 23.5 x 32.4 cm, on mount 27.9 x 35 cm."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "PGA - Lemercier--Paris. La Madeleine (A size) [P&P] Unprocessed in PR 06 CN 800 (former call number)",
+       "reproduction_number": "LC-DIG-pga-14315 (digital file from original print)",
+       "object_url": "https://www.loc.gov/pictures/item/2016652452/",
+       "object_url_new_site": "https://www.loc.gov/item/2016652452/",
+       "handle": "https://hdl.loc.gov/loc.pnp/pga.14315",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14315v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2016652452/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from item.",
+        "[Plate] 8.",
+        "Stamped on verso: LC Division of Prints.",
+        "Inscribed in ink on verso: 45186.",
+        "Inscribed in pencil on verso: 233199 16.",
+        "Possibly from a later edition of: Promenade dans Paris et ses environs. Dessiné d'après nature et lithographié par J. Jacottet, avec figures par A. Bayot. Paris : Chez Gihaut frères, [1838-1843]. See plate 6.",
+        "(DLC/PP-1945:186).",
+        "Forms part of: Popular graphic art print filing series (Library of Congress)."
+       ],
+       "summary_from_record": "Print shows a street level view, from an oblique angle, of the neo-classical church La Madeleine in Paris, France, showing the front and left side colonnades, and with a horse-drawn carriage and pedestrians in the foreground.",
+       "curator_notes": [
+        "Lithographer (stone) not separately named on record; LoC record lists Benoist as \"artist\" and the statement \"Ph. Benoist del.\"; do not label him lithographer without a further source.",
+        "LoC note: possibly from a later edition of \"Promenade dans Paris et ses environs\" (Gihaut frères, 1838-1843)."
+       ],
+       "camera": {
+        "lat": 48.8691,
+        "lon": 2.3231,
+        "radius_m": 60,
+        "azimuth_deg": 45,
+        "azimuth_range": [
+         35,
+         55
+        ],
+        "elevation": "street level (LoC summary: \"street level view, from an oblique angle\")",
+        "basis": "South portico (pediment) on the right, west flank colonnade receding left => viewer in the SW quadrant of the church, looking NE. Church axis from OSM way 54180046 (Nominatim): facade faces ~207° (towards rue Royale). Ratio of drawn flank (~190 px) to facade (~250 px) vs real lengths (~128 m vs ~43 m, computed from OSM polygon) implies line of sight ~15-30° off the church axis. Tree-lined street at right horizon interpreted (not verified) as the start of the Grands Boulevards. Lithograph perspective may be constructed by the draughtsman; radius reflects this.",
+        "confidence": "low-medium"
+       },
+       "local_file": "img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg",
+       "sha256": "ad6ec25a6b3b5dfb1356599c8979cbfb5e959e790e29ddd16fdfc160882c675e",
+       "local_px": [
+        1024,
+        750
+       ],
+       "local_bytes": 342878,
+       "download_ok": true
+      },
+      {
+       "id": "aic-212069",
+       "era": "photograph c.1860",
+       "kind": "albumen print",
+       "title_original": "Church of the Madeleine (Eglise de la Madeleine)",
+       "creators": [
+        {
+         "name": "Édouard Baldus (1813-1889)",
+         "role": "photographer"
+        }
+       ],
+       "date": "c. 1860",
+       "date_range": [
+        1855,
+        1865
+       ],
+       "medium": [
+        "Albumen print"
+       ],
+       "dimensions": "Image: 20.4 × 28.6 cm (8 1/16 × 11 5/16 in.); Mount: 33.9 × 43.9 cm (13 3/8 × 17 5/16 in.)",
+       "institution": "Art Institute of Chicago",
+       "accession": "2012.227",
+       "credit_line": "Gift of Robert A. Taub",
+       "object_url": "https://www.artic.edu/artworks/212069",
+       "api_url": "https://api.artic.edu/api/v1/artworks/212069",
+       "image_url": "https://www.artic.edu/iiif/2/124d3d60-69d3-fc92-942b-7248436b2dc6/full/1200,/0/default.jpg",
+       "rights_as_stated": "is_public_domain: true (AIC API record)",
+       "rights_checked": "2026-11-07",
+       "curator_notes": [
+        "AIC date range 1855-1865, displayed \"c. 1860\"."
+       ],
+       "camera": {
+        "lat": 48.8693,
+        "lon": 2.323,
+        "radius_m": 60,
+        "azimuth_deg": 50,
+        "azimuth_range": [
+         40,
+         60
+        ],
+        "elevation": "street level (cobbled roadway in foreground)",
+        "basis": "Same orientation as Benoist: facade/pediment right, west colonnade left; flank occupies more of the frame (~440 px vs facade ~400 px) => slightly more lateral (westerly) position than Benoist. Railing around the church base visible.",
+        "confidence": "medium"
+       },
+       "local_file": "img/paris_madeleine_c1860_baldus_aic-212069.jpg",
+       "sha256": "fdaa642ea2d63684c056855528a8fb22c2f1070f186d1d1e9ed5b5143f96605e",
+       "local_px": [
+        1200,
+        800
+       ],
+       "local_bytes": 244571,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2001698526",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom (photomechanical print)",
+       "title_original": "[The Madeleine, and rue Royale, Paris, France]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record; title from Detroit Publishing Co. Catalogue J (1905), print no. 9808"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13418, no. 278 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-05184 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2001698526/",
+       "object_url_new_site": "https://www.loc.gov/item/2001698526/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.05184",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/05100/05184v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001698526/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from the Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905.",
+        "Print no. \"9808\".",
+        "Forms part of: Views of architecture, monuments, and other sites in France in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Caption printed on image (partly legible): \"...RUE ROYALE ET LA MADELEINE\".",
+        "Rights phrase on this record: \"No known restrictions on reproduction.\""
+       ],
+       "camera": {
+        "lat": 48.86805,
+        "lon": 2.323,
+        "radius_m": 70,
+        "azimuth_deg": 26,
+        "azimuth_range": [
+         22,
+         30
+        ],
+        "elevation": "street level",
+        "basis": "Facade seen exactly frontally down the axis of rue Royale (axis bearing 206° facade->Concorde obelisk, computed from OSM coordinates), so camera is on the rue Royale axis looking ~26°. Facade (~43 m wide, from OSM polygon) spans ~310/1024 px; assuming 40-50° horizontal FOV gives ~150-230 m distance => position near the rue Saint-Honoré crossing. Lens unknown => along-axis uncertainty ±70 m, cross-axis ±15 m.",
+        "confidence": "medium-high (axis), low (distance)"
+       },
+       "local_file": "img/paris_madeleine_c1890-1900_photochrom_rue-royale_loc-ppmsc-05184.jpg",
+       "sha256": "124648d19718ac0187c5e8febeaa200b85f24f915a0f6c5336d07238d7e3e963",
+       "local_px": [
+        1024,
+        770
+       ],
+       "local_bytes": 178102,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2001698525",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom (photomechanical print)",
+       "title_original": "[The Madeleine, Paris, France]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record; title from Detroit Publishing Co. Catalogue J (1905), print no. 6942"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13418, no. 277 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-05183 (digital file from original)\nLC-USZC4-10684 (color film copy transparency)",
+       "object_url": "https://www.loc.gov/pictures/item/2001698525/",
+       "object_url_new_site": "https://www.loc.gov/item/2001698525/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.05183",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/05100/05183v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001698525/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from the Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905.",
+        "Print no. \"6942\".",
+        "Forms part of: Views of architecture, monuments, and other sites in France in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Another print of the same view (print no. \"6942. P.Z.\") is LoC 2017660005, published [Zürich] : [Photoglob Company], [ca. 1890-1906], rights \"No known restrictions on publication.\""
+       ],
+       "camera": {
+        "lat": 48.8693,
+        "lon": 2.3233,
+        "radius_m": 50,
+        "azimuth_deg": 45,
+        "azimuth_range": [
+         38,
+         55
+        ],
+        "elevation": "elevated, est. 15-25 m (upper floor or roof of a building on the SW side of the square)",
+        "basis": "Looking down on the steps and the west sidewalk/trees of Place de la Madeleine; pediment right, west colonnade left. Hill with a building at upper left interpreted (NOT verified) as Montmartre, whose bearing from the church is ~36° (computed); with ~50° FOV this implies image-centre azimuth ~45-50°. Same negative as LoC 2017660005 (print no. 6942).",
+        "confidence": "medium"
+       },
+       "local_file": "img/paris_madeleine_c1890-1900_photochrom_elevated_loc-ppmsc-05183.jpg",
+       "sha256": "cf9e64f55d30c260862978d14ca4f3e9df4f14844f333dacd833d75f04205cbb",
+       "local_px": [
+        1024,
+        770
+       ],
+       "local_bytes": 220740,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2017660005",
+       "era": "photochrom c.1890-1906",
+       "kind": "color photochrom (duplicate view of 2001698525)",
+       "title_original": "Paris. La Madeleine",
+       "creators": [
+        {
+         "name": "Photoglob Company, Zürich",
+         "role": "publisher (bracketed/attributed in LoC record)"
+        }
+       ],
+       "date": "[ca. 1890-1906]",
+       "created_published": "[Zürich, Switzerland] : [Photoglob Company], [ca. 1890-1906]",
+       "medium": [
+        "1 print : color photochrom ; sheet 17 x  23 cm."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 14184, no. 229 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsca-52496 (digital file from original item)",
+       "object_url": "https://www.loc.gov/pictures/item/2017660005/",
+       "object_url_new_site": "https://www.loc.gov/item/2017660005/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsca.52496",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/52400/52496v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2017660005/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from item.",
+        "Title in Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905: \"France. Paris. The Madeleine.\"",
+        "Print no. \"6942. P.Z.\"",
+        "Purchase; Detroit Publishing Company; 1906; 42865.",
+        "Item removed from FOREIGN GEOG FILE - Paris Churches La Madeleine in 2017.",
+        "More information about the Photochrom Print Collection is available at  http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Photochrom Print Collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Same image as print no. 6942; not downloaded to avoid duplication (viewed for verification)."
+       ],
+       "download_ok": false
+      },
+      {
+       "id": "loc-2009632631",
+       "era": "lithograph 1852",
+       "kind": "color lithograph, 2-sheet panorama of Boulevart de la Madeleine",
+       "title_original": "Boulevart de la Madeleine",
+       "creators": [
+        {
+         "name": "unknown",
+         "role": "not named in record"
+        }
+       ],
+       "date": "[1852]",
+       "created_published": "[1852]",
+       "medium": [
+        "2 prints : lithograph, color ; 11.6 x 30.4 cm. (sheets combined)"
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 4363 [item] [P&P]",
+       "reproduction_number": "LC-USZC4-14037 (color film copy transparency)\nLC-USZ62-138466 (b&w film copy neg.)",
+       "object_url": "https://www.loc.gov/pictures/item/2009632631/",
+       "object_url_new_site": "https://www.loc.gov/item/2009632631/",
+       "handle": "https://hdl.loc.gov/loc.pnp/cph.3g14037",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/cph/3g10000/3g14000/3g14000/3g14037v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2009632631/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from item."
+       ],
+       "summary_from_record": "Print showing Eglise de la Madeleine and streets intersecting the Boulevard de la Madeleine in Paris, France: rue de la Ferme des Mathurins, fue Godot-de-Mauroy, rue Deseze, and rue Caumartin.",
+       "curator_notes": [
+        "Supplementary: panorama strip with the church at the left end; not a matching viewpoint. Reproduction is a colour film copy (LC-USZC4-14037), not a direct digital file."
+       ],
+       "download_ok": false
+      },
+      {
+       "id": "panoramax-4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+       "era": "today",
+       "kind": "street-level photo (Panoramax) 360° equirectangular",
+       "title_original": null,
+       "creators": [
+        {
+         "name": "geovelo",
+         "role": "producer"
+        },
+        {
+         "name": "simon_geovelo",
+         "role": "producer"
+        }
+       ],
+       "date": "2017-11-05T10:40:20.699000+00:00",
+       "institution": "Panoramax (federated instance: ign)",
+       "object_url": "https://api.panoramax.xyz/api/collections/64065a9c-ea2b-42bc-bab8-069543494dda/items/4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+       "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+       "image_url": "https://panoramax.ign.fr/api/pictures/4a56a9ba-1e31-4dab-acb5-706bfd5973c5/sd.jpg",
+       "rights_as_stated": "License for this object (etalab-2.0)",
+       "license_url": "https://alliance.numerique.gouv.fr/licence-ouverte-open-licence/",
+       "rights_checked": "2026-11-07",
+       "gps": {
+        "lat": 48.868041417,
+        "lon": 2.322968944
+       },
+       "view_azimuth_metadata": 215,
+       "field_of_view": 360,
+       "camera": {
+        "lat": 48.868041,
+        "lon": 2.322969,
+        "radius_m": 10,
+        "azimuth_deg": 26,
+        "basis": "GPS from Panoramax; effective heading inferred from the church being centred in the equirectangular image."
+       },
+       "curator_notes": "360° panorama on rue Royale at the rue Saint-Honoré crossing; the Madeleine appears at the image centre. NOTE: view:azimuth metadata (215°) contradicts visible content (church at centre => effective centre heading ~26°); the geovelo series appears to record the heading ~180° off (observation, not confirmed with provider). Watermark band \"geovelo\" at the bottom is part of the source image.",
+       "local_file": "img/paris_madeleine_2017_panoramax_360_rue-royale_4a56a9ba.jpg",
+       "source_sha256": "8360dbdbbeca329c251e74a082110419fb7c54a1dae8726e50350594a2e08e51",
+       "sha256": "31b95dcc00093bec5a6bbf9638cb1d4f9ad6d27af0b84ba0b6d444f0aa1e4a96",
+       "local_px": [
+        1600,
+        800
+       ],
+       "local_bytes": 171756,
+       "processing": "Panoramax SD derivative (2048 px) downloaded once; re-encoded once with PIL (JPEG q85), resized to max 1600 px (task size limit), EXIF/GPS stripped; no other alteration",
+       "download_ok": true
+      },
+      {
+       "id": "panoramax-4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "era": "today",
+       "kind": "street-level photo (Panoramax) 360° equirectangular",
+       "title_original": null,
+       "creators": [
+        {
+         "name": "geovelo",
+         "role": "producer"
+        },
+        {
+         "name": "simon_geovelo",
+         "role": "producer"
+        }
+       ],
+       "date": "2017-11-05T10:37:15.784000+00:00",
+       "institution": "Panoramax (federated instance: ign)",
+       "object_url": "https://api.panoramax.xyz/api/collections/c8089841-d6c2-4204-8c5f-9bca716e933f/items/4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "image_url": "https://panoramax.ign.fr/api/pictures/4606ccdb-86c8-4e3d-a906-e6973e437c60/sd.jpg",
+       "rights_as_stated": "License for this object (etalab-2.0)",
+       "license_url": "https://alliance.numerique.gouv.fr/licence-ouverte-open-licence/",
+       "rights_checked": "2026-11-07",
+       "gps": {
+        "lat": 48.869663333,
+        "lon": 2.323637
+       },
+       "view_azimuth_metadata": 147,
+       "field_of_view": 360,
+       "camera": {
+        "lat": 48.869663,
+        "lon": 2.323637,
+        "radius_m": 10,
+        "azimuth_deg": 52,
+        "basis": "GPS from Panoramax; bearing to church centroid computed = ~52°."
+       },
+       "curator_notes": "360° panorama at the SW of Place de la Madeleine (84 m from the church centroid, bearing 232° from it); church seen with pediment right and west colonnade left, as in Benoist/Baldus. view:azimuth metadata (147°) inconsistent with visible content (church appears ~+90° right of centre).",
+       "local_file": "img/paris_madeleine_2017_panoramax_360_sw-corner_4606ccdb.jpg",
+       "source_sha256": "79622f24f684cd1d4425d2ef2b827cdf352063c679d4f68fe3abf8eb5088e026",
+       "sha256": "0bb3ca9c7139920011dce2bf462794db601c932c37c70d33fe9b349d571e5fb7",
+       "local_px": [
+        1600,
+        800
+       ],
+       "local_bytes": 172826,
+       "processing": "Panoramax SD derivative (2048 px) downloaded once; re-encoded once with PIL (JPEG q85), resized to max 1600 px (task size limit), EXIF/GPS stripped; no other alteration",
+       "download_ok": true
+      },
+      {
+       "id": "panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "era": "today",
+       "kind": "street-level photo (Panoramax)",
+       "title_original": null,
+       "creators": [
+        {
+         "name": "jerome92370",
+         "role": "producer"
+        }
+       ],
+       "date": "2026-04-30T15:42:51.507000+00:00",
+       "institution": "Panoramax (federated instance: osm-fr)",
+       "object_url": "https://api.panoramax.xyz/api/collections/732a0136-de7a-4ee5-94d7-07853d4d9f08/items/38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "image_url": "https://panoramax.openstreetmap.fr/derivates/38/b6/d2/62/648f-461e-b9a3-ab05eb22d92a/sd.jpg",
+       "rights_as_stated": "License for this object (CC-BY-SA-4.0)",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "rights_checked": "2026-11-07",
+       "gps": {
+        "lat": 48.869327909,
+        "lon": 2.323950382
+       },
+       "view_azimuth_metadata": 21,
+       "field_of_view": 74,
+       "camera": {
+        "lat": 48.869328,
+        "lon": 2.32395,
+        "radius_m": 10,
+        "azimuth_deg": 21,
+        "basis": "GPS + view:azimuth from Panoramax; consistent with frontal view of the portico."
+       },
+       "curator_notes": "Flat photo (74° FOV), frontal, close to the south portico steps; faces of passers-by blurred by Panoramax.",
+       "local_file": "img/paris_madeleine_2026_panoramax_facade_38b6d262.jpg",
+       "source_sha256": "6229b1c4d7e331569ecd60c5cb76f8a12a0b04c981d1ebee14812bb01bcf76ff",
+       "sha256": "0fa512a5ae3c58f90c2a29e593a01053a4e28d5185cef115e14031d7f0edc759",
+       "local_px": [
+        1600,
+        1200
+       ],
+       "local_bytes": 426063,
+       "processing": "Panoramax SD derivative (2048 px) downloaded once; re-encoded once with PIL (JPEG q85), resized to max 1600 px (task size limit), EXIF/GPS stripped; no other alteration",
+       "download_ok": true
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2001698526",
+       "b": "panoramax-4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+       "rating": "close",
+       "distance_m_between_estimates": 5,
+       "azimuth_diff_deg": 0,
+       "reasons": "Panoramax GPS lies on the rue Royale axis ~182 m from the facade, inside the estimated camera zone; church centred in both. Caveats: modern file is a 360° equirectangular panorama (church ~2% of width) — a viewer must render a ~20-25° perspective crop at heading ~26° to compare visually; historic distance estimate depends on an assumed lens (±70 m)."
+      },
+      {
+       "a": "loc-2001698526",
+       "b": "panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "rating": "partial",
+       "reasons": "Same axis and direction (21° vs ~26°), but taken ~35 m from the portico instead of ~150-230 m; wide-angle low viewpoint; flanking buildings of rue Royale not in frame."
+      },
+      {
+       "a": "loc-2016652452",
+       "b": "panoramax-4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "rating": "partial",
+       "distance_m_between_estimates": 74,
+       "azimuth_diff_deg": 7,
+       "reasons": "Same SW quadrant and same visible faces (south portico + west colonnade, same left/right arrangement). But: 360° panorama, trees partly mask the colonnade, Benoist perspective is drawn (possibly constructed) and his exact standpoint is uncertain (±60 m)."
+      },
+      {
+       "a": "aic-212069",
+       "b": "panoramax-4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "rating": "partial",
+       "reasons": "Same quadrant/orientation; Baldus is closer and at a lower, more lateral angle; panorama projection."
+      },
+      {
+       "a": "loc-2016652452",
+       "b": "aic-212069",
+       "rating": "partial",
+       "reasons": "Both street-level from the SW, same faces visible; Baldus slightly more westerly and closer. Good pair for a lithograph-vs-photograph comparison."
+      },
+      {
+       "a": "loc-2001698525",
+       "b": "panoramax-4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "rating": "different_viewpoint",
+       "reasons": "Photochrom is taken from an elevated position (est. 15-25 m); no elevated modern photo found in Panoramax."
+      }
+     ],
+     "hunt": {
+      "task": "Охота за кадром",
+      "targets": [
+       {
+        "for": "loc-2016652452 / aic-212069",
+        "stand_at": {
+         "lat": 48.8692,
+         "lon": 2.3231,
+         "radius_m": 60
+        },
+        "face_azimuth_deg": 45,
+        "instructions": "South-west part of Place de la Madeleine, where rue Royale opens onto the square; stand on the pavement so that the south portico (pediment) is on the right and the west colonnade recedes to the left; eye level; 35-50 mm (35mm-equivalent) lens, camera level (no tilt) to keep columns vertical; whole building in frame."
+       },
+       {
+        "for": "loc-2001698525",
+        "stand_at": {
+         "lat": 48.8693,
+         "lon": 2.3233,
+         "radius_m": 50
+        },
+        "face_azimuth_deg": 45,
+        "instructions": "Requires an upper-floor window/roof (~15-25 m) on the SW side of the square — private property; only with owner permission. Not a public task."
+       },
+       {
+        "for": "loc-2001698526",
+        "stand_at": {
+         "lat": 48.86805,
+         "lon": 2.323,
+         "radius_m": 40
+        },
+        "face_azimuth_deg": 26,
+        "instructions": "Middle of rue Royale near the rue Saint-Honoré crossing (traffic! use the central refuge/pedestrian crossing only); facade centred; ~50-70 mm equivalent. A flat (non-360) modern photo from here was not found in Panoramax on 2026-11-07."
+       }
+      ]
+     },
+     "panoramax_search": {
+      "bbox": "2.3205,48.8665,2.3265,48.8712 (6x6 tiles)",
+      "results": 2816,
+      "licenses": {
+       "etalab-2.0": 2497,
+       "CC-BY-SA-4.0": 319
+      },
+      "flat_photos_facing_church_from_SW": 0
+     }
+    },
+    "palais_royal": {
+     "hero": false,
+     "images": [
+      {
+       "id": "loc-2016652451",
+       "era": "lithograph 1845-1860",
+       "kind": "hand-colored lithograph (plate 6)",
+       "title_original": "Paris. Jardin du Palais Royal",
+       "creators": [
+        {
+         "name": "Philippe Benoist",
+         "role": "draughtsman (\"Ph. Benoist del.\")"
+        },
+        {
+         "name": "Imprimerie Lemercier, R. de Seine 57, Paris",
+         "role": "printer"
+        }
+       ],
+       "date": "[between 1845 and 1860]",
+       "created_published": "Paris : Imp. Lemercier, Paris, [between 1845 and 1860]",
+       "medium": [
+        "1 print : hand-colored lithograph ; sheet 22.4 x 30.7 cm, on mount 28 x 35.6 cm."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "PGA - Lemercier--Paris. Jardin du Palais Royal (A size) [P&P] Unprocessed in PR 06 CN 800 (former call number)",
+       "reproduction_number": "LC-DIG-pga-14314 (digital file from original print)",
+       "object_url": "https://www.loc.gov/pictures/item/2016652451/",
+       "object_url_new_site": "https://www.loc.gov/item/2016652451/",
+       "handle": "https://hdl.loc.gov/loc.pnp/pga.14314",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/pga/14300/14314v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2016652451/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from item.",
+        "[Plate] 6.",
+        "Stamped on verso: LC Division of Prints.",
+        "Inscribed in ink on verso: 45186.",
+        "Inscribed in pencil on verso: 233199 16.",
+        "Possibly from a later edition of: Promenade dans Paris et ses environs. Dessiné d'après nature et lithographié par J. Jacottet, avec figures par A. Bayot. Paris : Chez Gihaut frères, [1838-1843].",
+        "(DLC/PP-1945:186).",
+        "Forms part of: Popular graphic art print filing series (Library of Congress)."
+       ],
+       "summary_from_record": "Print shows a bird's-eye view of the courtyard, gardens, fountain, and colonnade at the Palais Royal.",
+       "curator_notes": [
+        "Bird's-eye view of the garden, fountain and colonnade (LoC summary)."
+       ],
+       "camera": {
+        "lat": null,
+        "lon": null,
+        "radius_m": null,
+        "azimuth_deg": null,
+        "basis": "Not estimated (secondary place). Visually: elevated view over the garden toward the palace (interpretation)."
+       },
+       "local_file": "img/paris_palaisroyal_1845-60_benoist_lemercier_loc-pga-14314.jpg",
+       "sha256": "56114d4d0780d315fdc19d9fcfae5744470d1fbb242ba3d4142066e9794cb00a",
+       "local_px": [
+        1024,
+        756
+       ],
+       "local_bytes": 389535,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2017660007",
+       "era": "photochrom c.1890-1906",
+       "kind": "color photochrom",
+       "title_original": "Paris. Palais Royal",
+       "creators": [
+        {
+         "name": "Photoglob Company, Zürich",
+         "role": "publisher (bracketed in LoC record)"
+        }
+       ],
+       "date": "[ca. 1890-1906]",
+       "created_published": "[Zürich, Switzerland] : [Photoglob Company], [ca. 1890-1906]",
+       "medium": [
+        "1 print : color photochrom ; sheet 17 x  23 cm."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 14184, no. 231 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsca-52498 (digital file from original item)",
+       "object_url": "https://www.loc.gov/pictures/item/2017660007/",
+       "object_url_new_site": "https://www.loc.gov/item/2017660007/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsca.52498",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/52400/52498v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2017660007/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from item.",
+        "Title in Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905: \"France. Paris. The Palais Royale.\"",
+        "Print no. \"6922. P.Z.\"",
+        "Purchase; Detroit Publishing Company; 1906; 42865.",
+        "Item removed from FOREIGN GEOG FILE - France Paris Government Buildings in 2017.",
+        "More information about the Photochrom Print Collection is available at  http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Photochrom Print Collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Title in Detroit Publishing Co. Catalogue J (1905): \"France. Paris. The Palais Royale.\"; print no. 6922."
+       ],
+       "local_file": "img/paris_palaisroyal_c1890-1906_photochrom_loc-ppmsca-52498.jpg",
+       "sha256": "1bc7207dab2e8294d1605b836029060f5b4723dbc05815b29c25ee364e66f32b",
+       "local_px": [
+        1024,
+        759
+       ],
+       "local_bytes": 398549,
+       "download_ok": true
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2016652451",
+       "b": "loc-2017660007",
+       "rating": "different_viewpoint",
+       "reasons": "Lithograph shows the inner garden (elevated); photochrom shows the street-side facade on Place du Palais-Royal. Same monument complex, opposite sides."
+      }
+     ],
+     "panoramax_search": {
+      "results": "500 (limit reached, bbox ±0.0025°)",
+      "licenses": {
+       "etalab-2.0": 429,
+       "CC-BY-SA-4.0": 71
+      },
+      "note": "Not matched (secondary place)."
+     }
+    }
+   }
+  },
+  "florence": {
+   "places": {
+    "duomo": {
+     "hero": false,
+     "osm": "way/43768260",
+     "images": [
+      {
+       "id": "loc-2024722639",
+       "era": "stereo photograph 1859-1866",
+       "kind": "stereograph (photographic print on card mount)",
+       "title_original": "Il duomo di Firenze",
+       "creators": [
+        {
+         "name": "Giorgio Sommer & Edmond Behles",
+         "role": "photographers and publishers (LoC notes)"
+        }
+       ],
+       "date": "[between 1859 and 1866]",
+       "created_published": "[between 1859 and 1866]",
+       "medium": [
+        "1 photograph : print on card mount ; mount 9 x 18 cm (stereograph format)"
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 15635, no. 240 [P&P]",
+       "reproduction_number": "LC-DIG-stereo-1s53705 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2024722639/",
+       "object_url_new_site": "https://www.loc.gov/item/2024722639/",
+       "handle": "https://hdl.loc.gov/loc.pnp/stereo.1s53705",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s50000/1s53000/1s53700/1s53705v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2024722639/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title transcribed from item.",
+        "No. 813.",
+        "Photographers: Giorgio & Edmond Behles.",
+        "Publisher: Sommer, Giorgio & Behles, Edmond. Address: Monte di Dio No. 4, Naples; Mario dé fiori No. 28, Rome."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "No. 813. Rooftop view of dome and campanile."
+       ],
+       "local_file": "img/florence_duomo_1859-66_sommer-behles_stereo_loc-1s53705.jpg",
+       "sha256": "981720638d192abea8c97019156df684fb8377d7878f285efdb776f552c35e2d",
+       "local_px": [
+        1024,
+        518
+       ],
+       "local_bytes": 380121,
+       "download_ok": true
+      },
+      {
+       "id": "loc-00650554",
+       "era": "photograph 1869",
+       "kind": "albumen carte de visite",
+       "title_original": "Il Duomo, Firenze",
+       "creators": [
+        {
+         "name": "Giacomo Brogi",
+         "role": "photographer/studio (LoC note: stamped on mount \"Giacomo Brogi, Fotografo ... Firenze\", no. 3020)"
+        }
+       ],
+       "date": "[1869]",
+       "created_published": "[1869]",
+       "medium": [
+        "1 photographic print on carte de visite mount : albumen."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 6633, p. 23 [P&P]",
+       "reproduction_number": "LC-USZ62-122528 (b&w film copy neg.)",
+       "object_url": "https://www.loc.gov/pictures/item/00650554/",
+       "object_url_new_site": "https://www.loc.gov/item/00650554/",
+       "handle": "https://hdl.loc.gov/loc.pnp/cph.3c22528",
+       "image_url": "https://cdn.loc.gov/service/pnp/cph/3c20000/3c22000/3c22500/3c22528v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/00650554/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Stamped on mount: Giacomo Brogi, Fotografo, 15, Lung'Arno Delle Grazie - 79, Corse Del Tintori, Firenze ; [No.] 3020.",
+        "In album: Browning Collection of Portraits, etc., p. 23 (bottom right).",
+        "Color laser copy reference surrogate for LOT 6633 is available for use in the Prints and Photographs Reading Room (Filed with Finding Aids)."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Only a b&w film copy negative is digitised (LC-USZ62-122528); link only."
+       ],
+       "download_ok": false
+      },
+      {
+       "id": "loc-2001700795",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom",
+       "title_original": "[The Cathedral and campanile, Florence, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13434, no. 027 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-06455 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2001700795/",
+       "object_url_new_site": "https://www.loc.gov/item/2001700795/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.06455",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/06400/06455v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001700795/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from the Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905.",
+        "Print no. \"8561\".",
+        "More information about the Photochrom Print Collection is available at http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Views of architecture and other sites in Italy in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Facade and campanile seen from the west; baptistery edge at right (visual observation)."
+       ],
+       "local_file": "img/florence_duomo_c1890-1900_photochrom_loc-ppmsc-06455.jpg",
+       "sha256": "c2ae958f3b7151341e59cb01861e221acb95b821c683e0df8918fe80e3462d7f",
+       "local_px": [
+        754,
+        1024
+       ],
+       "local_bytes": 209406,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2001700794",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom",
+       "title_original": "[The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13434, no. 026 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-06454 (digital file from original)\nLC-USZC4-10686 (color film copy transparency)",
+       "object_url": "https://www.loc.gov/pictures/item/2001700794/",
+       "object_url_new_site": "https://www.loc.gov/item/2001700794/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.06454",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/06400/06454v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001700794/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from the Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905.",
+        "Print no. \"8562\".",
+        "More information about the Photochrom Print Collection is available at http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Views of architecture and other sites in Italy in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Panoramic view from Palazzo Vecchio; link only."
+       ],
+       "download_ok": false
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2024722639",
+       "b": "loc-2001700795",
+       "rating": "different_viewpoint",
+       "reasons": "Rooftop view from the SW vs frontal facade view."
+      }
+     ],
+     "panoramax": {
+      "searched_bbox": "±0.0025° lat around OSM way/43768260 (Duomo)",
+      "results": 14,
+      "licenses": {
+       "CC-BY-SA-4.0": 14
+      },
+      "best_candidate": {
+       "id": "39318e9b-b851-4191-88ba-a6a4fae2385a",
+       "date": "2026-10-11",
+       "author": "hanku",
+       "license": "CC-BY-SA-4.0",
+       "gps": [
+        43.773381,
+        11.255478
+       ],
+       "view_azimuth": 111,
+       "url": "https://api.panoramax.xyz/#focus=pic&pic=39318e9b-b851-4191-88ba-a6a4fae2385a",
+       "viewed": true,
+       "rating_vs_loc-2001700795": "different_viewpoint",
+       "reasons": "Viewed: shows the south flank and dome from the SW corner, facade not in frame; photochrom is frontal to the west facade. Not downloaded."
+      }
+     }
+    },
+    "ponte_vecchio": {
+     "hero": false,
+     "osm": "relation/5342094",
+     "images": [
+      {
+       "id": "loc-2024722637",
+       "era": "stereo photograph 1859-1866",
+       "kind": "stereograph on card mount",
+       "title_original": "Ponte vechio dagli Uffizi (Firenze)",
+       "creators": [
+        {
+         "name": "Giorgio Sommer & Edmond Behles",
+         "role": "photographers and publishers (LoC notes)"
+        }
+       ],
+       "date": "[between 1859 and 1866]",
+       "created_published": "[between 1859 and 1866]",
+       "medium": [
+        "1 photograph : print on card mount ; mount 9 x 18 cm (stereograph format)"
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 15635, no. 238 [P&P]",
+       "reproduction_number": "LC-DIG-stereo-1s53703 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2024722637/",
+       "object_url_new_site": "https://www.loc.gov/item/2024722637/",
+       "handle": "https://hdl.loc.gov/loc.pnp/stereo.1s53703",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s50000/1s53000/1s53700/1s53703v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2024722637/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title transcribed from item.",
+        "No. 807.",
+        "Photographers: Giorgio & Edmond Behles.",
+        "Publisher: Sommer, Giorgio & Behles, Edmond. Address: Monte di Dio No. 4, Naples; Mario dé fiori No. 28, Rome.",
+        "View of the Ponte Vecchio from the Uffizi, Florence, Italy."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "No. 807. \"View of the Ponte Vecchio from the Uffizi\" (LoC note)."
+       ],
+       "local_file": "img/florence_pontevecchio_1859-66_sommer-behles_stereo_loc-1s53703.jpg",
+       "sha256": "269619d4a739ca543caf4327aad66b3db6d2ce3321d0fabc5900397291670bbc",
+       "local_px": [
+        1024,
+        509
+       ],
+       "local_bytes": 364307,
+       "download_ok": true
+      },
+      {
+       "id": "aic-194443",
+       "era": "etching 1883",
+       "kind": "etching",
+       "title_original": "Ponte Vecchio, Florence",
+       "creators": [
+        {
+         "name": "Joseph Pennell (1857-1926)",
+         "role": "etcher/artist"
+        }
+       ],
+       "date": "1883",
+       "date_range": [
+        1883,
+        1883
+       ],
+       "medium": [
+        "Etching on cream laid paper"
+       ],
+       "dimensions": "Image: 27 × 20.3 cm (10 11/16 × 8 in.); Sheet: 36.8 × 24.5 cm (14 1/2 × 9 11/16 in.)",
+       "institution": "Art Institute of Chicago",
+       "accession": "1910.370",
+       "credit_line": "The Joseph Brooks Fair Collection",
+       "object_url": "https://www.artic.edu/artworks/194443",
+       "api_url": "https://api.artic.edu/api/v1/artworks/194443",
+       "image_url": "https://www.artic.edu/iiif/2/2ac5384f-f269-ccd6-7915-5836b5538a8b/full/843,/0/default.jpg",
+       "rights_as_stated": "is_public_domain: true (AIC API record)",
+       "rights_checked": "2026-11-07",
+       "curator_notes": [
+        "Close, water-level view of one arch; outside the 1820-1870 print window."
+       ],
+       "local_file": "img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg",
+       "sha256": "fbf4247d435932611f948905e55aab75d7bedf4d74db0c32984bbe1743137348",
+       "local_px": [
+        843,
+        1215
+       ],
+       "local_bytes": 505991,
+       "download_ok": true
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2024722637",
+       "b": "aic-194443",
+       "rating": "different_viewpoint",
+       "reasons": "Elevated view from the Uffizi vs close river-level view of one arch."
+      }
+     ],
+     "panoramax": {
+      "results": 1,
+      "candidate": {
+       "id": "f5702a76-d2a8-4cdb-9124-9ea0a3018a22",
+       "date": "2026-06-08",
+       "author": "Ken2009",
+       "license": "CC-BY-SA-4.0",
+       "fov": 360,
+       "viewed": false,
+       "note": "Not viewed; on/near the bridge, cannot reproduce either historic standpoint (Uffizi upper floor; river level)."
+      }
+     },
+     "gap": "No photochrom of Ponte Vecchio found in LoC searches (\"photochrom florence\", \"ponte vecchio\", \"arno florence\") on 2026-11-07."
+    }
+   }
+  },
+  "naples": {
+   "places": {
+    "piazza_plebiscito_palazzo_reale": {
+     "hero": false,
+     "osm": "way/27182911",
+     "images": [
+      {
+       "id": "cma-159761",
+       "era": "photograph before 1852",
+       "kind": "salted paper print from calotype negative",
+       "title_original": "The King's Palace, Naples",
+       "creators": [
+        {
+         "name": "Reverend George Wilson Bridges (1788-1863)",
+         "role": "photographer"
+        }
+       ],
+       "date": "before 1852",
+       "medium": [
+        "salted paper print from calotype negative"
+       ],
+       "dimensions": "Image: 15.8 x 20.3 cm (6 1/4 x 8 in.); Matted: 35.6 x 45.7 cm (14 x 18 in.)",
+       "institution": "Cleveland Museum of Art",
+       "accession": "1997.13",
+       "object_url": "https://clevelandart.org/art/1997.13",
+       "api_url": "https://openaccess-api.clevelandart.org/api/artworks/159761",
+       "image_url": "https://openaccess-cdn.clevelandart.org/1997.13/1997.13_web.jpg",
+       "rights_as_stated": "share_license_status: CC0 (CMA Open Access API)",
+       "rights_checked": "2026-11-07",
+       "curator_notes": [
+        "Handwritten caption on mount: \"The King's Palace - Naples\" and initials \"G.B.\" (visual reading)."
+       ],
+       "local_file": "img/naples_palazzoreale_pre1852_bridges_cma-1997.13.jpg",
+       "sha256": "2f22749df2f08d5836fe49601df3d0fb5ee9e04b6842b6e2380782a6d1a211cc",
+       "local_px": [
+        750,
+        645
+       ],
+       "local_bytes": 65696,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2001700916",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom",
+       "title_original": "[Plaza and church of San Francesco di Paola, Naples, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13434, no. 148 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-06576 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2001700916/",
+       "object_url_new_site": "https://www.loc.gov/item/2001700916/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.06576",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/06500/06576v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001700916/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title devised by Library staff.",
+        "Print no. \"1273\".",
+        "More information about the Photochrom Print Collection is available at http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Views of architecture and other sites in Italy in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Church of San Francesco di Paola with its colonnade."
+       ],
+       "local_file": "img/naples_plebiscito_c1890-1900_photochrom_loc-ppmsc-06576.jpg",
+       "sha256": "d34904de6771f05cb05e5027dde16a03a770848cc75b2faddfc7e43fff780d94",
+       "local_px": [
+        1024,
+        731
+       ],
+       "local_bytes": 146518,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2017660210",
+       "era": "photochrom ca.1890-1906",
+       "kind": "color photochrom",
+       "title_original": "Naples, Italy. Piazza of St. Ferdinando Church",
+       "creators": [
+        {
+         "name": "Photoglob Company, Zürich",
+         "role": "publisher (bracketed in LoC record)"
+        }
+       ],
+       "date": "[ca. 1890-1906]",
+       "created_published": "[Zürich, Switzerland] : [Photoglob Company], [ca. 1890-1906]",
+       "medium": [
+        "1 print : color photochrom ; sheet 17 x  23 cm."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 14184, no. 397 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsca-52662 (digital file from original item)",
+       "object_url": "https://www.loc.gov/pictures/item/2017660210/",
+       "object_url_new_site": "https://www.loc.gov/item/2017660210/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsca.52662",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/52600/52662v.jpg",
+       "rights_as_stated": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2017660210/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from item.",
+        "Title in Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905: \"Italy. Naples. Plazza of St. Ferdinando Church.\"",
+        "Also known as Piazza Triesti e Trento.",
+        "Purchase; Detroit Publishing Company; 1906; 42865.",
+        "Item removed from FOREIGN GEOG FILE - Naples, Italy in 2017.",
+        "More information about the Photochrom Print Collection is available at  http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Photochrom Print Collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "LoC note: also known as Piazza Trieste e Trento (adjacent to Piazza del Plebiscito); link only."
+       ],
+       "download_ok": false
+      }
+     ],
+     "pairs": [
+      {
+       "a": "cma-159761",
+       "b": "loc-2001700916",
+       "rating": "different_viewpoint",
+       "reasons": "Bridges photographs the Palazzo Reale garden gate with equestrian statues; photochrom looks at San Francesco di Paola across the square (opposite side)."
+      }
+     ],
+     "panoramax": {
+      "results": 1,
+      "candidate": {
+       "id": "4469f374-1a86-4186-82f3-fe1f7a0ca249",
+       "date": "2018-09-12",
+       "license": "CC-BY-SA-4.0",
+       "viewed": true,
+       "rating": "different_viewpoint",
+       "note": "Street with sea view near the palace; neither the square nor the church in frame."
+      }
+     }
+    },
+    "santa_lucia_castel_dell_ovo": {
+     "hero": false,
+     "osm": "way/338168783 (Castel dell'Ovo)",
+     "images": [
+      {
+       "id": "aic-27086",
+       "era": "photograph 1846",
+       "kind": "salted paper print",
+       "title_original": "St. Lucia, Naples",
+       "creators": [
+        {
+         "name": "Rev. Calvert Richard Jones (1804-1877)",
+         "role": "photographer"
+        }
+       ],
+       "date": "1846",
+       "date_range": [
+        1846,
+        1846
+       ],
+       "medium": [
+        "Salted paper print"
+       ],
+       "dimensions": "Image: 21.5 × 16.9 cm (8 1/2 × 6 11/16 in.); Paper: 22.5 × 18.5 cm (8 7/8 × 7 5/16 in.)",
+       "institution": "Art Institute of Chicago",
+       "accession": "1967.160",
+       "credit_line": "Purchased with funds provided by Mr. and Mrs. Everett Kovler",
+       "object_url": "https://www.artic.edu/artworks/27086",
+       "api_url": "https://api.artic.edu/api/v1/artworks/27086",
+       "image_url": "https://www.artic.edu/iiif/2/9c6e9dd6-5468-e6ce-508c-032e9794e30a/full/843,/0/default.jpg",
+       "rights_as_stated": "is_public_domain: true (AIC API record)",
+       "rights_checked": "2026-11-07",
+       "curator_notes": [
+        "The Met holds a related pair \"Santa Lucia, Naples\", 1845-46, 2005.100.947a,b (isPublicDomain true): https://www.metmuseum.org/art/collection/search/285836"
+       ],
+       "local_file": "img/naples_santalucia_1846_calvert-jones_aic-27086.jpg",
+       "sha256": "f27a842bfbfa926182c1e0fbbb0e03448ab191839455b3c249bbf71aa46b13c2",
+       "local_px": [
+        843,
+        1035
+       ],
+       "local_bytes": 330439,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2001700901",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom",
+       "title_original": "[Partenope Street, Naples, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13434, no. 133 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-06561 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2001700901/",
+       "object_url_new_site": "https://www.loc.gov/item/2001700901/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.06561",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/06500/06561v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001700901/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title from the Detroit Publishing Co., Catalogue J foreign section, Detroit, Mich. : Detroit Publishing Company, 1905.",
+        "Print no. \"16552\".",
+        "More information about the Photochrom Print Collection is available at http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Views of architecture and other sites in Italy in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Printed caption on image: \"NAPOLI. VIA PARTENOPE\"; Castel dell'Ovo visible."
+       ],
+       "local_file": "img/naples_viapartenope_c1890-1900_photochrom_loc-ppmsc-06561.jpg",
+       "sha256": "889b656f0175237d9996864da99f967e7875b20ca528e6810fbd0cf91b0fcae7",
+       "local_px": [
+        1024,
+        790
+       ],
+       "local_bytes": 181209,
+       "download_ok": true
+      },
+      {
+       "id": "loc-2001700914",
+       "era": "photochrom c.1890-1900",
+       "kind": "photochrom",
+       "title_original": "[Il Posilippo and waterfront, Naples, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "created_published": "[between ca. 1890 and ca. 1900].",
+       "medium": [
+        "1 photomechanical print : photochrom, color."
+       ],
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "call_number": "LOT 13434, no. 146 [item] [P&P]",
+       "reproduction_number": "LC-DIG-ppmsc-06574 (digital file from original)",
+       "object_url": "https://www.loc.gov/pictures/item/2001700914/",
+       "object_url_new_site": "https://www.loc.gov/item/2001700914/",
+       "handle": "https://hdl.loc.gov/loc.pnp/ppmsc.06574",
+       "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/06500/06574v.jpg",
+       "rights_as_stated": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_checked_via": "https://www.loc.gov/pictures/item/2001700914/?fo=json (loc.gov/item/ JSON blocked by Cloudflare challenge on 2026-11-07)",
+       "catalog_notes": [
+        "Title devised by Library staff.",
+        "Print no. \"8590\".",
+        "More information about the Photochrom Print Collection is available at http://hdl.loc.gov/loc.pnp/pp.pgz",
+        "Forms part of: Views of architecture and other sites in Italy in the Photochrom print collection."
+       ],
+       "summary_from_record": null,
+       "curator_notes": [
+        "Il Posilippo and waterfront; link only, not viewed."
+       ],
+       "download_ok": false
+      }
+     ],
+     "pairs": [
+      {
+       "a": "aic-27086",
+       "b": "loc-2001700901",
+       "rating": "different_viewpoint",
+       "reasons": "Jones shows the Santa Lucia quay below the Pizzofalcone hill; photochrom shows Via Partenope toward Castel dell'Ovo. Same waterfront district, different standpoint."
+      }
+     ],
+     "panoramax": {
+      "results": 2,
+      "licenses": {
+       "CC-BY-SA-4.0": 2
+      },
+      "viewed": false,
+      "note": "2018, no azimuth metadata."
+     }
+    }
+   }
+  }
+ }
+}

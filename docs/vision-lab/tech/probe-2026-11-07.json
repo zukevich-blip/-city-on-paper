@@ -1,0 +1,1749 @@
+{
+ "generated": "2026-11-07T06:21:32Z",
+ "env": {
+  "chromium": "playwright 1.63.0 bundled chromium (headless, swiftshader)",
+  "python": "3.13",
+  "server": "scripts/serve.py (http.server + Range) on 127.0.0.1:8790"
+ },
+ "libraries": [
+  {
+   "package": "maplibre-gl",
+   "version": "6.15.0",
+   "published": "2026-10-18",
+   "license": "BSD-3-Clause (LICENSE.txt; also Mapbox BSD-3 for <=v1.13 code)",
+   "url": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.mjs",
+   "bytes": 1098062,
+   "gzip9": 292144,
+   "sri": "sha384-f3IomKpQJ9QgLFg9JJeeIXKzhYFCZFLXDs4FbQLY13Y1uiaEctrT8RHbumCfpsAc"
+  },
+  {
+   "package": "maplibre-gl",
+   "version": "6.15.0",
+   "published": "2026-10-18",
+   "license": "BSD-3-Clause",
+   "url": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl-worker.mjs",
+   "bytes": 518806,
+   "gzip9": 147120,
+   "sri": "sha384-bFMCdo+41ozOqjqQ5s+XmCW14ORz7o11KR04vuUouko65bE1KkGqbN3/z4wUS5Q4"
+  },
+  {
+   "package": "maplibre-gl",
+   "version": "6.15.0",
+   "published": "2026-10-18",
+   "license": "BSD-3-Clause",
+   "url": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.css",
+   "bytes": 71596,
+   "gzip9": 10191,
+   "sri": "sha384-S+OnE5M4U3Qc2nR0RgljGrVs06xqfRg8L7uFk/pOF5+sRuSDG4oKkqKZmFrx7w09"
+  },
+  {
+   "package": "maplibre-gl",
+   "version": "5.24.0",
+   "published": "2026-04-23",
+   "license": "BSD-3-Clause",
+   "url": "https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js",
+   "bytes": 1056837,
+   "gzip9": 275161,
+   "sri": "sha384-5+cfbwT0iiub6VsQAdn6yz16nr6sDiQoHx6tm4O8OVYXHYOxcffFmCJBL0dgdvGp"
+  },
+  {
+   "package": "leaflet",
+   "version": "1.9.4",
+   "published": "2023-05-18",
+   "license": "BSD-2-Clause (LICENSE)",
+   "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+   "bytes": 147552,
+   "gzip9": 42434,
+   "sri": "sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
+  },
+  {
+   "package": "leaflet",
+   "version": "1.9.4",
+   "published": "2023-05-18",
+   "license": "BSD-2-Clause",
+   "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css",
+   "bytes": 14806,
+   "gzip9": 3522,
+   "sri": "sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
+  },
+  {
+   "package": "ol",
+   "version": "10.11.0",
+   "published": "2026-10-04",
+   "license": "BSD-2-Clause (LICENSE.md)",
+   "url": "https://cdn.jsdelivr.net/npm/ol@10.11.0/dist/ol.js",
+   "bytes": 1070771,
+   "gzip9": 297882,
+   "sri": "sha384-rwbCGPbgxLkcQaFvIra1Vz3KBT1yBeF2/1VgLs/gCCNCJ61GHJGimHpkufVKcqap"
+  },
+  {
+   "package": "ol",
+   "version": "10.11.0",
+   "published": "2026-10-04",
+   "license": "BSD-2-Clause",
+   "url": "https://cdn.jsdelivr.net/npm/ol@10.11.0/ol.css",
+   "bytes": 6343,
+   "gzip9": 1466,
+   "sri": "sha384-Jpg1uvTciFJuHq+90Ly0/2SKRT9yS5OhbIN5FuFoFWji9fc44ok8xxO88CJi8Z5W"
+  },
+  {
+   "package": "openseadragon",
+   "version": "6.1.1",
+   "published": "2026-09-09",
+   "license": "BSD-3-Clause (LICENSE.txt)",
+   "url": "https://cdn.jsdelivr.net/npm/openseadragon@6.1.1/build/openseadragon/openseadragon.min.js",
+   "bytes": 352735,
+   "gzip9": 87190,
+   "sri": "sha384-KKly+4vqqBHitr2XfNKWa3+0asIVpzYs2HijkM/zz0X6rgnyLuQEVERX9HqkM5/P"
+  },
+  {
+   "package": "pmtiles",
+   "version": "4.5.0",
+   "published": "2026-08-10",
+   "license": "BSD-3-Clause (repo LICENSE; spec CC0)",
+   "url": "https://cdn.jsdelivr.net/npm/pmtiles@4.5.0/dist/pmtiles.js",
+   "bytes": 20229,
+   "gzip9": 7945,
+   "sri": "sha384-pbKNZbDshUsLnZMIVsn/t+j3xEY9PGfuX5Z22l5rcy/obXz3EwaMx1F5d9sRsJMn"
+  },
+  {
+   "package": "protomaps-leaflet",
+   "version": "5.1.0",
+   "published": "2025-06-18",
+   "license": "BSD-3-Clause (LICENSE)",
+   "url": "https://cdn.jsdelivr.net/npm/protomaps-leaflet@5.1.0/dist/protomaps-leaflet.js",
+   "bytes": 128171,
+   "gzip9": 37642,
+   "sri": "sha384-pAKrddYWxjFAIJwatOtmmtq9ebz3ZwluHCEg3pqOMpOporUofLqz/l5hs+0LAWaH"
+  },
+  {
+   "package": "@protomaps/basemaps",
+   "version": "5.7.2",
+   "published": "2026-03-10",
+   "license": "BSD-3-Clause",
+   "url": "https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5.7.2/dist/basemaps.js",
+   "bytes": 38680,
+   "gzip9": 6983,
+   "sri": "sha384-fzuU7k7ZWwfZAe1+3h7plrSA6dNazJaM2NsKVwcrReJLK0gwVwyOSyPwROl9m1M0"
+  },
+  {
+   "package": "@openhistoricalmap/maplibre-gl-dates",
+   "version": "2.0.0",
+   "published": "2026-10-21",
+   "license": "CC0-1.0 (npm)",
+   "url": "https://cdn.jsdelivr.net/npm/@openhistoricalmap/maplibre-gl-dates@2.0.0/index.js",
+   "bytes": 7316,
+   "gzip9": 2296,
+   "sri": "sha384-OZPcmCmpsigXt1i54ISoTJpMmD5AHDE/ecZjrw9o2rJLF8UraXBMVmoe3gTTaICZ"
+  },
+  {
+   "package": "@panoramax/web-viewer",
+   "version": "5.3.1",
+   "published": "2026-10-02",
+   "license": "MIT (LICENSE)",
+   "url": "https://cdn.jsdelivr.net/npm/@panoramax/web-viewer@5.3.1/build/cjs/index_photoviewer.js",
+   "bytes": 1601740,
+   "gzip9": 521717,
+   "sri": "sha384-6GBrV7r6k9VijVwaitn9LGT1XBTJv8D+S5GFykWWl/tR6TfEXzRK9sf4dd0lTOHG"
+  },
+  {
+   "package": "@allmaps/maplibre",
+   "version": "1.0.0-beta.44",
+   "published": "2026-09-22",
+   "license": "MIT (LICENSE.md)",
+   "url": "https://cdn.jsdelivr.net/npm/@allmaps/maplibre@1.0.0-beta.44/+esm",
+   "bytes": 332297,
+   "gzip9": 89713,
+   "sri": null
+  },
+  {
+   "package": "@allmaps/leaflet",
+   "version": "1.0.0-beta.55",
+   "published": "2026-09-22",
+   "license": "MIT (LICENSE.md)",
+   "url": "https://cdn.jsdelivr.net/npm/@allmaps/leaflet@1.0.0-beta.55/+esm",
+   "bytes": 14120,
+   "gzip9": 2960,
+   "sri": null
+  }
+ ],
+ "github_pages_range_check": {
+  "url": "https://zukevich-blip.github.io/-city-on-paper/index.html",
+  "request": "Range: bytes=0-99",
+  "status": 206,
+  "cache_control": "max-age=600",
+  "accept_ranges": "bytes"
+ },
+ "network_probes": {
+  "date": "2026-11-07T06:03:46Z",
+  "ua": "CityOnPaper-TechProbe/0.1 (research; contact via github.com/zukevich-blip)",
+  "results": {
+   "osm_tile": {
+    "url": "https://tile.openstreetmap.org/5/16/11.png",
+    "status": 200,
+    "ms": 460,
+    "ctype": "image/png",
+    "bytes": 46415,
+    "cache": "max-age=87617, stale-while-revalidate=604800, stale-if-error=604800",
+    "acao": "*",
+    "sha256": "9b6521ba8c8736d1"
+   },
+   "osm_policy": {
+    "url": "https://operations.osmfoundation.org/policies/tiles/",
+    "status": 200,
+    "ms": 530,
+    "ctype": "text/html; charset=utf-8",
+    "bytes": 18698,
+    "cache": null,
+    "acao": null,
+    "sha256": "04908a9e2faf70ad"
+   },
+   "openfreemap_style": {
+    "url": "https://tiles.openfreemap.org/styles/positron",
+    "status": 200,
+    "ms": 112,
+    "ctype": "application/json",
+    "bytes": 25202,
+    "cache": "max-age=86400",
+    "acao": "*",
+    "sha256": "40565c7a5a0961cb",
+    "sources": {
+     "ne2_shaded": {
+      "maxzoom": 6,
+      "tileSize": 256,
+      "tiles": [
+       "https://tiles.openfreemap.org/natural_earth/ne2sr/{z}/{x}/{y}.png"
+      ],
+      "type": "raster"
+     },
+     "openmaptiles": {
+      "type": "vector",
+      "url": "https://tiles.openfreemap.org/planet"
+     }
+    }
+   },
+   "openfreemap_err": "KeyError('url')",
+   "openfreemap_home": {
+    "url": "https://openfreemap.org/",
+    "status": 200,
+    "ms": 175,
+    "ctype": "text/html",
+    "bytes": 12268,
+    "cache": "public, max-age=0, must-revalidate",
+    "acao": null,
+    "sha256": "5684b65ec9db17a9"
+   },
+   "openfreemap_tos": {
+    "url": "https://openfreemap.org/tos/",
+    "status": 200,
+    "ms": 172,
+    "ctype": "text/html",
+    "bytes": 5799,
+    "cache": "public, max-age=0, must-revalidate",
+    "acao": null,
+    "sha256": "37b230074596ec6f"
+   },
+   "protomaps_demo_pmtiles_range": {
+    "url": "https://demo-bucket.protomaps.com/v4.pmtiles",
+    "status": 404,
+    "ms": 627,
+    "ctype": "application/xml",
+    "body_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Resource>/v4.pmtiles</Resource><RequestId>1794031420313402884</RequestId><Key>v4.pmtiles</Key><BucketName>demo-bucket.protomaps.com</BucketName></Error>"
+   },
+   "protomaps_builds": {
+    "url": "https://build.protomaps.com/",
+    "status": 404,
+    "ms": 353,
+    "ctype": "text/html",
+    "body_head": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <link rel=\"icon\" href=\"https://www.cloudflare.com/favicon.ico\" />\n    <title>Not Found</title>\n    <style>\n      body {\n        font-family: system-"
+   },
+   "protomaps_api_nokey": {
+    "url": "https://api.protomaps.com/tiles/v4/5/16/11.mvt",
+    "status": 403,
+    "ms": 194,
+    "ctype": "text/plain;charset=UTF-8",
+    "body_head": "Missing key query param"
+   },
+   "stadia_tile_nokey": {
+    "url": "https://tiles.stadiamaps.com/tiles/alidade_smooth/5/16/11.png",
+    "status": 401,
+    "ms": 144,
+    "ctype": "image/png",
+    "body_head": "�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0002\u0000\u0000\u0000\u0002\u0000\b\u0003\u0000\u0000\u0000æ$�\u0000\u0000\u0000�PLTE���\u0000\u0000\u0000��������Ǚ��```\"\"\"���������yyyKKK��������͹��999���\u000b\u000b\u000bbbb���\u001d\u001d\u001d\u000f\u000f\u000f\u0018\u0018\u0018���������OOO333���������������ppp��냃�������ttt������\u0006\u0006\u0006���)))&&&GGGCCC���\u0013\u0013\u0013������---???\u0014\u0014\u0014ZZZ���mmm������������UUU===vvviii���0003�rL\u0000\u00009\u000eIDATx����\u0000\u0000\u0000\u0000����\u0017�\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�]3�q\u001c�"
+   },
+   "stadia_terms": {
+    "url": "https://stadiamaps.com/terms-of-service/",
+    "status": 200,
+    "ms": 382,
+    "ctype": "text/html",
+    "bytes": 202458,
+    "cache": null,
+    "acao": null,
+    "sha256": "8914148afc9e4931"
+   },
+   "maptiler_style_nokey": {
+    "url": "https://api.maptiler.com/maps/streets-v2/style.json",
+    "status": 403,
+    "ms": 119,
+    "ctype": "text/plain;charset=UTF-8",
+    "body_head": "Missing key - Get your FREE key at https://cloud.maptiler.com/account/keys/"
+   },
+   "ohm_style": {
+    "url": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+    "status": 200,
+    "ms": 694,
+    "ctype": "application/json",
+    "bytes": 258061,
+    "cache": null,
+    "acao": "*",
+    "sha256": "3ad5ddaf86414bdf",
+    "sources": {
+     "ohm": {
+      "type": "vector",
+      "url": null,
+      "tiles": [
+       "https://vtiles.openhistoricalmap.org/maps/ohm/{z}/{x}/{y}.pbf"
+      ],
+      "attribution": null
+     },
+     "ohm_landcover_hillshade": {
+      "type": "raster",
+      "url": null,
+      "tiles": [
+       "https://static-tiles.openhistoricalmap.org/{z}/{x}/{y}.png"
+      ],
+      "attribution": null
+     },
+     "ne": {
+      "type": "vector",
+      "url": null,
+      "tiles": [
+       "https://vtiles.openhistoricalmap.org/maps/ne/{z}/{x}/{y}.pbf"
+      ],
+      "attribution": null
+     },
+     "osm_land": {
+      "type": "vector",
+      "url": null,
+      "tiles": [
+       "https://vtiles.openhistoricalmap.org/maps/osm_land/{z}/{x}/{y}.pbf"
+      ],
+      "attribution": null
+     }
+    }
+   },
+   "ohm_vtile": {
+    "url": "https://vtiles.openhistoricalmap.org/maps/osm/5/16/11.pbf",
+    "status": 200,
+    "ms": 646,
+    "ctype": "application/x-protobuf",
+    "bytes": 400000,
+    "cache": "public, max-age=60",
+    "acao": "*",
+    "sha256": "ee42871be4642d63"
+   },
+   "ohm_about": {
+    "url": "https://www.openhistoricalmap.org/about",
+    "status": 200,
+    "ms": 593,
+    "ctype": "text/html; charset=utf-8",
+    "bytes": 20344,
+    "cache": "max-age=0, private, must-revalidate",
+    "acao": null,
+    "sha256": "4bc82b1d6ed2a2fc"
+   },
+   "ohm_copyright": {
+    "url": "https://www.openhistoricalmap.org/copyright",
+    "status": 200,
+    "ms": 452,
+    "ctype": "text/html; charset=utf-8",
+    "bytes": 20568,
+    "cache": "max-age=0, private, must-revalidate",
+    "acao": null,
+    "sha256": "d2a3753c563f0ca2"
+   },
+   "maplibre_demotiles": {
+    "url": "https://demotiles.maplibre.org/style.json",
+    "status": 200,
+    "ms": 179,
+    "ctype": "application/json; charset=utf-8",
+    "bytes": 77224,
+    "cache": "max-age=600",
+    "acao": "*",
+    "sha256": "dd86fd257f9895da"
+   },
+   "panoramax_search": {
+    "url": "https://api.panoramax.xyz/api/search?bbox=2.2930,48.8570,2.2970,48.8590&limit=3",
+    "status": 200,
+    "ms": 700,
+    "ctype": "application/json",
+    "bytes": 23942,
+    "cache": null,
+    "acao": null,
+    "sha256": "92fecad03a1c0a0c",
+    "n": 3
+   },
+   "panoramax_items": [
+    {
+     "id": "feb5593c-eecd-4b9a-a2fa-11fb8ba90128",
+     "collection": "779fb271-0ad3-4fe7-a392-7f42212eaa36",
+     "datetime": "2024-09-15T17:04:07+00:00",
+     "license": "CC-BY-SA-4.0",
+     "producer": "Cyril5C",
+     "heading": 53,
+     "assets": {
+      "hd": "https://panoramax.openstreetmap.fr/images/fe/b5/59/3c/eecd-4b9a-a2fa-11fb8ba90128.jpg",
+      "sd": "https://panoramax.openstreetmap.fr/derivates/fe/b5/59/3c/eecd-4b9a-a2fa-11fb8ba90128/sd.jpg",
+      "thumb": "https://panoramax.openstreetmap.fr/derivates/fe/b5/59/3c/eecd-4b9a-a2fa-11fb8ba90128/thumb.jpg"
+     },
+     "links": [
+      "https://creativecommons.org/licenses/by-sa/4.0/",
+      "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/feb5593c-eecd-4b9a-a2fa-11fb8ba90128"
+     ]
+    },
+    {
+     "id": "45821cae-cc59-418a-aa67-74d24c102f2e",
+     "collection": "779fb271-0ad3-4fe7-a392-7f42212eaa36",
+     "datetime": "2024-09-15T17:04:05+00:00",
+     "license": "CC-BY-SA-4.0",
+     "producer": "Cyril5C",
+     "heading": 54,
+     "assets": {
+      "hd": "https://panoramax.openstreetmap.fr/images/45/82/1c/ae/cc59-418a-aa67-74d24c102f2e.jpg",
+      "sd": "https://panoramax.openstreetmap.fr/derivates/45/82/1c/ae/cc59-418a-aa67-74d24c102f2e/sd.jpg",
+      "thumb": "https://panoramax.openstreetmap.fr/derivates/45/82/1c/ae/cc59-418a-aa67-74d24c102f2e/thumb.jpg"
+     },
+     "links": [
+      "https://creativecommons.org/licenses/by-sa/4.0/",
+      "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/45821cae-cc59-418a-aa67-74d24c102f2e"
+     ]
+    },
+    {
+     "id": "67410f05-d640-4dc7-a3f9-210b2cb977cb",
+     "collection": "779fb271-0ad3-4fe7-a392-7f42212eaa36",
+     "datetime": "2024-09-15T17:04:09+00:00",
+     "license": "CC-BY-SA-4.0",
+     "producer": "Cyril5C",
+     "heading": 53,
+     "assets": {
+      "hd": "https://panoramax.openstreetmap.fr/images/67/41/0f/05/d640-4dc7-a3f9-210b2cb977cb.jpg",
+      "sd": "https://panoramax.openstreetmap.fr/derivates/67/41/0f/05/d640-4dc7-a3f9-210b2cb977cb/sd.jpg",
+      "thumb": "https://panoramax.openstreetmap.fr/derivates/67/41/0f/05/d640-4dc7-a3f9-210b2cb977cb/thumb.jpg"
+     },
+     "links": [
+      "https://creativecommons.org/licenses/by-sa/4.0/",
+      "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/67410f05-d640-4dc7-a3f9-210b2cb977cb"
+     ]
+    }
+   ],
+   "panoramax_thumb": {
+    "url": "https://panoramax.openstreetmap.fr/derivates/fe/b5/59/3c/eecd-4b9a-a2fa-11fb8ba90128/thumb.jpg",
+    "status": 200,
+    "ms": 601,
+    "ctype": "image/jpeg",
+    "bytes": 33962,
+    "cache": null,
+    "acao": "*",
+    "sha256": "43de1722dd2cb75a"
+   },
+   "panoramax_viewer_pkg": {
+    "url": "https://registry.npmjs.org/@panoramax/web-viewer/latest",
+    "status": 200,
+    "ms": 150,
+    "ctype": "application/json",
+    "bytes": 5359,
+    "cache": null,
+    "acao": "*",
+    "sha256": "c692679f02dca804"
+   },
+   "allmaps_annotation": {
+    "url": "https://annotations.allmaps.org/maps/2d49b3ecd1ba6346",
+    "status": 200,
+    "ms": 339,
+    "ctype": "application/json; charset=utf-8",
+    "bytes": 4918,
+    "cache": "public, max-age=60, s-maxage=300",
+    "acao": "*",
+    "sha256": "cdca9c61fd49b778",
+    "type": "Annotation",
+    "sample": "{\"id\": \"https://annotations.allmaps.org/maps/2d49b3ecd1ba6346\", \"type\": \"Annotation\", \"@context\": [\"http://iiif.io/api/extension/georef/1/context.json\", \"http://iiif.io/api/presentation/3/context.json\"], \"created\": \"2023-11-23T14:48:08.662Z\", \"modified\": \"2023-11-23T14:56:41.048Z\", \"motivation\": \"georeferencing\", \"target\": {\"type\": \"SpecificResource\", \"source\": {\"id\": \"https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090\", \"type\": \"ImageService2\", \"height\": 4071, \"width\": 5574, \"partOf\": [{\"id\": \"https://ark.digitalcommonwealth.org/ark:/50959/ht250708q/canvas/ht2507090\", \"type\": \"Canvas\", \"label\": {\"none\": [\"image 1\"]}, \"partOf\": [{\"id\": \"https://ark.digitalcommonwealth.org/ark:/50959/ht250708q/manifest\", \"type\": \"Manifest\", \"label\": {\"none\": [\"Ghent or Gand\"]}}]}], \"provider\": [{\"label\": {\"none\": [\"Digital Commonwealth\"]}, \"homepage\": [{\"id\": \"https://www.digitalcommonwealth.org/search?f%5Bgenre_basic_ssim%5D%5B%5D=Maps\"}]}]}, \"selector\": {\"type\": \"SvgSelector\", \"value\": \"<svg width=\\\"5574\\\" height=\\\"4071\\\"><polygon points=\\\"57,80 5402,55 5408,3957 58,3996\\\" /></svg>\"}}, \"body\": {\"type\": \"FeatureCollection\", \"transformation\": {\"type\": \"polynomial\", \"options\": {\"order"
+   },
+   "allmaps_spec": {
+    "url": "https://iiif.io/api/extension/georef/",
+    "status": 200,
+    "ms": 335,
+    "ctype": "text/html",
+    "bytes": 89692,
+    "cache": "public, no-transform, max-age=300",
+    "acao": null,
+    "sha256": "8a5d13e5b50283ab"
+   }
+  }
+ },
+ "panoramax_city_coverage": {
+  "paris_notre_dame": {
+   "url": "https://api.panoramax.xyz/api/search?bbox=2.345,48.851,2.355,48.856&limit=100",
+   "n": 100,
+   "licenses": {
+    "CC-BY-SA-4.0": 87,
+    "etalab-2.0": 13
+   },
+   "types": {
+    "360": 30,
+    "null": 40,
+    "76": 21,
+    "95": 9
+   },
+   "years": {
+    "2025": 87,
+    "2016": 4,
+    "2024": 9
+   }
+  },
+  "florence_duomo": {
+   "url": "https://api.panoramax.xyz/api/search?bbox=11.252,43.771,11.260,43.776&limit=100",
+   "n": 13,
+   "licenses": {
+    "CC-BY-SA-4.0": 13
+   },
+   "types": {
+    "69": 10,
+    "null": 3
+   },
+   "years": {
+    "2026": 10,
+    "2015": 1,
+    "2021": 2
+   }
+  },
+  "naples_lungomare": {
+   "url": "https://api.panoramax.xyz/api/search?bbox=14.240,40.828,14.255,40.836&limit=100",
+   "n": 5,
+   "licenses": {
+    "CC-BY-SA-4.0": 5
+   },
+   "types": {
+    "null": 5
+   },
+   "years": {
+    "2018": 5
+   }
+  }
+ },
+ "pmtiles_extract": {
+  "source": "https://build.protomaps.com/20261106.pmtiles (v4.15.2, 139.35 GB planet)",
+  "bbox": [
+   2.25,
+   48.815,
+   2.42,
+   48.905
+  ],
+  "maxzoom": 14,
+  "tiles": 102,
+  "range_requests": 411,
+  "bytes_fetched": 23989354,
+  "output": "data/paris-z14.pmtiles",
+  "output_bytes": 9228120,
+  "output_sha256": "a22755fcbb139e90955f1441c09a4bd29708331e1203929a662014c0a98cba6c",
+  "attribution": "© OpenStreetMap (ODbL produced work)"
+ },
+ "playwright_runs": {
+  "allmaps": {
+   "name": "allmaps",
+   "url": "http://127.0.0.1:8790/t-allmaps.html",
+   "mode": "webgl",
+   "console": [
+    "warning: layers[highway-shield-non-us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+    "warning: layers[highway-shield-us-interstate].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+    "warning: layers[road_shield_us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false."
+   ],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "maplibre 6.15.0 + @allmaps/maplibre 1.0.0-beta.44",
+    "loaded": true,
+    "errors": [],
+    "t0": 127.69999999995343,
+    "added": [
+     "[object Object]"
+    ],
+    "ms": 6309
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 8217,
+   "total_bytes": 2478639,
+   "n_requests": 64,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/maplibre-gl.mjs",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/0,0,4096,4071/1024,/0/default.jpg",
+     "st": 200,
+     "b": 287798,
+     "hb": 592
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4180/2740.pbf",
+     "st": 200,
+     "b": 116354,
+     "hb": 1071
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/4096,0,1478,4071/370,/0/default.jpg",
+     "st": 200,
+     "b": 107416,
+     "hb": 594
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4180/2741.pbf",
+     "st": 200,
+     "b": 88881,
+     "hb": 1068
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4181/2740.pbf",
+     "st": 200,
+     "b": 86915,
+     "hb": 1070
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/zod@4.6.5/+esm",
+     "st": 200,
+     "b": 77540,
+     "hb": 811
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4181/2741.pbf",
+     "st": 200,
+     "b": 77303,
+     "hb": 1076
+    }
+   ]
+  },
+  "leaflet_allmaps_xyz_nowebgl": {
+   "name": "leaflet_allmaps_xyz_nowebgl",
+   "url": "http://127.0.0.1:8790/t-leaflet-allmaps-xyz.html",
+   "mode": "nowebgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "leaflet 1.9.4 + allmaps.xyz raster",
+    "loaded": true,
+    "errors": [],
+    "tiles": 24,
+    "t0": 359.4000000000233,
+    "ms": 1796
+   },
+   "webglProbe": {
+    "webgl2": false,
+    "webgl": false
+   },
+   "elapsed_ms": 3671,
+   "total_bytes": 710631,
+   "n_requests": 27,
+   "top_requests": [
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8361/5481.png",
+     "st": 200,
+     "b": 187014,
+     "hb": 700
+    },
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8361/5480.png",
+     "st": 200,
+     "b": 137552,
+     "hb": 694
+    },
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8361/5482.png",
+     "st": 200,
+     "b": 80356,
+     "hb": 703
+    },
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8362/5481.png",
+     "st": 200,
+     "b": 77146,
+     "hb": 699
+    },
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8360/5481.png",
+     "st": 200,
+     "b": 63199,
+     "hb": 800
+    },
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8360/5480.png",
+     "st": 200,
+     "b": 54175,
+     "hb": 699
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+     "st": 200,
+     "b": 36938,
+     "hb": 808
+    },
+    {
+     "u": "https://allmaps.xyz/maps/2d49b3ecd1ba6346/14/8362/5482.png",
+     "st": 200,
+     "b": 30091,
+     "hb": 695
+    }
+   ]
+  },
+  "leaflet_portal": {
+   "name": "leaflet_portal",
+   "url": "http://127.0.0.1:8790/t-leaflet.html",
+   "mode": "webgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "leaflet 1.9.4 CRS.Simple",
+    "loaded": true,
+    "errors": [],
+    "t0": 401.80000000004657,
+    "ms": 904
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 2835,
+   "total_bytes": 376754,
+   "n_requests": 4,
+   "top_requests": [
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/full/1394,/0/default.jpg",
+     "st": 200,
+     "b": 334159,
+     "hb": 583
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+     "st": 200,
+     "b": 36938,
+     "hb": 809
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css",
+     "st": 200,
+     "b": 2967,
+     "hb": 793
+    },
+    {
+     "u": "http://127.0.0.1:8790/t-leaflet.html",
+     "st": 200,
+     "b": 2690,
+     "hb": 188
+    }
+   ]
+  },
+  "leaflet_portal_nowebgl": {
+   "name": "leaflet_portal_nowebgl",
+   "url": "http://127.0.0.1:8790/t-leaflet.html",
+   "mode": "nowebgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "leaflet 1.9.4 CRS.Simple",
+    "loaded": true,
+    "errors": [],
+    "t0": 175.80000000004657,
+    "ms": 438
+   },
+   "webglProbe": {
+    "webgl2": false,
+    "webgl": false
+   },
+   "elapsed_ms": 2130,
+   "total_bytes": 376754,
+   "n_requests": 4,
+   "top_requests": [
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/full/1394,/0/default.jpg",
+     "st": 200,
+     "b": 334159,
+     "hb": 583
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+     "st": 200,
+     "b": 36938,
+     "hb": 809
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css",
+     "st": 200,
+     "b": 2967,
+     "hb": 793
+    },
+    {
+     "u": "http://127.0.0.1:8790/t-leaflet.html",
+     "st": 200,
+     "b": 2690,
+     "hb": 188
+    }
+   ]
+  },
+  "ml_localjs": {
+   "name": "ml_localjs",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=pmtiles&lib=localjs",
+   "mode": "webgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "pmtiles",
+    "lib": "localjs",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 329.60000000009313,
+    "ms": 505
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 2371,
+   "total_bytes": 1919884,
+   "n_requests": 12,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/js/maplibre-gl.js",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 147066,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 138364,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 129449,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 123533,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 122612,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 118597,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 16384,
+     "hb": 231
+    }
+   ]
+  },
+  "ml_mobile390": {
+   "name": "ml_mobile390",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=pmtiles&lib=local",
+   "mode": "webgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "pmtiles",
+    "lib": "local",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 132.59999999997672,
+    "ms": 612
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 2697,
+   "total_bytes": 1900537,
+   "n_requests": 12,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/maplibre-gl.mjs",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 147066,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 138364,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 129449,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 123533,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 116093,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 106311,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 16384,
+     "hb": 231
+    }
+   ]
+  },
+  "ml_nowebgl_fallback": {
+   "name": "ml_nowebgl_fallback",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=pmtiles&lib=local&fallback=1",
+   "mode": "nowebgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "pmtiles",
+    "lib": "local",
+    "webgl": false,
+    "renderer": "leaflet 1.9.4 + protomaps-leaflet (canvas)",
+    "loaded": true,
+    "errors": [],
+    "t0": 305.4000000000233,
+    "ms": 2871
+   },
+   "webglProbe": {
+    "webgl2": false,
+    "webgl": false
+   },
+   "elapsed_ms": 4691,
+   "total_bytes": 823519,
+   "n_requests": 15,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 137214,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 132720,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 116092,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 108575,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 103772,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 103059,
+     "hb": 240
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+     "st": 200,
+     "b": 44019,
+     "hb": 822
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/protomaps-leaflet@5.1.0/dist/protomaps-leaflet.js",
+     "st": 200,
+     "b": 32483,
+     "hb": 810
+    }
+   ]
+  },
+  "ml_nowebgl_raw": {
+   "name": "ml_nowebgl_raw",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=pmtiles&lib=local&fallback=0",
+   "mode": "nowebgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "pmtiles",
+    "lib": "local",
+    "webgl": false,
+    "renderer": "maplibre 6.15.0",
+    "loaded": false,
+    "errors": [
+     "ctor: WebGL2 is required to display this map. We are sorry, but it seems that your browser does not support WebGL2, a technology for rendering 3D graphics on the web. Read more on https://wiki.openstreetmap.org/wiki/This_map_requires_WebGL"
+    ],
+    "t0": 314
+   },
+   "webglProbe": {
+    "webgl2": false,
+    "webgl": false
+   },
+   "elapsed_ms": 13912,
+   "total_bytes": 1122212,
+   "n_requests": 4,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/maplibre-gl.mjs",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.css",
+     "st": 200,
+     "b": 8326,
+     "hb": 796
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/pmtiles@4.5.0/dist/pmtiles.js",
+     "st": 200,
+     "b": 8202,
+     "hb": 1173
+    },
+    {
+     "u": "http://127.0.0.1:8790/t-maplibre.html?src=pmtiles&lib=local&fallback=0",
+     "st": 200,
+     "b": 7622,
+     "hb": 188
+    }
+   ]
+  },
+  "ml_ofm_cdn": {
+   "name": "ml_ofm_cdn",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=ofm&lib=cdn",
+   "mode": "webgl",
+   "console": [
+    "warning: layers[highway-shield-non-us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+    "warning: layers[highway-shield-us-interstate].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+    "warning: layers[road_shield_us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false."
+   ],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "ofm",
+    "lib": "cdn",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 313.10000000009313,
+    "ms": 1288
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 3366,
+   "total_bytes": 1559122,
+   "n_requests": 19,
+   "top_requests": [
+    {
+     "u": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.mjs",
+     "st": 200,
+     "b": 295752,
+     "hb": 814
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4149/2818.pbf",
+     "st": 200,
+     "b": 177934,
+     "hb": 1083
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4149/2817.pbf",
+     "st": 200,
+     "b": 165329,
+     "hb": 1079
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4150/2817.pbf",
+     "st": 200,
+     "b": 150371,
+     "hb": 1083
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl-worker.mjs?v=6.15.0",
+     "st": 200,
+     "b": 145738,
+     "hb": 1164
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4150/2818.pbf",
+     "st": 200,
+     "b": 139783,
+     "hb": 1081
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4148/2817.pbf",
+     "st": 200,
+     "b": 134969,
+     "hb": 1071
+    },
+    {
+     "u": "https://tiles.openfreemap.org/planet/20261101_080013_pt/13/4148/2818.pbf",
+     "st": 200,
+     "b": 131910,
+     "hb": 1072
+    }
+   ]
+  },
+  "ml_ohm": {
+   "name": "ml_ohm",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=ohm&lib=local",
+   "mode": "webgl",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: layers[transport_points_labels_medium].filter: Expected value to be of type number, but found null instead. Falling back to false.",
+    "warning: layers[transport_area_labels_large].filter: Expected value to be of type number, but found null instead. Falling back to false."
+   ],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "ohm",
+    "lib": "local",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 327.60000000009313,
+    "ms": 2393
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 4437,
+   "total_bytes": 1642729,
+   "n_requests": 24,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/maplibre-gl.mjs",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/fonts/OpenHistorical%20Italic/0-255.pbf",
+     "st": 200,
+     "b": 108976,
+     "hb": 783
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/fonts/OpenHistorical/0-255.pbf",
+     "st": 200,
+     "b": 105585,
+     "hb": 789
+    },
+    {
+     "u": "https://static-tiles.openhistoricalmap.org/7/64/44.png",
+     "st": 200,
+     "b": 104989,
+     "hb": 771
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/historical/historical_spritesheet.png",
+     "st": 200,
+     "b": 80506,
+     "hb": 832
+    },
+    {
+     "u": "https://vtiles.openhistoricalmap.org/maps/ohm/13/4149/2818.pbf",
+     "st": 200,
+     "b": 34809,
+     "hb": 890
+    },
+    {
+     "u": "https://vtiles.openhistoricalmap.org/maps/ohm/13/4148/2818.pbf",
+     "st": 200,
+     "b": 29201,
+     "hb": 890
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+     "st": 200,
+     "b": 18483,
+     "hb": 729
+    }
+   ]
+  },
+  "ml_ohm_1850": {
+   "name": "ml_ohm_1850",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=ohm&lib=local&date=1850",
+   "mode": "webgl",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: layers[transport_points_labels_medium].filter[3]: Expected value to be of type number, but found null instead. Falling back to false.",
+    "warning: layers[transport_area_labels_large].filter[3]: Expected value to be of type number, but found null instead. Falling back to false."
+   ],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "ohm",
+    "lib": "local",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 341.4000000001397,
+    "date": "1850",
+    "ms": 2211
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 4510,
+   "total_bytes": 1644249,
+   "n_requests": 25,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/maplibre-gl.mjs",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/fonts/OpenHistorical%20Italic/0-255.pbf",
+     "st": 200,
+     "b": 108976,
+     "hb": 787
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/fonts/OpenHistorical/0-255.pbf",
+     "st": 200,
+     "b": 105585,
+     "hb": 783
+    },
+    {
+     "u": "https://static-tiles.openhistoricalmap.org/7/64/44.png",
+     "st": 200,
+     "b": 104989,
+     "hb": 773
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/historical/historical_spritesheet.png",
+     "st": 200,
+     "b": 80506,
+     "hb": 838
+    },
+    {
+     "u": "https://vtiles.openhistoricalmap.org/maps/ohm/13/4149/2818.pbf",
+     "st": 200,
+     "b": 34809,
+     "hb": 890
+    },
+    {
+     "u": "https://vtiles.openhistoricalmap.org/maps/ohm/13/4148/2818.pbf",
+     "st": 200,
+     "b": 29201,
+     "hb": 884
+    },
+    {
+     "u": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+     "st": 200,
+     "b": 18765,
+     "hb": 727
+    }
+   ]
+  },
+  "ml_pmtiles_local": {
+   "name": "ml_pmtiles_local",
+   "url": "http://127.0.0.1:8790/t-maplibre.html?src=pmtiles&lib=local",
+   "mode": "webgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "pmtiles",
+    "lib": "local",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 542.9000000000233,
+    "ms": 745
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 3204,
+   "total_bytes": 1919342,
+   "n_requests": 12,
+   "top_requests": [
+    {
+     "u": "http://127.0.0.1:8790/vendor/maplibre-gl.mjs",
+     "st": 200,
+     "b": 1098062,
+     "hb": 197
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 147066,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 138364,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 129449,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 123533,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 122612,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 118597,
+     "hb": 240
+    },
+    {
+     "u": "http://127.0.0.1:8790/data/paris-z14.pmtiles",
+     "st": 206,
+     "b": 16384,
+     "hb": 231
+    }
+   ]
+  },
+  "ol": {
+   "name": "ol",
+   "url": "http://127.0.0.1:8790/t-ol.html",
+   "mode": "webgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "ol 10.11.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 239.80000000004657,
+    "ms": 382
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 2673,
+   "total_bytes": 557297,
+   "n_requests": 4,
+   "top_requests": [
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/full/1394,/0/default.jpg",
+     "st": 200,
+     "b": 334159,
+     "hb": 583
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/ol@10.11.0/dist/ol.js",
+     "st": 200,
+     "b": 219947,
+     "hb": 814
+    },
+    {
+     "u": "http://127.0.0.1:8790/t-ol.html",
+     "st": 200,
+     "b": 1956,
+     "hb": 188
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/ol@10.11.0/ol.css",
+     "st": 200,
+     "b": 1235,
+     "hb": 796
+    }
+   ]
+  },
+  "osd": {
+   "name": "osd",
+   "url": "http://127.0.0.1:8790/t-osd.html",
+   "mode": "webgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "openseadragon 6.1.1",
+    "loaded": true,
+    "errors": [],
+    "tiles": 12,
+    "t0": 144,
+    "drawer": "webgl",
+    "ms": 2774
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 4906,
+   "total_bytes": 3491786,
+   "n_requests": 33,
+   "top_requests": [
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/3072,2048,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 360887,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/3072,1024,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 358941,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,2048,2048,2023/1024,1012/0/default.jpg",
+     "st": 200,
+     "b": 347362,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,1024,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 322238,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,0,2048,2048/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 321120,
+     "hb": 599
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,2048,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 311843,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/0,0,4096,4071/1024,1018/0/default.jpg",
+     "st": 200,
+     "b": 273268,
+     "hb": 596
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/1024,2048,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 255785,
+     "hb": 602
+    }
+   ]
+  },
+  "osd_nowebgl": {
+   "name": "osd_nowebgl",
+   "url": "http://127.0.0.1:8790/t-osd.html",
+   "mode": "nowebgl",
+   "console": [],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "renderer": "openseadragon 6.1.1",
+    "loaded": true,
+    "errors": [],
+    "tiles": 12,
+    "t0": 143.90000000002328,
+    "drawer": "canvas",
+    "ms": 1525
+   },
+   "webglProbe": {
+    "webgl2": false,
+    "webgl": false
+   },
+   "elapsed_ms": 3178,
+   "total_bytes": 3491773,
+   "n_requests": 33,
+   "top_requests": [
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/3072,2048,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 360887,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/3072,1024,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 358941,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,2048,2048,2023/1024,1012/0/default.jpg",
+     "st": 200,
+     "b": 347362,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,1024,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 322238,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,0,2048,2048/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 321120,
+     "hb": 599
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/2048,2048,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 311843,
+     "hb": 602
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/0,0,4096,4071/1024,1018/0/default.jpg",
+     "st": 200,
+     "b": 273268,
+     "hb": 596
+    },
+    {
+     "u": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:ht2507090/1024,2048,1024,1024/1024,1024/0/default.jpg",
+     "st": 200,
+     "b": 255785,
+     "hb": 602
+    }
+   ]
+  },
+  "pwa": {
+   "install": {
+    "done": true,
+    "scope": "http://127.0.0.1:8790/",
+    "quota_mb": 3082,
+    "usage_mb": 10.5,
+    "persisted": false,
+    "cached": 6
+   },
+   "offline": {
+    "src": "pmtiles",
+    "lib": "local",
+    "webgl": true,
+    "renderer": "maplibre 6.15.0",
+    "loaded": true,
+    "errors": [],
+    "t0": 15.5,
+    "ms": 685
+   },
+   "offline_errors": []
+  },
+  "sri_negative": {
+   "name": "sri_negative",
+   "url": "http://127.0.0.1:8790/t-sri-negative.html?src=ofm&lib=cdn&fallback=0",
+   "mode": "webgl",
+   "console": [
+    "error: Failed to find a valid digest in the 'integrity' attribute for resource 'https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.mjs' with computed SHA-384 integrity 'f3IomKpQJ9QgLFg9JJeeIXKzhYFCZFLXDs4FbQLY13Y1uiaEctrT8RHbumCfpsAc'. The resource has been blocked."
+   ],
+   "pageerrors": [],
+   "failed": [],
+   "result": {
+    "src": "ofm",
+    "lib": "cdn",
+    "webgl": true,
+    "renderer": null,
+    "loaded": false,
+    "errors": [
+     "maplibre: Failed to fetch dynamically imported module: https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.mjs"
+    ],
+    "t0": 327.70000000006985
+   },
+   "webglProbe": {
+    "webgl2": true,
+    "webgl": true
+   },
+   "elapsed_ms": 9927,
+   "total_bytes": 319902,
+   "n_requests": 4,
+   "top_requests": [
+    {
+     "u": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.mjs",
+     "st": 200,
+     "b": 295752,
+     "hb": 1174
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.15.0/dist/maplibre-gl.css",
+     "st": 200,
+     "b": 8326,
+     "hb": 796
+    },
+    {
+     "u": "https://cdn.jsdelivr.net/npm/pmtiles@4.5.0/dist/pmtiles.js",
+     "st": 200,
+     "b": 8202,
+     "hb": 1185
+    },
+    {
+     "u": "http://127.0.0.1:8790/t-sri-negative.html?src=ofm&lib=cdn&fallback=0",
+     "st": 200,
+     "b": 7622,
+     "hb": 188
+    }
+   ]
+  }
+ },
+ "images": {
+  "formats": [
+   {
+    "width": 480,
+    "fmt": "jpg",
+    "bytes": 50676,
+    "encode_ms": 10
+   },
+   {
+    "width": 480,
+    "fmt": "webp",
+    "bytes": 38694,
+    "encode_ms": 84
+   },
+   {
+    "width": 480,
+    "fmt": "avif",
+    "bytes": 21487,
+    "encode_ms": 182
+   },
+   {
+    "width": 960,
+    "fmt": "jpg",
+    "bytes": 187389,
+    "encode_ms": 16
+   },
+   {
+    "width": 960,
+    "fmt": "webp",
+    "bytes": 133024,
+    "encode_ms": 231
+   },
+   {
+    "width": 960,
+    "fmt": "avif",
+    "bytes": 73426,
+    "encode_ms": 266
+   },
+   {
+    "width": 1600,
+    "fmt": "jpg",
+    "bytes": 480308,
+    "encode_ms": 41
+   },
+   {
+    "width": 1600,
+    "fmt": "webp",
+    "bytes": 320276,
+    "encode_ms": 597
+   },
+   {
+    "width": 1600,
+    "fmt": "avif",
+    "bytes": 179717,
+    "encode_ms": 626
+   }
+  ],
+  "phash": {
+   "orig_vs_webp960_reencoded": 0,
+   "orig_vs_unrelated_photo": 30,
+   "orig_vs_mirrored": 32,
+   "note": "Hamming distance of 64-bit pHash; <=8 usually 'same image'"
+  },
+  "orb": {
+   "panoramax_consecutive": {
+    "kp1": 3000,
+    "kp2": 3000,
+    "ratio_good": 81,
+    "ransac_inliers": 37
+   },
+   "negative_control_pano_vs_map": {
+    "kp1": 3000,
+    "kp2": 3000,
+    "ratio_good": 24,
+    "ransac_inliers": 8
+   }
+  },
+  "versions": {
+   "pillow": "12.3.0",
+   "opencv": "4.10.0",
+   "imagehash": "4.3.2"
+  }
+ },
+ "ocr": {
+  "engine": "tesseract 5.3.4 (Apache-2.0), lang fra, psm 6",
+  "input": "IIIF region 50,2880,520,600 of commonwealth:ht2507090 (legend 'EXPLANATION')",
+  "output": "H ÈS\nEXPLANATIO FN\n3 x re |\nEhcques\n3 S#Wicolas\n2 SEX ichel\n5 SÉMrtin\nH FPS\nANA. TTC\n8 Ci HA\n,5% AnnelProjete) |\ndes _ Augustins |\nDoninerns |\n:: 1 _P. Jésuites |\n\" Couvent de Doorseele |\n5 duWouveauLiois\ndes Cartes CREUSES\nTheresiennes\n19) ‘ AA Eos jp\nSA ;\n"
+ }
+}

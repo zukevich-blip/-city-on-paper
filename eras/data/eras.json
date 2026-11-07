@@ -1,0 +1,927 @@
+{
+ "version": "2026-11-07",
+ "note": "Coordinator decisions on top of the consilium research (Issue #34, 2026-11-07). Pins on the portal map are placed by reading the 1769 map itself (decorative, not geodetic). Ratings marked 'координатор' were re-checked with perspective crops of the modern panoramas.",
+ "portal": {
+  "image": "img/loc-97683588-carte-d-europe-1769.jpg",
+  "width": 2000,
+  "height": 1616,
+  "title": "Carte d'Europe",
+  "credit": "G. de L'Isle, 1724, дополнено Ph. Buache; LoC даёт дату 1769. Library of Congress, Geography and Map Division, G5700 1724 .L5 TIL",
+  "object_url": "https://www.loc.gov/item/97683588/",
+  "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. (Rights Advisory у предмета нет.)",
+  "rights_class": "open",
+  "rights_short": "LoC G&M: свободно, без rights advisory",
+  "alt": "Раскрашенная от руки карта Европы XVIII века с картушем «Carte d'Europe» в левом верхнем углу",
+  "pins": {
+   "paris": {
+    "x": 597,
+    "y": 931
+   },
+   "florence": {
+    "x": 812,
+    "y": 1168
+   },
+   "naples": {
+    "x": 885,
+    "y": 1294
+   }
+  },
+  "image_small": "img/loc-97683588-carte-d-europe-1769_w1000.jpg"
+ },
+ "eras": [
+  {
+   "id": "print",
+   "label": "Литография и гравюра",
+   "available": true,
+   "hint": "1845–1883: литографии Бенуа, офорт Пеннелла"
+  },
+  {
+   "id": "photo",
+   "label": "Фото и фотохром",
+   "available": true,
+   "hint": "1846–1906: Calvert Jones, Baldus, Sommer & Behles, Detroit Publishing / Photoglob"
+  },
+  {
+   "id": "today",
+   "label": "Сегодня",
+   "available": true,
+   "hint": "Panoramax 2017–2026"
+  },
+  {
+   "id": "mid20",
+   "label": "Середина XX века",
+   "available": false,
+   "hint": "нет подтверждённых открытых материалов"
+  }
+ ],
+ "cities": [
+  {
+   "id": "paris",
+   "name": "Париж",
+   "country": "Франция",
+   "summary": "Церковь Мадлен в конце улицы Руаяль: литография Филиппа Бенуа, фотография Бальдюса, фотохромы около 1900 года и уличные снимки 2017–2026 годов.",
+   "places": [
+    {
+     "id": "paris-la_madeleine",
+     "title": "Мадлен и улица Руаяль",
+     "short": "Мадлен",
+     "summary": "Одна церковь — четыре свидетельства: литография 1845–1860, альбуминовый отпечаток около 1860, фотохромы около 1890–1900 и снимки 2017–2026. Ни одна пара не совпадает «точка в точку» — и это видно.",
+     "images": [
+      {
+       "id": "loc-2016652452",
+       "era": "print",
+       "kind": "print",
+       "year_label": "1845–1860",
+       "title": "Paris. La Madeleine",
+       "creators": [
+        {
+         "name": "Philippe Benoist (1813-ca.1905)",
+         "role": "draughtsman (\"Ph. Benoist del.\")"
+        },
+        {
+         "name": "Imprimerie Lemercier, Paris",
+         "role": "printer (\"Imp. Lemercier, Paris\")"
+        }
+       ],
+       "date": "[between 1845 and 1860]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2016652452/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg",
+       "alt": "Литография/гравюра 1845–1860: Paris. La Madeleine",
+       "sha256": "ad6ec25a6b3b5dfb1356599c8979cbfb5e959e790e29ddd16fdfc160882c675e",
+       "camera": {
+        "lat": 48.8694,
+        "lon": 2.3236,
+        "radius_m": 60,
+        "azimuth_deg": 45,
+        "basis": "Портик справа, западная колоннада слева → взгляд из юго-западной части площади на северо-восток. Исходная оценка куратора (48.8691, 2.3231) попадала в квартал рынка Агессо; центр перенесён на тротуар площади, радиус ±60 м сохранён (ревью red-team).",
+        "confidence": "low-medium",
+        "px": 420.5,
+        "py": 547.0
+       },
+       "summary_en": "Print shows a street level view, from an oblique angle, of the neo-classical church La Madeleine in Paris, France, showing the front and left side colonnades, and with a horse-drawn carriage and pedestrians in the foreground."
+      },
+      {
+       "id": "loc-2009632631",
+       "era": "print",
+       "kind": "print",
+       "year_label": "1852",
+       "title": "Boulevart de la Madeleine",
+       "creators": [
+        {
+         "name": "Paul Lancel",
+         "role": "художник (по записи LoC: «Lancel, Paul»)"
+        }
+       ],
+       "date": "[1852]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2009632631/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": null,
+       "alt": "Литография/гравюра 1852: Boulevart de la Madeleine",
+       "summary_en": "Print showing Eglise de la Madeleine and streets intersecting the Boulevard de la Madeleine in Paris, France: rue de la Ferme des Mathurins, fue Godot-de-Mauroy, rue Deseze, and rue Caumartin."
+      },
+      {
+       "id": "aic-212069",
+       "era": "photo",
+       "kind": "photo",
+       "year_label": "ок. 1860",
+       "title": "Church of the Madeleine (Eglise de la Madeleine)",
+       "creators": [
+        {
+         "name": "Édouard Baldus (1813-1889)",
+         "role": "photographer"
+        }
+       ],
+       "date": "c. 1860",
+       "institution": "Art Institute of Chicago",
+       "object_url": "https://www.artic.edu/artworks/212069",
+       "rights": "is_public_domain: true (AIC API record)",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "общественное достояние (AIC)",
+       "file": "img/paris_madeleine_c1860_baldus_aic-212069.jpg",
+       "alt": "Фотография ок. 1860: Church of the Madeleine (Eglise de la Madeleine)",
+       "sha256": "fdaa642ea2d63684c056855528a8fb22c2f1070f186d1d1e9ed5b5143f96605e",
+       "camera": {
+        "lat": 48.8693,
+        "lon": 2.323,
+        "radius_m": 60,
+        "azimuth_deg": 50,
+        "basis": "Same orientation as Benoist: facade/pediment right, west colonnade left; flank occupies more of the frame (~440 px vs facade ~400 px) => slightly more lateral (westerly) position than Benoist. Railing around the church base visible.",
+        "confidence": "medium",
+        "px": 368.3,
+        "py": 560.9
+       },
+       "summary_en": "Church of the Madeleine (Eglise de la Madeleine)"
+      },
+      {
+       "id": "loc-2001698525",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[The Madeleine, Paris, France]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record; title from Detroit Publishing Co. Catalogue J (1905), print no. 6942"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001698525/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/paris_madeleine_c1890-1900_photochrom_elevated_loc-ppmsc-05183.jpg",
+       "alt": "Фотохром ок. 1890–1900: [The Madeleine, Paris, France]",
+       "sha256": "cf9e64f55d30c260862978d14ca4f3e9df4f14844f333dacd833d75f04205cbb",
+       "camera": {
+        "lat": 48.8693,
+        "lon": 2.3233,
+        "radius_m": 50,
+        "azimuth_deg": 45,
+        "basis": "Looking down on the steps and the west sidewalk/trees of Place de la Madeleine; pediment right, west colonnade left. Hill with a building at upper left interpreted (NOT verified) as Montmartre, whose bearing from the church is ~36° (computed); with ~50° FOV this implies image-centre azimuth ~45-50°. Same negative as LoC 2017660005 (print no. 6942).",
+        "confidence": "medium",
+        "px": 394.4,
+        "py": 560.6
+       },
+       "summary_en": "[The Madeleine, Paris, France]"
+      },
+      {
+       "id": "loc-2001698526",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[The Madeleine, and rue Royale, Paris, France]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record; title from Detroit Publishing Co. Catalogue J (1905), print no. 9808"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001698526/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/paris_madeleine_c1890-1900_photochrom_rue-royale_loc-ppmsc-05184.jpg",
+       "alt": "Фотохром ок. 1890–1900: [The Madeleine, and rue Royale, Paris, France]",
+       "sha256": "124648d19718ac0187c5e8febeaa200b85f24f915a0f6c5336d07238d7e3e963",
+       "camera": {
+        "lat": 48.86805,
+        "lon": 2.323,
+        "radius_m": 70,
+        "azimuth_deg": 26,
+        "basis": "Facade seen exactly frontally down the axis of rue Royale (axis bearing 206° facade->Concorde obelisk, computed from OSM coordinates), so camera is on the rue Royale axis looking ~26°. Facade (~43 m wide, from OSM polygon) spans ~310/1024 px; assuming 40-50° horizontal FOV gives ~150-230 m distance => position near the rue Saint-Honoré crossing. Lens unknown => along-axis uncertainty ±70 m, cross-axis ±15 m.",
+        "confidence": "medium-high (axis), low (distance)",
+        "px": 368.6,
+        "py": 727.9
+       },
+       "summary_en": "[The Madeleine, and rue Royale, Paris, France]"
+      },
+      {
+       "id": "loc-2017660005",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1906",
+       "title": "Paris. La Madeleine",
+       "creators": [
+        {
+         "name": "Photoglob Company, Zürich",
+         "role": "publisher (bracketed/attributed in LoC record)"
+        }
+       ],
+       "date": "[ca. 1890-1906]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2017660005/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": null,
+       "alt": "Фотохром ок. 1890–1906: Paris. La Madeleine",
+       "summary_en": "Paris. La Madeleine"
+      },
+      {
+       "id": "derived-rue-royale-31",
+       "era": "today",
+       "kind": "today",
+       "year_label": "2017",
+       "title": "Улица Руаяль у перекрёстка с Сент-Оноре: перспективный фрагмент 31° из 360°-панорамы",
+       "creators": [
+        {
+         "name": "geovelo / simon_geovelo",
+         "role": "автор панорамы (Panoramax)"
+        },
+        {
+         "name": "City on Paper",
+         "role": "перспективная проекция фрагмента"
+        }
+       ],
+       "date": "2017-11-05",
+       "institution": "Panoramax (экземпляр IGN)",
+       "object_url": "https://api.panoramax.xyz/#focus=pic&pic=4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+       "rights": "Licence Ouverte / etalab-2.0 (исходная панорама). Производная: перспективная проекция (центр x 3002, y 1330 из 5660×2830; угол 31°; 1024×770), без EXIF/GPS.",
+       "rights_checked": "2026-11-07",
+       "file": "img/derived_paris_madeleine_2017_rue-royale_persp31_from-panoramax-4a56a9ba.jpg",
+       "note": "производная проекция современного снимка, не исходный кадр",
+       "alt": "Улица Руаяль, вдали портик Мадлен, частично закрытый деревьями и гирляндой",
+       "camera": {
+        "lat": 48.868041,
+        "lon": 2.322969,
+        "radius_m": 10,
+        "azimuth_deg": 26,
+        "basis": "GPS Panoramax; направление — по положению церкви в кадре",
+        "confidence": "high",
+        "px": 365.9,
+        "py": 729.2
+       },
+       "sha256": "97bb0073f19570dc3168fd8f62e3d6890b76ed68702f46c4a23af7e796c2ef19",
+       "rights_class": "open",
+       "rights_short": "etalab-2.0 (производная)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+      },
+      {
+       "id": "derived-sw-corner-100",
+       "era": "today",
+       "kind": "today",
+       "year_label": "2017",
+       "title": "Юго-западный угол площади Мадлен: перспективный фрагмент 100° из 360°-панорамы",
+       "creators": [
+        {
+         "name": "geovelo",
+         "role": "автор панорамы (Panoramax)"
+        },
+        {
+         "name": "City on Paper",
+         "role": "перспективная проекция фрагмента"
+        }
+       ],
+       "date": "2017-11-05",
+       "institution": "Panoramax (экземпляр IGN)",
+       "object_url": "https://api.panoramax.xyz/#focus=pic&pic=4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "rights": "Licence Ouverte / etalab-2.0 (исходная панорама). Производная: перспективная проекция (центр x 4230, y 1180; угол 100°; 1024×750), без EXIF/GPS. Справа виден шов склейки исходной панорамы.",
+       "rights_checked": "2026-11-07",
+       "file": "img/derived_paris_madeleine_2017_sw-corner_persp100_from-panoramax-4606ccdb.jpg",
+       "note": "производная проекция современного снимка, не исходный кадр",
+       "alt": "Мадлен с юго-запада вблизи: портик справа, западная колоннада уходит влево",
+       "camera": {
+        "lat": 48.869663,
+        "lon": 2.323637,
+        "radius_m": 15,
+        "azimuth_deg": 52,
+        "basis": "GPS Panoramax (API, 2026-11-07); направление — по видимым фасадам",
+        "confidence": "medium",
+        "px": 423.6,
+        "py": 511.8
+       },
+       "sha256": "4522cb193e394d3ba33672790575e04ca673471670310df430e46fe5ca2b8890",
+       "rights_class": "open",
+       "rights_short": "etalab-2.0 (производная)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+      },
+      {
+       "id": "panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "era": "today",
+       "kind": "today",
+       "year_label": "2026",
+       "title": "Портик Мадлен с юга, 30 апреля 2026",
+       "creators": [
+        {
+         "name": "jerome92370",
+         "role": "producer"
+        }
+       ],
+       "date": "2026-04-30T15:42:51.507000+00:00",
+       "institution": "Panoramax (federated instance: osm-fr)",
+       "object_url": "https://api.panoramax.xyz/#focus=pic&pic=38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "rights": "CC BY-SA 4.0, автор jerome92370 (Panoramax). Изменения: уменьшено до 1600 px, перекодировано, удалены EXIF/GPS. Производные распространяются на тех же условиях.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "CC BY-SA 4.0",
+       "file": "img/paris_madeleine_2026_panoramax_facade_38b6d262.jpg",
+       "alt": "Фасад церкви Мадлен с фронтоном и колоннадой, люди на ступенях, 2026",
+       "sha256": "0fa512a5ae3c58f90c2a29e593a01053a4e28d5185cef115e14031d7f0edc759",
+       "camera": {
+        "lat": 48.869328,
+        "lon": 2.32395,
+        "radius_m": 10,
+        "azimuth_deg": 21,
+        "basis": "GPS + view:azimuth from Panoramax; consistent with frontal view of the portico.",
+        "confidence": null,
+        "px": 450.9,
+        "py": 556.3
+       },
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "note": "уменьшенная копия, лица размыты Panoramax",
+       "summary_en": "street-level photo (Panoramax)"
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2001698526",
+       "b": "panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a",
+       "rating": "partial",
+       "reason": "Та же ось и направление (21° и ~26°), но снимок 2026 года сделан примерно в 35 м от портика, а фотохром — за 150–230 м; широкий угол, низкая точка, домов улицы Руаяль в кадре нет.",
+       "by": "куратор (агент консилиума)"
+      },
+      {
+       "a": "loc-2016652452",
+       "b": "aic-212069",
+       "rating": "partial",
+       "reason": "Обе работы — с уровня улицы с юго-запада, видны те же фасады; Бальдюс стоял немного западнее и ближе. Хорошая пара «литография ↔ фотография».",
+       "by": "куратор (агент консилиума)"
+      },
+      {
+       "a": "loc-2001698526",
+       "b": "derived-rue-royale-31",
+       "rating": "partial",
+       "reason": "Проверено фрагментом 31°: ось улицы и масштаб портика совпадают, но камера стоит на западном тротуаре (~10 м от оси), портик закрыт деревьями и гирляндой. Агент-куратор оценил пару как «close» — координатор понизил оценку.",
+       "by": "координатор, проверка перспективным фрагментом"
+      },
+      {
+       "a": "loc-2016652452",
+       "b": "derived-sw-corner-100",
+       "rating": "partial",
+       "by": "координатор, проверка перспективным фрагментом",
+       "reason": "Та же сторона (портик справа, западная колоннада слева), но камера в 30–40 м от храма — гораздо ближе и ниже рисовальщика; чтобы совпал масштаб, нужен угол ~113°, что даёт сильные искажения."
+      },
+      {
+       "a": "aic-212069",
+       "b": "derived-sw-corner-100",
+       "rating": "partial",
+       "by": "координатор",
+       "reason": "Тот же квадрант и те же фасады; Бальдюс стоял дальше и левее."
+      },
+      {
+       "a": "loc-2001698525",
+       "b": "derived-sw-corner-100",
+       "rating": "different_viewpoint",
+       "by": "куратор",
+       "reason": "Фотохром снят сверху (оценка 15–25 м), современного снимка с высоты нет."
+      },
+      {
+       "a": "loc-2016652452",
+       "b": "loc-2001698526",
+       "rating": "different_viewpoint",
+       "by": "координатор",
+       "reason": "Литография — наискось с юго-запада, фотохром — строго по оси улицы Руаяль."
+      }
+     ],
+     "hunt": {
+      "title": "Встаньте туда, где стоял Бенуа",
+      "lat": 48.8694,
+      "lon": 2.3236,
+      "radius_m": 60,
+      "azimuth_deg": 45,
+      "instructions": "Юго-западный тротуар площади Мадлен, у выхода улицы Руаяль на площадь (не внутри квартала). Портик должен быть справа, западная колоннада — уходить влево. Камера на уровне глаз, без наклона, объектив 35–50 мм (экв.). Обычного, не панорамного, снимка с этой точки в Panoramax на 07.11.2026 нет."
+     },
+     "story": "<p><em>Город: Париж · Место: церковь Мадлен и улица Руаяль · Подготовлено 2026-11-07: агент «куратор архива», правка координатора после проверки ракурсов.</em> <em>Пометки: <strong>[факт]</strong> — подтверждено источником по ссылке; <strong>[интерпретация]</strong> — наш вывод по изображениям и геометрии; <strong>[наблюдение]</strong> — то, что видно на снимке, без внешнего подтверждения.</em></p>\n<h3>1. С карты — на площадь</h3>\n<p>На карте-портале точка ставится по современной геометрии здания: в OpenStreetMap церковь — объект <code>way/54180046</code>, центр 48.87013° с. ш., 2.32454° в. д. <strong>[факт]</strong> (<a href=\"https://nominatim.openstreetmap.org/search?q=%C3%89glise+de+la+Madeleine,+Paris&amp;format=jsonv2&amp;polygon_geojson=1&amp;limit=3\" target=\"_blank\" rel=\"noopener\">Nominatim/OSM</a>). По контуру из того же ответа мы вычислили: главный портик смотрит на юго-юго-запад (~207°), фасад ~43 м, боковая колоннада ~128 м <strong>[интерпретация: расчёт по полигону]</strong>. На плане «Paris et ses environs : 1878» (Dumas-Vorzet, Institut géographique de Paris; Library of Congress, Geography and Map Division) церковь подписана «Madeleine» в начале Бульвара Мадлен <strong>[факт]</strong> (<a href=\"https://www.loc.gov/item/2012586603/\" target=\"_blank\" rel=\"noopener\">LoC 2012586603</a>). Мы привязали этот план к современным координатам по 15 ориентирам; погрешность около 30–50 м в центре <strong>[интерпретация: аффинная геопривязка]</strong>.</p>\n<p>Ось была задумана заранее: Людовик XV планировал церковь как замыкающую перспективу новой улицы Руаяль, ведущей к площади Людовика XV, нынешней площади Согласия <strong>[справка: Wikipedia — третичный источник, нужна первичная проверка]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia, La Madeleine, Paris</a>). Наш расчёт подтверждает это геометрически: направление от центра фасада к обелиску на площади Согласия — ~206°, то есть улица и портик стоят на одной линии <strong>[интерпретация]</strong>.</p>\n<h3>2. Литография: 1845–1860</h3>\n<p>Ручная раскраска, литография, лист 23,5 × 32,4 см; подпись «Ph. Benoist del.» и «Imp. Lemercier, Paris»: рисовальщик — Филипп Бенуа, печать — мастерская Лемерсье; датировка библиотеки — между 1845 и 1860 годами <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2016652452/\" target=\"_blank\" rel=\"noopener\">LoC 2016652452</a>). Каталог описывает вид «с уровня улицы, под острым углом», с портиком, левой колоннадой и экипажем на переднем плане <strong>[факт]</strong> (там же). Библиотека осторожно предполагает, что лист — из более позднего издания альбома «Promenade dans Paris et ses environs» (1838–1843) <strong>[факт: предположение каталога]</strong>. Кто переносил рисунок на камень, запись не называет — мы тоже не называем.</p>\n<p>К этому моменту здание было новым: строительство, прерванное Революцией и переосмысленное при Наполеоне (проект Виньона, 1806), завершили, и церковь освятили 24 июля 1842 года <strong>[справка: Wikipedia — третичный источник, нужна первичная проверка]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>).</p>\n<p><strong>Где стоял художник.</strong> Портик справа, боковая колоннада уходит влево — значит, взгляд из юго-западной части площади на северо-восток, азимут ~45° (±10°), радиус неопределённости ~60 м <strong>[интерпретация]</strong>. Перспектива рисованная и могла быть «построена», поэтому уверенность низкая-средняя.</p>\n<h3>3. Фотография около 1860 года</h3>\n<p>Эдуар Бальдюс, альбуминовый отпечаток, «c. 1860» (диапазон 1855–1865), Art Institute of Chicago, запись помечена как public domain <strong>[факт]</strong> (<a href=\"https://www.artic.edu/artworks/212069\" target=\"_blank\" rel=\"noopener\">AIC 212069</a>). Ракурс почти тот же, что у Бенуа: портик справа, колоннада слева, чуть западнее и ближе <strong>[интерпретация]</strong>. На снимке видна ограда вокруг цоколя — та же, что нарисована у Бенуа <strong>[наблюдение]</strong>. Эта пара (литография ↔ фотография) оценена как <code>partial</code> — честно: близко, но не точка в точку.</p>\n<h3>4. Фотохром около 1890–1900</h3>\n<p>Два вида из коллекции фотохромов Библиотеки Конгресса, оба с отметкой «No known restrictions on reproduction» <strong>[факт]</strong>:</p>\n<ul><li>«The Madeleine, and rue Royale» — названия взяты из каталога Detroit Publishing Co. 1905 года, номер отпечатка 9808 <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2001698526/\" target=\"_blank\" rel=\"noopener\">LoC 2001698526</a>). Фасад строго фронтально в конце улицы Руаяль; мы оцениваем точку съёмки на оси улицы ~150–230 м от портика, около перекрёстка с улицей Сент-Оноре, азимут ~26° <strong>[интерпретация: ширина фасада в кадре + предполагаемый объектив]</strong>.</li><li>«The Madeleine» — высокая точка, номер отпечатка «6942» <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2001698525/\" target=\"_blank\" rel=\"noopener\">LoC 2001698525</a>); другой отпечаток того же вида издан Photoglob (Цюрих), ок. 1890–1906 <strong>[факт]</strong> (<a href=\"https://www.loc.gov/pictures/item/2017660005/\" target=\"_blank\" rel=\"noopener\">LoC 2017660005</a>). Снято сверху, ~15–25 м, тоже с юго-запада <strong>[интерпретация]</strong>.</li></ul>\n<h3>5. Сегодня</h3>\n<p>На улице Руаяль у перекрёстка с Сент-Оноре в Panoramax есть 360°-панорама от 5 ноября 2017 года (лицензия etalab-2.0, автор — сервис geovelo); Мадлен стоит в её центре <strong>[факт: метаданные + наблюдение]</strong> (<a href=\"https://api.panoramax.xyz/#focus=pic&amp;pic=4a56a9ba-1e31-4dab-acb5-706bfd5973c5\" target=\"_blank\" rel=\"noopener\">Panoramax 4a56a9ba</a>). Она в пределах нашей оценки точки фотохрома. Чтобы проверить это, мы построили из панорамы перспективный фрагмент с углом обзора 31° — так портик занимает ту же долю кадра, что и на фотохроме <strong>[интерпретация: проекция только современного снимка]</strong>. Ось улицы и масштаб совпали, но камера панорамы стоит на западном тротуаре, примерно в 10 м от оси, и портик наполовину закрыт деревьями и гирляндой. Поэтому честная оценка — <code>partial</code>, а не «тот же кадр». Фронтальный снимок 30 апреля 2026 года (CC BY-SA 4.0, jerome92370) — с той же оси, но вблизи портика: <code>partial</code> (<a href=\"https://api.panoramax.xyz/#focus=pic&amp;pic=38b6d262-648f-461e-b9a3-ab05eb22d92a\" target=\"_blank\" rel=\"noopener\">Panoramax 38b6d262</a>).</p>\n<p>Для ракурса Бенуа/Бальдюса обычной (не 360°) фотографии с юго-запада в Panoramax на 2026-11-07 нет — только 360°-панорама 2017 года (<code>partial</code>). Это задание «Охота за кадром»: встать у юго-западного края площади, где в неё выходит улица Руаяль (≈48.8694, 2.3236, ±60 м, на тротуаре площади, а не в квартале), смотреть на северо-восток (~45°), объектив 35–50 мм, камера без наклона, портик справа.</p>\n<h3>6. Что изменилось</h3>\n<p>Документально подтверждённых утрат именно в этих кадрах мы не нашли и не придумываем. Видно другое <strong>[наблюдение]</strong>: на фотохроме улицы Руаяль — конные экипажи и велосипедисты, на снимках Panoramax — автомобили; ограда вдоль ступеней портика существует и сегодня. Сама же архитектура фасада — 52 коринфские колонны, рельеф «Страшного суда» Лемера на фронтоне, латинская надпись на фризе <strong>[справка: Wikipedia — третичный источник, нужна первичная проверка]</strong> (<a href=\"https://en.wikipedia.org/wiki/La_Madeleine,_Paris\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>) — узнаётся во всех трёх эпохах. Надпись «D·O·M·SVB·INVOC·S·M·MAGDALENAE» отчётливо читается на снимке 2026 года; ревьюер консилиума различил её также на фотографии Бальдюса и на фотохроме с высокой точки <strong>[наблюдение]</strong>.</p>",
+     "plan_detail": {
+      "image": "img/loc-2012586603-paris-1878_detail_x7140-y3640-w1000-h760.jpg",
+      "width": 1000,
+      "height": 760,
+      "title": "Paris et ses environs : 1878 — деталь: площадь Мадлен и улица Руаяль",
+      "credit": "Ed. Dumas-Vorzet; Institut géographique de Paris; печать Becquet frères (по записи LoC; на листе также указан Ch. Delagrave). Деталь листа через IIIF LoC: область x 7140–8140, y 3640–4400 полного скана (≈840 × 640 м), пиксели не изменены",
+      "object_url": "https://www.loc.gov/item/2012586603/",
+      "rights": "LoC Geography and Map Division: free to use and reuse (no Rights Advisory).",
+      "rights_class": "open",
+      "rights_short": "LoC G&M: свободно",
+      "alt": "Фрагмент плана Парижа 1878 года: церковь Мадлен, улица Руаяль, бульвар Малерб, рынок Агессо и Жокей-клуб"
+     },
+     "plan_xy": [
+      973.2,
+      520.6
+     ]
+    },
+    {
+     "id": "paris-palais_royal",
+     "title": "Пале-Рояль",
+     "short": "Пале-Рояль",
+     "summary": "Сад Пале-Рояля на литографии Бенуа и уличный фасад на фотохроме: один ансамбль, противоположные стороны.",
+     "images": [
+      {
+       "id": "loc-2016652451",
+       "era": "print",
+       "kind": "print",
+       "year_label": "1845–1860",
+       "title": "Paris. Jardin du Palais Royal",
+       "creators": [
+        {
+         "name": "Philippe Benoist",
+         "role": "draughtsman (\"Ph. Benoist del.\")"
+        },
+        {
+         "name": "Imprimerie Lemercier, R. de Seine 57, Paris",
+         "role": "printer"
+        }
+       ],
+       "date": "[between 1845 and 1860]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2016652451/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/paris_palaisroyal_1845-60_benoist_lemercier_loc-pga-14314.jpg",
+       "alt": "Литография/гравюра 1845–1860: Paris. Jardin du Palais Royal",
+       "sha256": "56114d4d0780d315fdc19d9fcfae5744470d1fbb242ba3d4142066e9794cb00a",
+       "summary_en": "Print shows a bird's-eye view of the courtyard, gardens, fountain, and colonnade at the Palais Royal."
+      },
+      {
+       "id": "loc-2017660007",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1906",
+       "title": "Paris. Palais Royal",
+       "creators": [
+        {
+         "name": "Photoglob Company, Zürich",
+         "role": "publisher (bracketed in LoC record)"
+        }
+       ],
+       "date": "[ca. 1890-1906]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2017660007/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/paris_palaisroyal_c1890-1906_photochrom_loc-ppmsca-52498.jpg",
+       "alt": "Фотохром ок. 1890–1906: Paris. Palais Royal",
+       "sha256": "1bc7207dab2e8294d1605b836029060f5b4723dbc05815b29c25ee364e66f32b",
+       "summary_en": "Paris. Palais Royal"
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2016652451",
+       "b": "loc-2017660007",
+       "rating": "different_viewpoint",
+       "reason": "Литография показывает внутренний сад (сверху), фотохром — уличный фасад на площади Пале-Рояль. Один ансамбль, противоположные стороны.",
+       "by": "куратор (агент консилиума)"
+      }
+     ],
+     "plan_xy": [
+      1119.1,
+      610.2
+     ]
+    }
+   ],
+   "plan": {
+    "image": "img/loc-2012586603-paris-1878.jpg",
+    "width": 2000,
+    "height": 1448,
+    "title": "Paris et ses environs : 1878",
+    "credit": "Ed. Dumas-Vorzet; Institut géographique de Paris; печать Becquet frères (по записи LoC; на листе также указан Ch. Delagrave). Library of Congress, G5834.P3 1878 .D8",
+    "object_url": "https://www.loc.gov/item/2012586603/",
+    "rights": "LoC Geography and Map Division: free to use and reuse (no Rights Advisory).",
+    "rights_class": "open",
+    "rights_short": "LoC G&M: свободно",
+    "alt": "Раскрашенный план Парижа 1878 года с двадцатью округами, Сеной и Булонским лесом",
+    "place_points": {
+     "paris-la_madeleine": [
+      48.8701338,
+      2.3245425
+     ],
+     "paris-palais_royal": [
+      48.86478,
+      2.3377
+     ]
+    },
+    "georef": "APPROXIMATE georeference (manual GCPs on a 19th-c. printed plan); not survey-grade; аффинное преобразование по 15 опорным точкам, RMS 25.9 м, проверка исключением 34.9 м"
+   }
+  },
+  {
+   "id": "florence",
+   "name": "Флоренция",
+   "country": "Италия",
+   "summary": "Понте-Веккьо и Дуомо в стереофотографиях Sommer & Behles (1859–1866), офорте Джозефа Пеннелла (1883) и фотохромах около 1900 года. Открытого плана города XIX века пока нет: кандидат в Polona требует ручной загрузки.",
+   "places": [
+    {
+     "id": "florence-ponte_vecchio",
+     "title": "Понте-Веккьо",
+     "short": "Понте-Веккьо",
+     "summary": "Вид от Уффици на стереоснимке 1859–1866 и арка моста на офорте 1883 года. Точки съёмки разные.",
+     "images": [
+      {
+       "id": "loc-2024722637",
+       "era": "photo",
+       "kind": "photo",
+       "year_label": "1859–1866",
+       "title": "Ponte vechio dagli Uffizi (Firenze)",
+       "creators": [
+        {
+         "name": "Giorgio Sommer & Edmond Behles",
+         "role": "photographers and publishers (LoC notes)"
+        }
+       ],
+       "date": "[between 1859 and 1866]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2024722637/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/florence_pontevecchio_1859-66_sommer-behles_stereo_loc-1s53703.jpg",
+       "alt": "Фотография 1859–1866: Ponte vechio dagli Uffizi (Firenze)",
+       "sha256": "269619d4a739ca543caf4327aad66b3db6d2ce3321d0fabc5900397291670bbc",
+       "summary_en": "Ponte vechio dagli Uffizi (Firenze)"
+      },
+      {
+       "id": "aic-194443",
+       "era": "print",
+       "kind": "print",
+       "year_label": "1883",
+       "title": "Ponte Vecchio, Florence",
+       "creators": [
+        {
+         "name": "Joseph Pennell (1857-1926)",
+         "role": "etcher/artist"
+        }
+       ],
+       "date": "1883",
+       "institution": "Art Institute of Chicago",
+       "object_url": "https://www.artic.edu/artworks/194443",
+       "rights": "is_public_domain: true (AIC API record)",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "общественное достояние (AIC)",
+       "file": "img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg",
+       "alt": "Литография/гравюра 1883: Ponte Vecchio, Florence",
+       "sha256": "fbf4247d435932611f948905e55aab75d7bedf4d74db0c32984bbe1743137348",
+       "summary_en": "Ponte Vecchio, Florence"
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2024722637",
+       "b": "aic-194443",
+       "rating": "different_viewpoint",
+       "reason": "Высокая точка от Уффици против близкого вида одной арки с уровня реки.",
+       "by": "куратор (агент консилиума)"
+      }
+     ]
+    },
+    {
+     "id": "florence-duomo",
+     "title": "Дуомо",
+     "short": "Дуомо",
+     "summary": "Собор с крыш на стереоснимке 1859–1866 и фасад с колокольней на фотохроме около 1890–1900.",
+     "images": [
+      {
+       "id": "loc-2024722639",
+       "era": "photo",
+       "kind": "photo",
+       "year_label": "1859–1866",
+       "title": "Il duomo di Firenze",
+       "creators": [
+        {
+         "name": "Giorgio Sommer & Edmond Behles",
+         "role": "photographers and publishers (LoC notes)"
+        }
+       ],
+       "date": "[between 1859 and 1866]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2024722639/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/florence_duomo_1859-66_sommer-behles_stereo_loc-1s53705.jpg",
+       "alt": "Фотография 1859–1866: Il duomo di Firenze",
+       "sha256": "981720638d192abea8c97019156df684fb8377d7878f285efdb776f552c35e2d",
+       "summary_en": "Il duomo di Firenze"
+      },
+      {
+       "id": "loc-00650554",
+       "era": "photo",
+       "kind": "photo",
+       "year_label": "1869",
+       "title": "Il Duomo, Firenze",
+       "creators": [
+        {
+         "name": "Giacomo Brogi",
+         "role": "photographer/studio (LoC note: stamped on mount \"Giacomo Brogi, Fotografo ... Firenze\", no. 3020)"
+        }
+       ],
+       "date": "[1869]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/00650554/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": null,
+       "alt": "Фотография 1869: Il Duomo, Firenze",
+       "summary_en": "Il Duomo, Firenze"
+      },
+      {
+       "id": "loc-2001700794",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001700794/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": null,
+       "alt": "Фотохром ок. 1890–1900: [The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]",
+       "summary_en": "[The Cathedral, panoramic view from Vecchio Palace, Florence, Italy]"
+      },
+      {
+       "id": "loc-2001700795",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[The Cathedral and campanile, Florence, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001700795/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/florence_duomo_c1890-1900_photochrom_loc-ppmsc-06455.jpg",
+       "alt": "Фотохром ок. 1890–1900: [The Cathedral and campanile, Florence, Italy]",
+       "sha256": "c2ae958f3b7151341e59cb01861e221acb95b821c683e0df8918fe80e3462d7f",
+       "summary_en": "[The Cathedral and campanile, Florence, Italy]"
+      }
+     ],
+     "pairs": [
+      {
+       "a": "loc-2024722639",
+       "b": "loc-2001700795",
+       "rating": "different_viewpoint",
+       "reason": "Вид с крыш с юго-запада против фронтального вида фасада.",
+       "by": "куратор (агент консилиума)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "naples",
+   "name": "Неаполь",
+   "country": "Италия",
+   "summary": "Набережная Санта-Лючия на калотипии Калверта Джонса 1846 года, королевский дворец у Бриджеса (до 1852), фотохромы около 1890–1900. План «Pianta della città di Napoli» (Allodi / Artaria, 1859–1878) ещё не геопривязан.",
+   "places": [
+    {
+     "id": "naples-santa_lucia_castel_dell_ovo",
+     "title": "Санта-Лючия и Кастель-дель-Ово",
+     "short": "Санта-Лючия и Кастель-дель-Ово",
+     "summary": "Набережная Санта-Лючия под скалой Пиццофальконе в 1846 году и Виа Партенопе в сторону Кастель-дель-Ово около 1900: один прибрежный район, разные точки.",
+     "images": [
+      {
+       "id": "aic-27086",
+       "era": "photo",
+       "kind": "photo",
+       "year_label": "1846",
+       "title": "St. Lucia, Naples",
+       "creators": [
+        {
+         "name": "Rev. Calvert Richard Jones (1804-1877)",
+         "role": "photographer"
+        }
+       ],
+       "date": "1846",
+       "institution": "Art Institute of Chicago",
+       "object_url": "https://www.artic.edu/artworks/27086",
+       "rights": "is_public_domain: true (AIC API record)",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "общественное достояние (AIC)",
+       "file": "img/naples_santalucia_1846_calvert-jones_aic-27086.jpg",
+       "alt": "Фотография 1846: St. Lucia, Naples",
+       "sha256": "f27a842bfbfa926182c1e0fbbb0e03448ab191839455b3c249bbf71aa46b13c2",
+       "summary_en": "St. Lucia, Naples"
+      },
+      {
+       "id": "loc-2001700901",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[Partenope Street, Naples, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001700901/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/naples_viapartenope_c1890-1900_photochrom_loc-ppmsc-06561.jpg",
+       "alt": "Фотохром ок. 1890–1900: [Partenope Street, Naples, Italy]",
+       "sha256": "889b656f0175237d9996864da99f967e7875b20ca528e6810fbd0cf91b0fcae7",
+       "summary_en": "[Partenope Street, Naples, Italy]"
+      },
+      {
+       "id": "loc-2001700914",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[Il Posilippo and waterfront, Naples, Italy]",
+       "creators": [
+        {
+         "name": null,
+         "role": "no creator/publisher named in LoC record (photochrom collection; title from Detroit Publishing Co. Catalogue J, 1905)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001700914/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": null,
+       "alt": "Фотохром ок. 1890–1900: [Il Posilippo and waterfront, Naples, Italy]",
+       "summary_en": "[Il Posilippo and waterfront, Naples, Italy]"
+      }
+     ],
+     "pairs": [
+      {
+       "a": "aic-27086",
+       "b": "loc-2001700901",
+       "rating": "different_viewpoint",
+       "reason": "Джонс снимает набережную Санта-Лючия под холмом Пиццофальконе; фотохром — Виа Партенопе в сторону Кастель-дель-Ово. Один прибрежный район, разные точки.",
+       "by": "куратор (агент консилиума)"
+      }
+     ]
+    },
+    {
+     "id": "naples-piazza_plebiscito_palazzo_reale",
+     "title": "Королевский дворец и площадь Плебисцита",
+     "short": "Королевский дворец и площадь Плебисцита",
+     "summary": "Ворота сада Королевского дворца со статуями «Укротители коней» (до 1852) и церковь Сан-Франческо-ди-Паола около 1900: разные точки и разные стороны дворцового комплекса.",
+     "images": [
+      {
+       "id": "cma-159761",
+       "era": "photo",
+       "kind": "photo",
+       "year_label": "до 1852",
+       "title": "The King's Palace, Naples",
+       "creators": [
+        {
+         "name": "Reverend George Wilson Bridges (1788-1863)",
+         "role": "photographer"
+        }
+       ],
+       "date": "before 1852",
+       "institution": "Cleveland Museum of Art",
+       "object_url": "https://clevelandart.org/art/1997.13",
+       "rights": "share_license_status: CC0 (CMA Open Access API)",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "CC0",
+       "file": "img/naples_palazzoreale_pre1852_bridges_cma-1997.13.jpg",
+       "alt": "Фотография до 1852: The King's Palace, Naples",
+       "sha256": "2f22749df2f08d5836fe49601df3d0fb5ee9e04b6842b6e2380782a6d1a211cc",
+       "summary_en": "The King's Palace, Naples"
+      },
+      {
+       "id": "loc-2001700916",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1900",
+       "title": "[Plaza and church of San Francesco di Paola, Naples, Italy]",
+       "creators": [
+        {
+         "name": "не указан",
+         "role": "заглавие составлено сотрудниками LoC («Title devised by Library staff»)"
+        }
+       ],
+       "date": "[between ca. 1890 and ca. 1900].",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2001700916/",
+       "rights": "No known restrictions on reproduction.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": "img/naples_plebiscito_c1890-1900_photochrom_loc-ppmsc-06576.jpg",
+       "alt": "Фотохром ок. 1890–1900: [Plaza and church of San Francesco di Paola, Naples, Italy]",
+       "sha256": "d34904de6771f05cb05e5027dde16a03a770848cc75b2faddfc7e43fff780d94",
+       "summary_en": "[Plaza and church of San Francesco di Paola, Naples, Italy]"
+      },
+      {
+       "id": "loc-2017660210",
+       "era": "photo",
+       "kind": "photochrom",
+       "year_label": "ок. 1890–1906",
+       "title": "Naples, Italy. Piazza of St. Ferdinando Church",
+       "creators": [
+        {
+         "name": "Photoglob Company, Zürich",
+         "role": "publisher (bracketed in LoC record)"
+        }
+       ],
+       "date": "[ca. 1890-1906]",
+       "institution": "Library of Congress, Prints & Photographs Division",
+       "object_url": "https://www.loc.gov/item/2017660210/",
+       "rights": "No known restrictions on publication.",
+       "rights_checked": "2026-11-07",
+       "rights_class": "open",
+       "rights_short": "LoC: без известных ограничений",
+       "file": null,
+       "alt": "Фотохром ок. 1890–1906: Naples, Italy. Piazza of St. Ferdinando Church",
+       "summary_en": "Naples, Italy. Piazza of St. Ferdinando Church"
+      }
+     ],
+     "pairs": [
+      {
+       "a": "cma-159761",
+       "b": "loc-2001700916",
+       "rating": "different_viewpoint",
+       "reason": "Бриджес снимает ворота сада Королевского дворца с конными статуями; фотохром смотрит на Сан-Франческо-ди-Паола через площадь — противоположная сторона.",
+       "by": "куратор (агент консилиума)"
+      }
+     ]
+    }
+   ],
+   "plan": {
+    "image": "img/icgc-europa960-napoli-1859.jpg",
+    "width": 2000,
+    "height": 1600,
+    "title": "Pianta della città di Napoli = Plan de la ville de Naples",
+    "credit": "Allodi inc.; Milano, Ferd. Artaria e figli; 1859 (до ок. 1878). Institut Cartogràfic i Geològic de Catalunya, RM.41345",
+    "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/960",
+    "rights": "Public Domain Mark 1.0 (ICGC)",
+    "rights_class": "open",
+    "rights_short": "Public Domain Mark",
+    "alt": "Гравированный план Неаполя середины XIX века с заливом и указателем церквей и дворцов"
+   }
+  }
+ ]
+}

@@ -1,0 +1,357 @@
+{
+ "when": "2026-11-07T14:06:38.495Z",
+ "passed": 70,
+ "failed": 0,
+ "results": [
+  {
+   "n": "phone-390 portal: 3 city pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: map loaded",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: unavailable era disabled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: era filter announces result",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: phone uses small map file",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city: plan with place pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: timeline cards",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: verdict shown",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: camera cones on 1878 plan",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 historic images: no transform/filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 no broken images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 slider keyboard Home",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 slider keyboard step",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 slider pointer",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 camera list selects image",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
+   "n": "phone-390 side-by-side exclusive",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 touch targets ≥40px",
+   "c": true,
+   "d": "0 small"
+  },
+  {
+   "n": "phone-390 no horizontal page scroll",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 images have alt",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 Naples place renders honest mismatch",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 unknown route handled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 no console/page/HTTP errors",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: 3 city pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: map loaded",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: unavailable era disabled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: era filter announces result",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city: plan with place pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: timeline cards",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: verdict shown",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: camera cones on 1878 plan",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 historic images: no transform/filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 no broken images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 slider keyboard Home",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 slider keyboard step",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 slider pointer",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 camera list selects image",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
+   "n": "tablet-820 side-by-side exclusive",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 touch targets ≥40px",
+   "c": true,
+   "d": "0 small"
+  },
+  {
+   "n": "tablet-820 no horizontal page scroll",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 images have alt",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 Naples place renders honest mismatch",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 unknown route handled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 no console/page/HTTP errors",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: 3 city pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: map loaded",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: unavailable era disabled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: era filter announces result",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city: plan with place pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: timeline cards",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: verdict shown",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: camera cones on 1878 plan",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 historic images: no transform/filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 no broken images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 slider keyboard Home",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 slider keyboard step",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 slider pointer",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 camera list selects image",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
+   "n": "desktop-1440 side-by-side exclusive",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 touch targets ≥40px",
+   "c": true,
+   "d": "0 small"
+  },
+  {
+   "n": "desktop-1440 no horizontal page scroll",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 images have alt",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 Naples place renders honest mismatch",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 unknown route handled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 no console/page/HTTP errors",
+   "c": true,
+   "d": ""
+  }
+ ]
+}

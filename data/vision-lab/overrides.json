@@ -1,0 +1,317 @@
+{
+ "note": "Coordinator decisions on top of the consilium research (Issue #34, 2026-11-07). Pins on the portal map are placed by reading the 1769 map itself (decorative, not geodetic). Ratings marked 'координатор' were re-checked with perspective crops of the modern panoramas.",
+ "portal": {
+  "image": "img/loc-97683588-carte-d-europe-1769.jpg",
+  "width": 2000,
+  "height": 1616,
+  "title": "Carte d'Europe",
+  "credit": "G. de L'Isle, 1724, дополнено Ph. Buache; LoC даёт дату 1769. Library of Congress, Geography and Map Division, G5700 1724 .L5 TIL",
+  "object_url": "https://www.loc.gov/item/97683588/",
+  "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. (Rights Advisory у предмета нет.)",
+  "rights_class": "open",
+  "rights_short": "LoC G&M: свободно, без rights advisory",
+  "alt": "Раскрашенная от руки карта Европы XVIII века с картушем «Carte d'Europe» в левом верхнем углу",
+  "pins": {
+   "paris": {
+    "x": 597,
+    "y": 931
+   },
+   "florence": {
+    "x": 812,
+    "y": 1168
+   },
+   "naples": {
+    "x": 885,
+    "y": 1294
+   }
+  },
+  "image_small": "img/loc-97683588-carte-d-europe-1769_w1000.jpg"
+ },
+ "eras": [
+  {
+   "id": "print",
+   "label": "Литография и гравюра",
+   "available": true,
+   "hint": "1845–1883: литографии Бенуа, офорт Пеннелла"
+  },
+  {
+   "id": "photo",
+   "label": "Фото и фотохром",
+   "available": true,
+   "hint": "1846–1906: Calvert Jones, Baldus, Sommer & Behles, Detroit Publishing / Photoglob"
+  },
+  {
+   "id": "today",
+   "label": "Сегодня",
+   "available": true,
+   "hint": "Panoramax 2017–2026"
+  },
+  {
+   "id": "mid20",
+   "label": "Середина XX века",
+   "available": false,
+   "hint": "нет подтверждённых открытых материалов"
+  }
+ ],
+ "paris_detail": {
+  "image": "img/loc-2012586603-paris-1878_detail_x7140-y3640-w1000-h760.jpg",
+  "width": 1000,
+  "height": 760,
+  "web_w": 1000,
+  "x": 7140,
+  "y": 3640,
+  "w": 1000,
+  "title": "Paris et ses environs : 1878 — деталь: площадь Мадлен и улица Руаяль",
+  "credit": "Ed. Dumas-Vorzet; Institut géographique de Paris; печать Becquet frères (по записи LoC; на листе также указан Ch. Delagrave). Деталь листа через IIIF LoC: область x 7140–8140, y 3640–4400 полного скана (≈840 × 640 м), пиксели не изменены",
+  "object_url": "https://www.loc.gov/item/2012586603/",
+  "rights": "LoC Geography and Map Division: free to use and reuse (no Rights Advisory).",
+  "rights_class": "open",
+  "rights_short": "LoC G&M: свободно",
+  "alt": "Фрагмент плана Парижа 1878 года: церковь Мадлен, улица Руаяль, бульвар Малерб, рынок Агессо и Жокей-клуб"
+ },
+ "cities": {
+  "paris": {
+   "name": "Париж",
+   "country": "Франция",
+   "summary": "Церковь Мадлен в конце улицы Руаяль: литография Филиппа Бенуа, фотография Бальдюса, фотохромы около 1900 года и уличные снимки 2017–2026 годов.",
+   "plan": {
+    "image": "img/loc-2012586603-paris-1878.jpg",
+    "width": 2000,
+    "height": 1448,
+    "title": "Paris et ses environs : 1878",
+    "credit": "Ed. Dumas-Vorzet; Institut géographique de Paris; печать Becquet frères (по записи LoC; на листе также указан Ch. Delagrave). Library of Congress, G5834.P3 1878 .D8",
+    "object_url": "https://www.loc.gov/item/2012586603/",
+    "rights": "LoC Geography and Map Division: free to use and reuse (no Rights Advisory).",
+    "rights_class": "open",
+    "rights_short": "LoC G&M: свободно",
+    "alt": "Раскрашенный план Парижа 1878 года с двадцатью округами, Сеной и Булонским лесом",
+    "place_points": {
+     "paris-la_madeleine": [
+      48.8701338,
+      2.3245425
+     ],
+     "paris-palais_royal": [
+      48.86478,
+      2.3377
+     ]
+    }
+   },
+   "places": {
+    "la_madeleine": {
+     "title": "Мадлен и улица Руаяль",
+     "summary": "Одна церковь — четыре свидетельства: литография 1845–1860, альбуминовый отпечаток около 1860, фотохромы около 1890–1900 и снимки 2017–2026. Ни одна пара не совпадает «точка в точку» — и это видно.",
+     "on_detail": true,
+     "story": "STORY_la_madeleine.md",
+     "drop": [
+      "panoramax-4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+      "panoramax-4606ccdb-86c8-4e3d-a906-e6973e437c60"
+     ],
+     "derived": [
+      {
+       "id": "derived-rue-royale-31",
+       "era": "today",
+       "kind": "today",
+       "year_label": "2017",
+       "title": "Улица Руаяль у перекрёстка с Сент-Оноре: перспективный фрагмент 31° из 360°-панорамы",
+       "creators": [
+        {
+         "name": "geovelo / simon_geovelo",
+         "role": "автор панорамы (Panoramax)"
+        },
+        {
+         "name": "City on Paper",
+         "role": "перспективная проекция фрагмента"
+        }
+       ],
+       "date": "2017-11-05",
+       "institution": "Panoramax (экземпляр IGN)",
+       "object_url": "https://api.panoramax.xyz/#focus=pic&pic=4a56a9ba-1e31-4dab-acb5-706bfd5973c5",
+       "rights": "Licence Ouverte / etalab-2.0 (исходная панорама). Производная: перспективная проекция (центр x 3002, y 1330 из 5660×2830; угол 31°; 1024×770), без EXIF/GPS.",
+       "rights_checked": "2026-11-07",
+       "file": "img/derived_paris_madeleine_2017_rue-royale_persp31_from-panoramax-4a56a9ba.jpg",
+       "note": "производная проекция современного снимка, не исходный кадр",
+       "alt": "Улица Руаяль, вдали портик Мадлен, частично закрытый деревьями и гирляндой",
+       "camera": {
+        "lat": 48.868041,
+        "lon": 2.322969,
+        "radius_m": 10,
+        "azimuth_deg": 26,
+        "basis": "GPS Panoramax; направление — по положению церкви в кадре",
+        "confidence": "high"
+       }
+      },
+      {
+       "id": "derived-sw-corner-100",
+       "era": "today",
+       "kind": "today",
+       "year_label": "2017",
+       "title": "Юго-западный угол площади Мадлен: перспективный фрагмент 100° из 360°-панорамы",
+       "creators": [
+        {
+         "name": "geovelo",
+         "role": "автор панорамы (Panoramax)"
+        },
+        {
+         "name": "City on Paper",
+         "role": "перспективная проекция фрагмента"
+        }
+       ],
+       "date": "2017-11-05",
+       "institution": "Panoramax (экземпляр IGN)",
+       "object_url": "https://api.panoramax.xyz/#focus=pic&pic=4606ccdb-86c8-4e3d-a906-e6973e437c60",
+       "rights": "Licence Ouverte / etalab-2.0 (исходная панорама). Производная: перспективная проекция (центр x 4230, y 1180; угол 100°; 1024×750), без EXIF/GPS. Справа виден шов склейки исходной панорамы.",
+       "rights_checked": "2026-11-07",
+       "file": "img/derived_paris_madeleine_2017_sw-corner_persp100_from-panoramax-4606ccdb.jpg",
+       "note": "производная проекция современного снимка, не исходный кадр",
+       "alt": "Мадлен с юго-запада вблизи: портик справа, западная колоннада уходит влево",
+       "camera": {
+        "lat": 48.869663,
+        "lon": 2.323637,
+        "radius_m": 15,
+        "azimuth_deg": 52,
+        "basis": "GPS Panoramax (API, 2026-11-07); направление — по видимым фасадам",
+        "confidence": "medium"
+       }
+      }
+     ],
+     "pair_overrides": [
+      {
+       "a": "loc-2001698526",
+       "b": "derived-rue-royale-31",
+       "rating": "partial",
+       "reason": "Проверено фрагментом 31°: ось улицы и масштаб портика совпадают, но камера стоит на западном тротуаре (~10 м от оси), портик закрыт деревьями и гирляндой. Агент-куратор оценил пару как «close» — координатор понизил оценку."
+      }
+     ],
+     "pairs_extra": [
+      {
+       "a": "loc-2016652452",
+       "b": "derived-sw-corner-100",
+       "rating": "partial",
+       "by": "координатор, проверка перспективным фрагментом",
+       "reason": "Та же сторона (портик справа, западная колоннада слева), но камера в 30–40 м от храма — гораздо ближе и ниже рисовальщика; чтобы совпал масштаб, нужен угол ~113°, что даёт сильные искажения."
+      },
+      {
+       "a": "aic-212069",
+       "b": "derived-sw-corner-100",
+       "rating": "partial",
+       "by": "координатор",
+       "reason": "Тот же квадрант и те же фасады; Бальдюс стоял дальше и левее."
+      },
+      {
+       "a": "loc-2001698525",
+       "b": "derived-sw-corner-100",
+       "rating": "different_viewpoint",
+       "by": "куратор",
+       "reason": "Фотохром снят сверху (оценка 15–25 м), современного снимка с высоты нет."
+      },
+      {
+       "a": "loc-2016652452",
+       "b": "loc-2001698526",
+       "rating": "different_viewpoint",
+       "by": "координатор",
+       "reason": "Литография — наискось с юго-запада, фотохром — строго по оси улицы Руаяль."
+      }
+     ],
+     "hunt": {
+      "title": "Встаньте туда, где стоял Бенуа",
+      "lat": 48.8694,
+      "lon": 2.3236,
+      "radius_m": 60,
+      "azimuth_deg": 45,
+      "instructions": "Юго-западный тротуар площади Мадлен, у выхода улицы Руаяль на площадь (не внутри квартала). Портик должен быть справа, западная колоннада — уходить влево. Камера на уровне глаз, без наклона, объектив 35–50 мм (экв.). Обычного, не панорамного, снимка с этой точки в Panoramax на 07.11.2026 нет."
+     },
+     "short": "Мадлен"
+    },
+    "palais_royal": {
+     "title": "Пале-Рояль",
+     "summary": "Сад Пале-Рояля на литографии Бенуа и уличный фасад на фотохроме: один ансамбль, противоположные стороны.",
+     "pair_overrides": []
+    }
+   }
+  },
+  "florence": {
+   "name": "Флоренция",
+   "country": "Италия",
+   "summary": "Понте-Веккьо и Дуомо в стереофотографиях Sommer & Behles (1859–1866), офорте Джозефа Пеннелла (1883) и фотохромах около 1900 года. Открытого плана города XIX века пока нет: кандидат в Polona требует ручной загрузки.",
+   "places": {
+    "ponte_vecchio": {
+     "title": "Понте-Веккьо",
+     "summary": "Вид от Уффици на стереоснимке 1859–1866 и арка моста на офорте 1883 года. Точки съёмки разные."
+    },
+    "duomo": {
+     "title": "Дуомо",
+     "summary": "Собор с крыш на стереоснимке 1859–1866 и фасад с колокольней на фотохроме около 1890–1900."
+    }
+   }
+  },
+  "naples": {
+   "name": "Неаполь",
+   "country": "Италия",
+   "summary": "Набережная Санта-Лючия на калотипии Калверта Джонса 1846 года, королевский дворец у Бриджеса (до 1852), фотохромы около 1890–1900. План «Pianta della città di Napoli» (Allodi / Artaria, 1859–1878) ещё не геопривязан.",
+   "plan": {
+    "image": "img/icgc-europa960-napoli-1859.jpg",
+    "width": 2000,
+    "height": 1600,
+    "title": "Pianta della città di Napoli = Plan de la ville de Naples",
+    "credit": "Allodi inc.; Milano, Ferd. Artaria e figli; 1859 (до ок. 1878). Institut Cartogràfic i Geològic de Catalunya, RM.41345",
+    "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/960",
+    "rights": "Public Domain Mark 1.0 (ICGC)",
+    "rights_class": "open",
+    "rights_short": "Public Domain Mark",
+    "alt": "Гравированный план Неаполя середины XIX века с заливом и указателем церквей и дворцов"
+   },
+   "places": {
+    "santa_lucia_castel_dell_ovo": {
+     "title": "Санта-Лючия и Кастель-дель-Ово",
+     "summary": "Набережная Санта-Лючия под скалой Пиццофальконе в 1846 году и Виа Партенопе в сторону Кастель-дель-Ово около 1900: один прибрежный район, разные точки."
+    },
+    "piazza_plebiscito_palazzo_reale": {
+     "title": "Королевский дворец и площадь Плебисцита",
+     "summary": "Ворота сада Королевского дворца со статуями «Укротители коней» (до 1852) и церковь Сан-Франческо-ди-Паола около 1900: разные точки и разные стороны дворцового комплекса."
+    }
+   }
+  }
+ },
+ "reason_ru": {
+  "loc-2001698526|panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a": "Та же ось и направление (21° и ~26°), но снимок 2026 года сделан примерно в 35 м от портика, а фотохром — за 150–230 м; широкий угол, низкая точка, домов улицы Руаяль в кадре нет.",
+  "aic-212069|loc-2016652452": "Обе работы — с уровня улицы с юго-запада, видны те же фасады; Бальдюс стоял немного западнее и ближе. Хорошая пара «литография ↔ фотография».",
+  "loc-2016652452|aic-212069": "Обе работы — с уровня улицы с юго-запада, видны те же фасады; Бальдюс стоял немного западнее и ближе. Хорошая пара «литография ↔ фотография».",
+  "loc-2016652451|loc-2017660007": "Литография показывает внутренний сад (сверху), фотохром — уличный фасад на площади Пале-Рояль. Один ансамбль, противоположные стороны.",
+  "loc-2024722639|loc-2001700795": "Вид с крыш с юго-запада против фронтального вида фасада.",
+  "loc-2024722637|aic-194443": "Высокая точка от Уффици против близкого вида одной арки с уровня реки.",
+  "cma-159761|loc-2001700916": "Бриджес снимает ворота сада Королевского дворца с конными статуями; фотохром смотрит на Сан-Франческо-ди-Паола через площадь — противоположная сторона.",
+  "aic-27086|loc-2001700901": "Джонс снимает набережную Санта-Лючия под холмом Пиццофальконе; фотохром — Виа Партенопе в сторону Кастель-дель-Ово. Один прибрежный район, разные точки."
+ },
+ "image_patches": {
+  "loc-2016652452": {
+   "camera": {
+    "lat": 48.8694,
+    "lon": 2.3236,
+    "basis": "Портик справа, западная колоннада слева → взгляд из юго-западной части площади на северо-восток. Исходная оценка куратора (48.8691, 2.3231) попадала в квартал рынка Агессо; центр перенесён на тротуар площади, радиус ±60 м сохранён (ревью red-team)."
+   }
+  },
+  "loc-2009632631": {
+   "creators": [
+    {
+     "name": "Paul Lancel",
+     "role": "художник (по записи LoC: «Lancel, Paul»)"
+    }
+   ]
+  },
+  "loc-2001700916": {
+   "creators": [
+    {
+     "name": "не указан",
+     "role": "заглавие составлено сотрудниками LoC («Title devised by Library staff»)"
+    }
+   ]
+  },
+  "panoramax-38b6d262-648f-461e-b9a3-ab05eb22d92a": {
+   "title": "Портик Мадлен с юга, 30 апреля 2026",
+   "alt_ru": "Фасад церкви Мадлен с фронтоном и колоннадой, люди на ступенях, 2026",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "rights": "CC BY-SA 4.0, автор jerome92370 (Panoramax). Изменения: уменьшено до 1600 px, перекодировано, удалены EXIF/GPS. Производные распространяются на тех же условиях.",
+   "note": "уменьшенная копия, лица размыты Panoramax"
+  }
+ }
+}
