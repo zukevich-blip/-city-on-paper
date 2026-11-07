@@ -1,0 +1,62 @@
+// Issue #34 "Atlas of eras" prototype QA. Usage: node tests/browser/qa_eras.js http://127.0.0.1:8791/ <outdir>
+const { chromium } = require("playwright");
+const [, , base, out] = process.argv;
+const res = [];
+const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" : "FAIL"} ${n} ${d}`); };
+(async () => {
+  const b = await chromium.launch();
+  for (const vp of [{ n: "phone-390", w: 390, h: 844, m: true }, { n: "tablet-820", w: 820, h: 1180, m: true }, { n: "desktop-1440", w: 1440, h: 900 }]) {
+    const ctx = await b.newContext({ viewport: { width: vp.w, height: vp.h }, isMobile: !!vp.m, hasTouch: !!vp.m, reducedMotion: vp.n === "phone-390" ? "reduce" : "no-preference" });
+    const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", e => errs.push(String(e))); p.on("console", m => m.type() === "error" && errs.push(m.text()));
+    p.on("response", r => { if (r.status() >= 400) errs.push(`${r.status()} ${r.url()}`); });
+    await p.goto(base + "eras/", { waitUntil: "networkidle" });
+    ok(`${vp.n} portal: 3 city pins`, (await p.locator(".pin").count()) === 3);
+    ok(`${vp.n} portal: map loaded`, await p.$eval(".plate img", i => i.complete && i.naturalWidth === 2000));
+    await p.screenshot({ path: `${out}/${vp.n}-1-portal.jpg`, type: "jpeg", quality: 60 });
+    // era filter dims cities without material, disabled era is not clickable
+    ok(`${vp.n} portal: unavailable era disabled`, await p.$eval('.eras button[data-era="mid20"]', b => b.disabled));
+    await p.locator(".pin", { hasText: "Париж" }).click();
+    await p.waitForSelector(".places a");
+    ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
+    await p.screenshot({ path: `${out}/${vp.n}-2-paris.jpg`, type: "jpeg", quality: 60 });
+    await p.locator(".plate .pin", { hasText: "Мадлен" }).click();
+    await p.waitForSelector("#stage");
+    await p.waitForFunction(() => document.getElementById("imA").complete && document.getElementById("imB").complete);
+    ok(`${vp.n} place: timeline cards`, (await p.locator(".era-card").count()) >= 8);
+    ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
+    ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
+    const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
+    ok(`${vp.n} historic images: no transform/filter`, untouched);
+    const broken = await p.$$eval("img", ims => ims.filter(i => i.complete && i.naturalWidth === 0 && i.getAttribute("src")).map(i => i.src));
+    ok(`${vp.n} no broken images`, broken.length === 0, broken.join(","));
+    await p.focus("#handle"); await p.keyboard.press("Home");
+    ok(`${vp.n} slider keyboard Home`, (await p.getAttribute("#handle", "aria-valuenow")) === "0");
+    await p.keyboard.press("ArrowRight");
+    ok(`${vp.n} slider keyboard step`, (await p.getAttribute("#handle", "aria-valuenow")) === "2");
+    const box = await p.locator("#stage").boundingBox();
+    await p.mouse.click(box.x + box.width * 0.25, box.y + box.height / 2);
+    ok(`${vp.n} slider pointer`, Math.abs(+(await p.getAttribute("#handle", "aria-valuenow")) - 25) <= 2);
+    await p.locator(".camlist button:not([disabled])").nth(1).click();
+    ok(`${vp.n} camera list selects image`, (await p.$eval("#selA", s => s.options[s.selectedIndex].text)).includes("1860"));
+    await p.click('[data-m="sbs"]');
+    ok(`${vp.n} side-by-side exclusive`, await p.evaluate(() => document.getElementById("stage").hidden && !document.getElementById("sbs").hidden));
+    await p.click('[data-m="slider"]');
+    await p.locator("#stage").scrollIntoViewIfNeeded();
+    await p.screenshot({ path: `${out}/${vp.n}-3-madeleine.jpg`, type: "jpeg", quality: 60, fullPage: vp.n === "phone-390" });
+    const small = await p.$$eval("button, select, a.pin", els => els.filter(e => e.offsetParent).map(e => e.getBoundingClientRect()).filter(r => r.height < 40 || r.width < 36).length);
+    ok(`${vp.n} touch targets ≥40px`, small === 0, `${small} small`);
+    ok(`${vp.n} no horizontal page scroll`, await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    ok(`${vp.n} images have alt`, await p.$$eval("img", ims => ims.every(i => (i.alt || "").length > 5)));
+    await p.goto(base + "eras/#/place/naples-santa_lucia_castel_dell_ovo", { waitUntil: "networkidle" });
+    ok(`${vp.n} Naples place renders honest mismatch`, /Разные точки/.test(await p.textContent("#verdict")));
+    await p.goto(base + "eras/#/place/nope", { waitUntil: "networkidle" });
+    ok(`${vp.n} unknown route handled`, /Не найдено/.test(await p.textContent("#app")));
+    ok(`${vp.n} no console/page/HTTP errors`, errs.length === 0, errs.slice(0, 3).join(" | "));
+    await ctx.close();
+  }
+  await b.close();
+  const f = res.filter(r => !r.c).length;
+  require("fs").writeFileSync(`${out}/qa-eras-results.json`, JSON.stringify({ when: new Date().toISOString(), passed: res.length - f, failed: f, results: res }, null, 1));
+  console.log(`\n${res.length - f} passed, ${f} failed`); process.exit(f ? 1 : 0);
+})();

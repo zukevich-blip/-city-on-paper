@@ -32,12 +32,16 @@ h2{font-size:clamp(26px,3.2vw,40px);margin:10px 0}
 .plate img{display:block;width:100%;height:auto}
 .plate figcaption{font:12px/1.5 system-ui;color:var(--muted);margin-top:10px}
 .pins{position:absolute;inset:0}
-.pin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;background:none;border:0;padding:6px;min-width:44px;min-height:44px;color:var(--dark)}
+.pin{position:absolute;transform:translate(-14px,-50%);display:flex;align-items:center;gap:6px;background:none;border:0;padding:6px;min-width:44px;min-height:44px;color:var(--dark)}
 .pin i{width:16px;height:16px;border-radius:50%;background:#fbf4e4;border:2px solid #7a3f22;box-shadow:0 0 0 3px #7a3f2233;flex:none}
 .pin span{font:600 13px Georgia,serif;letter-spacing:.06em;background:#fbf4e4e6;padding:1px 6px;border:1px solid #c9b48f;white-space:nowrap}
 .pin[aria-disabled=true] i{border-color:#9a9284;background:#e6dfd2}.pin[aria-disabled=true] span{color:#7c776d}
 .pin:hover i,.pin:focus-visible i{background:#7a3f22}
-.cam{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border:0;background:none;padding:0}
+.pin.left{flex-direction:row-reverse;transform:translate(calc(-100% + 14px),-50%)}
+.pin span{max-width:46vw;overflow:hidden;text-overflow:ellipsis}
+.cam{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;pointer-events:none}
+.camlist{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.camlist button{min-height:44px;border:1px solid #b9ab94;background:#fffdf7;padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:13px}.camlist small{color:#6f6f63}.camlist button[disabled]{opacity:.55}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;background:#7a3f22}.sw.era-photo{background:#2c5d73}.sw.era-today{background:#5b6b2f}
 .cam svg{overflow:visible}.cam .dot{fill:#7a3f22;stroke:#fbf4e4;stroke-width:2}.cam .cone{fill:#7a3f2240;stroke:#7a3f22;stroke-width:1}
 .cam.era-photo .dot{fill:#2c5d73}.cam.era-photo .cone{fill:#2c5d7340;stroke:#2c5d73}
 .cam.era-today .dot{fill:#5b6b2f}.cam.era-today .cone{fill:#5b6b2f40;stroke:#5b6b2f}
@@ -87,6 +91,7 @@ details.credits summary{min-height:32px;cursor:pointer}
 dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;margin:6px 0}dl.kv dt{color:var(--muted)}dl.kv dd{margin:0;word-break:break-word}
 footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 system-ui;color:#6a645a}
 @media(prefers-reduced-motion:no-preference){.view{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}}
+@media(max-width:650px){.stage img{height:72vw}}
 @media(max-width:650px){header.top strong{flex-basis:100%;font-size:20px}.pin span{font-size:11px;padding:0 4px}.pin i{width:13px;height:13px}h1{font-size:34px}}
 </style>
 </head>

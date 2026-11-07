@@ -1,0 +1,475 @@
+{
+ "map_id": "loc-2012586603",
+ "title": "Paris et ses environs : 1878",
+ "iiif_service": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5834:g5834p:ct003569",
+ "pixel_space": {
+  "description": "full-resolution IIIF image",
+  "width": 15705,
+  "height": 11378
+ },
+ "method": "Manual GCP picking on gridded zoom crops (PIL grid, visual reading by Claude) of the LoC IIIF pct:25 derivative; modern coordinates from Wikidata P625 (one from OSM Nominatim); least-squares affine (6 params) and 2nd-order polynomial (12 params) fitted with numpy in a local equirectangular metric frame; leave-one-out cross-validation.",
+ "date": "2026-11-07",
+ "label": "APPROXIMATE georeference (manual GCPs on a 19th-c. printed plan); not survey-grade",
+ "local_projection": {
+  "type": "equirectangular tangent approximation",
+  "lon0": 2.3417477706255445,
+  "lat0": 48.85910541459843,
+  "R_m": 6378137.0,
+  "X_east_m": "(lon-lon0)*pi/180*R*cos(lat0)",
+  "Y_north_m": "(lat-lat0)*pi/180*R"
+ },
+ "gcps": [
+  {
+   "name": "Arc de Triomphe",
+   "qid": "Q64436",
+   "px": 5047.0,
+   "py": 3603.4,
+   "px_web2000": 642.7,
+   "py_web2000": 458.9,
+   "lon": 2.29504,
+   "lat": 48.87378,
+   "coord_source": "Wikidata Q64436 P625 (fetched 2026-11-07)",
+   "pick_confidence": "high",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 31.1,
+   "residual_poly2_m": 34.0,
+   "loo_affine_m": 45.9,
+   "loo_poly2_m": 108.2
+  },
+  {
+   "name": "Obélisque de Louxor (Place de la Concorde)",
+   "qid": "Q1503331",
+   "px": 7354.6,
+   "py": 4727.2,
+   "px_web2000": 936.6,
+   "py_web2000": 602.0,
+   "lon": 2.321133,
+   "lat": 48.865475,
+   "coord_source": "Wikidata Q1503331 P625 (fetched 2026-11-07)",
+   "pick_confidence": "high",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 13.2,
+   "residual_poly2_m": 4.3,
+   "loo_affine_m": 14.9,
+   "loo_poly2_m": 5.2
+  },
+  {
+   "name": "Colonne Vendôme",
+   "qid": "Q1111051",
+   "px": 8078.5,
+   "py": 4455.2,
+   "px_web2000": 1028.8,
+   "py_web2000": 567.4,
+   "lon": 2.329414,
+   "lat": 48.867469,
+   "coord_source": "Wikidata Q1111051 P625 (fetched 2026-11-07)",
+   "pick_confidence": "high",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 16.6,
+   "residual_poly2_m": 12.3,
+   "loo_affine_m": 18.5,
+   "loo_poly2_m": 14.3
+  },
+  {
+   "name": "Palais Garnier (Opéra)",
+   "qid": "Q187840",
+   "px": 8278.4,
+   "py": 3859.3,
+   "px_web2000": 1054.2,
+   "py_web2000": 491.5,
+   "lon": 2.3316666666667,
+   "lat": 48.871944444444,
+   "coord_source": "Wikidata Q187840 P625 (fetched 2026-11-07)",
+   "pick_confidence": "high",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 22.1,
+   "residual_poly2_m": 29.9,
+   "loo_affine_m": 26.3,
+   "loo_poly2_m": 39.3
+  },
+  {
+   "name": "Hôtel de Ville",
+   "qid": "Q640968",
+   "px": 10062.1,
+   "py": 5911.0,
+   "px_web2000": 1281.4,
+   "py_web2000": 752.7,
+   "lon": 2.352222,
+   "lat": 48.856389,
+   "coord_source": "Wikidata Q640968 P625 (fetched 2026-11-07)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 12.2,
+   "residual_poly2_m": 2.2,
+   "loo_affine_m": 13.2,
+   "loo_poly2_m": 2.6
+  },
+  {
+   "name": "Notre-Dame de Paris",
+   "qid": "Q2981",
+   "px": 9862.1,
+   "py": 6354.9,
+   "px_web2000": 1255.9,
+   "py_web2000": 809.3,
+   "lon": 2.3498,
+   "lat": 48.853,
+   "coord_source": "Wikidata Q2981 P625 (fetched 2026-11-07)",
+   "pick_confidence": "low",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 16.4,
+   "residual_poly2_m": 12.5,
+   "loo_affine_m": 18.0,
+   "loo_poly2_m": 15.6
+  },
+  {
+   "name": "Panthéon",
+   "qid": "Q188856",
+   "px": 9478.2,
+   "py": 7258.7,
+   "px_web2000": 1207.0,
+   "py_web2000": 924.4,
+   "lon": 2.3461054,
+   "lat": 48.846198,
+   "coord_source": "Wikidata Q188856 P625 (fetched 2026-11-07)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 38.5,
+   "residual_poly2_m": 42.9,
+   "loo_affine_m": 46.8,
+   "loo_poly2_m": 58.8
+  },
+  {
+   "name": "Colonne de Juillet (Bastille)",
+   "qid": "Q269641",
+   "px": 11533.8,
+   "py": 6326.9,
+   "px_web2000": 1468.8,
+   "py_web2000": 805.7,
+   "lon": 2.3691666666667,
+   "lat": 48.853055555556,
+   "coord_source": "Wikidata Q269641 P625 (fetched 2026-11-07)",
+   "pick_confidence": "high",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 6.6,
+   "residual_poly2_m": 6.4,
+   "loo_affine_m": 7.8,
+   "loo_poly2_m": 7.8
+  },
+  {
+   "name": "Place des Vosges",
+   "qid": "Q898629",
+   "px": 11217.9,
+   "py": 6018.9,
+   "px_web2000": 1428.6,
+   "py_web2000": 766.5,
+   "lon": 2.3655555555556,
+   "lat": 48.855555555556,
+   "coord_source": "Wikidata Q898629 P625 (fetched 2026-11-07)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 16.7,
+   "residual_poly2_m": 11.0,
+   "loo_affine_m": 19.2,
+   "loo_poly2_m": 13.0
+  },
+  {
+   "name": "Place de la Nation (Place du Trône)",
+   "qid": "Q1573359",
+   "px": 13873.3,
+   "py": 6930.8,
+   "px_web2000": 1766.7,
+   "py_web2000": 882.6,
+   "lon": 2.3958333333333,
+   "lat": 48.848333333333,
+   "coord_source": "Wikidata Q1573359 P625 (fetched 2026-11-07)",
+   "pick_confidence": "high",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 22.9,
+   "residual_poly2_m": 18.0,
+   "loo_affine_m": 37.4,
+   "loo_poly2_m": 94.8
+  },
+  {
+   "name": "Place de la République (Place du Château-d'Eau)",
+   "qid": "Q175055",
+   "px": 11013.9,
+   "py": 4411.2,
+   "px_web2000": 1402.6,
+   "py_web2000": 561.8,
+   "lon": 2.3640555555556,
+   "lat": 48.867277777778,
+   "coord_source": "Wikidata Q175055 P625 (fetched 2026-11-07)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 58.2,
+   "residual_poly2_m": 38.3,
+   "loo_affine_m": 77.0,
+   "loo_poly2_m": 156.8
+  },
+  {
+   "name": "Observatoire de Paris (Perrault building)",
+   "qid": null,
+   "px": 8674.3,
+   "py": 8554.5,
+   "px_web2000": 1104.7,
+   "py_web2000": 1089.4,
+   "lon": 2.3365254,
+   "lat": 48.8365091,
+   "coord_source": "OSM Nominatim way/79611305 (building=historic 'Observatoire de Paris'), ODbL, fetched 2026-11-07",
+   "pick_confidence": "medium",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 20.6,
+   "residual_poly2_m": 6.9,
+   "loo_affine_m": 40.5,
+   "loo_poly2_m": 58.5
+  },
+  {
+   "name": "Dôme des Invalides",
+   "qid": "Q152109",
+   "px": 6610.7,
+   "py": 6138.9,
+   "px_web2000": 841.9,
+   "py_web2000": 781.8,
+   "lon": 2.31222222,
+   "lat": 48.855,
+   "coord_source": "Wikidata Q152109 P625 (fetched 2026-11-07)",
+   "pick_confidence": "low",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 34.0,
+   "residual_poly2_m": 28.0,
+   "loo_affine_m": 44.9,
+   "loo_poly2_m": 99.6
+  },
+  {
+   "name": "Cour Carrée du Louvre",
+   "qid": "Q3000930",
+   "px": 8862.3,
+   "py": 5387.1,
+   "px_web2000": 1128.6,
+   "py_web2000": 686.0,
+   "lon": 2.3385595337307112,
+   "lat": 48.86037353077823,
+   "coord_source": "Wikidata Q3000930 P625 (fetched 2026-11-07)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 6.1,
+   "residual_poly2_m": 7.8,
+   "loo_affine_m": 6.5,
+   "loo_poly2_m": 9.3
+  },
+  {
+   "name": "Église Saint-Augustin",
+   "qid": "Q550157",
+   "px": 7166.6,
+   "py": 3259.4,
+   "px_web2000": 912.7,
+   "py_web2000": 415.1,
+   "lon": 2.318917227874554,
+   "lat": 48.8762209215312,
+   "coord_source": "Wikidata Q550157 P625 (fetched 2026-11-07)",
+   "pick_confidence": "low",
+   "picked_on": "raw/paris-pct25.jpg (IIIF pct:25, 3927x2845) then scaled x3.99924",
+   "residual_affine_m": 20.9,
+   "residual_poly2_m": 22.2,
+   "loo_affine_m": 27.5,
+   "loo_poly2_m": 42.8
+  }
+ ],
+ "transforms": {
+  "affine": {
+   "n_params_per_axis": 3,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v"
+    ],
+    "u_v_definition": "u = px / 15705.0, v = py / 15705.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     -7689.625702511506,
+     13226.147460165033,
+     -24.068542282387707
+    ],
+    "coef_Y_north_m": [
+     4697.788382917474,
+     -134.11930519493944,
+     -13080.840316273723
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     9140.913333333345,
+     1187.223419004344,
+     -2.1645357466537485
+    ],
+    "coef_py": [
+     5546.493333332954,
+     -12.200745828228264,
+     -1200.4700989394596
+    ]
+   },
+   "residuals_m": [
+    31.1,
+    13.2,
+    16.6,
+    22.1,
+    12.2,
+    16.4,
+    38.5,
+    6.6,
+    16.7,
+    22.9,
+    58.2,
+    20.6,
+    34.0,
+    6.1,
+    20.9
+   ],
+   "rms_m": 25.9,
+   "max_m": 58.2,
+   "leave_one_out_error_m": [
+    45.9,
+    14.9,
+    18.5,
+    26.3,
+    13.2,
+    18.0,
+    46.8,
+    7.8,
+    19.2,
+    37.4,
+    77.0,
+    40.5,
+    44.9,
+    6.5,
+    27.5
+   ],
+   "loo_rms_m": 34.9,
+   "metres_per_fullres_pixel": 0.838,
+   "approx_rotation_deg": -0.58
+  },
+  "polynomial_2nd_order": {
+   "n_params_per_axis": 6,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v",
+     "u^2",
+     "u*v",
+     "v^2"
+    ],
+    "u_v_definition": "u = px / 15705.0, v = py / 15705.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     -7697.778440942862,
+     13411.490949719075,
+     -291.4708948405254,
+     154.52218381589313,
+     -937.2896017962406,
+     1035.5254179003805
+    ],
+    "coef_Y_north_m": [
+     4560.789064011566,
+     -7.082535581654156,
+     -12454.95699584116,
+     -175.51116316143361,
+     151.84760692243395,
+     -956.9330226659524
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b",
+     "a^2",
+     "a*b",
+     "b^2"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     9147.913751657372,
+     1184.0975424139333,
+     -9.645824539605824,
+     -1.1360740232169912,
+     -6.6307350447870625,
+     -7.184450955822766
+    ],
+    "coef_py": [
+     5558.8833349288925,
+     -14.301151804891143,
+     -1203.9919204411028,
+     -1.2429550436630588,
+     -1.1091566825779744,
+     -6.5408923243016
+    ]
+   },
+   "residuals_m": [
+    34.0,
+    4.3,
+    12.3,
+    29.9,
+    2.2,
+    12.5,
+    42.9,
+    6.4,
+    11.0,
+    18.0,
+    38.3,
+    6.9,
+    28.0,
+    7.8,
+    22.2
+   ],
+   "rms_m": 22.5,
+   "max_m": 42.9,
+   "leave_one_out_error_m": [
+    108.2,
+    5.2,
+    14.3,
+    39.3,
+    2.6,
+    15.6,
+    58.8,
+    7.8,
+    13.0,
+    94.8,
+    156.8,
+    58.5,
+    99.6,
+    9.3,
+    42.8
+   ],
+   "loo_rms_m": 66.5
+  }
+ },
+ "computed_utc": "2026-11-07T06:15:38+00:00",
+ "software": "numpy 2.1.3, tools/georef.py",
+ "image_corners_lonlat_affine": {
+  "note": "Affine extrapolation to the full sheet corners, order TL,TR,BR,BL (MapLibre image-source order). Valid only as an approximate overlay; insets ('Environs de Paris', 'Plan des tramways') are NOT georeferenced; GCPs cover the centre and east, so error grows toward the western (Passy/Bois de Boulogne) and northern edges.",
+  "coordinates": [
+   [
+    2.236754,
+    48.901306
+   ],
+   [
+    2.417344,
+    48.900102
+   ],
+   [
+    2.417105,
+    48.81497
+   ],
+   [
+    2.236515,
+    48.816174
+   ]
+  ]
+ }
+}
