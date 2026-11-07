@@ -33,6 +33,14 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} PWA manifest`, man === "standalone|3", man);
     const sw = await p.evaluate(() => Promise.race([navigator.serviceWorker.ready.then(() => true), new Promise((r) => setTimeout(() => r(false), 6000))]));
     ok(`${vp.n} service worker registered`, sw);
+    await p.click("#fbBtn");
+    ok(`${vp.n} feedback dialog opens`, await p.$eval("#fb", (d) => d.open));
+    await p.click('#fb input[name="r"][value="5"]');
+    await p.fill("#fbText", "Тестовый отзыв");
+    await p.click("#fbSend");
+    await p.waitForTimeout(300);
+    ok(`${vp.n} feedback gives a status`, (await p.textContent("#fbStatus")).length > 5, await p.textContent("#fbStatus"));
+    await p.click('#fb button[value="cancel"]');
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);

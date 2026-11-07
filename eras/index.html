@@ -127,12 +127,18 @@ footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 syste
 .hunt2{background:#e9e0cf;border:1px solid #cdbd9f;padding:14px;margin:18px 0;font:14px/1.6 system-ui}
 hr.sep{border:0;border-top:1px solid var(--line);margin:28px 0}
 .install{display:none;margin-left:auto}.install.show{display:inline-block;min-height:36px;border:1px solid #dcb88c;background:none;color:#dcb88c;padding:4px 10px;font:12px system-ui}
+.hbtn{min-height:44px;border:1px solid #dcb88c;background:none;color:#eadfc9;padding:4px 10px;font:13px system-ui;border-radius:2px}
+dialog#fb{border:1px solid #cbb99b;background:#faf6ee;color:#29342d;max-width:520px;width:calc(100% - 32px);padding:18px}dialog#fb::backdrop{background:#0008}
+#fb textarea{width:100%;font:15px system-ui;padding:8px;border:1px solid #b9ab94;background:#fff;margin:4px 0}
+.stars{display:flex;gap:6px;flex-wrap:wrap}.stars label{min-height:44px;min-width:44px;display:flex;align-items:center;gap:4px;border:1px solid #cdbd9f;padding:0 10px;background:#fff;font:15px system-ui}
+.fbrow{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}.fbrow button{min-height:44px;padding:6px 14px;font:14px system-ui}.solid{background:#22362f;color:#fff;border:1px solid #22362f}.ghost{background:none;border:1px solid #b9ab94}
 </style>
 </head>
 <body>
 <a class="skip" href="#app">К содержанию</a>
 <header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
-<a href="#/">Карта</a><a href="../">Музей</a><a href="../poc/compare/">Тогда / Сейчас</a></header>
+<a href="#/">Карта</a><a href="../">Музей</a><button type="button" class="hbtn" id="shareBtn">Поделиться</button><button type="button" class="hbtn" id="fbBtn">Оставить отзыв</button></header>
+<dialog id="fb" aria-labelledby="fbTitle"><form method="dialog" id="fbForm"><h2 id="fbTitle" style="margin:0 0 6px;font-size:26px">Ваш отзыв об атласе</h2><p style="font:13px/1.5 system-ui;margin:0 0 10px;color:#6f6f63">Отзыв не сохраняется на сайте. Кнопка «Отправить» откроет меню «Поделиться» вашего телефона — выберите мессенджер или почту и отправьте автору. На компьютере текст скопируется.</p><fieldset style="border:0;padding:0;margin:0 0 8px"><legend style="font:13px system-ui">Оценка</legend><div class="stars"><label><input type="radio" name="r" value="1"> 1</label><label><input type="radio" name="r" value="2"> 2</label><label><input type="radio" name="r" value="3"> 3</label><label><input type="radio" name="r" value="4"> 4</label><label><input type="radio" name="r" value="5"> 5</label></div></fieldset><label for="fbText" style="font:13px system-ui">Что понравилось, что улучшить, какие города добавить</label><textarea id="fbText" rows="5" maxlength="2000"></textarea><div class="fbrow"><button type="submit" value="cancel" class="ghost">Закрыть</button><button type="button" id="fbSend" class="solid">Отправить автору</button></div><p id="fbStatus" role="status" style="font:13px system-ui;color:#2f6b3a;min-height:18px"></p></form></dialog>
 <main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
 <noscript><p class="note">Для атласа нужен JavaScript. Все источники перечислены в <a href="data/eras.json">eras.json</a>.</p></noscript>
 <footer>«Атлас эпох» — часть музея «Город на бумаге». На iPhone: «Поделиться» → «На экран „Домой“»; на Android: меню браузера → «Установить приложение». Исторические изображения показаны без изменений: без кадрирования, ретуши и перекраски. Современные фото не деформируются; совпадение ракурса оценивается вручную и подписано. Каждая работа ведёт к карточке хранителя — проверяйте права там.</footer>
@@ -142,6 +148,33 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:28px 0}
 if ("serviceWorker" in navigator && (location.protocol === "https:" || ["127.0.0.1", "localhost"].includes(location.hostname))) {
   addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 }
+
+const shareUrl = () => location.origin + location.pathname + location.hash;
+async function shareOrCopy(data, statusEl, okText) {
+  try {
+    if (navigator.share) { await navigator.share(data); if (statusEl) statusEl.textContent = okText; return; }
+    await navigator.clipboard.writeText([data.text, data.url].filter(Boolean).join("\n"));
+    if (statusEl) statusEl.textContent = "Скопировано: вставьте в письмо или мессенджер и отправьте автору.";
+  } catch (e) {
+    if (e && e.name !== "AbortError" && statusEl) statusEl.textContent = data.text && data.text.startsWith("Отзыв")
+      ? "Не удалось скопировать автоматически: выделите текст отзыва и отправьте его автору в мессенджере."
+      : "Скопируйте адрес страницы из браузера.";
+  }
+}
+document.getElementById("shareBtn").addEventListener("click", (e) => {
+  const b = e.currentTarget;
+  shareOrCopy({ title: "Город на бумаге — Атлас эпох", text: "Старинная карта Европы, города Бенуа и виды городов в разные эпохи.", url: shareUrl() }, null, "");
+  if (!navigator.share) { b.textContent = "Ссылка скопирована"; setTimeout(() => (b.textContent = "Поделиться"), 2500); }
+});
+const fb = document.getElementById("fb");
+document.getElementById("fbBtn").addEventListener("click", () => { document.getElementById("fbStatus").textContent = ""; fb.showModal(); });
+document.getElementById("fbSend").addEventListener("click", () => {
+  const r = (document.querySelector('#fb input[name="r"]:checked') || {}).value;
+  const t = document.getElementById("fbText").value.trim();
+  if (!r && !t) { document.getElementById("fbStatus").textContent = "Поставьте оценку или напишите пару слов."; return; }
+  const text = `Отзыв об «Атласе эпох»${r ? ` — оценка ${r}/5` : ""}\nСтраница: ${shareUrl()}\n\n${t}`;
+  shareOrCopy({ title: "Отзыв об Атласе эпох", text }, document.getElementById("fbStatus"), "Спасибо! Отзыв передан в выбранное приложение.");
+});
 let deferredInstall = null;
 addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredInstall = e; document.getElementById("install").classList.add("show"); });
 document.getElementById("install").addEventListener("click", async () => { if (!deferredInstall) return; deferredInstall.prompt(); await deferredInstall.userChoice; deferredInstall = null; document.getElementById("install").classList.remove("show"); });
