@@ -5,8 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#22362f">
 <meta name="description" content="Атлас эпох: историческая карта, города и одно место в разные времена — литография, фотохром, современный снимок. Экспериментальный прототип City on Paper.">
-<meta name="robots" content="noindex">
-<title>Атлас эпох · City on Paper (прототип)</title>
+<title>Атлас эпох · Город на бумаге</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Атлас эпох">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
 :root{--paper:#f3eee5;--paper2:#faf6ee;--ink:#29342d;--dark:#22362f;--line:#d9cbb5;--gold:#a8804e;--muted:#6f6f63;--bad:#9b3b2a;--ok:#2f6b3a;--warn:#8a6512;
  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
@@ -93,15 +99,52 @@ footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 syste
 @media(prefers-reduced-motion:no-preference){.view{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}}
 @media(max-width:650px){.stage img{height:72vw}.plate .pins .pin[href^="#/city"]{pointer-events:none}.plate .pins .pin[href^="#/city"] span{display:none}}
 @media(max-width:650px){header.top strong{flex-basis:100%;font-size:20px}.pin span{font-size:11px;padding:0 4px}.pin i{width:13px;height:13px}h1{font-size:34px}}
+
+/* v2: all cities */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.tools input,.tools select{min-height:46px;border:1px solid #a69c8d;background:#fffcf5;padding:10px 12px;border-radius:3px;font:15px system-ui}.tools input{flex:1 1 260px}
+.zoombar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;font:12px system-ui;color:var(--muted)}.zoombar button{min-width:44px;min-height:44px;border:1px solid #b9ab94;background:#fffdf7;font-size:20px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;margin:0 3px 0 8px;vertical-align:-1px}.sw.benoist{background:#7a3f22}.sw.featured{background:#c59446;box-shadow:0 0 0 2px #7a3f22}.sw.other{background:#2f5f52}
+.mapwrap{overflow:auto;-webkit-overflow-scrolling:touch;max-height:82vh;border:1px solid #cbb99b}
+.mapwrap .frame{position:relative;min-width:100%}
+.dot{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;display:block;text-decoration:none}
+.dot i{position:absolute;inset:3px;border-radius:50%;background:#2f5f52;border:1.5px solid #fbf4e4;box-shadow:0 0 0 1px #0005}
+.dot.benoist i{background:#7a3f22}.dot.featured i{background:#c59446;box-shadow:0 0 0 2px #7a3f22;inset:1px}
+.dot span{display:none;position:absolute;left:14px;top:-4px;white-space:nowrap;font:600 12px Georgia,serif;background:#fbf4e4f0;border:1px solid #c9b48f;padding:0 5px;color:#22362f;z-index:2}
+.dot:hover span,.dot.featured span{display:block}.dot.dim{opacity:.18}
+@media(max-width:650px){.dot.featured span{display:none}}
+.citylist{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:10px 0 24px}
+.ccard{background:var(--paper2);border:1px solid var(--line);padding:12px;text-decoration:none;display:flex;flex-direction:column;gap:3px;min-height:44px}
+.ccard b{font:400 21px Georgia,serif}.ccard small{color:var(--muted);font:12px system-ui}.ccard span{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.badge{font:normal 11px system-ui;border:1px solid #cdbd9f;padding:0 6px;border-radius:2px;color:#5f5a50}.badge.b{border-color:#7a3f22;color:#7a3f22}.badge.f{background:#c59446;border-color:#c59446;color:#22362f}
+.coords{font:13px system-ui;color:var(--muted)}h1 .orig{font-size:.45em;color:var(--muted)}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:12px 0}
+.wcard{background:var(--paper2);border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:4px}
+.wcard img{display:block;width:100%;height:190px;object-fit:contain;background:#ebe2d2}
+.wcard h4{margin:4px 0 0;font:400 16px/1.25 Georgia,serif}.wcard p{margin:0;font:12px/1.45 system-ui;color:#5f6158}.wcard .src{color:var(--muted)}
+.noimg{height:190px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font:12px system-ui;color:var(--muted);border:1px dashed #cdbd9f}
+.morebtn{min-height:44px;border:1px solid var(--dark);background:var(--dark);color:#fff;padding:8px 18px}
+.hunt2{background:#e9e0cf;border:1px solid #cdbd9f;padding:14px;margin:18px 0;font:14px/1.6 system-ui}
+hr.sep{border:0;border-top:1px solid var(--line);margin:28px 0}
+.install{display:none;margin-left:auto}.install.show{display:inline-block;min-height:36px;border:1px solid #dcb88c;background:none;color:#dcb88c;padding:4px 10px;font:12px system-ui}
 </style>
 </head>
 <body>
 <a class="skip" href="#app">К содержанию</a>
-<header class="top"><strong>City on Paper</strong><span class="proto">Прототип · Issue #34</span>
-<a href="../">Главная</a><a href="../world/">Атлас городов</a><a href="../poc/compare/">Тогда / Сейчас</a></header>
+<header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
+<a href="#/">Карта</a><a href="../">Музей</a><a href="../poc/compare/">Тогда / Сейчас</a></header>
 <main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
 <noscript><p class="note">Для атласа нужен JavaScript. Все источники перечислены в <a href="data/eras.json">eras.json</a>.</p></noscript>
-<footer>Экспериментальный прототип «Атлас эпох» (ветка Issue #34). Исторические изображения показаны без изменений: без кадрирования, ретуши и перекраски. Современные фото не деформируются; совпадение ракурса оценивается вручную и подписано. Каждая работа ведёт к карточке хранителя — проверяйте права там.</footer>
+<footer>«Атлас эпох» — часть музея «Город на бумаге». На iPhone: «Поделиться» → «На экран „Домой“»; на Android: меню браузера → «Установить приложение». Исторические изображения показаны без изменений: без кадрирования, ретуши и перекраски. Современные фото не деформируются; совпадение ракурса оценивается вручную и подписано. Каждая работа ведёт к карточке хранителя — проверяйте права там.</footer>
+<script src="atlas.js"></script>
 <script src="eras.js"></script>
+<script>
+if ("serviceWorker" in navigator && (location.protocol === "https:" || ["127.0.0.1", "localhost"].includes(location.hostname))) {
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+let deferredInstall = null;
+addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredInstall = e; document.getElementById("install").classList.add("show"); });
+document.getElementById("install").addEventListener("click", async () => { if (!deferredInstall) return; deferredInstall.prompt(); await deferredInstall.userChoice; deferredInstall = null; document.getElementById("install").classList.remove("show"); });
+</script>
 </body>
 </html>

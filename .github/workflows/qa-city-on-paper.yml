@@ -93,6 +93,7 @@ jobs:
           node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
           node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
           node tests/browser/qa_antique_atlas.js http://127.0.0.1:8765/atlas-prototype/ /tmp/city-on-paper-screens
+          node tests/browser/qa_eras.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_detective.js http://127.0.0.1:8765/detective/ /tmp/city-on-paper-screens
           node tests/browser/qa_studio.js http://127.0.0.1:8765/studio/ /tmp/city-on-paper-screens
           node tests/browser/qa_museum_rooms.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -132,6 +133,7 @@ jobs:
           cp data/curation/close-reading-benoist-20261103.json /tmp/city-on-paper-package/data/curation/
           mkdir -p /tmp/city-on-paper-package/atlas-prototype
           cp atlas-prototype/index.html /tmp/city-on-paper-package/atlas-prototype/
+          cp -R eras /tmp/city-on-paper-package/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/

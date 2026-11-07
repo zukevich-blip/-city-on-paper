@@ -11,21 +11,33 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     p.on("pageerror", e => errs.push(String(e))); p.on("console", m => m.type() === "error" && errs.push(m.text()));
     p.on("response", r => { if (r.status() >= 400) errs.push(`${r.status()} ${r.url()}`); });
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
-    ok(`${vp.n} portal: 3 city pins`, (await p.locator(".pin").count()) === 3);
+    const nCities = await p.$$eval(".ccard", (c) => c.length);
+    ok(`${vp.n} portal: city list ≥ 80`, nCities >= 80, String(nCities));
     ok(`${vp.n} portal: map loaded`, await p.$eval(".plate img", i => i.complete && i.naturalWidth > 0));
+    ok(`${vp.n} portal: pins on map`, (await p.locator(".dot").count()) >= 3);
+    await p.fill("#q", "Лиссаб");
+    ok(`${vp.n} portal: search filters list`, (await p.$$eval(".ccard", (c) => c.map((x) => x.textContent))).every((t) => /Лиссабон/.test(t)) && (await p.locator(".ccard").count()) >= 1);
+    await p.fill("#q", "");
+    await p.selectOption("#grp", "featured");
+    ok(`${vp.n} portal: featured filter`, (await p.locator(".ccard").count()) === 3);
+    ok(`${vp.n} portal: filter announced`, /Показано городов: 3/.test(await p.textContent("#shown")));
+    await p.selectOption("#grp", "all");
+    await p.click("#zin");
+    ok(`${vp.n} portal: map zoom`, await p.$eval("#frame", (f) => parseFloat(f.style.width) > 100));
+    await p.click("#zout");
     await p.screenshot({ path: `${out}/${vp.n}-1-portal.jpg`, type: "jpeg", quality: 60 });
-    // era filter dims cities without material, disabled era is not clickable
-    ok(`${vp.n} portal: unavailable era disabled`, await p.$eval('.eras button[data-era="mid20"]', b => b.disabled));
-    await p.click('.eras button[data-era="print"]');
-    ok(`${vp.n} portal: era filter announces result`, /Париж/.test(await p.textContent("#eraStatus")));
-    if (vp.w < 650) {
-      ok(`${vp.n} portal: phone uses small map file`, await p.$eval(".plate img", i => /_w1000/.test(i.currentSrc)));
-      await p.locator(".card", { hasText: "Париж" }).click();
-    } else {
-      await p.locator(".pin", { hasText: "Париж" }).click();
-    }
+    const man = await p.evaluate(async () => { const l = document.querySelector('link[rel="manifest"]'); const r = await fetch(l.href); const j = await r.json(); return j.display + "|" + j.icons.length; });
+    ok(`${vp.n} PWA manifest`, man === "standalone|3", man);
+    const sw = await p.evaluate(() => Promise.race([navigator.serviceWorker.ready.then(() => true), new Promise((r) => setTimeout(() => r(false), 6000))]));
+    ok(`${vp.n} service worker registered`, sw);
+    await p.locator(".ccard", { hasText: "Лиссабон" }).click();
+    await p.waitForSelector("#wg");
+    ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
+    await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
+    await p.locator(".ccard", { hasText: "Париж" }).first().click();
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
+    ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
     await p.screenshot({ path: `${out}/${vp.n}-2-paris.jpg`, type: "jpeg", quality: 60 });
     await p.locator(".plate .pin", { hasText: "Мадлен" }).click();
     await p.waitForSelector("#stage");
@@ -56,7 +68,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.click('[data-m="slider"]');
     await p.locator("#stage").scrollIntoViewIfNeeded();
     await p.screenshot({ path: `${out}/${vp.n}-3-madeleine.jpg`, type: "jpeg", quality: 60, fullPage: vp.n === "phone-390" });
-    const small = await p.$$eval("button, select, a.pin", els => els.filter(e => e.offsetParent).map(e => e.getBoundingClientRect()).filter(r => r.height < 40 || r.width < 36).length);
+    const small = await p.$$eval("button, select, a.pin, a.ccard", els => els.filter(e => e.offsetParent).map(e => e.getBoundingClientRect()).filter(r => r.height < 40 || r.width < 36).length);
     ok(`${vp.n} touch targets ≥40px`, small === 0, `${small} small`);
     ok(`${vp.n} no horizontal page scroll`, await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     ok(`${vp.n} images have alt`, await p.$$eval("img", ims => ims.every(i => (i.alt || "").length > 5)));
