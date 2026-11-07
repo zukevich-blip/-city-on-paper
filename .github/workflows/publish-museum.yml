@@ -1,5 +1,5 @@
 name: Publish City on Paper public museum
-run-name: Verified museum public release
+run-name: City on Paper · antique atlas public preview
 
 on:
   push:
@@ -73,6 +73,9 @@ jobs:
           test -s public/index.html
           test -s public/salon/index.html
           test -s public/world/index.html
+          test -s public/atlas-prototype/index.html
+          grep -q 'citySearch' public/atlas-prototype/index.html
+          grep -q 'localMarkers' public/atlas-prototype/index.html
           test -s public/poc/compare/homography.js
           test -s public/sitemap.xml
           test -s public/robots.txt
