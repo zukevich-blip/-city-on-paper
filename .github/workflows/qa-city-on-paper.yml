@@ -129,6 +129,8 @@ jobs:
           cp data/ideas/radar-20261103.json /tmp/city-on-paper-package/data/ideas/
           cp data/curation/close-reading-20261103.json /tmp/city-on-paper-package/data/curation/
           cp data/curation/close-reading-benoist-20261103.json /tmp/city-on-paper-package/data/curation/
+          mkdir -p /tmp/city-on-paper-package/atlas-prototype
+          cp atlas-prototype/index.html /tmp/city-on-paper-package/atlas-prototype/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
