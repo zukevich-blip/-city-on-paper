@@ -15,7 +15,7 @@ PAGES = (
     "photography/index.html", "world/index.html",
     "exhibitions/city-as-evidence/index.html",
     "exhibitions/lost-florence/index.html", "discover/index.html",
-    "journeys/index.html", "detective/index.html", "studio/index.html",
+    "journeys/index.html", "atlas-prototype/index.html", "detective/index.html", "studio/index.html",
     "ornaments/index.html", "atelier/bargue/index.html",
     "atelier/ornament/index.html", "printlab/index.html",
     "fieldwork/index.html", "ideas/index.html",
