@@ -10,6 +10,7 @@ Inputs (committed):
 from __future__ import annotations
 
 import json
+import math
 import re
 import unicodedata
 from pathlib import Path
@@ -39,29 +40,44 @@ def load(name: str):
 
 
 def portal_model():
+    """2nd-order polynomial lon/lat -> pixel of the 1769 map (51 GCPs; see portal-georef.json)."""
     g = load("portal-georef.json")
     if not g:
-        return None, None
+        return None, None, None
     m = g["model"]
-    cx, cy = m["coef_px"], m["coef_py"]
-    terms = m["terms"]  # list of [i, j] exponents of (x, y) where x, y = normalised lon, lat
-    lon0, lat0, s = m["lon0"], m["lat0"], m["scale"]
+    nz = m["normalization"]
+    exps = [tuple(int(part[2:]) for part in t.split("*")) for t in m["terms"]]  # "u^1*v^0" -> (1, 0)
 
     def predict(lat: float, lon: float):
-        x, y = (lon - lon0) / s, (lat - lat0) / s
-        vals = [x ** i * y ** j for i, j in terms]
-        return (sum(a * v for a, v in zip(cx, vals, strict=True)),
-                sum(a * v for a, v in zip(cy, vals, strict=True)))
-    return predict, g
+        u, v = (lon - nz["lon0"]) / nz["scale"], (lat - nz["lat0"]) / nz["scale"]
+        vals = [u ** a * v ** b for a, b in exps]
+        return (sum(c * t for c, t in zip(m["coef_px"], vals, strict=True)),
+                sum(c * t for c, t in zip(m["coef_py"], vals, strict=True)))
+
+    hull = g["validity"]["convex_hull_lonlat"]
+
+    def inside(lat: float, lon: float, margin: float = 0.3) -> bool:
+        cx = sum(p[0] for p in hull) / len(hull)
+        cy = sum(p[1] for p in hull) / len(hull)
+        poly = []
+        for x, y in hull:
+            d = math.hypot(x - cx, y - cy) or 1.0
+            poly.append((x + (x - cx) / d * margin, y + (y - cy) / d * margin))
+        res = False
+        for i in range(len(poly)):
+            (x1, y1), (x2, y2) = poly[i], poly[(i + 1) % len(poly)]
+            if (y1 > lat) != (y2 > lat) and lon < x1 + (lat - y1) * (x2 - x1) / (y2 - y1):
+                res = not res
+        return res
+    return predict, inside, g
 
 
 def build() -> dict:
     ov = load("overrides.json")
     eu = load("europe-cities.json")["cities"]
     ben = load("benoist-places.json") or {"places": []}
-    predict, g = portal_model()
+    predict, inside_hull, g = portal_model()
     W, H = ov["portal"]["width"], ov["portal"]["height"]
-    dom = (g or {}).get("domain")
     cities: dict[str, dict] = {}
     for c in eu:
         cities[norm(c["name"])] = {"id": FEATURED.get(c["name"]) or slug(c["name"]), "name": c["name"],
@@ -92,17 +108,18 @@ def build() -> dict:
     for c in cities.values():
         c["featured"] = FEATURED.get(c["name"])
         c["xy"] = None
-        inside = not dom or (dom["lat_min"] <= c["lat"] <= dom["lat_max"]
-                             and dom["lon_min"] <= c["lon"] <= dom["lon_max"])
-        if predict and inside:
+        c["xy_approx"] = None
+        if predict and inside_hull(c["lat"], c["lon"]):
             x, y = predict(c["lat"], c["lon"])
             if 0 <= x <= W and 0 <= y <= H:
                 c["xy"] = [round(x, 1), round(y, 1)]
+                c["xy_approx"] = True
     # verified glyph positions win over the model
     for cid, pin in ov["portal"]["pins"].items():
         for c in cities.values():
             if c["featured"] == cid:
                 c["xy"] = [pin["x"], pin["y"]]
+                c["xy_approx"] = False
     rows = sorted(cities.values(), key=lambda c: c["name"])
     ids = [c["id"] for c in rows]
     assert len(ids) == len(set(ids)), "duplicate city ids"
@@ -110,7 +127,8 @@ def build() -> dict:
     portal = {k: ov["portal"][k] for k in keys}
     portal["image_small"] = ov["portal"].get("image_small")
     note = ("Метки городов рассчитаны по модели привязки карты"
-            + (f" ({g['model_name']}, средняя ошибка ≈{g['loo_rms_px']:.0f} px)" if g else "")
+            + (f" (полином 2-й степени по {len(g['gcps'])} опорным городам, проверка исключением "
+               f"≈{g['loo_rms_px']:.0f} px)" if g else "")
             + "; метки Парижа, Флоренции и Неаполя сверены со знаками городов на самой карте.")
     return {"version": "2026-11-07", "portal": portal, "portal_note": note,
             "regions": sorted({c["country"] for c in rows if c["country"]}),

@@ -8,8 +8,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
   for (const vp of [{ n: "phone-390", w: 390, h: 844, m: true }, { n: "tablet-820", w: 820, h: 1180, m: true }, { n: "desktop-1440", w: 1440, h: 900 }]) {
     const ctx = await b.newContext({ viewport: { width: vp.w, height: vp.h }, isMobile: !!vp.m, hasTouch: !!vp.m, reducedMotion: vp.n === "phone-390" ? "reduce" : "no-preference" });
     const p = await ctx.newPage(); const errs = [];
-    p.on("pageerror", e => errs.push(String(e))); p.on("console", m => m.type() === "error" && errs.push(m.text()));
-    p.on("response", r => { if (r.status() >= 400) errs.push(`${r.status()} ${r.url()}`); });
+    // Curation files generated at packaging time (absent in a source checkout, present in the built site).
+    const GENERATED = /data\/curation\/(world-graphic-archive-v1|museum-expansion-v1)\.json$/;
+    p.on("pageerror", e => errs.push(String(e)));
+    p.on("console", m => m.type() === "error" && !/Failed to load resource/.test(m.text()) && errs.push(m.text()));
+    p.on("response", r => { if (r.status() >= 400 && !GENERATED.test(r.url())) errs.push(`${r.status()} ${r.url()}`); });
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
     const nCities = await p.$$eval(".ccard", (c) => c.length);
     ok(`${vp.n} portal: city list ≥ 80`, nCities >= 80, String(nCities));

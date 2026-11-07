@@ -11,7 +11,7 @@
   "alt": "Раскрашенная от руки карта Европы XVIII века с картушем «Carte d'Europe» в левом верхнем углу",
   "image_small": "img/loc-97683588-carte-d-europe-1769_w1000.jpg"
  },
- "portal_note": "Метки городов рассчитаны по модели привязки карты; метки Парижа, Флоренции и Неаполя сверены со знаками городов на самой карте.",
+ "portal_note": "Метки городов рассчитаны по модели привязки карты (полином 2-й степени по 51 опорным городам, проверка исключением ≈18 px); метки Парижа, Флоренции и Неаполя сверены со знаками городов на самой карте.",
  "regions": [
   "Австрия",
   "Бельгия",
@@ -40,7 +40,7 @@
   "benoist_places": 0,
   "benoist_works": 0,
   "benoist_open_images": 0,
-  "on_portal": 3
+  "on_portal": 77
  },
  "cities": [
   {
@@ -56,7 +56,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    684.2,
+    812.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "antverpen",
@@ -71,7 +75,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    665.9,
+    853.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "afiny",
@@ -86,7 +94,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1174.3,
+    1390.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "barselona",
@@ -101,7 +113,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    536.4,
+    1222.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "bat",
@@ -116,7 +132,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    502.8,
+    803.7
+   ],
+   "xy_approx": true
   },
   {
    "id": "bergen",
@@ -131,7 +151,8 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": null,
+   "xy_approx": null
   },
   {
    "id": "berlin",
@@ -146,7 +167,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    886.0,
+    834.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "bolonya",
@@ -161,7 +186,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    815.9,
+    1137.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "bordo",
@@ -176,7 +205,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    488.6,
+    1068.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "brest",
@@ -191,7 +224,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    419.9,
+    900.5
+   ],
+   "xy_approx": true
   },
   {
    "id": "bryugge",
@@ -206,7 +243,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    637.3,
+    847.6
+   ],
+   "xy_approx": true
   },
   {
    "id": "bryussel",
@@ -221,7 +262,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    662.6,
+    867.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "budapesht",
@@ -236,7 +281,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1029.1,
+    1026.6
+   ],
+   "xy_approx": true
   },
   {
    "id": "valensiya",
@@ -251,7 +300,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    442.6,
+    1283.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "varshava",
@@ -266,7 +319,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1066.3,
+    844.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "vena",
@@ -281,7 +338,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    956.9,
+    999.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "venetsiya",
@@ -296,7 +357,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    845.9,
+    1102.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "verona",
@@ -311,7 +376,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    809.3,
+    1099.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "versal",
@@ -326,7 +395,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    593.4,
+    932.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "vilnyus",
@@ -341,7 +414,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1155.0,
+    742.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "gaaga",
@@ -356,7 +433,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    667.7,
+    820.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "gamburg",
@@ -371,7 +452,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    808.5,
+    788.0
+   ],
+   "xy_approx": true
   },
   {
    "id": "gdansk",
@@ -386,7 +471,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1006.8,
+    768.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "geydelberg",
@@ -401,7 +490,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    763.6,
+    940.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "gent",
@@ -416,7 +509,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    648.5,
+    856.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "genuya",
@@ -431,7 +528,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    748.8,
+    1134.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "granada",
@@ -446,7 +547,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    317.7,
+    1351.7
+   ],
+   "xy_approx": true
   },
   {
    "id": "dolo",
@@ -461,7 +566,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    838.9,
+    1102.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "drezden",
@@ -476,7 +585,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    892.6,
+    889.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "zheneva",
@@ -491,7 +604,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    681.9,
+    1053.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "zaltsburg",
@@ -506,7 +623,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    870.3,
+    1012.5
+   ],
+   "xy_approx": true
   },
   {
    "id": "york",
@@ -521,7 +642,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    555.5,
+    716.0
+   ],
+   "xy_approx": true
   },
   {
    "id": "kazan",
@@ -536,7 +661,8 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": null,
+   "xy_approx": null
   },
   {
    "id": "karlovy-vary",
@@ -551,7 +677,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    870.2,
+    919.5
+   ],
+   "xy_approx": true
   },
   {
    "id": "kembridzh",
@@ -566,7 +696,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    569.9,
+    791.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "kiev",
@@ -581,7 +715,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1305.0,
+    877.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "kopengagen",
@@ -596,7 +734,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    870.2,
+    714.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "krakov",
@@ -611,7 +753,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1047.0,
+    928.0
+   ],
+   "xy_approx": true
   },
   {
    "id": "keln",
@@ -626,7 +772,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    726.9,
+    875.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "lan",
@@ -641,7 +791,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    636.6,
+    912.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "liverpul",
@@ -656,7 +810,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    508.0,
+    723.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "lion",
@@ -671,7 +829,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    643.8,
+    1065.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "lissabon",
@@ -686,7 +848,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    165.9,
+    1238.5
+   ],
+   "xy_approx": true
   },
   {
    "id": "london",
@@ -701,7 +867,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    558.0,
+    815.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "madrid",
@@ -716,7 +886,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    352.8,
+    1220.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "marsel",
@@ -731,7 +905,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    643.0,
+    1163.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "milan",
@@ -746,7 +924,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    760.5,
+    1093.7
+   ],
+   "xy_approx": true
   },
   {
    "id": "moskva",
@@ -761,7 +943,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1418.9,
+    632.7
+   ],
+   "xy_approx": true
   },
   {
    "id": "myunkhen",
@@ -776,7 +962,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    833.0,
+    996.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "nant",
@@ -791,7 +981,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    484.6,
+    969.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "naples",
@@ -809,7 +1003,8 @@
    "xy": [
     885,
     1294
-   ]
+   ],
+   "xy_approx": false
   },
   {
    "id": "nizhniy-novgorod",
@@ -824,7 +1019,8 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": null,
+   "xy_approx": null
   },
   {
    "id": "nitstsa",
@@ -839,7 +1035,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    698.7,
+    1155.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "odessa",
@@ -854,7 +1054,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1338.3,
+    1027.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "oksford",
@@ -869,7 +1073,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    532.8,
+    798.0
+   ],
+   "xy_approx": true
   },
   {
    "id": "oslo",
@@ -884,7 +1092,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    836.4,
+    556.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "palermo",
@@ -899,7 +1111,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    853.6,
+    1393.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "paris",
@@ -917,7 +1133,8 @@
    "xy": [
     597,
     931
-   ]
+   ],
+   "xy_approx": false
   },
   {
    "id": "piza",
@@ -932,7 +1149,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    786.9,
+    1165.3
+   ],
+   "xy_approx": true
   },
   {
    "id": "portu",
@@ -947,7 +1168,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    216.6,
+    1145.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "praga",
@@ -962,7 +1187,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    908.5,
+    927.0
+   ],
+   "xy_approx": true
   },
   {
    "id": "renn",
@@ -977,7 +1206,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    489.7,
+    933.9
+   ],
+   "xy_approx": true
   },
   {
    "id": "rim",
@@ -992,7 +1225,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    839.8,
+    1241.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "rotterdam",
@@ -1007,7 +1244,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    671.8,
+    827.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "ruan",
@@ -1022,7 +1263,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    572.0,
+    902.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "saloniki",
@@ -1037,7 +1282,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1145.0,
+    1286.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "sankt-peterburg",
@@ -1052,7 +1301,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1224.3,
+    530.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "sevilya",
@@ -1067,7 +1320,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    245.1,
+    1322.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "sintra",
@@ -1082,7 +1339,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    161.1,
+    1231.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "stokgolm",
@@ -1097,7 +1358,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    983.5,
+    586.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "strasburg",
@@ -1112,7 +1377,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    736.1,
+    968.5
+   ],
+   "xy_approx": true
   },
   {
    "id": "tivoli",
@@ -1127,7 +1396,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    849.2,
+    1239.2
+   ],
+   "xy_approx": true
   },
   {
    "id": "toledo",
@@ -1142,7 +1415,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    336.6,
+    1240.0
+   ],
+   "xy_approx": true
   },
   {
    "id": "turin",
@@ -1157,7 +1434,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    717.5,
+    1104.1
+   ],
+   "xy_approx": true
   },
   {
    "id": "florence",
@@ -1175,7 +1456,8 @@
    "xy": [
     812,
     1168
-   ]
+   ],
+   "xy_approx": false
   },
   {
    "id": "kharlem",
@@ -1190,7 +1472,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    678.2,
+    810.5
+   ],
+   "xy_approx": true
   },
   {
    "id": "khelsinki",
@@ -1205,7 +1491,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    1116.8,
+    544.4
+   ],
+   "xy_approx": true
   },
   {
    "id": "shamberi",
@@ -1220,7 +1510,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    672.1,
+    1077.6
+   ],
+   "xy_approx": true
   },
   {
    "id": "shartr",
@@ -1235,7 +1529,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    574.4,
+    942.8
+   ],
+   "xy_approx": true
   },
   {
    "id": "edinburg",
@@ -1250,7 +1548,11 @@
    "works": [],
    "albums": [],
    "featured": null,
-   "xy": null
+   "xy": [
+    524.9,
+    625.4
+   ],
+   "xy_approx": true
   }
  ]
 }
