@@ -44,6 +44,17 @@ window.GcpReview = (() => {
       fillOpacity: 0, interactive: false }).addTo(args.oldMap);
     const newFocus = L.circleMarker([0, 0], { radius: 10, color: "#236b55", weight: 3,
       fillOpacity: 0, interactive: false }).addTo(args.modernMap);
+    // Each panel exposes all fifteen original GCPs, not just the selected one.
+    // Green/red confidence coding is only the prior research pick confidence.
+    const dotStyle = (p) => ({
+      radius: 5, weight: 1.5, color: p.confidence === "low" ? "#b54337" : "#386551",
+      fillColor: "#fff8e8", fillOpacity: 0.85, interactive: false,
+      className: "gcp-review-pin",
+    });
+    L.layerGroup(data.gcps.map(p =>
+      L.circleMarker(oldAt(p.px, p.py), dotStyle(p)))).addTo(args.oldMap);
+    L.layerGroup(data.gcps.map(p =>
+      L.circleMarker([p.lat, p.lon], dotStyle(p)))).addTo(args.modernMap);
     let oldProposal = null;
     let newProposal = null;
     let currentIndex = 0;
