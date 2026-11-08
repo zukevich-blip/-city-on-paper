@@ -121,7 +121,7 @@ window.Atlas = (() => {
     const list = document.getElementById("eplist");
     if (!groups.length) { document.querySelector(".epochs").hidden = true; return; }
     list.innerHTML = `<div class="epchips" role="tablist" aria-label="Места">${groups.map((g, i) =>
-      `<button type="button" role="tab" data-i="${i}" aria-selected="${i === 0}">${esc(g.name)} <small>${g.frames.length}</small></button>`).join("")}</div>`;
+      `<button type="button" role="tab" data-i="${i}" aria-selected="${i === 0}">${esc(g.name ? g.name.charAt(0).toUpperCase() + g.name.slice(1) : "")} <small>${g.frames.length}</small></button>`).join("")}</div>`;
     const view = document.getElementById("epview");
     const show = (gi) => {
       const g = groups[gi];
