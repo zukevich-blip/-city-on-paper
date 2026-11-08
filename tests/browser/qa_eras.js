@@ -95,7 +95,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#cityLab [data-role='viewer-facts'] a").count()) >= 1);
     await p.locator("#cityLab [data-role='zoom-in']").click();
     ok(`${vp.n} city print zoom`,
-      await p.locator("#cityLab [data-role='zoom-value']").textContent() === "150%");
+      await p.locator("#cityLab [data-role='viewer'] [data-role='zoom-value']").textContent() === "150%");
     await p.locator("#cityLab [data-role='close']").click();
     const localPhoto = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
     const selectedBeforePhoto = await p.locator("#cityLab [data-role='selected']").textContent();
