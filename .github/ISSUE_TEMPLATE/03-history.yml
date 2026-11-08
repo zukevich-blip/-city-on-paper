@@ -1,0 +1,35 @@
+name: "Исправить исторический факт или архитектурный термин"
+description: "Предложите обоснованную правку карточки произведения, здания или городской истории"
+title: "[История и архитектура] "
+body:
+  - type: input
+    id: page
+    attributes:
+      label: "Ссылка на страницу проекта"
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: "Что написано сейчас и что следует исправить"
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: "Первоисточники, музейные каталоги или научные публикации"
+      description: "Укажите страницы или постоянные ссылки, язык оригинала и степень уверенности"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: "Тип исправления"
+      options:
+        - "Автор, издатель, литограф или печатник"
+        - "Датировка или историческое событие"
+        - "Архитектурный термин или описание"
+        - "География, топоним или ракурс"
+        - "Перевод, подпись или библиография"
+    validations:
+      required: true
