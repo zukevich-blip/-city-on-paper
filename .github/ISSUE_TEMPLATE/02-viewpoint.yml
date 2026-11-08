@@ -1,0 +1,46 @@
+name: "Проверить исторический ракурс или предложить новую фотографию"
+description: "Помогите сопоставить художника, фотографа, место и направление взгляда"
+title: "[Ракурс] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Указывайте только публичные источники и общедоступные места. Снимок, выбранный внутри атласа, не отправляется автоматически. Публичное размещение фотографии потребует отдельного согласия и проверки прав.
+  - type: input
+    id: source
+    attributes:
+      label: "Ссылка на исторический лист или карточку места в атласе"
+    validations:
+      required: true
+  - type: input
+    id: map
+    attributes:
+      label: "Город, место и координаты (если известны)"
+      placeholder: "48.8700, 2.3250, Париж"
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: "Совпадение направления взгляда"
+      options:
+        - "Не оценено"
+        - "Возможно близкий ракурс"
+        - "Частичное совпадение"
+        - "Разные ракурсы"
+    validations:
+      required: true
+  - type: textarea
+    id: grounds
+    attributes:
+      label: "Доказательства совпадения или расхождения"
+      description: "Ориентиры, направление, высота камеры, возможная погрешность, ссылки"
+    validations:
+      required: true
+  - type: textarea
+    id: permission
+    attributes:
+      label: "Автор фотографии и условия публикации (если предлагаете снимок)"
+      description: "Не загружайте сам файл с личными EXIF и людьми без разрешения. Укажите только предполагаемую лицензию и способ связи через GitHub."
+    validations:
+      required: false
