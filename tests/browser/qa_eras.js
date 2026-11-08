@@ -76,6 +76,12 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator('#threeEpochs [data-go="100"]').click();
     ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
     ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
+    const localFixture = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
+    await p.locator('#threeEpochs [data-role="upload-photo"]').setInputFiles({ name: "my-photo.png", mimeType: "image/png", buffer: localFixture });
+    ok(`${vp.n} local photo: third epoch selected`, await p.locator('#threeEpochs [data-role="last"]').inputValue() === "7");
+    ok(`${vp.n} local photo: no server upload in UI`, /только в этот просмотр/.test(await p.locator('#threeEpochs [data-role="photo-status"]').textContent()));
+    await p.locator('#threeEpochs [data-role="remove-photo"]').click();
+    ok(`${vp.n} local photo: removed`, (await p.locator('#threeEpochs [data-role="last"] option').count()) === 7);
     await p.screenshot({ path: `${out}/${vp.n}-4-three-epochs.jpg`, type: "jpeg", quality: 60 });
     ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
