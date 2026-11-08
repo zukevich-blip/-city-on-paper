@@ -75,7 +75,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} triple stage: 50% shows middle era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "50");
     await p.locator('#threeEpochs [data-go="100"]').click();
     ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
-    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => /inset\\(0 0% 0 0\\)/.test(x.style.clipPath)));
+    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
     await p.screenshot({ path: `${out}/${vp.n}-4-three-epochs.jpg`, type: "jpeg", quality: 60 });
     ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
