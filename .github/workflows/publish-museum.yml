@@ -1,5 +1,5 @@
 name: Publish City on Paper public museum
-run-name: City on Paper · three-era compare and local photo
+run-name: City on Paper · historical chronoscope, art desk, public consilium
 
 on:
   push:
@@ -44,7 +44,12 @@ jobs:
         run: |
           set -euo pipefail
           IDS="$(gh api "repos/$GH_REPO/actions/workflows/qa-city-on-paper.yml/runs?branch=release%2Fcity-on-paper-private-preview-20261104&status=success&per_page=20" --jq '.workflow_runs[].id')"
+          RELEASE_SHA="$(git rev-parse HEAD)"
           for id in $IDS; do
+            VERIFIED_SHA="$(gh api "repos/$GH_REPO/actions/runs/$id" --jq '.head_sha')"
+            if [ "$VERIFIED_SHA" != "$RELEASE_SHA" ]; then
+              continue
+            fi
             count="$(gh api "repos/$GH_REPO/actions/runs/$id/artifacts" --jq '[.artifacts[] | select(.name=="city-on-paper-vnext-preview" and .expired==false)] | length')"
             if [ "$count" -gt 0 ]; then
               echo "run_id=$id" >> "$GITHUB_OUTPUT"
@@ -76,6 +81,13 @@ jobs:
           test -s public/atlas-prototype/index.html
           test -s public/eras/three-epochs.js
           test -s public/eras/three-epochs.css
+          test -s public/eras/chronoscope.js
+          test -s public/eras/chronoscope.css
+          test -s public/eras/curatorial-desk.js
+          test -s public/eras/curatorial-desk.css
+          test -s public/contribute/index.html
+          grep -q 'CityOnPaperChronoscope' public/eras/chronoscope.js
+          grep -q 'CityOnPaperCuratorialDesk' public/eras/curatorial-desk.js
           grep -q 'upload-photo' public/eras/three-epochs.js
           grep -q 'citySearch' public/atlas-prototype/index.html
           grep -q 'localMarkers' public/atlas-prototype/index.html
@@ -104,6 +116,11 @@ jobs:
           assert "Allow: /" in (site/"robots.txt").read_text(encoding="utf-8")
           print(f"PUBLIC SAFETY PASS: {len(files)} allowlisted site files, {manifest['public_html_pages']} pages")
           PY
+
+      - name: Audit internal links and files of the published version
+        run: |
+          python tools/release/audit_public_links.py --root public --report public/LINK_AUDIT.json
+          test -s public/LINK_AUDIT.json
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
