@@ -113,6 +113,15 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} chronoscope source attribution`,
       (await p.locator('#chronoscope .cs-provenance a').count()) >= 2);
     await p.screenshot({ path: `${out}/${vp.n}-5-all-eras-zoom.jpg`, type: "jpeg", quality: 60 });
+    ok(`${vp.n} Madeleine architectural desk present`,
+      await p.locator("#curatorialDesk").isVisible() && /Мадлен/.test(await p.locator("#curatorialDesk h2").textContent()));
+    ok(`${vp.n} architectural glossary explains at least three details`,
+      (await p.locator("#curatorialDesk .cd-section").first().locator(".cd-item").count()) >= 3);
+    ok(`${vp.n} architecture and printmaking sources linked`,
+      (await p.locator("#curatorialDesk .cd-item a[href^='https://']").count()) >= 10);
+    ok(`${vp.n} historical fact distinguishes 1842 and 1845-1860`,
+      /1842/.test(await p.locator("#curatorialDesk").textContent()) &&
+      /1845/.test(await p.locator("#curatorialDesk").textContent()));
     ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
     const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
@@ -144,6 +153,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} images have alt`, await p.$$eval("img:not(.leaflet-tile)", ims => ims.every(i => (i.alt || "").length > 5)));
     await p.goto(base + "eras/#/place/naples-santa_lucia_castel_dell_ovo", { waitUntil: "networkidle" });
     ok(`${vp.n} Naples place renders honest mismatch`, /Разные точки/.test(await p.textContent("#verdict")));
+    ok(`${vp.n} uncatalogued place gets source-led research checklist`, /Как исследовать старую литографию/.test(await p.locator("#curatorialDesk h2").textContent()));
     await p.goto(base + "eras/#/place/nope", { waitUntil: "networkidle" });
     ok(`${vp.n} unknown route handled`, /Не найдено/.test(await p.textContent("#app")));
     ok(`${vp.n} no console/page/HTTP errors`, errs.length === 0, errs.slice(0, 3).join(" | "));
