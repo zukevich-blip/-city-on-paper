@@ -222,6 +222,7 @@ window.Atlas = (() => {
         <div id="eplist"></div><div id="epview"></div></section>` : ""}
       ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
       ${(c.works || []).length ? `<h2>Бенуа: ${c.works.length}</h2><div class="wgrid">${c.works.map(card).join("")}</div>` : ""}
+      <section id="cityLab" class="citylab" aria-label="Исследование произведений города"><p class="note">Подготавливаем изображения для сравнения…</p></section>
       <h2 id="others">Другие виды из музеев</h2>
       <p class="note">Коллекция не ограничена Бенуа. Найдите художника, литографа, архитектурное место или архивную запись по названию.</p>
       <div class="museum-filters" role="search" aria-label="Поиск произведений и авторов">
@@ -247,7 +248,19 @@ window.Atlas = (() => {
     if ((c.epochs || []).length) epochs(c, sites);
     let n = 24;
     works().then((Wm) => {
+      if (!document.getElementById("cityLab") || location.hash !== "#/city/" + c.id) return;
       const list = Wm.get(c.name) || [];
+      const knownWorks = (c.works || []).map((w) => ({ ...w,
+        title_original: w.title, maker: w.artist, source: w.institution }));
+      const today = (c.epochs || []).filter(g => g.today && g.today.image)
+        .map(g => ({ image: g.today.image, date: g.today.date || "Современная фотография",
+          title_original: "Современный вид: " + g.name,
+          maker: g.today.author || "Фотограф указан в источнике",
+          source: "Фотографический архив", url: g.today.page,
+          rights_label: g.today.license }));
+      if (window.CityOnPaperCityLab) {
+        window.CityOnPaperCityLab.mount(document.getElementById("cityLab"), c, [...knownWorks, ...list, ...today]);
+      }
       const authorInput = document.getElementById("museumAuthor");
       const queryInput = document.getElementById("museumQuery");
       const countLabel = document.getElementById("museumCount");
