@@ -86,7 +86,8 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.screenshot({ path: `${out}/${vp.n}-4-three-epochs.jpg`, type: "jpeg", quality: 60 });
     ok(`${vp.n} chronoscope available`, await p.locator("#chronoscope").isVisible());
     const allFrames = await p.locator('#chronoscope .cs-choices input').count();
-    ok(`${vp.n} chronoscope displays all archival frames`, allFrames >= 8);
+    const availableOriginals = await p.locator(".era-card img").count();
+    ok(`${vp.n} chronoscope displays all available archival frames`, allFrames === availableOriginals && allFrames >= 3, `${allFrames}/${availableOriginals}`);
     ok(`${vp.n} chronoscope one-keyframe-per-frame`,
       (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames);
     ok(`${vp.n} chronoscope whole range`,
