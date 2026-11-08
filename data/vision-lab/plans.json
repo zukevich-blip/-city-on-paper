@@ -1,11 +1,143 @@
 {
  "note": "Open-rights 19th-century city plans used as zoomable base maps inside city pages. Tiles are cut from the holder's own IIIF downscale (no crop, no colour change). Georeference is approximate; see georef files.",
  "plans": [
-  {"city_ru": "Париж", "city_id": "paris", "year": "1878 г.", "title": "Paris et ses environs : 1878", "creators": [], "date": "1878",
-   "institution": "Library of Congress, Geography and Map Division", "object_url": "https://www.loc.gov/item/2012586603/",
+  {
+   "city_ru": "Париж",
+   "city_id": "paris",
+   "year": "1878 г.",
+   "title": "Paris et ses environs : 1878",
+   "creators": [],
+   "date": "1878",
+   "institution": "Library of Congress, Geography and Map Division",
+   "object_url": "https://www.loc.gov/item/2012586603/",
    "iiif": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5834:g5834p:ct003569",
    "rights": "Library of Congress Geography and Map Division: free to use and reuse (no Rights Advisory on the item).",
-   "rights_class": "open", "georef_file": "georef-paris-1878.json", "rms_m": 25.9, "loo_rms_m": 34.9,
-   "tiles_source": "IIIF full/6000,/0/default.jpg"}
+   "rights_class": "open",
+   "georef_file": "georef-paris-1878.json",
+   "rms_m": 25.9,
+   "loo_rms_m": 34.9,
+   "tiles_source": "IIIF full/6000,/0/default.jpg"
+  },
+  {
+   "city_ru": "Рим",
+   "title": "Plan of Rome",
+   "date": "[between 1850 and 1856?] (LoC date 1850)",
+   "institution": "Library of Congress, Geography and Map Division (G6714.R7 1850 .M8; Millard Fillmore copy)",
+   "object_url": "https://www.loc.gov/item/2018588032/",
+   "iiif": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd6:g6714:g6714r:fi000165",
+   "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. Credit Line: Library of Congress, Geography and Map Division. (rights_advisory field absent on item)",
+   "georef_file": "georef-rim.json",
+   "rms_m": 30.7,
+   "loo_rms_m": 41.8,
+   "city_id": "rim",
+   "year": "1850-х гг.",
+   "creators": [
+    "John Murray (publisher/cartographer per LoC); J. & C. Walker (engravers)"
+   ],
+   "full_width": 7991,
+   "full_height": 6634,
+   "rights_class": "open"
+  },
+  {
+   "city_ru": "Неаполь",
+   "title": "Pianta della città di Napoli = Plan de la ville de Naples",
+   "date": "1859 (ICGC; dated c.1859-1878)",
+   "institution": "Institut Cartogràfic i Geològic de Catalunya, Cartoteca (RM.41345)",
+   "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/960",
+   "iiif": "https://cartotecadigital.icgc.cat/iiif/2/europa:960",
+   "rights": "ICGC 'Drets': http://creativecommons.org/publicdomain/mark/1.0/ (Public Domain Mark 1.0)",
+   "georef_file": "georef-neapol.json",
+   "rms_m": 52.7,
+   "loo_rms_m": 79.2,
+   "city_id": "naples",
+   "year": "1859 г.",
+   "creators": [
+    "Allodi inc. (engraver); Milan: Ferd. Artaria et fils (publisher)"
+   ],
+   "full_width": 3886,
+   "full_height": 3109,
+   "rights_class": "open"
+  },
+  {
+   "city_ru": "Лондон",
+   "title": "Whitbread's new plan of London : drawn from authentic surveys",
+   "date": "1853 (dated in margin February 26th 1853)",
+   "institution": "Library of Congress, Geography and Map Division (G5754.L7 1853 .W4)",
+   "object_url": "https://www.loc.gov/item/2015591076/",
+   "iiif": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5754:g5754l:fi000101",
+   "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. Credit Line: Library of Congress, Geography and Map Division. (rights_advisory field absent on item)",
+   "georef_file": "georef-london.json",
+   "rms_m": 56.3,
+   "loo_rms_m": 81.3,
+   "city_id": "london",
+   "year": "1853 г.",
+   "creators": [
+    "J. Whitbread (cartographer/mapseller); William Jeffreys (distributor)"
+   ],
+   "full_width": 7642,
+   "full_height": 5494,
+   "rights_class": "open"
+  },
+  {
+   "city_ru": "Венеция",
+   "title": "Venice. Venèzia. Venèdig",
+   "date": "1838",
+   "institution": "Institut Cartogràfic i Geològic de Catalunya, Cartoteca (RM.161882)",
+   "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/2597",
+   "iiif": "https://cartotecadigital.icgc.cat/iiif/2/europa:2597",
+   "rights": "ICGC 'Drets': http://creativecommons.org/publicdomain/mark/1.0/ (Public Domain Mark 1.0)",
+   "georef_file": "georef-venetsiya.json",
+   "rms_m": 28.8,
+   "loo_rms_m": 48.0,
+   "city_id": "venetsiya",
+   "year": "1838 г.",
+   "creators": [
+    "Drawn by W.B. Clarke; engraved by J. Henshall (as read on sheet); published under the superintendence of the Society for the Diffusion of Useful Knowledge (SDUK), London (ICGC creator: Clarke, W.)"
+   ],
+   "full_width": 7868,
+   "full_height": 5091,
+   "rights_class": "open"
+  },
+  {
+   "city_ru": "Вена",
+   "title": "Vienna. Wien. Vienne. (Transatlantic Travelers' Guide)",
+   "date": "19th c. (ICGC 's. XIX'); content (Ringstrasse, Votivkirche, Sophienbrücke, 'Projected Donau Stadt') indicates c. 1872-1885",
+   "institution": "Institut Cartogràfic i Geològic de Catalunya, Cartoteca (RM.41886)",
+   "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/986",
+   "iiif": "https://cartotecadigital.icgc.cat/iiif/2/europa:986",
+   "rights": "ICGC 'Drets': http://creativecommons.org/publicdomain/mark/1.0/ (Public Domain Mark 1.0)",
+   "georef_file": "georef-vena.json",
+   "rms_m": 40.9,
+   "loo_rms_m": 78.6,
+   "city_id": "vena",
+   "year": "1870-х гг.",
+   "creators": [
+    "Unsigned; published in 'Transatlantic travellers' guide'"
+   ],
+   "full_width": 3128,
+   "full_height": 2977,
+   "rights_class": "open"
+  },
+  {
+   "city_ru": "Москва",
+   "title": "Иллюстрированный новый план столичного города Москвы с достопримечательными зданиями Кремля ... (LoC: Illi︠u︡strirovannyĭ novyĭ plan stolichnago goroda Moskvy ...)",
+   "date": "1882 (censor approval 25 July 1881)",
+   "institution": "Library of Congress, Geography and Map Division (G7064.M7A3 1882 .O7)",
+   "object_url": "https://www.loc.gov/item/77696377/",
+   "iiif": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd7:g7064:g7064m:ct003702",
+   "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. Credit Line: Library of Congress, Geography and Map Division. (rights_advisory field absent on item)",
+   "georef_file": null,
+   "rms_m": null,
+   "loo_rms_m": null,
+   "city_id": "moskva",
+   "year": "1882 г.",
+   "creators": [
+    "Орловский (drawn by draughtsman Orlovskii); printed Moscow"
+   ],
+   "full_width": 13126,
+   "full_height": 10477,
+   "rights_class": "open",
+   "georef_note": "Иллюстрированный план «не в масштабе» (так отмечено в LoC): метки на нём не ставим."
+  }
  ]
 }

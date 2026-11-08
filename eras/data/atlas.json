@@ -987,6 +987,19 @@
     999.8
    ],
    "xy_approx": true,
+   "plan": {
+    "tiles": "tiles/plan-vena",
+    "width": 3128,
+    "height": 2977,
+    "tile": 256,
+    "max_zoom": 4,
+    "title": "Vienna. Wien. Vienne. (Transatlantic Travelers' Guide)",
+    "year": "1870-х гг.",
+    "credit": "Unsigned; published in 'Transatlantic travellers' guide'; 19th c. (ICGC 's. XIX'); content (Ringstrasse, Votivkirche, Sophienbrücke, 'Projected Donau Stadt') indicates c. 1872-1885; Institut Cartogràfic i Geològic de Catalunya, Cartoteca (RM.41886)",
+    "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/986",
+    "rights": "ICGC 'Drets': http://creativecommons.org/publicdomain/mark/1.0/ (Public Domain Mark 1.0)",
+    "georef_note": "Привязка плана приблизительная: проверка исключением ≈79 м."
+   },
    "halls": [
     [
      "../salon/?city=%D0%92%D0%B5%D0%BD%D0%B0",
@@ -1016,6 +1029,19 @@
     1102.4
    ],
    "xy_approx": true,
+   "plan": {
+    "tiles": "tiles/plan-venetsiya",
+    "width": 6000,
+    "height": 3882,
+    "tile": 256,
+    "max_zoom": 5,
+    "title": "Venice. Venèzia. Venèdig",
+    "year": "1838 г.",
+    "credit": "Drawn by W.B. Clarke; engraved by J. Henshall (as read on sheet); published under the superintendence of the Society for the Diffusion of Useful Knowledge (SDUK), London (ICGC creator: Clarke, W.); 1838; Institut Cartogràfic i Geològic de Catalunya, Cartoteca (RM.161882)",
+    "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/2597",
+    "rights": "ICGC 'Drets': http://creativecommons.org/publicdomain/mark/1.0/ (Public Domain Mark 1.0)",
+    "georef_note": "Привязка плана приблизительная: проверка исключением ≈48 м."
+   },
    "halls": [
     [
      "../salon/?city=%D0%92%D0%B5%D0%BD%D0%B5%D1%86%D0%B8%D1%8F",
@@ -3877,6 +3903,19 @@
     815.3
    ],
    "xy_approx": true,
+   "plan": {
+    "tiles": "tiles/plan-london",
+    "width": 6000,
+    "height": 4313,
+    "tile": 256,
+    "max_zoom": 5,
+    "title": "Whitbread's new plan of London : drawn from authentic surveys",
+    "year": "1853 г.",
+    "credit": "J. Whitbread (cartographer/mapseller); William Jeffreys (distributor); 1853 (dated in margin February 26th 1853); Library of Congress, Geography and Map Division (G5754.L7 1853 .W4)",
+    "object_url": "https://www.loc.gov/item/2015591076/",
+    "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. Credit Line: Library of Congress, Geography and Map Division. (rights_advisory field absent on item)",
+    "georef_note": "Привязка плана приблизительная: проверка исключением ≈81 м."
+   },
    "halls": [
     [
      "../salon/?city=%D0%9B%D0%BE%D0%BD%D0%B4%D0%BE%D0%BD",
@@ -4612,6 +4651,19 @@
     632.7
    ],
    "xy_approx": true,
+   "plan": {
+    "tiles": "tiles/plan-moskva",
+    "width": 6000,
+    "height": 4789,
+    "tile": 256,
+    "max_zoom": 5,
+    "title": "Иллюстрированный новый план столичного города Москвы с достопримечательными зданиями Кремля ... (LoC: Illi︠u︡strirovannyĭ novyĭ plan stolichnago goroda Moskvy ...)",
+    "year": "1882 г.",
+    "credit": "Орловский (drawn by draughtsman Orlovskii); printed Moscow; 1882 (censor approval 25 July 1881); Library of Congress, Geography and Map Division (G7064.M7A3 1882 .O7)",
+    "object_url": "https://www.loc.gov/item/77696377/",
+    "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. Credit Line: Library of Congress, Geography and Map Division. (rights_advisory field absent on item)",
+    "georef_note": "Иллюстрированный план «не в масштабе» (так отмечено в LoC): метки на нём не ставим."
+   },
    "halls": [
     [
      "../salon/?city=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0",
@@ -4838,6 +4890,19 @@
     1294
    ],
    "xy_approx": false,
+   "plan": {
+    "tiles": "tiles/plan-naples",
+    "width": 3886,
+    "height": 3109,
+    "tile": 256,
+    "max_zoom": 4,
+    "title": "Pianta della città di Napoli = Plan de la ville de Naples",
+    "year": "1859 г.",
+    "credit": "Allodi inc. (engraver); Milan: Ferd. Artaria et fils (publisher); 1859 (ICGC; dated c.1859-1878); Institut Cartogràfic i Geològic de Catalunya, Cartoteca (RM.41345)",
+    "object_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/960",
+    "rights": "ICGC 'Drets': http://creativecommons.org/publicdomain/mark/1.0/ (Public Domain Mark 1.0)",
+    "georef_note": "Привязка плана приблизительная: проверка исключением ≈79 м."
+   },
    "halls": [
     [
      "../salon/?city=%D0%9D%D0%B5%D0%B0%D0%BF%D0%BE%D0%BB%D1%8C",
@@ -6861,6 +6926,19 @@
     1241.4
    ],
    "xy_approx": true,
+   "plan": {
+    "tiles": "tiles/plan-rim",
+    "width": 6000,
+    "height": 4981,
+    "tile": 256,
+    "max_zoom": 5,
+    "title": "Plan of Rome",
+    "year": "1850-х гг.",
+    "credit": "John Murray (publisher/cartographer per LoC); J. & C. Walker (engravers); [between 1850 and 1856?] (LoC date 1850); Library of Congress, Geography and Map Division (G6714.R7 1850 .M8; Millard Fillmore copy)",
+    "object_url": "https://www.loc.gov/item/2018588032/",
+    "rights": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise. Credit Line: Library of Congress, Geography and Map Division. (rights_advisory field absent on item)",
+    "georef_note": "Привязка плана приблизительная: проверка исключением ≈42 м."
+   },
    "halls": [
     [
      "../salon/?city=%D0%A0%D0%B8%D0%BC",

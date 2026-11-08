@@ -102,7 +102,8 @@ class PlanGeoref:
     def __init__(self, g: dict):
         self.p = g["local_projection"]
         t = g["transforms"]
-        self.kind = g.get("chosen") or ("affine" if "affine" in t else next(iter(t)))
+        self.kind = g.get("chosen") or g.get("recommended_transform") or ("affine" if "affine" in t else next(iter(t)))
+        self.kind = self.kind if self.kind in t else "affine"
         self.t = t[self.kind]
         self.full_w = g["pixel_space"]["width"]
 
@@ -158,18 +159,20 @@ def attach_sites_and_plans(rows: list[dict]) -> None:
     for pl in plans:
         c = by_id.get(pl.get("city_id")) or by_name.get(pl.get("city_ru"))
         tj = ROOT / "eras" / "tiles" / f"plan-{pl['city_id']}" / "tiles.json"
-        gf = VL / pl.get("georef_file", f"georef-{pl['city_id']}.json")
-        if not c or not tj.exists() or not gf.exists():
+        gf = VL / pl["georef_file"] if pl.get("georef_file") else None
+        if not c or not tj.exists() or (gf is not None and not gf.exists()):
             continue
         t = json.loads(tj.read_text("utf-8"))
-        geo = PlanGeoref(json.loads(gf.read_text("utf-8")))
-        k = t["width"] / geo.full_w
+        geo = PlanGeoref(json.loads(gf.read_text("utf-8"))) if gf else None
         who = ", ".join(pl.get("creators") or [])
-        loo = round(pl["loo_rms_m"])
+        note = (f"Привязка плана приблизительная: проверка исключением ≈{round(pl['loo_rms_m'])} м." if geo
+                else pl.get("georef_note", "План без привязки: метки мест показаны на современной карте."))
         c["plan"] = {"tiles": f"tiles/plan-{pl['city_id']}", **t, "title": pl["title"], "year": pl.get("year"),
-                     "credit": f"{who}{', ' if who else ''}{pl.get('date', '')}; {pl['institution']}",
-                     "object_url": pl["object_url"], "rights": pl["rights"],
-                     "georef_note": f"Привязка плана приблизительная: проверка исключением ≈{loo} м."}
+                     "credit": f"{who}{'; ' if who else ''}{pl.get('date', '')}; {pl['institution']}",
+                     "object_url": pl["object_url"], "rights": pl["rights"], "georef_note": note}
+        if not geo:
+            continue
+        k = t["width"] / geo.full_w
         for s in c.get("sites", []):
             x, y = geo.full_px(s["lat"], s["lon"])
             if 0 <= x <= geo.full_w and 0 <= y <= t["height"] / k:

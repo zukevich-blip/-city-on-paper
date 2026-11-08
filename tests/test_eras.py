@@ -142,3 +142,26 @@ def test_benoist_works_are_sourced_and_only_open_images_embedded():
 def test_atlas_build_is_reproducible():
     from tools.eras.build_atlas import build as build_atlas
     assert build_atlas() == ATLAS
+
+
+def test_zoom_tiles_and_city_plans_exist_with_open_rights():
+    t = ATLAS["portal"]["tiles"]
+    assert (ERAS / t["tiles"] / "0" / "0" / "0.jpg").exists() and t["max_zoom"] >= 4
+    plans = [c for c in ATLAS["cities"] if c.get("plan")]
+    assert {c["id"] for c in plans} >= {"paris", "rim", "london", "venetsiya", "naples", "vena"}
+    for c in plans:
+        p = c["plan"]
+        z = p["max_zoom"]
+        assert (ERAS / p["tiles"] / str(z) / "0" / "0.jpg").exists(), c["id"]
+        assert p["object_url"].startswith("https://") and p["rights"], c["id"]
+        assert "free to use" in p["rights"] or "publicdomain/mark" in p["rights"], c["id"]
+        for s in c.get("sites", []):
+            if "px" in s:
+                assert 0 <= s["px"][0] <= p["width"] and 0 <= s["px"][1] <= p["height"]
+
+
+def test_self_hosted_thumbnails_exist():
+    m = json.loads((ERAS / "data" / "thumbs.json").read_text("utf-8"))
+    assert len(m) >= 500
+    for path in m.values():
+        assert path.startswith("thumbs/") and (ERAS / path).stat().st_size > 1000

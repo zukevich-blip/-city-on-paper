@@ -1,0 +1,374 @@
+{
+ "map_id": "icgc-europa-2597",
+ "title": "Venice. Venèzia. Venèdig",
+ "iiif_service": "https://cartotecadigital.icgc.cat/iiif/2/europa:2597",
+ "pixel_space": {
+  "description": "full-resolution IIIF image",
+  "width": 7868,
+  "height": 5091
+ },
+ "method": "Manual GCP picking on gridded zoom crops (PIL grid, visual reading by Claude) of a IIIF derivative; modern coordinates from Wikidata P625; least-squares affine (6 params) and 2nd-order polynomial (12 params) fitted with numpy in a local equirectangular metric frame; leave-one-out cross-validation.",
+ "date": "2026-11-08",
+ "label": "APPROXIMATE georeference (manual GCPs on a 19th-c. printed plan); not survey-grade",
+ "local_projection": {
+  "type": "equirectangular tangent approximation",
+  "lon0": 12.3371325,
+  "lat0": 45.434839999999994,
+  "R_m": 6378137.0,
+  "X_east_m": "(lon-lon0)*pi/180*R*cos(lat0)",
+  "Y_north_m": "(lat-lat0)*pi/180*R"
+ },
+ "gcps": [
+  {
+   "name": "Basilica di San Marco",
+   "qid": "Q172988",
+   "px": 4432,
+   "py": 2951,
+   "px_web2000": 1126.6,
+   "py_web2000": 750.1,
+   "lon": 12.339722222222,
+   "lat": 45.434444444444,
+   "coord_source": "Wikidata Q172988 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 31.6,
+   "residual_poly2_m": 10.9,
+   "loo_affine_m": 35.4,
+   "loo_poly2_m": 14.5
+  },
+  {
+   "name": "Campanile di San Marco",
+   "qid": "Q754194",
+   "px": 4332,
+   "py": 3005,
+   "px_web2000": 1101.2,
+   "py_web2000": 763.9,
+   "lon": 12.339027777778,
+   "lat": 45.434027777778,
+   "coord_source": "Wikidata Q754194 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 34.7,
+   "residual_poly2_m": 8.2,
+   "loo_affine_m": 38.9,
+   "loo_poly2_m": 10.7
+  },
+  {
+   "name": "Santa Maria della Salute (dome)",
+   "qid": "Q52531",
+   "px": 3745,
+   "py": 3354,
+   "px_web2000": 952.0,
+   "py_web2000": 852.6,
+   "lon": 12.33473,
+   "lat": 45.43057,
+   "coord_source": "Wikidata Q52531 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 10.2,
+   "residual_poly2_m": 21.8,
+   "loo_affine_m": 12.4,
+   "loo_poly2_m": 27.4
+  },
+  {
+   "name": "San Giorgio Maggiore",
+   "qid": "Q713558",
+   "px": 4554,
+   "py": 3779,
+   "px_web2000": 1157.6,
+   "py_web2000": 960.6,
+   "lon": 12.3433,
+   "lat": 45.4293,
+   "coord_source": "Wikidata Q713558 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 21.2,
+   "residual_poly2_m": 4.3,
+   "loo_affine_m": 26.9,
+   "loo_poly2_m": 30.7
+  },
+  {
+   "name": "Santa Maria Gloriosa dei Frari",
+   "qid": "Q224961",
+   "px": 3149,
+   "py": 2216,
+   "px_web2000": 800.5,
+   "py_web2000": 563.3,
+   "lon": 12.32649,
+   "lat": 45.43693,
+   "coord_source": "Wikidata Q224961 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 27.1,
+   "residual_poly2_m": 6.6,
+   "loo_affine_m": 34.5,
+   "loo_poly2_m": 11.4
+  },
+  {
+   "name": "San Simeone Piccolo (dome)",
+   "qid": "Q185910",
+   "px": 2835,
+   "py": 1556,
+   "px_web2000": 720.6,
+   "py_web2000": 395.5,
+   "lon": 12.3224,
+   "lat": 45.4402,
+   "coord_source": "Wikidata Q185910 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 15.9,
+   "residual_poly2_m": 1.3,
+   "loo_affine_m": 25.3,
+   "loo_poly2_m": 5.9
+  },
+  {
+   "name": "Santa Maria Formosa",
+   "qid": "Q1813687",
+   "px": 4649,
+   "py": 2605,
+   "px_web2000": 1181.7,
+   "py_web2000": 662.2,
+   "lon": 12.34101,
+   "lat": 45.43702,
+   "coord_source": "Wikidata Q1813687 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 36.2,
+   "residual_poly2_m": 7.8,
+   "loo_affine_m": 42.0,
+   "loo_poly2_m": 13.1
+  },
+  {
+   "name": "Il Redentore",
+   "qid": "Q830807",
+   "px": 3305,
+   "py": 4106,
+   "px_web2000": 840.1,
+   "py_web2000": 1043.7,
+   "lon": 12.332452777778,
+   "lat": 45.424991666667,
+   "coord_source": "Wikidata Q830807 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 36.8,
+   "residual_poly2_m": 5.9,
+   "loo_affine_m": 69.5,
+   "loo_poly2_m": 65.2
+  },
+  {
+   "name": "San Pietro di Castello",
+   "qid": "Q945981",
+   "px": 6472,
+   "py": 3398,
+   "px_web2000": 1645.1,
+   "py_web2000": 863.8,
+   "lon": 12.35972,
+   "lat": 45.43458,
+   "coord_source": "Wikidata Q945981 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 21.7,
+   "residual_poly2_m": 1.2,
+   "loo_affine_m": 64.1,
+   "loo_poly2_m": 143.2
+  },
+  {
+   "name": "Madonna dell'Orto",
+   "qid": "Q861436",
+   "px": 4131,
+   "py": 852,
+   "px_web2000": 1050.1,
+   "py_web2000": 216.6,
+   "lon": 12.332472222222,
+   "lat": 45.446336111111,
+   "coord_source": "Wikidata Q861436 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/venezia-pct50.jpg (IIIF pct:50, 3934x2546) then scaled x2.0",
+   "residual_affine_m": 38.0,
+   "residual_poly2_m": 1.7,
+   "loo_affine_m": 83.0,
+   "loo_poly2_m": 53.4
+  }
+ ],
+ "transforms": {
+  "affine": {
+   "n_params_per_axis": 3,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v"
+    ],
+    "u_v_definition": "u = px / 7868.0, v = py / 7868.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     -3464.0825834426464,
+     5595.614211632569,
+     1428.8722595252486
+    ],
+    "coef_Y_north_m": [
+     1162.8381457588468,
+     1405.1820186237142,
+     -5389.738265081221
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     4160.399999999742,
+     1318.1172291057756,
+     349.6444758432362
+    ],
+    "coef_py": [
+     2782.2000000006237,
+     343.5398315625986,
+     -1366.226619306667
+    ]
+   },
+   "residuals_m": [
+    31.6,
+    34.7,
+    10.2,
+    21.2,
+    27.1,
+    15.9,
+    36.2,
+    36.8,
+    21.7,
+    38.0
+   ],
+   "rms_m": 28.8,
+   "max_m": 38.0,
+   "leave_one_out_error_m": [
+    35.4,
+    38.9,
+    12.4,
+    26.9,
+    34.5,
+    25.3,
+    42.0,
+    69.5,
+    64.1,
+    83.0
+   ],
+   "loo_rms_m": 48.0,
+   "metres_per_fullres_pixel": 0.721,
+   "approx_rotation_deg": 14.1,
+   "scale_anisotropy_x_over_y": 1.035
+  },
+  "polynomial_2nd_order": {
+   "n_params_per_axis": 6,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v",
+     "u^2",
+     "u*v",
+     "v^2"
+    ],
+    "u_v_definition": "u = px / 7868.0, v = py / 7868.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     -3246.5745271231294,
+     5353.6499388480115,
+     386.7020184041528,
+     -159.37982323841408,
+     1130.409810741154,
+     784.8034374184421
+    ],
+    "coef_Y_north_m": [
+     922.7357743726081,
+     1874.0316177415498,
+     -4502.036607313512,
+     -460.9596099360644,
+     121.05890854893242,
+     -1494.711567894618
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b",
+     "a^2",
+     "a*b",
+     "b^2"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     4168.3246733973465,
+     1314.6453831932563,
+     367.8681074961541,
+     -0.9231234682426197,
+     54.99472690279342,
+     -2.6669626661600003
+    ],
+    "coef_py": [
+     2825.182833267105,
+     340.4943539151774,
+     -1339.1542675286405,
+     -20.21153872895424,
+     36.375222416183405,
+     -68.85616558523112
+    ]
+   },
+   "residuals_m": [
+    10.9,
+    8.2,
+    21.8,
+    4.3,
+    6.6,
+    1.3,
+    7.8,
+    5.9,
+    1.2,
+    1.7
+   ],
+   "rms_m": 9.1,
+   "max_m": 21.8,
+   "leave_one_out_error_m": [
+    14.5,
+    10.7,
+    27.4,
+    30.7,
+    11.4,
+    5.9,
+    13.1,
+    65.2,
+    143.2,
+    53.4
+   ],
+   "loo_rms_m": 54.7
+  }
+ },
+ "recommended_transform": "affine",
+ "recommended_reason": "lower leave-one-out RMS",
+ "orientation_note": "Plan is NOT exactly north-up: the affine finds the sheet rotated ~14 deg (image +x axis points ~14 deg north of east, so sheet top points ~14 deg west of true north; the sheet's compass rose is drawn tilted). The affine/inverse absorb the rotation; image not rotated.",
+ "computed_utc": "2026-11-08T05:33:03+00:00",
+ "software": "numpy 2.1.3, cop36 tools/fit.py",
+ "image_corners_lonlat_affine": {
+  "note": "Affine extrapolation to the full sheet corners, order TL,TR,BR,BL (MapLibre image-source order). Inset 'Plan of the Environs of Venice' (upper right), vignette view (upper left) and building elevations (bottom) are NOT georeferenced.",
+  "coordinates": [
+   [
+    12.292787,
+    45.445286
+   ],
+   [
+    12.36442,
+    45.457909
+   ],
+   [
+    12.376255,
+    45.426581
+   ],
+   [
+    12.304622,
+    45.413958
+   ]
+  ]
+ }
+}

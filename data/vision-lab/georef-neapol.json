@@ -1,0 +1,353 @@
+{
+ "map_id": "icgc-europa-960",
+ "title": "Pianta della città di Napoli = Plan de la ville de Naples",
+ "iiif_service": "https://cartotecadigital.icgc.cat/iiif/2/europa:960",
+ "pixel_space": {
+  "description": "full-resolution IIIF image",
+  "width": 3886,
+  "height": 3109
+ },
+ "method": "Manual GCP picking on gridded zoom crops (PIL grid, visual reading by Claude) of a IIIF derivative; modern coordinates from Wikidata P625; least-squares affine (6 params) and 2nd-order polynomial (12 params) fitted with numpy in a local equirectangular metric frame; leave-one-out cross-validation.",
+ "date": "2026-11-08",
+ "label": "APPROXIMATE georeference (manual GCPs on a 19th-c. printed plan); not survey-grade",
+ "local_projection": {
+  "type": "equirectangular tangent approximation",
+  "lon0": 14.253258072966666,
+  "lat0": 40.84443126008889,
+  "R_m": 6378137.0,
+  "X_east_m": "(lon-lon0)*pi/180*R*cos(lat0)",
+  "Y_north_m": "(lat-lat0)*pi/180*R"
+ },
+ "gcps": [
+  {
+   "name": "San Francesco di Paola (church dome, index no. 6)",
+   "qid": "Q241410",
+   "px": 2045,
+   "py": 1998,
+   "px_web2000": 1052.5,
+   "py_web2000": 1028.3,
+   "lon": 14.2475,
+   "lat": 40.8353,
+   "coord_source": "Wikidata Q241410 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 57.3,
+   "residual_poly2_m": 20.3,
+   "loo_affine_m": 72.2,
+   "loo_poly2_m": 38.4
+  },
+  {
+   "name": "Teatro di San Carlo (auditorium)",
+   "qid": "Q628491",
+   "px": 2160,
+   "py": 1888,
+   "px_web2000": 1111.7,
+   "py_web2000": 971.7,
+   "lon": 14.2496871007,
+   "lat": 40.8373882298,
+   "coord_source": "Wikidata Q628491 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 43.0,
+   "residual_poly2_m": 58.3,
+   "loo_affine_m": 51.2,
+   "loo_poly2_m": 82.8
+  },
+  {
+   "name": "Castel dell'Ovo",
+   "qid": "Q645041",
+   "px": 2095,
+   "py": 2385,
+   "px_web2000": 1078.2,
+   "py_web2000": 1227.5,
+   "lon": 14.247656,
+   "lat": 40.828315,
+   "coord_source": "Wikidata Q645041 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 70.0,
+   "residual_poly2_m": 5.1,
+   "loo_affine_m": 122.2,
+   "loo_poly2_m": 66.9
+  },
+  {
+   "name": "Real Albergo dei Poveri (central church)",
+   "qid": "Q221640",
+   "px": 2680,
+   "py": 605,
+   "px_web2000": 1379.3,
+   "py_web2000": 311.4,
+   "lon": 14.26546,
+   "lat": 40.863465,
+   "coord_source": "Wikidata Q221640 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 37.0,
+   "residual_poly2_m": 8.3,
+   "loo_affine_m": 74.2,
+   "loo_poly2_m": 113.7
+  },
+  {
+   "name": "Duomo di Napoli (cathedral, index no. 1)",
+   "qid": "Q256486",
+   "px": 2482,
+   "py": 1127,
+   "px_web2000": 1277.4,
+   "py_web2000": 580.0,
+   "lon": 14.259528,
+   "lat": 40.852606,
+   "coord_source": "Wikidata Q256486 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 30.4,
+   "residual_poly2_m": 9.2,
+   "loo_affine_m": 37.8,
+   "loo_poly2_m": 14.1
+  },
+  {
+   "name": "Piazza Mercato (centre of square with exedra)",
+   "qid": "Q1235330",
+   "px": 2745,
+   "py": 1415,
+   "px_web2000": 1412.8,
+   "py_web2000": 728.3,
+   "lon": 14.2658,
+   "lat": 40.8472,
+   "coord_source": "Wikidata Q1235330 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 50.9,
+   "residual_poly2_m": 9.1,
+   "loo_affine_m": 97.2,
+   "loo_poly2_m": 179.5
+  },
+  {
+   "name": "Museo archeologico (Studi e Museo Borbonico, index no. 12)",
+   "qid": "Q637248",
+   "px": 2178,
+   "py": 1100,
+   "px_web2000": 1120.9,
+   "py_web2000": 566.1,
+   "lon": 14.250555556,
+   "lat": 40.853611111,
+   "coord_source": "Wikidata Q637248 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 49.9,
+   "residual_poly2_m": 10.3,
+   "loo_affine_m": 72.0,
+   "loo_poly2_m": 73.1
+  },
+  {
+   "name": "Castel Sant'Elmo",
+   "qid": "Q1048627",
+   "px": 1770,
+   "py": 1585,
+   "px_web2000": 911.0,
+   "py_web2000": 815.7,
+   "lon": 14.239329,
+   "lat": 40.84362,
+   "coord_source": "Wikidata Q1048627 P625 (fetched 2026-11-08)",
+   "pick_confidence": "low",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 18.6,
+   "residual_poly2_m": 7.7,
+   "loo_affine_m": 43.0,
+   "loo_poly2_m": 123.2
+  },
+  {
+   "name": "Castel Nuovo (Maschio Angioino)",
+   "qid": "Q781219",
+   "px": 2265,
+   "py": 1830,
+   "px_web2000": 1165.7,
+   "py_web2000": 941.8,
+   "lon": 14.253807,
+   "lat": 40.838376,
+   "coord_source": "Wikidata Q781219 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/napoli-full.jpg (IIIF full, 3886x3109, native resolution)",
+   "residual_affine_m": 84.9,
+   "residual_poly2_m": 65.9,
+   "loo_affine_m": 101.2,
+   "loo_poly2_m": 92.6
+  }
+ ],
+ "transforms": {
+  "affine": {
+   "n_params_per_axis": 3,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v"
+    ],
+    "u_v_definition": "u = px / 3886.0, v = py / 3886.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     -5163.3905372171075,
+     8977.631845277552,
+     -196.57084848459533
+    ],
+    "coef_Y_north_m": [
+     3401.692804169018,
+     53.91538365697852,
+     -8617.796330100182
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     2268.888888888881,
+     430.1352334638583,
+     -8.596798285832753
+    ],
+    "coef_py": [
+     1548.1111111110715,
+     1.0795379042439208,
+     -450.00865947248525
+    ]
+   },
+   "residuals_m": [
+    57.3,
+    43.0,
+    70.0,
+    37.0,
+    30.4,
+    50.9,
+    49.9,
+    18.6,
+    84.9
+   ],
+   "rms_m": 52.7,
+   "max_m": 84.9,
+   "leave_one_out_error_m": [
+    72.2,
+    51.2,
+    122.2,
+    74.2,
+    37.8,
+    97.2,
+    72.0,
+    43.0,
+    101.2
+   ],
+   "loo_rms_m": 79.2,
+   "metres_per_fullres_pixel": 2.264,
+   "approx_rotation_deg": 0.34,
+   "scale_anisotropy_x_over_y": 1.042
+  },
+  "polynomial_2nd_order": {
+   "n_params_per_axis": 6,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v",
+     "u^2",
+     "u*v",
+     "v^2"
+    ],
+    "u_v_definition": "u = px / 3886.0, v = py / 3886.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     -9508.825522534446,
+     18786.549808640353,
+     7712.918791884393,
+     -5305.462301255682,
+     -9620.977286357607,
+     -2905.7691992766336
+    ],
+    "coef_Y_north_m": [
+     6933.856855717248,
+     -7484.029795515524,
+     -15669.54532499075,
+     4047.468255703169,
+     7263.885434152607,
+     3564.6183038479685
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b",
+     "a^2",
+     "a*b",
+     "b^2"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     2256.2705061040538,
+     442.92158060546393,
+     -12.52233776464515,
+     29.644018536338315,
+     -49.38966322615294,
+     16.93843334701581
+    ],
+    "coef_py": [
+     1526.2780085340164,
+     8.376567512787892,
+     -454.46672738823287,
+     25.27191602497506,
+     -44.18664539648148,
+     23.675045063711618
+    ]
+   },
+   "residuals_m": [
+    20.3,
+    58.3,
+    5.1,
+    8.3,
+    9.2,
+    9.1,
+    10.3,
+    7.7,
+    65.9
+   ],
+   "rms_m": 30.9,
+   "max_m": 65.9,
+   "leave_one_out_error_m": [
+    38.4,
+    82.8,
+    66.9,
+    113.7,
+    14.1,
+    179.5,
+    73.1,
+    123.2,
+    92.6
+   ],
+   "loo_rms_m": 98.5
+  }
+ },
+ "recommended_transform": "affine",
+ "recommended_reason": "lower leave-one-out RMS",
+ "orientation_note": "North-up plan; affine rotation reported in approx_rotation_deg.",
+ "computed_utc": "2026-11-08T05:34:31+00:00",
+ "software": "numpy 2.1.3, cop36 tools/fit.py",
+ "image_corners_lonlat_affine": {
+  "note": "Affine extrapolation to the full sheet corners, order TL,TR,BR,BL (MapLibre image-source order). Approximate overlay only; the index panel at left is not map space; GCPs cover the historic centre and waterfront, error grows toward Vomero/Posillipo (west) and the north-east plain.",
+  "coordinates": [
+   [
+    14.191944,
+    40.874989
+   ],
+   [
+    14.298551,
+    40.875474
+   ],
+   [
+    14.296684,
+    40.813538
+   ],
+   [
+    14.190076,
+    40.813053
+   ]
+  ]
+ }
+}
