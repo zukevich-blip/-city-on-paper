@@ -208,7 +208,11 @@ window.Maps = (() => {
       let reviewMounted = false;
       const show = (mode) => {
         const old = mode === "old", compared = mode === "compare";
-        if (!old && !now) mkNow();
+        if (!old && !now) {
+          // Leaflet must be initialized in a measurable, visible container.
+          document.getElementById("cnow").hidden = false;
+          mkNow();
+        }
         document.getElementById("cOld").setAttribute("aria-selected", String(old));
         document.getElementById("cNew").setAttribute("aria-selected", String(mode === "new"));
         if (research) document.getElementById("cCompare").setAttribute("aria-selected", String(compared));
