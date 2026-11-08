@@ -106,6 +106,46 @@ window.Maps = (() => {
   function city(host, c, sites, thumbOf) {
     if (!ok()) return;
     const plan = c.plan;
+    const research = c.id === "paris" && Boolean(plan);
+    const researchUI = research ? '<div id="parisResearch" class="paris-research" hidden>' +
+      '<div class="paris-research-controls">' +
+      '<label>Современная подложка <select id="parisBase">' +
+      '<option value="street">Карта улиц</option><option value="ign">Аэрофотосъёмка IGN</option></select></label>' +
+      '<label class="paris-research-toggle"><input type="checkbox" id="paris1878Toggle" disabled>' +
+      ' Наложить план 1878</label>' +
+      '<label id="parisOpacityBox" hidden>Прозрачность плана ' +
+      '<input type="range" id="paris1878Opacity" min="15" max="85" value="55" ' +
+      'aria-label="Непрозрачность исторического плана"></label></div>' +
+      '<p id="parisResearchStatus" role="status" aria-live="polite">' +
+      'Данные ориентиров загружаются. Исследовательский слой пока не проверен.</p>' +
+      '<p class="paris-research-credits">План: Library of Congress, 1878. Аэрофотосъёмка: ' +
+      'IGN BD ORTHO (открытая лицензия). Год съёмки конкретной зоны не установлен. ' +
+      '<a href="https://www.loc.gov/item/2012586603/" target="_blank" rel="noopener">' +
+      'Оригинал плана</a></p></div>' : "";
+    const reviewUI = research ? '<section id="parisGcpReview" class="gcp-review" hidden>' +
+      '<h3>Проверка ориентиров: 1878 / IGN</h3>' +
+      '<p class="gcp-caution">Две карты связаны названием объекта, а не идентичной проекцией.' +
+      ' Ошибки модели не подтверждают точность выбора исторической точки.</p>' +
+      '<div class="gcp-review-fields">' +
+      '<label>Ориентир <select id="gcpSelect" aria-label="Ориентир для сравнения"></select></label>' +
+      '<button type="button" id="gcpAll">Показать все 15</button>' +
+      '<label>Предварительное решение <select id="gcpDecision">' +
+      '<option value="pending">Не проверено</option>' +
+      '<option value="accept">Предлагаю принять</option>' +
+      '<option value="revise">Требуется исправление</option>' +
+      '<option value="insufficient_evidence">Недостаточно данных</option></select></label>' +
+      '<label>Проверяющий <input id="gcpReviewer" type="text" autocomplete="off" ' +
+      'placeholder="Имя или инициалы"></label>' +
+      '<label>Ссылка на доказательство <input id="gcpEvidence" type="url" ' +
+      'placeholder="https://..."></label>' +
+      '<label class="gcp-review-wide">Комментарий <textarea id="gcpNotes" rows="2" ' +
+      'placeholder="Какую именно деталь здания сверили?"></textarea></label></div>' +
+      '<p id="gcpProposals">Новые координаты не предложены.</p>' +
+      '<p class="gcp-caution">Нажатия на план и современную карту предлагают новые координаты, ' +
+      'но ничего не меняют в исходном каталоге. Для изображения IGN дата съёмки не подтверждена.</p>' +
+      '<button type="button" id="gcpExport">Скачать черновой протокол JSON</button>' +
+      '<p id="gcpReviewStatus" role="status" aria-live="polite">Подготовка исследования…</p>' +
+      '</section>' : "";
     const pts = sites.filter((s) => s.lat != null);
     if (!plan && !pts.length) {
       host.innerHTML = `<div class="lmap small" id="cmap" aria-label="Современная карта: ${esc(c.name)}"></div>
@@ -118,9 +158,14 @@ window.Maps = (() => {
     }
     host.innerHTML = `<div class="mtabs" role="tablist" aria-label="Вид карты города">
         ${plan ? `<button type="button" role="tab" id="cOld" aria-selected="true">План ${esc(plan.year || "XIX в.")}</button>` : ""}
-        <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
-      ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
-      <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
+        <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button>
+        ${research ? '<button type="button" role="tab" id="cCompare" aria-selected="false">Сравнить точки</button>' : ""}</div>
+      ${researchUI}
+      <div class="cmap-panels" id="cmapPanels">
+        ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
+        <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
+      </div>
+      ${reviewUI}
       <p class="mapnote">${pts.length ? `Метки — места, изображённые на работах (${pts.length}); нажмите, чтобы увидеть работу. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
@@ -144,26 +189,62 @@ window.Maps = (() => {
     let now = null;
     const mkNow = () => {
       now = L.map("cnow", { zoomControl: false, zoomSnap: 0.5 });
-      L.tileLayer(...OSM).addTo(now);
+      const street = L.tileLayer(...OSM).addTo(now);
       L.control.zoom({ position: "topright", zoomInTitle: "Приблизить", zoomOutTitle: "Отдалить" }).addTo(now);
       const ms = addSites(now, (s) => [s.lat, s.lon]);
       const fit = () => (ms.length > 1 ? now.fitBounds(L.featureGroup(ms).getBounds(), { padding: [24, 24], maxZoom: 16 }) : now.setView(ms.length ? ms[0].getLatLng() : [c.lat, c.lon], 15));
       fit(); homeButton(now, fit);
       labelClass(now, document.getElementById("cnow"), now.getZoom());
+      if (research && window.HistoricalOverlay) {
+        document.getElementById("parisResearch").hidden = false;
+        window.HistoricalOverlay.mount(now, street, c.id);
+      }
     };
     if (plan) {
       const { map, at } = imageMap(document.getElementById("cplan"), plan);
       const k = plan.width / (plan.px_width || plan.width);
       addSites(map, (s) => (s.px ? at(s.px[0] * k, s.px[1] * k) : null));
       labelClass(map, document.getElementById("cplan"), map.getZoom());
-      const show = (old) => {
+      let reviewMounted = false;
+      const show = (mode) => {
+        const old = mode === "old", compared = mode === "compare";
+        if (!old && !now) {
+          // Leaflet must be initialized in a measurable, visible container.
+          document.getElementById("cnow").hidden = false;
+          mkNow();
+        }
         document.getElementById("cOld").setAttribute("aria-selected", String(old));
-        document.getElementById("cNew").setAttribute("aria-selected", String(!old));
-        document.getElementById("cplan").hidden = !old; document.getElementById("cnow").hidden = old;
-        if (old) map.invalidateSize(); else if (!now) mkNow(); else now.invalidateSize();
+        document.getElementById("cNew").setAttribute("aria-selected", String(mode === "new"));
+        if (research) document.getElementById("cCompare").setAttribute("aria-selected", String(compared));
+        document.getElementById("cplan").hidden = mode === "new";
+        document.getElementById("cnow").hidden = old;
+        document.getElementById("cmapPanels").classList.toggle("compare-mode", compared);
+        if (research) {
+          document.getElementById("parisResearch").hidden = old;
+          document.getElementById("parisGcpReview").hidden = !compared;
+        }
+        requestAnimationFrame(() => {
+          if (document.getElementById("cplan").isConnected && !document.getElementById("cplan").hidden) {
+            map.invalidateSize({ animate: false });
+          }
+          if (now && document.getElementById("cnow").isConnected && !document.getElementById("cnow").hidden) {
+            now.invalidateSize({ animate: false });
+          }
+          if (compared && !reviewMounted && window.GcpReview) {
+            reviewMounted = true;
+            window.GcpReview.mount({
+              root: document.getElementById("parisGcpReview"),
+              oldMap: map, modernMap: now, at, plan,
+            }).catch(() => {
+              const status = document.getElementById("gcpReviewStatus");
+              if (status) status.textContent = "Не удалось загрузить инструмент проверки.";
+            });
+          }
+        });
       };
-      document.getElementById("cOld").onclick = () => show(true);
-      document.getElementById("cNew").onclick = () => show(false);
+      document.getElementById("cOld").onclick = () => show("old");
+      document.getElementById("cNew").onclick = () => show("new");
+      if (research) document.getElementById("cCompare").onclick = () => show("compare");
     } else mkNow();
   }
   return { portal, city };

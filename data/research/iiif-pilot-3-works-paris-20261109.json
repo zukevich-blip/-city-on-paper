@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-11-09",
+  "scope": "Three original LoC catalog records and a genuine IIIF map; museum manifest is not proof of zoom capability",
+  "records": [
+    {
+      "record_id": "loc-2016652452",
+      "title": "Paris. La Madeleine",
+      "item_url": "https://www.loc.gov/item/2016652452/",
+      "iiif_manifest_url": "https://www.loc.gov/item/2016652452/manifest.json",
+      "museum": "Library of Congress, Prints & Photographs Division",
+      "catalog_identifier": "LC-DIG-pga-14315",
+      "date_range": [
+        1845,
+        1860
+      ],
+      "maker_roles": {
+        "draftsman": "Philippe Benoist",
+        "printer": "Imprimerie Lemercier et cie",
+        "lithographer": null,
+        "publisher": null
+      },
+      "medium": "Hand-colored lithograph; 23.5 × 32.4 cm sheet",
+      "depicted_place": "Église de la Madeleine, Paris",
+      "depicted_place_verified": "LoC catalog",
+      "artist_viewpoint": null,
+      "source_status": "institution_catalog_verified;IIIF_manifest_metadata_only",
+      "iiif_manifest_http_status": 200,
+      "iiif_manifest_canvas_count": 0,
+      "iiif_image_service_url": null,
+      "hd_viewer_status": "unavailable_via_this_iiif_manifest",
+      "fallback_url": "https://www.loc.gov/item/2016652452/",
+      "rights_statement": "No known restrictions on publication.",
+      "rights_class": "institution_statement_not_cc0",
+      "rights_source": "https://www.loc.gov/item/2016652452/",
+      "rights_review_status": "separate_legal_review_required",
+      "publication_status": "research_only"
+    },
+    {
+      "record_id": "loc-2016652451",
+      "title": "Paris. Jardin du Palais Royal",
+      "item_url": "https://www.loc.gov/item/2016652451/",
+      "iiif_manifest_url": "https://www.loc.gov/item/2016652451/manifest.json",
+      "museum": "Library of Congress, Prints & Photographs Division",
+      "catalog_identifier": "LC-DIG-pga-14314",
+      "date_range": [
+        1845,
+        1860
+      ],
+      "maker_roles": {
+        "draftsman": "Philippe Benoist",
+        "printer": "Imprimerie Lemercier et cie",
+        "lithographer": null,
+        "publisher": null
+      },
+      "medium": "Hand-colored lithograph; 22.4 × 30.7 cm sheet",
+      "depicted_place": "Jardin du Palais-Royal, Paris",
+      "depicted_place_verified": "LoC catalog",
+      "artist_viewpoint": null,
+      "source_status": "institution_catalog_verified;IIIF_manifest_metadata_only",
+      "iiif_manifest_http_status": 200,
+      "iiif_manifest_canvas_count": 0,
+      "iiif_image_service_url": null,
+      "hd_viewer_status": "unavailable_via_this_iiif_manifest",
+      "fallback_url": "https://www.loc.gov/item/2016652451/",
+      "rights_statement": "No known restrictions on publication.",
+      "rights_class": "institution_statement_not_cc0",
+      "rights_source": "https://www.loc.gov/item/2016652451/",
+      "rights_review_status": "separate_legal_review_required",
+      "publication_status": "research_only"
+    },
+    {
+      "record_id": "loc-2013650023",
+      "title": "Château des Tuileries, côté du Carrousel",
+      "item_url": "https://www.loc.gov/item/2013650023/",
+      "iiif_manifest_url": "https://www.loc.gov/item/2013650023/manifest.json",
+      "museum": "Library of Congress, Prints & Photographs Division",
+      "catalog_identifier": "LC-DIG-pga-05798",
+      "date_range": [
+        1833,
+        1839
+      ],
+      "maker_roles": {
+        "draftsman": "Philippe Benoist",
+        "figures_artist": "Adolphe Jean Baptiste Bayot",
+        "printer": null,
+        "lithographer": "Gihaut Frères (catalog role; verify against plate inscription)",
+        "publisher": "Gihaut Frères"
+      },
+      "medium": "Lithograph; 40.4 × 55.8 cm sheet",
+      "depicted_place": "Palais des Tuileries and Arc de Triomphe du Carrousel, Paris",
+      "depicted_place_verified": "LoC catalog",
+      "artist_viewpoint": null,
+      "source_status": "institution_catalog_verified;IIIF_manifest_metadata_only",
+      "iiif_manifest_http_status": 200,
+      "iiif_manifest_canvas_count": 0,
+      "iiif_image_service_url": null,
+      "hd_viewer_status": "unavailable_via_this_iiif_manifest",
+      "fallback_url": "https://www.loc.gov/item/2013650023/",
+      "rights_statement": "No known restrictions on publication.",
+      "rights_class": "institution_statement_not_cc0",
+      "rights_source": "https://www.loc.gov/item/2013650023/",
+      "rights_review_status": "separate_legal_review_required",
+      "publication_status": "research_only"
+    }
+  ],
+  "map": {
+    "record_id": "loc-2012586603",
+    "title": "Paris et ses environs : 1878",
+    "item_url": "https://www.loc.gov/item/2012586603/",
+    "iiif_manifest_url": "https://www.loc.gov/item/2012586603/manifest.json",
+    "iiif_image_service_url": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5834:g5834p:ct003569",
+    "iiif_image_info_url": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5834:g5834p:ct003569/info.json",
+    "iiif_image_info_http_status": 200,
+    "source_width": 15705,
+    "source_height": 11378,
+    "canvas_count": 1,
+    "rights_source": "https://www.loc.gov/item/2012586603/",
+    "rights_statement": "Library of Congress Geography and Map Division: free to use and reuse unless a Rights Advisory indicates otherwise.",
+    "historical_gcp_file": "data/vision-lab/georef-paris-1878.json",
+    "gcp_count": 15,
+    "annotation_file": "data/research/paris-1878-georeference-draft.json",
+    "annotation_status": "draft; research GCPs not independently verified; mask limited to their convex hull",
+    "affine_rms_m_reported_in_source": 25.9,
+    "affine_leave_one_out_rms_m_reported_in_source": 34.9,
+    "reference_geocoding": "Wikidata P625 and one OSM feature as recorded in GCP file",
+    "publication_status": "research_only"
+  }
+}
