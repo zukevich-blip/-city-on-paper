@@ -16,6 +16,16 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
     const nCities = await p.$$eval(".ccard", (c) => c.length);
     ok(`${vp.n} portal: city list ≥ 80`, nCities >= 80, String(nCities));
+    ok(`${vp.n} geographic country index`,
+      (await p.locator("#countryIndex .country-chip").count()) >= 20 &&
+      (await p.locator("#list .country-group").count()) >= 20);
+    await p.locator("#countriesClose").click();
+    ok(`${vp.n} country chapters close`,
+      (await p.locator("#list .country-group[open]").count()) === 0);
+    await p.locator("#countriesOpen").click();
+    ok(`${vp.n} country chapters open`,
+      (await p.locator("#list .country-group[open]").count()) >= 20);
+
     ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
@@ -53,11 +63,40 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
+    await p.locator("#cityLab").waitFor();
+    ok(`${vp.n} city study lab available in a generic city`,
+      await p.locator("#cityLab [data-role='search']").isVisible() &&
+      await p.locator("#cityLab [data-role='selected']").isVisible());
+
     await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
     await p.locator(".ccard", { hasText: "Париж" }).first().click();
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
+    await p.waitForFunction(() => /всего \\d+ доступных изображений/.test(
+      document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
+    ok(`${vp.n} all-artist city lab renders visual records`,
+      (await p.locator("#cityLab .citylab-item").count()) >= 2);
+    ok(`${vp.n} city lab can compare selected different museum works`,
+      await p.locator("#cityLab .chronoscope").isVisible());
+    await p.locator("#cityLab .citylab-item button").first().click();
+    ok(`${vp.n} any print can open an enlarged source dossier`,
+      await p.locator("#cityLab [data-role='viewer']").evaluate(x => x.open) &&
+      (await p.locator("#cityLab [data-role='viewer-facts'] a").count()) >= 1);
+    await p.locator("#cityLab [data-role='zoom-in']").click();
+    ok(`${vp.n} city print zoom`,
+      await p.locator("#cityLab [data-role='zoom-value']").textContent() === "150%");
+    await p.locator("#cityLab [data-role='close']").click();
+    const beforeSelection = (await p.locator("#cityLab [data-role='selected']").textContent());
+    await p.locator("#cityLab .citylab-item input[type='checkbox']").first().uncheck();
+    const afterSelection = (await p.locator("#cityLab [data-role='selected']").textContent());
+    ok(`${vp.n} user-selected work alters city timeline`, beforeSelection !== afterSelection);
+    await p.locator("#cityLab .citylab-item input[type='checkbox']").first().check();
+    await p.locator("#cityLab [data-role='search']").fill("___no_city_2026_print___");
+    ok(`${vp.n} city studio artwork search`,
+      (await p.locator("#cityLab .citylab-item").count()) === 0);
+    await p.locator("#cityLab [data-role='search']").fill("");
+
     ok(`${vp.n} city offers author and artwork search`,
       await p.locator("#museumAuthor").isVisible() && await p.locator("#museumQuery").isVisible());
     await p.waitForFunction(() => /Найдено/.test(document.querySelector("#museumCount")?.textContent || ""));
