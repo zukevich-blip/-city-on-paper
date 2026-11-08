@@ -1,5 +1,5 @@
 name: Publish City on Paper public museum
-run-name: City on Paper · исследовательская дизайн-мастерская
+run-name: City on Paper · опубликованный прототип письменного стола и альбомов
 
 on:
   push:
