@@ -74,6 +74,23 @@ jobs:
           name: paris-1878-gcp-research-report
           path: /tmp/paris-1878-gcp-review
           retention-days: 7
+      - name: Optional official IGN aerial comparison (six maps, no tile crawling)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          python -m tools.iiif.render_ign_ortho_review \
+            --source /tmp/paris-1878-gcp-review \
+            --out /tmp/paris-1878-ign-review \
+            --delay 1
+          test -s /tmp/paris-1878-ign-review/index.html
+      - name: Upload sourced Paris IGN comparison if available
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: paris-1878-ign-aerial-review
+          path: /tmp/paris-1878-ign-review
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Verify artwork fields and candidates metadata
         run: |
           python - <<'PY'
