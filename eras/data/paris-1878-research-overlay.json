@@ -1,0 +1,224 @@
+{
+  "id": "paris-1878",
+  "city_id": "paris",
+  "scope": "research_only",
+  "verification": "manual_GCP_review_required",
+  "image": "img/loc-2012586603-paris-1878.jpg",
+  "image_width": 2000,
+  "image_height": 1448,
+  "source_image_width": 15705,
+  "source_image_height": 11378,
+  "source_catalogue": "https://www.loc.gov/item/2012586603/",
+  "map_title": "Paris et ses environs : 1878",
+  "model": {
+    "type": "affine_equirectangular_to_webmercator_approximation",
+    "lon0": 2.3417477706255445,
+    "lat0": 48.85910541459843,
+    "earth_radius_m": 6378137,
+    "coef_x_east_m": [
+      -7689.625702511506,
+      13226.147460165033,
+      -24.068542282387707
+    ],
+    "coef_y_north_m": [
+      4697.788382917474,
+      -134.11930519493944,
+      -13080.840316273723
+    ],
+    "affine_rms_m_from_previous_research": 25.9,
+    "leave_one_out_rms_m_from_previous_research": 34.9
+  },
+  "mask_pixel_polygon": [
+    [
+      5047,
+      3603
+    ],
+    [
+      7167,
+      3259
+    ],
+    [
+      11014,
+      4411
+    ],
+    [
+      13873,
+      6931
+    ],
+    [
+      8674,
+      8555
+    ],
+    [
+      6611,
+      6139
+    ]
+  ],
+  "gcps": [
+    {
+      "name": "Arc de Triomphe",
+      "lat": 48.87378,
+      "lon": 2.29504,
+      "px": 5047,
+      "py": 3603.4,
+      "confidence": "high",
+      "residual_affine_m": 31.1,
+      "source": "Wikidata Q64436 P625 (fetched 2026-11-07)",
+      "qid": "Q64436"
+    },
+    {
+      "name": "Obélisque de Louxor (Place de la Concorde)",
+      "lat": 48.865475,
+      "lon": 2.321133,
+      "px": 7354.6,
+      "py": 4727.2,
+      "confidence": "high",
+      "residual_affine_m": 13.2,
+      "source": "Wikidata Q1503331 P625 (fetched 2026-11-07)",
+      "qid": "Q1503331"
+    },
+    {
+      "name": "Colonne Vendôme",
+      "lat": 48.867469,
+      "lon": 2.329414,
+      "px": 8078.5,
+      "py": 4455.2,
+      "confidence": "high",
+      "residual_affine_m": 16.6,
+      "source": "Wikidata Q1111051 P625 (fetched 2026-11-07)",
+      "qid": "Q1111051"
+    },
+    {
+      "name": "Palais Garnier (Opéra)",
+      "lat": 48.871944444444,
+      "lon": 2.3316666666667,
+      "px": 8278.4,
+      "py": 3859.3,
+      "confidence": "high",
+      "residual_affine_m": 22.1,
+      "source": "Wikidata Q187840 P625 (fetched 2026-11-07)",
+      "qid": "Q187840"
+    },
+    {
+      "name": "Hôtel de Ville",
+      "lat": 48.856389,
+      "lon": 2.352222,
+      "px": 10062.1,
+      "py": 5911,
+      "confidence": "medium",
+      "residual_affine_m": 12.2,
+      "source": "Wikidata Q640968 P625 (fetched 2026-11-07)",
+      "qid": "Q640968"
+    },
+    {
+      "name": "Notre-Dame de Paris",
+      "lat": 48.853,
+      "lon": 2.3498,
+      "px": 9862.1,
+      "py": 6354.9,
+      "confidence": "low",
+      "residual_affine_m": 16.4,
+      "source": "Wikidata Q2981 P625 (fetched 2026-11-07)",
+      "qid": "Q2981"
+    },
+    {
+      "name": "Panthéon",
+      "lat": 48.846198,
+      "lon": 2.3461054,
+      "px": 9478.2,
+      "py": 7258.7,
+      "confidence": "medium",
+      "residual_affine_m": 38.5,
+      "source": "Wikidata Q188856 P625 (fetched 2026-11-07)",
+      "qid": "Q188856"
+    },
+    {
+      "name": "Colonne de Juillet (Bastille)",
+      "lat": 48.853055555556,
+      "lon": 2.3691666666667,
+      "px": 11533.8,
+      "py": 6326.9,
+      "confidence": "high",
+      "residual_affine_m": 6.6,
+      "source": "Wikidata Q269641 P625 (fetched 2026-11-07)",
+      "qid": "Q269641"
+    },
+    {
+      "name": "Place des Vosges",
+      "lat": 48.855555555556,
+      "lon": 2.3655555555556,
+      "px": 11217.9,
+      "py": 6018.9,
+      "confidence": "medium",
+      "residual_affine_m": 16.7,
+      "source": "Wikidata Q898629 P625 (fetched 2026-11-07)",
+      "qid": "Q898629"
+    },
+    {
+      "name": "Place de la Nation (Place du Trône)",
+      "lat": 48.848333333333,
+      "lon": 2.3958333333333,
+      "px": 13873.3,
+      "py": 6930.8,
+      "confidence": "high",
+      "residual_affine_m": 22.9,
+      "source": "Wikidata Q1573359 P625 (fetched 2026-11-07)",
+      "qid": "Q1573359"
+    },
+    {
+      "name": "Place de la République (Place du Château-d'Eau)",
+      "lat": 48.867277777778,
+      "lon": 2.3640555555556,
+      "px": 11013.9,
+      "py": 4411.2,
+      "confidence": "medium",
+      "residual_affine_m": 58.2,
+      "source": "Wikidata Q175055 P625 (fetched 2026-11-07)",
+      "qid": "Q175055"
+    },
+    {
+      "name": "Observatoire de Paris (Perrault building)",
+      "lat": 48.8365091,
+      "lon": 2.3365254,
+      "px": 8674.3,
+      "py": 8554.5,
+      "confidence": "medium",
+      "residual_affine_m": 20.6,
+      "source": "OSM Nominatim way/79611305 (building=historic 'Observatoire de Paris'), ODbL, fetched 2026-11-07",
+      "qid": null
+    },
+    {
+      "name": "Dôme des Invalides",
+      "lat": 48.855,
+      "lon": 2.31222222,
+      "px": 6610.7,
+      "py": 6138.9,
+      "confidence": "low",
+      "residual_affine_m": 34,
+      "source": "Wikidata Q152109 P625 (fetched 2026-11-07)",
+      "qid": "Q152109"
+    },
+    {
+      "name": "Cour Carrée du Louvre",
+      "lat": 48.86037353077823,
+      "lon": 2.3385595337307112,
+      "px": 8862.3,
+      "py": 5387.1,
+      "confidence": "medium",
+      "residual_affine_m": 6.1,
+      "source": "Wikidata Q3000930 P625 (fetched 2026-11-07)",
+      "qid": "Q3000930"
+    },
+    {
+      "name": "Église Saint-Augustin",
+      "lat": 48.8762209215312,
+      "lon": 2.318917227874554,
+      "px": 7166.6,
+      "py": 3259.4,
+      "confidence": "low",
+      "residual_affine_m": 20.9,
+      "source": "Wikidata Q550157 P625 (fetched 2026-11-07)",
+      "qid": "Q550157"
+    }
+  ]
+}
