@@ -58,6 +58,17 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
+    ok(`${vp.n} city offers author and artwork search`,
+      await p.locator("#museumAuthor").isVisible() && await p.locator("#museumQuery").isVisible());
+    await p.waitForFunction(() => /Найдено/.test(document.querySelector("#museumCount")?.textContent || ""));
+    const initialWorks = await p.locator("#wg .wcard").count();
+    await p.locator("#museumAuthor").fill("___no_such_lithographer_2026___");
+    ok(`${vp.n} author filter excludes unrelated prints`,
+      (await p.locator("#wg .wcard").count()) === 0 && /Найдено 0/.test(await p.locator("#museumCount").textContent()));
+    await p.locator("#museumAuthor").fill("");
+    ok(`${vp.n} author filter restores all works`,
+      (await p.locator("#wg .wcard").count()) === initialWorks);
+
     await p.locator("#cmaphost").scrollIntoViewIfNeeded(); await p.waitForTimeout(800);
     ok(`${vp.n} city: zoomable 1878 plan of Paris`, (await p.locator("#cplan .leaflet-tile-loaded").count()) >= 2);
     ok(`${vp.n} city: links to other museum halls`, (await p.locator(".halls a").count()) >= 3);
