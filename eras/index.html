@@ -169,6 +169,32 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .museum-filters label{font:12px/1.6 system-ui;color:#5b6259;display:flex;flex-direction:column;gap:6px;flex:1 1 210px}
 .museum-filters input{font:15px system-ui;padding:10px 12px;min-height:44px;color:var(--ink);border:1px solid #b9ab94;background:#fffdf7;border-radius:2px;width:100%;min-width:0}
 .museum-filters span{font:12px system-ui;color:var(--muted);flex:1 1 100%;min-height:18px}
+/* Country chapters: browse as a geographic book, not a wall of cards. */
+.country-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:25px 0 12px}
+.country-toolbar>div{display:flex;gap:7px;flex-wrap:wrap}
+.country-toolbar button{background:var(--paper2);border:1px solid var(--line);padding:7px 11px;min-height:42px;color:var(--dark);font:12px system-ui}
+.country-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px;margin-bottom:16px}
+.country-chip{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;padding:12px;background:var(--paper2);border:1px solid var(--line);color:var(--ink);min-height:50px}
+.country-chip b{font:17px/1.2 Georgia,serif}.country-chip small{color:var(--muted);font:11px system-ui;white-space:nowrap}
+.country-chip:hover,.country-chip:focus-visible{border-color:var(--gold);background:#ede1cb}
+.country-collection{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.country-group{border:1px solid var(--line);background:#faf6ee;scroll-margin-top:18px}
+.country-group summary{display:flex;gap:15px;align-items:center;cursor:pointer;list-style:none;padding:17px 19px;min-height:60px}
+.country-group summary::-webkit-details-marker{display:none}
+.country-group[open] summary{border-bottom:1px solid var(--line);background:#eee3d0}
+.country-name{font:normal 26px Georgia,serif;color:var(--dark)}
+.country-count{margin-left:auto;color:var(--muted);font:12px system-ui;text-align:right}
+.country-expand{font:27px/1 Georgia,serif;color:#825435;flex:none}
+.country-group[open] .country-expand{transform:rotate(45deg)}
+.country-cities{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:9px;padding:15px}
+.country-cities .ccard{display:flex;flex-direction:column;min-height:130px}
+.country-cities .ccard b{font:20px/1.2 Georgia,serif}
+.country-cities .ccard span{margin-top:auto}
+@media(max-width:680px){.country-index{grid-template-columns:repeat(2,minmax(0,1fr))}.country-chip{padding:9px 10px}
+.country-chip b{font-size:15px}.country-cities{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px;gap:6px}
+.country-cities .ccard{padding:12px;min-height:120px}.country-cities .ccard b{font-size:17px}
+.country-group summary{padding:12px;gap:7px}.country-name{font-size:21px}.country-count{font-size:11px}}
+@media(max-width:390px){.country-cities{grid-template-columns:1fr}}
 </style>
 <script src="../assets/nav/museum-nav.js" defer></script>
 </head>
