@@ -89,6 +89,39 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator(".ccard", { hasText: "Париж" }).first().click();
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
+    // Research overlay is an opt-in feature of the same Paris Leaflet view.
+    await p.locator("#cNew").click();
+    await p.waitForFunction(() => {
+      const x = document.getElementById("paris1878Toggle");
+      return x && !x.disabled;
+    }, null, { timeout: 10000 });
+    ok(`${vp.n} Paris research controls are integrated in city tab`,
+      await p.locator("#parisResearch").isVisible() &&
+      (await p.locator("#parisBase option").count()) === 2);
+    await p.locator("#paris1878Toggle").check();
+    await p.waitForFunction(() => !!document.querySelector("#cnow .cop-paris-affine"));
+    const matrix = await p.locator("#cnow .cop-paris-affine").evaluate(
+      el => el.style.transform);
+    ok(`${vp.n} original 1878 raster is positioned by affine matrix`,
+      matrix.startsWith("matrix(") && !matrix.includes("NaN"));
+    ok(`${vp.n} historical research mask prevents full-sheet overlay`,
+      await p.locator(".cop-paris-affine").evaluate(el => el.style.clipPath.startsWith("polygon(")));
+    ok(`${vp.n} 15 review-only GCP markers overlaid on city`,
+      (await p.locator("#cnow .leaflet-interactive").count()) >= 15 &&
+      /не проверена вручную/.test(await p.locator("#parisResearchStatus").textContent()));
+    await p.locator("#paris1878Opacity").evaluate(el => {
+      el.value = "35"; el.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    ok(`${vp.n} opacity slider updates historic raster`,
+      await p.locator(".cop-paris-affine").evaluate(el => el.style.opacity) === "0.35");
+    await p.screenshot({ path: `${out}/${vp.n}-paris-1878-overlay.png` });
+    await p.locator("#paris1878Toggle").uncheck();
+    ok(`${vp.n} switch OFF removes the historical layer and GCPs`,
+      (await p.locator("#cnow .cop-paris-affine").count()) === 0);
+    await p.locator("#cOld").click();
+    ok(`${vp.n} historic tab still works without a second site`,
+      await p.locator("#cplan").isVisible() && !(await p.locator("#parisResearch").isVisible()));
+
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
     await p.waitForFunction(() => /всего \d+ доступных изображений/.test(
       document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
