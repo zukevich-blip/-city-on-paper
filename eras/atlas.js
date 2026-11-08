@@ -221,9 +221,12 @@ window.Atlas = (() => {
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
         <p class="lede">Как было и как есть: листы XIX века и снимок того же места сегодня. Точки съёмки обычно не совпадают — это сопоставление, а не наложение; изображения не искажаются.</p>
         <div id="eplist"></div><div id="epview"></div></section>` : ""}
-      ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
-      ${(c.works || []).length ? `<h2>Бенуа: ${c.works.length}</h2><div class="wgrid">${c.works.map(card).join("")}</div>` : ""}
       <section id="cityLab" class="citylab" aria-label="Исследование произведений города"><p class="note">Подготавливаем изображения для сравнения…</p></section>
+      ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
+      ${(c.works || []).length ? `<details class="city-archive" ${c.works.length <= 6 ? "open" : ""}>
+        <summary>Коллекция Феликса и Филиппа Бенуа · ${c.works.length} листов
+          <small>Разверните, чтобы изучить весь каталог</small></summary>
+        <div class="wgrid">${c.works.map(card).join("")}</div></details>` : ""}
       <h2 id="others">Другие виды из музеев</h2>
       <p class="note">Коллекция не ограничена Бенуа. Найдите художника, литографа, архитектурное место или архивную запись по названию.</p>
       <div class="museum-filters" role="search" aria-label="Поиск произведений и авторов">
