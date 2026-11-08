@@ -6,6 +6,12 @@
 .cp3-selects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
 .cp3-selects label{display:flex;flex-direction:column;gap:6px;font:13px system-ui;color:#5f6259}
 .cp3-selects select{width:100%;min-width:0;min-height:46px;border:1px solid #b9ab94;padding:8px 10px;background:#fffdf7;color:#29342d}
+.cp3-upload{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 15px;padding:10px 12px;background:#efe7d7;border:1px solid #cbb99b}
+.cp3-upload label{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:13px/1.5 system-ui}
+.cp3-upload input{font:13px system-ui;max-width:min(100%,390px)}
+.cp3-upload button{min-height:44px;padding:6px 12px;background:#fffdf7;border:1px solid #a8804e}
+.cp3-upload button[hidden]{display:none}
+.cp3-upload span{font:12px/1.5 system-ui;color:#5d5c52;flex:1 1 190px}
 .cp3-stage{height:min(63vh,570px);min-height:290px;position:relative;overflow:hidden;touch-action:pan-y;user-select:none;background:#1d241f;cursor:ew-resize}
 .cp3-stage>img,.cp3-layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none}
 .cp3-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none}
