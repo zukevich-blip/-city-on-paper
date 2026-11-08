@@ -150,6 +150,7 @@
       </section>
       <section id="threeEpochs" class="cp3" aria-label="Три эпохи одним ползунком"></section>
       <section id="chronoscope" class="chronoscope" aria-label="Любое число эпох и увеличение деталей"></section>
+      <section id="curatorialDesk" class="curatorial-desk" aria-label="Архитектура, история, техника и книги"></section>
       ${pl.hunt ? `<section class="hunt" aria-label="Охота за кадром"><svg viewBox="0 0 100 100" width="110" height="110" role="img" aria-label="Компас: направление ${Math.round(pl.hunt.azimuth_deg)}°"><circle cx="50" cy="50" r="46" fill="#faf6ee" stroke="#a8804e"/><text x="50" y="14" text-anchor="middle" font-size="10" fill="#7a3f22">С</text><g transform="rotate(${Number(pl.hunt.azimuth_deg) || 0} 50 50)"><path d="M50 50 L44 18 L50 8 L56 18 Z" fill="#7a3f22"/></g><circle cx="50" cy="50" r="4" fill="#22362f"/></svg>
         <div><span class="eyebrow">Охота за кадром</span><h3 style="margin:4px 0">${esc(pl.hunt.title || "Встаньте туда, где стоял художник")}</h3><p style="font:14px/1.55 system-ui;margin:0">${esc(pl.hunt.instructions)}</p>
         <p style="font:12px system-ui;color:#6f6f63">Координаты (оценка, ±${esc(pl.hunt.radius_m)} м): ${Number(pl.hunt.lat).toFixed(5)}, ${Number(pl.hunt.lon).toFixed(5)} · направление ${Math.round(pl.hunt.azimuth_deg)}°. Ваше фото остаётся на вашем устройстве; мы ничего не загружаем.</p></div></section>` : ""}
@@ -159,6 +160,7 @@
     setupCompare(pl);
     if (window.CityOnPaperThreeEpochs) window.CityOnPaperThreeEpochs.mount(document.getElementById("threeEpochs"), pl.images);
     if (window.CityOnPaperChronoscope) window.CityOnPaperChronoscope.mount(document.getElementById("chronoscope"), pl.images);
+    if (window.CityOnPaperCuratorialDesk) window.CityOnPaperCuratorialDesk.mount(document.getElementById("curatorialDesk"), pl.id);
   }
 
   function setupCompare(pl) {
