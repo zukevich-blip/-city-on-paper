@@ -106,6 +106,22 @@ window.Maps = (() => {
   function city(host, c, sites, thumbOf) {
     if (!ok()) return;
     const plan = c.plan;
+    const research = c.id === "paris" && Boolean(plan);
+    const researchUI = research ? '<div id="parisResearch" class="paris-research" hidden>' +
+      '<div class="paris-research-controls">' +
+      '<label>Современная подложка <select id="parisBase">' +
+      '<option value="street">Карта улиц</option><option value="ign">Аэрофотосъёмка IGN</option></select></label>' +
+      '<label class="paris-research-toggle"><input type="checkbox" id="paris1878Toggle" disabled>' +
+      ' Наложить план 1878</label>' +
+      '<label id="parisOpacityBox" hidden>Прозрачность плана ' +
+      '<input type="range" id="paris1878Opacity" min="15" max="85" value="55" ' +
+      'aria-label="Непрозрачность исторического плана"></label></div>' +
+      '<p id="parisResearchStatus" role="status" aria-live="polite">' +
+      'Данные ориентиров загружаются. Исследовательский слой пока не проверен.</p>' +
+      '<p class="paris-research-credits">План: Library of Congress, 1878. Аэрофотосъёмка: ' +
+      'IGN BD ORTHO (открытая лицензия). Год съёмки конкретной зоны не установлен. ' +
+      '<a href="https://www.loc.gov/item/2012586603/" target="_blank" rel="noopener">' +
+      'Оригинал плана</a></p></div>' : "";
     const pts = sites.filter((s) => s.lat != null);
     if (!plan && !pts.length) {
       host.innerHTML = `<div class="lmap small" id="cmap" aria-label="Современная карта: ${esc(c.name)}"></div>
@@ -120,6 +136,7 @@ window.Maps = (() => {
         ${plan ? `<button type="button" role="tab" id="cOld" aria-selected="true">План ${esc(plan.year || "XIX в.")}</button>` : ""}
         <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
       ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
+      ${researchUI}
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
       <p class="mapnote">${pts.length ? `Метки — места, изображённые на работах (${pts.length}); нажмите, чтобы увидеть работу. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
@@ -144,12 +161,16 @@ window.Maps = (() => {
     let now = null;
     const mkNow = () => {
       now = L.map("cnow", { zoomControl: false, zoomSnap: 0.5 });
-      L.tileLayer(...OSM).addTo(now);
+      const street = L.tileLayer(...OSM).addTo(now);
       L.control.zoom({ position: "topright", zoomInTitle: "Приблизить", zoomOutTitle: "Отдалить" }).addTo(now);
       const ms = addSites(now, (s) => [s.lat, s.lon]);
       const fit = () => (ms.length > 1 ? now.fitBounds(L.featureGroup(ms).getBounds(), { padding: [24, 24], maxZoom: 16 }) : now.setView(ms.length ? ms[0].getLatLng() : [c.lat, c.lon], 15));
       fit(); homeButton(now, fit);
       labelClass(now, document.getElementById("cnow"), now.getZoom());
+      if (research && window.HistoricalOverlay) {
+        document.getElementById("parisResearch").hidden = false;
+        window.HistoricalOverlay.mount(now, street, c.id);
+      }
     };
     if (plan) {
       const { map, at } = imageMap(document.getElementById("cplan"), plan);
@@ -160,6 +181,7 @@ window.Maps = (() => {
         document.getElementById("cOld").setAttribute("aria-selected", String(old));
         document.getElementById("cNew").setAttribute("aria-selected", String(!old));
         document.getElementById("cplan").hidden = !old; document.getElementById("cnow").hidden = old;
+        if (research) document.getElementById("parisResearch").hidden = old;
         if (old) map.invalidateSize(); else if (!now) mkNow(); else now.invalidateSize();
       };
       document.getElementById("cOld").onclick = () => show(true);
