@@ -27,7 +27,7 @@ def test_six_historic_panels_can_be_generated_without_synthetic_satellite(tmp_pa
     assert len(report["points"]) == 6
     assert report["publication_status"] == "research_only"
     assert report["modern_image"] == "NOT PROVIDED: diagram only"
-    assert "нет" in (tmp_path / "index.html").read_text("utf-8")
+    assert "не предоставлена" in (tmp_path / "index.html").read_text("utf-8")
     for i in range(1, 7):
         image_path = tmp_path / f"gcp-{i:02d}.png"
         assert image_path.is_file()
