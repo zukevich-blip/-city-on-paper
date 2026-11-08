@@ -97,6 +97,20 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} city print zoom`,
       await p.locator("#cityLab [data-role='zoom-value']").textContent() === "150%");
     await p.locator("#cityLab [data-role='close']").click();
+    const localPhoto = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
+    const selectedBeforePhoto = await p.locator("#cityLab [data-role='selected']").textContent();
+    await p.locator("#cityLab [data-role='user-photo']").setInputFiles({
+      name: "new-city-view.png", mimeType: "image/png", buffer: localPhoto
+    });
+    ok(`${vp.n} city lab accepts local rephotography`,
+      /Фото добавлено локально/.test(await p.locator("#cityLab [data-role='photo-status']").textContent()) &&
+      (await p.locator("#cityLab [data-role='selected']").textContent()) !== selectedBeforePhoto);
+    ok(`${vp.n} locally added image can join historical comparison`,
+      (await p.locator("#cityLab .chronoscope [data-role='count']").textContent()).includes("4 из 4"));
+    await p.locator("#cityLab [data-role='remove-photo']").click();
+    ok(`${vp.n} city lab removes local photo`,
+      (await p.locator("#cityLab [data-role='selected']").textContent()) === selectedBeforePhoto);
+
     const beforeSelection = (await p.locator("#cityLab [data-role='selected']").textContent());
     await p.locator("#cityLab .citylab-item input[type='checkbox']").first().uncheck();
     const afterSelection = (await p.locator("#cityLab [data-role='selected']").textContent());
