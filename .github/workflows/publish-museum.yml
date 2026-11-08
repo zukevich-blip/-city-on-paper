@@ -1,5 +1,5 @@
 name: Publish City on Paper public museum
-run-name: City on Paper · страны, города и сравнение каждого произведения
+run-name: City on Paper · исследовательская дизайн-мастерская
 
 on:
   push:
@@ -85,6 +85,11 @@ jobs:
           test -s public/eras/chronoscope.css
           test -s public/eras/city-lab.js
           test -s public/eras/city-lab.css
+          test -s public/desk/index.html
+          test -s public/desk/desk.css
+          test -s public/desk/desk.js
+          grep -q 'deskMap' public/desk/index.html
+          grep -q 'album-book' public/desk/desk.js
           grep -q 'countryIndex' public/eras/atlas.js
           grep -q 'CityOnPaperCityLab' public/eras/city-lab.js
           grep -q 'user-photo' public/eras/city-lab.js
