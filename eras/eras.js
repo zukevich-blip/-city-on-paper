@@ -148,6 +148,9 @@
         <div class="sbs" id="sbs" hidden><img id="sA" alt=""><img id="sB" alt=""></div>
         <p class="note">Изображения не деформируются и не подгоняются друг под друга: шторка показывает два подлинных кадра в одной рамке. Если ракурсы разные, различие видно — это и есть свидетельство.</p>
       </section>
+      <section id="threeEpochs" class="cp3" aria-label="Три эпохи одним ползунком"></section>
+      <section id="chronoscope" class="chronoscope" aria-label="Любое число эпох и увеличение деталей"></section>
+      <section id="curatorialDesk" class="curatorial-desk" aria-label="Архитектура, история, техника и книги"></section>
       ${pl.hunt ? `<section class="hunt" aria-label="Охота за кадром"><svg viewBox="0 0 100 100" width="110" height="110" role="img" aria-label="Компас: направление ${Math.round(pl.hunt.azimuth_deg)}°"><circle cx="50" cy="50" r="46" fill="#faf6ee" stroke="#a8804e"/><text x="50" y="14" text-anchor="middle" font-size="10" fill="#7a3f22">С</text><g transform="rotate(${Number(pl.hunt.azimuth_deg) || 0} 50 50)"><path d="M50 50 L44 18 L50 8 L56 18 Z" fill="#7a3f22"/></g><circle cx="50" cy="50" r="4" fill="#22362f"/></svg>
         <div><span class="eyebrow">Охота за кадром</span><h3 style="margin:4px 0">${esc(pl.hunt.title || "Встаньте туда, где стоял художник")}</h3><p style="font:14px/1.55 system-ui;margin:0">${esc(pl.hunt.instructions)}</p>
         <p style="font:12px system-ui;color:#6f6f63">Координаты (оценка, ±${esc(pl.hunt.radius_m)} м): ${Number(pl.hunt.lat).toFixed(5)}, ${Number(pl.hunt.lon).toFixed(5)} · направление ${Math.round(pl.hunt.azimuth_deg)}°. Ваше фото остаётся на вашем устройстве; мы ничего не загружаем.</p></div></section>` : ""}
@@ -155,6 +158,9 @@
       <details class="credits"><summary>Источники и права (${imgs.length})</summary>${imgs.map((img) => `<h3 style="font-size:17px;margin:12px 0 2px">${esc(img.year_label)} · ${esc(KIND[img.kind] || img.kind)}</h3>${credits(img)}`).join("")}</details>
     </div>`;
     setupCompare(pl);
+    if (window.CityOnPaperThreeEpochs) window.CityOnPaperThreeEpochs.mount(document.getElementById("threeEpochs"), pl.images);
+    if (window.CityOnPaperChronoscope) window.CityOnPaperChronoscope.mount(document.getElementById("chronoscope"), pl.images);
+    if (window.CityOnPaperCuratorialDesk) window.CityOnPaperCuratorialDesk.mount(document.getElementById("curatorialDesk"), pl.id);
   }
 
   function setupCompare(pl) {
@@ -210,7 +216,12 @@
   function route() {
     if (!D) return;
     const h = location.hash.replace(/^#\/?/, "").split("/");
-    if (h[0] === "city") {
+    if (h[0] === "country" && window.Atlas && Atlas.data) {
+      let name = "";
+      try { name = decodeURIComponent(h[1] || ""); } catch (_) { /* unknown code */ }
+      Atlas.setCountry(name);
+      Atlas.portal(app);
+    } else if (h[0] === "city") {
       const ac = window.Atlas && Atlas.data ? Atlas.data.cities.find((x) => x.id === h[1]) : null;
       if (ac && ac.featured && D.cities.some((x) => x.id === ac.featured)) { city(ac.featured); Atlas.city(app, ac.id, true); }
       else if (ac) Atlas.city(app, ac.id);
@@ -219,7 +230,7 @@
     else if (h[0] === "epochs" && window.Epochs && Atlas.data) Epochs.gallery(app, Atlas.data, Atlas.thumb, Atlas.imgTag);
     else if (h[0] === "epoch" && window.Epochs && Atlas.data) { if (!Epochs.placePage(app, Atlas.data, h[1], decodeURIComponent(h.slice(2).join("/")), Atlas.thumb, Atlas.imgTag)) notFound(); }
     else if (h[0] === "mine" && window.Epochs) Epochs.minePage(app);
-    else if (window.Atlas && Atlas.data) Atlas.portal(app);
+    else if (window.Atlas && Atlas.data) { Atlas.setCountry(""); Atlas.portal(app); }
     else portal();
     if (location.hash && location.hash !== "#/") app.focus({ preventScroll: true });
     window.scrollTo(0, 0);

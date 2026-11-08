@@ -1,0 +1,49 @@
+/* Universal study lab. Historical print thumbnails stay uncropped; zoom is transient. */
+.citylab{border:1px solid var(--line,#d9cbb5);padding:19px;margin:24px 0;background:#faf6ee}
+.citylab-heading h2{margin:6px 0 10px;font:normal clamp(28px,3vw,40px)/1.2 Georgia,serif}
+.citylab-heading p{max-width:930px;color:#586055;font:14px/1.68 system-ui}
+.citylab-controls{display:flex;align-items:end;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding:10px 0 16px}
+.citylab-controls label{display:flex;flex:1 1 330px;flex-direction:column;gap:8px;font:13px/1.4 system-ui}
+.citylab-controls input{width:100%;min-width:0;max-width:560px;font:15px system-ui;padding:11px 12px;border:1px solid #aa9883;background:#fffdf7;border-radius:2px;min-height:44px}
+.citylab-controls span{font:12px/1.5 system-ui;color:#737062;flex:1 1 250px}
+.citylab-local-photo{display:flex;flex-wrap:wrap;align-items:center;gap:9px 15px;padding:13px;margin:14px 0;background:#eee2cd;border:1px solid #cbb99b}
+.citylab-local-photo label{display:flex;flex-direction:column;gap:7px;font:13px/1.5 system-ui;flex:1 1 260px;color:#4d5148}
+.citylab-local-photo input{font:12px system-ui;max-width:100%;min-height:42px}
+.citylab-local-photo span{flex:1 1 100%;font:12px/1.5 system-ui;color:#59574e}
+.citylab-local-photo button{min-height:44px;background:#fffaf0;border:1px solid #aa9274;color:#7a3f22;padding:8px 11px}
+.citylab-local-photo button[hidden]{display:none}
+.citylab-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:9px;margin:16px 0}
+.citylab-item{background:#fffdfa;border:1px solid #d7c9b2;display:flex;align-items:start;gap:13px;padding:10px;min-width:0}
+.citylab-thumb{width:91px;height:107px;flex:none;object-fit:contain;background:#e8e0d4;border:1px solid #dfd1bd}
+.citylab-item-meta{display:flex;flex-direction:column;align-items:start;gap:7px;min-width:0;flex:1}
+.citylab-item-meta strong{font:normal 17px/1.3 Georgia,serif;overflow-wrap:anywhere;color:#354036;max-width:100%}
+.citylab-item-meta p{font:12px/1.5 system-ui;margin:0;color:#62584a}
+.citylab-item-meta small{font:11px/1.45 system-ui;color:#706f60;overflow-wrap:anywhere}
+.citylab-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;align-items:center}
+.citylab-actions a,.citylab-actions button{padding:6px 8px;min-height:40px;color:#6b432d;border:1px solid #b8a994;background:#fffaf0;text-decoration:none;display:inline-flex;align-items:center;font:12px/1.3 system-ui}
+.citylab-actions label{display:inline-flex;align-items:center;gap:5px;min-height:40px;font:12px system-ui}
+.citylab-actions label input{width:18px;height:18px;accent-color:#7a3f22}
+.citylab-more button,.citylab-focus{min-height:44px;background:#eee3d0;color:#364234;border:1px solid #baa58a;padding:8px 15px;cursor:pointer}
+.citylab-selected{margin:17px 0 10px;padding:12px 14px;background:#e6dccc;border-left:3px solid #a8804e;font:13px/1.6 system-ui;color:#4d5246}
+.citylab-time{margin:5px 0 16px}
+.citylab-time .chronoscope{margin-top:0}
+.citylab-warning{font:12px/1.65 system-ui;padding:14px 17px;border-left:3px solid #b08456;background:#f1e8db;color:#665d50}
+.citylab-dialog{background:#faf6ee;color:#26362b;border:1px solid #b9a68a;max-width:min(96vw,1250px);width:96vw;max-height:94vh;padding:10px 14px 20px}
+.citylab-dialog::backdrop{background:#161c16dc}
+.citylab-viewer-tools{display:grid;grid-template-columns:44px 56px 44px minmax(73px,1fr) minmax(73px,1fr);gap:8px;align-items:center;padding:7px 0 13px;border-bottom:1px solid #d4c5b0}
+.citylab-viewer-tools strong{grid-column:1/-1;font:normal 19px/1.3 Georgia,serif;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.citylab-viewer-tools button{background:#fffdf7;border:1px solid #b9ab94;min-width:0;min-height:44px;padding:6px 6px;position:relative;z-index:1}
+.citylab-viewer-tools span{font:12px system-ui;min-width:0;text-align:center}
+.citylab-viewer-stage{position:relative;height:58vh;min-height:220px;overflow:hidden;background:#20281f;touch-action:pan-y}
+.citylab-viewer-stage img{width:100%;height:100%;object-fit:contain;display:block;transform-origin:center;pointer-events:none;user-select:none}
+.citylab-viewer-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;padding:14px 0;font:12px/1.5 system-ui}
+.citylab-viewer-facts p{margin:0;color:#68675c}.citylab-viewer-facts strong{color:#353d34}
+.citylab-viewer-facts a{color:#7a3f22;text-decoration:underline}
+@media(max-width:680px){.citylab{padding:11px}.citylab-results{grid-template-columns:1fr}
+.citylab-item{padding:8px;gap:10px}.citylab-thumb{width:78px;height:96px}
+.citylab-dialog{width:100vw;max-width:100vw;max-height:100vh;margin:auto;padding:8px}
+.citylab-viewer-tools{grid-template-columns:40px 46px 40px minmax(68px,1fr) minmax(68px,1fr);gap:5px}
+.citylab-viewer-tools strong{font-size:17px;line-height:1.23;max-height:74px;overflow:auto}
+.citylab-viewer-tools button{font-size:12px;padding:4px 3px}
+.citylab-viewer-stage{height:54vh;min-height:240px}.citylab-heading h2{font-size:27px}
+.citylab-viewer-facts{grid-template-columns:1fr 1fr}}

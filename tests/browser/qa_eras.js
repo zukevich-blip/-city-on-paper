@@ -16,7 +16,30 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
     const nCities = await p.$$eval(".ccard", (c) => c.length);
     ok(`${vp.n} portal: city list ≥ 80`, nCities >= 80, String(nCities));
-    ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
+    ok(`${vp.n} geographic country index`,
+      (await p.locator("#countryIndex .country-chip").count()) >= 20 &&
+      (await p.locator("#list .country-group").count()) >= 20);
+    await p.locator("#countriesClose").click();
+    ok(`${vp.n} country chapters close`,
+      (await p.locator("#list .country-group[open]").count()) === 0);
+    await p.locator("#countriesOpen").click();
+    ok(`${vp.n} country chapters open`,
+      (await p.locator("#list .country-group[open]").count()) >= 20);
+
+    await p.goto(base + "eras/#/country/" + encodeURIComponent("Италия"), { waitUntil: "networkidle" });
+    ok(`${vp.n} shareable country chapter`,
+      (await p.locator("#grp").inputValue()) === "r:Италия" &&
+      (await p.locator(".country-group").count()) === 1);
+    await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
+    await p.waitForTimeout(600);
+    await p.waitForFunction(() => document.querySelectorAll("#pmap .leaflet-tile-loaded").length >= 1,
+      null, { timeout: 10000 });
+    const mapTileCount = await p.locator("#pmap .leaflet-tile-loaded").count();
+    const mapTileUrl = await p.locator("#pmap .leaflet-tile").first().evaluate(img => img.src);
+    const mapTileResponse = await p.request.get(mapTileUrl);
+    ok(`${vp.n} portal: historical map tile loaded and served`,
+      mapTileCount >= 1 && mapTileResponse.ok() && String(mapTileResponse.headers()["content-type"] || "").startsWith("image/"),
+      `${mapTileCount} / ${mapTileResponse.status()} / ${mapTileUrl}`);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
     await p.fill("#q", "Лиссаб");
@@ -24,7 +47,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.fill("#q", "");
     await p.selectOption("#grp", "featured");
     ok(`${vp.n} portal: featured filter`, (await p.locator(".ccard").count()) === 3);
-    ok(`${vp.n} portal: filter announced`, /Показано городов: 3/.test(await p.textContent("#shown")));
+    ok(`${vp.n} portal: filter announced`, /Показано 3 город/.test(await p.textContent("#shown")));
     await p.selectOption("#grp", "all");
     const zoomOf = () => p.$eval("#pmap .leaflet-map-pane", (m) => m.querySelector(".leaflet-tile-container") ? 1 : 0)
       .then(() => p.evaluate(() => document.querySelector("#pmap .leaflet-proxy").style.transform));
@@ -50,14 +73,73 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForTimeout(300);
     ok(`${vp.n} feedback gives a status`, (await p.textContent("#fbStatus")).length > 5, await p.textContent("#fbStatus"));
     await p.click('#fb button[value="cancel"]');
+    const lisbonChapter = p.locator(".country-group", { hasText: "Лиссабон" });
+    if (!(await lisbonChapter.evaluate(el => el.open))) await lisbonChapter.locator("summary").click();
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
+    await p.locator("#cityLab [data-role='search']").waitFor();
+    ok(`${vp.n} city study lab available in a generic city`,
+      await p.locator("#cityLab [data-role='search']").isVisible() &&
+      await p.locator("#cityLab [data-role='selected']").isVisible());
+
     await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
+    const parisChapter = p.locator(".country-group", { hasText: "Париж" });
+    if (!(await parisChapter.evaluate(el => el.open))) await parisChapter.locator("summary").click();
     await p.locator(".ccard", { hasText: "Париж" }).first().click();
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
+    await p.waitForFunction(() => /всего \d+ доступных изображений/.test(
+      document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
+    ok(`${vp.n} all-artist city lab renders visual records`,
+      (await p.locator("#cityLab .citylab-item").count()) >= 2);
+    ok(`${vp.n} city lab can compare selected different museum works`,
+      await p.locator("#cityLab .chronoscope").isVisible());
+    await p.locator("#cityLab .citylab-item button").first().click();
+    ok(`${vp.n} any print can open an enlarged source dossier`,
+      await p.locator("#cityLab [data-role='viewer']").evaluate(x => x.open) &&
+      (await p.locator("#cityLab [data-role='viewer-facts'] a").count()) >= 1);
+    await p.locator("#cityLab [data-role='zoom-in']").click();
+    ok(`${vp.n} city print zoom`,
+      await p.locator("#cityLab [data-role='viewer'] [data-role='zoom-value']").textContent() === "150%" &&
+      (await p.locator("#cityLab [data-role='viewer-image']").evaluate(el => el.style.transform)).includes("scale(1.5)"));
+    await p.locator("#cityLab [data-role='close']").click();
+    const localPhoto = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
+    const selectedBeforePhoto = await p.locator("#cityLab [data-role='selected']").textContent();
+    await p.locator("#cityLab [data-role='user-photo']").setInputFiles({
+      name: "new-city-view.png", mimeType: "image/png", buffer: localPhoto
+    });
+    ok(`${vp.n} city lab accepts local rephotography`,
+      /Фото добавлено локально/.test(await p.locator("#cityLab [data-role='photo-status']").textContent()) &&
+      (await p.locator("#cityLab [data-role='selected']").textContent()) !== selectedBeforePhoto);
+    ok(`${vp.n} locally added image can join historical comparison`,
+      (await p.locator("#cityLab .chronoscope [data-role='count']").textContent()).includes("4 из 4"));
+    await p.locator("#cityLab [data-role='remove-photo']").click();
+    ok(`${vp.n} city lab removes local photo`,
+      (await p.locator("#cityLab [data-role='selected']").textContent()) === selectedBeforePhoto);
+
+    const beforeSelection = (await p.locator("#cityLab [data-role='selected']").textContent());
+    await p.locator("#cityLab .citylab-item input[type='checkbox']").first().uncheck();
+    const afterSelection = (await p.locator("#cityLab [data-role='selected']").textContent());
+    ok(`${vp.n} user-selected work alters city timeline`, beforeSelection !== afterSelection);
+    await p.locator("#cityLab .citylab-item input[type='checkbox']").first().check();
+    await p.locator("#cityLab [data-role='search']").fill("___no_city_2026_print___");
+    ok(`${vp.n} city studio artwork search`,
+      (await p.locator("#cityLab .citylab-item").count()) === 0);
+    await p.locator("#cityLab [data-role='search']").fill("");
+
+    ok(`${vp.n} city offers author and artwork search`,
+      await p.locator("#museumAuthor").isVisible() && await p.locator("#museumQuery").isVisible());
+    await p.waitForFunction(() => /Найдено/.test(document.querySelector("#museumCount")?.textContent || ""));
+    const initialWorks = await p.locator("#wg .wcard").count();
+    await p.locator("#museumAuthor").fill("___no_such_lithographer_2026___");
+    ok(`${vp.n} author filter excludes unrelated prints`,
+      (await p.locator("#wg .wcard").count()) === 0 && /Найдено 0/.test(await p.locator("#museumCount").textContent()));
+    await p.locator("#museumAuthor").fill("");
+    ok(`${vp.n} author filter restores all works`,
+      (await p.locator("#wg .wcard").count()) === initialWorks);
+
     await p.locator("#cmaphost").scrollIntoViewIfNeeded(); await p.waitForTimeout(800);
     ok(`${vp.n} city: zoomable 1878 plan of Paris`, (await p.locator("#cplan .leaflet-tile-loaded").count()) >= 2);
     ok(`${vp.n} city: links to other museum halls`, (await p.locator(".halls a").count()) >= 3);
@@ -66,6 +148,62 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector("#stage");
     await p.waitForFunction(() => document.getElementById("imA").complete && document.getElementById("imB").complete);
     ok(`${vp.n} place: timeline cards`, (await p.locator(".era-card").count()) >= 8);
+    ok(`${vp.n} triple time slider available`, await p.locator("#threeEpochs").isVisible());
+    ok(`${vp.n} triple timeline has 3 actual images`, await p.locator("#threeEpochs .cp3-stage img").count() === 3);
+    ok(`${vp.n} triple timeline all source links`, (await p.locator("#threeEpochs .cp3-sources a").count()) === 3);
+    await p.locator('#threeEpochs [data-go="0"]').click();
+    ok(`${vp.n} triple stage: 0% shows first era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "0");
+    await p.locator('#threeEpochs [data-go="50"]').click();
+    ok(`${vp.n} triple stage: 50% shows middle era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "50");
+    await p.locator('#threeEpochs [data-go="100"]').click();
+    ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
+    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
+    const baselineFrames = await p.locator('#threeEpochs [data-role="last"] option').count();
+    const localFixture = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
+    await p.locator('#threeEpochs [data-role="upload-photo"]').setInputFiles({ name: "my-photo.png", mimeType: "image/png", buffer: localFixture });
+    ok(`${vp.n} local photo: third epoch selected`, await p.locator('#threeEpochs [data-role="last"]').inputValue() === String(baselineFrames));
+    ok(`${vp.n} local photo: no server upload in UI`, /только в этот просмотр/.test(await p.locator('#threeEpochs [data-role="photo-status"]').textContent()));
+    await p.locator('#threeEpochs [data-role="remove-photo"]').click();
+    ok(`${vp.n} local photo: removed`, (await p.locator('#threeEpochs [data-role="last"] option').count()) === baselineFrames);
+    await p.screenshot({ path: `${out}/${vp.n}-4-three-epochs.jpg`, type: "jpeg", quality: 60 });
+    ok(`${vp.n} chronoscope available`, await p.locator("#chronoscope").isVisible());
+    const allFrames = await p.locator('#chronoscope .cs-choices input').count();
+    const availableOriginals = await p.locator(".era-card img").count();
+    ok(`${vp.n} chronoscope displays all available archival frames`, allFrames === availableOriginals && allFrames >= 3, `${allFrames}/${availableOriginals}`);
+    ok(`${vp.n} chronoscope one-keyframe-per-frame`,
+      (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames);
+    ok(`${vp.n} chronoscope whole range`,
+      +(await p.locator('#chronoscope [data-role="range"]').getAttribute("max")) === (allFrames - 1) * 100);
+    await p.locator('#chronoscope .cs-choices input').first().uncheck();
+    ok(`${vp.n} chronoscope excludes chosen frame`,
+      (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames - 1);
+    await p.locator('#chronoscope .cs-choices input').first().check();
+    ok(`${vp.n} chronoscope restores archival frame`,
+      (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames);
+    await p.locator('#chronoscope [data-zoom="in"]').click();
+    const zoomed = await p.locator('#chronoscope [data-role="a"]').evaluate(el => el.style.transform);
+    ok(`${vp.n} chronoscope zoom magnifies detail`, zoomed.includes("scale(1.5)"), zoomed);
+    const matched = await p.locator('#chronoscope .cs-stage').evaluate(stage =>
+      stage.querySelector('[data-role="a"]').style.transform === stage.querySelector('[data-role="b"]').style.transform);
+    ok(`${vp.n} chronoscope zoom matches both epochs`, matched);
+    await p.locator('#chronoscope [data-zoom="reset"]').click();
+    ok(`${vp.n} chronoscope zoom resets`,
+      (await p.locator('#chronoscope [data-role="zoom-value"]').textContent()) === "100%");
+    await p.locator('#chronoscope .cs-keyframes button').last().click();
+    ok(`${vp.n} chronoscope last epoch selected`,
+      +(await p.locator('#chronoscope [data-role="range"]').inputValue()) === (allFrames - 1) * 100);
+    ok(`${vp.n} chronoscope source attribution`,
+      (await p.locator('#chronoscope .cs-provenance a').count()) >= 2);
+    await p.screenshot({ path: `${out}/${vp.n}-5-all-eras-zoom.jpg`, type: "jpeg", quality: 60 });
+    ok(`${vp.n} Madeleine architectural desk present`,
+      await p.locator("#curatorialDesk").isVisible() && /Мадлен/.test(await p.locator("#curatorialDesk h2").textContent()));
+    ok(`${vp.n} architectural glossary explains at least three details`,
+      (await p.locator("#curatorialDesk .cd-section").first().locator(".cd-item").count()) >= 3);
+    ok(`${vp.n} architecture and printmaking sources linked`,
+      (await p.locator("#curatorialDesk .cd-item a[href^='https://']").count()) >= 10);
+    ok(`${vp.n} historical fact distinguishes 1842 and 1845-1860`,
+      /1842/.test(await p.locator("#curatorialDesk").textContent()) &&
+      /1845/.test(await p.locator("#curatorialDesk").textContent()));
     ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
     const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
@@ -107,8 +245,34 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} my viewpoints page`, /Мой ракурс/.test(await p.textContent("h1")));
     await p.goto(base + "eras/#/place/naples-santa_lucia_castel_dell_ovo", { waitUntil: "networkidle" });
     ok(`${vp.n} Naples place renders honest mismatch`, /Разные точки/.test(await p.textContent("#verdict")));
+    ok(`${vp.n} uncatalogued place gets source-led research checklist`, /Как исследовать старую литографию/.test(await p.locator("#curatorialDesk h2").textContent()));
     await p.goto(base + "eras/#/place/nope", { waitUntil: "networkidle" });
     ok(`${vp.n} unknown route handled`, /Не найдено/.test(await p.textContent("#app")));
+    await p.goto(base + "desk/", { waitUntil: "networkidle" });
+    await p.waitForSelector("#albumStack .album-book");
+    ok(`${vp.n} design prototype uses real map and city albums`,
+      (await p.locator("#albumStack .album-book").count()) >= 5 &&
+      await p.locator("#pmap").isVisible() &&
+      await p.locator("#tNew").isVisible());
+    await p.locator("#albumStack .album-book[data-city='paris']").click();
+    ok(`${vp.n} city album opens with real source references`,
+      await p.locator("#folioDialog").evaluate(d=>d.open) &&
+      /Париж/.test(await p.locator("#folioSpread").textContent()));
+    await p.locator("#folioNext").click();
+    ok(`${vp.n} city folio flips`,
+      (await p.locator("#folioPage").textContent()) === "2 / 3");
+    await p.locator("#folioClose").click();
+    await p.locator(".mode-toggle [data-mode='book']").click();
+    ok(`${vp.n} map and book view switch is functional`,
+      (await p.locator("body").getAttribute("data-mode")) === "book");
+    await p.locator("#citySearch").fill("Венеция");
+    ok(`${vp.n} desk city finder navigates to true catalog city`,
+      (await p.locator("#suggestions a[href*='/city/venetsiya']").count()) >= 1);
+    await p.screenshot({ path: `${out}/${vp.n}-7-antique-desk-design.jpg`, type: "jpeg", quality: 67 });
+    const designHasOverflow = await p.evaluate(() =>
+      document.documentElement.scrollWidth > document.documentElement.clientWidth + 3);
+    ok(`${vp.n} desk prototype no horizontal overflow`, !designHasOverflow);
+
     ok(`${vp.n} no console/page/HTTP errors`, errs.length === 0, errs.slice(0, 3).join(" | "));
     await ctx.close();
   }

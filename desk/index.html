@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Атлас на столе · City on Paper · экспериментальный дизайн</title>
+<meta name="description" content="Экспериментальный главный экран музея: подлинная карта Европы, города и листаемые альбомы.">
+<link rel="stylesheet" href="../eras/vendor/leaflet-1.9.4/leaflet.css">
+<link rel="stylesheet" href="desk.css">
+<script src="../eras/vendor/leaflet-1.9.4/leaflet.js" defer></script>
+<script src="../eras/maps.js" defer></script>
+<script src="desk.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#experience">Перейти к атласу</a>
+<header class="museum-header">
+  <a class="museum-mark" href="../eras/"><span class="mark-star" aria-hidden="true">✦</span><span>Город на бумаге <small>City on Paper · цифровой музей</small></span></a>
+  <nav aria-label="Главная навигация">
+    <a href="../eras/">Полный атлас</a>
+    <a href="../#catalog">Коллекция</a>
+    <a href="../contribute/">Участвовать</a>
+  </nav>
+</header>
+<div class="reading-note">
+  <span>ДИЗАЙН-ЛАБОРАТОРИЯ · эскиз подачи, не замена музея</span>
+  <div role="group" aria-label="Режим главного экрана" class="mode-toggle">
+    <button type="button" data-mode="desk" aria-pressed="true">Стол и карта</button>
+    <button type="button" data-mode="book" aria-pressed="false">Открытая книга</button>
+  </div>
+</div>
+<main id="experience">
+  <section class="intro" aria-labelledby="hero-title">
+    <div>
+      <span class="eyebrow">Исторический атлас · литографии · города</span>
+      <h1 id="hero-title">Время, сохранённое<br><em>на бумаге.</em></h1>
+      <p>На столе лежит Европа XVIII века. Найдите город на карте, возьмите его альбом и посмотрите, как менялись улицы и памятники.</p>
+    </div>
+    <div class="intro-notation"><span aria-hidden="true">№ 001</span><p>Листы без искусственной реконструкции.<br>Рисовальщик, литограф, хранитель и исторический ракурс указаны отдельно.</p></div>
+  </section>
+  <div class="desk-stage">
+    <section class="map-paper" aria-labelledby="map-title">
+      <div class="sheet-heading"><div><span>ПЛАНЪ I · КАРТА</span><h2 id="map-title">Выберите город</h2></div><a href="../eras/" class="paper-action">Все 186 городов</a></div>
+      <div class="geographic-map" id="deskMap" aria-label="Подлинная карта 1769 года и современная карта с выбором города"><p>Загружаем настоящую карту…</p></div>
+      <div class="sheet-bottom"><span>Старая карта и современная география</span><span>Париж · Флоренция · Рим · далее весь мир</span></div>
+    </section>
+    <aside class="album-area" aria-labelledby="books-title">
+      <div class="album-eyebrow">БИБЛИОТЕКА АТЛАСА</div>
+      <h2 id="books-title">Альбомы<br><em>городов</em></h2>
+      <p>Открывайте том или выбирайте страну. Каждый лист ведёт к каталогу и музейному оригиналу.</p>
+      <div class="album-stack" id="albumStack" aria-label="Старинные городские альбомы">
+        <p>Подбираем тома из каталога…</p>
+      </div>
+      <div class="album-search">
+        <label for="citySearch">Найти город или страну</label>
+        <input id="citySearch" type="search" autocomplete="off" placeholder="Венеция, Париж, Италия…">
+        <div class="city-suggestions" id="suggestions" role="status" aria-live="polite"></div>
+      </div>
+      <div class="countries-prompt"><span>Часто открывают</span>
+        <a href="../eras/#/country/%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%8F">Франция</a>
+        <a href="../eras/#/country/%D0%98%D1%82%D0%B0%D0%BB%D0%B8%D1%8F">Италия</a>
+        <a href="../eras/#/country/%D0%98%D1%81%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F">Испания</a>
+      </div>
+    </aside>
+  </div>
+  <section class="museum-path" aria-label="Как исследовать">
+    <div><b>01</b><h3>Место</h3><p>Карта связывает историческое название города с современной географией.</p></div>
+    <div><b>02</b><h3>Оригинал</h3><p>Изучите подлинный лист, подробности, технику, авторство и музейную карточку.</p></div>
+    <div><b>03</b><h3>Сравнение</h3><p>Сопоставьте разные годы, увеличьте фрагмент, добавьте своё фото без публикации.</p></div>
+  </section>
+  <div class="museum-bottom"><a href="../eras/">Войти в полный рабочий атлас</a><span>Экспериментальная обложка. Полный научный каталог остаётся в основном атласе.</span></div>
+</main>
+<dialog id="folioDialog" aria-labelledby="folioHeading" class="folio-dialog">
+  <div class="folio-dialog-head"><span id="folioHeading">ЭКСПОНАТ · ГОРОДСКОЙ АЛЬБОМ</span><button type="button" id="folioClose" aria-label="Закрыть альбом">Закрыть ×</button></div>
+  <div class="folio-spread" id="folioSpread">
+    <article class="folio-leaf folio-left" id="folioLeft" aria-label="Левая страница альбома"></article>
+    <article class="folio-leaf folio-right" id="folioRight" aria-label="Правая страница альбома"></article>
+  </div>
+  <div class="folio-controls">
+    <button type="button" id="folioPrev" aria-label="Предыдущий разворот">← Предыдущий</button>
+    <span id="folioPage" role="status" aria-live="polite">1 / 3</span>
+    <button type="button" id="folioNext" aria-label="Следующий разворот">Следующий →</button>
+  </div>
+  <p class="folio-caution">Альбом является способом навигации. Происхождение и права изображений указаны у хранителя. Анимация перелистывания не меняет оригинальные сканы.</p>
+</dialog>
+<footer><span>City on Paper · Город на бумаге</span><a href="../eras/">Полный каталог, источники и современные карты</a></footer>
+</body>
+</html>

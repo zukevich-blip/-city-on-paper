@@ -1,0 +1,13 @@
+/* Source-first reading desk: typographic museum notes and bibliography. */
+.curatorial-desk{margin:30px 0 18px;padding:22px;border:1px solid var(--line,#d9cbb5);background:#faf6ee;box-shadow:0 10px 34px -28px #382b1d}
+.cd-title h2{font:normal clamp(29px,3vw,39px)/1.2 Georgia,serif;margin:7px 0 12px}
+.cd-title p{max-width:900px;font:15px/1.7 Georgia,serif;color:#54584d}
+.cd-section{margin-top:25px}.cd-section h3{font:normal 24px/1.3 Georgia,serif;color:#35463e;margin:0 0 13px}
+.cd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.cd-item{border:1px solid #d6c6ac;background:#fffdf8;padding:16px;display:flex;flex-direction:column;gap:6px}
+.cd-item strong{font:18px/1.32 Georgia,serif;color:#45372a}
+.cd-item p{font:13px/1.64 system-ui;margin:3px 0 7px;color:#53564c;flex:1}
+.cd-item a{font:12px/1.5 system-ui;color:#774631;text-decoration:underline;text-underline-offset:3px;min-height:28px}
+.cd-question{border-left:3px solid #a8804e;background:#ede3d3;padding:15px 17px;margin:22px 0;font:15px/1.55 Georgia,serif;color:#3d413a}
+.cd-standards{border-top:1px solid #dbcfbd;padding-top:14px;margin-top:22px;font:12px/1.65 system-ui;color:#6a6c61}
+@media(max-width:740px){.curatorial-desk{padding:14px}.cd-grid{grid-template-columns:1fr}.cd-section h3{font-size:21px}.cd-item{padding:13px}}

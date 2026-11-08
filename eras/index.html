@@ -8,6 +8,10 @@
 <title>Атлас эпох · Город на бумаге</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
+<link rel="stylesheet" href="three-epochs.css">
+<link rel="stylesheet" href="chronoscope.css">
+<link rel="stylesheet" href="curatorial-desk.css">
+<link rel="stylesheet" href="city-lab.css">
 <link rel="icon" href="icons/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -181,6 +185,45 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .epcard{background:var(--paper2);border:1px solid var(--line);padding:8px;text-decoration:none;display:flex;flex-direction:column;gap:4px}.epcard:hover{border-color:#a8804e}
 .epcard .pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}.epcard .pair img,.epcard .pair .noimg{width:100%;height:130px;object-fit:cover;background:#ebe2d2}.epcard .pair img:only-child{grid-column:1/-1;object-fit:contain}
 .epcard b{font:400 19px Georgia,serif}.epcard small{color:var(--muted);font:12px system-ui}
+.museum-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:end;background:var(--paper2);border:1px solid var(--line);padding:14px;margin:13px 0 20px}
+.museum-filters label{font:12px/1.6 system-ui;color:#5b6259;display:flex;flex-direction:column;gap:6px;flex:1 1 210px}
+.museum-filters input{font:15px system-ui;padding:10px 12px;min-height:44px;color:var(--ink);border:1px solid #b9ab94;background:#fffdf7;border-radius:2px;width:100%;min-width:0}
+.museum-filters span{font:12px system-ui;color:var(--muted);flex:1 1 100%;min-height:18px}
+/* Country chapters: browse as a geographic book, not a wall of cards. */
+.country-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:25px 0 12px}
+.country-toolbar>div{display:flex;gap:7px;flex-wrap:wrap}
+.country-toolbar button{background:var(--paper2);border:1px solid var(--line);padding:7px 11px;min-height:42px;color:var(--dark);font:12px system-ui}
+.country-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px;margin-bottom:16px}
+.country-chip{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;padding:12px;background:var(--paper2);border:1px solid var(--line);color:var(--ink);min-height:50px}
+.country-chip b{font:17px/1.2 Georgia,serif}.country-chip small{color:var(--muted);font:11px system-ui;white-space:nowrap}
+.country-chip:hover,.country-chip:focus-visible{border-color:var(--gold);background:#ede1cb}
+.country-collection{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.country-group{border:1px solid var(--line);background:#faf6ee;scroll-margin-top:18px}
+.country-group summary{display:flex;gap:15px;align-items:center;cursor:pointer;list-style:none;padding:17px 19px;min-height:60px}
+.country-group summary::-webkit-details-marker{display:none}
+.country-group[open] summary{border-bottom:1px solid var(--line);background:#eee3d0}
+.country-name{font:normal 26px Georgia,serif;color:var(--dark)}
+.country-count{margin-left:auto;color:var(--muted);font:12px system-ui;text-align:right}
+.country-expand{font:27px/1 Georgia,serif;color:#825435;flex:none}
+.country-group[open] .country-expand{transform:rotate(45deg)}
+.city-archive{margin:20px 0 26px;border:1px solid var(--line);background:var(--paper2)}
+.city-archive summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 17px;min-height:56px;font:22px/1.35 Georgia,serif;color:var(--dark)}
+.city-archive summary::-webkit-details-marker{display:none}
+.city-archive[open] summary{background:#ebe1cf;border-bottom:1px solid var(--line)}
+.city-archive summary small{font:12px/1.4 system-ui;color:var(--muted)}
+.city-archive>.wgrid{padding:14px}
+@media(max-width:680px){.city-archive summary{font-size:18px}.city-archive>.wgrid{padding:8px}}
+.country-preface{font:13px/1.5 system-ui;color:#755b3b;padding:10px 15px;margin:0;border-bottom:1px solid #e3d7c5}
+.country-preface a{color:#795235;text-decoration:underline;text-underline-offset:3px}
+.country-cities{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:9px;padding:15px}
+.country-cities .ccard{display:flex;flex-direction:column;min-height:130px}
+.country-cities .ccard b{font:20px/1.2 Georgia,serif}
+.country-cities .ccard span{margin-top:auto}
+@media(max-width:680px){.country-index{grid-template-columns:repeat(2,minmax(0,1fr))}.country-chip{padding:9px 10px}
+.country-chip b{font-size:15px}.country-cities{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px;gap:6px}
+.country-cities .ccard{padding:12px;min-height:120px}.country-cities .ccard b{font-size:17px}
+.country-group summary{padding:12px;gap:7px}.country-name{font-size:21px}.country-count{font-size:11px}}
+@media(max-width:390px){.country-cities{grid-template-columns:1fr}}
 </style>
 <script src="../assets/nav/museum-nav.js" defer></script>
 </head>
@@ -195,7 +238,11 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 <script src="vendor/leaflet-1.9.4/leaflet.js"></script>
 <script src="maps.js"></script>
 <script src="epochs.js"></script>
+<script src="city-lab.js"></script>
 <script src="atlas.js"></script>
+<script src="three-epochs.js"></script>
+<script src="chronoscope.js"></script>
+<script src="curatorial-desk.js"></script>
 <script src="eras.js"></script>
 <script>
 if ("serviceWorker" in navigator && (location.protocol === "https:" || ["127.0.0.1", "localhost"].includes(location.hostname))) {

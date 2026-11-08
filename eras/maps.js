@@ -27,6 +27,11 @@ window.Maps = (() => {
     map.setMaxBounds(bounds.pad(0.15));
     map.setMaxZoom(z + 2);
     homeButton(map, () => map.fitBounds(bounds));
+    // Re-entering a country route replaces the map container; recalculate tile bounds
+    // after layout settles so the old scan loads reliably on iPhone and desktop.
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (map.getContainer().isConnected) map.invalidateSize({ pan: false, animate: false });
+    }));
     return { map, at: (x, y) => map.unproject([x, y], z), bounds };
   }
   function homeButton(map, fn) {
