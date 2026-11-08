@@ -30,11 +30,13 @@ def test_public_site_is_allowlisted_and_indexable(tmp_path: Path) -> None:
     make_mock_source(source)
     report = build(source, output)
 
-    assert report["html_pages"] == len(PAGES) + 3
+    assert report["html_pages"] == len(PAGES) + 4
     assert (output / "index.html").exists()
     assert (output / "about/index.html").exists()
     assert (output / "rights/index.html").exists()
     assert (output / "privacy/index.html").exists()
+    assert (output / "contribute/index.html").exists()
+    assert "Предложить произведение" in (output / "contribute/index.html").read_text(encoding="utf-8")
     assert (output / "sitemap.xml").exists()
     assert (output / ".nojekyll").exists()
     assert (output / "robots.txt").read_text(encoding="utf-8").startswith("User-agent: *\nAllow: /")
