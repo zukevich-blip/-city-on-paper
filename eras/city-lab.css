@@ -24,10 +24,10 @@
 .citylab-warning{font:12px/1.65 system-ui;padding:14px 17px;border-left:3px solid #b08456;background:#f1e8db;color:#665d50}
 .citylab-dialog{background:#faf6ee;color:#26362b;border:1px solid #b9a68a;max-width:min(96vw,1250px);width:96vw;max-height:94vh;padding:10px 14px 20px}
 .citylab-dialog::backdrop{background:#161c16dc}
-.citylab-viewer-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:7px 0 13px;border-bottom:1px solid #d4c5b0}
-.citylab-viewer-tools strong{flex:1 1 200px;font:normal 19px/1.3 Georgia,serif}
-.citylab-viewer-tools button{background:#fffdf7;border:1px solid #b9ab94;min-width:42px;min-height:44px;padding:6px 11px}
-.citylab-viewer-tools span{font:12px system-ui;min-width:44px;text-align:center}
+.citylab-viewer-tools{display:grid;grid-template-columns:44px 56px 44px minmax(73px,1fr) minmax(73px,1fr);gap:8px;align-items:center;padding:7px 0 13px;border-bottom:1px solid #d4c5b0}
+.citylab-viewer-tools strong{grid-column:1/-1;font:normal 19px/1.3 Georgia,serif;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.citylab-viewer-tools button{background:#fffdf7;border:1px solid #b9ab94;min-width:0;min-height:44px;padding:6px 6px;position:relative;z-index:1}
+.citylab-viewer-tools span{font:12px system-ui;min-width:0;text-align:center}
 .citylab-viewer-stage{position:relative;height:58vh;min-height:220px;overflow:hidden;background:#20281f;touch-action:pan-y}
 .citylab-viewer-stage img{width:100%;height:100%;object-fit:contain;display:block;transform-origin:center;pointer-events:none;user-select:none}
 .citylab-viewer-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;padding:14px 0;font:12px/1.5 system-ui}
@@ -36,5 +36,8 @@
 @media(max-width:680px){.citylab{padding:11px}.citylab-results{grid-template-columns:1fr}
 .citylab-item{padding:8px;gap:10px}.citylab-thumb{width:78px;height:96px}
 .citylab-dialog{width:100vw;max-width:100vw;max-height:100vh;margin:auto;padding:8px}
+.citylab-viewer-tools{grid-template-columns:40px 46px 40px minmax(68px,1fr) minmax(68px,1fr);gap:5px}
+.citylab-viewer-tools strong{font-size:17px;line-height:1.23;max-height:74px;overflow:auto}
+.citylab-viewer-tools button{font-size:12px;padding:4px 3px}
 .citylab-viewer-stage{height:54vh;min-height:240px}.citylab-heading h2{font-size:27px}
 .citylab-viewer-facts{grid-template-columns:1fr 1fr}}
