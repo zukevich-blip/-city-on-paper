@@ -34,11 +34,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForTimeout(600);
     await p.waitForFunction(() => document.querySelectorAll("#pmap .leaflet-tile-loaded").length >= 1,
       null, { timeout: 10000 });
-    const mapTileCount = await p.$eval("#pmap .leaflet-tile-loaded", tiles => tiles.length);
+    const mapTileCount = await p.locator("#pmap .leaflet-tile-loaded").count();
     const mapTileUrl = await p.locator("#pmap .leaflet-tile").first().evaluate(img => img.src);
     const mapTileResponse = await p.request.get(mapTileUrl);
     ok(`${vp.n} portal: historical map tile loaded and served`,
-      mapTileCount >= 1 && mapTileResponse.ok() && /image\\//.test(mapTileResponse.headers()["content-type"] || ""),
+      mapTileCount >= 1 && mapTileResponse.ok() && String(mapTileResponse.headers()["content-type"] || "").startsWith("image/"),
       `${mapTileCount} / ${mapTileResponse.status()} / ${mapTileUrl}`);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
