@@ -1,0 +1,25 @@
+SUBJECT: Etiquette question — thumbnails of public-domain Commons files in a small non-commercial atlas: hotlink or self-host?
+
+BODY:
+Hello,
+
+I am developing, as a private individual, "City on Paper / Город на бумаге", an independent, non-commercial, educational digital museum on GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/). Its atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) shows 19th-century city views, many of them public-domain files from Wikimedia Commons, each credited with author, source, licence and a link to the Commons file page.
+
+At present the atlas loads 800 px thumbnails directly from upload.wikimedia.org. Having read Commons:Reusing content outside Wikimedia/technical (COM:HOTLINK), which says hotlinking is allowed but generally not recommended, I would like to do what is kindest to your infrastructure:
+1. Would you prefer that we download and self-host these public-domain thumbnails (≤ 1000 px), keeping the full credit and the link to each file page?
+2. If we keep loading from Wikimedia servers, is Special:FilePath with a width parameter the preferred method, and is there a request rate we should stay under?
+
+We will keep the credit and file-page link for every image, and we never alter the image (no cropping, recolouring or AI).
+
+A one-line reply is enough:
+— "Self-hosting is preferred"
+— "Hotlinking is fine; please use …"
+— "Please ask at: …"
+
+Thank you for Commons, and for the work of its volunteers.
+
+Best regards,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/

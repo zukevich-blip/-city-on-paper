@@ -1,0 +1,33 @@
+SUBJECT: BIU Santé, banque d'images — conditions de réutilisation de 2 vues (CISD0027 Val-de-Grâce, CISC0186 Évian), projet éducatif non commercial
+
+BODY:
+Madame, Monsieur,
+
+Je développe à titre personnel « City on Paper / Город на бумаге », un musée numérique indépendant, non commercial et éducatif, librement accessible sur GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Notre atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) part d'une carte de 1769, mène aux villes, puis aux vues de Félix et Philippe Benoist et d'autres artistes, avec des comparaisons « autrefois / aujourd'hui ». Chaque œuvre est créditée et renvoie à la notice de l'institution qui la conserve.
+
+Nous référençons deux images de votre banque d'images : « Le Val-de-Grâce » d'après Philippe Benoist (CISD0027) et « Évian : vue prise du lac de Genève » d'après Félix Benoist (CISC0186). L'agrégateur dont proviennent nos données les signale « In Copyright » ; nous n'affichons donc qu'un lien. Pourriez-vous nous indiquer les conditions applicables et si vous accepteriez :
+1. une vignette (1000 px maximum) avec votre mention de crédit et un lien vers l'adresse permanente de la notice ;
+2. ou les seuls liens ?
+
+Nos engagements : crédit et lien vers votre notice ; mention des droits affichée ; l'original n'est jamais modifié (ni recadrage, ni recolorisation, ni IA) ; aucun usage commercial ; retrait sous 7 jours sur simple demande.
+
+Pour la BIU Santé : des visiteurs dirigés vers la banque d'images, et ces vues replacées sur une carte, à côté de la ville actuelle.
+
+Une ligne de réponse suffit :
+— « Oui, avec la mention : … »
+— « Liens seulement, merci »
+— « Merci de contacter : … »
+
+Avec mes remerciements et mes respectueuses salutations,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Notices (2 records / 2 plates) -----
+1. Le Val-de-Grâce
+   http://www.biusante.parisdescartes.fr/histmed/image?CISD0027
+2. Evian : vue prise du lac de Genève
+   http://www.biusante.parisdescartes.fr/histmed/image?CISC0186

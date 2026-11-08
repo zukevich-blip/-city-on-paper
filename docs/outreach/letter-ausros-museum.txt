@@ -1,0 +1,37 @@
+SUBJECT: Request — web thumbnails of 3 Philippe Benoist lithographs (Vilnius, Warsaw) from LIMIS for a non-commercial educational atlas
+
+BODY:
+Laba diena / Dear colleagues,
+
+Could you please forward this message to the Collections Accounting and Digitisation Department (Rinkinių apskaitos ir skaitmeninimo skyrius)?
+
+I am developing, as a private individual, "City on Paper / Город на бумаге", an independent, non-commercial, educational digital museum, freely available on GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Our atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) starts from a 1769 map, leads to individual towns, and then to views by Félix and Philippe Benoist and other artists, with then-and-now comparisons. Every work is credited and links directly to the holding institution's record.
+
+We link to three lithographs after Philippe Benoist published in LIMIS from your collection: the former Vilnius University, St Anne's Church in Vilnius, and the interior of the Łazienki Palace in Warsaw (record links below). Two are marked CC BY-NC-ND and one "In Copyright", so for now we show links only. Would you allow:
+1. a thumbnail (max. 1000 px), resized only, with your credit line and a link to the LIMIS record;
+2. or links only, as now?
+
+Our commitments: credit and link to your record; rights statement shown; the original is never altered (no cropping, recolouring or AI); no commercial use; removal within 7 days on request.
+
+For the museum: visitors directed to LIMIS and to your collection, and the Benoist views of Vilnius placed on a map beside the present-day city.
+
+A one-line reply is enough:
+— "Yes, with credit line: …"
+— "Links only, please"
+— "Please contact: …"
+
+Ačiū / Thank you very much,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Records (3 records / 3 plates) -----
+1. Widoki Warszawy. Wnętrze pałacu Zwanego Łazienki
+   http://www.limis.lt/limisk-portlet/external/preview/exhibit/371948682
+2. Widoki Wilna. Byłi uniwersytet Wileński
+   http://www.limis.lt/limisk-portlet/external/preview/exhibit/349256439
+3. Starożytny kościół Sy Anny w Wilnie
+   https://www.limis.lt/valuables/e/805391/349391706

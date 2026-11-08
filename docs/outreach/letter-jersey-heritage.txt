@@ -1,0 +1,52 @@
+SUBJECT: Permission request — web thumbnails of 11 Félix Benoist lithographs (Jersey & Guernsey) for a non-commercial educational atlas
+
+BODY:
+Dear Curators,
+
+I am developing, as a private individual, "City on Paper / Город на бумаге", an independent, non-commercial, educational digital museum, freely available on GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Our atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) starts from a 1769 map, leads to individual towns, and then to views by Félix and Philippe Benoist and other artists, with then-and-now comparisons. Every work is credited and links directly to the holding institution's catalogue record.
+
+We currently link to 11 records in the Jersey Heritage catalogue, Félix Benoist's views of St Helier, Elizabeth Castle, St Aubin's, St Brelade's and Bouley Bays, Anne Port, La Hougue Bie and others (full list below). They are marked "In Copyright", so we show links only. Your fee table mentions that publication use needs permission from the Archives and Collections Director, and we would be grateful if you could forward this request. We would like to ask whether you would allow one of the following:
+1. a web thumbnail (max. 1000 px) of each record, with your credit line and a link to the record;
+2. if you prefer, links only, as now;
+3. or tell us the correct permission form or fee.
+
+Our commitments: credit and link to your record; rights statement shown; the original is never altered (no cropping, recolouring or AI); no commercial use; removal within 7 days on request.
+
+For Jersey Heritage: visitors sent to your catalogue, and these island views set on a map next to the present-day coast.
+
+A one-line reply is enough:
+— "Yes, with credit line: …"
+— "Links only, please"
+— "Please contact: …"
+
+Thank you for considering this. Kind regards,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Records (11 records / 11 plates) -----
+1. Anne Port and St Catherine's Bay, Jersey
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3251
+2. Caves de Lecoq, Guernsey
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3172
+3. Greve au Lancon.
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3171
+4. Bouley Bay, Jersey
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3244
+5. St Brelade's Bay, Jersey
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3232
+6. Princes Tower, La Hougue Bie
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3614
+7. St Aubin's Bay, Jersey
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3208
+8. Saint Helier (Capitale de L'Ile de Jersey)
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3515
+9. Saint Helier et Chateau Elizabeth, Vue prise de L'Ermitage..
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3862
+10. St Helier's Hermitage and Elizabeth Castle Jersey
+   http://catalogue.jerseyheritage.org/collection/Details/collect/3024
+11. Saint Helier - View of Harbour and Castle from Mount Bingham
+   http://catalogue.jerseyheritage.org/collection/Details/collect/2997

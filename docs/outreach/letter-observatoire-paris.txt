@@ -1,0 +1,33 @@
+SUBJECT: Bibliothèque de l'Observatoire — mention de crédit souhaitée pour 2 vues de Paris de Félix Benoist (Cosmos 32285, 32286), projet éducatif non commercial
+
+BODY:
+Madame, Monsieur,
+
+Je développe à titre personnel « City on Paper / Город на бумаге », un musée numérique indépendant, non commercial et éducatif, librement accessible sur GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Notre atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) part d'une carte de 1769, mène aux villes, puis aux vues de Félix et Philippe Benoist et d'autres artistes, avec des comparaisons « autrefois / aujourd'hui ». Chaque œuvre est créditée et renvoie à la notice de l'institution qui la conserve.
+
+Nous référençons deux vues à vol d'oiseau de Félix Benoist présentes dans Cosmos : « Paris en 1860, vue prise au-dessus du rond-point des Champs-Élysées » (objet 32285) et « Palais et jardin du Luxembourg » (objet 32286). Elles sont indiquées sous licence CC BY-NC ; nous n'affichons pour l'instant qu'un lien, et souhaitons confirmer avec vous :
+1. l'affichage d'une vignette (1000 px maximum) avec votre mention de crédit et un lien vers la notice Cosmos ;
+2. ou, si vous le préférez, les seuls liens.
+
+Nos engagements : crédit et lien vers votre notice ; licence affichée ; l'original n'est jamais modifié (ni recadrage, ni recolorisation, ni IA) ; aucun usage commercial ; retrait sous 7 jours sur simple demande.
+
+Pour la Bibliothèque : des visiteurs dirigés vers Cosmos, et ces deux vues replacées sur le plan de Paris.
+
+Une ligne de réponse suffit :
+— « Oui, avec la mention : … »
+— « Liens seulement, merci »
+— « Merci de contacter : … »
+
+Avec mes remerciements et mes respectueuses salutations,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Notices (2 records / 2 plates) -----
+1. Paris en 1860 : vue à vol d’oiseau prise au dessus du rond-point des Champs-Elysées   (titre original)
+   https://cosmos.obspm.fr/index.php/Detail/objects/32285
+2. Palais et jardin du Luxembourg : vue à vol d’oiseau prise au dessus de la rue de Tournon,   (titre original)
+   https://cosmos.obspm.fr/index.php/Detail/objects/32286

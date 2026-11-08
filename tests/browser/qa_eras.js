@@ -16,8 +16,9 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
     const nCities = await p.$$eval(".ccard", (c) => c.length);
     ok(`${vp.n} portal: city list ≥ 80`, nCities >= 80, String(nCities));
-    ok(`${vp.n} portal: map loaded`, await p.$eval(".plate img", i => i.complete && i.naturalWidth > 0));
-    ok(`${vp.n} portal: pins on map`, (await p.locator(".dot").count()) >= 3);
+    ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
+    ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
+    ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
     await p.fill("#q", "Лиссаб");
     ok(`${vp.n} portal: search filters list`, (await p.$$eval(".ccard", (c) => c.map((x) => x.textContent))).every((t) => /Лиссабон/.test(t)) && (await p.locator(".ccard").count()) >= 1);
     await p.fill("#q", "");
@@ -25,9 +26,17 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} portal: featured filter`, (await p.locator(".ccard").count()) === 3);
     ok(`${vp.n} portal: filter announced`, /Показано городов: 3/.test(await p.textContent("#shown")));
     await p.selectOption("#grp", "all");
-    await p.click("#zin");
-    ok(`${vp.n} portal: map zoom`, await p.$eval("#frame", (f) => parseFloat(f.style.width) > 100));
-    await p.click("#zout");
+    const zoomOf = () => p.$eval("#pmap .leaflet-map-pane", (m) => m.querySelector(".leaflet-tile-container") ? 1 : 0)
+      .then(() => p.evaluate(() => document.querySelector("#pmap .leaflet-proxy").style.transform));
+    const z0 = await zoomOf();
+    await p.click("#pmap .leaflet-control-zoom-in"); await p.waitForTimeout(700);
+    ok(`${vp.n} portal: zoom button in the corner works`, (await zoomOf()) !== z0);
+    const zb = await p.$eval("#pmap .leaflet-control-zoom-in", (b) => { const r = b.getBoundingClientRect(), m = b.closest(".lmap").getBoundingClientRect(); return [r.width, m.right - r.right, r.top - m.top]; });
+    ok(`${vp.n} portal: zoom control is ≥44px, top-right`, zb[0] >= 44 && zb[1] < 30 && zb[2] < 30, zb.join(","));
+    await p.click("#pmap .mhome"); await p.waitForTimeout(500);
+    await p.click("#tNew"); await p.waitForTimeout(800);
+    ok(`${vp.n} portal: modern map tab`, (await p.locator("#nmap .mk").count()) >= 180);
+    await p.click("#tOld");
     await p.screenshot({ path: `${out}/${vp.n}-1-portal.jpg`, type: "jpeg", quality: 60 });
     const man = await p.evaluate(async () => { const l = document.querySelector('link[rel="manifest"]'); const r = await fetch(l.href); const j = await r.json(); return j.display + "|" + j.icons.length; });
     ok(`${vp.n} PWA manifest`, man === "standalone|3", man);
@@ -49,6 +58,9 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
+    await p.locator("#cmaphost").scrollIntoViewIfNeeded(); await p.waitForTimeout(800);
+    ok(`${vp.n} city: zoomable 1878 plan of Paris`, (await p.locator("#cplan .leaflet-tile-loaded").count()) >= 2);
+    ok(`${vp.n} city: links to other museum halls`, (await p.locator(".halls a").count()) >= 3);
     await p.screenshot({ path: `${out}/${vp.n}-2-paris.jpg`, type: "jpeg", quality: 60 });
     await p.locator(".plate .pin", { hasText: "Мадлен" }).click();
     await p.waitForSelector("#stage");
@@ -82,7 +94,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     const small = await p.$$eval("button, select, a.pin, a.ccard", els => els.filter(e => e.offsetParent).map(e => e.getBoundingClientRect()).filter(r => r.height < 40 || r.width < 36).length);
     ok(`${vp.n} touch targets ≥40px`, small === 0, `${small} small`);
     ok(`${vp.n} no horizontal page scroll`, await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    ok(`${vp.n} images have alt`, await p.$$eval("img", ims => ims.every(i => (i.alt || "").length > 5)));
+    ok(`${vp.n} images have alt`, await p.$$eval("img:not(.leaflet-tile)", ims => ims.every(i => (i.alt || "").length > 5)));
     await p.goto(base + "eras/#/place/naples-santa_lucia_castel_dell_ovo", { waitUntil: "networkidle" });
     ok(`${vp.n} Naples place renders honest mismatch`, /Разные точки/.test(await p.textContent("#verdict")));
     await p.goto(base + "eras/#/place/nope", { waitUntil: "networkidle" });

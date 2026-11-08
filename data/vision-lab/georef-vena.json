@@ -1,0 +1,333 @@
+{
+ "map_id": "icgc-europa-986",
+ "title": "Vienna = Wien = Vienne",
+ "iiif_service": "https://cartotecadigital.icgc.cat/iiif/2/europa:986",
+ "pixel_space": {
+  "description": "full-resolution IIIF image",
+  "width": 3128,
+  "height": 2977
+ },
+ "method": "Manual GCP picking on gridded zoom crops (PIL grid, visual reading by Claude) of a IIIF derivative; modern coordinates from Wikidata P625; least-squares affine (6 params) and 2nd-order polynomial (12 params) fitted with numpy in a local equirectangular metric frame; leave-one-out cross-validation.",
+ "date": "2026-11-08",
+ "label": "APPROXIMATE georeference (manual GCPs on a 19th-c. printed plan); not survey-grade",
+ "local_projection": {
+  "type": "equirectangular tangent approximation",
+  "lon0": 16.372457666388875,
+  "lat0": 48.211360542222124,
+  "R_m": 6378137.0,
+  "X_east_m": "(lon-lon0)*pi/180*R*cos(lat0)",
+  "Y_north_m": "(lat-lat0)*pi/180*R"
+ },
+ "gcps": [
+  {
+   "name": "Staatsoper (Opera)",
+   "qid": "Q209937",
+   "px": 2260,
+   "py": 1840,
+   "px_web2000": 1445.0,
+   "py_web2000": 1176.5,
+   "lon": 16.369166666667,
+   "lat": 48.203333333333,
+   "coord_source": "Wikidata Q209937 P625 (fetched 2026-11-08)",
+   "pick_confidence": "high",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 56.7,
+   "residual_poly2_m": 16.8,
+   "loo_affine_m": 98.5,
+   "loo_poly2_m": 115.8
+  },
+  {
+   "name": "Stephansdom",
+   "qid": "Q5943",
+   "px": 1890,
+   "py": 1632,
+   "px_web2000": 1208.4,
+   "py_web2000": 1043.5,
+   "lon": 16.373256,
+   "lat": 48.208427,
+   "coord_source": "Wikidata Q5943 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 31.2,
+   "residual_poly2_m": 28.4,
+   "loo_affine_m": 37.5,
+   "loo_poly2_m": 64.1
+  },
+  {
+   "name": "Votivkirche",
+   "qid": "Q254476",
+   "px": 1528,
+   "py": 2335,
+   "px_web2000": 977.0,
+   "py_web2000": 1493.0,
+   "lon": 16.3591,
+   "lat": 48.21545,
+   "coord_source": "Wikidata Q254476 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 19.3,
+   "residual_poly2_m": 21.0,
+   "loo_affine_m": 32.7,
+   "loo_poly2_m": 56.5
+  },
+  {
+   "name": "University (Hauptgebäude, as drawn)",
+   "qid": "Q19971231",
+   "px": 1688,
+   "py": 2284,
+   "px_web2000": 1079.3,
+   "py_web2000": 1460.4,
+   "lon": 16.35972222,
+   "lat": 48.21305556,
+   "coord_source": "Wikidata Q19971231 P625 (fetched 2026-11-08)",
+   "pick_confidence": "low",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 6.1,
+   "residual_poly2_m": 23.5,
+   "loo_affine_m": 9.0,
+   "loo_poly2_m": 51.2,
+   "note": "drawn before/at construction (1877-84); position of label block"
+  },
+  {
+   "name": "Rossauer Kaserne",
+   "qid": "Q2167653",
+   "px": 1289,
+   "py": 1935,
+   "px_web2000": 824.2,
+   "py_web2000": 1237.2,
+   "lon": 16.367169444444,
+   "lat": 48.217969444444,
+   "coord_source": "Wikidata Q2167653 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 36.2,
+   "residual_poly2_m": 6.7,
+   "loo_affine_m": 54.1,
+   "loo_poly2_m": 186.3
+  },
+  {
+   "name": "Praterstern (centre of circle)",
+   "qid": "Q2107893",
+   "px": 1119,
+   "py": 890,
+   "px_web2000": 715.5,
+   "py_web2000": 569.1,
+   "lon": 16.3905,
+   "lat": 48.2179,
+   "coord_source": "Wikidata Q2107893 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 49.9,
+   "residual_poly2_m": 9.6,
+   "loo_affine_m": 149.3,
+   "loo_poly2_m": 207.9
+  },
+  {
+   "name": "Kursalon (Kurhaus, Stadtpark)",
+   "qid": "Q1266829",
+   "px": 2148,
+   "py": 1367,
+   "px_web2000": 1373.4,
+   "py_web2000": 874.0,
+   "lon": 16.377947,
+   "lat": 48.203349,
+   "coord_source": "Wikidata Q1266829 P625 (fetched 2026-11-08)",
+   "pick_confidence": "medium",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 51.0,
+   "residual_poly2_m": 12.0,
+   "loo_affine_m": 87.3,
+   "loo_poly2_m": 136.1
+  },
+  {
+   "name": "Aspernbrücke (bridge at Stubenring)",
+   "qid": "Q736642",
+   "px": 1564,
+   "py": 1189,
+   "px_web2000": 1000.0,
+   "py_web2000": 760.2,
+   "lon": 16.3828,
+   "lat": 48.2114,
+   "coord_source": "Wikidata Q736642 P625 (fetched 2026-11-08)",
+   "pick_confidence": "low",
+   "picked_on": "raw/wien-full.jpg (IIIF full, 3128x2977, native resolution)",
+   "residual_affine_m": 48.7,
+   "residual_poly2_m": 28.8,
+   "loo_affine_m": 65.9,
+   "loo_poly2_m": 69.9
+  }
+ ],
+ "transforms": {
+  "affine": {
+   "n_params_per_axis": 3,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v"
+    ],
+    "u_v_definition": "u = px / 3128.0, v = py / 3128.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     2797.762799491501,
+     -291.6588095987363,
+     -4904.832659458761
+    ],
+    "coef_Y_north_m": [
+     2290.5881279432224,
+     -5227.316547473707,
+     978.0220936447217
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     1685.7500000000505,
+     -117.26739041011041,
+     -590.7148201272365
+    ],
+    "coef_py": [
+     1683.999999999955,
+     -629.5504498626435,
+     35.98632590353642
+    ]
+   },
+   "residuals_m": [
+    56.7,
+    31.2,
+    19.3,
+    6.1,
+    36.2,
+    49.9,
+    51.0,
+    48.7
+   ],
+   "rms_m": 40.9,
+   "max_m": 56.7,
+   "leave_one_out_error_m": [
+    98.5,
+    37.5,
+    32.7,
+    9.0,
+    54.1,
+    149.3,
+    87.3,
+    65.9
+   ],
+   "loo_rms_m": 78.6,
+   "metres_per_fullres_pixel": 1.636,
+   "approx_rotation_deg": -93.19,
+   "scale_anisotropy_x_over_y": 1.047
+  },
+  "polynomial_2nd_order": {
+   "n_params_per_axis": 6,
+   "forward_pixel_to_local_metres": {
+    "basis": [
+     "1",
+     "u",
+     "v",
+     "u^2",
+     "u*v",
+     "v^2"
+    ],
+    "u_v_definition": "u = px / 3128.0, v = py / 3128.0 (full-resolution pixels, origin top-left, y down)",
+    "coef_X_east_m": [
+     3380.8539165698076,
+     -1709.121375234689,
+     -5961.645406191612,
+     309.541760013846,
+     2213.8703990447016,
+     20.201979180266836
+    ],
+    "coef_Y_north_m": [
+     2588.541033877518,
+     -6317.861717245717,
+     872.1635818688846,
+     247.35368188459918,
+     1538.8328578811124,
+     -573.5690634553997
+    ]
+   },
+   "inverse_local_metres_to_pixel": {
+    "basis": [
+     "1",
+     "a",
+     "b",
+     "a^2",
+     "a*b",
+     "b^2"
+    ],
+    "a_b_definition": "a = X_east_m / 1000, b = Y_north_m / 1000",
+    "coef_px": [
+     1690.0902498988312,
+     -137.7230607996475,
+     -593.2310647284609,
+     -8.061710537522833,
+     55.516071821630426,
+     2.809520141054343
+    ],
+    "coef_py": [
+     1679.7530562141549,
+     -654.4610022637116,
+     22.797572059031168,
+     8.150583175266833,
+     57.55014143339847,
+     0.7300588742776123
+    ]
+   },
+   "residuals_m": [
+    16.8,
+    28.4,
+    21.0,
+    23.5,
+    6.7,
+    9.6,
+    12.0,
+    28.8
+   ],
+   "rms_m": 20.0,
+   "max_m": 28.8,
+   "leave_one_out_error_m": [
+    115.8,
+    64.1,
+    56.5,
+    51.2,
+    186.3,
+    207.9,
+    136.1,
+    69.9
+   ],
+   "loo_rms_m": 124.8
+  }
+ },
+ "recommended_transform": "affine",
+ "recommended_reason": "lower leave-one-out RMS",
+ "orientation_note": "Plan is NOT north-up: affine rotation -93 deg (image +x axis points ~south), i.e. the sheet top points ~EAST (Danube canal runs down the sheet, Votivkirche/University at bottom = west). The affine/inverse absorb this rotation; the image itself is not rotated.",
+ "computed_utc": "2026-11-08T05:35:22+00:00",
+ "software": "numpy 2.1.3, cop36 tools/fit.py",
+ "image_corners_lonlat_affine": {
+  "note": "Affine extrapolation to the full sheet corners, order TL,TR,BR,BL (MapLibre image-source order). Small guidebook wood/zinc-engraved plan, schematic in places; approximate overlay only.",
+  "coordinates": [
+   [
+    16.410173,
+    48.231937
+   ],
+   [
+    16.406241,
+    48.184979
+   ],
+   [
+    16.343314,
+    48.193341
+   ],
+   [
+    16.347245,
+    48.240299
+   ]
+  ]
+ }
+}

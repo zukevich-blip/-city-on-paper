@@ -1,0 +1,206 @@
+SUBJECT: Gallica — demande de confirmation : vignettes et liens vers 88 estampes de Félix et Philippe Benoist dans un atlas éducatif non commercial
+
+BODY:
+Madame, Monsieur,
+
+Je développe à titre personnel « City on Paper / Город на бумаге », un musée numérique indépendant, non commercial et éducatif, librement accessible sur GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Notre atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) part d'une carte de 1769, mène aux villes, puis aux vues lithographiées de Félix et Philippe Benoist et d'autres artistes, avec des comparaisons « autrefois / aujourd'hui ». Chaque œuvre est créditée et renvoie directement à la notice de l'institution qui la conserve.
+
+Nous référençons 88 estampes et dessins conservés par la BnF (liste complète des identifiants ark ci-dessous). Ils portent aujourd'hui dans nos données la mention « NoC-OKLR » ; par prudence, nous n'affichons pour l'instant qu'un lien vers Gallica. Nous avons compris que la réutilisation non commerciale est libre sous réserve de la mention de source ; nous souhaitons simplement confirmer avec vous la bonne pratique :
+1. afficher une vignette (1000 px maximum) avec la mention « Source gallica.bnf.fr / Bibliothèque nationale de France » et un lien vers la notice ark ;
+2. de préférence, l'appeler via le service IIIF de Gallica plutôt que de copier le fichier ;
+3. ou, si vous le préférez, nous en tenir aux seuls liens.
+
+Nos engagements : crédit et lien vers votre notice ; mention des droits affichée ; l'original n'est jamais modifié (ni recadrage, ni recolorisation, ni IA) ; aucun usage commercial ; retrait sous 7 jours sur simple demande.
+
+Pour la BnF : des visiteurs dirigés vers Gallica et vos notices, et ces vues replacées sur une carte, ville par ville.
+
+Une ligne de réponse suffit :
+— « Oui, avec la mention : … »
+— « Liens seulement, merci »
+— « Merci de contacter : … »
+
+Avec mes remerciements et mes respectueuses salutations,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Liste des notices (88 records / 88 plates) -----
+1. Cathédrale de Bayeux. [Vue intérieure de la cathédrale] : [dessin] / [Philippe Benoist ?]
+   https://gallica.bnf.fr/ark:/12148/btv1b77407767
+2. Cathédrale de Bayeux. Motifs en bas-reliefs qui séparent les plein-cintres de la nef. Clef de voute d'une porte située dans la partie septentrionale appelée porte d'Artenay : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b77407782
+3. Ville et port de Balaklava : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530205089
+4. Château de Vincennes. Intérieur de la Cour : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53014347t
+5. Versailles, Vue prise au dessus du Grand Trianon : [estampe, vue] / Dess. par Ph. Chaperon, Lith. par Ph. Benoist
+   https://gallica.bnf.fr/ark:/12148/btv1b531283487
+6. Château de Versailles : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53024792g
+7. Château de Versailles Façade sur le parc : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53024795t
+8. Salle de réunion
+   https://gallica.bnf.fr/ark:/12148/btv1b10226608r
+9. Salle à manger
+   https://gallica.bnf.fr/ark:/12148/btv1b102265983
+10. Album de Dornach (Alsace), 1872
+   https://gallica.bnf.fr/ark:/12148/btv1b102266005
+11. Salle de réunion. Le musée archéologique
+   https://gallica.bnf.fr/ark:/12148/btv1b10226604z
+12. Maison d'habitation
+   https://gallica.bnf.fr/ark:/12148/btv1b10226601m
+13. Salle de réunion. La salle de conférences
+   https://gallica.bnf.fr/ark:/12148/btv1b102266079
+14. Petit salon
+   https://gallica.bnf.fr/ark:/12148/btv1b10226599j
+15. Avenue de platanes, vers la ville
+   https://gallica.bnf.fr/ark:/12148/btv1b10226591z
+16. Caen. [Vue de la tour des Gens-d'Armes] : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7740819j
+17. Retable de l'église de Brou : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7742647s
+18. Eglise St. Pierre et St. Paul, à Neuviller (Sépulcre transféré de l'é glise St. Adolphe)
+   https://gallica.bnf.fr/ark:/12148/btv1b10201591m
+19. Les Halles centrales : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530189355
+20. "Hôtel de Ville. Cour d'honneur"., 13. - : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026495c
+21. Palais de l'Élysée (Façade sur le Parc) : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530184949
+22. "Paris en 1860 Vue à vol d'oiseau, prise au-dessus du rond-point des Champs-Élysées"., 2. - : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026631v
+23. Bibliothèque du Conservatoire des Arts et Métiers. (Ancien Réfectoire de l'Abbaye St Martin des Champs) : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53018698v
+24. Palais et jardin du Luxembourg : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530199092
+25. Palais-Royal, Vu à vol d'oiseau : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53020353c
+26. Palais et jardin des Tuileries Vue à vol d'oiseau, prise au-dessus de la Place du Carrousel : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53023759m
+27. Hôtel-de-Ville. Salle du Trône : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53019985k
+28. Clôture de l'exposition universelle : distribution des récompenses aux exposants, au palais de l'industrie, (15 novembre 1855) / dess. et grav. par Ph. Benoist et A. Bayot
+   https://gallica.bnf.fr/ark:/12148/btv1b105250045
+29. Départ de S. M. la reine d'Angleterre de Paris le 27 Août 1855 : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530248437
+30. La sainte Chapelle de Paris, Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849) : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530188043
+31. Place de la Concorde - Place of Concord : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53006337s
+32. Colonne de la Grande Armée Place Vendôme et rue de Castiglione : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53006006z
+33. Château des Tuileries, Côté du Carrousel : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530237511
+34. Place de la Bastille. Monument de Juillet : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530062844
+35. Les Invalides Intérieur du Dôme - Tombeau de Napoléon 1.er : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530125505
+36. Palais de l'Industrie Entrée principale : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530246906
+37. Colonne de la Place Vendôme... Colomn [sic] of the Place Vendôme : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53006335w
+38. Clôture de l'exposition universelle Distribution des récompenses au Palais de l'Industrie (15 novembre 1855) : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530247483
+39. Colonne de la place Vendôme : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53006479q
+40. Villa Rossini : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026657c
+41. Palais des Tuileries façade sur le jardin : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530224594
+42. Les Invalides Façade principale du côté de l'Esplanade : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53012470m
+43. Les Invalides Vue prise de la place Vauban : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530123976
+44. Place de la Concorde : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53006096p
+45. Colonne de Juillet, sur la Place de la Bastille : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53006542q
+46. Église de la Madeleine : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026665w
+47. "Nouveau pavillon de Flore et Nouvelle Galerie du Bord de l'eau avant l'incendie".. Fig. par le Ph. Benoist : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530248526
+48. Vue de la Seine, prise du Louvre La Cité et le Pont-Neuf : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530248276
+49. Le Louvre Nouvelle Façade sur la rue de Rivoli : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530248704
+50. "Hôtel de Ville Église Saint-Gervais et Pont d'Arcole"., 55. - : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530265123
+51. Grande Salle des Antiques Musée du Louvre : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53024808t
+52. Le Louvre et la Seine Vue prise du Pont-Neuf : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53024803k
+53. École militaire Façade sur la Place de Fontenoy : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026615t
+54. Arc de Triomphe de l'Étoile : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530266200
+55. "Pavillon du Louvre - Place Napoléon III". Le pavillon Denon, Première pl. et page de titre de l'album Paris dans sa splendeur (voir le n° De Vinck 16.355) : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53024785d
+56. La Madeleine. Intérieur : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026653k
+57. Vue de la Seine prise du Pont de la Concorde : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53023755t
+58. Cirque de l'Impératrice aux Champs Élysées : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026421p
+59. Le nouveau Louvre. Vue prise du Palais des Tuileries : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530248348
+60. La Bourse : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026655g
+61. Palais du Luxembourg : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53020149w
+62. Chambre des députés Vue prise de la Place de la Concorde : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53026354w
+63. Palais-Royal. Façade du coté [sic] de la Place : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530203306
+64. Porte et Boulevard Saint Denis : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530266185
+65. Bataille de l'Alma 20 7.bre 1854 : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53020552p
+66. Champ de bataille de l'Alma après la Victoire (20 sept. 1854) : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53020573z
+67. Vue générale de la bataille de l'Alma Gagnée sur les Russes par les Armées alliées le 20 7.bre 1854 : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53020566w
+68. Reims. Détails pris intérieurement près la porte d'entrée : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b77429739
+69. Reims. [Statue de la Sainte Vierge et détails du grand portail de la cathédrale] : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b77429702
+70. Reims. [Bases, chapiteaux et détails d'ornements relevés dans la cathédrale] : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7742972w
+71. Reims. [Bases et chapiteaux des colonnes de la cathédrale] : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7742971g
+72. Hôtel du Bourgtheroulde
+   https://gallica.bnf.fr/ark:/12148/btv1b10053409s
+73. Rouen, vue prise du cimetière de Bon-Secours. (Seine-Inférieure).
+   https://gallica.bnf.fr/ark:/12148/btv1b10051374c
+74. Rouen. Portail gauche de la façade de la cathédrale de Rouen ... : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7740725x
+75. Détail du tombeau des Cardinaux d'Amboise. C.le de rouen. [Statue de la Justice] : [dessin] / [Philippe Benoist ?]
+   https://gallica.bnf.fr/ark:/12148/btv1b7740727r
+76. Tour de St Ouen à Rouen : [dessin] / [Philippe Benoist ?]
+   https://gallica.bnf.fr/ark:/12148/btv1b7740733g
+77. Chapelle du Saint Esprit à Rue près Abbeville : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7741146b
+78. Les maisons sculptées a Saverne
+   https://gallica.bnf.fr/ark:/12148/btv1b102021868
+79. Portail de la Cathédrale de Senlis : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7741059m
+80. Senlis. Détails [de balustrades] pris dans la cathédrale : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7741061p
+81. Sébastopol : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53020637g
+82. Château de Saint-Germain-en-Laye : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530248187
+83. Eglise de St Quentin XV S. [Couronnement du Maître autel des fonts baptismaux de la Cathédrale de Saint-Quentin] : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7741226x
+84. St Quentin. XVe S. Extrémité méridionale du grand croisillon [de la collégiale] (prise intérieurement) : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b7741225h
+85. Eglise de l'abbaye de St Riquier, près Abbeville : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b77410764
+86. Partie supérieure du clocher de Ste Marie du Mont près Carentan : [dessin] / [Philippe Benoist]
+   https://gallica.bnf.fr/ark:/12148/btv1b77409120
+87. Château de Fontainebleau. Cour de la Fontaine et Étang aux Carpes : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b530245685
+88. Château de Fontainebleau Cour principale ou Cour des Adieux : [estampe]
+   https://gallica.bnf.fr/ark:/12148/btv1b53024565t

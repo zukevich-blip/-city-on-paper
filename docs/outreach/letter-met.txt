@@ -1,0 +1,33 @@
+SUBJECT: Question — thumbnails or links for 2 Philippe Benoist prints (accession pages 345889, 656125) in a non-commercial educational atlas
+
+BODY:
+Dear Image Licensing team,
+
+I am developing, as a private individual, "City on Paper / Город на бумаге", an independent, non-commercial, educational digital museum, freely available on GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Our atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) starts from a 1769 map, leads to individual towns, and then to views by Félix and Philippe Benoist and other artists, with then-and-now comparisons. Every work is credited and links directly to the holding institution's record.
+
+Two prints after Philippe Benoist in the Department of Drawings and Prints appear in the atlas: "Nouvelles Vues de Paris" (collection page 345889) and "Souvenir de Fontainebleau, Cour des Adieux" (656125). Their images are not in Open Access, so we show links only, and we will keep doing so unless you advise otherwise. Our questions are:
+1. Is a plain link to your collection page, with the title and "The Metropolitan Museum of Art" credit, acceptable to you?
+2. Is there any route for a small non-commercial web thumbnail (max. 1000 px) with credit and link, or should we stay with links only?
+
+Our commitments: credit and link to your record; rights status shown; the original is never altered (no cropping, recolouring or AI); no commercial use; removal within 7 days on request.
+
+For the Met: visitors directed to your collection pages from a map of the cities these prints depict.
+
+A one-line reply is enough:
+— "Links are fine; thumbnails: yes / no"
+— "Links only, please"
+— "Please use the Image Request Form / contact: …"
+
+Thank you for your time. Kind regards,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Records (2 records / 2 plates) -----
+1. Nouvelles Vues de Paris
+   https://www.metmuseum.org/art/collection/search/345889
+2. Souvenir de Fontainebleau, Cour des Adieux, autre-fois cour du cheval blanc (Souvenir of Fontainebleau: Court of Farewells, or, Court of the White Horse)
+   https://www.metmuseum.org/art/collection/search/656125

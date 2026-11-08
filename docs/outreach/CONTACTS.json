@@ -1,0 +1,193 @@
+[
+ {
+  "institution": "Bibliothèque nationale de France (BnF) / Gallica",
+  "slug": "bnf",
+  "contact": "Web form https://www.bnf.fr/fr/contacter-la-bnf — choose 'Objet du message: Reproduction de documents' (form routes to reproduction@bnf.fr)",
+  "contact_type": "web form",
+  "source_page": "https://www.bnf.fr/fr/contacter-la-bnf",
+  "verified": true,
+  "notes": "Form and subject verified on bnf.fr. BnF policy (bnf.fr press kit 2019, CP_politique_diffusion_images_BnF.pdf): images free for non-commercial use with source credit. Gallica terms page returned HTTP 403 to automated fetch, so the current wording of the Gallica conditions and the address utilisation.commerciale@bnf.fr (seen only in search snippets; it is for commercial/HD requests) are NOT verified.",
+  "language": "fr",
+  "items": 88,
+  "rights_in_data": "NoC-OKLR",
+  "example_records": [
+   "https://gallica.bnf.fr/ark:/12148/btv1b77407767",
+   "https://gallica.bnf.fr/ark:/12148/btv1b77407782",
+   "https://gallica.bnf.fr/ark:/12148/btv1b530205089",
+   "https://gallica.bnf.fr/ark:/12148/btv1b53014347t",
+   "https://gallica.bnf.fr/ark:/12148/btv1b531283487"
+  ]
+ },
+ {
+  "institution": "Biblioteca Nacional de España (BNE Digital, formerly BDH)",
+  "slug": "bne",
+  "contact": "not found (bne.es blocked automated access; candidates in notes are unverified)",
+  "contact_type": null,
+  "source_page": "https://www.bne.es/es/preguntas-frecuentes/puedo-utilizar-imagenes-bne-digital",
+  "verified": false,
+  "notes": "bne.es returned HTTP 403 to automated fetches. Search snippets of bne.es pages mention bibliotecadigital@bne.es (BNE Digital questions) and info.repro@bne.es (reproduction service) — owner must confirm on bne.es before use. Same snippets state BNE Digital PD works may be used publicly without prior authorisation, citing BNE as source.",
+  "language": "es",
+  "items": 13,
+  "rights_in_data": "CC BY-NC-SA (aggregator)",
+  "example_records": [
+   "http://bdh-rd.bne.es/viewer.vm?id=0000130812&page=1",
+   "http://bdh-rd.bne.es/viewer.vm?id=0000130672&page=1",
+   "http://bdh-rd.bne.es/viewer.vm?id=0000130853&page=1",
+   "http://bdh-rd.bne.es/viewer.vm?id=0000130848&page=1",
+   "http://bdh-rd.bne.es/viewer.vm?id=0000130630&page=1"
+  ]
+ },
+ {
+  "institution": "Archivo Municipal de Toledo",
+  "slug": "toledo-archivo",
+  "contact": "archivo@toledo.es",
+  "contact_type": "email",
+  "source_page": "https://www.toledo.es/wp-content/uploads/2017/06/2017_guia-del-archivo-municipal-de-toledo-isdiah.pdf",
+  "verified": true,
+  "notes": "Published in the Archive's own 2017 guide on toledo.es (reproduction requests may be made by e-mail). Guide is from 2017; a current toledo.es page was not checked.",
+  "language": "es",
+  "items": 12,
+  "rights_in_data": "CC BY-NC-ND",
+  "example_records": [
+   "https://descargasarchivo.toledo.es/viewer.vm?id=0000064933",
+   "https://descargasarchivo.toledo.es/viewer.vm?id=0000064942",
+   "https://descargasarchivo.toledo.es/viewer.vm?id=0000064948",
+   "https://descargasarchivo.toledo.es/viewer.vm?id=0000064952",
+   "https://descargasarchivo.toledo.es/viewer.vm?id=0000065571"
+  ]
+ },
+ {
+  "institution": "Jersey Heritage",
+  "slug": "jersey-heritage",
+  "contact": "curators@jerseyheritage.org",
+  "contact_type": "email",
+  "source_page": "https://jerseyheritage.org/wp-content/uploads/2024/12/Jersey-Archive-table-of-fees-2025.pdf",
+  "verified": true,
+  "notes": "Fee table (Nov 2024) says publication/exhibition use needs permission from the Archives and Collections Director via a publication permission form (price on application); curators@ is the published collections enquiry address in that document (given in the loans paragraph). Alternative: archives@jerseyheritage.org (Jersey Archive, https://www.jerseyheritage.org/contact/). Catalogue record pages returned 403 to automated fetch.",
+  "language": "en",
+  "items": 11,
+  "rights_in_data": "InC",
+  "example_records": [
+   "http://catalogue.jerseyheritage.org/collection/Details/collect/3251",
+   "http://catalogue.jerseyheritage.org/collection/Details/collect/3172",
+   "http://catalogue.jerseyheritage.org/collection/Details/collect/3171",
+   "http://catalogue.jerseyheritage.org/collection/Details/collect/3244",
+   "http://catalogue.jerseyheritage.org/collection/Details/collect/3232"
+  ]
+ },
+ {
+  "institution": "Šiaulių „Aušros“ muziejus (Šiauliai Aušros Museum) — via LIMIS",
+  "slug": "ausros-museum",
+  "contact": "rastine@ausrosmuziejus.lt",
+  "contact_type": "email",
+  "source_page": "https://www.ausrosmuziejus.lt/kontaktai/",
+  "verified": true,
+  "notes": "General office address of the museum. The page also lists a 'Rinkinių apskaitos ir skaitmeninimo skyrius' (collections accounting & digitisation) with staff addresses; the letter asks the office to forward it. Only 3 items.",
+  "language": "en (Lithuanian greeting)",
+  "items": 3,
+  "rights_in_data": "CC BY-NC-ND (2), InC (1)",
+  "example_records": [
+   "http://www.limis.lt/limisk-portlet/external/preview/exhibit/371948682",
+   "http://www.limis.lt/limisk-portlet/external/preview/exhibit/349256439",
+   "https://www.limis.lt/valuables/e/805391/349391706"
+  ]
+ },
+ {
+  "institution": "Bibliotheca Hertziana – Max Planck Institute for Art History, Photographic Collection",
+  "slug": "hertziana",
+  "contact": "fototeca@biblhertz.it",
+  "contact_type": "email",
+  "source_page": "https://www.biblhertz.it/en/photographic-collection",
+  "verified": true,
+  "notes": "Official inquiries address of the Photographic Collection; publication orders use a PDF form sent to the same address. 40 plates referenced from only 2 album-level records (obj08003573, obj08003574).",
+  "language": "en",
+  "items": 40,
+  "records": 2,
+  "rights_in_data": "InC",
+  "example_records": [
+   "https://foto.biblhertz.it/obj08003574",
+   "https://foto.biblhertz.it/obj08003573"
+  ]
+ },
+ {
+  "institution": "Bibliothèque de l'Observatoire de Paris (Cosmos)",
+  "slug": "observatoire-paris",
+  "contact": "la.bibliotheque@observatoiredeparis.psl.eu",
+  "contact_type": "email",
+  "source_page": "https://observatoiredeparis.psl.eu/-la-bibliotheque-.html",
+  "verified": true,
+  "notes": "Published on the library page in obfuscated form (la.bibliotheque..åt..observatoiredeparis.psl.eu); read via WebFetch, not visible to plain HTML scraping. Items already CC BY-NC.",
+  "language": "fr",
+  "items": 2,
+  "rights_in_data": "CC BY-NC",
+  "example_records": [
+   "https://cosmos.obspm.fr/index.php/Detail/objects/32285",
+   "https://cosmos.obspm.fr/index.php/Detail/objects/32286"
+  ]
+ },
+ {
+  "institution": "BIU Santé (Université Paris Cité) — banque d'images",
+  "slug": "biu-sante",
+  "contact": "Web form https://u-paris.fr/bibliotheques/poser-une-question/",
+  "contact_type": "web form",
+  "source_page": "https://u-paris.fr/bibliotheques/poser-une-question/",
+  "verified": true,
+  "notes": "'Poser une question' librarian form (reply within 72 working hours). No dedicated image-rights e-mail found. Press (Livres Hebdo) reports BIU Santé put its PD digital documents under Licence Ouverte — not verified on an official page; the letter asks them to state the conditions.",
+  "language": "fr",
+  "items": 2,
+  "rights_in_data": "InC (aggregator)",
+  "example_records": [
+   "http://www.biusante.parisdescartes.fr/histmed/image?CISD0027",
+   "http://www.biusante.parisdescartes.fr/histmed/image?CISC0186"
+  ]
+ },
+ {
+  "institution": "The Metropolitan Museum of Art",
+  "slug": "met",
+  "contact": "not verified — candidates: image.licensing@metmuseum.org (Terms and Conditions page) and Image Request Form http://www.metmuseum.org/research/image-resources/image-request-form (routes to Art Resource)",
+  "contact_type": null,
+  "source_page": "https://www.metmuseum.org/policies/terms-and-conditions",
+  "verified": false,
+  "notes": "metmuseum.org returned HTTP 429 to automated fetch; contacts come only from search-result snippets. Owner should open the Terms page in a browser to confirm.",
+  "language": "en",
+  "items": 2,
+  "rights_in_data": "not Open Access (isPublicDomain=false)",
+  "example_records": [
+   "https://www.metmuseum.org/art/collection/search/345889",
+   "https://www.metmuseum.org/art/collection/search/656125"
+  ]
+ },
+ {
+  "institution": "Library of Congress, Prints & Photographs Division",
+  "slug": "loc",
+  "contact": "Web form https://ask.loc.gov/prints-photographs",
+  "contact_type": "web form",
+  "source_page": "https://guides.loc.gov/p-and-p-rights-and-restrictions/introduction",
+  "verified": true,
+  "notes": "Thank-you + IIIF question. Works are embeddable already ('No known restrictions on publication'). IIIF Image Services documented at https://www.loc.gov/apis/micro-services/image-services/ .",
+  "language": "en",
+  "items": 5,
+  "items_note": "5 direct LoC records (open) + 10 Commons files citing LoC",
+  "rights_in_data": "No known restrictions",
+  "example_records": [
+   "https://www.loc.gov/pictures/item/2006680113/",
+   "https://www.loc.gov/item/00652015/",
+   "https://www.loc.gov/item/2016652451/",
+   "https://www.loc.gov/item/2016652452/",
+   "https://www.loc.gov/item/2013650023/"
+  ]
+ },
+ {
+  "institution": "Wikimedia Foundation / Wikimedia Commons",
+  "slug": "wikimedia",
+  "contact": "info@wikimedia.org",
+  "contact_type": "email",
+  "source_page": "https://wikimediafoundation.org/about/contact/",
+  "verified": true,
+  "notes": "info@ is listed for 'Questions related to Wikipedia or other wikis' and is answered by volunteers. COM:HOTLINK (https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/technical) already states hotlinking is allowed but not recommended and downloading is recommended — the owner may not need to send this at all. The public alternative (Commons Village pump) was deliberately not used.",
+  "language": "en",
+  "items": null,
+  "rights_in_data": "open (PD/CC)",
+  "example_records": []
+ }
+]

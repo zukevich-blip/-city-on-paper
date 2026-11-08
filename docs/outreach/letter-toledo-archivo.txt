@@ -1,0 +1,54 @@
+SUBJECT: Archivo Municipal de Toledo — consulta sobre miniaturas y enlaces a 12 vistas de Toledo de Philippe Benoist (proyecto educativo sin fines comerciales)
+
+BODY:
+Estimados señores:
+
+Desarrollo a título particular «City on Paper / Город на бумаге», un museo digital independiente, educativo y sin ánimo de lucro, de acceso libre en GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Nuestro atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) parte de un mapa de 1769, lleva a las ciudades y después a las vistas de Félix y Philippe Benoist y de otros artistas, con comparaciones «antes / ahora». Cada obra lleva su crédito y un enlace directo al registro de la institución que la conserva.
+
+Toledo ocupa un lugar especial: enlazamos 12 registros de su Archivo (San Juan de los Reyes, Hospital de Santa Cruz, Puerta de Santa Catalina, la vista panorámica de la ciudad…; lista completa abajo). Figuran con licencia CC BY-NC-ND; por respeto a la cláusula «sin obras derivadas», de momento solo mostramos enlaces. Les pedimos confirmación de una de estas opciones:
+1. mostrar una miniatura (máximo 1000 px), reducida solo en tamaño, con el crédito «Archivo Municipal de Toledo» y enlace al registro;
+2. usar un servicio IIIF, si lo ofrecen;
+3. o mantener solo los enlaces.
+
+Nuestros compromisos: crédito y enlace a su registro; licencia visible; el original nunca se altera (sin recortes, recoloreado ni IA); ningún uso comercial; retirada en un plazo de 7 días a petición suya.
+
+Para el Archivo: visitantes dirigidos a sus fondos y la Toledo de Benoist situada en un mapa junto a la ciudad actual.
+
+Basta una línea de respuesta:
+— «Sí, con el crédito: …»
+— «Solo enlaces, por favor»
+— «Diríjanse a: …»
+
+Muchas gracias por su atención. Atentamente,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Lista de registros (12 records / 12 plates) -----
+1. INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000064933
+2. ESCALERA DEL HOSPITAL DE STA. CRUZ en Toledo = ESCALIER DE L'HOPITAL DIT DE STE. CROIX à Tolède / G. Pérez de Villa-Amil dibujó ; Lit. par Benoist.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000064942
+3. VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000064948
+4. PUERTA DEL HOSPITAL DE SANTA CRUZ en Toledo = PORTE DE L'HOPITAL DE STE. CROIX à Tolède / G. P. Villa Amil dibujó ; Benoist Lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000064952
+5. INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065571
+6. VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065604
+7. PUERTA DEL HOSPITAL DE SANTA CRUZ en Toledo = PORTE DE L'HOPITAL DE STE. CROIX à Tolède / G. P. Villa Amil dibujó ; Benoist Lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065712
+8. ESCALERA DEL HOSPITAL DE STA. CRUZ en Toledo = ESCALIER DE L'HOPITAL DIT DE STE. CROIX à Tolède / G. Pérez de Villa-Amil dibujó ; Lit. par Benoist.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065715
+9. INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065722
+10. VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065737
+11. TOLÈDE [Vista panorámica de la ciudad realizada desde el Oeste] / Dessin de Ph. Benoist, d'après une photographie de J. Laurent ; C. Laplante.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065229
+12. TOLÈDE [Vista panorámica de la ciudad realizada desde el Oeste] / Dessin de Ph. Benoist, d'après une photographie de J. Laurent ; C. Laplante.
+   https://descargasarchivo.toledo.es/viewer.vm?id=0000065507
