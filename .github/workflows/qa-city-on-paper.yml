@@ -56,6 +56,24 @@ jobs:
         run: python -m tools.catalog.validate
       - name: Unit tests
         run: pytest -q tests
+      - name: Render six historic Paris GCP review sheets (source-only, no satellite)
+        if: github.event_name == 'pull_request'
+        run: |
+          python -m tools.iiif.render_paris_gcp_review \
+            --historic-image eras/img/loc-2012586603-paris-1878.jpg \
+            --out /tmp/paris-1878-gcp-review
+          test -s /tmp/paris-1878-gcp-review/index.html
+          test -s /tmp/paris-1878-gcp-review/overview.png
+          for i in 01 02 03 04 05 06; do
+            test -s "/tmp/paris-1878-gcp-review/gcp-$i.png"
+          done
+      - name: Upload Paris GCP visual research report
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: paris-1878-gcp-research-report
+          path: /tmp/paris-1878-gcp-review
+          retention-days: 7
       - name: Verify artwork fields and candidates metadata
         run: |
           python - <<'PY'
