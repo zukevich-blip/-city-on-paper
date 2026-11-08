@@ -1,0 +1,303 @@
+{
+  "@context": [
+    "http://iiif.io/api/extension/georef/1/context.json",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "https://raw.githubusercontent.com/zukevich-blip/-city-on-paper/feature/iiif-manifest-evidence-20261108/data/research/paris-1878-georeference-draft.json",
+  "type": "Annotation",
+  "motivation": "georeferencing",
+  "target": {
+    "type": "SpecificResource",
+    "source": {
+      "id": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5834:g5834p:ct003569",
+      "type": "ImageService2",
+      "width": 15705,
+      "height": 11378
+    },
+    "selector": {
+      "type": "SvgSelector",
+      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15705\" height=\"11378\"><polygon points=\"5047,3603 7167,3259 11014,4411 13873,6931 8674,8555 6611,6139\"/></svg>"
+    }
+  },
+  "body": {
+    "type": "FeatureCollection",
+    "transformation": {
+      "type": "polynomial",
+      "options": {
+        "order": 1
+      }
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            5047,
+            3603.4
+          ],
+          "label": "Arc de Triomphe",
+          "confidence": "high"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.29504,
+            48.87378
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            7354.6,
+            4727.2
+          ],
+          "label": "Obélisque de Louxor (Place de la Concorde)",
+          "confidence": "high"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.321133,
+            48.865475
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            8078.5,
+            4455.2
+          ],
+          "label": "Colonne Vendôme",
+          "confidence": "high"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.329414,
+            48.867469
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            8278.4,
+            3859.3
+          ],
+          "label": "Palais Garnier (Opéra)",
+          "confidence": "high"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3316666666667,
+            48.871944444444
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            10062.1,
+            5911
+          ],
+          "label": "Hôtel de Ville",
+          "confidence": "medium"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.352222,
+            48.856389
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            9862.1,
+            6354.9
+          ],
+          "label": "Notre-Dame de Paris",
+          "confidence": "low"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3498,
+            48.853
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            9478.2,
+            7258.7
+          ],
+          "label": "Panthéon",
+          "confidence": "medium"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3461054,
+            48.846198
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            11533.8,
+            6326.9
+          ],
+          "label": "Colonne de Juillet (Bastille)",
+          "confidence": "high"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3691666666667,
+            48.853055555556
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            11217.9,
+            6018.9
+          ],
+          "label": "Place des Vosges",
+          "confidence": "medium"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3655555555556,
+            48.855555555556
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            13873.3,
+            6930.8
+          ],
+          "label": "Place de la Nation (Place du Trône)",
+          "confidence": "high"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3958333333333,
+            48.848333333333
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            11013.9,
+            4411.2
+          ],
+          "label": "Place de la République (Place du Château-d'Eau)",
+          "confidence": "medium"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3640555555556,
+            48.867277777778
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            8674.3,
+            8554.5
+          ],
+          "label": "Observatoire de Paris (Perrault building)",
+          "confidence": "medium"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3365254,
+            48.8365091
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            6610.7,
+            6138.9
+          ],
+          "label": "Dôme des Invalides",
+          "confidence": "low"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.31222222,
+            48.855
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            8862.3,
+            5387.1
+          ],
+          "label": "Cour Carrée du Louvre",
+          "confidence": "medium"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.3385595337307112,
+            48.86037353077823
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "resourceCoords": [
+            7166.6,
+            3259.4
+          ],
+          "label": "Église Saint-Augustin",
+          "confidence": "low"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            2.318917227874554,
+            48.8762209215312
+          ]
+        }
+      }
+    ]
+  }
+}
