@@ -95,6 +95,16 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} touch targets ≥40px`, small === 0, `${small} small`);
     ok(`${vp.n} no horizontal page scroll`, await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     ok(`${vp.n} images have alt`, await p.$$eval("img:not(.leaflet-tile)", ims => ims.every(i => (i.alt || "").length > 5)));
+    await p.goto(base + "eras/#/epochs", { waitUntil: "networkidle" });
+    ok(`${vp.n} epochs gallery`, (await p.locator(".epcard").count()) >= 50);
+    await p.locator(".epcard").first().click(); await p.waitForSelector("#epstage"); await p.waitForTimeout(600);
+    ok(`${vp.n} epoch place: frames + angle map`, (await p.locator(".epf[data-f]").count()) >= 2 && (await p.locator("#epMap .leaflet-tile").count()) >= 1);
+    await p.click("#epAdd");
+    ok(`${vp.n} my photo dialog (local only)`, await p.$eval("#epDlg", (d) => d.open && /только на этом устройстве/.test(d.textContent)));
+    await p.click('#epDlg button[value="cancel"]');
+    await p.goto(base + "eras/#/mine", { waitUntil: "networkidle" });
+    await p.waitForFunction(() => /Мой ракурс/.test((document.querySelector("h1") || {}).textContent || ""), null, { timeout: 5000 }).catch(() => {});
+    ok(`${vp.n} my viewpoints page`, /Мой ракурс/.test(await p.textContent("h1")));
     await p.goto(base + "eras/#/place/naples-santa_lucia_castel_dell_ovo", { waitUntil: "networkidle" });
     ok(`${vp.n} Naples place renders honest mismatch`, /Разные точки/.test(await p.textContent("#verdict")));
     await p.goto(base + "eras/#/place/nope", { waitUntil: "networkidle" });

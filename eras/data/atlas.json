@@ -2925,7 +2925,41 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "author": "ToucanWings",
       "date": "2013-08-19 20:59:49"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-c8dc98ae-bd53.jpg",
+       "camera": {
+        "lat": 48.804429,
+        "lon": 2.121506,
+        "azimuth": 285,
+        "fov": 76,
+        "distance_m": 96
+       },
+       "date": "2025-10-11",
+       "author": "vellu@reilukerho.net",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=c8dc98ae-bd53-4e75-8f83-e2f94848f26f",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-83ac56e3-f811.jpg",
+       "camera": {
+        "lat": 48.805291,
+        "lon": 2.118434,
+        "azimuth": 110,
+        "fov": 41,
+        "distance_m": 149
+       },
+       "date": "2009-02-16",
+       "author": "cquest",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=83ac56e3-f811-47db-8657-56b66203a489",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q3162464",
@@ -3253,7 +3287,25 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "author": "Sfu",
       "date": "2008-05-04"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-e02bad29-dbab.jpg",
+       "camera": {
+        "lat": 54.6838,
+        "lon": 25.28855,
+        "azimuth": 87,
+        "fov": 60,
+        "distance_m": 150
+       },
+       "date": "2024-08-09",
+       "author": "Robot8A",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=e02bad29-dbab-4c76-9809-0197bd910338",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     }
    ],
    "halls": [
@@ -11914,7 +11966,41 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "author": "Luis Miguel Bugallo Sánchez (Lmbuga)",
       "date": "2018-06-30 12:56:14"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-3b758447-3c04.jpg",
+       "camera": {
+        "lat": 48.847628,
+        "lon": 2.337877,
+        "azimuth": 345,
+        "fov": 60,
+        "distance_m": 83
+       },
+       "date": "2025-08-19",
+       "author": "Britzz",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=3b758447-3c04-41c3-bdba-146d84a2efed",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-045050b2-3bd3.jpg",
+       "camera": {
+        "lat": 48.847858,
+        "lon": 2.338441,
+        "azimuth": 297,
+        "fov": 74,
+        "distance_m": 87
+       },
+       "date": "2026-01-20",
+       "author": "jerome92370",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=045050b2-3bd3-4b44-8dc9-9cb225523d08",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q21500125",
@@ -11961,7 +12047,41 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "author": "Benh LIEU SONG",
       "date": "2007-09-30"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-76a95e38-be50.jpg",
+       "camera": {
+        "lat": 48.86779,
+        "lon": 2.329678,
+        "azimuth": 216,
+        "fov": 95,
+        "distance_m": 41
+       },
+       "date": "2024-11-08",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=76a95e38-be50-4c70-9343-054744dac41d",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-7efe6f32-39af.jpg",
+       "camera": {
+        "lat": 48.867094,
+        "lon": 2.329143,
+        "azimuth": 40,
+        "fov": 95,
+        "distance_m": 46
+       },
+       "date": "2024-07-10",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=7efe6f32-39af-46ff-ba51-348f698171bd",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q913434",
@@ -12007,7 +12127,41 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "author": "Dietmar Rabich",
       "date": "Taken on 10 July 2014, 14:45"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-47b83eef-d1f4.jpg",
+       "camera": {
+        "lat": 48.855842,
+        "lon": 2.351547,
+        "azimuth": 41,
+        "fov": 60,
+        "distance_m": 78
+       },
+       "date": "2025-04-10",
+       "author": "Britzz",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=47b83eef-d1f4-4019-8228-4c7620fd14fc",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-88ca190d-b739.jpg",
+       "camera": {
+        "lat": 48.857261,
+        "lon": 2.351667,
+        "azimuth": 151,
+        "fov": 69,
+        "distance_m": 105
+       },
+       "date": "2024-04-14",
+       "author": "Robot8A",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=88ca190d-b739-4d86-a82f-e11f271fa996",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q234364",
@@ -12030,7 +12184,41 @@
       "license_url": "",
       "author": "AnonymousUnknown author",
       "date": "1867"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-b62b72da-aca3.jpg",
+       "camera": {
+        "lat": 48.86135,
+        "lon": 2.330391,
+        "azimuth": 27,
+        "fov": 60,
+        "distance_m": 110
+       },
+       "date": "2024-04-06",
+       "author": "jerome92370",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=b62b72da-aca3-4821-b89d-b1f69736667b",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-751534d1-1f49.jpg",
+       "camera": {
+        "lat": 48.862879,
+        "lon": 2.331409,
+        "azimuth": 194,
+        "fov": 60,
+        "distance_m": 76
+       },
+       "date": "2024-07-03",
+       "author": "Nzau",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=751534d1-1f49-463e-9fbd-b379bc44a2e9",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q330564",
@@ -12053,7 +12241,25 @@
       "license_url": "https://creativecommons.org/licenses/by/3.0",
       "author": "Callaway Kosine – de Suzannet",
       "date": "2024-04-03"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-800c5582-8a62.jpg",
+       "camera": {
+        "lat": 48.869661,
+        "lon": 2.324212,
+        "azimuth": 17,
+        "fov": 74,
+        "distance_m": 41
+       },
+       "date": "2026-04-30",
+       "author": "jerome92370",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=800c5582-8a62-44ab-ba18-16adf0082475",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q295844",
@@ -12098,7 +12304,41 @@
       "license_url": "",
       "author": "Édouard Baldus",
       "date": "1850sdate QS:P,+1850-00-00T00:00:00Z/8–6"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-2916bb81-2b8e.jpg",
+       "camera": {
+        "lat": 48.867494,
+        "lon": 2.313952,
+        "azimuth": 174,
+        "fov": 95,
+        "distance_m": 63
+       },
+       "date": "2024-11-08",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=2916bb81-2b8e-4185-bf56-98e8fd3cbc16",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-2878137f-2b56.jpg",
+       "camera": {
+        "lat": 48.866484,
+        "lon": 2.313806,
+        "azimuth": 4,
+        "fov": 95,
+        "distance_m": 58
+       },
+       "date": "2025-01-15",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=2878137f-2b56-4e12-b28e-fffe4da1898a",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q924480",
@@ -12199,7 +12439,41 @@
       "license_url": "https://creativecommons.org/licenses/by/2.0",
       "author": "Cristian Bortes from Cluj-Napoca, Romania",
       "date": "2011-04-27 12:54"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-140cf3ae-6038.jpg",
+       "camera": {
+        "lat": 48.865738,
+        "lon": 2.320444,
+        "azimuth": 112,
+        "fov": 95,
+        "distance_m": 59
+       },
+       "date": "2025-01-15",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=140cf3ae-6038-4277-8aa0-c228b586289a",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-fb23668e-c45b.jpg",
+       "camera": {
+        "lat": 48.86518,
+        "lon": 2.320767,
+        "azimuth": 23,
+        "fov": 60,
+        "distance_m": 61
+       },
+       "date": "2025-02-02",
+       "author": "Britzz",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=fb23668e-c45b-4c0d-975e-c2ba363ddc90",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q273480",
@@ -12220,7 +12494,25 @@
       "license_url": "",
       "author": "Albertus teolog",
       "date": "2008-08-06 13:59:51"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-087dcf2d-ec00.jpg",
+       "camera": {
+        "lat": 48.853279,
+        "lon": 2.303621,
+        "azimuth": 201,
+        "fov": 60,
+        "distance_m": 87
+       },
+       "date": "2021-04-25",
+       "author": "motocultrice",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=087dcf2d-ec00-4c2d-a671-b07b29a3de4c",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q188977",
@@ -12241,7 +12533,25 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "author": "Another one of my pictures:\n\n\n\nThis photograph was taken by Medium69 (William Crochot) and released under the license st",
       "date": "2015-08-01 16:09:31"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-6a11a768-2a86.jpg",
+       "camera": {
+        "lat": 48.853798,
+        "lon": 2.31222,
+        "azimuth": 359,
+        "fov": 95,
+        "distance_m": 135
+       },
+       "date": "2024-07-09",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=6a11a768-2a86-41f8-b2f0-f93d49d13a41",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q269641",
@@ -12484,7 +12794,41 @@
       "license_url": "https://creativecommons.org/licenses/by/3.0",
       "author": "Mister No",
       "date": "Taken on 21 July 2010"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-c9280440-073c.jpg",
+       "camera": {
+        "lat": 48.860831,
+        "lon": 2.333937,
+        "azimuth": 359,
+        "fov": 60,
+        "distance_m": 69
+       },
+       "date": "2021-01-15",
+       "author": "motocultrice",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=c9280440-073c-41e6-b785-8f03dfd20c4b",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-07cca061-dfbe.jpg",
+       "camera": {
+        "lat": 48.861612,
+        "lon": 2.333374,
+        "azimuth": 94,
+        "fov": 76,
+        "distance_m": 57
+       },
+       "date": "2025-10-10",
+       "author": "vellu@reilukerho.net",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=07cca061-dfbe-4974-9101-d3f07f95f90f",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q3441676",
@@ -12597,7 +12941,41 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
       "author": "SoWhat",
       "date": "2010-10-03"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-20a198ef-b148.jpg",
+       "camera": {
+        "lat": 48.869805,
+        "lon": 2.307425,
+        "azimuth": 115,
+        "fov": 95,
+        "distance_m": 35
+       },
+       "date": "2024-06-27",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=20a198ef-b148-49d3-991b-88cbded15d71",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-021a3f6f-5121.jpg",
+       "camera": {
+        "lat": 48.869854,
+        "lon": 2.307441,
+        "azimuth": 114,
+        "fov": 95,
+        "distance_m": 37
+       },
+       "date": "2025-01-15",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=021a3f6f-5121-4682-9037-a8e4711c628b",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q188190",
@@ -12617,7 +12995,25 @@
       "license_url": "",
       "author": "U.S. Department of State from United States",
       "date": "2020-11-16 05:56"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-ab6a4bc6-1e74.jpg",
+       "camera": {
+        "lat": 48.871053,
+        "lon": 2.31618,
+        "azimuth": 167,
+        "fov": 95,
+        "distance_m": 87
+       },
+       "date": "2024-06-27",
+       "author": "immergis",
+       "license": "Licence Ouverte 2.0 (etalab)",
+       "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=ab6a4bc6-1e74-4956-bde0-51918db07b7d",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q895082",
@@ -12797,7 +13193,41 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
       "author": "Connie Ma from Chicago, United States of America",
       "date": "2014-06-13 10:32"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-8a2916a9-9c09.jpg",
+       "camera": {
+        "lat": 48.860878,
+        "lon": 2.395128,
+        "azimuth": 283,
+        "fov": 74,
+        "distance_m": 75
+       },
+       "date": "2025-10-05",
+       "author": "jerome92370",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=8a2916a9-9c09-4a77-bcb2-9762a6db5154",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      },
+      {
+       "file": "now/pnx-ce04a278-543c.jpg",
+       "camera": {
+        "lat": 48.860069,
+        "lon": 2.39333,
+        "azimuth": 38,
+        "fov": 60,
+        "distance_m": 131
+       },
+       "date": "2024-10-29",
+       "author": "tykayn",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=ce04a278-543c-4c1e-aed9-83fe9a079883",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q659386",
@@ -12837,7 +13267,25 @@
       "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "author": "Ali Sabbagh",
       "date": "2019-11-05 18:54"
-     }
+     },
+     "street": [
+      {
+       "file": "now/pnx-2878ce37-6020.jpg",
+       "camera": {
+        "lat": 48.861396,
+        "lon": 2.330585,
+        "azimuth": 201,
+        "fov": 60,
+        "distance_m": 42
+       },
+       "date": "2024-07-03",
+       "author": "Nzau",
+       "license": "CC BY-SA 4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "page": "https://api.panoramax.xyz/#focus=pic&pic=2878ce37-6020-4049-8fbc-8b50820ee1b1",
+       "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+      }
+     ]
     },
     {
      "key": "Q3373082",

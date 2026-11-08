@@ -1,0 +1,795 @@
+{
+ "Q1075988": [],
+ "Q109591503": [],
+ "Q1111051": [
+  {
+   "id": "76a95e38-be50-4c70-9343-054744dac41d",
+   "file": "now/pnx-76a95e38-be50.jpg",
+   "camera": {
+    "lat": 48.86779,
+    "lon": 2.329678,
+    "azimuth": 216,
+    "fov": 95,
+    "distance_m": 41
+   },
+   "date": "2024-11-08",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=76a95e38-be50-4c70-9343-054744dac41d",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "7efe6f32-39af-46ff-ba51-348f698171bd",
+   "file": "now/pnx-7efe6f32-39af.jpg",
+   "camera": {
+    "lat": 48.867094,
+    "lon": 2.329143,
+    "azimuth": 40,
+    "fov": 95,
+    "distance_m": 46
+   },
+   "date": "2024-07-10",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=7efe6f32-39af-46ff-ba51-348f698171bd",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q1123879": [
+  {
+   "id": "26c40aa2-d862-40ab-854c-17986cab401a",
+   "file": "now/pnx-26c40aa2-d862.jpg",
+   "camera": {
+    "lat": 41.895954,
+    "lon": 12.482981,
+    "azimuth": 270,
+    "fov": 60,
+    "distance_m": 126
+   },
+   "date": "2024-01-07",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=26c40aa2-d862-40ab-854c-17986cab401a",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q133274": [],
+ "Q1339583": [],
+ "Q1351222": [],
+ "Q1362663": [],
+ "Q1415098": [],
+ "Q1435809": [],
+ "Q1515300": [],
+ "Q1577652": [],
+ "Q1760057": [],
+ "Q180212": [],
+ "Q185382": [
+  {
+   "id": "ec7f136b-ea5c-40cb-b4d0-ce113aaa72e0",
+   "file": "now/pnx-ec7f136b-ea5c.jpg",
+   "camera": {
+    "lat": 41.900044,
+    "lon": 12.483878,
+    "azimuth": 337,
+    "fov": 60,
+    "distance_m": 109
+   },
+   "date": "2017-09-17",
+   "author": "MatthiasMatthias",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=ec7f136b-ea5c-40cb-b4d0-ce113aaa72e0",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q1854102": [],
+ "Q188190": [
+  {
+   "id": "ab6a4bc6-1e74-4956-bde0-51918db07b7d",
+   "file": "now/pnx-ab6a4bc6-1e74.jpg",
+   "camera": {
+    "lat": 48.871053,
+    "lon": 2.31618,
+    "azimuth": 167,
+    "fov": 95,
+    "distance_m": 87
+   },
+   "date": "2024-06-27",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=ab6a4bc6-1e74-4956-bde0-51918db07b7d",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q188977": [
+  {
+   "id": "6a11a768-2a86-41f8-b2f0-f93d49d13a41",
+   "file": "now/pnx-6a11a768-2a86.jpg",
+   "camera": {
+    "lat": 48.853798,
+    "lon": 2.31222,
+    "azimuth": 359,
+    "fov": 95,
+    "distance_m": 135
+   },
+   "date": "2024-07-09",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=6a11a768-2a86-41f8-b2f0-f93d49d13a41",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q189503": [
+  {
+   "id": "140cf3ae-6038-4277-8aa0-c228b586289a",
+   "file": "now/pnx-140cf3ae-6038.jpg",
+   "camera": {
+    "lat": 48.865738,
+    "lon": 2.320444,
+    "azimuth": 112,
+    "fov": 95,
+    "distance_m": 59
+   },
+   "date": "2025-01-15",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=140cf3ae-6038-4277-8aa0-c228b586289a",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "fb23668e-c45b-4c0d-975e-c2ba363ddc90",
+   "file": "now/pnx-fb23668e-c45b.jpg",
+   "camera": {
+    "lat": 48.86518,
+    "lon": 2.320767,
+    "azimuth": 23,
+    "fov": 60,
+    "distance_m": 61
+   },
+   "date": "2025-02-02",
+   "author": "Britzz",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=fb23668e-c45b-4c0d-975e-c2ba363ddc90",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q1984617": [],
+ "Q206823": [
+  {
+   "id": "e07a34f4-4dfa-4ec6-bd3c-72f4f1d23c78",
+   "file": "now/pnx-e07a34f4-4dfa.jpg",
+   "camera": {
+    "lat": 49.253951,
+    "lon": 4.030304,
+    "azimuth": 84,
+    "fov": 60,
+    "distance_m": 280
+   },
+   "date": "2022-10-10",
+   "author": "mapcomplete",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=e07a34f4-4dfa-4ec6-bd3c-72f4f1d23c78",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q2091947": [
+  {
+   "id": "818ea1aa-6dd1-4659-9791-69809bf7d1a2",
+   "file": "now/pnx-818ea1aa-6dd1.jpg",
+   "camera": {
+    "lat": 41.899577,
+    "lon": 12.485992,
+    "azimuth": 127,
+    "fov": 60,
+    "distance_m": 36
+   },
+   "date": "2017-09-17",
+   "author": "MatthiasMatthias",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=818ea1aa-6dd1-4659-9791-69809bf7d1a2",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "65098f45-384e-4a0a-a433-b0ad3ad2592d",
+   "file": "now/pnx-65098f45-384e.jpg",
+   "camera": {
+    "lat": 41.898139,
+    "lon": 12.489273,
+    "azimuth": 287,
+    "fov": 60,
+    "distance_m": 279
+   },
+   "date": "2024-01-07",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=65098f45-384e-4a0a-a433-b0ad3ad2592d",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q223079": [
+  {
+   "id": "fb6ce476-b00b-4448-ab02-725763a85de8",
+   "file": "now/pnx-fb6ce476-b00b.jpg",
+   "camera": {
+    "lat": 41.89956,
+    "lon": 12.486175,
+    "azimuth": 81,
+    "fov": 60,
+    "distance_m": 120
+   },
+   "date": "2017-09-17",
+   "author": "MatthiasMatthias",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=fb6ce476-b00b-4448-ab02-725763a85de8",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "aaca8264-ceb7-4929-b119-f0ef42504a5a",
+   "file": "now/pnx-aaca8264-ceb7.jpg",
+   "camera": {
+    "lat": 41.899242,
+    "lon": 12.490864,
+    "azimuth": 302,
+    "fov": 60,
+    "distance_m": 291
+   },
+   "date": "2024-01-07",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=aaca8264-ceb7-4929-b119-f0ef42504a5a",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q234364": [
+  {
+   "id": "b62b72da-aca3-4821-b89d-b1f69736667b",
+   "file": "now/pnx-b62b72da-aca3.jpg",
+   "camera": {
+    "lat": 48.86135,
+    "lon": 2.330391,
+    "azimuth": 27,
+    "fov": 60,
+    "distance_m": 110
+   },
+   "date": "2024-04-06",
+   "author": "jerome92370",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=b62b72da-aca3-4821-b89d-b1f69736667b",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "751534d1-1f49-463e-9fbd-b379bc44a2e9",
+   "file": "now/pnx-751534d1-1f49.jpg",
+   "camera": {
+    "lat": 48.862879,
+    "lon": 2.331409,
+    "azimuth": 194,
+    "fov": 60,
+    "distance_m": 76
+   },
+   "date": "2024-07-03",
+   "author": "Nzau",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=751534d1-1f49-463e-9fbd-b379bc44a2e9",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q241410": [],
+ "Q2416732": [],
+ "Q2570082": [],
+ "Q269641": [],
+ "Q2723969": [
+  {
+   "id": "c9280440-073c-41e6-b785-8f03dfd20c4b",
+   "file": "now/pnx-c9280440-073c.jpg",
+   "camera": {
+    "lat": 48.860831,
+    "lon": 2.333937,
+    "azimuth": 359,
+    "fov": 60,
+    "distance_m": 69
+   },
+   "date": "2021-01-15",
+   "author": "motocultrice",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=c9280440-073c-41e6-b785-8f03dfd20c4b",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "07cca061-dfbe-4974-9101-d3f07f95f90f",
+   "file": "now/pnx-07cca061-dfbe.jpg",
+   "camera": {
+    "lat": 48.861612,
+    "lon": 2.333374,
+    "azimuth": 94,
+    "fov": 76,
+    "distance_m": 57
+   },
+   "date": "2025-10-10",
+   "author": "vellu@reilukerho.net",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=07cca061-dfbe-4974-9101-d3f07f95f90f",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q273480": [
+  {
+   "id": "087dcf2d-ec00-4c2d-a671-b07b29a3de4c",
+   "file": "now/pnx-087dcf2d-ec00.jpg",
+   "camera": {
+    "lat": 48.853279,
+    "lon": 2.303621,
+    "azimuth": 201,
+    "fov": 60,
+    "distance_m": 87
+   },
+   "date": "2021-04-25",
+   "author": "motocultrice",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=087dcf2d-ec00-4c2d-a671-b07b29a3de4c",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q2946": [
+  {
+   "id": "c8dc98ae-bd53-4e75-8f83-e2f94848f26f",
+   "file": "now/pnx-c8dc98ae-bd53.jpg",
+   "camera": {
+    "lat": 48.804429,
+    "lon": 2.121506,
+    "azimuth": 285,
+    "fov": 76,
+    "distance_m": 96
+   },
+   "date": "2025-10-11",
+   "author": "vellu@reilukerho.net",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=c8dc98ae-bd53-4e75-8f83-e2f94848f26f",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "83ac56e3-f811-47db-8657-56b66203a489",
+   "file": "now/pnx-83ac56e3-f811.jpg",
+   "camera": {
+    "lat": 48.805291,
+    "lon": 2.118434,
+    "azimuth": 110,
+    "fov": 41,
+    "distance_m": 149
+   },
+   "date": "2009-02-16",
+   "author": "cquest",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=83ac56e3-f811-47db-8657-56b66203a489",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q295844": [],
+ "Q2974260": [],
+ "Q2994043": [],
+ "Q3088872": [
+  {
+   "id": "2916bb81-2b8e-4185-bf56-98e8fd3cbc16",
+   "file": "now/pnx-2916bb81-2b8e.jpg",
+   "camera": {
+    "lat": 48.867494,
+    "lon": 2.313952,
+    "azimuth": 174,
+    "fov": 95,
+    "distance_m": 63
+   },
+   "date": "2024-11-08",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=2916bb81-2b8e-4185-bf56-98e8fd3cbc16",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "2878137f-2b56-4e12-b28e-fffe4da1898a",
+   "file": "now/pnx-2878137f-2b56.jpg",
+   "camera": {
+    "lat": 48.866484,
+    "lon": 2.313806,
+    "azimuth": 4,
+    "fov": 95,
+    "distance_m": 58
+   },
+   "date": "2025-01-15",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=2878137f-2b56-4e12-b28e-fffe4da1898a",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q311": [
+  {
+   "id": "8a2916a9-9c09-4a77-bcb2-9762a6db5154",
+   "file": "now/pnx-8a2916a9-9c09.jpg",
+   "camera": {
+    "lat": 48.860878,
+    "lon": 2.395128,
+    "azimuth": 283,
+    "fov": 74,
+    "distance_m": 75
+   },
+   "date": "2025-10-05",
+   "author": "jerome92370",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=8a2916a9-9c09-4a77-bcb2-9762a6db5154",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "ce04a278-543c-4c1e-aed9-83fe9a079883",
+   "file": "now/pnx-ce04a278-543c.jpg",
+   "camera": {
+    "lat": 48.860069,
+    "lon": 2.39333,
+    "azimuth": 38,
+    "fov": 60,
+    "distance_m": 131
+   },
+   "date": "2024-10-29",
+   "author": "tykayn",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=ce04a278-543c-4c1e-aed9-83fe9a079883",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q3162586": [
+  {
+   "id": "200a3dee-8fbc-4429-ba62-45e963950ab1",
+   "file": "now/pnx-200a3dee-8fbc.jpg",
+   "camera": {
+    "lat": 48.86418,
+    "lon": 2.337374,
+    "azimuth": 20,
+    "fov": 69,
+    "distance_m": 95
+   },
+   "date": "2020-07-19",
+   "author": "fgouget",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=200a3dee-8fbc-4429-ba62-45e963950ab1",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q318660": [
+  {
+   "id": "d453b0dc-86fb-4896-92e3-ced8e8568aa6",
+   "file": "now/pnx-d453b0dc-86fb.jpg",
+   "camera": {
+    "lat": 41.895951,
+    "lon": 12.482985,
+    "azimuth": 189,
+    "fov": 60,
+    "distance_m": 231
+   },
+   "date": "2024-01-07",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=d453b0dc-86fb-4896-92e3-ced8e8568aa6",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q329852": [
+  {
+   "id": "3b758447-3c04-41c3-bdba-146d84a2efed",
+   "file": "now/pnx-3b758447-3c04.jpg",
+   "camera": {
+    "lat": 48.847628,
+    "lon": 2.337877,
+    "azimuth": 345,
+    "fov": 60,
+    "distance_m": 83
+   },
+   "date": "2025-08-19",
+   "author": "Britzz",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=3b758447-3c04-41c3-bdba-146d84a2efed",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "045050b2-3bd3-4b44-8dc9-9cb225523d08",
+   "file": "now/pnx-045050b2-3bd3.jpg",
+   "camera": {
+    "lat": 48.847858,
+    "lon": 2.338441,
+    "azimuth": 297,
+    "fov": 74,
+    "distance_m": 87
+   },
+   "date": "2026-01-20",
+   "author": "jerome92370",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=045050b2-3bd3-4b44-8dc9-9cb225523d08",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q329948": [],
+ "Q330564": [
+  {
+   "id": "800c5582-8a62-44ab-ba18-16adf0082475",
+   "file": "now/pnx-800c5582-8a62.jpg",
+   "camera": {
+    "lat": 48.869661,
+    "lon": 2.324212,
+    "azimuth": 17,
+    "fov": 74,
+    "distance_m": 41
+   },
+   "date": "2026-04-30",
+   "author": "jerome92370",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=800c5582-8a62-44ab-ba18-16adf0082475",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q333906": [],
+ "Q3373064": [
+  {
+   "id": "2878ce37-6020-4049-8fbc-8b50820ee1b1",
+   "file": "now/pnx-2878ce37-6020.jpg",
+   "camera": {
+    "lat": 48.861396,
+    "lon": 2.330585,
+    "azimuth": 201,
+    "fov": 60,
+    "distance_m": 42
+   },
+   "date": "2024-07-03",
+   "author": "Nzau",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=2878ce37-6020-4049-8fbc-8b50820ee1b1",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q41116": [],
+ "Q42003": [],
+ "Q4365801": [],
+ "Q4449979": [],
+ "Q4471432": [
+  {
+   "id": "e02bad29-dbab-4c76-9809-0197bd910338",
+   "file": "now/pnx-e02bad29-dbab.jpg",
+   "camera": {
+    "lat": 54.6838,
+    "lon": 25.28855,
+    "azimuth": 87,
+    "fov": 60,
+    "distance_m": 150
+   },
+   "date": "2024-08-09",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=e02bad29-dbab-4c76-9809-0197bd910338",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q463400": [
+  {
+   "id": "749f8c50-a18f-4f24-8d07-81cd76235e1f",
+   "file": "now/pnx-749f8c50-a18f.jpg",
+   "camera": {
+    "lat": 41.89917,
+    "lon": 12.476519,
+    "azimuth": 237,
+    "fov": 60,
+    "distance_m": 283
+   },
+   "date": "2023-08-28",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=749f8c50-a18f-4f24-8d07-81cd76235e1f",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q545404": [
+  {
+   "id": "1e9c36f5-5194-4272-8c4a-15587ac10b90",
+   "file": "now/pnx-1e9c36f5-5194.jpg",
+   "camera": {
+    "lat": 41.889803,
+    "lon": 12.477161,
+    "azimuth": 359,
+    "fov": 60,
+    "distance_m": 115
+   },
+   "date": "2017-09-17",
+   "author": "MatthiasMatthias",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=1e9c36f5-5194-4272-8c4a-15587ac10b90",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q550": [
+  {
+   "id": "20a198ef-b148-49d3-991b-88cbded15d71",
+   "file": "now/pnx-20a198ef-b148.jpg",
+   "camera": {
+    "lat": 48.869805,
+    "lon": 2.307425,
+    "azimuth": 115,
+    "fov": 95,
+    "distance_m": 35
+   },
+   "date": "2024-06-27",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=20a198ef-b148-49d3-991b-88cbded15d71",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "021a3f6f-5121-4682-9037-a8e4711c628b",
+   "file": "now/pnx-021a3f6f-5121.jpg",
+   "camera": {
+    "lat": 48.869854,
+    "lon": 2.307441,
+    "azimuth": 114,
+    "fov": 95,
+    "distance_m": 37
+   },
+   "date": "2025-01-15",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=021a3f6f-5121-4682-9037-a8e4711c628b",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q570586": [],
+ "Q628491": [],
+ "Q640092": [],
+ "Q640968": [
+  {
+   "id": "47b83eef-d1f4-4019-8228-4c7620fd14fc",
+   "file": "now/pnx-47b83eef-d1f4.jpg",
+   "camera": {
+    "lat": 48.855842,
+    "lon": 2.351547,
+    "azimuth": 41,
+    "fov": 60,
+    "distance_m": 78
+   },
+   "date": "2025-04-10",
+   "author": "Britzz",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=47b83eef-d1f4-4019-8228-4c7620fd14fc",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "88ca190d-b739-4d86-a82f-e11f271fa996",
+   "file": "now/pnx-88ca190d-b739.jpg",
+   "camera": {
+    "lat": 48.857261,
+    "lon": 2.351667,
+    "azimuth": 151,
+    "fov": 69,
+    "distance_m": 105
+   },
+   "date": "2024-04-14",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=88ca190d-b739-4d86-a82f-e11f271fa996",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q64436": [],
+ "Q658192": [],
+ "Q678313": [],
+ "Q684594": [],
+ "Q7232177": [],
+ "Q824997": [],
+ "Q874832": [],
+ "Q913434": [],
+ "Q936633": [
+  {
+   "id": "c8bba360-a2c7-487c-8b20-3174665ae667",
+   "file": "now/pnx-c8bba360-a2c7.jpg",
+   "camera": {
+    "lat": 48.862767,
+    "lon": 2.319048,
+    "azimuth": 208,
+    "fov": 95,
+    "distance_m": 82
+   },
+   "date": "2024-11-07",
+   "author": "immergis",
+   "license": "Licence Ouverte 2.0 (etalab)",
+   "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=c8bba360-a2c7-487c-8b20-3174665ae667",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "5ce0c746-a9b4-427f-bd49-ef01c580ad24",
+   "file": "now/pnx-5ce0c746-a9b4.jpg",
+   "camera": {
+    "lat": 48.862651,
+    "lon": 2.319026,
+    "azimuth": 186,
+    "fov": 60,
+    "distance_m": 69
+   },
+   "date": "2024-03-09",
+   "author": "jerome92370",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=5ce0c746-a9b4-427f-bd49-ef01c580ad24",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q937290": [],
+ "Q958299": [
+  {
+   "id": "b82c46fb-0d96-40bf-a932-a40c57ad9bcc",
+   "file": "now/pnx-b82c46fb-0d96.jpg",
+   "camera": {
+    "lat": 41.905099,
+    "lon": 12.480526,
+    "azimuth": 315,
+    "fov": 60,
+    "distance_m": 213
+   },
+   "date": "2023-06-24",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=b82c46fb-0d96-40bf-a932-a40c57ad9bcc",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q983774": [],
+ "Q99309": [
+  {
+   "id": "7f4a3b8e-8bdb-4ea4-ace4-70d3885467a9",
+   "file": "now/pnx-7f4a3b8e-8bdb.jpg",
+   "camera": {
+    "lat": 41.899253,
+    "lon": 12.47674,
+    "azimuth": 166,
+    "fov": 60,
+    "distance_m": 73
+   },
+   "date": "2023-08-28",
+   "author": "Robot8A",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=7f4a3b8e-8bdb-4ea4-ace4-70d3885467a9",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ]
+}

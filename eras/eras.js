@@ -216,10 +216,14 @@
       else if (ac) Atlas.city(app, ac.id);
       else city(h[1]);
     } else if (h[0] === "place") place(h[1]);
+    else if (h[0] === "epochs" && window.Epochs && Atlas.data) Epochs.gallery(app, Atlas.data, Atlas.thumb, Atlas.imgTag);
+    else if (h[0] === "epoch" && window.Epochs && Atlas.data) { if (!Epochs.placePage(app, Atlas.data, h[1], decodeURIComponent(h.slice(2).join("/")), Atlas.thumb, Atlas.imgTag)) notFound(); }
+    else if (h[0] === "mine" && window.Epochs) Epochs.minePage(app);
     else if (window.Atlas && Atlas.data) Atlas.portal(app);
     else portal();
     if (location.hash && location.hash !== "#/") app.focus({ preventScroll: true });
     window.scrollTo(0, 0);
+    document.querySelectorAll("header.top nav a").forEach((a) => a.toggleAttribute("aria-current", (a.getAttribute("href") === "#/" + (h[0] || "")) || (h[0] === "" && a.getAttribute("href") === "#/") || (h[0] === "epoch" && a.getAttribute("href") === "#/epochs") || (h[0] === "city" && a.getAttribute("href") === "#/")));
   }
 
   Promise.all([fetch("data/eras.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }),
