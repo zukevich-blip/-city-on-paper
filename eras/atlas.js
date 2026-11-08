@@ -180,7 +180,14 @@ window.Atlas = (() => {
         <div id="eplist"></div><div id="epview"></div></section>` : ""}
       ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
       ${(c.works || []).length ? `<h2>Бенуа: ${c.works.length}</h2><div class="wgrid">${c.works.map(card).join("")}</div>` : ""}
-      <h2 id="others">Другие виды из музеев</h2><div class="wgrid" id="wg"><p class="note">Загружаем…</p></div>
+      <h2 id="others">Другие виды из музеев</h2>
+      <p class="note">Коллекция не ограничена Бенуа. Найдите художника, литографа, архитектурное место или архивную запись по названию.</p>
+      <div class="museum-filters" role="search" aria-label="Поиск произведений и авторов">
+        <label for="museumAuthor">Автор или литограф <input type="search" id="museumAuthor" placeholder="Бенуа, Пиранези, Пенелл…" autocomplete="off"></label>
+        <label for="museumQuery">Произведение или место <input type="search" id="museumQuery" placeholder="Собор, площадь, мост…" autocomplete="off"></label>
+        <span role="status" aria-live="polite" id="museumCount"></span>
+      </div>
+      <div class="wgrid" id="wg"><p class="note">Загружаем…</p></div>
       <button type="button" id="more" class="morebtn" hidden>Показать ещё</button>
       ${(c.halls || []).length ? `<section class="halls"><span class="eyebrow">Этот город в других залах музея</span><p>${c.halls.map(([u, t]) => `<a href="${esc(/^\.\.\/[a-z]/.test(u) ? u : "#")}">${esc(t)} →</a>`).join("")}</p></section>` : ""}
       <section class="hunt2"><span class="eyebrow">Найти больше</span><p>Поиск в открытых архивах (откроется у хранителя; права проверяйте в карточке):</p>
@@ -199,15 +206,27 @@ window.Atlas = (() => {
     let n = 24;
     works().then((Wm) => {
       const list = Wm.get(c.name) || [];
+      const authorInput = document.getElementById("museumAuthor");
+      const queryInput = document.getElementById("museumQuery");
+      const countLabel = document.getElementById("museumCount");
       const draw = () => {
-        document.getElementById("wg").innerHTML = list.length
-          ? list.slice(0, n).map((w) => card({ ...w, title: w.title_original || w.name, artist: w.maker, institution: w.source, wid: (siteBy.get(w.url) || {}).wid })).join("")
-          : '<p class="note">Пока нет проверенных работ из открытых музейных собраний. Город в очереди на исследование.</p>';
+        const author = authorInput.value.trim().toLocaleLowerCase("ru");
+        const query = queryInput.value.trim().toLocaleLowerCase("ru");
+        const filtered = list.filter((w) =>
+          (!author || String(w.maker || w.artist || "").toLocaleLowerCase("ru").includes(author)) &&
+          (!query || [w.title_original, w.name, w.source, w.medium, w.date]
+            .some(v => String(v || "").toLocaleLowerCase("ru").includes(query))));
+        countLabel.textContent = `Найдено ${filtered.length} из ${list.length}`;
+        document.getElementById("wg").innerHTML = filtered.length
+          ? filtered.slice(0, n).map((w) => card({ ...w, title: w.title_original || w.name, artist: w.maker, institution: w.source, wid: (siteBy.get(w.url) || {}).wid })).join("")
+          : '<p class="note">По запросу работ пока нет. Измените имя автора или название; архив продолжает пополняться.</p>';
         const m = document.getElementById("more");
-        m.hidden = list.length <= n;
-        m.textContent = `Показать ещё (${list.length - n})`;
+        m.hidden = filtered.length <= n;
+        m.textContent = `Показать ещё (${filtered.length - n})`;
         m.onclick = () => { n += 24; draw(); };
       };
+      authorInput.addEventListener("input", () => { n = 24; draw(); });
+      queryInput.addEventListener("input", () => { n = 24; draw(); });
       draw();
     });
     return true;
