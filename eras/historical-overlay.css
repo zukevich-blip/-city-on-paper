@@ -19,3 +19,30 @@
   .paris-research-controls select{min-height:44px}
   .paris-research input[type=range]{width:45%;max-width:none;min-height:44px}
 }
+
+/* Paris scientific review: two native Leaflet maps inside one city page. */
+.cmap-panels.compare-mode{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.cmap-panels.compare-mode .lmap{min-width:0;height:clamp(325px,40vw,540px)}
+.gcp-review{padding:15px;margin:12px 0;border:1px solid #bbaf9b;border-radius:9px;background:#f8f4ec}
+.gcp-review h3{margin:0 0 8px;font:23px/1.2 Georgia,serif;color:#40352d}
+.gcp-review p{font:13px/1.5 system-ui,sans-serif;color:#564f44}
+.gcp-review .gcp-caution{border-left:3px solid #a87c50;padding-left:10px}
+.gcp-review-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gcp-review-fields label{display:flex;flex-direction:column;gap:5px;font:13px/1.35 system-ui,sans-serif;color:#343e35}
+.gcp-review-fields input,.gcp-review-fields select,.gcp-review-fields textarea{
+  width:100%;min-width:0;min-height:43px;box-sizing:border-box;
+  background:#fffdf8;border:1px solid #aaa395;border-radius:5px;
+  color:#29342d;padding:8px;font:14px/1.4 system-ui,sans-serif}
+.gcp-review-fields textarea{min-height:72px;resize:vertical}
+.gcp-review-fields .gcp-review-wide{grid-column:1/-1}
+.gcp-review button{border:1px solid #9b8a72;border-radius:5px;background:#fffdf8;
+  padding:10px 14px;color:#29342d;min-height:44px;font:14px/1.2 system-ui;cursor:pointer}
+.gcp-review button:focus-visible{outline:3px solid #a76736;outline-offset:2px}
+.gcp-review #gcpProposals{overflow-wrap:anywhere;font-weight:600}
+@media(max-width:730px){
+  .cmap-panels.compare-mode{grid-template-columns:minmax(0,1fr)}
+  .cmap-panels.compare-mode .lmap{height:320px}
+  .gcp-review-fields{grid-template-columns:minmax(0,1fr)}
+  .gcp-review-fields .gcp-review-wide{grid-column:1}
+  .gcp-review{padding:12px}
+}
