@@ -57,6 +57,13 @@
           <input type="search" data-role="search" placeholder="Бенуа, площадь, 1850…" autocomplete="off"></label>
         <span data-role="status" role="status" aria-live="polite"></span>
       </div>
+      <div class="citylab-local-photo">
+        <label>Добавить свою фотографию к сравниваемым кадрам
+          <input type="file" data-role="user-photo" accept="image/*"></label>
+        <button type="button" data-role="remove-photo" hidden>Убрать мою фотографию</button>
+        <span data-role="photo-status" role="status">Фотография останется только в браузере.
+        Она не отправляется в музей и не означает, что исторический ракурс совпадает.</span>
+      </div>
       <div class="citylab-results" data-role="results" aria-label="Каталог доступных изображений города"></div>
       <div class="citylab-more"><button type="button" data-role="more" hidden>Показать ещё произведения</button></div>
       <div class="citylab-selected" data-role="selected" role="status" aria-live="polite"></div>
@@ -83,8 +90,49 @@
     const search = find("search"), results = find("results"),
       selected = find("selected"), timeline = find("timeline"),
       more = find("more"), status = find("status");
-    let visibleCount = 18;
+    let visibleCount = 18, localObjectURL = null, localFrame = null;
     const countOfSelected = () => items.filter(w => chosen.has(w.id));
+    const photoInput = find("user-photo"), removePhoto = find("remove-photo"), photoStatus = find("photo-status");
+    function removeLocalPhoto() {
+      if (!localFrame) return;
+      chosen.delete(localFrame.id);
+      const i = items.indexOf(localFrame);
+      if (i >= 0) items.splice(i, 1);
+      if (localObjectURL) URL.revokeObjectURL(localObjectURL);
+      localObjectURL = null; localFrame = null; photoInput.value = "";
+      removePhoto.hidden = true;
+      photoStatus.textContent = "Личный снимок убран, файл не передавался на сервер.";
+      draw(); renderTimeline();
+    }
+    removePhoto.addEventListener("click", removeLocalPhoto);
+    photoInput.addEventListener("change", () => {
+      const file = photoInput.files && photoInput.files[0];
+      if (!file) return;
+      if (!file.type.startsWith("image/") || file.size > 20 * 1024 * 1024) {
+        photoInput.value = "";
+        photoStatus.textContent = "Нужно изображение размером до 20 МБ.";
+        return;
+      }
+      if (localFrame) {
+        chosen.delete(localFrame.id);
+        const i = items.indexOf(localFrame);
+        if (i >= 0) items.splice(i, 1);
+        if (localObjectURL) URL.revokeObjectURL(localObjectURL);
+      }
+      localObjectURL = URL.createObjectURL(file);
+      localFrame = {
+        id: "local-photo", file: localObjectURL, url: "",
+        title: "Моя фотография: " + file.name,
+        year_label: "Снимок посетителя, дата не проверена",
+        author: "Посетитель", institution: "Только на устройстве",
+        rights_short: "Личный снимок не опубликован",
+        technique: "Фотография", kind: "local", sortYear: 9999
+      };
+      items.push(localFrame); chosen.add(localFrame.id);
+      removePhoto.hidden = false;
+      photoStatus.textContent = "Фото добавлено локально. Можно сравнить со старинными листами, но совпадение точки съёмки не проверено.";
+      draw(); renderTimeline();
+    });
 
     function renderTimeline() {
       const frames = countOfSelected();
