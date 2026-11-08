@@ -290,7 +290,76 @@
      "works": [
       "ba16d9b595",
       "b75c4abecf"
-     ]
+     ],
+     "today": {
+      "file": "Montelbaanstoren commons.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Montelbaanstoren_commons.jpg/500px-Montelbaanstoren_commons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Montelbaanstoren_commons.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "S Sepp",
+      "date": "2007-09-27"
+     }
+    },
+    {
+     "key": "Q1978521",
+     "qid": "Q1978521",
+     "name": "Вестердок",
+     "lat": 52.38595,
+     "lon": 4.89085,
+     "kind": "street",
+     "works": [
+      "6e016e2103"
+     ],
+     "today": {
+      "file": "Westerdok2013-1a.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Westerdok2013-1a.jpg/500px-Westerdok2013-1a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Westerdok2013-1a.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Milliped",
+      "date": "2013-10-04 00:54:08"
+     }
+    },
+    {
+     "key": "Q1568693",
+     "qid": "Q1568693",
+     "name": "Ниумаркт",
+     "lat": 52.372573,
+     "lon": 4.900503,
+     "kind": "square",
+     "works": [
+      "f18c62a6d2"
+     ],
+     "today": {
+      "file": "Amsterdam(iget) (15872111880).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Amsterdam%28iget%29_%2815872111880%29.jpg/500px-Amsterdam%28iget%29_%2815872111880%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Amsterdam(iget)_(15872111880).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Shadowgate from Novara, ITALY",
+      "date": "2014-11-29 16:47"
+     }
+    },
+    {
+     "key": "Q610402",
+     "qid": "Q610402",
+     "name": "Плачущая башня (Схрейерстoрен)",
+     "lat": 52.376389,
+     "lon": 4.902222,
+     "kind": "monument",
+     "works": [
+      "c13e6dbdef"
+     ],
+     "today": {
+      "file": "Schreierstoren2.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Schreierstoren2.jpg/500px-Schreierstoren2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Schreierstoren2.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "S Sepp",
+      "date": "2007-09-27"
+     }
     }
    ],
    "halls": [
@@ -490,7 +559,16 @@
      "works": [
       "ef4a1423b1",
       "0e462249ee"
-     ]
+     ],
+     "today": {
+      "file": "Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg/500px-Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "A.Savin",
+      "date": "2013-07-03"
+     }
     }
    ],
    "halls": [
@@ -751,7 +829,36 @@
      "works": [
       "6ebfd0b261",
       "67b097b85e"
-     ]
+     ],
+     "today": {
+      "file": "Berlin-Mitte-Ehemaliges Berliner Schloss-ZI-0136-06-Th176311.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Berlin-Mitte-Ehemaliges_Berliner_Schloss-ZI-0136-06-Th176311.jpg/500px-Berlin-Mitte-Ehemaliges_Berliner_Schloss-ZI-0136-06-Th176311.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Berlin-Mitte-Ehemaliges_Berliner_Schloss-ZI-0136-06-Th176311.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Königlich Preußische Messbildanstalt",
+      "date": "1893/1900"
+     }
+    },
+    {
+     "key": "Q154563",
+     "qid": "Q154563",
+     "name": "Берлинский собор",
+     "lat": 52.519167,
+     "lon": 13.401111,
+     "kind": "monument",
+     "works": [
+      "5e043ab385"
+     ],
+     "today": {
+      "file": "Berliner Dom von Humboldt-Box.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Berliner_Dom_von_Humboldt-Box.jpg/500px-Berliner_Dom_von_Humboldt-Box.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Berliner_Dom_von_Humboldt-Box.jpg",
+      "license": "CC BY-SA 3.0 de",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "author": "Thomas Wolf, www.foto-tw.de",
+      "date": "Taken on 16 October 2017, 13:18"
+     }
     }
    ],
    "halls": [
@@ -1256,7 +1363,16 @@
       "3ba21b7a5a",
       "f5e69febf4",
       "6dc3b85e70"
-     ]
+     ],
+     "today": {
+      "file": "Warszawa - Pałac Łazienkowski (13).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Warszawa_-_Pa%C5%82ac_%C5%81azienkowski_%2813%29.jpg/500px-Warszawa_-_Pa%C5%82ac_%C5%81azienkowski_%2813%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Warszawa_-_Pa%C5%82ac_%C5%81azienkowski_(13).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Fred Romero from Paris, France",
+      "date": "9 August 2015, 18:26 (according to Exif "
+     }
     }
    ],
    "halls": [
@@ -2183,7 +2299,16 @@
       "a7ea4eb82c",
       "a8e7bb709f",
       "f4cc81a1e4"
-     ]
+     ],
+     "today": {
+      "file": "Panorama of Canal Grande and Ponte di Rialto, Venice - September 2017.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Panorama_of_Canal_Grande_and_Ponte_di_Rialto%2C_Venice_-_September_2017.jpg/500px-Panorama_of_Canal_Grande_and_Ponte_di_Rialto%2C_Venice_-_September_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Panorama_of_Canal_Grande_and_Ponte_di_Rialto,_Venice_-_September_2017.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Martin Falbisoner",
+      "date": "2017-09-23 13:28:21"
+     }
     },
     {
      "key": "Q52505",
@@ -2199,7 +2324,16 @@
       "ef8d65b2b2",
       "8fafa935eb",
       "9468618aa6"
-     ]
+     ],
+     "today": {
+      "file": "Rialto 2025 4.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Rialto_2025_4.jpg/500px-Rialto_2025_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Rialto_2025_4.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "kallerna",
+      "date": "2025-06-13 17:45"
+     }
     },
     {
      "key": "Q52531",
@@ -2213,7 +2347,16 @@
       "cc213f0249",
       "7839d8c1d9",
       "967baf4262"
-     ]
+     ],
+     "today": {
+      "file": "Santa Maria della Salute from Hotel Monaco.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Santa_Maria_della_Salute_from_Hotel_Monaco.jpg/500px-Santa_Maria_della_Salute_from_Hotel_Monaco.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Santa_Maria_della_Salute_from_Hotel_Monaco.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me",
+      "date": "2013-04-01"
+     }
     },
     {
      "key": "Q217527",
@@ -2227,7 +2370,16 @@
       "f51c0efa1b",
       "232bab7410",
       "afae669415"
-     ]
+     ],
+     "today": {
+      "file": "Piazza San Marco (Venice) at night-msu-2021-6449-.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Piazza_San_Marco_%28Venice%29_at_night-msu-2021-6449-.jpg/500px-Piazza_San_Marco_%28Venice%29_at_night-msu-2021-6449-.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Piazza_San_Marco_(Venice)_at_night-msu-2021-6449-.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Matthias Süßen",
+      "date": "2021-10-08"
+     }
     },
     {
      "key": "Q172988",
@@ -2240,7 +2392,16 @@
       "57033d5364",
       "62f1cae303",
       "c0bbd23d24"
-     ]
+     ],
+     "today": {
+      "file": "Venice - St. Marc's Basilica 01.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Venice_-_St._Marc%27s_Basilica_01.jpg/500px-Venice_-_St._Marc%27s_Basilica_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Venice_-_St._Marc%27s_Basilica_01.jpg",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "author": "Nino Barbieri",
+      "date": "2004-11"
+     }
     },
     {
      "key": "Q578460",
@@ -2252,7 +2413,236 @@
      "works": [
       "a47fab75a6",
       "59a3d373bc"
-     ]
+     ],
+     "today": {
+      "file": "Libreria Marciana Venezia sera.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Libreria_Marciana_Venezia_sera.jpg/500px-Libreria_Marciana_Venezia_sera.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Libreria_Marciana_Venezia_sera.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me",
+      "date": "2013-03-31"
+     }
+    },
+    {
+     "key": "Q189883",
+     "qid": "Q189883",
+     "name": "Дворец дожей",
+     "lat": 45.433667,
+     "lon": 12.340417,
+     "kind": "monument",
+     "works": [
+      "98aef30a27"
+     ],
+     "today": {
+      "file": "(Venice) Doge's Palace facing the sea.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/%28Venice%29_Doge%27s_Palace_facing_the_sea.jpg/500px-%28Venice%29_Doge%27s_Palace_facing_the_sea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:(Venice)_Doge%27s_Palace_facing_the_sea.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Didier Descouens",
+      "date": "Taken on 7 May 2012"
+     }
+    },
+    {
+     "key": "Q820872",
+     "qid": "Q820872",
+     "name": "Ка-д’Оро",
+     "lat": 45.440556,
+     "lon": 12.333889,
+     "kind": "monument",
+     "works": [
+      "ce02ef7c18"
+     ],
+     "today": {
+      "file": "Ca' d'Oro facciata.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Ca%27_d%27Oro_facciata.jpg/500px-Ca%27_d%27Oro_facciata.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ca%27_d%27Oro_facciata.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Didier Descouens",
+      "date": "Taken on 10 May 2011"
+     }
+    },
+    {
+     "key": "Q3654628",
+     "qid": "Q3654628",
+     "name": "Кампо Сант-Анджело",
+     "lat": 45.434246,
+     "lon": 12.332034,
+     "kind": "square",
+     "works": [
+      "f4ae6f7b98"
+     ],
+     "today": {
+      "file": "Dorsoduro, 30100 Venezia, Italy - panoramio (480).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Dorsoduro%2C_30100_Venezia%2C_Italy_-_panoramio_%28480%29.jpg/500px-Dorsoduro%2C_30100_Venezia%2C_Italy_-_panoramio_%28480%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Dorsoduro,_30100_Venezia,_Italy_-_panoramio_(480).jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Lothar John",
+      "date": "Taken on 5 March 2016"
+     }
+    },
+    {
+     "key": "Q52517",
+     "qid": "Q52517",
+     "name": "Мост Вздохов",
+     "lat": 45.434056,
+     "lon": 12.340861,
+     "kind": "bridge",
+     "works": [
+      "1d7f2cce1f"
+     ],
+     "today": {
+      "file": "Antonio Contin - Ponte dei sospiri (Venice).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Antonio_Contin_-_Ponte_dei_sospiri_%28Venice%29.jpg/500px-Antonio_Contin_-_Ponte_dei_sospiri_%28Venice%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Antonio_Contin_-_Ponte_dei_sospiri_(Venice).jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Didier Descouens",
+      "date": "Taken on 22 May 2017"
+     }
+    },
+    {
+     "key": "Q1813687",
+     "qid": "Q1813687",
+     "name": "Санта-Мария-Формоза",
+     "lat": 45.43702,
+     "lon": 12.34101,
+     "kind": "monument",
+     "works": [
+      "b58329dab1"
+     ],
+     "today": {
+      "file": "Santa Maria Formosa Facciata e campanile.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Santa_Maria_Formosa_Facciata_e_campanile.jpg/500px-Santa_Maria_Formosa_Facciata_e_campanile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Santa_Maria_Formosa_Facciata_e_campanile.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Didier Descouens",
+      "date": "Taken on 10 May 2011"
+     }
+    },
+    {
+     "key": "Q966625",
+     "qid": "Q966625",
+     "name": "Часовая башня (Венеция)",
+     "lat": 45.434722,
+     "lon": 12.338889,
+     "kind": "monument",
+     "works": [
+      "fd3fb5a452"
+     ],
+     "today": {
+      "file": "St Mark's Clocktower 2.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/St_Mark%27s_Clocktower_2.jpg/500px-St_Mark%27s_Clocktower_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:St_Mark%27s_Clocktower_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "kallerna",
+      "date": "Taken on 11 December 2024, 17:53"
+     }
+    },
+    {
+     "key": "Q754194",
+     "qid": "Q754194",
+     "name": "кампанила собора Святого Марка",
+     "lat": 45.434028,
+     "lon": 12.339028,
+     "kind": "monument",
+     "works": [
+      "8f6b5fbe36"
+     ],
+     "today": {
+      "file": "Campanile of St. Mark's Basilica - remote view.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg/500px-Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Orlando Paride",
+      "date": "2020-06-20 10:44:30"
+     }
+    },
+    {
+     "key": "Q2936058",
+     "qid": "Q2936058",
+     "name": "канал Джудекка",
+     "lat": 45.427,
+     "lon": 12.33,
+     "kind": "street",
+     "works": [
+      "7374f91733"
+     ],
+     "today": {
+      "file": "0 Venise, le Canal de la Guidecca vu du campanile de San Giorgio Maggiore.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/0_Venise%2C_le_Canal_de_la_Guidecca_vu_du_campanile_de_San_Giorgio_Maggiore.JPG/500px-0_Venise%2C_le_Canal_de_la_Guidecca_vu_du_campanile_de_San_Giorgio_Maggiore.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:0_Venise,_le_Canal_de_la_Guidecca_vu_du_campanile_de_San_Giorgio_Maggiore.JPG",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Jean-Pol GRANDMONT",
+      "date": "2014-08-22"
+     }
+    },
+    {
+     "key": "Q943347",
+     "qid": "Q943347",
+     "name": "колонны Святого Марка и Святого Теодора",
+     "lat": 45.433325,
+     "lon": 12.339709,
+     "kind": "monument",
+     "works": [
+      "8f8079ba41"
+     ],
+     "today": {
+      "file": "Venezia piazza s.Marco 2.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Venezia_piazza_s.Marco_2.JPG/500px-Venezia_piazza_s.Marco_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Venezia_piazza_s.Marco_2.JPG",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "author": "Janmad",
+      "date": "2006-06-30"
+     }
+    },
+    {
+     "key": "Q1268698",
+     "qid": "Q1268698",
+     "name": "мост Гулье",
+     "lat": 45.443611,
+     "lon": 12.325556,
+     "kind": "bridge",
+     "works": [
+      "b3b7cc072c"
+     ],
+     "today": {
+      "file": "Ponte delle Guglie (Venice).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Ponte_delle_Guglie_%28Venice%29.jpg/500px-Ponte_delle_Guglie_%28Venice%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ponte_delle_Guglie_(Venice).jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Didier Descouens",
+      "date": "2015-05-08"
+     }
+    },
+    {
+     "key": "Q52629",
+     "qid": "Q52629",
+     "name": "палаццо Дарио",
+     "lat": 45.430844,
+     "lon": 12.332228,
+     "kind": "monument",
+     "works": [
+      "43da336239"
+     ],
+     "today": {
+      "file": "Venice - Dario's Palace.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Venice_-_Dario%27s_Palace.jpg/500px-Venice_-_Dario%27s_Palace.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Venice_-_Dario%27s_Palace.jpg",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "author": "User:Nino Barbieri",
+      "date": "2004-11"
+     }
     }
    ],
    "plan": {
@@ -2526,7 +2916,36 @@
       "e376f652dd",
       "aebb13f120",
       "43c29076c1"
-     ]
+     ],
+     "today": {
+      "file": "Vue aérienne du domaine de Versailles par ToucanWings - Creative Commons By Sa 3.0 - 083.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_083.jpg/500px-Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_083.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_083.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "ToucanWings",
+      "date": "2013-08-19 20:59:49"
+     }
+    },
+    {
+     "key": "Q3162464",
+     "qid": "Q3162464",
+     "name": "Версальский парк",
+     "lat": 48.808056,
+     "lon": 2.108333,
+     "kind": "monument",
+     "works": [
+      "f9a548d021"
+     ],
+     "today": {
+      "file": "Vue à vol d’oiseau des jardins de Versailles.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Vue_%C3%A0_vol_d%E2%80%99oiseau_des_jardins_de_Versailles.jpg/500px-Vue_%C3%A0_vol_d%E2%80%99oiseau_des_jardins_de_Versailles.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vue_%C3%A0_vol_d%E2%80%99oiseau_des_jardins_de_Versailles.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "AnonymousUnknown author",
+      "date": "19th centurydate QS:P,+1850-00-00T00:00:"
+     }
     }
    ],
    "halls": [
@@ -2733,6 +3152,108 @@
      "kind": "monument",
      "confidence": "high",
      "date": null
+    }
+   ],
+   "epochs": [
+    {
+     "key": "Q2994043",
+     "qid": "Q2994043",
+     "name": "Большой двор университета и костёл Святых Иоаннов",
+     "lat": 54.682778,
+     "lon": 25.288333,
+     "kind": "square",
+     "works": [
+      "a8f4489f8a"
+     ],
+     "today": {
+      "file": "Vilnius University Great Courtyard 1, Vilnius, Lithuania - Diliff.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Vilnius_University_Great_Courtyard_1%2C_Vilnius%2C_Lithuania_-_Diliff.jpg/500px-Vilnius_University_Great_Courtyard_1%2C_Vilnius%2C_Lithuania_-_Diliff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vilnius_University_Great_Courtyard_1,_Vilnius,_Lithuania_-_Diliff.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Diliff",
+      "date": "2014-09-10"
+     }
+    },
+    {
+     "key": "Q658192",
+     "qid": "Q658192",
+     "name": "Вильнюсский университет",
+     "lat": 54.6825,
+     "lon": 25.287222,
+     "kind": "monument",
+     "works": [
+      "5883d092ff"
+     ],
+     "today": {
+      "file": "Senamiestis, Vilnius, Lithuania - panoramio (165).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Senamiestis%2C_Vilnius%2C_Lithuania_-_panoramio_%28165%29.jpg/500px-Senamiestis%2C_Vilnius%2C_Lithuania_-_panoramio_%28165%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Senamiestis,_Vilnius,_Lithuania_-_panoramio_(165).jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Michal Gorski",
+      "date": "Taken on 8 July 2016"
+     }
+    },
+    {
+     "key": "Q937290",
+     "qid": "Q937290",
+     "name": "Костёл Святой Анны",
+     "lat": 54.683056,
+     "lon": 25.293333,
+     "kind": "monument",
+     "works": [
+      "9cc648475e"
+     ],
+     "today": {
+      "file": "St. Anne's Church Exterior 3, Vilnius, Lithuania - Diliff.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/St._Anne%27s_Church_Exterior_3%2C_Vilnius%2C_Lithuania_-_Diliff.jpg/500px-St._Anne%27s_Church_Exterior_3%2C_Vilnius%2C_Lithuania_-_Diliff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:St._Anne%27s_Church_Exterior_3,_Vilnius,_Lithuania_-_Diliff.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Diliff",
+      "date": "2014-09-16"
+     }
+    },
+    {
+     "key": "Q1577652",
+     "qid": "Q1577652",
+     "name": "Президентский дворец (Вильнюс)",
+     "lat": 54.68316,
+     "lon": 25.285871,
+     "kind": "monument",
+     "works": [
+      "4a166ffd9e"
+     ],
+     "today": {
+      "file": "Vilnius presidential palace.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Vilnius_presidential_palace.jpg/500px-Vilnius_presidential_palace.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vilnius_presidential_palace.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Marcin Białek",
+      "date": "04.05.2008"
+     }
+    },
+    {
+     "key": "Q4471432",
+     "qid": "Q4471432",
+     "name": "улица Бернардину",
+     "lat": 54.683828,
+     "lon": 25.290879,
+     "kind": "street",
+     "works": [
+      "de687ef493"
+     ],
+     "today": {
+      "file": "Vilnius-Bernardinų gatve.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Vilnius-Bernardin%C5%B3_gatve.jpg/500px-Vilnius-Bernardin%C5%B3_gatve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vilnius-Bernardin%C5%B3_gatve.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Sfu",
+      "date": "2008-05-04"
+     }
     }
    ],
    "halls": [
@@ -5205,6 +5726,28 @@
      "date": "1905"
     }
    ],
+   "epochs": [
+    {
+     "key": "Q3396474",
+     "qid": "Q3396474",
+     "name": "мост Бонапарта (бывш. мост Тильзит)",
+     "lat": 45.7595,
+     "lon": 4.82869,
+     "kind": "bridge",
+     "works": [
+      "9c2c41c007"
+     ],
+     "today": {
+      "file": "Pont Bonaparte (Lyon, 2025).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Pont_Bonaparte_%28Lyon%2C_2025%29.jpg/500px-Pont_Bonaparte_%28Lyon%2C_2025%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pont_Bonaparte_(Lyon,_2025).jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Corentin Eustacchi",
+      "date": "2025-08-06"
+     }
+    }
+   ],
    "halls": [
     [
      "../salon/?city=%D0%9B%D0%B8%D0%BE%D0%BD",
@@ -5660,7 +6203,16 @@
       "8a645f2cab",
       "b43fc12528",
       "2078fdddca"
-     ]
+     ],
+     "today": {
+      "file": "St Paul's Cathedral and the City of London School.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/St_Paul%27s_Cathedral_and_the_City_of_London_School.jpg/500px-St_Paul%27s_Cathedral_and_the_City_of_London_School.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_and_the_City_of_London_School.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Wayland Smith",
+      "date": "2011-09-11"
+     }
     },
     {
      "key": "Q456960",
@@ -5673,7 +6225,16 @@
       "059f07a7b6",
       "00d7484502",
       "459c3b4f86"
-     ]
+     ],
+     "today": {
+      "file": "Westminster, London (7660306446).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Westminster%2C_London_%287660306446%29.jpg/500px-Westminster%2C_London_%287660306446%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Westminster,_London_(7660306446).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Berit from Redhill/Surrey, UK",
+      "date": "2011-09-23 12:01"
+     }
     },
     {
      "key": "Q62408",
@@ -5685,7 +6246,16 @@
      "works": [
       "3754b62a88",
       "e0e0ad71ca"
-     ]
+     ],
+     "today": {
+      "file": "Houses of Parliament in 2022 (cropped).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Houses_of_Parliament_in_2022_%28cropped%29.jpg/500px-Houses_of_Parliament_in_2022_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Houses_of_Parliament_in_2022_(cropped).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Terry Ott from Washington, DC Metro Area, United States of America",
+      "date": "2022-06-10 11:06"
+     }
     },
     {
      "key": "Q3875347",
@@ -5697,7 +6267,96 @@
      "works": [
       "57c3b2831e",
       "12c99aab99"
-     ]
+     ],
+     "today": {
+      "file": "New Palace Yard, Westminster.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/New_Palace_Yard%2C_Westminster.jpg/500px-New_Palace_Yard%2C_Westminster.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:New_Palace_Yard,_Westminster.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Prioryman",
+      "date": "2017-03-31 17:25:21"
+     }
+    },
+    {
+     "key": "Q114004148",
+     "qid": "Q114004148",
+     "name": "Вестминстер-холл",
+     "lat": 51.499859,
+     "lon": -0.125373,
+     "kind": "interior",
+     "works": [
+      "96ef169dbe"
+     ],
+     "today": {
+      "file": "Palace of Westminster Westminster Hall south.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Palace_of_Westminster_Westminster_Hall_south.jpg/500px-Palace_of_Westminster_Westminster_Hall_south.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster_Westminster_Hall_south.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q5933",
+     "qid": "Q5933",
+     "name": "Вестминстерское аббатство",
+     "lat": 51.4994,
+     "lon": -0.127367,
+     "kind": "monument",
+     "works": [
+      "ee9a0f5de5"
+     ],
+     "today": {
+      "file": "Westminster-Abbey.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Westminster-Abbey.JPG/500px-Westminster-Abbey.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Westminster-Abbey.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Σπάρτακος",
+      "date": "2013-05-26 15:12:28"
+     }
+    },
+    {
+     "key": "Q5123776",
+     "qid": "Q5123776",
+     "name": "Городская школа для девочек",
+     "lat": 51.519167,
+     "lon": -0.094444,
+     "kind": "monument",
+     "works": [
+      "546f7c2d04"
+     ],
+     "today": {
+      "file": "London barbican 10 school for girls.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/London_barbican_10_school_for_girls.jpg/500px-London_barbican_10_school_for_girls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:London_barbican_10_school_for_girls.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Dirk Ingo Franke",
+      "date": "2013-04-13 11:01:14"
+     }
+    },
+    {
+     "key": "Q55019",
+     "qid": "Q55019",
+     "name": "Ковент-Гарден",
+     "lat": 51.5125,
+     "lon": -0.1225,
+     "kind": "square",
+     "works": [
+      "61ec64c9d5"
+     ],
+     "today": {
+      "file": "柯芬園 (40400019900).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/%E6%9F%AF%E8%8A%AC%E5%9C%92_%2840400019900%29.jpg/500px-%E6%9F%AF%E8%8A%AC%E5%9C%92_%2840400019900%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:%E6%9F%AF%E8%8A%AC%E5%9C%92_(40400019900).jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Wei-Te Wong from Taipei City, Taiwan, Republic of China",
+      "date": "2018-04-24 08:28"
+     }
     }
    ],
    "plan": {
@@ -6616,7 +7275,16 @@
       "c1c62a3c50",
       "0f83622223",
       "33bdcdb440"
-     ]
+     ],
+     "today": {
+      "file": "Moscow 05-2012 Kremlin 22.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Moscow_05-2012_Kremlin_22.jpg/500px-Moscow_05-2012_Kremlin_22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Moscow_05-2012_Kremlin_22.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "A.Savin",
+      "date": "2012-05-28"
+     }
     },
     {
      "key": "Q41116",
@@ -6628,7 +7296,116 @@
      "works": [
       "bddbbffe80",
       "ede8ed5c64"
-     ]
+     ],
+     "today": {
+      "file": "Kremlin and Red Square.1.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kremlin_and_Red_Square.1.jpg/500px-Kremlin_and_Red_Square.1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Kremlin_and_Red_Square.1.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "mos.ru",
+      "date": "2021-06-13"
+     }
+    },
+    {
+     "key": "Q1984617",
+     "qid": "Q1984617",
+     "name": "Боровицкая башня",
+     "lat": 55.74891,
+     "lon": 37.61254,
+     "kind": "monument",
+     "works": [
+      "51b7a6439b"
+     ],
+     "today": {
+      "file": "Moscow 05-2012 Kremlin 02.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Moscow_05-2012_Kremlin_02.jpg/500px-Moscow_05-2012_Kremlin_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Moscow_05-2012_Kremlin_02.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "A.Savin",
+      "date": "2012-05-24"
+     }
+    },
+    {
+     "key": "Q2570082",
+     "qid": "Q2570082",
+     "name": "Соборная площадь Кремля",
+     "lat": 55.750556,
+     "lon": 37.6175,
+     "kind": "square",
+     "works": [
+      "0ad3dc782f"
+     ],
+     "today": {
+      "file": "G.Quarenghi - Views of Moscow and its Environs - Sobornaya Square at the Moscow Kremlin - 1797 - color balanced.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/G.Quarenghi_-_Views_of_Moscow_and_its_Environs_-_Sobornaya_Square_at_the_Moscow_Kremlin_-_1797_-_color_balanced.jpg/500px-G.Quarenghi_-_Views_of_Moscow_and_its_Environs_-_Sobornaya_Square_at_the_Moscow_Kremlin_-_1797_-_color_balanced.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:G.Quarenghi_-_Views_of_Moscow_and_its_Environs_-_Sobornaya_Square_at_the_Moscow_Kremlin_-_1797_-_color_balanced.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "File:G.Quarenghi - Views of Moscow and its Environs - Sobornaya Square at the Moscow Kremlin - 1797.jpg: Giacomo Quareng",
+      "date": "2022-09-21 06:50"
+     }
+    },
+    {
+     "key": "Q2416732",
+     "qid": "Q2416732",
+     "name": "Спасская башня",
+     "lat": 55.7525,
+     "lon": 37.6214,
+     "kind": "monument",
+     "works": [
+      "468c46ba53"
+     ],
+     "today": {
+      "file": "Spasskaya Tower - Red Square - Moscow4.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Spasskaya_Tower_-_Red_Square_-_Moscow4.jpg/500px-Spasskaya_Tower_-_Red_Square_-_Moscow4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Spasskaya_Tower_-_Red_Square_-_Moscow4.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Юрий Д.К.",
+      "date": "Taken on 20 July 2024, 18:35:45"
+     }
+    },
+    {
+     "key": "Q4449979",
+     "qid": "Q4449979",
+     "name": "Тайницкая башня",
+     "lat": 55.749374,
+     "lon": 37.617863,
+     "kind": "monument",
+     "works": [
+      "4b0501cda9"
+     ],
+     "today": {
+      "file": "Moscow Taynitskaya tower U69.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Moscow_Taynitskaya_tower_U69.jpg/500px-Moscow_Taynitskaya_tower_U69.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Moscow_Taynitskaya_tower_U69.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Ludvig14",
+      "date": "2014-02-28 15:08:57"
+     }
+    },
+    {
+     "key": "Q4365801",
+     "qid": "Q4365801",
+     "name": "площадь Тверская Застава",
+     "lat": 55.776944,
+     "lon": 37.583889,
+     "kind": "monument",
+     "works": [
+      "d0568623e4"
+     ],
+     "today": {
+      "file": "Площадь Тверская Застава.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/%D0%9F%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%97%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%B0.jpg/500px-%D0%9F%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%97%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%97%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%B0.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Официальный портал Мэра и Правительства Москвы",
+      "date": "2018-08-08"
+     }
     }
    ],
    "plan": {
@@ -7182,7 +7959,16 @@
       "fac4df3108",
       "81c9a7b90d",
       "8d80c4a329"
-     ]
+     ],
+     "today": {
+      "file": "Parco di Capodimonte. 0269.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Parco_di_Capodimonte._0269.JPG/500px-Parco_di_Capodimonte._0269.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Parco_di_Capodimonte._0269.JPG",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Giuseppe Guida",
+      "date": "2014-11-02 16:51:11"
+     }
     },
     {
      "key": "Q718790",
@@ -7194,7 +7980,216 @@
      "works": [
       "391d12765e",
       "860d9e9cc5"
-     ]
+     ],
+     "today": {
+      "file": "Napoli - Palazzo Donnanna.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Napoli_-_Palazzo_Donnanna.jpg/500px-Napoli_-_Palazzo_Donnanna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Napoli_-_Palazzo_Donnanna.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Armando Mancini",
+      "date": "2008-09-27 09:04:41"
+     }
+    },
+    {
+     "key": "Q810104",
+     "qid": "Q810104",
+     "name": "Базилика Санта-Кьяра",
+     "lat": 40.84688,
+     "lon": 14.25287,
+     "kind": "interior",
+     "works": [
+      "fa465cec50"
+     ],
+     "today": {
+      "file": "Monastero di SantaChiaraNaples.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Monastero_di_SantaChiaraNaples.jpg/500px-Monastero_di_SantaChiaraNaples.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Monastero_di_SantaChiaraNaples.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "IlSistemone",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q524",
+     "qid": "Q524",
+     "name": "Везувий",
+     "lat": 40.82261,
+     "lon": 14.42919,
+     "kind": "monument",
+     "works": [
+      "cd87ab4490"
+     ],
+     "today": {
+      "file": "Il cratere del Vulcano - panoramio.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Il_cratere_del_Vulcano_-_panoramio.jpg/500px-Il_cratere_del_Vulcano_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Il_cratere_del_Vulcano_-_panoramio.jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "pietro scerrato",
+      "date": "Taken on 7 January 2012"
+     }
+    },
+    {
+     "key": "Q1415098",
+     "qid": "Q1415098",
+     "name": "Вилла Комунале (Королевская вилла)",
+     "lat": 40.833,
+     "lon": 14.2322,
+     "kind": "monument",
+     "works": [
+      "30925292b0"
+     ],
+     "today": {
+      "file": "Interno della Villa Nazionale.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Interno_della_Villa_Nazionale.jpg/500px-Interno_della_Villa_Nazionale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Interno_della_Villa_Nazionale.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Unknown authorUnknown author",
+      "date": "Pre WWI"
+     }
+    },
+    {
+     "key": "Q645041",
+     "qid": "Q645041",
+     "name": "Кастель-дель-Ово",
+     "lat": 40.828315,
+     "lon": 14.247656,
+     "kind": "monument",
+     "works": [
+      "a31f17c522"
+     ],
+     "today": {
+      "file": "Castel dell' Ovo.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Castel_dell%27_Ovo.jpg/500px-Castel_dell%27_Ovo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Castel_dell%27_Ovo.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "PaestumPaestum",
+      "date": "2023-08-15 15:29:47"
+     }
+    },
+    {
+     "key": "Q426339",
+     "qid": "Q426339",
+     "name": "Королевский дворец (Неаполь)",
+     "lat": 40.836136,
+     "lon": 14.249283,
+     "kind": "monument",
+     "works": [
+      "ed11050e34"
+     ],
+     "today": {
+      "file": "Palazzo Reale di Napoli.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Palazzo_Reale_di_Napoli.jpg/500px-Palazzo_Reale_di_Napoli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palazzo_Reale_di_Napoli.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Sordelli",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q637248",
+     "qid": "Q637248",
+     "name": "Национальный археологический музей Неаполя",
+     "lat": 40.853611,
+     "lon": 14.250556,
+     "kind": "interior",
+     "works": [
+      "34c53b9007"
+     ],
+     "today": {
+      "file": "Museo Archeologico Nazionale di Napoli - panoramio (1).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Museo_Archeologico_Nazionale_di_Napoli_-_panoramio_%281%29.jpg/500px-Museo_Archeologico_Nazionale_di_Napoli_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Museo_Archeologico_Nazionale_di_Napoli_-_panoramio_(1).jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Mister No",
+      "date": "Taken on 13 September 2015"
+     }
+    },
+    {
+     "key": "Q241410",
+     "qid": "Q241410",
+     "name": "Сан-Франческо-ди-Паола",
+     "lat": 40.8353,
+     "lon": 14.2475,
+     "kind": "monument",
+     "works": [
+      "3d86f5ab29"
+     ],
+     "today": {
+      "file": "San Francesco di Paola (Naples) exterior.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/San_Francesco_di_Paola_%28Naples%29_exterior.jpg/500px-San_Francesco_di_Paola_%28Naples%29_exterior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:San_Francesco_di_Paola_(Naples)_exterior.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "PaestumPaestum",
+      "date": "2024-05-19 17:01:02"
+     }
+    },
+    {
+     "key": "Q17053341",
+     "qid": "Q17053341",
+     "name": "гробница Вергилия",
+     "lat": 40.829583,
+     "lon": 14.217556,
+     "kind": "monument",
+     "works": [
+      "dc3dbebf8f"
+     ],
+     "today": {
+      "file": "Nápoles Virgilio 07.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/N%C3%A1poles_Virgilio_07.JPG/500px-N%C3%A1poles_Virgilio_07.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:N%C3%A1poles_Virgilio_07.JPG",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Miguel Hermoso Cuesta",
+      "date": "2013-07-20 12:09:12"
+     }
+    },
+    {
+     "key": "Q897839",
+     "qid": "Q897839",
+     "name": "капелла Сансеверо",
+     "lat": 40.84919,
+     "lon": 14.25488,
+     "kind": "interior",
+     "works": [
+      "dadc277af2"
+     ],
+     "today": {
+      "file": "Immagine d'insieme 2, Cappella Sansevero.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Immagine_d%27insieme_2%2C_Cappella_Sansevero.jpg/500px-Immagine_d%27insieme_2%2C_Cappella_Sansevero.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Immagine_d%27insieme_2,_Cappella_Sansevero.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "David Sivyer",
+      "date": "2015-11-01"
+     }
+    },
+    {
+     "key": "Q628491",
+     "qid": "Q628491",
+     "name": "театр Сан-Карло",
+     "lat": 40.837388,
+     "lon": 14.249687,
+     "kind": "monument",
+     "works": [
+      "db7314cd20"
+     ],
+     "today": {
+      "file": "Teatro de San Carlos, Nápoles, Italia, 2023-03-25, DD 184-186 HDR.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Teatro_de_San_Carlos%2C_N%C3%A1poles%2C_Italia%2C_2023-03-25%2C_DD_184-186_HDR.jpg/500px-Teatro_de_San_Carlos%2C_N%C3%A1poles%2C_Italia%2C_2023-03-25%2C_DD_184-186_HDR.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Teatro_de_San_Carlos,_N%C3%A1poles,_Italia,_2023-03-25,_DD_184-186_HDR.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Diego Delso",
+      "date": "2023-03-25 16:24:26"
+     }
     }
    ],
    "plan": {
@@ -10870,7 +11865,16 @@
       "05016ad1ef",
       "f4ade93eca",
       "f3be9d0dc6"
-     ]
+     ],
+     "today": {
+      "file": "Notre-Dame de Paris 2013-07-24.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Notre-Dame_de_Paris_2013-07-24.jpg/500px-Notre-Dame_de_Paris_2013-07-24.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Notre-Dame_de_Paris_2013-07-24.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "P e z i",
+      "date": "2013-07-24"
+     }
     },
     {
      "key": "Q1075988",
@@ -10901,7 +11905,16 @@
       "686e23b753",
       "abc961a348",
       "d41543a589"
-     ]
+     ],
+     "today": {
+      "file": "2017 - Le palais du Luxembourg, dans le jardin du Luxembourg, Paris - 3.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/2017_-_Le_palais_du_Luxembourg%2C_dans_le_jardin_du_Luxembourg%2C_Paris_-_3.jpg/500px-2017_-_Le_palais_du_Luxembourg%2C_dans_le_jardin_du_Luxembourg%2C_Paris_-_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:2017_-_Le_palais_du_Luxembourg,_dans_le_jardin_du_Luxembourg,_Paris_-_3.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Luis Miguel Bugallo Sánchez (Lmbuga)",
+      "date": "2018-06-30 12:56:14"
+     }
     },
     {
      "key": "Q21500125",
@@ -10916,7 +11929,16 @@
       "0d788c5baa",
       "8ff3d7243e",
       "14da1177bc"
-     ]
+     ],
+     "today": {
+      "file": "Joutes pont au change Raguenet 1751.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Joutes_pont_au_change_Raguenet_1751.jpg/500px-Joutes_pont_au_change_Raguenet_1751.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Joutes_pont_au_change_Raguenet_1751.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Nicolas-Jean-Baptiste Raguenet",
+      "date": "1751date QS:P571,+1751-00-00T00:00:00Z/9"
+     }
     },
     {
      "key": "Q1111051",
@@ -10930,7 +11952,16 @@
       "7ff70eaef0",
       "0f6b1a24dc",
       "1c6d409efd"
-     ]
+     ],
+     "today": {
+      "file": "Vendome Column A.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Vendome_Column_A.jpg/500px-Vendome_Column_A.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vendome_Column_A.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Benh LIEU SONG",
+      "date": "2007-09-30"
+     }
     },
     {
      "key": "Q913434",
@@ -10944,7 +11975,16 @@
       "3920788d83",
       "683cc71e68",
       "d616138997"
-     ]
+     ],
+     "today": {
+      "file": "Vedere a Halelor din Paris de pe Biserica Saint Eustache.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Vedere_a_Halelor_din_Paris_de_pe_Biserica_Saint_Eustache.jpg/500px-Vedere_a_Halelor_din_Paris_de_pe_Biserica_Saint_Eustache.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vedere_a_Halelor_din_Paris_de_pe_Biserica_Saint_Eustache.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Felix Benoist",
+      "date": "1870. Uploaded on 31 December 2006"
+     }
     },
     {
      "key": "Q640968",
@@ -10958,7 +11998,16 @@
       "aa42102486",
       "b047b2d546",
       "014e1f1515"
-     ]
+     ],
+     "today": {
+      "file": "Paris, Hôtel de Ville -- 2014 -- 1714.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Paris%2C_H%C3%B4tel_de_Ville_--_2014_--_1714.jpg/500px-Paris%2C_H%C3%B4tel_de_Ville_--_2014_--_1714.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris,_H%C3%B4tel_de_Ville_--_2014_--_1714.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Dietmar Rabich",
+      "date": "Taken on 10 July 2014, 14:45"
+     }
     },
     {
      "key": "Q234364",
@@ -10972,7 +12021,16 @@
       "d90ff7f4ce",
       "596f68a339",
       "ed85711e95"
-     ]
+     ],
+     "today": {
+      "file": "Tuileries jardin 1867.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Tuileries_jardin_1867.jpg/500px-Tuileries_jardin_1867.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Tuileries_jardin_1867.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "AnonymousUnknown author",
+      "date": "1867"
+     }
     },
     {
      "key": "Q330564",
@@ -10986,7 +12044,16 @@
       "a0ed6d51bc",
       "7f3b67a59d",
       "d0d6c14127"
-     ]
+     ],
+     "today": {
+      "file": "Eglise de la Madeleine 2024.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Eglise_de_la_Madeleine_2024.jpg/500px-Eglise_de_la_Madeleine_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Eglise_de_la_Madeleine_2024.jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Callaway Kosine – de Suzannet",
+      "date": "2024-04-03"
+     }
     },
     {
      "key": "Q295844",
@@ -11000,7 +12067,16 @@
       "24ac5ca565",
       "6cf440b514",
       "8b186f7609"
-     ]
+     ],
+     "today": {
+      "file": "Paris Saint-Sulpice Fassade 4-5 A.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Paris_Saint-Sulpice_Fassade_4-5_A.jpg/500px-Paris_Saint-Sulpice_Fassade_4-5_A.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris_Saint-Sulpice_Fassade_4-5_A.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Zairon",
+      "date": "2017-04-06 13:14:07"
+     }
     },
     {
      "key": "Q3088872",
@@ -11013,7 +12089,16 @@
       "64366d9758",
       "9aa71d10d2",
       "5b87f60b3a"
-     ]
+     ],
+     "today": {
+      "file": "Palais de l'Industrie - Édouard Baldus.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg/500px-Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Édouard Baldus",
+      "date": "1850sdate QS:P,+1850-00-00T00:00:00Z/8–6"
+     }
     },
     {
      "key": "Q924480",
@@ -11026,7 +12111,16 @@
       "8b77da71bd",
       "0437d81861",
       "f1a26d540f"
-     ]
+     ],
+     "today": {
+      "file": "Paris 18e Moulin Radet 220.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Paris_18e_Moulin_Radet_220.jpg/500px-Paris_18e_Moulin_Radet_220.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris_18e_Moulin_Radet_220.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "GFreihalter",
+      "date": "2013-12-29"
+     }
     },
     {
      "key": "Q1937108",
@@ -11052,7 +12146,16 @@
       "7346a7ee96",
       "0bc277153f",
       "e48cd2ee44"
-     ]
+     ],
+     "today": {
+      "file": "Boulevard Montmartre - Paris X (FR75) - 2021-06-14 - 2.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Boulevard_Montmartre_-_Paris_X_%28FR75%29_-_2021-06-14_-_2.jpg/500px-Boulevard_Montmartre_-_Paris_X_%28FR75%29_-_2021-06-14_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Boulevard_Montmartre_-_Paris_X_(FR75)_-_2021-06-14_-_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Chabe01",
+      "date": "2021-06-14 17:12:10"
+     }
     },
     {
      "key": "Q21500144",
@@ -11065,7 +12168,16 @@
       "23f0a67cab",
       "d584c5d65b",
       "1153d6f5f1"
-     ]
+     ],
+     "today": {
+      "file": "Pont de la Tournelle, Paris-1862-Stanislas Lepine.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Pont_de_la_Tournelle%2C_Paris-1862-Stanislas_Lepine.jpg/500px-Pont_de_la_Tournelle%2C_Paris-1862-Stanislas_Lepine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pont_de_la_Tournelle,_Paris-1862-Stanislas_Lepine.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Stanislas Lépine",
+      "date": "1862date QS:P571,+1862-00-00T00:00:00Z/9"
+     }
     },
     {
      "key": "Q189503",
@@ -11078,7 +12190,16 @@
       "20e3f8f339",
       "ad4d81bf6b",
       "11f6c0dace"
-     ]
+     ],
+     "today": {
+      "file": "Place de la Concorde from the Eiffel Tower, Paris April 2011.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Place_de_la_Concorde_from_the_Eiffel_Tower%2C_Paris_April_2011.jpg/500px-Place_de_la_Concorde_from_the_Eiffel_Tower%2C_Paris_April_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Place_de_la_Concorde_from_the_Eiffel_Tower,_Paris_April_2011.jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Cristian Bortes from Cluj-Napoca, Romania",
+      "date": "2011-04-27 12:54"
+     }
     },
     {
      "key": "Q273480",
@@ -11090,7 +12211,16 @@
      "works": [
       "15994491c0",
       "3832b331f0"
-     ]
+     ],
+     "today": {
+      "file": "École militaire from the Eiffel Tower, August 2008.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/%C3%89cole_militaire_from_the_Eiffel_Tower%2C_August_2008.jpg/500px-%C3%89cole_militaire_from_the_Eiffel_Tower%2C_August_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:%C3%89cole_militaire_from_the_Eiffel_Tower,_August_2008.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Albertus teolog",
+      "date": "2008-08-06 13:59:51"
+     }
     },
     {
      "key": "Q188977",
@@ -11102,7 +12232,16 @@
      "works": [
       "8aaa5931dc",
       "eed79ffc04"
-     ]
+     ],
+     "today": {
+      "file": "Hôtel des Invalides - 20150801 16h09 (10630).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/H%C3%B4tel_des_Invalides_-_20150801_16h09_%2810630%29.jpg/500px-H%C3%B4tel_des_Invalides_-_20150801_16h09_%2810630%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_des_Invalides_-_20150801_16h09_(10630).jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Another one of my pictures:\n\n\n\nThis photograph was taken by Medium69 (William Crochot) and released under the license st",
+      "date": "2015-08-01 16:09:31"
+     }
     },
     {
      "key": "Q269641",
@@ -11114,7 +12253,16 @@
      "works": [
       "7dd66c5471",
       "d022070051"
-     ]
+     ],
+     "today": {
+      "file": "Colonne de Juillet 972.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Colonne_de_Juillet_972.jpg/500px-Colonne_de_Juillet_972.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Colonne_de_Juillet_972.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Vassil",
+      "date": "6/11/07"
+     }
     },
     {
      "key": "Q217925",
@@ -11138,7 +12286,16 @@
      "works": [
       "96a727ebc9",
       "b6232c817a"
-     ]
+     ],
+     "today": {
+      "file": "P1020032 Paris III CNAM entrée rue Saint-Martin reductwk.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/P1020032_Paris_III_CNAM_entr%C3%A9e_rue_Saint-Martin_reductwk.JPG/500px-P1020032_Paris_III_CNAM_entr%C3%A9e_rue_Saint-Martin_reductwk.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:P1020032_Paris_III_CNAM_entr%C3%A9e_rue_Saint-Martin_reductwk.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Mbzt",
+      "date": "2011-04"
+     }
     },
     {
      "key": "Q335277",
@@ -11150,7 +12307,16 @@
      "works": [
       "fa990365f8",
       "9ba52b9c9f"
-     ]
+     ],
+     "today": {
+      "file": "The western sides of the Île de la Cité and the Pont Neuf, 14 July 2008.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/The_western_sides_of_the_%C3%8Ele_de_la_Cit%C3%A9_and_the_Pont_Neuf%2C_14_July_2008.jpg/500px-The_western_sides_of_the_%C3%8Ele_de_la_Cit%C3%A9_and_the_Pont_Neuf%2C_14_July_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:The_western_sides_of_the_%C3%8Ele_de_la_Cit%C3%A9_and_the_Pont_Neuf,_14_July_2008.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Rmrfstar",
+      "date": "2008-07-14 05:29:49"
+     }
     },
     {
      "key": "Q329948",
@@ -11162,7 +12328,16 @@
      "works": [
       "466f8f2016",
       "e27ee5bdf8"
-     ]
+     ],
+     "today": {
+      "file": "Conseil d'Etat Paris WA.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Conseil_d%27Etat_Paris_WA.jpg/500px-Conseil_d%27Etat_Paris_WA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Conseil_d%27Etat_Paris_WA.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Marie-Lan Nguyen",
+      "date": "2006-06-30"
+     }
     },
     {
      "key": "Q193193",
@@ -11174,7 +12349,16 @@
      "works": [
       "4b23d8ba8d",
       "d2a24040f4"
-     ]
+     ],
+     "today": {
+      "file": "Szensapel.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Szensapel.jpg/500px-Szensapel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Szensapel.jpg",
+      "license": "CC BY 2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5",
+      "author": "Mathae",
+      "date": "2006-07"
+     }
     },
     {
      "key": "Q3451729",
@@ -11186,7 +12370,16 @@
      "works": [
       "f7a590da09",
       "37ada4ab7b"
-     ]
+     ],
+     "today": {
+      "file": "P1320901 Paris XIX rue des Carrieres-Ameriques rwk.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/P1320901_Paris_XIX_rue_des_Carrieres-Ameriques_rwk.jpg/500px-P1320901_Paris_XIX_rue_des_Carrieres-Ameriques_rwk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:P1320901_Paris_XIX_rue_des_Carrieres-Ameriques_rwk.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Mbzt",
+      "date": "2015-09-02 13:51:03"
+     }
     },
     {
      "key": "Q124813081",
@@ -11198,7 +12391,16 @@
      "works": [
       "dd89896d68",
       "b7a96cb148"
-     ]
+     ],
+     "today": {
+      "file": "Pont au Change et Pont Notre-Dame, Paris Musées 20230620202748.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Pont_au_Change_et_Pont_Notre-Dame%2C_Paris_Mus%C3%A9es_20230620202748.jpg/500px-Pont_au_Change_et_Pont_Notre-Dame%2C_Paris_Mus%C3%A9es_20230620202748.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pont_au_Change_et_Pont_Notre-Dame,_Paris_Mus%C3%A9es_20230620202748.jpg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Anonyme, photographe",
+      "date": "Unknown date"
+     }
     },
     {
      "key": "Q3145813",
@@ -11210,7 +12412,16 @@
      "works": [
       "af43bbfb95",
       "874efbfa85"
-     ]
+     ],
+     "today": {
+      "file": "Hôtel de Cluny square Painlevé.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/H%C3%B4tel_de_Cluny_square_Painlev%C3%A9.jpg/500px-H%C3%B4tel_de_Cluny_square_Painlev%C3%A9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_Cluny_square_Painlev%C3%A9.jpg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Jebulon",
+      "date": "2012-06-17"
+     }
     },
     {
      "key": "Q109591503",
@@ -11222,7 +12433,16 @@
      "works": [
       "4b4f6a147f",
       "030e6c201d"
-     ]
+     ],
+     "today": {
+      "file": "Pavillon Denon.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Pavillon_Denon.jpg/500px-Pavillon_Denon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pavillon_Denon.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Louis H. G.",
+      "date": "2018-08-02 23:56:05"
+     }
     },
     {
      "key": "Q14629277",
@@ -11234,7 +12454,16 @@
      "works": [
       "87698ed0bb",
       "5ceff04644"
-     ]
+     ],
+     "today": {
+      "file": "Place de Dublin depuis la rue de Moscou.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Place_de_Dublin_depuis_la_rue_de_Moscou.jpg/500px-Place_de_Dublin_depuis_la_rue_de_Moscou.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Place_de_Dublin_depuis_la_rue_de_Moscou.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Tangopaso",
+      "date": "24 March 2011"
+     }
     },
     {
      "key": "Q2723969",
@@ -11246,7 +12475,16 @@
      "works": [
       "1d2e4217ee",
       "cf9ce0cca0"
-     ]
+     ],
+     "today": {
+      "file": "Place du Carrousel (2).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Place_du_Carrousel_%282%29.jpg/500px-Place_du_Carrousel_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Place_du_Carrousel_(2).jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Mister No",
+      "date": "Taken on 21 July 2010"
+     }
     },
     {
      "key": "Q3441676",
@@ -11270,7 +12508,556 @@
      "works": [
       "8552dfd234",
       "67082afd0a"
-     ]
+     ],
+     "today": {
+      "file": "Grande Roue de Paris - Louvre et Jardins des Tuileries.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Grande_Roue_de_Paris_-_Louvre_et_Jardins_des_Tuileries.jpg/500px-Grande_Roue_de_Paris_-_Louvre_et_Jardins_des_Tuileries.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Grande_Roue_de_Paris_-_Louvre_et_Jardins_des_Tuileries.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Tangopaso",
+      "date": "2018-05-17"
+     }
+    },
+    {
+     "key": "Q807893",
+     "qid": "Q807893",
+     "name": "Барбес — Рошешуар",
+     "lat": 48.883621,
+     "lon": 2.349737,
+     "kind": "street",
+     "works": [
+      "76050f8634"
+     ],
+     "today": {
+      "file": "Ligne-2-Barbes-Rochechouart.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Ligne-2-Barbes-Rochechouart.jpg/500px-Ligne-2-Barbes-Rochechouart.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ligne-2-Barbes-Rochechouart.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Pline",
+      "date": "2006-10"
+     }
+    },
+    {
+     "key": "Q936633",
+     "qid": "Q936633",
+     "name": "Бурбонский дворец",
+     "lat": 48.862072,
+     "lon": 2.318681,
+     "kind": "monument",
+     "works": [
+      "1483427d1c"
+     ],
+     "today": {
+      "file": "Concorde Assemblée Nationale.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Concorde_Assembl%C3%A9e_Nationale.jpg/500px-Concorde_Assembl%C3%A9e_Nationale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Concorde_Assembl%C3%A9e_Nationale.jpg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Jebulon",
+      "date": "2011-05-29"
+     }
+    },
+    {
+     "key": "Q1339583",
+     "qid": "Q1339583",
+     "name": "Валь-де-Грас",
+     "lat": 48.839167,
+     "lon": 2.344444,
+     "kind": "monument",
+     "works": [
+      "0430724ef2"
+     ],
+     "today": {
+      "file": "Val de Grace dsc04631.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Val_de_Grace_dsc04631.jpg/500px-Val_de_Grace_dsc04631.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Val_de_Grace_dsc04631.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "David Monniaux",
+      "date": "27 October 2005 (according to Exif data)"
+     }
+    },
+    {
+     "key": "Q550",
+     "qid": "Q550",
+     "name": "Елисейские Поля",
+     "lat": 48.86967,
+     "lon": 2.30786,
+     "kind": "street",
+     "works": [
+      "539efb40db"
+     ],
+     "today": {
+      "file": "Avenue des Champs-Élysées, Paris 3 October 2010.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Avenue_des_Champs-%C3%89lys%C3%A9es%2C_Paris_3_October_2010.jpg/500px-Avenue_des_Champs-%C3%89lys%C3%A9es%2C_Paris_3_October_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Avenue_des_Champs-%C3%89lys%C3%A9es,_Paris_3_October_2010.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "SoWhat",
+      "date": "2010-10-03"
+     }
+    },
+    {
+     "key": "Q188190",
+     "qid": "Q188190",
+     "name": "Елисейский дворец",
+     "lat": 48.870278,
+     "lon": 2.316389,
+     "kind": "monument",
+     "works": [
+      "f5dae8cf63"
+     ],
+     "today": {
+      "file": "Secretary Pompeo Arrives to Meet with French Foreign Minister Le Drian in Paris (50610423656) (cropped).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Secretary_Pompeo_Arrives_to_Meet_with_French_Foreign_Minister_Le_Drian_in_Paris_%2850610423656%29_%28cropped%29.jpg/500px-Secretary_Pompeo_Arrives_to_Meet_with_French_Foreign_Minister_Le_Drian_in_Paris_%2850610423656%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Secretary_Pompeo_Arrives_to_Meet_with_French_Foreign_Minister_Le_Drian_in_Paris_(50610423656)_(cropped).jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "U.S. Department of State from United States",
+      "date": "2020-11-16 05:56"
+     }
+    },
+    {
+     "key": "Q895082",
+     "qid": "Q895082",
+     "name": "Итальянский бульвар",
+     "lat": 48.871419,
+     "lon": 2.336997,
+     "kind": "street",
+     "works": [
+      "a6cf6c642e"
+     ],
+     "today": {
+      "file": "P1030046 Paris II IX boulevard des Italiens rwk.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/P1030046_Paris_II_IX_boulevard_des_Italiens_rwk.JPG/500px-P1030046_Paris_II_IX_boulevard_des_Italiens_rwk.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:P1030046_Paris_II_IX_boulevard_des_Italiens_rwk.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Mbzt",
+      "date": "2011-06"
+     }
+    },
+    {
+     "key": "Q3001383",
+     "qid": "Q3001383",
+     "name": "Кур-ла-Рен",
+     "lat": 48.864722,
+     "lon": 2.314444,
+     "kind": "street",
+     "works": [
+      "9b61c9c13f"
+     ],
+     "today": {
+      "file": "Paris cours la reine.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Paris_cours_la_reine.jpg/500px-Paris_cours_la_reine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris_cours_la_reine.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Ralf.treinen",
+      "date": "2010-08-28"
+     }
+    },
+    {
+     "key": "Q2974260",
+     "qid": "Q2974260",
+     "name": "Летний цирк (Цирк Императрицы)",
+     "lat": 48.8692,
+     "lon": 2.3119,
+     "kind": "monument",
+     "works": [
+      "90840e3e8e"
+     ],
+     "today": {
+      "file": "Hippolyte Bayard, Cirque National, Paris, 1847 - Getty Museum.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Hippolyte_Bayard%2C_Cirque_National%2C_Paris%2C_1847_-_Getty_Museum.jpg/500px-Hippolyte_Bayard%2C_Cirque_National%2C_Paris%2C_1847_-_Getty_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Hippolyte_Bayard,_Cirque_National,_Paris,_1847_-_Getty_Museum.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Hippolyte Bayard",
+      "date": "1847"
+     }
+    },
+    {
+     "key": "Q186115",
+     "qid": "Q186115",
+     "name": "Монмартр",
+     "lat": 48.886944,
+     "lon": 2.341111,
+     "kind": "monument",
+     "works": [
+      "67b1332507"
+     ],
+     "today": {
+      "file": "Montmarte 2 (pixinn.net).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Montmarte_2_%28pixinn.net%29.jpg/500px-Montmarte_2_%28pixinn.net%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Montmarte_2_(pixinn.net).jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Christophe Meneboeuf",
+      "date": "2013-08-17 12:39:14"
+     }
+    },
+    {
+     "key": "Q64436",
+     "qid": "Q64436",
+     "name": "Триумфальная арка (Париж)",
+     "lat": 48.87378,
+     "lon": 2.29504,
+     "kind": "monument",
+     "works": [
+      "4eba593e55"
+     ],
+     "today": {
+      "file": "Arc de Triomphe - Août 2026.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Arc_de_Triomphe_-_Ao%C3%BBt_2026.jpg/500px-Arc_de_Triomphe_-_Ao%C3%BBt_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe_-_Ao%C3%BBt_2026.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "ZeusUpsistos",
+      "date": "2026-08-02 08:29:27"
+     }
+    },
+    {
+     "key": "Q895080",
+     "qid": "Q895080",
+     "name": "бульвар Севастополь",
+     "lat": 48.864444,
+     "lon": 2.351389,
+     "kind": "street",
+     "works": [
+      "09a17e9c50"
+     ],
+     "today": {
+      "file": "P1060315 Paris Ier et IV boulevard de Sébastopol rwk.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/P1060315_Paris_Ier_et_IV_boulevard_de_S%C3%A9bastopol_rwk.JPG/500px-P1060315_Paris_Ier_et_IV_boulevard_de_S%C3%A9bastopol_rwk.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:P1060315_Paris_Ier_et_IV_boulevard_de_S%C3%A9bastopol_rwk.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Mbzt",
+      "date": "2011-10-25"
+     }
+    },
+    {
+     "key": "Q684594",
+     "qid": "Q684594",
+     "name": "ворота Сен-Дени",
+     "lat": 48.869722,
+     "lon": 2.3525,
+     "kind": "monument",
+     "works": [
+      "78946095f7"
+     ],
+     "today": {
+      "file": "Porte Saint Denis - Paris X (FR75) - 2023-06-14 - 2.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Porte_Saint_Denis_-_Paris_X_%28FR75%29_-_2023-06-14_-_2.jpg/500px-Porte_Saint_Denis_-_Paris_X_%28FR75%29_-_2023-06-14_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Porte_Saint_Denis_-_Paris_X_(FR75)_-_2023-06-14_-_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Chabe01",
+      "date": "2023-06-14 20:29:43"
+     }
+    },
+    {
+     "key": "Q1854102",
+     "qid": "Q1854102",
+     "name": "дворец Броньяра (Биржа)",
+     "lat": 48.869169,
+     "lon": 2.340828,
+     "kind": "monument",
+     "works": [
+      "7f7aa8e9ca"
+     ],
+     "today": {
+      "file": "Palais Brongniart Facade.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Palais_Brongniart_Facade.jpg/500px-Palais_Brongniart_Facade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palais_Brongniart_Facade.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Arthur Weidmann",
+      "date": "2022-08-07 17:55:49"
+     }
+    },
+    {
+     "key": "Q311",
+     "qid": "Q311",
+     "name": "кладбище Пер-Лашез",
+     "lat": 48.861111,
+     "lon": 2.394167,
+     "kind": "monument",
+     "works": [
+      "354c249ebf"
+     ],
+     "today": {
+      "file": "Main gate of the Père-Lachaise Cemetery, Paris 13 June 2014.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Main_gate_of_the_P%C3%A8re-Lachaise_Cemetery%2C_Paris_13_June_2014.jpg/500px-Main_gate_of_the_P%C3%A8re-Lachaise_Cemetery%2C_Paris_13_June_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Main_gate_of_the_P%C3%A8re-Lachaise_Cemetery,_Paris_13_June_2014.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Connie Ma from Chicago, United States of America",
+      "date": "2014-06-13 10:32"
+     }
+    },
+    {
+     "key": "Q659386",
+     "qid": "Q659386",
+     "name": "набережная Гран-Огюстен",
+     "lat": 48.8548,
+     "lon": 2.34218,
+     "kind": "street",
+     "works": [
+      "fc61f47515"
+     ],
+     "today": {
+      "file": "Paris Quai des Grands Augustins.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Paris_Quai_des_Grands_Augustins.JPG/500px-Paris_Quai_des_Grands_Augustins.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris_Quai_des_Grands_Augustins.JPG",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "br",
+      "date": "2007-02-20"
+     }
+    },
+    {
+     "key": "Q3373064",
+     "qid": "Q3373064",
+     "name": "павильон Флоры",
+     "lat": 48.861017,
+     "lon": 2.330559,
+     "kind": "monument",
+     "works": [
+      "3cc58c42ef"
+     ],
+     "today": {
+      "file": "Pavillon de Flore, Louvre Museum, Paris 5 November 2019.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Pavillon_de_Flore%2C_Louvre_Museum%2C_Paris_5_November_2019.jpg/500px-Pavillon_de_Flore%2C_Louvre_Museum%2C_Paris_5_November_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pavillon_de_Flore,_Louvre_Museum,_Paris_5_November_2019.jpg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Ali Sabbagh",
+      "date": "2019-11-05 18:54"
+     }
+    },
+    {
+     "key": "Q3373082",
+     "qid": "Q3373082",
+     "name": "павильон Часов (Лувр)",
+     "lat": 48.860614,
+     "lon": 2.337694,
+     "kind": "monument",
+     "works": [
+      "818641c47e"
+     ],
+     "today": {
+      "file": "Paris - Palais du Louvre - Pavillon de l'Horloge 001.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Paris_-_Palais_du_Louvre_-_Pavillon_de_l%27Horloge_001.jpg/500px-Paris_-_Palais_du_Louvre_-_Pavillon_de_l%27Horloge_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris_-_Palais_du_Louvre_-_Pavillon_de_l%27Horloge_001.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Thesupermat",
+      "date": "2013-08-15 10:16:18"
+     }
+    },
+    {
+     "key": "Q3390625",
+     "qid": "Q3390625",
+     "name": "площадь Гавр",
+     "lat": 48.8756,
+     "lon": 2.32667,
+     "kind": "square",
+     "works": [
+      "f365aaf48d"
+     ],
+     "today": {
+      "file": "Place du Havre.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Place_du_Havre.jpg/500px-Place_du_Havre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Place_du_Havre.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Lexane Sirac",
+      "date": "14 October 2019 (according to Exif data)"
+     }
+    },
+    {
+     "key": "Q3390107",
+     "qid": "Q3390107",
+     "name": "площадь Сен-Пьер (Монмартр)",
+     "lat": 48.8844,
+     "lon": 2.34342,
+     "kind": "square",
+     "works": [
+      "c8bf052216"
+     ],
+     "today": {
+      "file": "P1210490 Paris XVIII place Saint-Pierre rwk.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/P1210490_Paris_XVIII_place_Saint-Pierre_rwk.jpg/500px-P1210490_Paris_XVIII_place_Saint-Pierre_rwk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:P1210490_Paris_XVIII_place_Saint-Pierre_rwk.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Mbzt",
+      "date": "2013-10-17 16:46:19"
+     }
+    },
+    {
+     "key": "Q3412724",
+     "qid": "Q3412724",
+     "name": "порт Сен-Поль (набережная Целестинцев)",
+     "lat": 48.8523,
+     "lon": 2.36069,
+     "kind": "street",
+     "works": [
+      "0fd8727284"
+     ],
+     "today": {
+      "file": "Paris quai des celestins.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Paris_quai_des_celestins.png/500px-Paris_quai_des_celestins.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paris_quai_des_celestins.png",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Ralf.treinen",
+      "date": "2010-05-09"
+     }
+    },
+    {
+     "key": "Q1435791",
+     "qid": "Q1435791",
+     "name": "рынок Невинных (фонтан Невинных)",
+     "lat": 48.86065,
+     "lon": 2.348011,
+     "kind": "square",
+     "works": [
+      "704e8e00e2"
+     ],
+     "today": {
+      "file": "Fontaine des Innocents, 2011.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Fontaine_des_Innocents%2C_2011.JPG/500px-Fontaine_des_Innocents%2C_2011.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Fontaine_des_Innocents,_2011.JPG",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Cancre",
+      "date": "2011-04-10"
+     }
+    },
+    {
+     "key": "Q36698465",
+     "qid": "Q36698465",
+     "name": "рынок Сен-Жермен",
+     "lat": 48.852077,
+     "lon": 2.335929,
+     "kind": "monument",
+     "works": [
+      "04d481d8c7"
+     ],
+     "today": {
+      "file": "P1020096 Paris VI Marché Saint-Germain reductwk.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/P1020096_Paris_VI_March%C3%A9_Saint-Germain_reductwk.JPG/500px-P1020096_Paris_VI_March%C3%A9_Saint-Germain_reductwk.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:P1020096_Paris_VI_March%C3%A9_Saint-Germain_reductwk.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Mbzt",
+      "date": "2011-04"
+     }
+    },
+    {
+     "key": "Q3162586",
+     "qid": "Q3162586",
+     "name": "сад Пале-Рояль",
+     "lat": 48.865,
+     "lon": 2.33775,
+     "kind": "square",
+     "works": [
+      "d5d69eafb7"
+     ],
+     "today": {
+      "file": "Jardins du Palais Royal.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Jardins_du_Palais_Royal.JPG/500px-Jardins_du_Palais_Royal.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Jardins_du_Palais_Royal.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "LPLT",
+      "date": "2009-08"
+     }
+    },
+    {
+     "key": "Q152109",
+     "qid": "Q152109",
+     "name": "собор Дома Инвалидов",
+     "lat": 48.855,
+     "lon": 2.312222,
+     "kind": "interior",
+     "works": [
+      "49e2086639"
+     ],
+     "today": {
+      "file": "South facade of Dôme des Invalides, Paris 29 May 2021.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/South_facade_of_D%C3%B4me_des_Invalides%2C_Paris_29_May_2021.jpg/500px-South_facade_of_D%C3%B4me_des_Invalides%2C_Paris_29_May_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:South_facade_of_D%C3%B4me_des_Invalides,_Paris_29_May_2021.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "ComputerHotline",
+      "date": "2021-05-29 13:30:34"
+     }
+    },
+    {
+     "key": "Q2112543",
+     "qid": "Q2112543",
+     "name": "улица Муфтар",
+     "lat": 48.841944,
+     "lon": 2.349722,
+     "kind": "street",
+     "works": [
+      "155b5694cd"
+     ],
+     "today": {
+      "file": "Rue Mouffetard.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Rue_Mouffetard.JPG/500px-Rue_Mouffetard.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Rue_Mouffetard.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "LPLT",
+      "date": "2010-06-22"
+     }
+    },
+    {
+     "key": "Q3076336",
+     "qid": "Q3076336",
+     "name": "фонтаны площади Согласия",
+     "lat": 48.8655,
+     "lon": 2.3211,
+     "kind": "monument",
+     "works": [
+      "a4464893dc"
+     ],
+     "today": {
+      "file": "Fontaine des Fleuves.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Fontaine_des_Fleuves.jpg/500px-Fontaine_des_Fleuves.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Fontaine_des_Fleuves.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Pierre-Louis FERRER",
+      "date": "2011-07-30"
+     }
+    },
+    {
+     "key": "Q586142",
+     "qid": "Q586142",
+     "name": "церковь Святой Троицы (Париж)",
+     "lat": 48.877301,
+     "lon": 2.331408,
+     "kind": "square",
+     "works": [
+      "98d2c5ff5e"
+     ],
+     "today": {
+      "file": "Église de la Sainte-Trinité - Façade - Mars 2026.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/%C3%89glise_de_la_Sainte-Trinit%C3%A9_-_Fa%C3%A7ade_-_Mars_2026.jpg/500px-%C3%89glise_de_la_Sainte-Trinit%C3%A9_-_Fa%C3%A7ade_-_Mars_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:%C3%89glise_de_la_Sainte-Trinit%C3%A9_-_Fa%C3%A7ade_-_Mars_2026.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "ZeusUpsistos",
+      "date": "2026-03-26 11:52:29"
+     }
     }
    ],
    "plan": {
@@ -11576,6 +13363,28 @@
      "date": "1833"
     }
    ],
+   "epochs": [
+    {
+     "key": "Q2332231",
+     "qid": "Q2332231",
+     "name": "Староместская ратуша",
+     "lat": 50.087108,
+     "lon": 14.420607,
+     "kind": "monument",
+     "works": [
+      "27149e5a94"
+     ],
+     "today": {
+      "file": "Prag Altstaedter Ring rathaus.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Prag_Altstaedter_Ring_rathaus.jpg/500px-Prag_Altstaedter_Ring_rathaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Prag_Altstaedter_Ring_rathaus.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Hans Peter Schaefer, http://www.reserv-a-rt.de",
+      "date": "2005"
+     }
+    }
+   ],
    "halls": [
     [
      "../salon/?city=%D0%9F%D1%80%D0%B0%D0%B3%D0%B0",
@@ -11726,7 +13535,16 @@
       "80bbd4edac",
       "950d777865",
       "5de707d299"
-     ]
+     ],
+     "today": {
+      "file": "Reims Cathedral 016 8341.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Reims_Cathedral_016_8341.jpg/500px-Reims_Cathedral_016_8341.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral_016_8341.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ludvig14",
+      "date": "2022-08-31 15:48:04"
+     }
     }
    ],
    "halls": [
@@ -13260,7 +15078,16 @@
       "fa0d6d62f7",
       "d5265318e4",
       "ce254a099c"
-     ]
+     ],
+     "today": {
+      "file": "Colosseo 2020.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/500px-Colosseo_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "FeaturedPics",
+      "date": "2020-10-28 18:05:47"
+     }
     },
     {
      "key": "Q640092",
@@ -13273,7 +15100,16 @@
       "12ac3f2990",
       "7af0ad50cc",
       "d011299209"
-     ]
+     ],
+     "today": {
+      "file": "Roma-ponterotto.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Roma-ponterotto.jpg/500px-Roma-ponterotto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Roma-ponterotto.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "currybet",
+      "date": "2006-03-30"
+     }
     },
     {
      "key": "Q12512",
@@ -13286,7 +15122,16 @@
       "12ac3f2990",
       "3d110ab433",
       "16d3f1d480"
-     ]
+     ],
+     "today": {
+      "file": "Basilica di San Pietro in Vaticano September 2015-1a.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg/500px-Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Alvesgaspar",
+      "date": "2015-09-19 12:00:40"
+     }
     },
     {
      "key": "Q223079",
@@ -13298,7 +15143,16 @@
      "works": [
       "12ac3f2990",
       "9a5c8a57bc"
-     ]
+     ],
+     "today": {
+      "file": "Quirinale palazzo e obelisco con dioscuri Roma.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Quirinale_palazzo_e_obelisco_con_dioscuri_Roma.jpg/500px-Quirinale_palazzo_e_obelisco_con_dioscuri_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Quirinale_palazzo_e_obelisco_con_dioscuri_Roma.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me",
+      "date": "2017-05-14"
+     }
     },
     {
      "key": "Q99309",
@@ -13310,7 +15164,16 @@
      "works": [
       "12ac3f2990",
       "3da9e0e1bd"
-     ]
+     ],
+     "today": {
+      "file": "Pantheon (Rome) - Right side and front.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Pantheon_%28Rome%29_-_Right_side_and_front.jpg/500px-Pantheon_%28Rome%29_-_Right_side_and_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pantheon_(Rome)_-_Right_side_and_front.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "NikonZ7II",
+      "date": "2022-03-27"
+     }
     },
     {
      "key": "Q303001",
@@ -13334,7 +15197,16 @@
      "works": [
       "12ac3f2990",
       "12ac3f2990"
-     ]
+     ],
+     "today": {
+      "file": "Villa Borghese - entrata 2669.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Villa_Borghese_-_entrata_2669.JPG/500px-Villa_Borghese_-_entrata_2669.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Villa_Borghese_-_entrata_2669.JPG",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "user:Lalupa",
+      "date": ""
+     }
     },
     {
      "key": "Q83425",
@@ -13346,7 +15218,16 @@
      "works": [
       "86e60d5b59",
       "f102e56810"
-     ]
+     ],
+     "today": {
+      "file": "St Peter's Square, Vatican City - April 2007.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg/500px-St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:St_Peter%27s_Square,_Vatican_City_-_April_2007.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Diliff",
+      "date": "Taken on 29 April 2007"
+     }
     },
     {
      "key": "Q2091963",
@@ -13358,7 +15239,16 @@
      "works": [
       "f255192d3f",
       "71eae1bb3a"
-     ]
+     ],
+     "today": {
+      "file": "Piazza Farnese Rome.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Piazza_Farnese_Rome.jpg/500px-Piazza_Farnese_Rome.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Piazza_Farnese_Rome.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Jensens",
+      "date": "Taken on 6 July 2008"
+     }
     },
     {
      "key": "Q7232177",
@@ -13370,7 +15260,16 @@
      "works": [
       "bd505d222f",
       "12ac3f2990"
-     ]
+     ],
+     "today": {
+      "file": "Italienischer Photograph um 1865 - Der Porto di Ripetta (Zeno Fotografie).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Italienischer_Photograph_um_1865_-_Der_Porto_di_Ripetta_%28Zeno_Fotografie%29.jpg/500px-Italienischer_Photograph_um_1865_-_Der_Porto_di_Ripetta_%28Zeno_Fotografie%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Italienischer_Photograph_um_1865_-_Der_Porto_di_Ripetta_(Zeno_Fotografie).jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Italienischer Photograph um 1865",
+      "date": "circa 1865date QS:P571,+1865-00-00T00:00"
+     }
     },
     {
      "key": "Q550215",
@@ -13382,7 +15281,656 @@
      "works": [
       "12ac3f2990",
       "05872d15b0"
-     ]
+     ],
+     "today": {
+      "file": "Piazza del popolo.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Piazza_del_popolo.jpg/500px-Piazza_del_popolo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Piazza_del_popolo.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q213678",
+     "qid": "Q213678",
+     "name": "Ватиканская библиотека",
+     "lat": 41.904722,
+     "lon": 12.454444,
+     "kind": "interior",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Melozzo da Forlì 001.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Melozzo_da_Forl%C3%AC_001.jpg/500px-Melozzo_da_Forl%C3%AC_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Melozzo_da_Forl%C3%AC_001.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Melozzo da Forlì",
+      "date": "1477"
+     }
+    },
+    {
+     "key": "Q42003",
+     "qid": "Q42003",
+     "name": "Ватиканские сады",
+     "lat": 41.903056,
+     "lon": 12.450556,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Vatikanische Gaerten Museen Rom.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Vatikanische_Gaerten_Museen_Rom.jpg/500px-Vatikanische_Gaerten_Museen_Rom.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vatikanische_Gaerten_Museen_Rom.jpg",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "author": "Stefan Bauer, http://www.ferras.at",
+      "date": "2005-08-29"
+     }
+    },
+    {
+     "key": "Q848072",
+     "qid": "Q848072",
+     "name": "Испанская лестница",
+     "lat": 41.90611,
+     "lon": 12.48278,
+     "kind": "monument",
+     "works": [
+      "089cab8796"
+     ],
+     "today": {
+      "file": "Scalinata della Trinità dei Monti.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Scalinata_della_Trinit%C3%A0_dei_Monti.jpg/500px-Scalinata_della_Trinit%C3%A0_dei_Monti.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Scalinata_della_Trinit%C3%A0_dei_Monti.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Hugo DK",
+      "date": "2020-08-04 13:57:42"
+     }
+    },
+    {
+     "key": "Q333906",
+     "qid": "Q333906",
+     "name": "Капитолийские музеи",
+     "lat": 41.893056,
+     "lon": 12.482778,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Palazzo dei Conservatori in Rome (2).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Palazzo_dei_Conservatori_in_Rome_%282%29.jpg/500px-Palazzo_dei_Conservatori_in_Rome_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palazzo_dei_Conservatori_in_Rome_(2).jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Tournasol7",
+      "date": "2018-11-13 10:36:04"
+     }
+    },
+    {
+     "key": "Q3836415",
+     "qid": "Q3836415",
+     "name": "Лоджии Рафаэля",
+     "lat": 41.903611,
+     "lon": 12.456389,
+     "kind": "interior",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Loge du 2ème étage du palais apostolique du Vatican.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Loge_du_2%C3%A8me_%C3%A9tage_du_palais_apostolique_du_Vatican.jpg/500px-Loge_du_2%C3%A8me_%C3%A9tage_du_palais_apostolique_du_Vatican.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Loge_du_2%C3%A8me_%C3%A9tage_du_palais_apostolique_du_Vatican.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Gaspard Miltiade",
+      "date": "1999-10-25"
+     }
+    },
+    {
+     "key": "Q182955",
+     "qid": "Q182955",
+     "name": "Музеи Ватикана",
+     "lat": 41.906389,
+     "lon": 12.454444,
+     "kind": "interior",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Mura vaticane - ingresso ai Musei 00410.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Mura_vaticane_-_ingresso_ai_Musei_00410.JPG/500px-Mura_vaticane_-_ingresso_ai_Musei_00410.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Mura_vaticane_-_ingresso_ai_Musei_00410.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "user:Lalupa",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q200642",
+     "qid": "Q200642",
+     "name": "Палатин",
+     "lat": 41.888333,
+     "lon": 12.486944,
+     "kind": "monument",
+     "works": [
+      "d56cc27649"
+     ],
+     "today": {
+      "file": "Palatine Hill from across the Circus Maximus April 2019.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Palatine_Hill_from_across_the_Circus_Maximus_April_2019.jpg/500px-Palatine_Hill_from_across_the_Circus_Maximus_April_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palatine_Hill_from_across_the_Circus_Maximus_April_2019.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Lil Herodotus",
+      "date": "2019-04-19"
+     }
+    },
+    {
+     "key": "Q180212",
+     "qid": "Q180212",
+     "name": "Римский форум",
+     "lat": 41.8922,
+     "lon": 12.4852,
+     "kind": "monument",
+     "works": [
+      "e7af139a59"
+     ],
+     "today": {
+      "file": "Foro Romano Musei Capitolini Roma.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Foro_Romano_Musei_Capitolini_Roma.jpg/500px-Foro_Romano_Musei_Capitolini_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Foro_Romano_Musei_Capitolini_Roma.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me",
+      "date": "2018-11-10"
+     }
+    },
+    {
+     "key": "Q318660",
+     "qid": "Q318660",
+     "name": "Санта-Мария-ин-Арачели",
+     "lat": 41.893889,
+     "lon": 12.483333,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Santa Maria in Aracoeli (Rome) - Facade.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Santa_Maria_in_Aracoeli_%28Rome%29_-_Facade.jpg/500px-Santa_Maria_in_Aracoeli_%28Rome%29_-_Facade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Santa_Maria_in_Aracoeli_(Rome)_-_Facade.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "ThePhotografer",
+      "date": "2022-05-06"
+     }
+    },
+    {
+     "key": "Q723887",
+     "qid": "Q723887",
+     "name": "арка Тита",
+     "lat": 41.890717,
+     "lon": 12.488585,
+     "kind": "monument",
+     "works": [
+      "4a84840fea"
+     ],
+     "today": {
+      "file": "Arch Titus, Forum Romanum, Rome, Italy.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Arch_Titus%2C_Forum_Romanum%2C_Rome%2C_Italy.jpg/500px-Arch_Titus%2C_Forum_Romanum%2C_Rome%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Arch_Titus,_Forum_Romanum,_Rome,_Italy.jpg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Jebulon",
+      "date": "2013-08-22"
+     }
+    },
+    {
+     "key": "Q1515300",
+     "qid": "Q1515300",
+     "name": "базилика Санти-Апостоли",
+     "lat": 41.898106,
+     "lon": 12.483206,
+     "kind": "monument",
+     "works": [
+      "2573b9f140"
+     ],
+     "today": {
+      "file": "Roma, santi apostoli, facciata 00.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Roma%2C_santi_apostoli%2C_facciata_00.jpg/500px-Roma%2C_santi_apostoli%2C_facciata_00.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Roma,_santi_apostoli,_facciata_00.jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Sailko",
+      "date": "2015-07-17 15:17:51"
+     }
+    },
+    {
+     "key": "Q958299",
+     "qid": "Q958299",
+     "name": "виа дель Корсо",
+     "lat": 41.906028,
+     "lon": 12.478272,
+     "kind": "street",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Rom, die Straße Via del Corso, mittlerer Teil.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Rom%2C_die_Stra%C3%9Fe_Via_del_Corso%2C_mittlerer_Teil.JPG/500px-Rom%2C_die_Stra%C3%9Fe_Via_del_Corso%2C_mittlerer_Teil.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Rom,_die_Stra%C3%9Fe_Via_del_Corso,_mittlerer_Teil.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Dguendel",
+      "date": "2015-01-29"
+     }
+    },
+    {
+     "key": "Q774654",
+     "qid": "Q774654",
+     "name": "вилла Дория-Памфили",
+     "lat": 41.887769,
+     "lon": 12.450558,
+     "kind": "monument",
+     "works": [
+      "03eb9eee6d"
+     ],
+     "today": {
+      "file": "Villa Doria Pamphilj in Rom.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Villa_Doria_Pamphilj_in_Rom.jpg/500px-Villa_Doria_Pamphilj_in_Rom.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Villa_Doria_Pamphilj_in_Rom.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Burkhard Mücke",
+      "date": "2007-05-17 01:56:49"
+     }
+    },
+    {
+     "key": "Q1362663",
+     "qid": "Q1362663",
+     "name": "вилла Медичи",
+     "lat": 41.90827,
+     "lon": 12.48252,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Roma - Villa Medici - 2023-09-10 18-13-14 006.jpeg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Roma_-_Villa_Medici_-_2023-09-10_18-13-14_006.jpeg/500px-Roma_-_Villa_Medici_-_2023-09-10_18-13-14_006.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Roma_-_Villa_Medici_-_2023-09-10_18-13-14_006.jpeg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Laterbat",
+      "date": "2023-05-06"
+     }
+    },
+    {
+     "key": "Q1760057",
+     "qid": "Q1760057",
+     "name": "ворота Пополо",
+     "lat": 41.911528,
+     "lon": 12.475972,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "0 Porta del Popolo (Rome).JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/0_Porta_del_Popolo_%28Rome%29.JPG/500px-0_Porta_del_Popolo_%28Rome%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:0_Porta_del_Popolo_(Rome).JPG",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Jean-Pol GRANDMONT",
+      "date": "2011-10-04"
+     }
+    },
+    {
+     "key": "Q486382",
+     "qid": "Q486382",
+     "name": "замок Святого Ангела",
+     "lat": 41.903044,
+     "lon": 12.466307,
+     "kind": "monument",
+     "works": [
+      "2ceeb0a6ef"
+     ],
+     "today": {
+      "file": "Castel Sant'Angelo at Night.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Castel_Sant%27Angelo_at_Night.jpg/500px-Castel_Sant%27Angelo_at_Night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Castel_Sant%27Angelo_at_Night.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Livioandronico2013",
+      "date": "Taken on 15 December 2014, 23:17:39"
+     }
+    },
+    {
+     "key": "Q3396627",
+     "qid": "Q3396627",
+     "name": "мост Лукано",
+     "lat": 41.95487,
+     "lon": 12.76183,
+     "kind": "bridge",
+     "works": [
+      "6df6d49aed"
+     ],
+     "today": {
+      "file": "Ponte Lucano panorama modifié-1.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Ponte_Lucano_panorama_modifi%C3%A9-1.jpg/500px-Ponte_Lucano_panorama_modifi%C3%A9-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ponte_Lucano_panorama_modifi%C3%A9-1.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Ptyx",
+      "date": "2012-08-16 11:39:14"
+     }
+    },
+    {
+     "key": "Q1351222",
+     "qid": "Q1351222",
+     "name": "мост Номентано",
+     "lat": 41.933611,
+     "lon": 12.5325,
+     "kind": "bridge",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Ponte Nomentano 00234.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Ponte_Nomentano_00234.JPG/500px-Ponte_Nomentano_00234.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ponte_Nomentano_00234.JPG",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "user:Lalupa",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q734903",
+     "qid": "Q734903",
+     "name": "мост Цестия",
+     "lat": 41.88999,
+     "lon": 12.47725,
+     "kind": "bridge",
+     "works": [
+      "bb0b9bba44"
+     ],
+     "today": {
+      "file": "Ripa - ponte cestio 2 000205 12.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Ripa_-_ponte_cestio_2_000205_12.jpg/500px-Ripa_-_ponte_cestio_2_000205_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ripa_-_ponte_cestio_2_000205_12.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Lalupa",
+      "date": "05/02/2000"
+     }
+    },
+    {
+     "key": "Q545404",
+     "qid": "Q545404",
+     "name": "остров Тиберина",
+     "lat": 41.890833,
+     "lon": 12.477222,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Isola Tiberina 2014.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Isola_Tiberina_2014.JPG/500px-Isola_Tiberina_2014.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Isola_Tiberina_2014.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Livioandronico2013",
+      "date": "2014-07-02 14:26:14"
+     }
+    },
+    {
+     "key": "Q1123879",
+     "qid": "Q1123879",
+     "name": "палаццо Венеция",
+     "lat": 41.8962,
+     "lon": 12.4815,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Palazzo Venezia (Rome) - Exterior.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Palazzo_Venezia_%28Rome%29_-_Exterior.jpg/500px-Palazzo_Venezia_%28Rome%29_-_Exterior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palazzo_Venezia_(Rome)_-_Exterior.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "ThePhotografer",
+      "date": "2022-04-26"
+     }
+    },
+    {
+     "key": "Q1971299",
+     "qid": "Q1971299",
+     "name": "палаццо Колонна (сад)",
+     "lat": 41.897636,
+     "lon": 12.484214,
+     "kind": "monument",
+     "works": [
+      "8ef2916b96"
+     ],
+     "today": {
+      "file": "Trevi - palazzo colonna e basilica santi apostoli 01.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Trevi_-_palazzo_colonna_e_basilica_santi_apostoli_01.JPG/500px-Trevi_-_palazzo_colonna_e_basilica_santi_apostoli_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Trevi_-_palazzo_colonna_e_basilica_santi_apostoli_01.JPG",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "user:Lalupa",
+      "date": "2005-12-25"
+     }
+    },
+    {
+     "key": "Q725404",
+     "qid": "Q725404",
+     "name": "пирамида Цестия",
+     "lat": 41.876489,
+     "lon": 12.480898,
+     "kind": "monument",
+     "works": [
+      "3b6b6fd1d7"
+     ],
+     "today": {
+      "file": "Pyramide Caio Cestio - Rome (IT62) - 2021-08-29 - 3.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Pyramide_Caio_Cestio_-_Rome_%28IT62%29_-_2021-08-29_-_3.jpg/500px-Pyramide_Caio_Cestio_-_Rome_%28IT62%29_-_2021-08-29_-_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Pyramide_Caio_Cestio_-_Rome_(IT62)_-_2021-08-29_-_3.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Chabe01",
+      "date": "2021-08-29 12:41:48"
+     }
+    },
+    {
+     "key": "Q874832",
+     "qid": "Q874832",
+     "name": "площадь Венеции",
+     "lat": 41.89639,
+     "lon": 12.4825,
+     "kind": "square",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Piazza Venezia a Roma.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Piazza_Venezia_a_Roma.jpg/500px-Piazza_Venezia_a_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Piazza_Venezia_a_Roma.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Zavijavah",
+      "date": "2009-11-27"
+     }
+    },
+    {
+     "key": "Q34921",
+     "qid": "Q34921",
+     "name": "площадь Капитолия",
+     "lat": 41.893336,
+     "lon": 12.482924,
+     "kind": "square",
+     "works": [
+      "ad8e87e7ca"
+     ],
+     "today": {
+      "file": "Piazza del Campidoglio 2015.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Piazza_del_Campidoglio_2015.jpg/500px-Piazza_del_Campidoglio_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Piazza_del_Campidoglio_2015.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Kameister",
+      "date": "2015-09-17 06:54:20"
+     }
+    },
+    {
+     "key": "Q2091947",
+     "qid": "Q2091947",
+     "name": "площадь Квиринале",
+     "lat": 41.899444,
+     "lon": 12.486389,
+     "kind": "square",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Quirinale.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Quirinale.jpg/500px-Quirinale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Quirinale.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Fiat 500e",
+      "date": "2023-09-16 13:36:22"
+     }
+    },
+    {
+     "key": "Q63785",
+     "qid": "Q63785",
+     "name": "площадь Колонна",
+     "lat": 41.901056,
+     "lon": 12.479917,
+     "kind": "square",
+     "works": [
+      "7b14139cb0"
+     ],
+     "today": {
+      "file": "Columna de Marco Aurelio, plaza Colonna, Roma, Italia, 2022-09-14, DD 24-26 HDR.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Columna_de_Marco_Aurelio%2C_plaza_Colonna%2C_Roma%2C_Italia%2C_2022-09-14%2C_DD_24-26_HDR.jpg/500px-Columna_de_Marco_Aurelio%2C_plaza_Colonna%2C_Roma%2C_Italia%2C_2022-09-14%2C_DD_24-26_HDR.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Columna_de_Marco_Aurelio,_plaza_Colonna,_Roma,_Italia,_2022-09-14,_DD_24-26_HDR.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Diego Delso",
+      "date": "2022-09-14 18:13:36"
+     }
+    },
+    {
+     "key": "Q463400",
+     "qid": "Q463400",
+     "name": "площадь Навона",
+     "lat": 41.89871,
+     "lon": 12.47316,
+     "kind": "square",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Paolo Monti - Servizio fotografico (Roma, 1966) - BEIC 6329173.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Paolo_Monti_-_Servizio_fotografico_%28Roma%2C_1966%29_-_BEIC_6329173.jpg/500px-Paolo_Monti_-_Servizio_fotografico_%28Roma%2C_1966%29_-_BEIC_6329173.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Paolo_Monti_-_Servizio_fotografico_(Roma,_1966)_-_BEIC_6329173.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Paolo Monti",
+      "date": "1966date QS:P571,+1966-00-00T00:00:00Z/9"
+     }
+    },
+    {
+     "key": "Q824997",
+     "qid": "Q824997",
+     "name": "площадь Пополо",
+     "lat": 41.910714,
+     "lon": 12.476317,
+     "kind": "square",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "PIAZZA DEL POPOLO VISTA AEREA.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/PIAZZA_DEL_POPOLO_VISTA_AEREA.jpg/500px-PIAZZA_DEL_POPOLO_VISTA_AEREA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:PIAZZA_DEL_POPOLO_VISTA_AEREA.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "DellaGherardesca",
+      "date": "2024-01-13 20:34:34"
+     }
+    },
+    {
+     "key": "Q1435809",
+     "qid": "Q1435809",
+     "name": "фонтан Аква-Паола",
+     "lat": 41.88875,
+     "lon": 12.464167,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Fontana dell'Acqua Paola - Rome, Italy 2024-03-03.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Fontana_dell%27Acqua_Paola_-_Rome%2C_Italy_2024-03-03.jpg/500px-Fontana_dell%27Acqua_Paola_-_Rome%2C_Italy_2024-03-03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Fontana_dell%27Acqua_Paola_-_Rome,_Italy_2024-03-03.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ryan Hodnett",
+      "date": "2024-03-03 17:07"
+     }
+    },
+    {
+     "key": "Q983774",
+     "qid": "Q983774",
+     "name": "фонтан Моисея",
+     "lat": 41.904361,
+     "lon": 12.494417,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Fontana del Mosè.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Fontana_del_Mos%C3%A8.jpg/500px-Fontana_del_Mos%C3%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Fontana_del_Mos%C3%A8.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Carlo Dani",
+      "date": "2015-05-25 13:38:48"
+     }
+    },
+    {
+     "key": "Q185382",
+     "qid": "Q185382",
+     "name": "фонтан Треви",
+     "lat": 41.900932,
+     "lon": 12.483313,
+     "kind": "monument",
+     "works": [
+      "12ac3f2990"
+     ],
+     "today": {
+      "file": "Trevi Fountain - Roma.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Trevi_Fountain_-_Roma.jpg/500px-Trevi_Fountain_-_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "NikonZ7II",
+      "date": "2022-02-13"
+     }
     }
    ],
    "plan": {
@@ -13865,7 +16413,56 @@
       "5111da2fc6",
       "750659b989",
       "d0f254cbb2"
-     ]
+     ],
+     "today": {
+      "file": "Cathédrale de Rouen.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Cath%C3%A9drale_de_Rouen.jpg/500px-Cath%C3%A9drale_de_Rouen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_de_Rouen.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "",
+      "date": ""
+     }
+    },
+    {
+     "key": "Q1589963",
+     "qid": "Q1589963",
+     "name": "аббатство Сент-Уэн",
+     "lat": 49.4425,
+     "lon": 1.099722,
+     "kind": "monument",
+     "works": [
+      "fe8a981f8d"
+     ],
+     "today": {
+      "file": "Abbatiale Saint-Ouen vue depuis la cathédrale Notre-Dame de Rouen.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Abbatiale_Saint-Ouen_vue_depuis_la_cath%C3%A9drale_Notre-Dame_de_Rouen.jpg/500px-Abbatiale_Saint-Ouen_vue_depuis_la_cath%C3%A9drale_Notre-Dame_de_Rouen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Abbatiale_Saint-Ouen_vue_depuis_la_cath%C3%A9drale_Notre-Dame_de_Rouen.jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Frédéric BISSON",
+      "date": "2011-05-16 15:36:55"
+     }
+    },
+    {
+     "key": "Q3145762",
+     "qid": "Q3145762",
+     "name": "отель Бургтерульд",
+     "lat": 49.442,
+     "lon": 1.08827,
+     "kind": "monument",
+     "works": [
+      "ec26dd3902"
+     ],
+     "today": {
+      "file": "Hôtel de Bourgtheroulde.JPG",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/H%C3%B4tel_de_Bourgtheroulde.JPG/500px-H%C3%B4tel_de_Bourgtheroulde.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_Bourgtheroulde.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Giogo",
+      "date": "2010-09-24"
+     }
     }
    ],
    "halls": [
@@ -14976,7 +17573,36 @@
       "790e1adcd0",
       "565c8a4aca",
       "aae771aaf0"
-     ]
+     ],
+     "today": {
+      "file": "Elizabeth Castle.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Elizabeth_Castle.jpg/500px-Elizabeth_Castle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Elizabeth_Castle.jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Jon",
+      "date": "2010-08-01 14:18:00"
+     }
+    },
+    {
+     "key": "Q7926647",
+     "qid": "Q7926647",
+     "name": "колледж Виктории (Джерси)",
+     "lat": 49.1856,
+     "lon": -2.0966,
+     "kind": "monument",
+     "works": [
+      "88dc0e7602"
+     ],
+     "today": {
+      "file": "Victoria College Jersey.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Victoria_College_Jersey.jpg/500px-Victoria_College_Jersey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Victoria_College_Jersey.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Man vyi",
+      "date": "2007-07-31"
+     }
     }
    ],
    "halls": [
@@ -15850,7 +18476,16 @@
       "96a6a06ec4",
       "dd449c646b",
       "ac8314e8b8"
-     ]
+     ],
+     "today": {
+      "file": "FP Toledo 2025 - Santa Cruz Museum - Façade.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/FP_Toledo_2025_-_Santa_Cruz_Museum_-_Fa%C3%A7ade.jpg/500px-FP_Toledo_2025_-_Santa_Cruz_Museum_-_Fa%C3%A7ade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:FP_Toledo_2025_-_Santa_Cruz_Museum_-_Fa%C3%A7ade.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Fernando",
+      "date": "2025-01-30 13:20:46"
+     }
     },
     {
      "key": "Q1123180",
@@ -15864,7 +18499,16 @@
       "95741195c0",
       "362f5aa4b0",
       "6addcfa521"
-     ]
+     ],
+     "today": {
+      "file": "FP Toledo Cathedral 2025 - West façade.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/FP_Toledo_Cathedral_2025_-_West_fa%C3%A7ade.jpg/500px-FP_Toledo_Cathedral_2025_-_West_fa%C3%A7ade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:FP_Toledo_Cathedral_2025_-_West_fa%C3%A7ade.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Fernando",
+      "date": "2025-01-30 10:41:31"
+     }
     },
     {
      "key": "Q1289106",
@@ -15878,7 +18522,16 @@
       "3688434b71",
       "4816fbf4c1",
       "7f02a7103f"
-     ]
+     ],
+     "today": {
+      "file": "Iglesia del monasterio de San Juan de los Reyes, Toledo, España.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Iglesia_del_monasterio_de_San_Juan_de_los_Reyes%2C_Toledo%2C_Espa%C3%B1a.jpg/500px-Iglesia_del_monasterio_de_San_Juan_de_los_Reyes%2C_Toledo%2C_Espa%C3%B1a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Iglesia_del_monasterio_de_San_Juan_de_los_Reyes,_Toledo,_Espa%C3%B1a.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Querubin Saldaña Sanchez",
+      "date": "2011-08-24"
+     }
     },
     {
      "key": "Q7258531",
@@ -15890,7 +18543,16 @@
      "works": [
       "2ca2ac7781",
       "ca27a99c80"
-     ]
+     ],
+     "today": {
+      "file": "Puerta Antigua de Bisagra.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Puerta_Antigua_de_Bisagra.jpg/500px-Puerta_Antigua_de_Bisagra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Puerta_Antigua_de_Bisagra.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Fernando",
+      "date": "2025-01-29 12:29:53"
+     }
     },
     {
      "key": "Q1518670",
@@ -15902,7 +18564,56 @@
      "works": [
       "fa090dc594",
       "254464953e"
-     ]
+     ],
+     "today": {
+      "file": "Puente San Martin - Atardecer.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Puente_San_Martin_-_Atardecer.jpg/500px-Puente_San_Martin_-_Atardecer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Puente_San_Martin_-_Atardecer.jpg",
+      "license": "CC BY-SA 3.0 es",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/es/deed.en",
+      "author": "Rafesmar",
+      "date": "2014-08-29 20:41:48"
+     }
+    },
+    {
+     "key": "Q1326589",
+     "qid": "Q1326589",
+     "name": "Алькасар Толедо",
+     "lat": 39.858056,
+     "lon": -4.020556,
+     "kind": "monument",
+     "works": [
+      "cba3d4caf8"
+     ],
+     "today": {
+      "file": "Alcázar de Toledo - 01.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Alc%C3%A1zar_de_Toledo_-_01.jpg/500px-Alc%C3%A1zar_de_Toledo_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Alc%C3%A1zar_de_Toledo_-_01.jpg",
+      "license": "CC BY-SA 3.0 es",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/es/deed.en",
+      "author": "Carlos Delgado",
+      "date": "2013-09-17 14:42:55"
+     }
+    },
+    {
+     "key": "Q2499221",
+     "qid": "Q2499221",
+     "name": "дворец Галиана",
+     "lat": 39.865295,
+     "lon": -4.005081,
+     "kind": "monument",
+     "works": [
+      "19cde4eb31"
+     ],
+     "today": {
+      "file": "Palacio de Galiana. Vega de Toledo.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Palacio_de_Galiana._Vega_de_Toledo.jpg/500px-Palacio_de_Galiana._Vega_de_Toledo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Palacio_de_Galiana._Vega_de_Toledo.jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Miguel Angel Masegosa Martínez",
+      "date": "2019-09-19 11:41:33"
+     }
     }
    ],
    "halls": [
@@ -16919,7 +19630,16 @@
       "d22991a831",
       "bbed5e85cb",
       "b2474e23d6"
-     ]
+     ],
+     "today": {
+      "file": "Ponte Vecchio sobre el río Arno, Florencia, Italia, 2022-09-19, DD 02.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Ponte_Vecchio_sobre_el_r%C3%ADo_Arno%2C_Florencia%2C_Italia%2C_2022-09-19%2C_DD_02.jpg/500px-Ponte_Vecchio_sobre_el_r%C3%ADo_Arno%2C_Florencia%2C_Italia%2C_2022-09-19%2C_DD_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_sobre_el_r%C3%ADo_Arno,_Florencia,_Italia,_2022-09-19,_DD_02.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Diego Delso",
+      "date": "2022-09-19 11:00:47"
+     }
     },
     {
      "key": "Q3306273",
@@ -16967,7 +19687,16 @@
      "works": [
       "3020dcaf24",
       "0d0adcd3ab"
-     ]
+     ],
+     "today": {
+      "file": "Ponte Santa Trinita seen from Ponte Vecchio.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Ponte_Santa_Trinita_seen_from_Ponte_Vecchio.jpg/500px-Ponte_Santa_Trinita_seen_from_Ponte_Vecchio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ponte_Santa_Trinita_seen_from_Ponte_Vecchio.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Jay Stewart",
+      "date": "2017-05-15 11:09:36"
+     }
     },
     {
      "key": "Q271928",
@@ -16979,7 +19708,76 @@
      "works": [
       "fe5b0e69e4",
       "e2a997404c"
-     ]
+     ],
+     "today": {
+      "file": "Piazza della signoria, palazzo vecchio, veduta 01.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Piazza_della_signoria%2C_palazzo_vecchio%2C_veduta_01.jpg/500px-Piazza_della_signoria%2C_palazzo_vecchio%2C_veduta_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Piazza_della_signoria,_palazzo_vecchio,_veduta_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Francesco Bini",
+      "date": "2021-05-10 16:58:47"
+     }
+    },
+    {
+     "key": "Q573881",
+     "qid": "Q573881",
+     "name": "базилика Сан-Лоренцо",
+     "lat": 43.775,
+     "lon": 11.253889,
+     "kind": "interior",
+     "works": [
+      "dd267c65a6"
+     ],
+     "today": {
+      "file": "Florencia, Italia - panoramio (2).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Florencia%2C_Italia_-_panoramio_%282%29.jpg/500px-Florencia%2C_Italia_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Florencia,_Italia_-_panoramio_(2).jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Nelson Pérez",
+      "date": "11 May 2015 (original upload date)"
+     }
+    },
+    {
+     "key": "Q115951254",
+     "qid": "Q115951254",
+     "name": "виа дель Арте делла Лана",
+     "lat": 43.770748,
+     "lon": 11.254779,
+     "kind": "street",
+     "works": [
+      "23879102f7"
+     ],
+     "today": {
+      "file": "Via dell'arte della lana, cavalcavia tra il palazzo dell'arte della lana e orsanmichele, 03.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Via_dell%27arte_della_lana%2C_cavalcavia_tra_il_palazzo_dell%27arte_della_lana_e_orsanmichele%2C_03.jpg/500px-Via_dell%27arte_della_lana%2C_cavalcavia_tra_il_palazzo_dell%27arte_della_lana_e_orsanmichele%2C_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Via_dell%27arte_della_lana,_cavalcavia_tra_il_palazzo_dell%27arte_della_lana_e_orsanmichele,_03.jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Sailko",
+      "date": "2023-01-24 13:28:17"
+     }
+    },
+    {
+     "key": "Q15076422",
+     "qid": "Q15076422",
+     "name": "палаццо Барджелло",
+     "lat": 43.7704,
+     "lon": 11.2584,
+     "kind": "monument",
+     "works": [
+      "2bdd63259e"
+     ],
+     "today": {
+      "file": "Firenze Bargello 2.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Firenze_Bargello_2.jpg/500px-Firenze_Bargello_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Firenze_Bargello_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Andrzej Otrębski",
+      "date": "Taken on 31 August 2009, 15:08:31"
+     }
     }
    ],
    "halls": [
