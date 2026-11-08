@@ -1,6 +1,6 @@
 /* Атлас эпох: офлайн-оболочка. Данные и страницы — «сначала сеть, потом кэш»; изображения этого сайта — «сначала кэш». */
-const VERSION = "atlas-v3-20261108";
-const SHELL = ["./", "index.html", "eras.js", "atlas.js", "maps.js", "vendor/leaflet-1.9.4/leaflet.js", "vendor/leaflet-1.9.4/leaflet.css", "data/thumbs.json", "data/eras.json", "data/atlas.json", "manifest.webmanifest",
+const VERSION = "atlas-v4-20261108";
+const SHELL = ["./", "index.html", "eras.js", "atlas.js", "maps.js", "epochs.js", "vendor/leaflet-1.9.4/leaflet.js", "vendor/leaflet-1.9.4/leaflet.css", "data/thumbs.json", "data/eras.json", "data/atlas.json", "manifest.webmanifest",
   "icons/icon-192.png", "img/loc-97683588-carte-d-europe-1769_w1000.jpg"];
 self.addEventListener("install", (e) => e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener("activate", (e) => e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim())));

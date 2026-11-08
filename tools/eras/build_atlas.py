@@ -144,6 +144,12 @@ def attach_sites_and_plans(rows: list[dict]) -> None:
             "kind": it.get("kind"), "confidence": it.get("confidence"),
             "date": it.get("date") or wdate.get(it["work_url"])})
     today = load("today-photos.json") or {}
+    street = load("panoramax.json") or {}
+    prints: dict[str, list] = {}
+    for it in (load("prints.json") or {}).get("items", []):
+        prints.setdefault(it["qid"], []).append({k: it.get(k) for k in (
+            "file", "page", "image", "year", "kind", "artist", "license", "license_url", "source_institution")}
+            | {"title": (it.get("title") or it.get("file") or "")[:140]})
     for c in rows:
         groups: dict[str, dict] = {}
         for x in c.get("sites", []):
@@ -157,7 +163,13 @@ def attach_sites_and_plans(rows: list[dict]) -> None:
             if t:
                 keep = ("file", "image", "page", "license", "license_url", "author", "date")
                 g["today"] = {k: t.get(k) for k in keep}
-            if len(g["works"]) >= 2 or t:
+            if g["qid"] and prints.get(g["qid"]):
+                g["prints"] = sorted(prints[g["qid"]], key=lambda p: p.get("year") or 9999)
+            if g["qid"] and street.get(g["qid"]):
+                keys = ("file", "camera", "date", "author", "license", "license_url", "page", "note")
+                have = [s for s in street[g["qid"]] if (ROOT / "eras" / s["file"]).exists()]
+                g["street"] = [{k: s[k] for k in keys} for s in have]
+            if len(g["works"]) + len(g.get("prints", [])) + (1 if t else 0) + len(g.get("street", [])) >= 2:
                 out.append(g)
         if out:
             c["epochs"] = sorted(out, key=lambda g: (-len(g["works"]), g["name"] or ""))

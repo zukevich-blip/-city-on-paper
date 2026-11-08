@@ -5,7 +5,7 @@
 "use strict";
 window.Atlas = (() => {
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const safe = (u) => (/^https:\/\//.test(u || "") || /^(img|thumbs|\.\.\/assets)\//.test(u || "") ? u : "#");
+  const safe = (u) => (/^https:\/\//.test(u || "") || /^(img|thumbs|now|\.\.\/assets)\//.test(u || "") ? u : "#");
   const safeLink = (u) => (/^https?:\/\//.test(u || "") ? u : "#"); // holder pages; some institutions are http-only
   const CURATION = ["../data/curation/world-graphic-archive-v1.json", "../data/curation/museum-expansion-v1.json",
     "../data/curation/cc0-gallery-20261103.json", "../data/curation/benoist-paris-musees-v1.json"];
@@ -150,54 +150,15 @@ window.Atlas = (() => {
 
   // ---------- "одно место — разные эпохи": all works of one depicted site + the same place today, swipe compare
   const yearOf = (d) => { const m = /(1[5-9]\d\d|20\d\d)/.exec(d || ""); return m ? +m[1] : null; };
-  function epochs(c, sites) {
-    const byW = new Map(sites.map((x) => [x.wid, x]));
-    const frames = (g) => {
-      const fs = g.works.map((w) => byW.get(w)).filter((x) => x && x.image).map((x) => ({
-        img: x.image, year: yearOf(x.date) || yearOf(x.title), label: x.title, url: x.url, credit: "", kind: "then" }))
-        .sort((a, b) => (a.year || 1850) - (b.year || 1850));
-      if (g.today) fs.push({ img: g.today.image, year: yearOf(g.today.date) || "сегодня", label: `Сегодня: ${g.name}`, url: g.today.page,
-        credit: `Фото: ${g.today.author || "автор на Commons"}`, lic: g.today.license, licUrl: g.today.license_url, kind: "now" });
-      return fs;
-    };
-    const groups = c.epochs.map((g) => ({ ...g, frames: frames(g) })).filter((g) => g.frames.length >= 2);
+  function epochs(c) {
+    const groups = c.epochs;
     const list = document.getElementById("eplist");
-    if (!groups.length) { document.querySelector(".epochs").hidden = true; return; }
     list.innerHTML = `<div class="epchips" role="tablist" aria-label="Места">${groups.map((g, i) =>
-      `<button type="button" role="tab" data-i="${i}" aria-selected="${i === 0}">${esc(g.name ? g.name.charAt(0).toUpperCase() + g.name.slice(1) : "")} <small>${g.frames.length}</small></button>`).join("")}</div>`;
-    const view = document.getElementById("epview");
-    const show = (gi) => {
-      const g = groups[gi];
-      list.querySelectorAll("button").forEach((b) => b.setAttribute("aria-selected", String(+b.dataset.i === gi)));
-      const lab = (f) => `${f.year || "год не указан"}${f.kind === "now" ? " · сегодня" : ""}`;
-      const opt = (sel) => g.frames.map((f, i) => `<option value="${i}" ${i === sel ? "selected" : ""}>${esc(lab(f))} — ${esc((f.label || "").slice(0, 60))}</option>`).join("");
-      let a = 0, b = g.frames.length - 1;
-      view.innerHTML = `<div class="eptrack">${g.frames.map((f, i) => `<button type="button" class="epf ${f.kind}" data-f="${i}" aria-label="${esc(lab(f))}: ${esc(f.label)}">
-          ${imgTag(f.img, f.label || g.name)}<b>${esc(lab(f))}</b></button>`).join("")}</div>
-        <div class="epcmp"><div class="ctrls"><label>Было <select id="epA">${opt(a)}</select></label><label>Стало <select id="epB">${opt(b)}</select></label></div>
-          <div class="epstage" id="epstage"><img id="epImB" alt=""><div class="epTop" id="epTop"><img id="epImA" alt=""></div>
-            <div class="eph" id="epH2" role="slider" tabindex="0" aria-label="Граница сравнения" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⇆</span></div>
-            <span class="tag l" id="epTagA"></span><span class="tag r" id="epTagB"></span></div>
-          <p class="mapnote" id="epCredit"></p></div>`;
-      const st = document.getElementById("epstage"), top = document.getElementById("epTop"), h = document.getElementById("epH2");
-      const setPos = (p) => { p = Math.max(0, Math.min(100, p)); top.style.clipPath = `inset(0 ${100 - p}% 0 0)`; h.style.left = p + "%"; h.setAttribute("aria-valuenow", String(Math.round(p))); };
-      const upd = () => {
-        const A = g.frames[a], B = g.frames[b];
-        const ia = document.getElementById("epImA"), ib = document.getElementById("epImB");
-        ia.src = safe(thumb(A.img)); ia.alt = `Было: ${lab(A)} — ${A.label}`; ib.src = safe(thumb(B.img)); ib.alt = `Стало: ${lab(B)} — ${B.label}`;
-        document.getElementById("epTagA").textContent = lab(A); document.getElementById("epTagB").textContent = lab(B);
-        document.getElementById("epCredit").innerHTML = [A, B].map((f) => `<a href="${esc(safeLink(f.url))}" target="_blank" rel="noopener">${esc(lab(f))}: источник ↗</a>${f.credit ? " · " + esc(f.credit) : ""}${f.lic ? `, ${/^https?:\/\//.test(f.licUrl || "") ? `<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>` : esc(f.lic)}` : ""}`).join(" · ");
-        view.querySelectorAll(".epf").forEach((x) => x.classList.toggle("on", +x.dataset.f === a || +x.dataset.f === b));
-      };
-      document.getElementById("epA").onchange = (e) => { a = +e.target.value; upd(); };
-      document.getElementById("epB").onchange = (e) => { b = +e.target.value; upd(); };
-      view.querySelectorAll(".epf").forEach((x) => (x.onclick = () => { const i = +x.dataset.f; if (i === a || i === b) return; if (i < b) a = i; else b = i;
-        document.getElementById("epA").value = a; document.getElementById("epB").value = b; upd(); st.scrollIntoView({ behavior: "smooth", block: "nearest" }); }));
-      const move = (e) => { const r = st.getBoundingClientRect(); setPos((e.clientX - r.left) / r.width * 100); };
-      st.addEventListener("pointerdown", (e) => { st.setPointerCapture(e.pointerId); move(e); st.onpointermove = move; });
-      st.addEventListener("pointerup", () => (st.onpointermove = null));
-      h.addEventListener("keydown", (e) => { const v = +h.getAttribute("aria-valuenow"); if (e.key === "ArrowLeft") setPos(v - 5); else if (e.key === "ArrowRight") setPos(v + 5); else if (e.key === "Home") setPos(0); else if (e.key === "End") setPos(100); else return; e.preventDefault(); });
-      setPos(50); upd();
+      `<button type="button" role="tab" data-i="${i}" aria-selected="${i === 0}">${esc(g.name ? g.name.charAt(0).toUpperCase() + g.name.slice(1) : "")} <small>${g.works.length + (g.prints || []).length + (g.today ? 1 : 0) + (g.street || []).length}</small></button>`).join("")}</div>`;
+    const show = (i) => {
+      list.querySelectorAll("button").forEach((b) => b.setAttribute("aria-selected", String(+b.dataset.i === i)));
+      document.getElementById("epopen").href = `#/epoch/${c.id}/${encodeURIComponent(groups[i].key)}`;
+      Epochs.viewer(document.getElementById("epview"), c, groups[i], thumb, imgTag);
     };
     list.querySelectorAll("button").forEach((x) => (x.onclick = () => show(+x.dataset.i)));
     show(0);
@@ -220,7 +181,7 @@ window.Atlas = (() => {
       <section class="cmap" aria-labelledby="cmapH"><h2 id="cmapH">Карта города${c.plan ? ": тогда и сейчас" : ""}</h2><div id="cmaphost"></div></section>
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
         <p class="lede">Как было и как есть: листы XIX века и снимок того же места сегодня. Точки съёмки обычно не совпадают — это сопоставление, а не наложение; изображения не искажаются.</p>
-        <div id="eplist"></div><div id="epview"></div></section>` : ""}
+        <div id="eplist"></div><p class="mapnote"><a id="epopen" href="#/epochs">Открыть место на отдельной странице ↗</a> · <a href="#/epochs">все места «Эпох»</a></p><div id="epview"></div></section>` : ""}
       <section id="cityLab" class="citylab" aria-label="Исследование произведений города"><p class="note">Подготавливаем изображения для сравнения…</p></section>
       ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
       ${(c.works || []).length ? `<details class="city-archive" ${c.works.length <= 6 ? "open" : ""}>
@@ -249,7 +210,7 @@ window.Atlas = (() => {
       e.preventDefault(); const t = document.getElementById("w-" + a.dataset.w);
       if (t) { t.scrollIntoView({ behavior: "smooth", block: "center" }); t.classList.add("flash"); setTimeout(() => t.classList.remove("flash"), 1600); }
     });
-    if ((c.epochs || []).length) epochs(c, sites);
+    if ((c.epochs || []).length && window.Epochs) epochs(c);
     let n = 24;
     works().then((Wm) => {
       if (!document.getElementById("cityLab") || location.hash !== "#/city/" + c.id) return;
@@ -294,5 +255,5 @@ window.Atlas = (() => {
     filter.q = "";
     filter.group = A && A.regions.includes(name) ? "r:" + name : "all";
   }
-  return { load, portal, city, works, setCountry, get data() { return A; } };
+  return { load, portal, city, works, setCountry, thumb, imgTag, get data() { return A; } };
 })();
