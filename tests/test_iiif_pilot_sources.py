@@ -3,6 +3,8 @@ import json
 import re
 from pathlib import Path
 
+from tools.iiif.build_allmaps_annotation import build, convex_hull
+
 ROOT = Path(__file__).resolve().parents[1]
 RESEARCH = ROOT / "data" / "research"
 CATALOG = json.loads((RESEARCH / "iiif-pilot-3-works-paris-20261109.json").read_text("utf-8"))
@@ -78,3 +80,16 @@ def test_reported_residuals_are_explicitly_not_independently_verified():
         GEO["transforms"]["affine"]["loo_rms_m"]
     )
     assert "not independently verified" in record["annotation_status"]
+
+
+def test_allmaps_annotation_rebuild_is_reproducible():
+    assert build(GEO, ANNOTATION["id"]) == ANNOTATION
+
+
+def test_duplicate_or_collinear_gcps_are_not_allowed():
+    import pytest
+
+    with pytest.raises(ValueError):
+        convex_hull([(0.0, 0.0), (1.0, 1.0), (2.0, 2.0)])
+    with pytest.raises(ValueError):
+        build({**GEO, "gcps": GEO["gcps"][:3]}, ANNOTATION["id"])
