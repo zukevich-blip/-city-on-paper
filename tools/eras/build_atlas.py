@@ -34,6 +34,24 @@ def norm(name: str) -> str:
     return re.sub(r"[^a-zа-яё]", "", name.lower().replace("ё", "е"))
 
 
+COMMONS = re.compile(r"^https://upload\.wikimedia\.org/wikipedia/commons/(?:thumb/)?([0-9a-f])/([0-9a-f]{2})/([^/?#]+)")
+
+
+def commons_image(url: str | None) -> str | None:
+    """Rebuild a clean Commons thumbnail URL (strip tracking queries that break thumb paths)."""
+    if not url:
+        return url
+    m = COMMONS.match(url)
+    if not m:
+        return url.split("?utm_")[0]
+    a, ab, name = m.groups()
+    if re.search(r"\.(tiff?|pdf|djvu)$", name, re.I):
+        return f"https://upload.wikimedia.org/wikipedia/commons/thumb/{a}/{ab}/{name}/lossy-page1-500px-{name}.jpg"
+    if name.lower().endswith(".svg"):
+        return f"https://upload.wikimedia.org/wikipedia/commons/{a}/{ab}/{name}"
+    return f"https://upload.wikimedia.org/wikipedia/commons/thumb/{a}/{ab}/{name}/500px-{name}"
+
+
 def load(name: str):
     p = VL / name
     return json.loads(p.read_text("utf-8")) if p.exists() else None
@@ -86,7 +104,8 @@ def build() -> dict:
                                    "coord_source": "OpenStreetMap Nominatim" if c.get("osm") else c.get("display", ""),
                                    "benoist": False, "works": [], "albums": []}
     for p in ben.get("places", []):
-        key = norm(p["name_ru"])
+        base = p["name_ru"].split(" (")[0].split(",")[0]  # "Севилья (пл. ...)" -> "Севилья"
+        key = norm(base) if norm(base) in cities else norm(p["name_ru"])
         c = cities.get(key)
         if not c:
             c = cities[key] = {"id": slug(p["name_ru"]) or p["id"], "name": p["name_ru"],
@@ -101,9 +120,13 @@ def build() -> dict:
         c["albums"] = sorted(set(c["albums"]) | set(p.get("albums") or []))
         for w in p.get("works", []):
             open_ = w.get("rights_class") == "open"
+            url = w.get("url") or ""
+            if re.match(r"http://(gallica\.bnf\.fr|foto\.biblhertz\.it|hdl\.handle\.net|polona\.pl)/", url):
+                url = "https://" + url[len("http://"):]
             c["works"].append({"title": w.get("title"), "artist": w.get("artist"), "date": w.get("date"),
-                               "institution": w.get("institution"), "url": w.get("url"),
-                               "image": w.get("image") if open_ else None, "rights_class": "open" if open_ else "link",
+                               "institution": w.get("institution"), "url": url,
+                               "image": commons_image(w.get("image")) if open_ else None,
+                               "rights_class": "open" if open_ else "link",
                                "rights_label": (w.get("rights") or "")[:90], "basis": w.get("attribution_basis")})
     for c in cities.values():
         c["featured"] = FEATURED.get(c["name"])

@@ -25,6 +25,7 @@ on:
       - 'world/**'
       - 'closeup/**'
       - 'exhibitions/**'
+      - 'eras/**'
       - '.github/workflows/qa-city-on-paper.yml'
   workflow_dispatch:
 

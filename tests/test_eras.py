@@ -110,3 +110,35 @@ def test_portal_pins_match_reviewed_glyph_positions():
     pins = DATA["portal"]["pins"]
     assert (pins["florence"]["x"], pins["florence"]["y"]) == (812, 1168)  # not Lucca (786,1161)
     assert (pins["naples"]["x"], pins["naples"]["y"]) == (885, 1294)  # coast glyph, not the sea
+
+
+ATLAS = json.loads((ERAS / "data" / "atlas.json").read_text("utf-8"))
+
+
+def test_atlas_cities_are_valid_and_unique():
+    ids = [c["id"] for c in ATLAS["cities"]]
+    assert len(ids) == len(set(ids)) and len(ids) >= 180
+    for c in ATLAS["cities"]:
+        assert -30 < c["lon"] < 60 or c["country"] in {"Бразилия", "Канада"}, c["name"]
+        assert 0 < c["lat"] < 72 or c["country"] == "Бразилия", c["name"]
+        if c["xy"]:
+            assert 0 <= c["xy"][0] <= ATLAS["portal"]["width"] and 0 <= c["xy"][1] <= ATLAS["portal"]["height"]
+
+
+def test_benoist_works_are_sourced_and_only_open_images_embedded():
+    works = [w for c in ATLAS["cities"] for w in c["works"]]
+    assert len(works) >= 300
+    for w in works:
+        assert w["url"].startswith(("https://", "http://")), w
+        if "gallica.bnf.fr" in w["url"]:
+            assert w["url"].startswith("https://"), w
+        assert w["artist"] and "Guillaume" not in w["artist"]
+        if w["image"]:
+            assert w["rights_class"] == "open" and w["image"].startswith("https://")
+        else:
+            assert w["rights_class"] in {"open", "link"}
+
+
+def test_atlas_build_is_reproducible():
+    from tools.eras.build_atlas import build as build_atlas
+    assert build_atlas() == ATLAS
