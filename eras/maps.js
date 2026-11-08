@@ -18,7 +18,7 @@ window.Maps = (() => {
     const z = t.max_zoom;
     const sw = map.unproject([0, t.height], z), ne = map.unproject([t.width, 0], z);
     const bounds = L.latLngBounds(sw, ne);
-    L.tileLayer(`${t.tiles}/{z}/{x}/{y}.jpg`, { minZoom: -2, maxZoom: z + 2, maxNativeZoom: z, noWrap: true, bounds,
+    L.tileLayer(`${t.tiles}/{z}/{x}/{y}.jpg`, { detectRetina: true, minZoom: -2, maxZoom: z + 2, maxNativeZoom: z, noWrap: true, bounds,
       tileSize: t.tile || 256, attribution: t.credit ? esc(t.credit) : "" }).addTo(map);
     L.control.zoom({ position: "topright", zoomInTitle: "Приблизить", zoomOutTitle: "Отдалить" }).addTo(map);
     map.fitBounds(bounds);

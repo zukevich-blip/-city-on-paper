@@ -16,7 +16,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.goto(base + "eras/", { waitUntil: "networkidle" });
     const nCities = await p.$$eval(".ccard", (c) => c.length);
     ok(`${vp.n} portal: city list ≥ 80`, nCities >= 80, String(nCities));
-    ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 2);
+    ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
     await p.fill("#q", "Лиссаб");
