@@ -187,6 +187,13 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .country-count{margin-left:auto;color:var(--muted);font:12px system-ui;text-align:right}
 .country-expand{font:27px/1 Georgia,serif;color:#825435;flex:none}
 .country-group[open] .country-expand{transform:rotate(45deg)}
+.city-archive{margin:20px 0 26px;border:1px solid var(--line);background:var(--paper2)}
+.city-archive summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 17px;min-height:56px;font:22px/1.35 Georgia,serif;color:var(--dark)}
+.city-archive summary::-webkit-details-marker{display:none}
+.city-archive[open] summary{background:#ebe1cf;border-bottom:1px solid var(--line)}
+.city-archive summary small{font:12px/1.4 system-ui;color:var(--muted)}
+.city-archive>.wgrid{padding:14px}
+@media(max-width:680px){.city-archive summary{font-size:18px}.city-archive>.wgrid{padding:8px}}
 .country-preface{font:13px/1.5 system-ui;color:#755b3b;padding:10px 15px;margin:0;border-bottom:1px solid #e3d7c5}
 .country-preface a{color:#795235;text-decoration:underline;text-underline-offset:3px}
 .country-cities{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:9px;padding:15px}
