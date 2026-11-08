@@ -63,7 +63,45 @@
  "Q1415098": [],
  "Q1435809": [],
  "Q1515300": [],
+ "Q154563": [
+  {
+   "id": "d7221c37-aacb-44ab-ac08-d06f710260c0",
+   "file": "now/pnx-d7221c37-aacb.jpg",
+   "camera": {
+    "lat": 52.518092,
+    "lon": 13.399575,
+    "azimuth": 35,
+    "fov": 104,
+    "distance_m": 158
+   },
+   "date": "2026-09-28",
+   "author": "kkbbxym",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=d7221c37-aacb-44ab-ac08-d06f710260c0",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
  "Q1577652": [],
+ "Q1589963": [
+  {
+   "id": "26323d34-124c-4183-ae6f-5d1761d6e24f",
+   "file": "now/pnx-26323d34-124c.jpg",
+   "camera": {
+    "lat": 49.442017,
+    "lon": 1.099314,
+    "azimuth": 31,
+    "fov": 60,
+    "distance_m": 61
+   },
+   "date": "2019-09-06",
+   "author": "tykayn",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=26323d34-124c-4183-ae6f-5d1761d6e24f",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
  "Q1760057": [],
  "Q180212": [],
  "Q185382": [
@@ -290,7 +328,9 @@
  ],
  "Q241410": [],
  "Q2416732": [],
+ "Q2500961": [],
  "Q2570082": [],
+ "Q2654767": [],
  "Q269641": [],
  "Q2723969": [
   {
@@ -458,6 +498,25 @@
    "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
   }
  ],
+ "Q3145762": [
+  {
+   "id": "b80d9437-e5ba-4f03-b4d2-b59e84c0d912",
+   "file": "now/pnx-b80d9437-e5ba.jpg",
+   "camera": {
+    "lat": 49.442372,
+    "lon": 1.088607,
+    "azimuth": 210,
+    "fov": 76,
+    "distance_m": 48
+   },
+   "date": "2026-08-03",
+   "author": "tykayn",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=b80d9437-e5ba-4f03-b4d2-b59e84c0d912",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
  "Q3162586": [
   {
    "id": "200a3dee-8fbc-4429-ba62-45e963950ab1",
@@ -614,6 +673,44 @@
    "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
   }
  ],
+ "Q476516": [
+  {
+   "id": "da30f983-4623-4d6c-be46-be51e4758db5",
+   "file": "now/pnx-da30f983-4623.jpg",
+   "camera": {
+    "lat": 49.440795,
+    "lon": 1.095395,
+    "azimuth": 216,
+    "fov": 76,
+    "distance_m": 72
+   },
+   "date": "2026-08-03",
+   "author": "tykayn",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=da30f983-4623-4d6c-be46-be51e4758db5",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  },
+  {
+   "id": "bf256f79-9b79-47b6-a9d8-9ff84b5859e8",
+   "file": "now/pnx-bf256f79-9b79.jpg",
+   "camera": {
+    "lat": 49.440695,
+    "lon": 1.095388,
+    "azimuth": 183,
+    "fov": 60,
+    "distance_m": 62
+   },
+   "date": "2024-08-10",
+   "author": "tykayn",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://api.panoramax.xyz/#focus=pic&pic=bf256f79-9b79-47b6-a9d8-9ff84b5859e8",
+   "note": "уменьшено до 900 px, метаданные EXIF удалены; иначе не изменено"
+  }
+ ],
+ "Q5123776": [],
+ "Q52162671": [],
  "Q545404": [
   {
    "id": "1e9c36f5-5194-4272-8c4a-15587ac10b90",
@@ -713,6 +810,8 @@
  "Q678313": [],
  "Q684594": [],
  "Q7232177": [],
+ "Q7258531": [],
+ "Q7926647": [],
  "Q824997": [],
  "Q874832": [],
  "Q913434": [],
