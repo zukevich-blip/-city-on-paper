@@ -6,7 +6,7 @@ const [,,base,outDir]=process.argv;
 if(!base||!outDir)throw Error("Usage: qa_packaged.js <http-origin> <screenshots-directory>");
 fs.mkdirSync(outDir,{recursive:true});
 const paths=["","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","poc/compare/","fieldwork/",
- "journeys/","detective/","discover/","studio/","ideas/","printlab/","ornaments/","atelier/bargue/","atelier/ornament/"];
+ "journeys/","detective/","discover/","desk/","studio/","ideas/","printlab/","ornaments/","atelier/bargue/","atelier/ornament/"];
 async function requireImage(page,id,min=80){await page.waitForFunction(({selector,min})=>{const n=document.querySelector(selector);return n instanceof HTMLImageElement&&n.complete&&n.naturalWidth>=min;},{selector:id,min},{timeout:22000})}
 (async()=>{
  const browser=await chromium.launch({headless:true});
@@ -69,9 +69,19 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    await p.locator('[data-mode="sbs"]').click();
    if(await p.locator("#sbs").isHidden())throw Error(label+": side by side mode broken");
    await p.screenshot({path:outDir+"/"+label+"-artifact-then-now.jpg",type:"jpeg",quality:70});
+   await p.goto(new URL("desk/",base).href,{waitUntil:"networkidle"});
+   await p.waitForSelector("#albumStack .album-book",{timeout:16000});
+   if(await p.locator("#pmap").count()!==1)throw Error(label+": antique desk lacks working Leaflet map");
+   if(await p.locator("#albumStack .album-book").count()<5)throw Error(label+": missing city folio albums");
+   await p.locator('#albumStack [data-city="paris"]').click();
+   if(!await p.locator("#folioDialog").evaluate(d=>d.open))throw Error(label+": book dialog does not open");
+   await p.locator("#folioNext").click();
+   if((await p.locator("#folioPage").textContent())!=="2 / 3")throw Error(label+": folio page turn failed");
+   await p.locator("#folioClose").click();
+   await p.screenshot({path:outDir+"/"+label+"-artifact-desk-preview.jpg",type:"jpeg",quality:72});
    if(errs.length)throw Error(label+": JS runtime errors: "+errs.slice(0,5).join(" / "));
    await c.close();
-   console.log("PASS "+label+": 18 routes + world atlas + museum expansion + modern photos + Benoist + source slider");
+   console.log("PASS "+label+": 19 routes + desk and folio + world atlas + museum expansion + modern photos + Benoist + source slider");
   }
  }finally{await browser.close()}
 })().catch(err=>{console.error(err);process.exitCode=1});
