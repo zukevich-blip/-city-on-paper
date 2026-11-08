@@ -46,9 +46,16 @@ window.Atlas = (() => {
         <select id="grp" aria-label="Показать">${groups.map(([v, l]) => `<option value="${esc(v)}" ${filter.group === v ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></div>
       <figure class="plate"><div id="maphost"></div>
         <figcaption><span class="legend2"><b class="sw benoist"></b> города Бенуа <b class="sw featured"></b> истории эпох <b class="sw other"></b> другие города · приближайте кнопками «+ / −» в углу или двумя пальцами</span><br>${esc(P.title)} — ${esc(P.credit)}. <a href="${esc(safe(P.object_url))}" target="_blank" rel="noopener">карточка ↗</a>. ${esc(A.portal_note)}</figcaption></figure>
+      <div class="country-toolbar">
+        <span class="eyebrow">Оглавление атласа · страны и города</span>
+        <div><button type="button" id="countriesOpen">Раскрыть все</button>
+        <button type="button" id="countriesClose">Свернуть все</button></div>
+      </div>
+      <nav class="country-index" id="countryIndex" aria-label="Страны в атласе"></nav>
       <p class="note" id="shown" role="status" aria-live="polite"></p>
-      <div class="citylist" id="list"></div></div>`;
+      <div class="country-collection" id="list"></div></div>`;
     const q = document.getElementById("q"), grp = document.getElementById("grp");
+    let selectedCountry = null;
     const draw = () => {
       const t = filter.q.trim().toLowerCase();
       const rows = A.cities.filter((c) => {
@@ -59,13 +66,48 @@ window.Atlas = (() => {
       }).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.works || []).length - (a.works || []).length || count(b) - count(a) || a.name.localeCompare(b.name, "ru"));
       const ids = new Set(rows.map((c) => c.id));
       document.querySelectorAll(".dot").forEach((d) => d.classList.toggle("dim", !ids.has(d.dataset.id)));
-      document.getElementById("shown").textContent = `Показано городов: ${rows.length} из ${A.cities.length}.`;
-      document.getElementById("list").innerHTML = rows.map((c) => `<a class="ccard" href="#/city/${esc(c.id)}"><b>${esc(c.name)}</b>
-        <small>${esc(c.country)}${c.area ? " · " + esc(c.area) : ""}</small>
-        <span>${c.featured ? '<em class="badge f">истории эпох</em>' : ""}${c.benoist ? `<em class="badge b">Бенуа · ${(c.works || []).length}</em>` : ""}<em class="badge">${count(c) ? `${count(c)} работ` : "ищем материалы"}</em></span></a>`).join("") || '<p class="note">Ничего не найдено.</p>';
+      const groupsByCountry = new Map();
+      rows.forEach((c) => {
+        const country = c.country || "Страна уточняется";
+        if (!groupsByCountry.has(country)) groupsByCountry.set(country, []);
+        groupsByCountry.get(country).push(c);
+      });
+      const allCountries = [...groupsByCountry.entries()]
+        .sort((a, b) => a[0].localeCompare(b[0], "ru"));
+      const popular = [...groupsByCountry.entries()]
+        .sort((a, b) => b[1].reduce((n, c) => n + count(c), 0) - a[1].reduce((n, c) => n + count(c), 0))
+        .slice(0, 2).map(([name]) => name);
+      document.getElementById("shown").textContent =
+        `Показано ${rows.length} городов, ${allCountries.length} стран из ${A.cities.length} городов атласа.`;
+      const countryIndex = document.getElementById("countryIndex");
+      countryIndex.innerHTML = allCountries.map(([country, cities]) =>
+        `<button type="button" class="country-chip" data-country="${esc(country)}" aria-label="Раскрыть страну ${esc(country)}">
+          <b>${esc(country)}</b><small>${cities.length} г.</small></button>`).join("");
+      document.getElementById("list").innerHTML = allCountries.map(([country, cities]) => {
+        const total = cities.reduce((n, c) => n + count(c), 0);
+        const id = "country-" + A.regions.indexOf(country);
+        const opened = Boolean(filter.q || filter.group !== "all" ||
+          selectedCountry === country || (!selectedCountry && popular.includes(country)));
+        return `<details class="country-group" id="${id}" data-country="${esc(country)}" ${opened ? "open" : ""}>
+          <summary><span class="country-name">${esc(country)}</span>
+            <span class="country-count">${cities.length} городов · ${total} работ</span><span class="country-expand" aria-hidden="true">+</span></summary>
+          <div class="country-cities">${cities.map((c) => `<a class="ccard" href="#/city/${esc(c.id)}"><b>${esc(c.name)}</b>
+            <small>${esc(c.area || c.name_orig || c.country)}</small>
+            <span>${c.featured ? '<em class="badge f">истории эпох</em>' : ""}${c.benoist ? `<em class="badge b">Бенуа · ${(c.works || []).length}</em>` : ""}<em class="badge">${count(c) ? `${count(c)} работ` : "ищем материалы"}</em></span></a>`).join("")}</div></details>`;
+      }).join("") || '<p class="note">По запросу города не найдены.</p>';
+      countryIndex.querySelectorAll("button").forEach((button) => button.addEventListener("click", () => {
+        selectedCountry = button.dataset.country;
+        const detail = [...document.querySelectorAll(".country-group")]
+          .find((el) => el.dataset.country === selectedCountry);
+        if (detail) { detail.open = true; detail.scrollIntoView({ behavior: "smooth", block: "start" }); }
+      }));
     };
     q.addEventListener("input", () => { filter.q = q.value; draw(); });
-    grp.addEventListener("change", () => { filter.group = grp.value; draw(); });
+    grp.addEventListener("change", () => { filter.group = grp.value; selectedCountry = null; draw(); });
+    document.getElementById("countriesOpen").addEventListener("click", () =>
+      document.querySelectorAll(".country-group").forEach((el) => { el.open = true; }));
+    document.getElementById("countriesClose").addEventListener("click", () =>
+      document.querySelectorAll(".country-group").forEach((el) => { el.open = false; }));
     window.Maps && Maps.portal(document.getElementById("maphost"), A, () => draw());
     draw();
     works().then(draw);
