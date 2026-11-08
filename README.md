@@ -26,7 +26,7 @@
 
 Репозиторий публичный, однако сайт собирается из отдельного проверяемого архива с фильтром публикации. Код музея и QA: ветка `release/city-on-paper-private-preview-20261104`, [интеграционный PR #31](https://github.com/zukevich-blip/-city-on-paper/pull/31). Автоматическая публикация: `.github/workflows/publish-museum.yml` на `main`; в публичную версию **не включаются** внутренние заметки, протоколы и исследовательские кандидаты.
 
-[План развития и участие](https://github.com/zukevich-blip/-city-on-paper/issues/33) · [Сообщить об ошибке](https://github.com/zukevich-blip/-city-on-paper/issues/new) · [Последние сборки](https://github.com/zukevich-blip/-city-on-paper/actions)
+[Присоединиться к музею](https://github.com/zukevich-blip/-city-on-paper/blob/main/CONTRIBUTING.md) · [Экспертный регламент](https://github.com/zukevich-blip/-city-on-paper/blob/main/docs/EXPERT_COUNCIL.md) · [План развития](https://github.com/zukevich-blip/-city-on-paper/issues/39) · [Сообщить об ошибке](https://github.com/zukevich-blip/-city-on-paper/issues/new) · [Последние сборки](https://github.com/zukevich-blip/-city-on-paper/actions)
 
 Помочь можно ссылкой на подлинный лист, корректировкой атрибуции, достоверной историей о городе со ссылками на источники или проверкой реального ракурса на месте. Указывайте учреждение, каталог, автора, датировку и права на воспроизведение.
 
