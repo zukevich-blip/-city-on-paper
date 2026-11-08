@@ -50,7 +50,7 @@ def test_georeference_uses_exact_existing_pixel_and_wgs84_pairs():
     assert ANNOTATION["body"]["transformation"] == {
         "type": "polynomial", "options": {"order": 1}
     }
-    for feature, gcp in zip(pairs, gcps):
+    for feature, gcp in zip(pairs, gcps, strict=True):
         assert feature["properties"]["resourceCoords"] == [gcp["px"], gcp["py"]]
         assert feature["geometry"] == {
             "type": "Point", "coordinates": [gcp["lon"], gcp["lat"]]
