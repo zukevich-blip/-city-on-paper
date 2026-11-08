@@ -84,7 +84,7 @@ def render(source_dir: Path, destination: Path, fetch=get_ortho, pause=0.5,
     destination.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source_dir / "overview.png", destination / "overview.png")
     result = []
-    for n, point in enumerate(old["points"], 1):
+    for point in old["points"]:
         name = point["name"]
         expected = next((g for g in geo["gcps"] if g["name"] == name), None)
         if expected is None:
