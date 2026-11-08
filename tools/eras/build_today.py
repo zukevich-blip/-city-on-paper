@@ -47,8 +47,9 @@ def main() -> None:
     qids = sorted({s["qid"] for s in sites if s.get("qid") and s.get("kind") not in (None, "unresolved", "panorama")})
     out = json.loads(OUT.read_text("utf-8")) if OUT.exists() else {}
     todo = [q for q in qids if q not in out]
-    for i in range(0, len(todo), 40):
-        batch = todo[i:i + 40]
+    names: dict[str, str] = {}
+    for i in range(0, len(todo), 50):
+        batch = todo[i:i + 50]
         d = get_json("https://www.wikidata.org/w/api.php?action=wbgetentities&props=claims&format=json&ids="
                      + "|".join(batch))
         time.sleep(1)
@@ -56,25 +57,34 @@ def main() -> None:
             claims = (d.get("entities", {}).get(q, {}) or {}).get("claims", {})
             p18 = [c["mainsnak"].get("datavalue", {}).get("value") for c in claims.get("P18", [])]
             p18 = [x for x in p18 if x]
-            if not p18:
+            if p18:
+                names[q] = p18[0]
+            else:
                 out[q] = None
+    by_title = {"File:" + n.replace("_", " "): q for q, n in names.items()}
+    titles = list(by_title)
+    for i in range(0, len(titles), 50):
+        batch = titles[i:i + 50]
+        m = get_json("https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo"
+                     "&iiprop=url|extmetadata&iiurlwidth=500&titles=" + urllib.parse.quote("|".join(batch)))
+        time.sleep(2)
+        norm = {x["to"]: x["from"] for x in m.get("query", {}).get("normalized", [])}
+        for page in m.get("query", {}).get("pages", {}).values():
+            t = norm.get(page.get("title"), page.get("title"))
+            q = by_title.get(t) or by_title.get(page.get("title"))
+            if not q:
                 continue
-            name = p18[0]
-            m = get_json("https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo"
-                         "&iiprop=url|extmetadata&iiurlwidth=500&titles=" + urllib.parse.quote("File:" + name))
-            time.sleep(1)
-            page = next(iter(m.get("query", {}).get("pages", {}).values()), {})
             ii = (page.get("imageinfo") or [{}])[0]
             em = ii.get("extmetadata", {})
             lic = strip(em.get("LicenseShortName", {}).get("value"))
             if not FREE.match(lic):
                 out[q] = None
                 continue
-            out[q] = {"file": name, "image": ii.get("thumburl") or ii.get("url"), "page": ii.get("descriptionurl"),
+            out[q] = {"file": names[q], "image": ii.get("thumburl") or ii.get("url"), "page": ii.get("descriptionurl"),
                       "license": lic, "license_url": strip(em.get("LicenseUrl", {}).get("value")),
                       "author": strip(em.get("Artist", {}).get("value"))[:120],
                       "date": strip(em.get("DateTimeOriginal", {}).get("value"))[:40]}
-        OUT.write_text(json.dumps(dict(sorted(out.items())), ensure_ascii=False, indent=1) + "\n", "utf-8")
+    OUT.write_text(json.dumps(dict(sorted(out.items())), ensure_ascii=False, indent=1) + "\n", "utf-8")
     print(f"{sum(1 for v in out.values() if v)} present-day photos for {len(qids)} sites")
 
 
