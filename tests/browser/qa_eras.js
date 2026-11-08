@@ -31,7 +31,8 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#grp").inputValue()) === "r:Италия" &&
       (await p.locator(".country-group").count()) === 1);
     await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
-    ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
+    await p.waitForFunction(() => document.querySelectorAll("#pmap .leaflet-tile-loaded").length >= 1, { timeout: 10000 });
+    ok(`${vp.n} portal: map tiles loaded`, await p.$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
     await p.fill("#q", "Лиссаб");
