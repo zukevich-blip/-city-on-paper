@@ -125,6 +125,7 @@ window.HistoricalOverlay = (() => {
       if (!root.isConnected) return;
       const Layer = makeAffineLayer(data);
       const historic = new Layer();
+      const researchBounds = L.latLngBounds(data.gcps.map((p) => [p.lat, p.lon]));
       const markers = L.layerGroup(data.gcps.map((p) => {
         const circle = L.circleMarker([p.lat, p.lon], { radius: 5, color: "#6f4030",
           weight: 2, fillColor: "#f3d2ad", fillOpacity: 0.9 });
@@ -146,6 +147,9 @@ window.HistoricalOverlay = (() => {
           markers.addTo(map);
           historic.setOpacity(Number(opacity.value) / 100);
           opacityBox.hidden = false;
+          // The generic atlas initially fits all 135 city sites, often well
+          // outside the historic-map study area. Focus the actual GCP region.
+          map.fitBounds(researchBounds, { padding: [22, 22], maxZoom: 14 });
           status.textContent = "План 1878: исследовательская привязка по 15 точкам, RMS ≈26 м, не проверена вручную.";
         } else {
           map.removeLayer(historic);
