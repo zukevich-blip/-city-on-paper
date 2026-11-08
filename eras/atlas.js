@@ -91,6 +91,7 @@ window.Atlas = (() => {
         return `<details class="country-group" id="${id}" data-country="${esc(country)}" ${opened ? "open" : ""}>
           <summary><span class="country-name">${esc(country)}</span>
             <span class="country-count">${cities.length} городов · ${total} работ</span><span class="country-expand" aria-hidden="true">+</span></summary>
+          <p class="country-preface"><a href="#/country/${encodeURIComponent(country)}">Показать только ${esc(country)} на карте и в оглавлении</a></p>
           <div class="country-cities">${cities.map((c) => `<a class="ccard" href="#/city/${esc(c.id)}"><b>${esc(c.name)}</b>
             <small>${esc(c.area || c.name_orig || c.country)}</small>
             <span>${c.featured ? '<em class="badge f">истории эпох</em>' : ""}${c.benoist ? `<em class="badge b">Бенуа · ${(c.works || []).length}</em>` : ""}<em class="badge">${count(c) ? `${count(c)} работ` : "ищем материалы"}</em></span></a>`).join("")}</div></details>`;
@@ -212,7 +213,7 @@ window.Atlas = (() => {
       ["Gallica", `https://gallica.bnf.fr/services/engine/search/sru?query=gallica%20all%20%22${enc(c.name_orig || c.name)}%22%20and%20dc.type%20all%20%22image%22`],
       ["Wikimedia Commons", `https://commons.wikimedia.org/w/index.php?search=${enc((c.name_orig || c.name) + " lithograph")}&title=Special:MediaSearch&type=image`],
     ];
-    const head = `<nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <span aria-current="page">${esc(c.name)}</span></nav>
+    const head = `<nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <a href="#/country/${encodeURIComponent(c.country)}">${esc(c.country)}</a> › <span aria-current="page">${esc(c.name)}</span></nav>
       <span class="eyebrow">${esc(c.country)}${c.area ? " · " + esc(c.area) : ""}</span>
       <h1>${esc(c.name)}${c.name_orig && c.name_orig !== c.name ? ` <small class="orig">${esc(c.name_orig)}</small>` : ""}</h1>`;
     const body = `<p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">город сегодня на карте OSM ↗</a></p>
@@ -286,5 +287,9 @@ window.Atlas = (() => {
     });
     return true;
   }
-  return { load, portal, city, works, get data() { return A; } };
+  function setCountry(name) {
+    filter.q = "";
+    filter.group = A && A.regions.includes(name) ? "r:" + name : "all";
+  }
+  return { load, portal, city, works, setCountry, get data() { return A; } };
 })();
