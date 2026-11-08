@@ -100,6 +100,16 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#parisBase option").count()) === 2);
     await p.locator("#paris1878Toggle").check();
     await p.waitForFunction(() => !!document.querySelector("#cnow .cop-paris-affine"));
+    await p.waitForTimeout(450);
+    const coverage = await p.evaluate(() => {
+      const map = document.querySelector("#cnow").getBoundingClientRect();
+      const layer = document.querySelector("#cnow .cop-paris-affine").getBoundingClientRect();
+      const w = Math.max(0, Math.min(map.right, layer.right) - Math.max(map.left, layer.left));
+      const h = Math.max(0, Math.min(map.bottom, layer.bottom) - Math.max(map.top, layer.top));
+      return w * h / (map.width * map.height);
+    });
+    ok(`${vp.n} Paris research layer actually occupies current map viewport`, coverage > 0.10,
+      String(coverage.toFixed(3)));
     const matrix = await p.locator("#cnow .cop-paris-affine").evaluate(
       el => el.style.transform);
     ok(`${vp.n} original 1878 raster is positioned by affine matrix`,
