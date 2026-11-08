@@ -130,6 +130,11 @@ def attach_sites_and_plans(rows: list[dict]) -> None:
         c = by_name.get(it.get("city"))
         if not c or it.get("lat") is None or it.get("kind") == "unresolved" or it.get("confidence") == "low":
             continue
+        # guard against works filed under a namesake city (e.g. "Lyon" publishers, Warsaw IN): ≤ 35 km from centre
+        dy = (it["lat"] - c["lat"]) * 111.2
+        dx = (it["lon"] - c["lon"]) * 111.2 * math.cos(math.radians(c["lat"]))
+        if dx * dx + dy * dy > 35 ** 2:
+            continue
         img = it.get("image") or ""
         c.setdefault("sites", []).append({
             "wid": wid(it["work_url"]), "url": it["work_url"], "title": (it.get("title") or "")[:140],

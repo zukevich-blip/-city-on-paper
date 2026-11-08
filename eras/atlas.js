@@ -114,14 +114,14 @@ window.Atlas = (() => {
         img: x.image, year: yearOf(x.date) || yearOf(x.title), label: x.title, url: x.url, credit: "", kind: "then" }))
         .sort((a, b) => (a.year || 1850) - (b.year || 1850));
       if (g.today) fs.push({ img: g.today.image, year: yearOf(g.today.date) || "сегодня", label: `Сегодня: ${g.name}`, url: g.today.page,
-        credit: `Фото: ${g.today.author || "автор на Commons"}, ${g.today.license}`, kind: "now" });
+        credit: `Фото: ${g.today.author || "автор на Commons"}`, lic: g.today.license, licUrl: g.today.license_url, kind: "now" });
       return fs;
     };
     const groups = c.epochs.map((g) => ({ ...g, frames: frames(g) })).filter((g) => g.frames.length >= 2);
     const list = document.getElementById("eplist");
     if (!groups.length) { document.querySelector(".epochs").hidden = true; return; }
     list.innerHTML = `<div class="epchips" role="tablist" aria-label="Места">${groups.map((g, i) =>
-      `<button type="button" role="tab" data-i="${i}" aria-selected="${i === 0}">${esc(g.name)} <small>${g.frames.length}</small></button>`).join("")}</div>`;
+      `<button type="button" role="tab" data-i="${i}" aria-selected="${i === 0}">${esc(g.name ? g.name.charAt(0).toUpperCase() + g.name.slice(1) : "")} <small>${g.frames.length}</small></button>`).join("")}</div>`;
     const view = document.getElementById("epview");
     const show = (gi) => {
       const g = groups[gi];
@@ -143,7 +143,7 @@ window.Atlas = (() => {
         const ia = document.getElementById("epImA"), ib = document.getElementById("epImB");
         ia.src = safe(thumb(A.img)); ia.alt = `Было: ${lab(A)} — ${A.label}`; ib.src = safe(thumb(B.img)); ib.alt = `Стало: ${lab(B)} — ${B.label}`;
         document.getElementById("epTagA").textContent = lab(A); document.getElementById("epTagB").textContent = lab(B);
-        document.getElementById("epCredit").innerHTML = [A, B].map((f) => `<a href="${esc(safeLink(f.url))}" target="_blank" rel="noopener">${esc(lab(f))}: источник ↗</a>${f.credit ? " · " + esc(f.credit) : ""}`).join(" · ");
+        document.getElementById("epCredit").innerHTML = [A, B].map((f) => `<a href="${esc(safeLink(f.url))}" target="_blank" rel="noopener">${esc(lab(f))}: источник ↗</a>${f.credit ? " · " + esc(f.credit) : ""}${f.lic ? `, ${/^https?:\/\//.test(f.licUrl || "") ? `<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>` : esc(f.lic)}` : ""}`).join(" · ");
         view.querySelectorAll(".epf").forEach((x) => x.classList.toggle("on", +x.dataset.f === a || +x.dataset.f === b));
       };
       document.getElementById("epA").onchange = (e) => { a = +e.target.value; upd(); };

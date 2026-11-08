@@ -10,6 +10,7 @@ window.Maps = (() => {
   const OSM = ["https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     { maxZoom: 19, attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">участники OpenStreetMap</a>' }];
   const ok = () => typeof window.L !== "undefined";
+  const cap = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : t);
 
   // Image map in CRS.Simple: pixel (x,y) of the native tile image <-> LatLng
   function imageMap(el, t, opts = {}) {
@@ -117,9 +118,9 @@ window.Maps = (() => {
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
       <p class="mapnote">${pts.length ? `Метки — места, изображённые на работах (${pts.length}); нажмите, чтобы увидеть работу. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
-      <b>${esc(s.site_ru || s.site_name)}</b><small>${esc(s.title || "")}</small>
-      <a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a> · <a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></div>`;
-    const siteIcon = (s) => L.divIcon({ className: `mk site ${s.kind || ""}`, iconSize: [26, 26], iconAnchor: [13, 13], html: `<i></i><span>${esc(s.site_ru || s.site_name)}</span>` });
+      <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
+      <span class="mlinks"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
+    const siteIcon = (s) => L.divIcon({ className: `mk site ${s.kind || ""}`, iconSize: [26, 26], iconAnchor: [13, 13], html: `<i></i><span>${esc(cap(s.site_ru || s.site_name))}</span>` });
     const addSites = (m, pos) => {
       const ms = [];
       const seen = new Map();

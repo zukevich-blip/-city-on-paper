@@ -72,6 +72,11 @@ def collect(paths: list[Path]) -> list[str]:
     for c in atlas["cities"]:
         for w in c.get("works", []):
             names.append(commons_name(w.get("image")))
+    today = ROOT / "data" / "vision-lab" / "today-photos.json"
+    if today.exists():
+        for t in json.loads(today.read_text("utf-8")).values():
+            if t:
+                names.append(commons_name(t.get("image")))
     for p in paths:
         d = json.loads(p.read_text("utf-8"))
         for it in d if isinstance(d, list) else d.get("items", []):
