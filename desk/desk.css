@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
 :root{--cream:#f5f0e4;--sheet:#fbf7eb;--ink:#27302a;--muted:#756f62;--gold:#d3aa65;--ox:#763d32;--line:#c6ad85;--oak:#241a15;--brown:#38251c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eee9df;color:var(--ink);font:14px/1.55 Manrope,system-ui,-apple-system,sans-serif}
 a{color:inherit}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}
