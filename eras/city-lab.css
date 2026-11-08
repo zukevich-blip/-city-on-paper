@@ -6,6 +6,12 @@
 .citylab-controls label{display:flex;flex:1 1 330px;flex-direction:column;gap:8px;font:13px/1.4 system-ui}
 .citylab-controls input{width:100%;min-width:0;max-width:560px;font:15px system-ui;padding:11px 12px;border:1px solid #aa9883;background:#fffdf7;border-radius:2px;min-height:44px}
 .citylab-controls span{font:12px/1.5 system-ui;color:#737062;flex:1 1 250px}
+.citylab-local-photo{display:flex;flex-wrap:wrap;align-items:center;gap:9px 15px;padding:13px;margin:14px 0;background:#eee2cd;border:1px solid #cbb99b}
+.citylab-local-photo label{display:flex;flex-direction:column;gap:7px;font:13px/1.5 system-ui;flex:1 1 260px;color:#4d5148}
+.citylab-local-photo input{font:12px system-ui;max-width:100%;min-height:42px}
+.citylab-local-photo span{flex:1 1 100%;font:12px/1.5 system-ui;color:#59574e}
+.citylab-local-photo button{min-height:44px;background:#fffaf0;border:1px solid #aa9274;color:#7a3f22;padding:8px 11px}
+.citylab-local-photo button[hidden]{display:none}
 .citylab-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:9px;margin:16px 0}
 .citylab-item{background:#fffdfa;border:1px solid #d7c9b2;display:flex;align-items:start;gap:13px;padding:10px;min-width:0}
 .citylab-thumb{width:91px;height:107px;flex:none;object-fit:contain;background:#e8e0d4;border:1px solid #dfd1bd}
