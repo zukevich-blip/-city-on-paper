@@ -133,6 +133,9 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} two-map expert review opens within Paris page`,
       await p.locator("#cplan").isVisible() && await p.locator("#cnow").isVisible() &&
       await p.locator("#parisGcpReview").isVisible());
+    ok(`${vp.n} all 15 research controls visible in both panes`,
+      (await p.locator("#cplan .gcp-review-pin").count()) === 15 &&
+      (await p.locator("#cnow .gcp-review-pin").count()) === 15);
     await p.locator("#gcpSelect").selectOption("1");
     ok(`${vp.n} expert can choose a named archival control point`,
       /Обелиск|Obélisque/.test(await p.locator("#gcpReviewStatus").textContent()));
