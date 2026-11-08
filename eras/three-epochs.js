@@ -34,6 +34,11 @@
         <label>Промежуточная <select data-role="middle"></select></label>
         <label>Новая эпоха <select data-role="last"></select></label>
       </div>
+      <div class="cp3-upload">
+        <label for="cp3Upload">Своя фотография с того же места <input id="cp3Upload" data-role="upload-photo" type="file" accept="image/*"></label>
+        <button type="button" data-role="remove-photo" hidden>Убрать мой снимок</button>
+        <span data-role="photo-status" role="status" aria-live="polite">Снимок останется в браузере: мы его не получаем и не публикуем.</span>
+      </div>
       <div class="cp3-stage" data-role="stage" aria-label="Сравнение трёх изображений без деформации">
         <img data-role="image-first" alt="" draggable="false">
         <div class="cp3-layer" data-role="layer-middle"><img data-role="image-middle" alt="" draggable="false"></div>
@@ -67,6 +72,57 @@
     const middle = find("layer-middle");
     const last = find("layer-last");
     const chosen = () => selectors.map(s => frames[Number(s.value)]);
+    const upload = find("upload-photo"), remove = find("remove-photo"), photoStatus = find("photo-status");
+    let localURL = null, localFrame = null;
+    function removeLocal() {
+      if (localURL) URL.revokeObjectURL(localURL);
+      localURL = null;
+      if (localFrame) {
+        const index = frames.indexOf(localFrame);
+        if (index !== -1) frames.splice(index, 1);
+        selectors.forEach(select => {
+          select.querySelectorAll('[data-user-photo="true"]').forEach(option => option.remove());
+          if (select.selectedIndex < 0 || !frames[Number(select.value)]) select.value = String(frames.length - 1);
+        });
+        localFrame = null;
+      }
+      remove.hidden = true;
+      upload.value = "";
+      photoStatus.textContent = "Снимок убран. Данные не отправлялись на сайт.";
+      updateFrames();
+    }
+    remove.addEventListener("click", removeLocal);
+    upload.addEventListener("change", () => {
+      const file = upload.files && upload.files[0];
+      if (!file) return;
+      if (!file.type.startsWith("image/") || file.size > 20 * 1024 * 1024) {
+        photoStatus.textContent = "Выберите изображение размером до 20 МБ.";
+        upload.value = "";
+        return;
+      }
+      if (localFrame) {
+        if (localURL) URL.revokeObjectURL(localURL);
+        const index = frames.indexOf(localFrame);
+        if (index !== -1) frames.splice(index, 1);
+        selectors.forEach(select => select.querySelectorAll('[data-user-photo="true"]').forEach(option => option.remove()));
+      }
+      localURL = URL.createObjectURL(file);
+      localFrame = {
+        file: localURL, year_label: "Моё фото · дата не указана",
+        title: file.name, alt: "Снимок посетителя, выбранный на его устройстве",
+        institution: "Личный снимок (не опубликован)", url: "", kind: "now",
+      };
+      frames.push(localFrame);
+      selectors.forEach(select => {
+        const opt = new Option(label(localFrame), String(frames.length - 1));
+        opt.dataset.userPhoto = "true";
+        select.add(opt);
+      });
+      selectors[2].value = String(frames.length - 1);
+      remove.hidden = false;
+      photoStatus.textContent = "Снимок добавлен только в этот просмотр. Выберите две другие эпохи и двигайте ползунок. Дата и совпадение ракурса не проверены.";
+      updateFrames();
+    });
 
     function updateFrames() {
       const three = chosen();
