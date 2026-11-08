@@ -66,6 +66,17 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector("#stage");
     await p.waitForFunction(() => document.getElementById("imA").complete && document.getElementById("imB").complete);
     ok(`${vp.n} place: timeline cards`, (await p.locator(".era-card").count()) >= 8);
+    ok(`${vp.n} triple time slider available`, await p.locator("#threeEpochs").isVisible());
+    ok(`${vp.n} triple timeline has 3 actual images`, await p.locator("#threeEpochs .cp3-stage img").count() === 3);
+    ok(`${vp.n} triple timeline all source links`, (await p.locator("#threeEpochs .cp3-sources a").count()) === 3);
+    await p.locator('#threeEpochs [data-go="0"]').click();
+    ok(`${vp.n} triple stage: 0% shows first era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "0");
+    await p.locator('#threeEpochs [data-go="50"]').click();
+    ok(`${vp.n} triple stage: 50% shows middle era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "50");
+    await p.locator('#threeEpochs [data-go="100"]').click();
+    ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
+    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => /inset\\(0 0% 0 0\\)/.test(x.style.clipPath)));
+    await p.screenshot({ path: `${out}/${vp.n}-4-three-epochs.jpg`, type: "jpeg", quality: 60 });
     ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
     const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
