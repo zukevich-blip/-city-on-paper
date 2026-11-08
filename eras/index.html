@@ -164,6 +164,8 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .halls{margin:18px 0}.halls p{display:flex;flex-wrap:wrap;gap:8px}.halls a{display:inline-flex;align-items:center;min-height:44px;border:1px solid var(--line);background:var(--paper2);padding:6px 12px;text-decoration:none;font:14px system-ui}
 
 /* v4: epochs + my viewpoint */
+.hbtn .sm{display:none}
+@media(max-width:650px){header.top{padding:6px 12px;gap:4px 6px}header.top>strong{display:none}.anav a{padding:0 6px;font-size:13px!important}.hbtn{padding:0 7px;font-size:12px}.hbtn .lg{display:none}.hbtn .sm{display:inline}}
 .anav{display:flex;gap:2px}.anav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;border-radius:2px;font-size:14px!important}.anav a[aria-current]{background:#ffffff22;color:#fff!important}
 .epgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:14px;align-items:start}@media(max-width:900px){.epgrid{grid-template-columns:1fr}}
 .epside{background:var(--paper2);border:1px solid var(--line);padding:10px}.lmap.angles{height:min(46vh,380px);min-height:260px}.lmap.pick{height:260px;min-height:220px;margin:8px 0}
@@ -185,7 +187,7 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 <body>
 <a class="skip" href="#app">К содержанию</a>
 <header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
-<nav class="anav" aria-label="Разделы атласа"><a href="#/">Карта</a><a href="#/epochs">Эпохи</a><a href="#/mine">Мой ракурс</a></nav><button type="button" class="hbtn" id="shareBtn">Поделиться</button><button type="button" class="hbtn" id="fbBtn">Оставить отзыв</button></header>
+<nav class="anav" aria-label="Разделы атласа"><a href="#/">Карта</a><a href="#/epochs">Эпохи</a><a href="#/mine">Мой ракурс</a></nav><button type="button" class="hbtn" id="shareBtn"><span class="lg">Поделиться</span><span class="sm">Ссылка</span></button><button type="button" class="hbtn" id="fbBtn"><span class="lg">Оставить отзыв</span><span class="sm">Отзыв</span></button></header>
 <dialog id="fb" aria-labelledby="fbTitle"><form method="dialog" id="fbForm"><h2 id="fbTitle" style="margin:0 0 6px;font-size:26px">Ваш отзыв об атласе</h2><p style="font:13px/1.5 system-ui;margin:0 0 10px;color:#6f6f63">Отзыв не сохраняется на сайте. Кнопка «Отправить» откроет меню «Поделиться» вашего телефона — выберите мессенджер или почту и отправьте автору. На компьютере текст скопируется.</p><fieldset style="border:0;padding:0;margin:0 0 8px"><legend style="font:13px system-ui">Оценка</legend><div class="stars"><label><input type="radio" name="r" value="1"> 1</label><label><input type="radio" name="r" value="2"> 2</label><label><input type="radio" name="r" value="3"> 3</label><label><input type="radio" name="r" value="4"> 4</label><label><input type="radio" name="r" value="5"> 5</label></div></fieldset><label for="fbText" style="font:13px system-ui">Что понравилось, что улучшить, какие города добавить</label><textarea id="fbText" rows="5" maxlength="2000"></textarea><div class="fbrow"><button type="submit" value="cancel" class="ghost">Закрыть</button><button type="button" id="fbSend" class="solid">Отправить автору</button></div><p id="fbStatus" role="status" style="font:13px system-ui;color:#2f6b3a;min-height:18px"></p></form></dialog>
 <main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
 <noscript><p class="note">Для атласа нужен JavaScript. Все источники перечислены в <a href="data/eras.json">eras.json</a>.</p></noscript>
@@ -215,7 +217,7 @@ async function shareOrCopy(data, statusEl, okText) {
 document.getElementById("shareBtn").addEventListener("click", (e) => {
   const b = e.currentTarget;
   shareOrCopy({ title: "Город на бумаге — Атлас эпох", text: "Старинная карта Европы, города Бенуа и виды городов в разные эпохи.", url: shareUrl() }, null, "");
-  if (!navigator.share) { b.textContent = "Ссылка скопирована"; setTimeout(() => (b.textContent = "Поделиться"), 2500); }
+  if (!navigator.share) { const old = b.innerHTML; b.textContent = "Скопировано"; setTimeout(() => (b.innerHTML = old), 2500); }
 });
 const fb = document.getElementById("fb");
 document.getElementById("fbBtn").addEventListener("click", () => { document.getElementById("fbStatus").textContent = ""; fb.showModal(); });
