@@ -206,7 +206,7 @@
       vx = Math.max(-maxX, Math.min(maxX, vx));
       vy = Math.max(-maxY, Math.min(maxY, vy));
       bigImg.style.transform = `translate(${vx}px,${vy}px) scale(${zoom})`;
-      find("zoom-value").textContent = Math.round(zoom * 100) + "%";
+      viewer.querySelector('[data-role="zoom-value"]').textContent = Math.round(zoom * 100) + "%";
     }
     function openViewer(w) {
       zoom = 1; vx = 0; vy = 0;
