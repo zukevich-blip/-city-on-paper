@@ -84,6 +84,34 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator('#threeEpochs [data-role="remove-photo"]').click();
     ok(`${vp.n} local photo: removed`, (await p.locator('#threeEpochs [data-role="last"] option').count()) === baselineFrames);
     await p.screenshot({ path: `${out}/${vp.n}-4-three-epochs.jpg`, type: "jpeg", quality: 60 });
+    ok(`${vp.n} chronoscope available`, await p.locator("#chronoscope").isVisible());
+    const allFrames = await p.locator('#chronoscope .cs-choices input').count();
+    ok(`${vp.n} chronoscope displays all archival frames`, allFrames >= 8);
+    ok(`${vp.n} chronoscope one-keyframe-per-frame`,
+      (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames);
+    ok(`${vp.n} chronoscope whole range`,
+      +(await p.locator('#chronoscope [data-role="range"]').getAttribute("max")) === (allFrames - 1) * 100);
+    await p.locator('#chronoscope .cs-choices input').first().uncheck();
+    ok(`${vp.n} chronoscope excludes chosen frame`,
+      (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames - 1);
+    await p.locator('#chronoscope .cs-choices input').first().check();
+    ok(`${vp.n} chronoscope restores archival frame`,
+      (await p.locator('#chronoscope .cs-keyframes button').count()) === allFrames);
+    await p.locator('#chronoscope [data-zoom="in"]').click();
+    const zoomed = await p.locator('#chronoscope [data-role="a"]').evaluate(el => el.style.transform);
+    ok(`${vp.n} chronoscope zoom magnifies detail`, zoomed.includes("scale(1.5)"), zoomed);
+    const matched = await p.locator('#chronoscope .cs-stage').evaluate(stage =>
+      stage.querySelector('[data-role="a"]').style.transform === stage.querySelector('[data-role="b"]').style.transform);
+    ok(`${vp.n} chronoscope zoom matches both epochs`, matched);
+    await p.locator('#chronoscope [data-zoom="reset"]').click();
+    ok(`${vp.n} chronoscope zoom resets`,
+      (await p.locator('#chronoscope [data-role="zoom-value"]').textContent()) === "100%");
+    await p.locator('#chronoscope .cs-keyframes button').last().click();
+    ok(`${vp.n} chronoscope last epoch selected`,
+      +(await p.locator('#chronoscope [data-role="range"]').inputValue()) === (allFrames - 1) * 100);
+    ok(`${vp.n} chronoscope source attribution`,
+      (await p.locator('#chronoscope .cs-provenance a').count()) >= 2);
+    await p.screenshot({ path: `${out}/${vp.n}-5-all-eras-zoom.jpg`, type: "jpeg", quality: 60 });
     ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
     const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
