@@ -1,0 +1,56 @@
+SUBJECT: BNE Digital — consulta sobre miniaturas y enlaces a 13 litografías de Philippe Benoist en un atlas educativo sin fines comerciales
+
+BODY:
+Estimados señores:
+
+Desarrollo a título particular «City on Paper / Город на бумаге», un museo digital independiente, educativo y sin ánimo de lucro, de acceso libre en GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Nuestro atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) parte de un mapa de 1769, lleva a las ciudades y después a las vistas de Félix y Philippe Benoist y de otros artistas, con comparaciones «antes / ahora». Cada obra lleva su crédito y un enlace directo al registro de la institución que la conserva.
+
+Incluimos 13 litografías de Philippe Benoist conservadas por la BNE (Burgos, Valladolid, Toledo, Guadalajara, Toro…; lista completa abajo). En nuestros datos, procedentes de un agregador, figuran como CC BY-NC-SA, y por prudencia de momento solo mostramos un enlace. Entendemos que BNE Digital permite el uso de obras de dominio público citando su procedencia; querríamos confirmar con ustedes la forma correcta:
+1. mostrar una miniatura (máximo 1000 px) con el crédito «Biblioteca Nacional de España» y enlace al registro;
+2. si existe, usar su servicio IIIF en lugar de copiar el archivo;
+3. o, si lo prefieren, mantener solo los enlaces.
+
+Nuestros compromisos: crédito y enlace a su registro; declaración de derechos visible; el original nunca se altera (sin recortes, recoloreado ni IA); ningún uso comercial; retirada en un plazo de 7 días a petición suya.
+
+Para la BNE: visitantes dirigidos a sus registros y estas láminas situadas en un mapa, ciudad por ciudad.
+
+Basta una línea de respuesta:
+— «Sí, con el crédito: …»
+— «Solo enlaces, por favor»
+— «Diríjanse a: …»
+
+Muchas gracias por su atención. Atentamente,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Lista de registros (13 records / 13 plates) -----
+1. CAPILLA DE LA PRESENTACION : Catedral de Burgos = CHAPELLE DE LA PRÉSENTATION : Cathédrale de Burgos [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130812&page=1
+2. PUERTA DEL CLAUSTRO DE LA CATEDRAL : de Burgos = PORTE DU CLOITRE DE LA CATHÉDRALE : de Burgos [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130672&page=1
+3. DETALLES DEL CLAUSTRO DEL COLEGIO DE S GREGORIO : en Valladolid = DÉTAILS DU CLOÍTRE DU COLLEGE DE ST GREGOIRE [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130853&page=1
+4. CLAUSTRO DEL COLEGIO DE S. GREGORIO : en Valladolid = CLOÎTRE DU COLLEGE DE S.T GREGOIRE : à Valladolid [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130848&page=1
+5. PALACIO DE LOS DUQUES DEL INFANTADO [Material gráfico] : en Guadalajara = PALAIS DES DUCS DEL INFANTADO : à Guadalajara
+   http://bdh-rd.bne.es/viewer.vm?id=0000130630&page=1
+6. SEPULCRO DEL INFANTE D. ALONSO [Material gráfico] : en la Cartuja de Miraflores = TOMBEAU DE L'INFANT D. ALONSO : a la Chartreuse de Miraflores
+   http://bdh-rd.bne.es/viewer.vm?id=0000130635&page=1
+7. CLAUSTRILLA DE LAS HUELGAS : en Burgos = CLOTTRE APPELÉ LA CLAUSTRILLA : dans l'interieur du Monastere de las Huelgas à Burgos [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130784&page=1
+8. CLAUSTRO DEL MONASTERIO DE HUERTA = CLOITRE DU MONASTERE DE HUERTA [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130651&page=1
+9. INTERIOR DE SAN JUAN DE LOS REYES : en Toledo = VUE INTÉRIEURE DE SAINT JEAN DES ROIS : à Tolède [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130670&page=1
+10. ESCALERA DEL HOSPITAL DE STA CRUZ = ESCALIER DE L'HOPITAL DIT DE STE CROIX à Tolède [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130654&page=1
+11. ANTIGUA AL LADO DE LA DE VISAGRA [Material gráfico] : en Toledo = ANCIENNE PORTE PRES CELLE DE VISAGRA : à Tolède
+   http://bdh-rd.bne.es/viewer.vm?id=0000130646&page=1
+12. PUERTA DEL HOSPITAL DE SANTA CRUZ : en Toledo = PORTE DE L'HOPITAL DE STE CROIX : à Tolède [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130623&page=1
+13. IGLESIA COLEGIAL DE TORO = ÉGLISE COLLEGIALE A TORO [Material gráfico]
+   http://bdh-rd.bne.es/viewer.vm?id=0000130620&page=1

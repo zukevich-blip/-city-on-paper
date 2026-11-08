@@ -1,0 +1,11 @@
+{
+ "note": "Open-rights 19th-century city plans used as zoomable base maps inside city pages. Tiles are cut from the holder's own IIIF downscale (no crop, no colour change). Georeference is approximate; see georef files.",
+ "plans": [
+  {"city_ru": "Париж", "city_id": "paris", "year": "1878 г.", "title": "Paris et ses environs : 1878", "creators": [], "date": "1878",
+   "institution": "Library of Congress, Geography and Map Division", "object_url": "https://www.loc.gov/item/2012586603/",
+   "iiif": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd5:g5834:g5834p:ct003569",
+   "rights": "Library of Congress Geography and Map Division: free to use and reuse (no Rights Advisory on the item).",
+   "rights_class": "open", "georef_file": "georef-paris-1878.json", "rms_m": 25.9, "loo_rms_m": 34.9,
+   "tiles_source": "IIIF full/6000,/0/default.jpg"}
+ ]
+}

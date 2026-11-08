@@ -1,0 +1,39 @@
+SUBJECT: Thank you — Prints & Photographs images in a non-commercial educational atlas, and a question on IIIF use
+
+BODY:
+Dear Prints & Photographs reference staff,
+
+I am developing, as a private individual, "City on Paper / Город на бумаге", an independent, non-commercial, educational digital museum, freely available on GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Our atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) starts from a 1769 map, leads to individual towns, and then to views by Félix and Philippe Benoist and other artists, with then-and-now comparisons. Every work is credited and links directly to the holding institution's record.
+
+First, thank you. Several Benoist views in the atlas come from your division: the Panorama de Moscou, the 1867 Exposition universelle bird's-eye view, the Jardin du Palais-Royal, La Madeleine and the Tuileries (records below), plus ten "Benoist et Aubrun" plates on Wikimedia Commons that cite the Library as source. We show the rights statement from each record ("No known restrictions on publication").
+
+Two short questions:
+1. Is it acceptable, and preferred, that we display these images at no more than 1000 px through your IIIF Image Services (tile.loc.gov) rather than copying files? Are there request-rate or caching guidelines we should follow?
+2. Is there a credit line you would like us to use beyond "Library of Congress, Prints & Photographs Division" plus the reproduction number and a link to the record?
+
+Our commitments: credit and link to your record; rights statement shown; the original is never altered (no cropping, recolouring or AI); no commercial use; removal within 7 days on request.
+
+A one-line reply is enough:
+— "Yes, IIIF is fine; credit line: …"
+— "Please download and self-host instead"
+— "Please see: …"
+
+With thanks,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Records -----
+1. Moscou (Panorama de Moscou)
+   https://www.loc.gov/pictures/item/2006680113/
+2. Vue officielle à vol d'oiseau de l'Exposition universelle de 1867
+   https://www.loc.gov/item/00652015/
+3. Paris. Jardin du Palais Royal
+   https://www.loc.gov/item/2016652451/
+4. Paris. La Madeleine
+   https://www.loc.gov/item/2016652452/
+5. Château des Tuileries, côté du carrousel
+   https://www.loc.gov/item/2013650023/

@@ -7,6 +7,7 @@
 <meta name="description" content="Атлас эпох: историческая карта, города и одно место в разные времена — литография, фотохром, современный снимок. Экспериментальный прототип City on Paper.">
 <title>Атлас эпох · Город на бумаге</title>
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
 <link rel="icon" href="icons/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -132,7 +133,36 @@ dialog#fb{border:1px solid #cbb99b;background:#faf6ee;color:#29342d;max-width:52
 #fb textarea{width:100%;font:15px system-ui;padding:8px;border:1px solid #b9ab94;background:#fff;margin:4px 0}
 .stars{display:flex;gap:6px;flex-wrap:wrap}.stars label{min-height:44px;min-width:44px;display:flex;align-items:center;gap:4px;border:1px solid #cdbd9f;padding:0 10px;background:#fff;font:15px system-ui}
 .fbrow{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}.fbrow button{min-height:44px;padding:6px 14px;font:14px system-ui}.solid{background:#22362f;color:#fff;border:1px solid #22362f}.ghost{background:none;border:1px solid #b9ab94}
+
+/* v3: zoomable maps (Leaflet) */
+.lmap{height:min(72vh,680px);min-height:340px;background:#efe6d6;border:1px solid #cbb99b;z-index:0}
+.lmap.small{height:min(50vh,420px)}
+.leaflet-container{font:12px system-ui;background:#efe6d6}
+.leaflet-bar a,button.mhome{width:44px!important;height:44px!important;line-height:44px!important;font-size:22px!important;color:#22362f}
+button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:4px;cursor:pointer;padding:0}
+.mtabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 8px}.mtabs button{min-height:44px;border:1px solid #b9ab94;background:#fffdf7;padding:6px 14px;border-radius:2px;font:14px system-ui}
+.mtabs button[aria-selected=true]{background:var(--dark);border-color:var(--dark);color:#fff}
+.mk{background:none;border:0}
+.mk i{position:absolute;left:6px;top:6px;width:14px;height:14px;border-radius:50%;background:#2f5f52;border:1.5px solid #fbf4e4;box-shadow:0 0 0 1px #0006}
+.mk.benoist i{background:#7a3f22}.mk.featured i{background:#c59446;box-shadow:0 0 0 2px #7a3f22;left:4px;top:4px;width:18px;height:18px}
+.mk.site i{background:#a8402a;border-color:#fff;box-shadow:0 0 0 2px #a8402a55}
+.mk span{display:none;position:absolute;left:24px;top:3px;white-space:nowrap;font:600 12px Georgia,serif;background:#fbf4e4f0;border:1px solid #c9b48f;padding:0 5px;color:#22362f;pointer-events:none}
+.mk.featured span,.lz1 .mk.benoist span,.lz1 .mk.site span,.lz2 .mk span,.mk:hover span{display:block}
+.mk.dim{opacity:.18}
+.mpop{display:flex;flex-direction:column;gap:3px;font:12px/1.4 system-ui}.mpop img{width:100%;max-height:150px;object-fit:contain;background:#ebe2d2}.mpop b{font:15px Georgia,serif}.mpop small{color:#6f6f63}
+.mapnote{font:12px/1.5 system-ui;color:var(--muted);margin:8px 0}
+.legend2{display:inline-block;margin-bottom:4px}
+.wcard.flash{outline:3px solid #c59446;outline-offset:2px}
+.leaflet-control-attribution{font-size:10px}
+.epochs{margin:22px 0}.epchips{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}.epchips button{flex:none;min-height:44px;border:1px solid #b9ab94;background:#fffdf7;padding:6px 12px;border-radius:2px;font:14px system-ui}.epchips button[aria-selected=true]{background:var(--dark);color:#fff;border-color:var(--dark)}.epchips small{opacity:.7}
+.eptrack{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,190px);gap:10px;overflow-x:auto;margin:10px 0;padding-bottom:6px;scroll-snap-type:x mandatory}
+.epf{scroll-snap-align:start;border:1px solid var(--line);background:var(--paper2);padding:6px;display:flex;flex-direction:column;gap:4px;text-align:left;min-height:44px}.epf img{width:100%;height:120px;object-fit:contain;background:#ebe2d2}.epf b{font:400 18px Georgia,serif;color:#7a3f22}.epf.now b{color:#5b6b2f}.epf.on{outline:3px solid #c59446}.epf .noimg{height:120px}
+.epcmp{background:var(--paper2);border:1px solid var(--line);padding:12px}.epcmp label{font:13px system-ui;display:flex;gap:6px;align-items:center;flex-wrap:wrap}.epcmp select{max-width:min(78vw,420px)}
+.epstage{position:relative;overflow:hidden;background:#1d241f;touch-action:pan-y;user-select:none;height:min(66vh,560px)}.epstage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;-webkit-user-drag:none}.epTop{position:absolute;inset:0}
+.eph{position:absolute;top:0;bottom:0;width:44px;margin-left:-22px;display:flex;justify-content:center;cursor:ew-resize}.eph:before{content:"";width:2px;background:#fff;box-shadow:0 0 0 1px #0007}.eph span{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;border:1px solid #0005;color:#222}
+.halls{margin:18px 0}.halls p{display:flex;flex-wrap:wrap;gap:8px}.halls a{display:inline-flex;align-items:center;min-height:44px;border:1px solid var(--line);background:var(--paper2);padding:6px 12px;text-decoration:none;font:14px system-ui}
 </style>
+<script src="../assets/nav/museum-nav.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#app">К содержанию</a>
@@ -142,6 +172,8 @@ dialog#fb{border:1px solid #cbb99b;background:#faf6ee;color:#29342d;max-width:52
 <main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
 <noscript><p class="note">Для атласа нужен JavaScript. Все источники перечислены в <a href="data/eras.json">eras.json</a>.</p></noscript>
 <footer>«Атлас эпох» — часть музея «Город на бумаге». На iPhone: «Поделиться» → «На экран „Домой“»; на Android: меню браузера → «Установить приложение». Исторические изображения показаны без изменений: без кадрирования, ретуши и перекраски. Современные фото не деформируются; совпадение ракурса оценивается вручную и подписано. Каждая работа ведёт к карточке хранителя — проверяйте права там.</footer>
+<script src="vendor/leaflet-1.9.4/leaflet.js"></script>
+<script src="maps.js"></script>
 <script src="atlas.js"></script>
 <script src="eras.js"></script>
 <script>

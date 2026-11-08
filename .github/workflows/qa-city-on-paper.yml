@@ -11,6 +11,7 @@ on:
       - 'schemas/**'
       - 'poc/**'
       - 'index.html'
+      - 'assets/nav/**'
       - 'journeys/**'
       - 'detective/**'
       - 'studio/**'
@@ -135,6 +136,7 @@ jobs:
           mkdir -p /tmp/city-on-paper-package/atlas-prototype
           cp atlas-prototype/index.html /tmp/city-on-paper-package/atlas-prototype/
           cp -R eras /tmp/city-on-paper-package/
+          mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/

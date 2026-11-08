@@ -1,0 +1,72 @@
+SUBJECT: Request — web thumbnails from 'Rome dans sa grandeur' (1870), records obj08003573 / obj08003574, for a non-commercial educational atlas
+
+BODY:
+Dear colleagues of the Photographic Collection,
+
+I am developing, as a private individual, "City on Paper / Город на бумаге", an independent, non-commercial, educational digital museum, freely available on GitHub Pages (https://zukevich-blip.github.io/-city-on-paper/).
+
+Our atlas (https://zukevich-blip.github.io/-city-on-paper/eras/) starts from a 1769 map, leads to individual towns, and then to views by Félix and Philippe Benoist and other artists, with then-and-now comparisons. Every work is credited and links directly to the holding institution's record.
+
+Your online catalogue includes two volumes of "Rome dans sa grandeur" (1870), with lithographs by Félix and Philippe Benoist: records obj08003573 (vol. 2, Rome chrétienne) and obj08003574 (vol. 3, Rome moderne). We reference 40 plates from them (Santi Apostoli, Villa Borghese, Ariccia, Tivoli, Castel Gandolfo, Nemi and others; list below). The photographs carry an "In Copyright" statement, so we show links only. Would you allow:
+1. web thumbnails (max. 1000 px) of the individual plates, with your credit line, the photo or negative number and a link to the record;
+2. or links only, as now;
+3. or tell us whether your publication-permission form applies to this kind of web use.
+
+Our commitments: credit and link to your record; rights statement shown; the original is never altered (no cropping, recolouring or AI); no commercial use; removal within 7 days on request.
+
+For the Hertziana: visitors directed to your Online Catalogue, and Benoist's Rome placed on a map plate by plate.
+
+A one-line reply is enough:
+— "Yes, with credit line: …"
+— "Links only, please"
+— "Please contact: …"
+
+With many thanks and kind regards,
+«[Имя Фамилия]»
+[e-mail]
+City on Paper / Город на бумаге — https://zukevich-blip.github.io/-city-on-paper/
+Atlas: https://zukevich-blip.github.io/-city-on-paper/eras/
+
+----- Records and plates (2 records / 40 plates) -----
+1. https://foto.biblhertz.it/obj08003574  — 39 plates from this record:
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Brücke von Ariccia
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Tivoli, Villa Adriana
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Castel Gandolfo, vom Lago di Albano aus
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Nemi mit dem Lago di Nemi
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Piazza del Popolo, vom Pincio aus
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Villa Borghese
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Ponte Nomentano
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Fontana del Mosè
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Via del Corso mit Palazzo Doria
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Hof des Palazzo Venezia
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Vatikan, Vatikanische Museen
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Piazza del Quirinale
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Gianicolo, Fontanone dell'Acqua Paola
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Gärten des Quirinalspalastes
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Pantheon, Außenansicht
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Vatikan, Vatikanische Bibliothek
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Isola Tiberina
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Vatikan, Loggien des Vatikan
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, von der Kuppel des Petersdoms aus
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Kapitolinische Museen
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Tiber mit dem Ponte Rotto, von der Tiberinsel aus
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Villa Medici
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Piazza Navona
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Tiber, vom Ponte Sisto aus
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Kapitol mit Santa Maria in Aracoeli
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, vom Pincio aus
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Frontispiz des 3. Bandes: Porta del Popolo
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Vatikan
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Piazza Venezia mit Palazzo di Venezia
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Hafen von Ripetta
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, Fontana di Trevi
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Rom, vom Gianicolo aus
+   - PALAIS ET JARDINS DU VATICAN
+   - LA VILLA BORGHESE
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Subiaco, Benediktinerkloster
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Subiaco
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Tivoli, Wasserfälle
+   - Rome dans sa grandeur (1870), Band 3: Rome moderne., Civitavecchia
+   - CIVITA VECCHIA
+2. Rome dans sa grandeur (1870), Band 2: Rome chrétienne., Rom, Santi Apostoli
+   https://foto.biblhertz.it/obj08003573

@@ -9,10 +9,12 @@ Inputs (committed):
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import re
 import unicodedata
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -90,6 +92,108 @@ def portal_model():
     return predict, inside, g
 
 
+def wid(url: str) -> str:
+    return hashlib.sha1((url or "").encode("utf-8")).hexdigest()[:10]
+
+
+class PlanGeoref:
+    """lat/lon -> full-resolution plan pixels (affine or 2nd-order polynomial in local metres)."""
+
+    def __init__(self, g: dict):
+        self.p = g["local_projection"]
+        t = g["transforms"]
+        self.kind = g.get("chosen") or ("affine" if "affine" in t else next(iter(t)))
+        self.t = t[self.kind]
+        self.full_w = g["pixel_space"]["width"]
+
+    def full_px(self, lat: float, lon: float) -> tuple[float, float]:
+        p = self.p
+        x = (lon - p["lon0"]) * math.pi / 180 * p["R_m"] * math.cos(math.radians(p["lat0"]))
+        y = (lat - p["lat0"]) * math.pi / 180 * p["R_m"]
+        a, b = x / 1000, y / 1000
+        inv = self.t["inverse_local_metres_to_pixel"]
+        terms = [1, a, b] if len(inv["coef_px"]) == 3 else [1, a, b, a * a, a * b, b * b]
+        px = sum(c * v for c, v in zip(inv["coef_px"], terms, strict=True))
+        py = sum(c * v for c, v in zip(inv["coef_py"], terms, strict=True))
+        return px, py
+
+
+def attach_sites_and_plans(rows: list[dict]) -> None:
+    """Optional inputs: data/vision-lab/sites.json (where each work was drawn) and plans.json (+ georef-<id>.json)."""
+    sites = load("sites.json") or {"items": []}
+    plans = (load("plans.json") or {}).get("plans", [])
+    by_name = {c["name"]: c for c in rows}
+    by_id = {c["id"]: c for c in rows}
+    wdate = {w["url"]: w.get("date") for c in rows for w in c["works"]}
+    for it in sites.get("items", []):
+        c = by_name.get(it.get("city"))
+        if not c or it.get("lat") is None or it.get("kind") == "unresolved" or it.get("confidence") == "low":
+            continue
+        img = it.get("image") or ""
+        c.setdefault("sites", []).append({
+            "wid": wid(it["work_url"]), "url": it["work_url"], "title": (it.get("title") or "")[:140],
+            "image": commons_image(it.get("image")) or (img if img.startswith("https://") else None),
+            "site_name": it.get("site_name"), "site_ru": it.get("site_name_ru") or it.get("site_name"),
+            "qid": it.get("qid"), "lat": round(it["lat"], 6), "lon": round(it["lon"], 6),
+            "kind": it.get("kind"), "confidence": it.get("confidence"),
+            "date": it.get("date") or wdate.get(it["work_url"])})
+    today = load("today-photos.json") or {}
+    for c in rows:
+        groups: dict[str, dict] = {}
+        for x in c.get("sites", []):
+            key = x.get("qid") or f'{x["lat"]:.4f},{x["lon"]:.4f}'
+            g = groups.setdefault(key, {"key": key, "qid": x.get("qid"), "name": x["site_ru"], "lat": x["lat"],
+                                        "lon": x["lon"], "kind": x.get("kind"), "works": []})
+            g["works"].append(x["wid"])
+        out = []
+        for g in groups.values():
+            t = today.get(g["qid"] or "")
+            if t:
+                keep = ("file", "image", "page", "license", "license_url", "author", "date")
+                g["today"] = {k: t.get(k) for k in keep}
+            if len(g["works"]) >= 2 or t:
+                out.append(g)
+        if out:
+            c["epochs"] = sorted(out, key=lambda g: (-len(g["works"]), g["name"] or ""))
+    for pl in plans:
+        c = by_id.get(pl.get("city_id")) or by_name.get(pl.get("city_ru"))
+        tj = ROOT / "eras" / "tiles" / f"plan-{pl['city_id']}" / "tiles.json"
+        gf = VL / pl.get("georef_file", f"georef-{pl['city_id']}.json")
+        if not c or not tj.exists() or not gf.exists():
+            continue
+        t = json.loads(tj.read_text("utf-8"))
+        geo = PlanGeoref(json.loads(gf.read_text("utf-8")))
+        k = t["width"] / geo.full_w
+        who = ", ".join(pl.get("creators") or [])
+        loo = round(pl["loo_rms_m"])
+        c["plan"] = {"tiles": f"tiles/plan-{pl['city_id']}", **t, "title": pl["title"], "year": pl.get("year"),
+                     "credit": f"{who}{', ' if who else ''}{pl.get('date', '')}; {pl['institution']}",
+                     "object_url": pl["object_url"], "rights": pl["rights"],
+                     "georef_note": f"Привязка плана приблизительная: проверка исключением ≈{loo} м."}
+        for s in c.get("sites", []):
+            x, y = geo.full_px(s["lat"], s["lon"])
+            if 0 <= x <= geo.full_w and 0 <= y <= t["height"] / k:
+                s["px"] = [round(x * k, 1), round(y * k, 1)]
+
+
+def attach_halls(rows: list[dict]) -> None:
+    """Links from a city page to the other halls of the museum that hold material about the same city."""
+    cur = ROOT / "data" / "curation"
+    journeys = {i["city"] for i in json.loads((cur / "era-journeys-20261102.json").read_text("utf-8"))["items"]}
+    world = {c["name"] for c in json.loads((cur / "world-cities-v1.json").read_text("utf-8"))["cities"]}
+    fixed = {"Париж": [["../detective/", "Дело № 01: Мадлен под лупой"], ["../poc/compare/", "Тогда / сейчас: Мадлен"],
+                       ["../exhibitions/city-as-evidence/", "Выставка «Город как свидетельство»"]],
+             "Флоренция": [["../exhibitions/lost-florence/", "Выставка «Исчезнувшая Флоренция»"]]}
+    for c in rows:
+        h = [["../salon/?city=" + urllib.parse.quote(c["name"]), "Салон открытий: листы этого города"]]
+        if c["name"] in journeys:
+            h.append(["../journeys/", "Атлас времени: город по векам"])
+        if c["name"] in world:
+            h.append(["../world/", "Города мира"])
+        h += fixed.get(c["name"], [])
+        c["halls"] = h
+
+
 def build() -> dict:
     ov = load("overrides.json")
     eu = load("europe-cities.json")["cities"]
@@ -124,7 +228,7 @@ def build() -> dict:
             if re.match(r"http://(gallica\.bnf\.fr|foto\.biblhertz\.it|hdl\.handle\.net|polona\.pl)/", url):
                 url = "https://" + url[len("http://"):]
             c["works"].append({"title": w.get("title"), "artist": w.get("artist"), "date": w.get("date"),
-                               "institution": w.get("institution"), "url": url,
+                               "institution": w.get("institution"), "url": url, "wid": wid(url),
                                "image": commons_image(w.get("image")) if open_ else None,
                                "rights_class": "open" if open_ else "link",
                                "rights_label": (w.get("rights") or "")[:90], "basis": w.get("attribution_basis")})
@@ -149,6 +253,11 @@ def build() -> dict:
     keys = ("image", "width", "height", "title", "credit", "object_url", "rights", "alt")
     portal = {k: ov["portal"][k] for k in keys}
     portal["image_small"] = ov["portal"].get("image_small")
+    tj = ROOT / "eras" / "tiles" / "europe-1769" / "tiles.json"
+    if tj.exists():
+        portal["tiles"] = {"tiles": "tiles/europe-1769", **json.loads(tj.read_text("utf-8"))}
+    attach_sites_and_plans(rows)
+    attach_halls(rows)
     note = ("Метки городов рассчитаны по модели привязки карты"
             + (f" (полином 2-й степени по {len(g['gcps'])} опорным городам, проверка исключением "
                f"≈{g['loo_rms_px']:.0f} px)" if g else "")

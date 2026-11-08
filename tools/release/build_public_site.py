@@ -42,7 +42,7 @@ DATA = (
 )
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
-    "poc/compare", "docs/ux/mockups", "eras",
+    "poc/compare", "docs/ux/mockups", "eras", "assets/nav",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
              "PROJECT_HANDOFF.md", "serve_local.py")
