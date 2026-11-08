@@ -1,0 +1,21 @@
+/* Research-only controls within the existing City on Paper atlas map. */
+.paris-research{border:1px solid #bcb2a1;border-radius:9px;padding:11px 13px;margin:9px 0;background:#f7f2e9}
+.paris-research-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 17px}
+.paris-research-controls label{display:inline-flex;align-items:center;gap:8px;font:14px/1.35 system-ui,sans-serif;color:#29342d}
+.paris-research-controls select{max-width:185px;padding:9px 7px;border:1px solid #a6a093;border-radius:5px;background:#fffefa;color:#29342d;font-size:14px}
+.paris-research-toggle{cursor:pointer}
+.paris-research-toggle input{width:20px;height:20px;accent-color:#744a36}
+.paris-research-toggle input:disabled{cursor:wait}
+.paris-research input[type=range]{max-width:150px;accent-color:#744a36}
+.paris-research p{font:12px/1.5 system-ui,sans-serif;margin:7px 0 0;color:#665d51}
+.paris-research p[role=status]{color:#694636}
+.paris-research .paris-research-credits{margin-top:5px}
+.paris-research-credits a{color:#764c32;text-decoration:underline}
+.cop-paris-affine{user-select:none;-webkit-user-select:none;will-change:transform;pointer-events:none}
+@media(max-width:650px){
+  .paris-research{padding:12px;margin:8px 0}
+  .paris-research-controls{display:grid;grid-template-columns:1fr;gap:8px}
+  .paris-research-controls label{min-height:44px;justify-content:space-between}
+  .paris-research-controls select{min-height:44px}
+  .paris-research input[type=range]{width:45%;max-width:none;min-height:44px}
+}
