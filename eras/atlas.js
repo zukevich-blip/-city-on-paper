@@ -6,6 +6,7 @@
 window.Atlas = (() => {
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const safe = (u) => (/^https:\/\//.test(u || "") || /^(img|\.\.\/assets)\//.test(u || "") ? u : "#");
+  const safeLink = (u) => (/^https?:\/\//.test(u || "") ? u : "#"); // holder pages; some institutions are http-only
   const CURATION = ["../data/curation/world-graphic-archive-v1.json", "../data/curation/museum-expansion-v1.json",
     "../data/curation/cc0-gallery-20261103.json", "../data/curation/benoist-paris-musees-v1.json"];
   const RIGHTS = { cc0: "CC0", public_domain_commons: "общественное достояние (Commons)", cc_by: "CC BY", cc_by_sa: "CC BY-SA" };
@@ -39,7 +40,7 @@ window.Atlas = (() => {
     app.innerHTML = `<div class="view">
       <span class="eyebrow">Атлас эпох · вход через старую карту</span>
       <h1>Города на бумаге:<br>от Бретани до Вильнюса</h1>
-      <p class="lede">${A.cities.length} городов и мест Европы; ${A.counts.benoist_places} из них рисовали Феликс и Филипп Бенуа. Метки стоят на подлинной карте Европы XVIII века — она красива, но неточна, поэтому положение меток приблизительное. Внутри города — работы из музеев и библиотек с источниками и правами.</p>
+      <p class="lede">${A.cities.length} городов и мест — в основном Европа; ${A.counts.benoist_places} из них рисовали Феликс и Филипп Бенуа (${A.counts.benoist_works} работ в музеях и библиотеках). Метки стоят на подлинной карте Европы XVIII века — она красива, но неточна, поэтому положение меток приблизительное. Внутри города — работы из музеев и библиотек с источниками и правами.</p>
       <div class="tools" role="search"><label class="sr" for="q">Поиск города</label>
         <input id="q" type="search" placeholder="Город, страна или регион" value="${esc(filter.q)}" autocomplete="off">
         <select id="grp" aria-label="Показать">${groups.map(([v, l]) => `<option value="${esc(v)}" ${filter.group === v ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></div>
@@ -76,19 +77,19 @@ window.Atlas = (() => {
     works().then(draw);
   }
 
-  // Commons originals can be many MB: use the official 640 px thumbnail of the same file (no other change).
+  // Commons originals can be many MB: use the official 500 px (standard size) thumbnail of the same file (no other change).
   const thumb = (u) => {
     const m = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/([^?#/]+)/.exec(u || "");
     if (!m || /\.(svg|tiff?)$/i.test(m[3])) return u;
-    return `https://upload.wikimedia.org/wikipedia/commons/thumb/${m[1]}/${m[2]}/${m[3]}/640px-${m[3]}`;
+    return `https://upload.wikimedia.org/wikipedia/commons/thumb/${m[1]}/${m[2]}/${m[3]}/500px-${m[3]}`;
   };
   // ---------- city (generic, for every city)
   const card = (w) => `<article class="wcard">
-      ${w.image ? `<a href="${esc(safe(w.url))}" target="_blank" rel="noopener"><img src="${esc(safe(thumb(w.image)))}" alt="${esc((w.medium ? w.medium + ": " : "") + (w.title || w.name))}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.outerHTML='<span class=&quot;noimg&quot;>Изображение сейчас не загрузилось — откройте источник</span>'"></a>`
-        : `<div class="noimg">Изображение не встраивается: права хранителя. <a href="${esc(safe(w.url))}" target="_blank" rel="noopener">Открыть у хранителя ↗</a></div>`}
+      ${w.image ? `<a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener"><img src="${esc(safe(thumb(w.image)))}" alt="${esc((w.medium ? w.medium + ": " : "") + (w.title || w.name))}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.outerHTML='<span class=&quot;noimg&quot;>Изображение сейчас не загрузилось — откройте источник</span>'"></a>`
+        : `<div class="noimg">Изображение не встраивается: права хранителя. <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">Открыть у хранителя ↗</a></div>`}
       <h4>${esc(w.title || w.name)}</h4>
       <p>${esc(w.artist || w.maker || "")}${w.date ? " · " + esc(w.date) : ""}</p>
-      <p class="src">${esc(w.institution || w.source || "")} · <span class="rights ${w.rights_class === "link" ? "link" : "open"}">${esc(w.rights_label || RIGHTS[w.rights] || w.rights || "")}</span> · <a href="${esc(safe(w.url))}" target="_blank" rel="noopener">источник ↗</a></p>
+      <p class="src">${esc(w.institution || w.source || "")} · <span class="rights ${w.rights_class === "link" ? "link" : "open"}">${esc(w.rights_label || RIGHTS[w.rights] || w.rights || "")}</span> · <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">источник ↗</a></p>
     </article>`;
 
   function city(app, id, append) {

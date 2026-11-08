@@ -1,0 +1,884 @@
+{
+ "generated": "2026-11-08",
+ "scope": "Places depicted by Félix Benoist (1818–1896) and Philippe Benoist (1813–c.1905). G. P. Benoist, Antoine Benoist, Marie-Guillemine Benoist, J.-L. Benoist, François Benoist excluded.",
+ "counts": {
+  "places": 122,
+  "works": 342,
+  "works_with_open_image": 163,
+  "works_link_only": 179,
+  "works_open_rights_no_image": 0,
+  "places_without_coordinates": [],
+  "places_with_no_open_image": [
+   "reims",
+   "dornach",
+   "neuwiller",
+   "saverne",
+   "vincennes",
+   "versailles",
+   "saint-germain-en-laye",
+   "fontainebleau",
+   "bayeux",
+   "caen",
+   "rouen",
+   "sainte-marie-du-mont",
+   "rue",
+   "senlis",
+   "saint-quentin",
+   "saint-riquier",
+   "brou",
+   "evian",
+   "seville",
+   "burgos",
+   "huerta",
+   "toro",
+   "guadalajara",
+   "balaklava",
+   "alma",
+   "ariccia",
+   "villa-adriana",
+   "castel-gandolfo",
+   "nemi",
+   "subiaco",
+   "tivoli",
+   "civitavecchia",
+   "st-aubin",
+   "livorno"
+  ]
+ },
+ "per_artist": {
+  "Philippe Benoist": {
+   "works": 234,
+   "places": 58
+  },
+  "Félix Benoist": {
+   "works": 149,
+   "places": 75
+  }
+ },
+ "per_region": {
+  "Бразилия / Баия": {
+   "places": 1,
+   "works": 2,
+   "open_images": 2
+  },
+  "Бразилия / Рио-де-Жанейро": {
+   "places": 1,
+   "works": 2,
+   "open_images": 2
+  },
+  "Великобритания / Англия (Девон)": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Германия / Баден-Вюртемберг": {
+   "places": 1,
+   "works": 2,
+   "open_images": 2
+  },
+  "Гернси / Нормандские острова": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Джерси / Нормандские острова": {
+   "places": 9,
+   "works": 24,
+   "open_images": 13
+  },
+  "Испания / Андалусия": {
+   "places": 3,
+   "works": 4,
+   "open_images": 3
+  },
+  "Испания / Кастилия и Леон": {
+   "places": 6,
+   "works": 16,
+   "open_images": 7
+  },
+  "Испания / Кастилия — Ла-Манча": {
+   "places": 2,
+   "works": 21,
+   "open_images": 4
+  },
+  "Италия / Кампания": {
+   "places": 4,
+   "works": 10,
+   "open_images": 9
+  },
+  "Италия / Лацио": {
+   "places": 8,
+   "works": 43,
+   "open_images": 2
+  },
+  "Италия / Ломбардия": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Италия / Тоскана": {
+   "places": 1,
+   "works": 1,
+   "open_images": 0
+  },
+  "Канада / Квебек": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Крым / Крым": {
+   "places": 4,
+   "works": 7,
+   "open_images": 2
+  },
+  "Литва / Литва": {
+   "places": 2,
+   "works": 6,
+   "open_images": 4
+  },
+  "Польша / Мазовия": {
+   "places": 1,
+   "works": 3,
+   "open_images": 2
+  },
+  "Польша / Малопольша": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Россия / Москва": {
+   "places": 1,
+   "works": 14,
+   "open_images": 14
+  },
+  "Франция / Бретань": {
+   "places": 35,
+   "works": 39,
+   "open_images": 39
+  },
+  "Франция / Гранд-Эст (Шампань)": {
+   "places": 1,
+   "works": 4,
+   "open_images": 0
+  },
+  "Франция / Гранд-Эст (Эльзас)": {
+   "places": 3,
+   "works": 10,
+   "open_images": 0
+  },
+  "Франция / Иль-де-Франс": {
+   "places": 6,
+   "works": 87,
+   "open_images": 29
+  },
+  "Франция / Новая Аквитания": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Франция / Нормандия": {
+   "places": 9,
+   "works": 16,
+   "open_images": 6
+  },
+  "Франция / О-де-Франс (Пикардия)": {
+   "places": 4,
+   "works": 6,
+   "open_images": 0
+  },
+  "Франция / Овернь — Рона — Альпы": {
+   "places": 2,
+   "works": 2,
+   "open_images": 1
+  },
+  "Франция / Овернь — Рона — Альпы (Савойя)": {
+   "places": 1,
+   "works": 1,
+   "open_images": 0
+  },
+  "Франция / Пеи-де-ла-Луар (Майенн)": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Франция / Пеи-де-ла-Луар (ист. Бретань)": {
+   "places": 8,
+   "works": 12,
+   "open_images": 12
+  },
+  "Франция / Прованс — Альпы — Лазурный Берег (Ницца)": {
+   "places": 1,
+   "works": 1,
+   "open_images": 1
+  },
+  "Франция / Центр — Долина Луары": {
+   "places": 1,
+   "works": 2,
+   "open_images": 2
+  }
+ },
+ "per_album": {
+  "Album de Dornach (1872)": {
+   "places": [
+    "dornach"
+   ],
+   "n_places": 1,
+   "works": 1
+  },
+  "Album de Wilna": {
+   "places": [
+    "vilnius"
+   ],
+   "n_places": 1,
+   "works": 1
+  },
+  "Album de l'Île de Jersey": {
+   "places": [
+    "anne-port",
+    "avranches",
+    "bouley-bay",
+    "cherbourg",
+    "gorey",
+    "granville",
+    "greve-au-lancon",
+    "greve-de-lecq",
+    "la-hougue-bie",
+    "mont-saint-michel",
+    "saint-helier",
+    "saint-malo",
+    "st-brelade",
+    "st-peter-port"
+   ],
+   "n_places": 14,
+   "works": 20
+  },
+  "Album du Pèlerin à Notre-Dame de la Salette": {
+   "places": [
+    "la-salette"
+   ],
+   "n_places": 1,
+   "works": 1
+  },
+  "España artística y monumental": {
+   "places": [
+    "las-huelgas",
+    "miraflores",
+    "toledo",
+    "valladolid"
+   ],
+   "n_places": 4,
+   "works": 21
+  },
+  "L'Italie monumentale et artistique": {
+   "places": [
+    "naples",
+    "pompeii"
+   ],
+   "n_places": 2,
+   "works": 7
+  },
+  "La Bretagne contemporaine": {
+   "places": [
+    "boschet",
+    "chateau-pen-march",
+    "daoulas",
+    "fort-berthaume",
+    "huelgoat",
+    "kergadiou",
+    "kergroadez",
+    "la-roche-maurice",
+    "landal",
+    "landerneau",
+    "landivisiau",
+    "lanmeur",
+    "locronan",
+    "moncontour",
+    "morgat",
+    "morlaix",
+    "pleyben",
+    "pointe-saint-mathieu",
+    "roche-aux-fees",
+    "roscoff",
+    "rustephan",
+    "saint-aubin-du-cormier",
+    "saint-brieuc-legue",
+    "saint-herbot",
+    "tremazan"
+   ],
+   "n_places": 25,
+   "works": 27
+  },
+  "Le Tour du monde": {
+   "places": [
+    "montreal"
+   ],
+   "n_places": 1,
+   "works": 1
+  },
+  "Nouvelles vues de Paris": {
+   "places": [
+    "paris"
+   ],
+   "n_places": 1,
+   "works": 1
+  },
+  "Panorama de Moscou (Daziaro)": {
+   "places": [
+    "moscow"
+   ],
+   "n_places": 1,
+   "works": 1
+  },
+  "Paris dans sa splendeur": {
+   "places": [
+    "paris",
+    "saint-denis"
+   ],
+   "n_places": 2,
+   "works": 10
+  },
+  "Rome dans sa grandeur": {
+   "places": [
+    "ariccia",
+    "castel-gandolfo",
+    "civitavecchia",
+    "nemi",
+    "rome",
+    "subiaco",
+    "tivoli",
+    "villa-adriana"
+   ],
+   "n_places": 8,
+   "works": 43
+  },
+  "Vues de Varsovie": {
+   "places": [
+    "warsaw-lazienki"
+   ],
+   "n_places": 1,
+   "works": 3
+  }
+ },
+ "identity_notes": [
+  "Rome dans sa grandeur (Bibliotheca Hertziana): holder title names both Philippe and Félix Benoist; draughtsman of individual plates not specified -> artist recorded as both, identity_certainty \"album-level only\".",
+  "BnF records catalogued under \"Benoist, Ph.\" (no dates) recorded as Philippe Benoist with identity_certainty \"probable (initial only)\"; BnF drawings bracketed \"[Philippe Benoist ?]\" keep the holder query in the title.",
+  "Moscow views \"Benoist et Aubrun\" (LoC: \"lith par Benoist et Aubrun\"; Commons): forename not given by holder -> Philippe Benoist, probable.",
+  "Commons \"Benois Triumphal Gate 1848\" (Moscow, Tverskaya Zastava) carries creator \"Félix Benoist\" on Commons; recorded as given, not verified against a holder record.",
+  "Album de l'Île de Jersey (Commons scans, uploader in creator field): attribution from album title \"Dessins d'après nature par Félix Benoist\" quoted in file descriptions.",
+  "Jersey Heritage records (creator \"Benoist, Felix\") are In Copyright (InC) for the digital image -> link only.",
+  "La Bretagne contemporaine: plates signed by Eugène Cicéri, F.-H. Lalaisse and others are NOT counted as Benoist works (Benoist was director of the publication); see excluded list."
+ ],
+ "albums_checked": {
+  "La Bretagne contemporaine (1865–67)": "Commons category crawled (46 files); Félix Benoist-drawn plates found for Finistère, Côtes-du-Nord, Ille-et-Vilaine, Morbihan; no holder table of contents reachable (Gallica 403).",
+  "Nantes et la Loire-Inférieure (1850)": "Gallica volume records found via Europeana (bpt6k164488r, bpt6k1644894, bpt6k1644902) but no plate-level records; Loire-Inférieure château views on Commons are attributed to Félix Benoist without album statement.",
+  "Paris dans sa splendeur (1861)": "BnF plate records (via Europeana) + Commons/Paris Musées; Heidelberg PDM copy has text-chapter TOC only (no plate-level attribution).",
+  "Rome dans sa grandeur (1870)": "Hertziana plate records (40, In Copyright photo reproductions, link only) + 2 Commons files.",
+  "Album de Wilna": "Only plates whose holder record names Philippe Benoist kept (university, St Anne); Album de Wilna plates by Sadovnikov/Bichebois/Deroy excluded.",
+  "Nice et Savoie (1864)": "Commons scans of the 3 parts (338 files) checked: creator fields name other artists (e.g. Joseph Dessaix) or none; only Saint-Étienne-de-Tinée (Commons) and Évian (BIU Santé) carry Félix Benoist as draughtsman. Plate list not verified.",
+  "Album de l'Île de Jersey": "20 Commons scans; places mapped from plate captions.",
+  "La Normandie illustrée (1852–54)": "Not verified: no record found that names the album; Félix Benoist Rouen plates of 1850/1852 (BnF) are recorded without assigning them to this album.",
+  "Voyages pittoresques (Taylor/Nodier)": "BnF Philippe Benoist drawings (Normandie, Picardie, Champagne, Brou) recorded; holder records do not state the Voyages pittoresques link, so no album assigned."
+ },
+ "places_from_contents_without_open_image": [],
+ "places_from_contents_note": "No table of contents could be read (Gallica returns 403 to this container; Heidelberg TOC is text-only), so no contents-only places were added. Places with link-only works are listed in counts.places_with_no_open_image.",
+ "blockers": [
+  "Wikimedia Commons API: repeated HTTP 429 (Retry-After honoured, max 3 tries); one imageinfo batch (incl. some Rijksmuseum/Vue officielle 1867 copies) and allcategories lookup \"Normandie illustrée\" recorded as blocked.",
+  "Wikidata SPARQL: 429 on first try, succeeded on retry; 30 places had no Wikidata coordinate via sitelink -> OSM Nominatim fallback.",
+  "Gallica (gallica.bnf.fr): HTTP 403 -> BnF data taken from Europeana records; BnF images (NoC-OKLR) kept link-only.",
+  "loc.gov/photos JSON returned 520; loc.gov/pictures JSON used."
+ ],
+ "excluded": [
+  {
+   "title": "Benoist, Félix. Nice et Savoie, sites pittoresques, monuments, description et histoire. Parigi, Charpentier, 1864.png",
+   "url": "https://commons.wikimedia.org/wiki/File%3ABenoist%2C_F%C3%A9lix._Nice_et_Savoie%2C_sites_pittoresques%2C_monuments%2C_description_et_histoire._Parigi%2C_Charpentier%2C_1864.png",
+   "artist_field": "Argonitros",
+   "reason": "map / title page / book cover, not a view of a place"
+  },
+  {
+   "title": "CartesAlpesMaritimes-FelixBenoist-1864.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACartesAlpesMaritimes-FelixBenoist-1864.jpg",
+   "artist_field": "Félix Benoist",
+   "reason": "map / title page / book cover, not a view of a place"
+  },
+  {
+   "title": "Château de Kerjean Cicéri.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A2teau_de_Kerjean_Cic%C3%A9ri.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Château de Kérouzéré Cicéri.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A2teau_de_K%C3%A9rouz%C3%A9r%C3%A9_Cic%C3%A9ri.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Château du Hénan.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A2teau_du_H%C3%A9nan.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Châteaulin Benoist.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A2teaulin_Benoist.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Color Lithograph Depicting the Church of Sion and Royal Figures by Regamey After Eugene Ciceri and Philippe Benoist.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AColor_Lithograph_Depicting_the_Church_of_Sion_and_Royal_Figures_by_Regamey_After_Eugene_Ciceri_and_Philippe_Benoist.jpg",
+   "artist_field": "Grigory Gagarin",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Conclusion d'un marché Landivisiau.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AConclusion_d%27un_march%C3%A9_Landivisiau.jpg",
+   "artist_field": "François Hippolyte Lalaisse (1810-1884)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Coupe de goémon Sainte-Anne Saint-Pol-de-Léon.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACoupe_de_go%C3%A9mon_Sainte-Anne_Saint-Pol-de-L%C3%A9on.jpg",
+   "artist_field": "François Hippolyte Lalaisse (1810-1884)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Croix des apôtres Logonna-Daoulas.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACroix_des_ap%C3%B4tres_Logonna-Daoulas.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Eglise de Pencran.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AEglise_de_Pencran.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Eglise de Saint-Herbot.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AEglise_de_Saint-Herbot.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Eglise de Saint-Thégonnec.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AEglise_de_Saint-Th%C3%A9gonnec.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Eglise et calvaire de Guimiliau.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AEglise_et_calvaire_de_Guimiliau.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Eglise et fontaine de Saint-Jean-du-Doigt.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AEglise_et_fontaine_de_Saint-Jean-du-Doigt.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Goupil-P1020125.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AGoupil-P1020125.jpg",
+   "artist_field": "Als33120",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "La cathédrale Notre-Dame et le palais de l'Archevêché en 1595. D.7941(2).jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALa_cath%C3%A9drale_Notre-Dame_et_le_palais_de_l%27Archev%C3%AAch%C3%A9_en_1595._D.7941%282%29.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "La cathédrale Notre-Dame et le palais de l'Archevêché en 1595. D.7941.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALa_cath%C3%A9drale_Notre-Dame_et_le_palais_de_l%27Archev%C3%AAch%C3%A9_en_1595._D.7941.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Palais Royal 1645. (Composition rétrospective). D.7935.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Palais_Royal_1645._%28Composition_r%C3%A9trospective%29._D.7935.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Palais Royal en 1634. (Composition rétrospective). D.7923.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Palais_Royal_en_1634._%28Composition_r%C3%A9trospective%29._D.7923.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Palais des Tuileries en 1690, vue du quai de la Grenouillère. Composition rétrospective, D.7926.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Palais_des_Tuileries_en_1690%2C_vue_du_quai_de_la_Grenouill%C3%A8re._Composition_r%C3%A9trospective%2C_D.7926.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Palais des Tuileries, rue Saint-Niçaise, Porte Neuve et Porte Saint-Honoré en 1585. (Composition rétrospective), D.7921.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Palais_des_Tuileries%2C_rue_Saint-Ni%C3%A7aise%2C_Porte_Neuve_et_Porte_Saint-Honor%C3%A9_en_1585._%28Composition_r%C3%A9trospective%29%2C_D.7921.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Palais et la Cité en 1530 (Composition rétrospective). D.7913.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Palais_et_la_Cit%C3%A9_en_1530_%28Composition_r%C3%A9trospective%29._D.7913.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Petit-Châtelet et le Petit-Pont en 1717. (Composition retrospective). Actuellement rue du Petit-Pont, D.7910.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Petit-Ch%C3%A2telet_et_le_Petit-Pont_en_1717._%28Composition_retrospective%29._Actuellement_rue_du_Petit-Pont%2C_D.7910.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Petit-Pont et la place du Petit-Pont en 1830. D.5829.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Petit-Pont_et_la_place_du_Petit-Pont_en_1830._D.5829.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Petit-Pont et le Petit-Châtelet après l'incendie du 27 avril 1718, actuellement rue du Petit-Pont, quai Montebello, q, D.7911.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_Petit-Pont_et_le_Petit-Ch%C3%A2telet_apr%C3%A8s_l%27incendie_du_27_avril_1718%2C_actuellement_rue_du_Petit-Pont%2C_quai_Montebello%2C_q%2C_D.7911.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le Tour du monde-30-p107",
+   "url": "https://commons.wikimedia.org/wiki/File:Le_Tour_du_monde-30-p107.jpg",
+   "artist": "Philippe Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Le Tour du monde-30-p141",
+   "url": "https://commons.wikimedia.org/wiki/File:Le_Tour_du_monde-30-p141.jpg",
+   "artist": "Philippe Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Le marché du Temple en 1840 et le couvent de l'Adoration Perpétuelle du Saint-Sacrement (Composition rétrospective). D.7934.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_march%C3%A9_du_Temple_en_1840_et_le_couvent_de_l%27Adoration_Perp%C3%A9tuelle_du_Saint-Sacrement_%28Composition_r%C3%A9trospective%29._D.7934.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Le palais du Grand Prieur au Temple, en 1770 (Composition rétrospective). D.7939.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ALe_palais_du_Grand_Prieur_au_Temple%2C_en_1770_%28Composition_r%C3%A9trospective%29._D.7939.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Dessin de Félix Benoist",
+   "url": "https://commons.wikimedia.org/wiki/File:M0196_2018-1-001_1.jpg",
+   "artist": "Félix Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Dessin de Félix Benoist",
+   "url": "https://commons.wikimedia.org/wiki/File:M0196_2018-1-002_1.jpg",
+   "artist": "Félix Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Dessin de Félix Benoist",
+   "url": "https://commons.wikimedia.org/wiki/File:M0196_2018-1-003_1.jpg",
+   "artist": "Félix Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Dessin de Félix Benoist",
+   "url": "https://commons.wikimedia.org/wiki/File:M0196_2018-1-004_1.jpg",
+   "artist": "Félix Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Dessin de Félix Benoist",
+   "url": "https://commons.wikimedia.org/wiki/File:M0196_2018-1-005_1.jpg",
+   "artist": "Félix Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Dessin de Félix Benoist",
+   "url": "https://commons.wikimedia.org/wiki/File:M0196_2018-1-006_1.jpg",
+   "artist": "Félix Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Moulin et église de Pont-Christ Benoist.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AMoulin_et_%C3%A9glise_de_Pont-Christ_Benoist.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Pardon de Sainte-Anne-la-Palud.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3APardon_de_Sainte-Anne-la-Palud.jpg",
+   "artist_field": "François Hippolyte Lalaisse (1810-1884)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Paris dans sa splendeur. 51. Parc de Monceaux. (La Naumachie), Paris Musées 20230615122131.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AParis_dans_sa_splendeur._51._Parc_de_Monceaux._%28La_Naumachie%29%2C_Paris_Mus%C3%A9es_20230615122131.jpg",
+   "artist_field": "Ciceri, Eugène (Paris, 23–01–1813 - en 1890), dessinateur-lithographe",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Paris dans sa splendeur. Cour du Louvre. Paris Musées 20230618124507.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AParis_dans_sa_splendeur._Cour_du_Louvre._Paris_Mus%C3%A9es_20230618124507.jpg",
+   "artist_field": "Bayot, Adolphe Jean Baptiste (Alexandria (Alessandria), 08–01–1810 - Paris, 06–02–1871), dessinateur-lithographe",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Place de la Bastille en 1841 (Composition rétrospective). D.7937.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3APlace_de_la_Bastille_en_1841_%28Composition_r%C3%A9trospective%29._D.7937.jpg",
+   "artist_field": "Hoffbauer, Fédor (Neuss, 13–10–1839 - Paris, 28–10–1922), dessinateur",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Ravenna chiesa di San Vitale Il Chiostro",
+   "url": "https://commons.wikimedia.org/wiki/File:Ravenna_chiesa_di_San_Vitale_Il_Chiostro.jpg",
+   "artist": "Philippe Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Rio de Janeiro de lado da terra Marro de Senado.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ARio_de_Janeiro_de_lado_da_terra_Marro_de_Senado.jpg",
+   "artist_field": "Wilfredor",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Ruines de l'abbaye de Landévennec.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3ARuines_de_l%27abbaye_de_Land%C3%A9vennec.jpg",
+   "artist_field": "Eugène Cicéri (1813-1890)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Une course à Carhaix.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AUne_course_%C3%A0_Carhaix.jpg",
+   "artist_field": "François Hippolyte Lalaisse (1810-1884)",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "View of a Windmill MET DP874395",
+   "url": "https://commons.wikimedia.org/wiki/File:View_of_a_Windmill_MET_DP874395.jpg",
+   "artist": "Philippe Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "View of a town with man and dog MET DP874399",
+   "url": "https://commons.wikimedia.org/wiki/File:View_of_a_town_with_man_and_dog_MET_DP874399.jpg",
+   "artist": "Philippe Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Vitré - château, intérieurs 115.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AVitr%C3%A9_-_ch%C3%A2teau%2C_int%C3%A9rieurs_115.jpg",
+   "artist_field": "Fab5669",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Vitré - château, intérieurs 116.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File%3AVitr%C3%A9_-_ch%C3%A2teau%2C_int%C3%A9rieurs_116.jpg",
+   "artist_field": "Fab5669",
+   "reason": "Benoist not named as artist in creator field (category/description only, other artist, or other Benoist)"
+  },
+  {
+   "title": "Zakoziel, Ažeška, Kaplica. Закозель, Ажэшка, Капліца (E. Cicéri, 1850)",
+   "url": "https://commons.wikimedia.org/wiki/File:Zakoziel,_A%C5%BEe%C5%A1ka,_Kaplica._%D0%97%D0%B0%D0%BA%D0%BE%D0%B7%D0%B5%D0%BB%D1%8C,_%D0%90%D0%B6%D1%8D%D1%88%D0%BA%D0%B0,_%D0%9A%D0%B0%D0%BF%D0%BB%D1%96%D1%86%D0%B0_(E._Cic%C3%A9ri,_1850).jpg",
+   "artist": "Philippe Benoist",
+   "reason": "no identifiable place in title/description"
+  },
+  {
+   "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 1,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5606668z",
+   "artist": "Félix Benoist; Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 2,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5606784d",
+   "artist": "Félix Benoist; Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Notice sur l'abbaye de Notre-Dame de la Trappe de Melleray, près de Châteaubriant (Loire-Inférieure) : une visite chez les trappistes / par Félix Benoist,...",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5687174g",
+   "artist": "Félix Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Paris in its splendor under Napoleon III: monuments, views, historical scenes, descriptions and history. Volume 3, Part 2/Text by Messrs. Audiganne, P. Bailly, Eugène Carissan, etc; Drawings and lithographs by... Philippe Benoist for the greatest number and with the help of photography... Vignettes of Felix Benoist and Catenacci... [Introduction of Eugène de La Gournerie]",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5698105t",
+   "artist": "Félix Benoist; Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Une visite chez les Trappistes. Notice sur l'abbaye de Notre-Dame de la Trappe de Melleray, près de Châteaubriant (Loire-Inférieure)... (3e édition) / par Félix Benoist",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k6531508k",
+   "artist": "Félix Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Lit de l'étang de St Etienne d'après les aveux de 1580 et de 1679 / dessiné d'après nature par F. Benoist g ; lith. de Charpentier",
+   "url": "https://gallica.bnf.fr/ark:/12148/btv1b53088078x",
+   "artist": "Félix Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Carte de la Loire-Inférieure destinée au tourisme / F[éli]x Benoist del & lith. ; lith. Charpentier",
+   "url": "https://gallica.bnf.fr/ark:/12148/btv1b53136160b",
+   "artist": "Félix Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "3ième volume: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire: Histoire de Paris - environs de Paris",
+   "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd3",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Band 2: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
+   "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd2",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Band 1: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
+   "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd1",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "L'Italie monumentale & artistique vues et monuments",
+   "url": "http://digital.wlb-stuttgart.de/purl/kxp1688772286",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 3,Partie 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5695332g",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Partie 1,Volume 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5695365v",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k6118590b",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Nouvelles vues de Paris / par Ph. Benoist et J. Jacottet",
+   "url": "https://gallica.bnf.fr/ark:/12148/btv1b53088077g",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Trovatore : atto 2., scena 2.",
+   "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00148973",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Micaela : atto 1.",
+   "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00149967",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Ballo la fata delle acque : atto 3.",
+   "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00149968",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Micaela : atto 1.",
+   "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00150038",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "temple ruins",
+   "url": "https://www.muis.ee/museaalView/100146",
+   "artist": "Philippe Benoist",
+   "reason": "no place identified"
+  },
+  {
+   "title": "Paris dans sa splendeur : monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]",
+   "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861ga",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Album scenografico, Trovatore : atto 2.°, scena 2.a. : [estampe] / P. Magnani ; F. Lasagne ; Ph. Benoist Lito.",
+   "url": "http://gallica.bnf.fr/ark:/12148/btv1b531181841",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Décorations de théâtre. N°7, La Juive (1er acte) : [estampe] / composé par Feuchère, Séchan, Diéterle et Despléchin ; lith. par Eug. Cicéri, Ph. Benoist et Gaildrau",
+   "url": "http://gallica.bnf.fr/ark:/12148/btv1b8438128s",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Le caïd (1er acte) : [estampe] / composé par Nolan [sic] et Rubé ; Lith. par Eug. Cicéri, Ph. Benoist et Bayot",
+   "url": "http://gallica.bnf.fr/ark:/12148/btv1b84368119",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Décorations de théâtre, Robert le diable, 3e acte : [estampe] / composé par Cicéri ; lith. par Eug. Cicéri, Ph. Benoist et Bayot",
+   "url": "http://gallica.bnf.fr/ark:/12148/btv1b531177449",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Théatre Royal Italien. Chateau dans l'opéra Le Fantôme de Mr Persiani : [estampe] / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
+   "url": "http://gallica.bnf.fr/ark:/12148/btv1b531168986",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Théâtre royal italien, château dans l'opéra Le fantôme de Mr. Persiani / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
+   "url": "http://gallica.bnf.fr/ark:/12148/btv1b8438820w",
+   "artist": "Philippe Benoist",
+   "reason": "theatre set design, not a real place"
+  },
+  {
+   "title": "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Plan der Stadt Rom",
+   "url": "http://foto.biblhertz.it/obj08003574",
+   "artist": "Félix Benoist; Philippe Benoist",
+   "reason": "title page / city plan"
+  },
+  {
+   "title": "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Titelblatt des 3. Bandes; in der Mitte eine Vignette mit einer Allegorie des päpstlichen Rom",
+   "url": "http://foto.biblhertz.it/obj08003574",
+   "artist": "Félix Benoist; Philippe Benoist",
+   "reason": "title page / city plan"
+  },
+  {
+   "title": "Angulemo kunigaikščio, didžiojo Prancūzijos admirolo Luji Antuano portretas",
+   "url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/20000006191911",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Nouvelles vues de Paris. par Ph. Benoist et J. Jacottet",
+   "url": "http://data.onb.ac.at/ABO/%2BZ260070009",
+   "artist": "Philippe Benoist",
+   "reason": "whole volume/book, map or portrait record (used only as album evidence)"
+  },
+  {
+   "title": "Jean Philippe Rameau. Lichtdruck nach einem seitenverkehrten Kupferstich (unter Verwendung des Medaillons aus einem Kupferstiches von Guillaume Ph. Benoist nach Jean Restout d. J.)",
+   "url": "http://www.deutschefotothek.de/documents/obj/81426650",
+   "artist": "Philippe Benoist",
+   "reason": "no place identified"
+  }
+ ]
+}
