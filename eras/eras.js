@@ -216,13 +216,18 @@
   function route() {
     if (!D) return;
     const h = location.hash.replace(/^#\/?/, "").split("/");
-    if (h[0] === "city") {
+    if (h[0] === "country" && window.Atlas && Atlas.data) {
+      let name = "";
+      try { name = decodeURIComponent(h[1] || ""); } catch (_) { /* unknown code */ }
+      Atlas.setCountry(name);
+      Atlas.portal(app);
+    } else if (h[0] === "city") {
       const ac = window.Atlas && Atlas.data ? Atlas.data.cities.find((x) => x.id === h[1]) : null;
       if (ac && ac.featured && D.cities.some((x) => x.id === ac.featured)) { city(ac.featured); Atlas.city(app, ac.id, true); }
       else if (ac) Atlas.city(app, ac.id);
       else city(h[1]);
     } else if (h[0] === "place") place(h[1]);
-    else if (window.Atlas && Atlas.data) Atlas.portal(app);
+    else if (window.Atlas && Atlas.data) { Atlas.setCountry(""); Atlas.portal(app); }
     else portal();
     if (location.hash && location.hash !== "#/") app.focus({ preventScroll: true });
     window.scrollTo(0, 0);
