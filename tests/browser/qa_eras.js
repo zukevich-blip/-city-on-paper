@@ -26,6 +26,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} country chapters open`,
       (await p.locator("#list .country-group[open]").count()) >= 20);
 
+    await p.goto(base + "eras/#/country/" + encodeURIComponent("Италия"), { waitUntil: "networkidle" });
+    ok(`${vp.n} shareable country chapter`,
+      (await p.locator("#grp").inputValue()) === "r:Италия" &&
+      (await p.locator(".country-group").count()) === 1);
+    await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
     ok(`${vp.n} portal: map tiles loaded`, await p.$$eval("#pmap .leaflet-tile-loaded", (t) => t.length) >= 1);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
@@ -34,7 +39,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.fill("#q", "");
     await p.selectOption("#grp", "featured");
     ok(`${vp.n} portal: featured filter`, (await p.locator(".ccard").count()) === 3);
-    ok(`${vp.n} portal: filter announced`, /Показано городов: 3/.test(await p.textContent("#shown")));
+    ok(`${vp.n} portal: filter announced`, /Показано 3 город/.test(await p.textContent("#shown")));
     await p.selectOption("#grp", "all");
     const zoomOf = () => p.$eval("#pmap .leaflet-map-pane", (m) => m.querySelector(".leaflet-tile-container") ? 1 : 0)
       .then(() => p.evaluate(() => document.querySelector("#pmap .leaflet-proxy").style.transform));
@@ -60,15 +65,19 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForTimeout(300);
     ok(`${vp.n} feedback gives a status`, (await p.textContent("#fbStatus")).length > 5, await p.textContent("#fbStatus"));
     await p.click('#fb button[value="cancel"]');
+    const lisbonChapter = p.locator(".country-group", { hasText: "Лиссабон" });
+    if (!(await lisbonChapter.evaluate(el => el.open))) await lisbonChapter.locator("summary").click();
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
-    await p.locator("#cityLab").waitFor();
+    await p.locator("#cityLab [data-role='search']").waitFor();
     ok(`${vp.n} city study lab available in a generic city`,
       await p.locator("#cityLab [data-role='search']").isVisible() &&
       await p.locator("#cityLab [data-role='selected']").isVisible());
 
     await p.goto(base + "eras/#/", { waitUntil: "networkidle" });
+    const parisChapter = p.locator(".country-group", { hasText: "Париж" });
+    if (!(await parisChapter.evaluate(el => el.open))) await parisChapter.locator("summary").click();
     await p.locator(".ccard", { hasText: "Париж" }).first().click();
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
