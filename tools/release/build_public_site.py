@@ -20,7 +20,7 @@ PAGES = (
     "atelier/ornament/index.html", "printlab/index.html",
     "fieldwork/index.html", "ideas/index.html",
     "poc/compare/index.html", "poc/compare/editor.html",
-    "eras/index.html",
+    "eras/index.html", "desk/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -42,7 +42,7 @@ DATA = (
 )
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
-    "poc/compare", "docs/ux/mockups", "eras", "assets/nav",
+    "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
              "PROJECT_HANDOFF.md", "serve_local.py")
