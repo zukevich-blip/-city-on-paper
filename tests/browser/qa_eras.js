@@ -82,7 +82,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
-    await p.waitForFunction(() => /всего \\d+ доступных изображений/.test(
+    await p.waitForFunction(() => /всего \d+ доступных изображений/.test(
       document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
     ok(`${vp.n} all-artist city lab renders visual records`,
       (await p.locator("#cityLab .citylab-item").count()) >= 2);
