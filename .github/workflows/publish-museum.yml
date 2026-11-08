@@ -1,5 +1,5 @@
 name: Publish City on Paper public museum
-run-name: City on Paper · antique atlas public preview
+run-name: City on Paper · three-era compare and local photo
 
 on:
   push:
@@ -74,6 +74,9 @@ jobs:
           test -s public/salon/index.html
           test -s public/world/index.html
           test -s public/atlas-prototype/index.html
+          test -s public/eras/three-epochs.js
+          test -s public/eras/three-epochs.css
+          grep -q 'upload-photo' public/eras/three-epochs.js
           grep -q 'citySearch' public/atlas-prototype/index.html
           grep -q 'localMarkers' public/atlas-prototype/index.html
           test -s public/poc/compare/homography.js
