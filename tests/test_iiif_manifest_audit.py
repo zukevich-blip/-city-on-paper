@@ -13,7 +13,9 @@ def v3(**overrides):
         "requiredStatement": {"label": {"en": ["Attribution"]}, "value": {"en": ["Example museum"]}},
         "items": [{"type": "Canvas", "items": [{"type": "AnnotationPage", "items": [{
             "type": "Annotation", "motivation": "painting",
-            "body": {"type": "Image", "service": [{"id": "https://images.example.org/iiif/123", "type": "ImageService3"}]},
+            "body": {"type": "Image", "service": [
+                {"id": "https://images.example.org/iiif/123", "type": "ImageService3"}
+            ]},
         }]}]}],
     }
     return {**doc, **overrides}
