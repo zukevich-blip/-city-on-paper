@@ -238,6 +238,31 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} uncatalogued place gets source-led research checklist`, /Как исследовать старую литографию/.test(await p.locator("#curatorialDesk h2").textContent()));
     await p.goto(base + "eras/#/place/nope", { waitUntil: "networkidle" });
     ok(`${vp.n} unknown route handled`, /Не найдено/.test(await p.textContent("#app")));
+    await p.goto(base + "desk/", { waitUntil: "networkidle" });
+    await p.waitForSelector("#albumStack .album-book");
+    ok(`${vp.n} design prototype uses real map and city albums`,
+      (await p.locator("#albumStack .album-book").count()) >= 5 &&
+      await p.locator("#pmap").isVisible() &&
+      await p.locator("#tNew").isVisible());
+    await p.locator("#albumStack .album-book[data-city='paris']").click();
+    ok(`${vp.n} city album opens with real source references`,
+      await p.locator("#folioDialog").evaluate(d=>d.open) &&
+      /Париж/.test(await p.locator("#folioSpread").textContent()));
+    await p.locator("#folioNext").click();
+    ok(`${vp.n} city folio flips`,
+      (await p.locator("#folioPage").textContent()) === "2 / 3");
+    await p.locator("#folioClose").click();
+    await p.locator(".mode-toggle [data-mode='book']").click();
+    ok(`${vp.n} map and book view switch is functional`,
+      (await p.locator("body").getAttribute("data-mode")) === "book");
+    await p.locator("#citySearch").fill("Венеция");
+    ok(`${vp.n} desk city finder navigates to true catalog city`,
+      (await p.locator("#suggestions a[href*='/city/venetsiya']").count()) >= 1);
+    await p.screenshot({ path: `${out}/${vp.n}-7-antique-desk-design.jpg`, type: "jpeg", quality: 67 });
+    const designHasOverflow = await p.evaluate(() =>
+      document.documentElement.scrollWidth > document.documentElement.clientWidth + 3);
+    ok(`${vp.n} desk prototype no horizontal overflow`, !designHasOverflow);
+
     ok(`${vp.n} no console/page/HTTP errors`, errs.length === 0, errs.slice(0, 3).join(" | "));
     await ctx.close();
   }
