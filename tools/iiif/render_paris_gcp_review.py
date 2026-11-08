@@ -12,7 +12,6 @@ import argparse
 import html
 import json
 import math
-import re
 from pathlib import Path
 from urllib.request import Request, urlopen
 
