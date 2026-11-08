@@ -1,0 +1,50 @@
+name: "Предложить литографию, карту или архивное произведение"
+description: "Исследовательская находка с проверяемым каталогом и сведениями о правах"
+title: "[Находка] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Мы открыты для работ любых авторов и городов. Не прикрепляйте чужие файлы без права на публикацию. Начните со ссылки на карточку учреждения.
+  - type: input
+    id: source
+    attributes:
+      label: "Ссылка на оригинальный музей или архив"
+      description: "Устойчивая карточка, инвентарный номер, IIIF manifest"
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: input
+    id: place
+    attributes:
+      label: "Город и изображённое место"
+      placeholder: "Париж, церковь Мадлен"
+    validations:
+      required: true
+  - type: textarea
+    id: authors
+    attributes:
+      label: "Авторство и надписи"
+      description: "Разделяйте художника, литографа, печатника и издателя, если данные известны"
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: "Дата или интервал и техника"
+    validations:
+      required: false
+  - type: textarea
+    id: rights
+    attributes:
+      label: "Права и допустимые способы использования"
+      description: "Дословная маркировка учреждения, ссылка, разрешено ли показывать изображение"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: "Почему изображение важно, источники и сомнения"
+      description: "Укажите, что подтверждено, а что предполагается"
+    validations:
+      required: true
