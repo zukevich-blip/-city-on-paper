@@ -87,3 +87,21 @@ def test_ign_is_labelled_as_aerial_not_openstreetmap_satellite():
     assert "2024" not in module  # Date of actual tile acquisition remains unknown.
     assert "google.com/maps" not in module
     assert "satellite.openstreetmap" not in module
+
+def test_historic_layer_mask_does_not_cover_unverified_insets():
+    # The map has two decorative inset maps; never project the entire sheet.
+    poly = OVERLAY["mask_pixel_polygon"]
+    xs = [p[0] for p in poly]
+    ys = [p[1] for p in poly]
+    assert min(xs) > 0
+    assert min(ys) > 0
+    assert max(xs) < OVERLAY["source_image_width"]
+    assert max(ys) < OVERLAY["source_image_height"]
+    area = abs(sum(
+        x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(
+            poly, poly[1:] + poly[:1], strict=True
+        )
+    )) / 2
+    total = OVERLAY["source_image_width"] * OVERLAY["source_image_height"]
+    assert 0.05 * total < area < 0.75 * total
+
