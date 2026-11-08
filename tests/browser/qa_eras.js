@@ -128,6 +128,31 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator("#paris1878Toggle").uncheck();
     ok(`${vp.n} switch OFF removes the historical layer and GCPs`,
       (await p.locator("#cnow .cop-paris-affine").count()) === 0);
+    await p.locator("#cCompare").click();
+    await p.waitForFunction(() => document.querySelectorAll("#gcpSelect option").length === 15);
+    ok(`${vp.n} two-map expert review opens within Paris page`,
+      await p.locator("#cplan").isVisible() && await p.locator("#cnow").isVisible() &&
+      await p.locator("#parisGcpReview").isVisible());
+    await p.locator("#gcpSelect").selectOption("1");
+    ok(`${vp.n} expert can choose a named archival control point`,
+      /Обелиск|Obélisque/.test(await p.locator("#gcpReviewStatus").textContent()));
+    await p.locator("#gcpAll").click();
+    ok(`${vp.n} all 15 research points fit both maps`,
+      /все 15/.test(await p.locator("#gcpReviewStatus").textContent()));
+    await p.locator("#gcpDecision").selectOption("accept");
+    await p.locator("#gcpReviewer").fill("Browser QA / not a real expert");
+    await p.locator("#gcpEvidence").fill("https://www.loc.gov/item/2012586603/");
+    await p.locator("#gcpNotes").fill("Automated protocol test. No independent visual verification.");
+    const downloadReady = p.waitForEvent("download");
+    await p.locator("#gcpExport").click();
+    const downloaded = await downloadReady;
+    const fs = require("fs");
+    const protocol = JSON.parse(fs.readFileSync(await downloaded.path(), "utf8"));
+    ok(`${vp.n} review export preserves 15 source GCPs and never certifies automatically`,
+      protocol.entries.length === 15 && protocol.entries.every(x => x.certified === false) &&
+      protocol.coordinates_changed_in_museum === false &&
+      protocol.review_status === "unverified_draft_requires_independent_signoff");
+    await p.screenshot({ path: `${out}/${vp.n}-paris-gcp-split-review.png` });
     await p.locator("#cOld").click();
     ok(`${vp.n} historic tab still works without a second site`,
       await p.locator("#cplan").isVisible() && !(await p.locator("#parisResearch").isVisible()));
