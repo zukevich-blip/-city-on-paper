@@ -118,7 +118,8 @@ def optimize(page: Path, rel: str) -> None:
             '<nav style="padding:12px 24px;text-align:center;font-size:13px">'
             '<a href="about/">О проекте</a> · '
             '<a href="rights/">Источники и права</a> · '
-            '<a href="privacy/">Конфиденциальность</a>'
+            '<a href="privacy/">Конфиденциальность</a> · '
+            '<a href="contribute/">Присоединиться к музею</a>'
             '</nav></footer>', 1
         )
         content = content.replace(
@@ -162,6 +163,9 @@ def info_pages(destination: Path) -> None:
         "rights": ("Источники и права",
             "У произведений указаны учреждения, авторы, ссылки и права. Отметка Библиотеки Конгресса No known restrictions не равна лицензии CC0.",  # noqa: E501 — editorial copy
             "Современные фотографии CC BY и CC BY-SA требуют указания авторов, лицензий и изменений. Ошибки в описании можно сообщить через GitHub Issues."),  # noqa: E501 — editorial copy
+        "contribute": ("Присоединиться к музею",
+            "Открытый музей принимает предложения литографий, карт, исторических видов, исправления архитектурных терминов и помощь с реальными ракурсами. Участниками могут быть специалисты и любители истории.",
+            "Нужны ссылки на первоисточники, авторы, датировка, география и точные сведения о правах. Открытый доступ не означает, что любое изображение можно перепубликовать. Не загружайте чужие файлы без разрешения."),
         "privacy": ("Конфиденциальность",
             "Для посещения не нужна регистрация. Закладки, заметки и фотографии пользователя, если они доступны в мастерских, хранятся локально в браузере. Сайт не включает рекламные пиксели и формы сбора адресов.",  # noqa: E501 — editorial copy
             "Хостинг GitHub Pages может вести технические журналы. Переходы по ссылкам на музейные источники открывают сторонние сайты."),  # noqa: E501 — editorial copy
@@ -169,6 +173,13 @@ def info_pages(destination: Path) -> None:
     for slug, (heading, first, second) in docs.items():
         page = destination / slug / "index.html"
         page.parent.mkdir(parents=True, exist_ok=True)
+        extra = (
+            '<p><a href="https://github.com/zukevich-blip/-city-on-paper/issues/new/choose">'
+            'Предложить произведение, ракурс или исправление через GitHub</a></p>'
+            '<p><a href="https://github.com/zukevich-blip/-city-on-paper/blob/main/CONTRIBUTING.md">'
+            'Как участвовать и как мы проверяем источники</a></p>'
+            if slug == "contribute" else ""
+        )
         page.write_text(
             '<!doctype html><html lang="ru"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -180,10 +191,11 @@ def info_pages(destination: Path) -> None:
             'padding:22px 0;font-size:14px}</style></head><body>'
             '<main><nav><a href="../">Город на бумаге</a> · '
             '<a href="../salon/">Галерея</a> · <a href="../world/">Атлас</a></nav>'
-            f'<h1>{heading}</h1><p>{first}</p><p>{second}</p>'
+            f'<h1>{heading}</h1><p>{first}</p><p>{second}</p>{extra}'
             '<footer><a href="../about/">О проекте</a> · '
             '<a href="../rights/">Источники и права</a> · '
             '<a href="../privacy/">Конфиденциальность</a> · '
+            '<a href="../contribute/">Присоединиться</a> · '
             '<a href="https://github.com/zukevich-blip/-city-on-paper/issues/new">'
             'Сообщить об ошибке в GitHub</a></footer></main></body></html>',
             encoding="utf-8",
@@ -213,7 +225,7 @@ def build(source: Path, output: Path) -> dict:
         "User-agent: *\nAllow: /\nSitemap: " + BASE + "sitemap.xml\n",
         encoding="utf-8",
     )
-    pages = [*PAGES, "about/index.html", "rights/index.html", "privacy/index.html"]
+    pages = [*PAGES, "about/index.html", "rights/index.html", "privacy/index.html", "contribute/index.html"]
     root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for rel in pages:
         ET.SubElement(ET.SubElement(root, "url"), "loc").text = (
