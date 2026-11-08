@@ -19,6 +19,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "eras" / "thumbs"
 MAP = ROOT / "eras" / "data" / "thumbs.json"
@@ -72,6 +74,10 @@ def collect(paths: list[Path]) -> list[str]:
     for c in atlas["cities"]:
         for w in c.get("works", []):
             names.append(commons_name(w.get("image")))
+    pr = ROOT / "data" / "vision-lab" / "prints.json"
+    if pr.exists():
+        for it in json.loads(pr.read_text("utf-8")).get("items", []):
+            names.append(commons_name(it.get("image")))
     today = ROOT / "data" / "vision-lab" / "today-photos.json"
     if today.exists():
         for t in json.loads(today.read_text("utf-8")).values():
@@ -108,6 +114,9 @@ def main() -> None:
         time.sleep(0.7)
         if data and data[:3] == b"\xff\xd8\xff" or (data and data[:8] == b"\x89PNG\r\n\x1a\n"):
             f.write_bytes(data)
+            if len(data) > 90_000:  # keep the site light: re-encode large previews (size only; no crop/colour change)
+                im = Image.open(f)
+                im.convert("RGB").save(f, "JPEG", quality=78, optimize=True, progressive=True)
             result[n] = f"thumbs/{f.name}"
         else:
             miss.append(n)
