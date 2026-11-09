@@ -40,6 +40,8 @@
   const quick = [["eras/", "Атлас"], ["salon/", "Смотреть"], ["journeys/", "Путешествовать"], ["detective/", "Расследовать"], ["printlab/", "Как сделано"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "Навигация музея");
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}eras/">Город на бумаге</a>
     <nav class="mbq" aria-label="Залы музея">${quick.map(([p, t]) => `<a href="${esc(base + p)}"${isHere(p) ? ' aria-current="page"' : ""}>${esc(t)}</a>`).join("")}</nav>
     <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="museumPanel">Все залы ▾</button></div>

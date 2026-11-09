@@ -268,6 +268,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} images have alt`, await p.$$eval("img:not(.leaflet-tile)", ims => ims.every(i => (i.alt || "").length > 5)));
     await p.goto(base + "eras/#/epochs", { waitUntil: "networkidle" });
     ok(`${vp.n} epochs gallery`, (await p.locator(".epcard").count()) >= 50);
+    ok(`${vp.n} historical era thumbnails are uncropped`,
+      await p.locator(".epcard .pair img").count() > 0 &&
+      await p.locator(".epcard .pair img").first().evaluate(img =>
+        getComputedStyle(img).objectFit === "contain" &&
+        getComputedStyle(img).filter === "none"));
     await p.locator(".epcard").first().click(); await p.waitForSelector("#epstage"); await p.waitForTimeout(600);
     ok(`${vp.n} epoch place: frames + angle map`, (await p.locator(".epf[data-f]").count()) >= 2 && (await p.locator("#epMap .leaflet-tile").count()) >= 1);
     await p.click("#epAdd");

@@ -116,13 +116,29 @@ jobs:
           python-version: '3.12'
       - name: Install Playwright
         run: |
-          npm install --no-save playwright@1.56.1
+          npm install --no-save playwright@1.56.1 @axe-core/playwright@4.14.0
           npx playwright install --with-deps chromium
       - name: Serve local museum
         run: |
           python -m http.server 8765 --bind 127.0.0.1 > /tmp/city-http.log 2>&1 &
           sleep 3
           curl -f http://127.0.0.1:8765/index.html -o /dev/null
+      - name: Offline PWA regression plus automated museum accessibility consilium
+        run: |
+          mkdir -p /tmp/city-on-paper-screens
+          node tests/browser/qa_eras_offline.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_museum_a11y.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+      - name: Keep review evidence even when other checks fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-consilium-wcag-pwa-report
+          path: |
+            /tmp/city-on-paper-screens/axe-consilium-audit.json
+            /tmp/city-on-paper-screens/axe-consilium-audit.md
+            /tmp/city-on-paper-screens/pwa-offline-regression.json
+          retention-days: 14
+          if-no-files-found: warn
       - name: Test comparison, control editor, responsive layouts
         run: |
           mkdir -p /tmp/city-on-paper-screens

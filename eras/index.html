@@ -102,7 +102,7 @@ h2{font-size:clamp(26px,3.2vw,40px);margin:10px 0}
 details.credits{background:var(--paper2);border:1px solid var(--line);padding:8px 12px;font:13px/1.55 system-ui;margin:12px 0}
 details.credits summary{min-height:32px;cursor:pointer}
 dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;margin:6px 0}dl.kv dt{color:var(--muted)}dl.kv dd{margin:0;word-break:break-word}
-footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 system-ui;color:#6a645a}
+footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 system-ui;color:#514a42}
 @media(prefers-reduced-motion:no-preference){.view{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}}
 @media(max-width:650px){.stage img{height:72vw}.plate .pins .pin[href^="#/city"]{pointer-events:none}.plate .pins .pin[href^="#/city"] span{display:none}}
 @media(max-width:650px){header.top strong{flex-basis:100%;font-size:20px}.pin span{font-size:11px;padding:0 4px}.pin i{width:13px;height:13px}h1{font-size:34px}}
@@ -128,7 +128,7 @@ footer{padding:26px clamp(16px,4vw,56px);background:#e7dfd2;font:12px/1.55 syste
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:12px 0}
 .wcard{background:var(--paper2);border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:4px}
 .wcard img{display:block;width:100%;height:190px;object-fit:contain;background:#ebe2d2}
-.wcard h4{margin:4px 0 0;font:400 16px/1.25 Georgia,serif}.wcard p{margin:0;font:12px/1.45 system-ui;color:#5f6158}.wcard .src{color:var(--muted)}
+.wcard h3,.wcard h4{margin:4px 0 0;font:400 16px/1.25 Georgia,serif}.wcard p{margin:0;font:12px/1.45 system-ui;color:#5f6158}.wcard .src{color:var(--muted)}
 .noimg{height:190px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font:12px system-ui;color:var(--muted);border:1px dashed #cdbd9f}
 .morebtn{min-height:44px;border:1px solid var(--dark);background:var(--dark);color:#fff;padding:8px 18px}
 .hunt2{background:#e9e0cf;border:1px solid #cdbd9f;padding:14px;margin:18px 0;font:14px/1.6 system-ui}
@@ -185,7 +185,7 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .mine1{display:flex;justify-content:space-between;align-items:center;gap:8px;font:13px system-ui;border-bottom:1px solid var(--line);padding:4px 0}.mine1 button{min-height:44px;padding:0 12px}
 .epgal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:12px 0}
 .epcard{background:var(--paper2);border:1px solid var(--line);padding:8px;text-decoration:none;display:flex;flex-direction:column;gap:4px}.epcard:hover{border-color:#a8804e}
-.epcard .pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}.epcard .pair img,.epcard .pair .noimg{width:100%;height:130px;object-fit:cover;background:#ebe2d2}.epcard .pair img:only-child{grid-column:1/-1;object-fit:contain}
+.epcard .pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}.epcard .pair img,.epcard .pair .noimg{width:100%;height:130px;object-fit:contain;background:#ebe2d2}.epcard .pair img:only-child{grid-column:1/-1;object-fit:contain}
 .epcard b{font:400 19px Georgia,serif}.epcard small{color:var(--muted);font:12px system-ui}
 .museum-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:end;background:var(--paper2);border:1px solid var(--line);padding:14px;margin:13px 0 20px}
 .museum-filters label{font:12px/1.6 system-ui;color:#5b6259;display:flex;flex-direction:column;gap:6px;flex:1 1 210px}
@@ -231,7 +231,7 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 <script src="../assets/nav/museum-nav.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#app">К содержанию</a>
+<nav aria-label="Быстрый переход к содержанию"><a class="skip" href="#app">К содержанию</a></nav>
 <header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
 <nav class="anav" aria-label="Разделы атласа"><a href="#/">Карта</a><a href="#/epochs">Эпохи</a><a href="#/mine">Мой ракурс</a></nav><button type="button" class="hbtn" id="shareBtn"><span class="lg">Поделиться</span><span class="sm">Ссылка</span></button><button type="button" class="hbtn" id="fbBtn"><span class="lg">Оставить отзыв</span><span class="sm">Отзыв</span></button></header>
 <dialog id="fb" aria-labelledby="fbTitle"><form method="dialog" id="fbForm"><h2 id="fbTitle" style="margin:0 0 6px;font-size:26px">Ваш отзыв об атласе</h2><p style="font:13px/1.5 system-ui;margin:0 0 10px;color:#6f6f63">Отзыв не сохраняется на сайте. Кнопка «Отправить» откроет меню «Поделиться» вашего телефона — выберите мессенджер или почту и отправьте автору. На компьютере текст скопируется.</p><fieldset style="border:0;padding:0;margin:0 0 8px"><legend style="font:13px system-ui">Оценка</legend><div class="stars"><label><input type="radio" name="r" value="1"> 1</label><label><input type="radio" name="r" value="2"> 2</label><label><input type="radio" name="r" value="3"> 3</label><label><input type="radio" name="r" value="4"> 4</label><label><input type="radio" name="r" value="5"> 5</label></div></fieldset><label for="fbText" style="font:13px system-ui">Что понравилось, что улучшить, какие города добавить</label><textarea id="fbText" rows="5" maxlength="2000"></textarea><div class="fbrow"><button type="submit" value="cancel" class="ghost">Закрыть</button><button type="button" id="fbSend" class="solid">Отправить автору</button></div><p id="fbStatus" role="status" style="font:13px system-ui;color:#2f6b3a;min-height:18px"></p></form></dialog>
