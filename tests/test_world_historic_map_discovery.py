@@ -145,9 +145,10 @@ def test_geographic_aliases_require_real_title_or_location_evidence():
     row = {"query": "Edo historical city map"}
     assert relevance({"title": "Enju Oedo ezu",
                       "location": ["Japan", "Tokyo"]}, row) == "city_alias_in_location"
-    row = {"query": "London city map"}
+    row = {"query": "London city map", "country": "Великобритания"}
     assert relevance({"title": "London city plan"}, row) == "city_alias_in_title"
     assert relevance({"title": "Sanborn map of London, Ohio",
-                      "location": ["United States", "Ohio"]}, row) == "city_alias_in_title"
-    # The word London still matches: an additional country/place review is required.
+                      "location": ["United States", "Ohio"]}, row) is None
+    assert relevance({"title": "Whitbread's new plan of London",
+                      "location": ["England", "London"]}, row) == "city_alias_in_title"
 
