@@ -7,6 +7,7 @@ on:
     paths:
       - 'tools/maps/**'
       - 'tests/test_world_historic_map_discovery.py'
+      - 'tests/test_generic_city_gcps.py'
       - 'data/curation/world-cities-v1.json'
       - 'eras/data/atlas.json'
       - '.github/workflows/global-historic-cartography.yml'
@@ -26,9 +27,9 @@ jobs:
       - name: Install pinned tests
         run: python -m pip install pytest==9.1.1 ruff==0.16.9
       - name: Lint discovery code
-        run: ruff check tools/maps tests/test_world_historic_map_discovery.py
+        run: ruff check tools/maps tests/test_world_historic_map_discovery.py tests/test_generic_city_gcps.py
       - name: Validate actual 186+150 world seeds and rate-limit behavior
-        run: python -m pytest -q tests/test_world_historic_map_discovery.py
+        run: python -m pytest -q tests/test_world_historic_map_discovery.py tests/test_generic_city_gcps.py
       - name: Generate complete worldwide search queue (offline, no claims)
         run: |
           python -m tools.maps.discover_loc_historical_maps \
