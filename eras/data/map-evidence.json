@@ -18,6 +18,32 @@
       "status": "catalogue_source_checked",
       "georeferencing_status": "research_affine_not_independently_verified",
       "image_api_status": "working_IIIF_Image_API_for_this_item"
+    },
+    {
+      "city_id": "london",
+      "map_id": "loc-2015591076",
+      "object_url": "https://www.loc.gov/item/2015591076/",
+      "title": "Whitbread's new plan of London : drawn from authentic surveys",
+      "date_as_reported": "1853",
+      "institution": "Library of Congress",
+      "rights_note": "G&M Division: item rights advisory must be checked before reuse",
+      "status": "catalogue_source_checked",
+      "georeferencing_status": "not_attempted",
+      "image_api_status": "IIIF_image_api_not_checked",
+      "original_orientation_note": "Double-line street map; actual raster orientation requires separate inspection"
+    },
+    {
+      "city_id": "rim",
+      "map_id": "loc-map47000177",
+      "object_url": "https://www.loc.gov/item/map47000177/",
+      "title": "Town plan of Roma (Rome)",
+      "date_as_reported": "1944",
+      "institution": "Library of Congress",
+      "rights_note": "G&M Division: item rights advisory must be checked before reuse",
+      "status": "catalogue_source_checked",
+      "georeferencing_status": "not_attempted",
+      "image_api_status": "IIIF_image_api_not_checked",
+      "original_orientation_note": "Two map sheets; require separate IIIF canvases and controls"
     }
   ]
 }
