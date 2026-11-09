@@ -6,6 +6,7 @@ import html
 import json
 import re
 import shutil
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -13,8 +14,8 @@ BASE = "https://zukevich-blip.github.io/-city-on-paper/"
 # Explicit pages, approved catalog files and asset roots now live in
 # publication_policy.json. The scanner hashes concrete assets but never approves
 # arbitrary research folders just because files are present.
-import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from generate_build_manifest import DEFAULT_POLICY, generate, sha256, validate  # noqa: E402
 
 
