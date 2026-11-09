@@ -41,7 +41,21 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       mapTileCount >= 1 && mapTileResponse.ok() && String(mapTileResponse.headers()["content-type"] || "").startsWith("image/"),
       `${mapTileCount} / ${mapTileResponse.status()} / ${mapTileUrl}`);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
-    ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
+    ok(`${vp.n} museum bar: all halls`, await p.$eval("#museumPanel a", (a) => a.length) >= 18);
+    ok(`${vp.n} closed halls never cover the museum at rest`,
+      await p.locator("#museumPanel").evaluate(el =>
+        el.hidden && getComputedStyle(el).display === "none"));
+    await p.locator("#museumBar button").click();
+    ok(`${vp.n} full museum navigation opens on demand`,
+      await p.locator("#museumPanel").isVisible() &&
+      (await p.locator("#museumBar button").getAttribute("aria-expanded")) === "true");
+    await p.keyboard.press("Escape");
+    ok(`${vp.n} Escape dismisses menu and restores trigger focus`,
+      await p.locator("#museumPanel").evaluate(el =>
+        el.hidden && getComputedStyle(el).display === "none" &&
+        document.activeElement === document.querySelector("#museumBar button")));
+    ok(`${vp.n} portal has a complete clickable exploration route`,
+      (await p.locator(".museum-journey .museum-journey-step").count()) === 4);
     await p.fill("#q", "Лиссаб");
     ok(`${vp.n} portal: search filters list`, (await p.$$eval(".ccard", (c) => c.map((x) => x.textContent))).every((t) => /Лиссабон/.test(t)) && (await p.locator(".ccard").count()) >= 1);
     await p.fill("#q", "");
@@ -78,6 +92,14 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
+    ok(`${vp.n} every city gives a full museum research chain`,
+      (await p.locator(".museum-journey-city .museum-journey-step").count()) === 0 &&
+      (await p.locator(".museum-journey .museum-journey-step").count()) === 5 &&
+      (await p.locator(".museum-journey [data-nonexistent]").count()) === 0);
+    const cityHash = await p.evaluate(() => location.hash);
+    await p.locator(".museum-journey .museum-journey-step").first().click();
+    ok(`${vp.n} city map trail scrolls without destroying hash route`,
+      (await p.evaluate(() => location.hash)) === cityHash);
     await p.locator("#historicCartography .historic-map-search a").waitFor();
     ok(`${vp.n} any city gets a source-backed historical map search`,
       (await p.locator("#historicCartography .historic-map-search a").getAttribute("href")).startsWith("https://www.loc.gov/maps/?q="));
