@@ -41,7 +41,21 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       mapTileCount >= 1 && mapTileResponse.ok() && String(mapTileResponse.headers()["content-type"] || "").startsWith("image/"),
       `${mapTileCount} / ${mapTileResponse.status()} / ${mapTileUrl}`);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
-    ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
+    ok(`${vp.n} museum bar: all halls`, (await p.locator("#museumPanel a").count()) >= 18);
+    ok(`${vp.n} closed halls never cover the museum at rest`,
+      await p.locator("#museumPanel").evaluate(el =>
+        el.hidden && getComputedStyle(el).display === "none"));
+    await p.locator("#museumBar button").click();
+    ok(`${vp.n} full museum navigation opens on demand`,
+      await p.locator("#museumPanel").isVisible() &&
+      (await p.locator("#museumBar button").getAttribute("aria-expanded")) === "true");
+    await p.keyboard.press("Escape");
+    ok(`${vp.n} Escape dismisses menu and restores trigger focus`,
+      await p.locator("#museumPanel").evaluate(el =>
+        el.hidden && getComputedStyle(el).display === "none" &&
+        document.activeElement === document.querySelector("#museumBar button")));
+    ok(`${vp.n} portal has a complete clickable exploration route`,
+      (await p.locator(".museum-journey .museum-journey-step").count()) === 4);
     await p.fill("#q", "Лиссаб");
     ok(`${vp.n} portal: search filters list`, (await p.$$eval(".ccard", (c) => c.map((x) => x.textContent))).every((t) => /Лиссабон/.test(t)) && (await p.locator(".ccard").count()) >= 1);
     await p.fill("#q", "");
@@ -78,6 +92,13 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
+    ok(`${vp.n} every city gives a full museum research chain`,
+      (await p.locator('nav.museum-journey[aria-label="Маршрут исследования города"] .museum-journey-step').count()) === 5 &&
+      (await p.locator("#archiveSearch").count()) === 1);
+    const cityHash = await p.evaluate(() => location.hash);
+    await p.locator(".museum-journey .museum-journey-step").first().click();
+    ok(`${vp.n} city map trail scrolls without destroying hash route`,
+      (await p.evaluate(() => location.hash)) === cityHash);
     await p.locator("#historicCartography .historic-map-search a").waitFor();
     ok(`${vp.n} any city gets a source-backed historical map search`,
       (await p.locator("#historicCartography .historic-map-search a").getAttribute("href")).startsWith("https://www.loc.gov/maps/?q="));
@@ -97,6 +118,10 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#historicCartography .historic-map-source a").getAttribute("href")) ===
       "https://www.loc.gov/item/2012586603/" &&
       /геопривязка ещё не проверена/.test(await p.locator("#historicCartography").textContent()));
+    ok(`${vp.n} LoC map evidence chain distinguishes archive, HD, GCP and expert review`,
+      (await p.locator("#historicCartography .map-source-chain li").count()) === 4 &&
+      /IIIF подтверждён/.test(await p.locator(".map-source-chain").textContent()) &&
+      /Независимая проверка нужна/.test(await p.locator(".map-source-chain").textContent()));
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
     await p.waitForFunction(() => /всего \d+ доступных изображений/.test(
       document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
@@ -282,6 +307,37 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} desk prototype no horizontal overflow`, !designHasOverflow);
 
     ok(`${vp.n} no console/page/HTTP errors`, errs.length === 0, errs.slice(0, 3).join(" | "));
+    // The main entrance and world atlas use different local layouts but share
+    // the same museum top bar. Test actual computed CSS, not just HTML hidden.
+    const museum = await ctx.newPage();
+    for (const route of ["", "world/"]) {
+      await museum.goto(base + route, { waitUntil: "domcontentloaded" });
+      await museum.locator("#museumPanel").waitFor({ state: "attached" });
+      const section = route || "home";
+      ok(`${vp.n} ${section} menu starts physically collapsed`,
+        await museum.locator("#museumPanel").evaluate(el =>
+          el.hidden && getComputedStyle(el).display === "none"));
+      ok(`${vp.n} ${section} no horizontal page overflow`,
+        await museum.evaluate(() => document.documentElement.scrollWidth <=
+          document.documentElement.clientWidth + 5));
+      await museum.screenshot({
+        path: `${out}/${vp.n}-museum-${section}-polished.jpg`,
+        type: "jpeg", quality: 72,
+      });
+    }
+    const noSourceDistortion = await museum.evaluate(() => {
+      const fig = document.createElement("figure");
+      const img = document.createElement("img");
+      const box = document.createElement("div"); box.className = "city";
+      fig.appendChild(img); box.appendChild(fig); document.body.appendChild(box);
+      const computed = getComputedStyle(img);
+      const ok = computed.objectFit === "contain" && computed.filter === "none";
+      box.remove();
+      return ok;
+    });
+    ok(`${vp.n} world museum art shown without crop or CSS desaturation`,
+      noSourceDistortion);
+    await museum.close();
     await ctx.close();
   }
   await b.close();

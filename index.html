@@ -58,11 +58,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:850px){nav{gap:12px;flex-wrap:wrap;padding:13px 0}.navlinks{margin-left:0;order:3;overflow:auto;width:100%;gap:20px}.hero{grid-template-columns:1fr;padding-top:42px;gap:25px}.hero figure{transform:none}.grid{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.citygrid{grid-template-columns:repeat(2,1fr)}.stat{padding:18px 12px}}
 @media(max-width:560px){.wrap{padding:0 16px}h1{font-size:50px}.hero figure img{height:270px}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}.twotiles{grid-template-columns:1fr}.citygrid{grid-template-columns:repeat(2,1fr)}.sectionhead{display:block}#research-grid{grid-template-columns:1fr}footer .wrap{display:block}}
 .museumWorkshops{border-top:1px solid var(--line);padding:40px 0 55px}.workshopCards{display:grid;grid-template-columns:1fr 1fr;gap:16px}.workshopCard{display:flex;flex-direction:column;gap:9px;text-decoration:none;padding:25px;border:1px solid var(--line);background:#fffaf0;min-height:220px}.workshopCard:hover{border-color:var(--red)}.workshopCard span{font-size:11px;color:var(--red);letter-spacing:.1em}.workshopCard strong{font:31px Georgia,serif}.workshopCard p{font-size:13px;color:var(--muted);margin:0;flex:1}.workshopCard em{font-style:normal;font-size:12px;color:var(--red)}@media(max-width:650px){.workshopCards{grid-template-columns:1fr}.workshopCard{min-height:185px;padding:18px}}.livingLab{margin:18px 0 62px;border-top:1px solid var(--line);padding:40px 0 0}.livingLab h2{font:normal clamp(34px,4vw,50px)/1.12 Georgia,serif;margin:12px 0}.livingIntro{color:var(--muted);font-size:14px;max-width:760px}.livingGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:23px}.livingCard{background:#fffaf2;border:1px solid var(--line);padding:22px;text-decoration:none;display:flex;flex-direction:column;min-height:255px;gap:12px}.livingCard:hover{border-color:var(--red)}.livingCard span{font-size:11px;color:var(--red);text-transform:uppercase;letter-spacing:.08em}.livingCard strong{font:29px/1.1 Georgia,serif}.livingCard p{font-size:13px;color:var(--muted);flex:1;margin:0}.livingCard em{font-style:normal;color:var(--red);font-size:12px}@media(max-width:870px){.livingGrid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.livingGrid{grid-template-columns:1fr}.livingCard{min-height:178px;padding:17px}}</style>
+<link rel="stylesheet" href="assets/nav/museum-polish.css">
 <script src="assets/nav/museum-nav.js" defer></script>
 </head>
 <body>
 <header><nav class="wrap"><a class="brand" href="#home"><strong>Город на бумаге</strong><span>City on Paper · Atelier 2026</span></a>
-<div class="navlinks"><button data-go="home" aria-current="true">Выставка</button><button data-go="catalog">Каталог</button><button data-go="compare">Тогда / Сейчас</button><button data-go="research">Поиск в архивах</button><button data-go="cities">Города</button><a href="journeys/" style="font-size:13px;color:#893f32;text-decoration:none;white-space:nowrap;border-bottom:1px solid #893f32;padding:12px 0">Атлас времени ↗</a><a href="ornaments/" style="font-size:13px;color:#893f32;text-decoration:none;white-space:nowrap;border-bottom:1px solid #893f32;padding:12px 0">Орнаменты ↗</a><a href="atelier/ornament/index.html" style="font-size:13px;color:#893f32;text-decoration:none;white-space:nowrap;border-bottom:1px solid #893f32;padding:12px 0">Анатомия орнамента ↗</a><a href="atelier/bargue/index.html" style="font-size:13px;color:#893f32;text-decoration:none;white-space:nowrap;border-bottom:1px solid #893f32;padding:12px 0">Школа рисунка ↗</a><a href="studio/" style="font-size:13px;color:#893f32;text-decoration:none;white-space:nowrap;border-bottom:1px solid #893f32;padding:12px 0">Кабинет коллекционера ↗</a><a href="detective/" style="font-size:13px;color:#893f32;text-decoration:none;white-space:nowrap;border-bottom:1px solid #893f32;padding:12px 0">Литография под лупой ↗</a></div>
+<div class="navlinks">
+<button data-go="home" aria-current="true">Выставка</button>
+<button data-go="catalog">Каталог</button>
+<button data-go="compare">Тогда / Сейчас</button>
+<button data-go="research">Архивы</button>
+<button data-go="cities">Города</button>
+<a href="eras/">Атлас эпох</a>
+<a href="world/">Весь мир</a>
+</div>
 <a class="external" href="https://city-on-paper-anatolii.tolyaz.chatgpt.site/" target="_blank" rel="noopener">Прежняя выставка ↗</a>
 </nav></header>
 <main>
@@ -91,7 +100,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="citygrid"><div class="city"><b>Париж</b><span>Мадлен · Лувр · Пале-Рояль · Les Halles</span></div><div class="city"><b>Вильнюс</b><span>Album de Wilna · университет · Св. Анна</span></div><div class="city"><b>Рим</b><span>Rome dans sa grandeur · Ватикан</span></div><div class="city"><b>Варшава</b><span>Album de Varsovie · Лазенки</span></div></div>
 <div class="band" style="margin-top:34px"><div class="wrap"><div class="eyebrow">Жизнь на площади</div><h2>Les Halles centrales</h2><p>Литография по рисунку Феликса Бенуа, литограф Жюль Арну, издатель Charpentier. Музейная карточка BnF не даёт точной даты листа. Права оцифровки ограничивают повторное размещение, поэтому изображение доступно в библиотеке.</p><a class="btn" href="https://gallica.bnf.fr/ark:/12148/btv1b530189355" target="_blank" rel="noopener">Открыть оригинал BnF ↗</a></div></div></section>
 </main>
-<footer><div class="wrap"><div><div class="serif" style="font-size:29px">Город на бумаге</div><p>Частная исследовательская выставка. Источники: Library of Congress, Europeana, BnF, Musée Carnavalet и другие фонды. Права на каждый цифровой экземпляр учитываются отдельно. Сохранённая версия 2026 года остаётся доступной отдельно.</p></div><div><p><a href="https://city-on-paper-anatolii.tolyaz.chatgpt.site/" target="_blank" rel="noopener">Предыдущий сайт</a></p><p><a href="https://github.com/zukevich-blip/-city-on-paper/pull/13" target="_blank" rel="noopener">Дорожная карта проекта</a></p></div></div></footer>
+<footer><div class="wrap"><div><div class="serif" style="font-size:29px">Город на бумаге</div><p>Частная исследовательская выставка. Источники: Library of Congress, Europeana, BnF, Musée Carnavalet и другие фонды. Права на каждый цифровой экземпляр учитываются отдельно. Сохранённая версия 2026 года остаётся доступной отдельно.</p></div><div><p><a href="https://city-on-paper-anatolii.tolyaz.chatgpt.site/" target="_blank" rel="noopener">Предыдущий сайт</a></p><p><a href="https://github.com/zukevich-blip/-city-on-paper/pull/13" target="_blank" rel="noopener">Дорожная карта проекта</a></p></div></div><nav class="museum-footer-halls" aria-label="Другие залы музея">
+  <strong>Продолжить исследование</strong>
+  <a href="studio/">Кабинет коллекционера</a>
+  <a href="detective/">Литография под лупой</a>
+  <a href="ornaments/">Орнаменты</a>
+  <a href="atelier/bargue/index.html">Школа рисунка</a>
+</nav>
+</footer>
 <script>
 "use strict";
 const $=x=>document.getElementById(x), f=new Set(JSON.parse(localStorage.getItem("city-paper-favorites")||"[]"));
