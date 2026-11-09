@@ -33,6 +33,10 @@ def make_mock_source(root: Path) -> None:
             "id,name\n1,demo\n" if target.suffix == ".csv" else json.dumps(value),
             encoding="utf-8",
         )
+    for rel in POLICY["support_files"]:
+        support = root / rel
+        support.parent.mkdir(parents=True, exist_ok=True)
+        support.write_text("Required public attribution or vendor license", encoding="utf-8")
     secret = root / "data/candidates/NOT_FOR_PUBLICATION.json"
     secret.parent.mkdir(parents=True, exist_ok=True)
     secret.write_text('{"owner_notes":"sensitive"}', encoding="utf-8")
