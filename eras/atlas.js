@@ -111,7 +111,18 @@ window.Atlas = (() => {
       document.querySelectorAll(".country-group").forEach((el) => { el.open = true; }));
     document.getElementById("countriesClose").addEventListener("click", () =>
       document.querySelectorAll(".country-group").forEach((el) => { el.open = false; }));
-    window.Maps && Maps.portal(document.getElementById("maphost"), A, () => draw());
+    const portalMap = document.getElementById("maphost");
+    if (window.Maps) {
+      try { Maps.portal(portalMap, A, () => draw()); }
+      catch (e) {
+        portalMap.innerHTML = '<p class="note" role="status">Карта недоступна. ' +
+          'Откройте город через оглавление ниже.</p>';
+        console.warn("Museum portal map failed:", e);
+      }
+    } else {
+      portalMap.innerHTML = '<p class="note" role="status">Карта временно недоступна. ' +
+        'Ниже открыт список городов.</p>';
+    }
     draw();
     works().then(draw);
   }
@@ -211,7 +222,18 @@ window.Atlas = (() => {
     }
     const sites = c.sites || [];
     const siteBy = new Map(sites.map((x) => [x.url, x]));
-    if (window.Maps) try { Maps.city(document.getElementById("cmaphost"), c, sites, thumb); } catch (e) { /* map optional */ }
+    const mapHost = document.getElementById("cmaphost");
+    if (window.Maps) {
+      try { Maps.city(mapHost, c, sites, thumb); }
+      catch (e) {
+        mapHost.innerHTML = '<p class="note" role="status">Карта временно недоступна. ' +
+          'Произведения, архивные ссылки и сведения о городе остаются ниже.</p>';
+        console.warn("City map render failed:", e);
+      }
+    } else {
+      mapHost.innerHTML = '<p class="note" role="status">Интерактивная карта не загрузилась. ' +
+        'Каталог произведений и архивные ссылки доступны ниже.</p>';
+    }
     if (window.CityHistoricCartography) {
       CityHistoricCartography.mount(document.getElementById("historicCartography"), c);
     }
