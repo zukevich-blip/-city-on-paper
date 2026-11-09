@@ -83,7 +83,7 @@ window.Atlas = (() => {
         `Показано ${rows.length} городов, ${allCountries.length} стран из ${A.cities.length} городов атласа.`;
       const countryIndex = document.getElementById("countryIndex");
       countryIndex.innerHTML = allCountries.map(([country, cities]) =>
-        `<button type="button" class="country-chip" data-country="${esc(country)}" aria-label="Раскрыть страну ${esc(country)}">
+        `<button type="button" class="country-chip" data-country="${esc(country)}">
           <b>${esc(country)}</b><small>${cities.length} г.</small></button>`).join("");
       document.getElementById("list").innerHTML = allCountries.map(([country, cities]) => {
         const total = cities.reduce((n, c) => n + count(c), 0);
@@ -156,7 +156,7 @@ window.Atlas = (() => {
   const card = (w) => `<article class="wcard"${w.wid ? ` id="w-${esc(w.wid)}"` : ""}>
       ${w.image ? `<a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">${imgTag(w.image, (w.medium ? w.medium + ": " : "") + (w.title || w.name))}</a>`
         : `<div class="noimg">Изображение не встраивается: права хранителя. <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">Открыть у хранителя ↗</a></div>`}
-      <h4>${esc(w.title || w.name)}</h4>
+      <h3>${esc(w.title || w.name)}</h3>
       <p>${esc(w.artist || w.maker || "")}${w.date ? " · " + esc(w.date) : ""}</p>
       <p class="src">${esc(w.institution || w.source || "")} · <span class="rights ${w.rights_class === "link" ? "link" : "open"}">${esc(w.rights_label || RIGHTS[w.rights] || w.rights || "")}</span> · <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">источник ↗</a></p>
     </article>`;
