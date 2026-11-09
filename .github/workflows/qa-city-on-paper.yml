@@ -68,6 +68,39 @@ jobs:
           assert all(not x.get('preview_url') for x in items if x['rights_category'] != 'open')
           print('PASS: 1019 unique research records, all unpublished, restricted previews blocked')
           PY
+      - name: Global cartography research (manual only; honor LoC Retry-After)
+        if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        run: |
+          python -m tools.maps.discover_loc_historical_maps \
+            --out /tmp/world-historic-maps \
+            --budget 18 --per-city 4 --delay 1.25
+          test -s /tmp/world-historic-maps/world-historic-map-discovery-report.json
+      - name: Major cities worldwide via official GeoNames dump (CC BY 4.0)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          python -m tools.maps.import_geonames_major_cities \
+            --out /tmp/world-historic-maps \
+            --min-population 250000 --max-cities 12000
+          test -s /tmp/world-historic-maps/geonames-major-cities-research.json
+      - name: Extend research queue to GeoNames major cities (no LoC queries)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          if test -s /tmp/world-historic-maps/geonames-major-cities-research.json; then
+            python -m tools.maps.discover_loc_historical_maps \
+              --dry-run --out /tmp/world-historic-maps \
+              --geonames /tmp/world-historic-maps/geonames-major-cities-research.json
+          fi
+      - name: Archive global cartography research candidates
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: worldwide-historic-map-research
+          path: /tmp/world-historic-maps/
+          if-no-files-found: ignore
+          retention-days: 14
   browser-viewer:
     name: Then/Now responsive Chromium
     if: ${{ github.event_name != 'pull_request' || github.head_ref != 'release/city-on-paper-private-preview-20261104' }}

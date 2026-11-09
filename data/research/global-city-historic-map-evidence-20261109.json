@@ -1,0 +1,112 @@
+{
+  "schema": "city-on-paper/global-historic-maps-source-evidence/v1",
+  "compiled_date": "2026-11-09",
+  "evidence_type": "catalogue_item_page_inspected",
+  "scope": "international_source_sample_not_all_cities",
+  "publication_status": "source_records_only_unverified_georeference",
+  "notes": [
+    "Exact museum catalogue pages were identified for these records; no assertion about HD delivery or independent GCP alignment.",
+    "Perspective bird's-eye maps cannot be treated as flat plans and must not be warped as if in planar projection.",
+    "For New York, Tokyo and Rio the research candidate city identity is not yet linked to the existing published 186-city atlas. GeoNames can support later entity matching."
+  ],
+  "items": [
+    {
+      "city": "Париж",
+      "country": "Франция",
+      "atlas_id": "paris",
+      "title": "Paris et ses environs : 1878",
+      "date_as_catalogued": "1878",
+      "source_url": "https://www.loc.gov/item/2012586603/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "street_plan",
+      "georeferencing_status": "affine_research_not_expert_verified",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": true,
+      "manual_landmark_validation": false
+    },
+    {
+      "city": "Лондон",
+      "country": "Великобритания",
+      "atlas_id": "london",
+      "title": "Whitbread's new plan of London : drawn from authentic surveys",
+      "date_as_catalogued": "1853",
+      "source_url": "https://www.loc.gov/item/2015591076/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "street_plan",
+      "georeferencing_status": "not_attempted",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": false,
+      "manual_landmark_validation": false
+    },
+    {
+      "city": "Рим",
+      "country": "Италия",
+      "atlas_id": "rim",
+      "title": "Town plan of Roma (Rome)",
+      "date_as_catalogued": "1944",
+      "source_url": "https://www.loc.gov/item/map47000177/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "street_plan_two_sheets",
+      "georeferencing_status": "not_attempted",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": false,
+      "manual_landmark_validation": false
+    },
+    {
+      "city": "Нью-Йорк",
+      "country": "США",
+      "atlas_id": null,
+      "title": "Map of the business portion of New York City below Madison Square",
+      "date_as_catalogued": "1870",
+      "source_url": "https://www.loc.gov/item/2005625753/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "street_plan",
+      "georeferencing_status": "not_attempted",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": false,
+      "manual_landmark_validation": false
+    },
+    {
+      "city": "Нью-Йорк",
+      "country": "США",
+      "atlas_id": null,
+      "title": "The city of New York (Currier & Ives)",
+      "date_as_catalogued": "1870",
+      "source_url": "https://www.loc.gov/item/75694809/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "perspective_birds_eye_not_flat_georeference",
+      "georeferencing_status": "not_applicable_as_plan",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": false,
+      "manual_landmark_validation": false
+    },
+    {
+      "city": "Токио (Эдо)",
+      "country": "Япония",
+      "atlas_id": null,
+      "title": "Enju Oedo ezu",
+      "date_as_catalogued": "1853",
+      "source_url": "https://www.loc.gov/item/80695499/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "street_plan_requires_original_review",
+      "georeferencing_status": "not_attempted",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": false,
+      "manual_landmark_validation": false
+    },
+    {
+      "city": "Рио-де-Жанейро",
+      "country": "Бразилия",
+      "atlas_id": null,
+      "title": "Planta da cidade do Rio de Janeiro",
+      "date_as_catalogued": "1900",
+      "source_url": "https://www.loc.gov/item/2012593122/",
+      "holding": "Library of Congress Geography and Map Division",
+      "map_type": "topographic_city_plan",
+      "georeferencing_status": "not_attempted",
+      "rights_status": "read_in_original_item_record_before_reuse",
+      "iiif_image_api_verified": false,
+      "manual_landmark_validation": false
+    }
+  ]
+}

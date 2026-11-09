@@ -1,0 +1,51 @@
+name: World historic cartography discovery
+on:
+  push:
+    branches:
+      - feature/global-historic-maps-20261109
+  pull_request:
+    paths:
+      - 'tools/maps/**'
+      - 'tests/test_world_historic_map_discovery.py'
+      - 'tests/test_generic_city_gcps.py'
+      - 'data/curation/world-cities-v1.json'
+      - 'eras/data/atlas.json'
+      - '.github/workflows/global-historic-cartography.yml'
+  workflow_dispatch:
+
+jobs:
+  map-discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned tests
+        run: python -m pip install pytest==9.1.1 ruff==0.16.9
+      - name: Lint discovery code
+        run: ruff check tools/maps tests/test_world_historic_map_discovery.py tests/test_generic_city_gcps.py
+      - name: Validate actual 186+150 world seeds and rate-limit behavior
+        run: python -m pytest -q tests/test_world_historic_map_discovery.py tests/test_generic_city_gcps.py
+      - name: Generate complete worldwide search queue (offline, no claims)
+        run: |
+          python -m tools.maps.discover_loc_historical_maps \
+            --dry-run --out /tmp/world-historic-maps
+          test -s /tmp/world-historic-maps/world-historic-map-search-queue.json
+      - name: Official LoC research pilot: multiple world cities
+        continue-on-error: true
+        run: |
+          python -m tools.maps.discover_loc_historical_maps \
+            --out /tmp/world-historic-maps \
+            --budget 18 --per-city 4 --delay 1.25
+          test -s /tmp/world-historic-maps/world-historic-map-discovery-report.json
+      - name: Upload auditable LoC source candidates and global queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: worldwide-historic-map-research
+          path: /tmp/world-historic-maps/
+          if-no-files-found: error
+          retention-days: 14

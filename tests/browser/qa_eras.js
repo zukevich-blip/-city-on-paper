@@ -78,6 +78,9 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator(".ccard", { hasText: "Лиссабон" }).click();
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
+    await p.locator("#historicCartography .historic-map-search a").waitFor();
+    ok(`${vp.n} any city gets a source-backed historical map search`,
+      (await p.locator("#historicCartography .historic-map-search a").getAttribute("href")).startsWith("https://www.loc.gov/maps/?q="));
     await p.locator("#cityLab [data-role='search']").waitFor();
     ok(`${vp.n} city study lab available in a generic city`,
       await p.locator("#cityLab [data-role='search']").isVisible() &&
@@ -89,6 +92,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.locator(".ccard", { hasText: "Париж" }).first().click();
     await p.waitForSelector(".places a");
     ok(`${vp.n} city: plan with place pins`, (await p.locator(".plate .pin").count()) === 2);
+    await p.locator("#historicCartography .historic-map-source a").waitFor();
+    ok(`${vp.n} Paris has an authentic historic map source citation`,
+      (await p.locator("#historicCartography .historic-map-source a").getAttribute("href")) ===
+      "https://www.loc.gov/item/2012586603/" &&
+      /геопривязка ещё не проверена/.test(await p.locator("#historicCartography").textContent()));
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
     await p.waitForFunction(() => /всего \d+ доступных изображений/.test(
       document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
