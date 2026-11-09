@@ -52,9 +52,10 @@ if (!origin || !outDir) throw Error("Usage: qa_eras_offline.js <origin> <out>");
       by["data/map-evidence.json"].status === 200
       && by["data/map-evidence.json"].head.includes("city-on-paper"),
       by["data/map-evidence.json"]);
-    assert("uncached JS miss returns 503, not HTML",
-      by["missing-qa-service-worker-asset.js"].status === 503
-      && !by["missing-qa-service-worker-asset.js"].head.includes("<html"),
+    assert("uncached JS miss is an honest 404/503, never an HTML success",
+      [404, 503].includes(by["missing-qa-service-worker-asset.js"].status)
+      && /text\/plain/i.test(by["missing-qa-service-worker-asset.js"].contentType || "")
+      && !/<html/i.test(by["missing-qa-service-worker-asset.js"].head),
       by["missing-qa-service-worker-asset.js"]);
     const cacheKeys = await page.evaluate(() => caches.keys());
     assert("service worker uses namespaced cache keys",
