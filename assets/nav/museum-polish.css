@@ -50,3 +50,20 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .museum-footer-halls a{font:13px/1.3 system-ui,sans-serif;min-height:36px;
   display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:650px){.museum-footer-halls{align-items:flex-start;flex-direction:column;gap:4px}}
+
+/* Evidence-led WCAG 2.2 contrast corrections from the axe consilium.
+ * Do not change historical image pixels, opacity, or color reproduction.
+ */
+:root{--muted:#53544b}
+:where(.eyebrow){color:#62451f}
+:where(.view .coords,.view .crumbs,.view .mapnote,.plate figcaption,
+  .places small,.country-count,.country-chip small){color:#53544b}
+.country-chip small{color:#505046!important}
+.world-atlas,.world-atlas *{box-sizing:border-box}
+.featuredStory .kicker{color:#62451f}
+.city .place small,.city .quality{color:#575448}
+.historic-cartography .historic-map-source small{color:#68543c}
+.historic-cartography .map-chain-index{color:#66502f}
+.hero figcaption{color:#564a3f}
+.leaflet-control-attribution a{color:#245467!important;
+  text-decoration:underline!important;text-underline-offset:1px}
