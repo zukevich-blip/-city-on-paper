@@ -188,3 +188,9 @@ def test_report_does_not_claim_external_validation() -> None:
     result = report(normalized, 1, [], {"status": "offline_no_api_calls"})
     assert result["cities_location_pending"] == 1
     assert result["scientific_status"].endswith("not performed")
+
+
+def test_unreviewed_export_is_rejected_inside_tracked_data(tmp_path: Path) -> None:
+    repo = Path(__file__).resolve().parents[1]
+    with pytest.raises(ValueError, match="within repo must use dist"):
+        main(["--root", str(repo), "--out", str(repo / "data/curation/normalized")])
