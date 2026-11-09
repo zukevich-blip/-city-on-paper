@@ -43,3 +43,10 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   :where(button,a,select,input){touch-action:manipulation}
   :where(main) .eyebrow{letter-spacing:.08em}
 }
+
+.museum-footer-halls{max-width:1140px;margin:18px auto 0;padding:17px 0 0;
+  display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;border-top:1px solid #ab9d88}
+.museum-footer-halls strong{font:17px/1.3 Georgia,serif;margin-right:7px}
+.museum-footer-halls a{font:13px/1.3 system-ui,sans-serif;min-height:36px;
+  display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:650px){.museum-footer-halls{align-items:flex-start;flex-direction:column;gap:4px}}
