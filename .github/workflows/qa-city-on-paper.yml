@@ -289,6 +289,30 @@ jobs:
           sleep 2
           curl -fsS http://127.0.0.1:8766/index.html -o /dev/null
           node tests/browser/qa_packaged.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+      - name: Normalize completed museum package without network or publication
+        run: |
+          python tools/normalize_catalog.py \
+            --root /tmp/city-on-paper-package \
+            --out /tmp/museum-package-normalized-review
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("/tmp/museum-package-normalized-review/normalization_report.json")
+          report=json.loads(p.read_text(encoding="utf-8"))
+          assert report["input_records"] >= 95
+          assert report["normalized_holdings"] > 0
+          assert report["publication"].startswith("NOT APPROVED")
+          print("PACKAGE_CATALOG_INPUTS", report["source_counts"])
+          print("PACKAGE_CATALOG_HOLDINGS", report["normalized_holdings"])
+          PY
+      - name: Archive complete museum catalog quality counts only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-package-catalog-quality-report
+          path: /tmp/museum-package-normalized-review/normalization_report.json
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Generate and validate actual public build manifest (dry-run)
         run: |
           mkdir -p /tmp/city-manifest-audit
