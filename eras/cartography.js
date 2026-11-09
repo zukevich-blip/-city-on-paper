@@ -30,12 +30,30 @@ window.CityHistoricCartography = (() => {
     const officialQuery = city.name_orig || city.name;
     const officialSearch = "https://www.loc.gov/maps/?q=" +
       encodeURIComponent(officialQuery + " city map");
+    const sourceChain = (item) => {
+      const stages = [
+        ["Архив", item.status === "catalogue_source_checked"
+          ? "Карточка найдена" : "Проверить"],
+        ["Оригинал HD", item.image_api_status === "working_IIIF_Image_API_for_this_item"
+          ? "IIIF подтверждён" : "Доступность уточнить"],
+        ["Геопривязка", item.georeferencing_status ===
+          "research_affine_not_independently_verified"
+          ? "Черновая модель" : "Не выполнена"],
+        ["Экспертиза", "Независимая проверка нужна"],
+      ];
+      return '<ol class="map-source-chain" aria-label="Этапы проверки архивной карты">' +
+        stages.map(([name, status], index) =>
+          '<li><span class="map-chain-index">' + String(index + 1).padStart(2, "0") +
+          '</span><b>' + esc(name) + '</b><small>' + esc(status) + '</small></li>'
+        ).join("") + '</ol>';
+    };
     const cards = rows.slice(0, 8).map(item => {
       const verified = item.status === "catalogue_source_checked";
       return '<li class="historic-map-source"><strong>' + esc(item.title) + '</strong>' +
         (item.date_as_reported ? ' <span>' + esc(item.date_as_reported) + '</span>' : '') +
         '<small>' + (verified ? "Архивная карточка установлена, геопривязка ещё не проверена" :
           "Поисковая находка, требует проверки") + '</small>' +
+        sourceChain(item) +
         '<a href="' + esc(link(item.object_url)) +
         '" target="_blank" rel="noopener">Открыть в Library of Congress</a></li>';
     }).join("");
