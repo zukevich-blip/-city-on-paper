@@ -303,6 +303,37 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} desk prototype no horizontal overflow`, !designHasOverflow);
 
     ok(`${vp.n} no console/page/HTTP errors`, errs.length === 0, errs.slice(0, 3).join(" | "));
+    // The main entrance and world atlas use different local layouts but share
+    // the same museum top bar. Test actual computed CSS, not just HTML hidden.
+    const museum = await ctx.newPage();
+    for (const route of ["", "world/"]) {
+      await museum.goto(base + route, { waitUntil: "domcontentloaded" });
+      await museum.locator("#museumPanel").waitFor();
+      const section = route || "home";
+      ok(`${vp.n} ${section} menu starts physically collapsed`,
+        await museum.locator("#museumPanel").evaluate(el =>
+          el.hidden && getComputedStyle(el).display === "none"));
+      ok(`${vp.n} ${section} no horizontal page overflow`,
+        await museum.evaluate(() => document.documentElement.scrollWidth <=
+          document.documentElement.clientWidth + 5));
+      await museum.screenshot({
+        path: `${out}/${vp.n}-museum-${section}-polished.jpg`,
+        type: "jpeg", quality: 72,
+      });
+    }
+    const noSourceDistortion = await museum.evaluate(() => {
+      const fig = document.createElement("figure");
+      const img = document.createElement("img");
+      const box = document.createElement("div"); box.className = "city";
+      fig.appendChild(img); box.appendChild(fig); document.body.appendChild(box);
+      const computed = getComputedStyle(img);
+      const ok = computed.objectFit === "contain" && computed.filter === "none";
+      box.remove();
+      return ok;
+    });
+    ok(`${vp.n} world museum art shown without crop or CSS desaturation`,
+      noSourceDistortion);
+    await museum.close();
     await ctx.close();
   }
   await b.close();
