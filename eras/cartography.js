@@ -17,7 +17,7 @@ window.CityHistoricCartography = (() => {
   const load = () => {
     if (!catalog) catalog = fetch("data/map-evidence.json")
       .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
-      .catch(() => ({ items: [] }));
+      .catch(() => ({ items: [], load_error: true }));
     return catalog;
   };
 
@@ -40,7 +40,10 @@ window.CityHistoricCartography = (() => {
         '" target="_blank" rel="noopener">Открыть в Library of Congress</a></li>';
     }).join("");
     host.innerHTML = '<h3>Историческая картография</h3>' +
-      (cards ? '<ul class="historic-map-list">' + cards + '</ul>' :
+      (data.load_error ?
+        '<p class="note" role="status">Сейчас не удалось загрузить реестр исторических карт. ' +
+        'Это техническая ошибка, а не доказательство отсутствия карт города.</p>'
+        : cards ? '<ul class="historic-map-list">' + cards + '</ul>' :
         '<p class="note">Проверенных исторических планов в этом каталоге пока нет. ' +
         'Город остаётся доступен на современной карте.</p>') +
       '<p class="historic-map-search"><a href="' + esc(officialSearch) +
