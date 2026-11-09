@@ -50,6 +50,9 @@ async function main() {
             null, { timeout: 12000 });
             await page.locator("#historicCartography h3").waitFor();
           }
+          // Avoid sampling the initial 350ms .view fade-in: axe contrast
+          // should assess stable colors, not temporary CSS opacity.
+          await page.waitForTimeout(650);
           const checks = await new AxeBuilder({ page })
             .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa",
               "best-practice"])
