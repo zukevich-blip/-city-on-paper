@@ -24,6 +24,7 @@ def setup_site(tmp_path: Path) -> tuple[Path, Path]:
             "cities": [{"name": "Париж", "country": "France"}],
         }, ensure_ascii=False),
         "eras/viewer.js": "window.preview = true;",
+        "eras/CREDITS.md": "Artwork citations and rights",
         "eras/art/scan.jpg": "fake-image-bytes",
         "eras/notes.md": "Internal notes that are NOT permitted by extension",
         "data/candidates/do-not-publish.json": '{"secret":"unreviewed"}',
@@ -36,6 +37,7 @@ def setup_site(tmp_path: Path) -> tuple[Path, Path]:
         "schema": "city-on-paper/publication-policy/v1",
         "pages": ["index.html", "salon/index.html"],
         "data": ["data/curation/world-cities-v1.json"],
+        "support_files": ["eras/CREDITS.md"],
         "asset_roots": ["eras"],
         "asset_extensions": [".js", ".jpg"],
         "forbidden_paths": ["data/candidates", ".github", "docs/consilium"],
@@ -49,7 +51,7 @@ def test_manifest_is_deterministic_and_restricted(tmp_path: Path) -> None:
     source, policy = setup_site(tmp_path)
     manifest = generate(source, policy)
     assert manifest == generate(source, policy)
-    assert manifest["summary"]["files"] == 5
+    assert manifest["summary"]["files"] == 6
     assert "data/candidates/do-not-publish.json" not in {x["path"] for x in manifest["files"]}
     assert "eras/notes.md" not in {x["path"] for x in manifest["files"]}
     assert manifest["summary"]["ignored"] == [
@@ -65,11 +67,12 @@ def test_build_only_selected_files_and_metadata(tmp_path: Path) -> None:
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
     out = tmp_path / "public"
     result = build(source, out, manifest_path, policy)
-    assert result["manifest_files"] == 5
+    assert result["manifest_files"] == 6
     assert (out / "BUILD_MANIFEST.json").exists()
     assert (out / "PUBLIC_BUILD.json").exists()
     assert (out / "salon/index.html").exists()
     assert (out / "eras/art/scan.jpg").exists()
+    assert (out / "eras/CREDITS.md").exists()
     assert not (out / "data/candidates").exists()
     assert not (out / "eras/notes.md").exists()
     assert (out / "about/index.html").exists()
