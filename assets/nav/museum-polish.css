@@ -30,8 +30,6 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   outline:3px solid #c08a45;outline-offset:3px}
 :where(.card,.wcard,.city,.livingCard,.workshopCard,.era-card) img{
   image-rendering:auto}
-:where(.view .cmap,.view .plate,.historic-cartography){
-  contain:layout style}
 :where(main) .eyebrow{letter-spacing:.13em}
 :where(.view) .lede{max-width:890px}
 :where(.view) h1{letter-spacing:-.035em}
