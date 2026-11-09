@@ -37,7 +37,10 @@ async function main() {
         for (const [label, path] of locations) {
           const url = new URL(path, origin).href;
           const response = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
-          if (!response || response.status() !== 200) {
+          // Changing only the #/city route does not request a new HTML page:
+          // Playwright correctly returns null for same-document navigation.
+          if ((response && response.status() !== 200) ||
+              (!response && !url.includes("#"))) {
             throw Error("Missing page: " + url + ": " + response?.status());
           }
           await page.locator("#museumBar").waitFor({ state: "attached", timeout: 10000 });
