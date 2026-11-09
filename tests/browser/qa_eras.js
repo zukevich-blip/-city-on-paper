@@ -93,9 +93,8 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector("#wg");
     ok(`${vp.n} generic city page`, /Лиссабон/.test(await p.textContent("h1")) && (await p.locator(".hunt2 a").count()) === 4);
     ok(`${vp.n} every city gives a full museum research chain`,
-      (await p.locator(".museum-journey-city .museum-journey-step").count()) === 0 &&
-      (await p.locator(".museum-journey .museum-journey-step").count()) === 5 &&
-      (await p.locator(".museum-journey [data-nonexistent]").count()) === 0);
+      (await p.locator('nav.museum-journey[aria-label="Маршрут исследования города"] .museum-journey-step').count()) === 5 &&
+      (await p.locator("#archiveSearch").count()) === 1);
     const cityHash = await p.evaluate(() => location.hash);
     await p.locator(".museum-journey .museum-journey-step").first().click();
     ok(`${vp.n} city map trail scrolls without destroying hash route`,
