@@ -194,3 +194,40 @@ def test_unreviewed_export_is_rejected_inside_tracked_data(tmp_path: Path) -> No
     repo = Path(__file__).resolve().parents[1]
     with pytest.raises(ValueError, match="within repo must use dist"):
         main(["--root", str(repo), "--out", str(repo / "data/curation/normalized")])
+
+
+def test_packaged_generated_collections_are_imported_without_false_approval(tmp_path: Path) -> None:
+    generated = {
+        "data/curation/museum-expansion-v1.json": {
+            "items": [{
+                "name": "The Apsis of Notre Dame", "source": "The Cleveland Museum of Art",
+                "source_id": "1937.632", "url": "https://clevelandart.org/art/1937.632",
+                "city": "Париж", "maker": "Charles Meryon", "date": "1854",
+                "rights": "cc0", "verified": "museum_api",
+            }],
+        },
+        "data/curation/world-graphic-archive-v1.json": {
+            "items": [{
+                "id": "commons-art-1", "name": "Hong Kong view",
+                "source": "Wikimedia Commons", "source_id": "File:Hong Kong view.jpg",
+                "url": "https://commons.wikimedia.org/wiki/File:Hong_Kong_view.jpg",
+                "city": "Гонконг", "country": "Китай",
+                "maker": "unknown", "rights": "public_domain_commons",
+            }],
+        },
+    }
+    for rel, source_data in generated.items():
+        path = tmp_path / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(source_data), encoding="utf-8")
+    records, cities, warnings = collect(tmp_path)
+    assert len(records) == 2
+    assert not cities and not warnings
+    normalized = normalize(records, cities)
+    assert len(normalized["works"]) == 2
+    assert all(work["review_status"] == "needs_editorial_review"
+               for work in normalized["works"])
+    assert all(work["rights"]["reuse_approved_by_this_pipeline"] is False
+               for work in normalized["works"])
+    assert all(work["depiction"]["status"] == "location_pending"
+               for work in normalized["works"])
