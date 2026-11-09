@@ -1,0 +1,43 @@
+name: Global city registry audit
+on:
+  push:
+    branches:
+      - feature/global-city-registry-audit-20261109
+  pull_request:
+    paths:
+      - 'tools/curation/audit_global_cities.py'
+      - 'tests/test_global_city_audit.py'
+      - 'eras/data/atlas.json'
+      - 'data/curation/world-cities-v1.json'
+      - '.github/workflows/global-city-registry-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned offline test tools
+        run: python -m pip install pytest==9.1.1 ruff==0.16.9
+      - name: Lint global audit code
+        run: ruff check tools/curation/audit_global_cities.py tests/test_global_city_audit.py
+      - name: Check actual atlas and seed counts
+        run: python -m pytest -q tests/test_global_city_audit.py
+      - name: Generate research registry and source-discovery queue (no network)
+        run: |
+          python -m tools.curation.audit_global_cities --out /tmp/city-global-audit
+          test -s /tmp/city-global-audit/global-city-registry-draft.json
+          test -s /tmp/city-global-audit/global-city-audit-report.json
+          test -s /tmp/city-global-audit/global-discovery-queue.json
+      - name: Archive inspectable research audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: world-city-registry-research-audit
+          path: /tmp/city-global-audit/
+          retention-days: 14
