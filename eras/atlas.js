@@ -4,6 +4,10 @@
  * Исторические изображения показываются без изменений (object-fit: contain, без фильтров). */
 "use strict";
 window.Atlas = (() => {
+  // Russian plural: plural(5, "работа", "работы", "работ") -> "5 работ"
+  const plural = (n, one, few, many) => { const a = Math.abs(n) % 100, b = a % 10;
+    return `${n} ${a > 10 && a < 20 ? many : b === 1 ? one : b > 1 && b < 5 ? few : many}`; };
+  const W3 = ["работа", "работы", "работ"], C3 = ["город", "города", "городов"], S3 = ["страна", "страны", "стран"], L3 = ["лист", "листа", "листов"];
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const safe = (u) => (/^https:\/\//.test(u || "") || /^(img|thumbs|now|\.\.\/assets)\//.test(u || "") ? u : "#");
   const safeLink = (u) => (/^https?:\/\//.test(u || "") ? u : "#"); // holder pages; some institutions are http-only
@@ -41,6 +45,10 @@ window.Atlas = (() => {
       <span class="eyebrow">Атлас эпох · вход через старую карту</span>
       <h1>Города на бумаге:<br>от Бретани до Вильнюса</h1>
       <p class="lede">${A.cities.length} городов и мест — в основном Европа; ${A.counts.benoist_places} из них рисовали Феликс и Филипп Бенуа (${A.counts.benoist_works} работ в музеях и библиотеках). Метки стоят на подлинной карте Европы XVIII века — она красива, но неточна, поэтому положение меток приблизительное. Внутри города — работы из музеев и библиотек с источниками и правами.</p>
+      <nav class="doors" aria-label="С чего начать">
+        <a href="#/" class="door" id="doorMap"><b>Карта 1769 года</b><span>${plural(A.cities.length, ...C3)} на старинной карте; приближайте и заходите в город</span></a>
+        <a href="#/epochs" class="door"><b>Эпохи</b><span>${plural((A.cities || []).reduce((n, c) => n + (c.epochs || []).length, 0), "место", "места", "мест")}: листы XVIII–XIX веков рядом со снимками сегодня</span></a>
+        <a href="#/mine" class="door"><b>Мой ракурс</b><span>Сфотографируйте место сами и отметьте точку съёмки</span></a></nav>
       <div class="tools" role="search"><label class="sr" for="q">Поиск города</label>
         <input id="q" type="search" placeholder="Город, страна или регион" value="${esc(filter.q)}" autocomplete="off">
         <select id="grp" aria-label="Показать">${groups.map(([v, l]) => `<option value="${esc(v)}" ${filter.group === v ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></div>
@@ -54,6 +62,8 @@ window.Atlas = (() => {
       <nav class="country-index" id="countryIndex" aria-label="Страны в атласе"></nav>
       <p class="note" id="shown" role="status" aria-live="polite"></p>
       <div class="country-collection" id="list"></div></div>`;
+    const dm = document.getElementById("doorMap");
+    if (dm) dm.onclick = (e) => { e.preventDefault(); document.getElementById("maphost").scrollIntoView({ behavior: "smooth", block: "start" }); };
     const q = document.getElementById("q"), grp = document.getElementById("grp");
     let selectedCountry = null;
     const draw = () => {
@@ -78,7 +88,7 @@ window.Atlas = (() => {
         .sort((a, b) => b[1].reduce((n, c) => n + count(c), 0) - a[1].reduce((n, c) => n + count(c), 0))
         .slice(0, 2).map(([name]) => name);
       document.getElementById("shown").textContent =
-        `Показано ${rows.length} городов, ${allCountries.length} стран из ${A.cities.length} городов атласа.`;
+        `Показано ${plural(rows.length, ...C3)}, ${plural(allCountries.length, ...S3)} из ${plural(A.cities.length, ...C3)} атласа.`;
       const countryIndex = document.getElementById("countryIndex");
       countryIndex.innerHTML = allCountries.map(([country, cities]) =>
         `<button type="button" class="country-chip" data-country="${esc(country)}" aria-label="Раскрыть страну ${esc(country)}">
@@ -90,11 +100,11 @@ window.Atlas = (() => {
           selectedCountry === country || (!selectedCountry && popular.includes(country)));
         return `<details class="country-group" id="${id}" data-country="${esc(country)}" ${opened ? "open" : ""}>
           <summary><span class="country-name">${esc(country)}</span>
-            <span class="country-count">${cities.length} городов · ${total} работ</span><span class="country-expand" aria-hidden="true">+</span></summary>
+            <span class="country-count">${plural(cities.length, ...C3)} · ${plural(total, ...W3)}</span><span class="country-expand" aria-hidden="true">+</span></summary>
           <p class="country-preface"><a href="#/country/${encodeURIComponent(country)}">Показать только ${esc(country)} на карте и в оглавлении</a></p>
           <div class="country-cities">${cities.map((c) => `<a class="ccard" href="#/city/${esc(c.id)}"><b>${esc(c.name)}</b>
             <small>${esc(c.area || c.name_orig || c.country)}</small>
-            <span>${c.featured ? '<em class="badge f">истории эпох</em>' : ""}${c.benoist ? `<em class="badge b">Бенуа · ${(c.works || []).length}</em>` : ""}<em class="badge">${count(c) ? `${count(c)} работ` : "ищем материалы"}</em></span></a>`).join("")}</div></details>`;
+            <span>${c.featured ? '<em class="badge f">истории эпох</em>' : ""}${c.benoist ? `<em class="badge b">Бенуа · ${(c.works || []).length}</em>` : ""}<em class="badge">${count(c) ? plural(count(c), ...W3) : "ищем материалы"}</em></span></a>`).join("")}</div></details>`;
       }).join("") || '<p class="note">По запросу города не найдены.</p>';
       countryIndex.querySelectorAll("button").forEach((button) => button.addEventListener("click", () => {
         selectedCountry = button.dataset.country;
@@ -126,6 +136,7 @@ window.Atlas = (() => {
     return `https://thumb.wikimedia.org/wikipedia/commons/thumb/${m[0]}/${m[1]}/${m[2]}/500px-${m[2]}`;
   };
   const thumb = (u) => {
+    if (u && T[u]) return T[u]; // exact-URL copies (e.g. Art Institute of Chicago IIIF, blocked cross-origin)
     const m = commonsName(u);
     if (m) { let n; try { n = decodeURIComponent(m[2]).replace(/_/g, " "); } catch (e) { n = ""; }
       const local = T[n] || T[n.replace(/ /g, "_")]; if (local) return local; }
@@ -185,7 +196,7 @@ window.Atlas = (() => {
       <section id="cityLab" class="citylab" aria-label="Исследование произведений города"><p class="note">Подготавливаем изображения для сравнения…</p></section>
       ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
       ${(c.works || []).length ? `<details class="city-archive" ${c.works.length <= 6 ? "open" : ""}>
-        <summary>Коллекция Феликса и Филиппа Бенуа · ${c.works.length} листов
+        <summary>Коллекция Феликса и Филиппа Бенуа · ${plural(c.works.length, ...L3)}
           <small>Разверните, чтобы изучить весь каталог</small></summary>
         <div class="wgrid">${c.works.map(card).join("")}</div></details>` : ""}
       <h2 id="others">Другие виды из музеев</h2>

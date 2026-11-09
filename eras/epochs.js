@@ -9,6 +9,8 @@ window.Epochs = (() => {
   const cap = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
   const yearOf = (d) => { const m = /(1[4-9]\d\d|20\d\d)/.exec(d || ""); return m ? +m[1] : null; };
   const oldYear = (d) => { const y = yearOf(d); return y && y <= 1930 ? y : null; }; // upload dates are not drawing dates
+  const plural = (n, one, few, many) => { const a = Math.abs(n) % 100, b = a % 10;
+    return `${n} ${a > 10 && a < 20 ? many : b === 1 ? one : b > 1 && b < 5 ? few : many}`; };
   const KIND = { print: "Лист", photo: "Старое фото", today: "Сегодня", street: "Улица сегодня", mine: "Моё фото" };
 
   // ---------- private storage (IndexedDB), nothing leaves the device
@@ -222,7 +224,7 @@ window.Epochs = (() => {
     const cities = [...new Set(items.map((x) => x.c.name))].sort((a, b) => a.localeCompare(b, "ru"));
     app.innerHTML = `<div class="view"><nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <span aria-current="page">Эпохи</span></nav>
       <span class="eyebrow">Одно место — разные эпохи</span><h1>Как было — как есть</h1>
-      <p class="lede">${items.length} мест в ${cities.length} городах: листы XVIII–XIX веков, старые фотографии, снимки сегодня и уличные фото с точкой съёмки. Откройте место, сравните любые два кадра шторкой и добавьте своё фото с точкой, откуда снимали.</p>
+      <p class="lede">${plural(items.length, "место", "места", "мест")} в ${plural(cities.length, "городе", "городах", "городах")}: листы XVIII–XIX веков, старые фотографии, снимки сегодня и уличные фото с точкой съёмки. Откройте место, сравните любые два кадра шторкой и добавьте своё фото с точкой, откуда снимали.</p>
       <div class="tools"><label class="sr" for="epq">Поиск места</label><input id="epq" type="search" placeholder="Место или город">
         <select id="epc" aria-label="Город"><option value="">Все города</option>${cities.map((n) => `<option>${esc(n)}</option>`).join("")}</select></div>
       <div class="epgal" id="epgal"></div></div>`;
@@ -230,7 +232,7 @@ window.Epochs = (() => {
       const q = document.getElementById("epq").value.trim().toLowerCase(), cf = document.getElementById("epc").value;
       document.getElementById("epgal").innerHTML = items.filter((x) => (!cf || x.c.name === cf) && (!q || (x.g.name + " " + x.c.name).toLowerCase().includes(q))).slice(0, 120).map((x) =>
         `<a class="epcard" href="#/epoch/${esc(x.c.id)}/${encodeURIComponent(x.g.key)}"><span class="pair">${imgTag(thumb(x.first), cap(x.g.name) + ", лист")}${x.now ? (/^now\//.test(x.now) ? `<img src="${esc(x.now)}" alt="${esc(cap(x.g.name))} сегодня" loading="lazy">` : imgTag(thumb(x.now), cap(x.g.name) + " сегодня")) : ""}</span>
-          <b>${esc(cap(x.g.name))}</b><small>${esc(x.c.name)} · ${x.y0 < 9999 ? x.y0 + " → сегодня" : "разные годы"} · ${x.n} кадров</small></a>`).join("") || '<p class="note">Ничего не найдено.</p>';
+          <b>${esc(cap(x.g.name))}</b><small>${esc(x.c.name)} · ${x.y0 < 9999 ? x.y0 + " → сегодня" : "разные годы"} · ${plural(x.n, "кадр", "кадра", "кадров")}</small></a>`).join("") || '<p class="note">Ничего не найдено.</p>';
     };
     document.getElementById("epq").oninput = draw; document.getElementById("epc").onchange = draw; draw();
   }

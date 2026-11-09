@@ -5,7 +5,7 @@
 "use strict";
 (() => {
   const safe = u => typeof u === "string" && (/^https:\/\//.test(u) ||
-    /^(?:\.\.\/assets\/|\.\.\/poc\/|thumbs\/|img\/)/.test(u)) ? u : "";
+    /^(?:\.\.\/assets\/|\.\.\/poc\/|thumbs\/|now\/|img\/)/.test(u)) ? u : "";
   const year = value => {
     const match = /(?:1[5-9]\d{2}|20\d{2})/.exec(String(value || ""));
     return match ? +match[0] : null;
@@ -19,7 +19,8 @@
   function normalize(raw) {
     const seen = new Set();
     return (raw || []).map((w, n) => {
-      const image = safe(w.image || w.file);
+      const raw0 = w.image || w.file;
+      const image = safe(window.Atlas && Atlas.thumb ? Atlas.thumb(raw0) : raw0); // self-hosted preview first
       const source = safe(w.url || w.object_url || w.page);
       const title = w.title_original || w.name || w.title || "Без названия";
       return {
