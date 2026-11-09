@@ -1,0 +1,65 @@
+name: Museum consilium — accessibility and offline QA
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/nav/**'
+      - 'eras/**'
+      - 'world/**'
+      - 'tests/browser/qa_museum_a11y.js'
+      - 'tests/browser/qa_eras_offline.js'
+      - 'tests/test_eras_service_worker.py'
+      - '.github/workflows/consilium-museum-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: museum-consilium-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  accessibility-pwa:
+    name: WCAG review + PWA offline behavior
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate SW logic without using museum APIs
+        run: |
+          python -m pip install pytest==9.1.1 ruff==0.16.9
+          ruff check tests/test_eras_service_worker.py
+          pytest -q tests/test_eras_service_worker.py
+      - name: Install pinned browser and WCAG audit tools
+        run: |
+          npm install --no-save playwright@1.56.1 @axe-core/playwright@4.14.0
+          npx playwright install --with-deps chromium
+      - name: Serve source museum without network scraping
+        run: |
+          python -m http.server 8769 --bind 127.0.0.1 > /tmp/consilium-http.log 2>&1 &
+          sleep 2
+          curl -fsS http://127.0.0.1:8769/eras/ -o /dev/null
+      - name: Browser PWA: cached code must remain JS/JSON
+        run: |
+          mkdir -p /tmp/consilium-evidence
+          node tests/browser/qa_eras_offline.js http://127.0.0.1:8769/ /tmp/consilium-evidence
+      - name: Automated WCAG 2.2 report (advisory; human triage required)
+        run: |
+          mkdir -p /tmp/consilium-evidence
+          node tests/browser/qa_museum_a11y.js http://127.0.0.1:8769/ /tmp/consilium-evidence
+      - name: Archive independent QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-consilium-wcag-pwa-report
+          path: /tmp/consilium-evidence/
+          retention-days: 21
+          if-no-files-found: warn
