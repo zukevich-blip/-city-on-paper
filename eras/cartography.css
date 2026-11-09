@@ -1,0 +1,15 @@
+/* World cartography shelf: all existing atlas city pages, source-first. */
+.historic-cartography{margin:14px 0 24px;padding:13px 16px;border:1px solid #d2c7b5;
+  background:#faf6ee;border-radius:7px}
+.historic-cartography h3{font:22px/1.3 Georgia,serif;margin:0 0 9px;color:#354138}
+.historic-cartography p,.historic-cartography li{font:14px/1.55 system-ui,sans-serif;color:#343c37}
+.historic-cartography p{margin:7px 0}
+.historic-map-list{padding-left:18px;margin:10px 0;display:grid;gap:9px}
+.historic-map-source strong{display:block;font-weight:650}
+.historic-map-source span{color:#665b4f}
+.historic-map-source small{display:block;font:12px/1.5 system-ui,sans-serif;color:#816c50;margin:2px 0}
+.historic-cartography a{color:#7e4e2c;text-decoration:underline;text-underline-offset:2px}
+.historic-map-caution{font-size:12px!important;color:#665b50!important;border-left:2px solid #b5926c;padding-left:10px}
+@media(max-width:670px){.historic-cartography{padding:12px;margin:12px 0 18px}
+  .historic-cartography h3{font-size:20px}
+  .historic-cartography a{display:inline-block;min-height:36px}}
