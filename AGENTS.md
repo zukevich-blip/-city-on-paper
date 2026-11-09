@@ -1,5 +1,7 @@
 # City on Paper — instructions for Codex and cooperating coding agents
 
+> **Обновление 09.11.2026: правила ниже относятся к историческому релизу. Для текущей серии работ сначала проверьте фактическую базовую ветку.** Новый исследовательский стек: #45 (география) → #46 (историческая картография) → #48 (единый музейный UX) → #50 (консилиум качества, WCAG и PWA). PR #44 (Париж, 15 GCP) идёт **параллельно** и не должен неявно включаться при слиянии стека. Публичный релиз и самостоятельная экспертная атрибуция/GCP всё ещё **НЕ ПРИНЯТЫ**. Прежде чем работать, откройте `docs/consilium/CREATION_AND_POSTBUILD_PROTOCOL.md`, [Issue #49](https://github.com/zukevich-blip/-city-on-paper/issues/49) и зелёные/красные CI по выбранной ветке. Нельзя трактовать роль агента как заключение привлечённого человека. Для новых задач используйте отдельную PR-ветку, не выполняйте работу напрямую на release/main без явного решения владельца.
+
 This is the **same single project**, not a fork. Work on `release/city-on-paper-private-preview-20261104`, the branch of draft PR #31, unless another agent currently owns that file. The canonical brief is GitHub Issue #30. Read `CLAUDE.md`, both `docs/consilium/BEFORE_RELEASE.md` and `docs/consilium/AFTER_RELEASE.md`, plus `docs/consilium/CLOSE_READING_EDITORIAL_REVIEW_20261103.md`. Codex and Claude must use **one design, one dataset contract, one packaged release**; never generate a competing v2 site without a technical migration decision.
 
 ## New priority: actual *visible* scale, not inflated records
