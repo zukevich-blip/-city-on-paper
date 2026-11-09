@@ -104,5 +104,9 @@
     ".key",
     ".sqlite",
     ".db"
+  ],
+  "support_files": [
+    "poc/compare/pairs/CREDITS.md",
+    "eras/vendor/leaflet-1.9.4/LICENSE"
   ]
 }
