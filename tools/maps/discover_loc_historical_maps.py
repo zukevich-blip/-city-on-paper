@@ -53,7 +53,7 @@ def search_phrase(city: dict) -> str:
     return stem + " map"
 
 
-def build_queue(atlas: dict, seed: dict) -> list[dict]:
+def build_queue(atlas: dict, seed: dict, geonames: dict | None = None) -> list[dict]:
     registry, _, _ = audit(atlas, seed)
     cities = registry["cities"]
     wanted = {normalize(x): i for i, x in enumerate(PRIORITY_CITIES)}
@@ -73,6 +73,23 @@ def build_queue(atlas: dict, seed: dict) -> list[dict]:
             "review_status": "search_queued_not_a_verified_map",
             "source": LOC_API,
         })
+    if geonames:
+        if geonames.get("schema") != "city-on-paper/geonames-major-city-candidates/v1":
+            raise ValueError("Unexpected GeoNames candidate schema")
+        for item in geonames.get("cities", []):
+            rows.append({
+                "city_id": item["candidate_city_id"],
+                "name": item["name"], "country": item["country_iso2"],
+                "lat": item["lat"], "lon": item["lon"],
+                "query": item["name_ascii"] + " historical city map",
+                "priority": 1000,
+                "population_reported_by_geonames":
+                    item["population_reported_by_geonames"],
+                "identity_status": "geonames_candidate_not_reconciled_with_atlas",
+                "review_status": "search_queued_not_a_verified_map",
+                "source": LOC_API,
+                "geonames_source_url": item["source_url"],
+            })
     rows.sort(key=lambda x: (x["priority"], normalize(x["country"]), normalize(x["name"])))
     return rows
 
@@ -207,6 +224,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--atlas", type=Path, default=ATLAS)
     parser.add_argument("--seed", type=Path, default=SEED)
+    parser.add_argument("--geonames", type=Path, help="Optional research-only GeoNames major-city JSON")
     parser.add_argument("--out", type=Path, default=Path("/tmp/city-global-maps"))
     parser.add_argument("--budget", type=int, default=12)
     parser.add_argument("--start-index", type=int, default=0)
@@ -216,7 +234,8 @@ def main() -> None:
     args = parser.parse_args()
     atlas = json.loads(args.atlas.read_text("utf-8"))
     seed = json.loads(args.seed.read_text("utf-8"))
-    queue = build_queue(atlas, seed)
+    geo = json.loads(args.geonames.read_text("utf-8")) if args.geonames else None
+    queue = build_queue(atlas, seed, geo)
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "world-historic-map-search-queue.json").write_text(
         json.dumps({"schema": "city-on-paper/historical-map-search-queue/v1",
