@@ -145,6 +145,45 @@ def official_loc_record(hit: dict) -> dict | None:
     }
 
 
+
+def relevance(hit: dict, city: dict) -> str | None:
+    """Explicit city title/location overlap; query search alone is not evidence."""
+    query = str(city["query"])
+    stop = re.search(
+        r"\b(?:architecture|historical|historic|city|old|early|map|plan|"
+        r"lithograph|engraving|woodblock|port|harbou?r|street|19th|18th|"
+        r"landscape|architecture|palace|views?)\b",
+        query, flags=re.I,
+    )
+    alias = query[:stop.start()].strip() if stop else query.strip()
+    if not alias:
+        return None
+    variants = [alias.casefold()]
+    aliases = {
+        "edo": ["tokyo", "edo"],
+        "constantinople": ["istanbul", "constantinople"],
+        "peking": ["beijing", "peking"],
+        "bombay": ["mumbai", "bombay"],
+        "saigon": ["ho chi minh", "saigon"],
+    }
+    variants.extend(aliases.get(alias.casefold(), []))
+    title = str(hit.get("title") or "").casefold()
+    raw_locations = hit.get("location") or []
+    if isinstance(raw_locations, str):
+        raw_locations = [raw_locations]
+    if not isinstance(raw_locations, list):
+        raw_locations = []
+    location_text = " | ".join(str(t).casefold() for t in raw_locations)
+    for variant in variants:
+        term = re.compile(r"(?<![a-z])" + re.escape(variant) + r"(?![a-z])", re.I)
+        if term.search(title):
+            return "city_alias_in_title"
+        if term.search(location_text):
+            return "city_alias_in_location"
+    return None
+
+
+
 def discover(
     queue: list[dict], budget: int = 12, per_city: int = 4, delay: float = 1.25,
     start_index: int = 0, fetch=fetch_loc_json,
@@ -167,8 +206,12 @@ def discover(
             seen: set[str] = set()
             items = []
             for hit in hits[:per_city]:
+                reason = relevance(hit, row)
+                if reason is None:
+                    continue
                 rec = official_loc_record(hit)
                 if rec and rec["object_url"] not in seen:
+                    rec["candidate_place_match_reason"] = reason
                     seen.add(rec["object_url"])
                     items.append(rec)
             results.append({
