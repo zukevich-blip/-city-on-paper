@@ -14,7 +14,10 @@ def setup_site(tmp_path: Path) -> tuple[Path, Path]:
     source = tmp_path / "source"
     policy_path = tmp_path / "policy.json"
     files = {
-        "index.html": "<!doctype html><html><head><title>City on Paper</title></head><body><footer></footer></body></html>",
+        "index.html": (
+            "<!doctype html><html><head><title>City on Paper</title>"
+            "</head><body><footer></footer></body></html>"
+        ),
         "salon/index.html": "<html><head><title>Salon</title></head><body>Art</body></html>",
         "data/curation/world-cities-v1.json": json.dumps({
             "city_count": 1,
