@@ -12,7 +12,7 @@ import hashlib
 import json
 import re
 import unicodedata
-from collections import Counter, defaultdict
+from collections import Counter
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -188,7 +188,10 @@ def audit(atlas: dict, seed: dict) -> tuple[dict, dict, dict]:
             "atlas_distinct_name_country": sum(x["catalog_status"] == "existing_atlas" for x in entries),
             "seed_entries": len(search_cities),
             "seed_distinct_name_country": len(by_seed),
-            "matched_name_country": sum(x["catalog_status"] == "existing_atlas" and x["discovery_query"] is not None for x in entries),
+            "matched_name_country": sum(
+                x["catalog_status"] == "existing_atlas" and x["discovery_query"] is not None
+                for x in entries
+            ),
             "seed_not_in_atlas": sum(x["catalog_status"] == "seed_candidate_only" for x in entries),
             "combined_candidate_records": len(entries),
             "atlas_works_listed": sum(len(a.get("works", [])) for a in atlas_cities),
