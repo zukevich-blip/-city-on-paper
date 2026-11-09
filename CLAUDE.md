@@ -1,5 +1,7 @@
 # CITY ON PAPER / Город на бумаге — Claude Code operating instructions
 
+> **Обновление 09.11.2026: правила ниже относятся к историческому релизу. Для текущей серии работ сначала проверьте фактическую базовую ветку.** Новый исследовательский стек: #45 (география) → #46 (историческая картография) → #48 (единый музейный UX) → #50 (консилиум качества, WCAG и PWA). PR #44 (Париж, 15 GCP) идёт **параллельно** и не должен неявно включаться при слиянии стека. Публичный релиз и самостоятельная экспертная атрибуция/GCP всё ещё **НЕ ПРИНЯТЫ**. Прежде чем работать, откройте `docs/consilium/CREATION_AND_POSTBUILD_PROTOCOL.md`, [Issue #49](https://github.com/zukevich-blip/-city-on-paper/issues/49) и зелёные/красные CI по выбранной ветке. Нельзя трактовать роль агента как заключение привлечённого человека. Для новых задач используйте отдельную PR-ветку, не выполняйте работу напрямую на release/main без явного решения владельца.
+
 ## Mission (owner-approved)
 Build a beautiful, coherent, **working private museum preview**, RU-first, usable on iPhone/iPad/desktop. User wants the finished experience, not repeated permission loops or collections of ideas. No irreversible/public steps without permission. Canonical P0 coordination and double-consilium specification: **GitHub issue #30** (https://github.com/zukevich-blip/-city-on-paper/issues/30).
 
