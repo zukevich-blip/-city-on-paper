@@ -13,7 +13,6 @@ import io
 import json
 import math
 import zipfile
-from collections import Counter
 from datetime import date
 from pathlib import Path
 from urllib.request import Request, urlopen
