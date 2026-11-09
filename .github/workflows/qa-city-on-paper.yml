@@ -68,8 +68,8 @@ jobs:
           assert all(not x.get('preview_url') for x in items if x['rights_category'] != 'open')
           print('PASS: 1019 unique research records, all unpublished, restricted previews blocked')
           PY
-      - name: Global cartography research (official LoC maps API; non-publishing)
-        if: github.event_name == 'pull_request'
+      - name: Global cartography research (manual only; honor LoC Retry-After)
+        if: github.event_name == 'workflow_dispatch'
         continue-on-error: true
         run: |
           python -m tools.maps.discover_loc_historical_maps \
