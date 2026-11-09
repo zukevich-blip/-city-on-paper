@@ -43,7 +43,7 @@ if (!origin || !outDir) throw Error("Usage: qa_eras_offline.js <origin> <out>");
     assert("offline home serves HTML", by["index.html"].status === 200
       && /<!doctype html/i.test(by["index.html"].head), by["index.html"]);
     assert("offline journey JS is real code", by["journey.js"].status === 200
-      && by["journey.js"].head.includes("Museum") && !by["journey.js"].head.includes("<html"),
+      && by["journey.js"].head.includes("Editorial museum trail") && !by["journey.js"].head.includes("<html"),
       by["journey.js"]);
     assert("offline atlas JSON is JSON", by["data/atlas.json"].status === 200
       && by["data/atlas.json"].contentType.includes("json")
