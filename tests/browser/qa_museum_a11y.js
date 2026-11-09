@@ -125,7 +125,12 @@ async function main() {
   ].join("\n");
   fs.writeFileSync(output + "/axe-consilium-audit.md", markdown);
   console.log("CONSILIUM SUMMARY: " + JSON.stringify(totals));
-  // Advisory evidence until defects are triaged. A separate release gate
-  // must require owner/QA acknowledgement for unresolved serious items.
+  // Release gate: no outstanding serious or critical automatic findings.
+  // Medium/minor and "incomplete" remain explicit manual-review work.
+  if (totals.high > 0) {
+    throw Error("WCAG release gate: " + totals.high +
+      " serious/critical results across responsive museum screens. " +
+      "See axe-consilium-audit.json for elements and explanations.");
+  }
 }
 main().catch(err => { console.error(err.stack); process.exitCode = 1; });
