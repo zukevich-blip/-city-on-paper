@@ -174,6 +174,33 @@ def relevance(hit: dict, city: dict) -> str | None:
     if not isinstance(raw_locations, list):
         raw_locations = []
     location_text = " | ".join(str(t).casefold() for t in raw_locations)
+    # Reject explicit conflicting country metadata before accepting homonymous
+    # title matches such as London, England vs London, Ohio.
+    known_countries = {
+        "united states": "US", "united kingdom": "GB", "england": "GB",
+        "france": "FR", "italy": "IT", "china": "CN", "japan": "JP",
+        "brazil": "BR", "australia": "AU", "russia": "RU",
+        "egypt": "EG", "turkey": "TR", "spain": "ES",
+        "canada": "CA", "india": "IN", "germany": "DE",
+        "netherlands": "NL", "argentina": "AR", "south africa": "ZA",
+    }
+    country_aliases = {
+        "франция": "FR", "великобритания": "GB", "италия": "IT",
+        "сша": "US", "китай": "CN", "япония": "JP",
+        "бразилия": "BR", "австралия": "AU", "россия": "RU",
+        "египет": "EG", "турция": "TR", "испания": "ES",
+        "канада": "CA", "индия": "IN", "германия": "DE",
+        "нидерланды": "NL", "аргентина": "AR", "юар": "ZA",
+    }
+    expected_country = country_aliases.get(str(city.get("country", "")).casefold(),
+                                            str(city.get("country", "")).upper())
+    explicit_countries = {
+        known_countries[loc]
+        for loc in (str(t).casefold().strip() for t in raw_locations)
+        if loc in known_countries
+    }
+    if expected_country and explicit_countries and expected_country not in explicit_countries:
+        return None
     for variant in variants:
         term = re.compile(r"(?<![a-z])" + re.escape(variant) + r"(?![a-z])", re.I)
         if term.search(title):
