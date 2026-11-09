@@ -55,7 +55,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
  * Do not change historical image pixels, opacity, or color reproduction.
  */
 :root{--muted:#53544b}
-:where(.eyebrow){color:#62451f}
+.eyebrow{color:#62451f}
 :where(.view .coords,.view .crumbs,.view .mapnote,.plate figcaption,
   .places small,.country-count,.country-chip small){color:#53544b}
 .country-chip small{color:#505046!important}
@@ -67,3 +67,5 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .hero figcaption{color:#564a3f}
 .leaflet-control-attribution a{color:#245467!important;
   text-decoration:underline!important;text-underline-offset:1px}
+footer{color:#5b5145}
+.leaflet-control-attribution{color:#444d46!important}
