@@ -285,6 +285,7 @@ jobs:
           python tools/release/audit_public_links.py \
             --root /tmp/city-manifest-audit/public \
             --report /tmp/city-manifest-audit/LINK_AUDIT.json
+          python -c 'import json,sys; d=json.load(open("/tmp/city-manifest-audit/LINK_AUDIT.json")); print("PUBLIC_LINKS",d["checked_local_references"],"BROKEN",d["broken_local_references"]); sys.exit(1 if d["broken_local_references"] else 0)'
       - name: Upload public manifest verification report
         if: always()
         uses: actions/upload-artifact@v4
