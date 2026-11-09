@@ -1,13 +1,18 @@
 """Protect the public museum output against leakage and accidental source overwrites."""
+import json
 from pathlib import Path
 
 import pytest
 
-from tools.release.build_public_site import PAGES, build
+from tools.generate_build_manifest import DEFAULT_POLICY
+from tools.release.build_public_site import build
+
+POLICY = json.loads(DEFAULT_POLICY.read_text(encoding="utf-8"))
+
 
 
 def make_mock_source(root: Path) -> None:
-    for rel in PAGES:
+    for rel in POLICY["pages"]:
         page = root / rel
         page.parent.mkdir(parents=True, exist_ok=True)
         page.write_text(
@@ -15,6 +20,17 @@ def make_mock_source(root: Path) -> None:
             '<body><button data-go="research">Поиск в архивах</button>'
             '<section id="research" class="tab wrap">Черновики</section>'
             '</body></html>',
+            encoding="utf-8",
+        )
+    for rel in POLICY["data"]:
+        target = root / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if rel.endswith("world-cities-v1.json"):
+            value = {"city_count": 1, "cities": [{"name": "Париж", "country": "France"}]}
+        else:
+            value = {}
+        target.write_text(
+            "id,name\n1,demo\n" if target.suffix == ".csv" else json.dumps(value),
             encoding="utf-8",
         )
     secret = root / "data/candidates/NOT_FOR_PUBLICATION.json"
@@ -30,7 +46,7 @@ def test_public_site_is_allowlisted_and_indexable(tmp_path: Path) -> None:
     make_mock_source(source)
     report = build(source, output)
 
-    assert report["html_pages"] == len(PAGES) + 4
+    assert report["html_pages"] == len(POLICY["pages"]) + 4
     assert (output / "index.html").exists()
     assert (output / "about/index.html").exists()
     assert (output / "rights/index.html").exists()
