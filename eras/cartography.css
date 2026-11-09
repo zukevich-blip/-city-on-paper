@@ -13,3 +13,14 @@
 @media(max-width:670px){.historic-cartography{padding:12px;margin:12px 0 18px}
   .historic-cartography h3{font-size:20px}
   .historic-cartography a{display:inline-block;min-height:36px}}
+
+.map-source-chain{list-style:none;margin:10px 0 12px;padding:0;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.map-source-chain li{border-top:2px solid #bb9970;background:#f0e7d7;
+  padding:8px 9px;min-width:0}
+.map-source-chain .map-chain-index{display:block;font:16px/1.1 Georgia,serif;
+  color:#94734d;margin-bottom:5px}
+.map-source-chain b{display:block;font:12px/1.25 system-ui,sans-serif;color:#343e34}
+.map-source-chain small{display:block;margin-top:3px;font:11px/1.4 system-ui,sans-serif;
+  color:#6b6257}
+@media(max-width:670px){.map-source-chain{grid-template-columns:repeat(2,minmax(0,1fr))}}
