@@ -56,6 +56,28 @@ jobs:
         run: python -m tools.catalog.validate
       - name: Unit tests
         run: pytest -q tests
+      - name: Normalize curated catalog offline (no external API, no unreviewed publishing)
+        run: |
+          python tools/normalize_catalog.py --root . --out /tmp/normalized-catalog-review
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path("/tmp/normalized-catalog-review")
+          data=json.loads((base/"normalized_catalog.json").read_text())
+          report=json.loads((base/"normalization_report.json").read_text())
+          assert data["works"] and data["cities"]
+          assert all(not w["rights"]["reuse_approved_by_this_pipeline"] for w in data["works"])
+          assert report["publication"].startswith("NOT APPROVED")
+          print("Catalog is staged for review, not published", report["normalized_holdings"])
+          PY
+      - name: Archive normalization summary only (no raw archival staging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-normalized-catalog-summary
+          path: /tmp/normalized-catalog-review/normalization_report.json
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Verify artwork fields and candidates metadata
         run: |
           python - <<'PY'
