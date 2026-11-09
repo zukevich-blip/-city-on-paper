@@ -267,6 +267,34 @@ jobs:
           sleep 2
           curl -fsS http://127.0.0.1:8766/index.html -o /dev/null
           node tests/browser/qa_packaged.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+      - name: Generate and validate actual public build manifest (dry-run)
+        run: |
+          mkdir -p /tmp/city-manifest-audit
+          python tools/generate_build_manifest.py \
+            --source /tmp/city-on-paper-package \
+            --out /tmp/city-manifest-audit/BUILD_MANIFEST.json
+          python tools/release/build_public_site.py \
+            --source /tmp/city-on-paper-package \
+            --manifest /tmp/city-manifest-audit/BUILD_MANIFEST.json \
+            --out /tmp/city-manifest-audit/public
+          cp /tmp/city-manifest-audit/public/PUBLIC_BUILD.json /tmp/city-manifest-audit/PUBLIC_BUILD.json
+          test -s /tmp/city-manifest-audit/public/eras/journey.js
+          test -s /tmp/city-manifest-audit/public/world/index.html
+          test ! -e /tmp/city-manifest-audit/public/data/candidates
+          test ! -e /tmp/city-manifest-audit/public/docs/consilium
+          python tools/release/audit_public_links.py \
+            --root /tmp/city-manifest-audit/public \
+            --report /tmp/city-manifest-audit/LINK_AUDIT.json
+      - name: Upload public manifest verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: city-on-paper-public-manifest-report
+          path: |
+            /tmp/city-manifest-audit/BUILD_MANIFEST.json
+            /tmp/city-manifest-audit/PUBLIC_BUILD.json
+            /tmp/city-manifest-audit/LINK_AUDIT.json
+          retention-days: 7
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
