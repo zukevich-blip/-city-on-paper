@@ -548,6 +548,13 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.suggest < 0 or args.suggest > 10:
         parser.error("--suggest must be 0..10")
+    # Never accidentally write unreviewed raw research into tracked museum
+    # folders. For output inside the repo only an ignored dist/ is allowed.
+    root = args.root.resolve()
+    out = args.out.resolve()
+    if out == root or (out.is_relative_to(root) and
+                       not out.is_relative_to(root / "dist")):
+        raise ValueError("Unreviewed catalog output within repo must use dist/")
     raw, raw_cities, warnings = collect(args.root)
     catalog = normalize(raw, raw_cities)
     remote: dict[str, Any] = {"status": "offline_no_api_calls"}
