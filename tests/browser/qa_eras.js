@@ -41,7 +41,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       mapTileCount >= 1 && mapTileResponse.ok() && String(mapTileResponse.headers()["content-type"] || "").startsWith("image/"),
       `${mapTileCount} / ${mapTileResponse.status()} / ${mapTileUrl}`);
     ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
-    ok(`${vp.n} museum bar: all halls`, await p.$eval("#museumPanel a", (a) => a.length) >= 18);
+    ok(`${vp.n} museum bar: all halls`, (await p.locator("#museumPanel a").count()) >= 18);
     ok(`${vp.n} closed halls never cover the museum at rest`,
       await p.locator("#museumPanel").evaluate(el =>
         el.hidden && getComputedStyle(el).display === "none"));
