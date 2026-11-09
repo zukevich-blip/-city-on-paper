@@ -76,6 +76,14 @@ jobs:
             --out /tmp/world-historic-maps \
             --budget 18 --per-city 4 --delay 1.25
           test -s /tmp/world-historic-maps/world-historic-map-discovery-report.json
+      - name: Major cities worldwide via official GeoNames dump (CC BY 4.0)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          python -m tools.maps.import_geonames_major_cities \
+            --out /tmp/world-historic-maps \
+            --min-population 250000 --max-cities 12000
+          test -s /tmp/world-historic-maps/geonames-major-cities-research.json
       - name: Archive global cartography research candidates
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
