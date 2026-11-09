@@ -6,7 +6,12 @@ from urllib.error import HTTPError
 import pytest
 
 from tools.maps.discover_loc_historical_maps import (
-    LOC_API, build_queue, discover, loc_url, official_loc_record, search_phrase,
+    LOC_API,
+    build_queue,
+    discover,
+    loc_url,
+    official_loc_record,
+    search_phrase,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
