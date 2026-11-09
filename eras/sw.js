@@ -80,6 +80,15 @@ async function respond(event) {
   }
   try {
     const fresh = await fetch(request);
+    // Some HTTP servers answer 404 for a missing JS/JSON with an HTML
+    // error page. Preserve the true 404 but never expose HTML as code.
+    const path = new URL(request.url).pathname;
+    if (!fresh.ok && /\.(?:js|mjs|json|css)$/i.test(path) &&
+        /text\/html/i.test(fresh.headers.get("Content-Type") || "")) {
+      return new Response("Файл атласа не найден", {
+        status: fresh.status, headers: { "Content-Type": "text/plain; charset=utf-8" }
+      });
+    }
     if (fresh.ok && fresh.type !== "opaque") {
       try {
         const cache = await caches.open(SHELL_CACHE);
