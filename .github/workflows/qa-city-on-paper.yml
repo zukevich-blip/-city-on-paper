@@ -84,6 +84,15 @@ jobs:
             --out /tmp/world-historic-maps \
             --min-population 250000 --max-cities 12000
           test -s /tmp/world-historic-maps/geonames-major-cities-research.json
+      - name: Extend research queue to GeoNames major cities (no LoC queries)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          if test -s /tmp/world-historic-maps/geonames-major-cities-research.json; then
+            python -m tools.maps.discover_loc_historical_maps \
+              --dry-run --out /tmp/world-historic-maps \
+              --geonames /tmp/world-historic-maps/geonames-major-cities-research.json
+          fi
       - name: Archive global cartography research candidates
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
