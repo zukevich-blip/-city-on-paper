@@ -118,6 +118,10 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#historicCartography .historic-map-source a").getAttribute("href")) ===
       "https://www.loc.gov/item/2012586603/" &&
       /геопривязка ещё не проверена/.test(await p.locator("#historicCartography").textContent()));
+    ok(`${vp.n} LoC map evidence chain distinguishes archive, HD, GCP and expert review`,
+      (await p.locator("#historicCartography .map-source-chain li").count()) === 4 &&
+      /IIIF подтверждён/.test(await p.locator(".map-source-chain").textContent()) &&
+      /Независимая проверка нужна/.test(await p.locator(".map-source-chain").textContent()));
     ok(`${vp.n} featured city also lists museum works`, (await p.locator("#others").count()) === 1);
     await p.waitForFunction(() => /всего \d+ доступных изображений/.test(
       document.querySelector('#cityLab [data-role="status"]')?.textContent || ""));
