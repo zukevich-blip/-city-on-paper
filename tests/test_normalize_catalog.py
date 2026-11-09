@@ -8,8 +8,19 @@ from urllib.error import HTTPError
 import pytest
 
 from tools.normalize_catalog import (
-    API, DeferredRemote, _record, city_index, collect, enrich_catalog, fold,
-    main, normalize, report, stable_id, valid_coords, wikidata_claims,
+    API,
+    DeferredRemote,
+    _record,
+    city_index,
+    collect,
+    enrich_catalog,
+    fold,
+    main,
+    normalize,
+    report,
+    stable_id,
+    valid_coords,
+    wikidata_claims,
 )
 
 
