@@ -91,6 +91,9 @@ def generate(source: Path, policy_path: Path = DEFAULT_POLICY) -> dict[str, Any]
     pages, data = policy["pages"], policy["data"]
     if not pages or not data:
         raise ValueError("Publication policy has zero pages/data")
+    for group in (pages, data, policy["asset_roots"]):
+        if len(group) != len(set(group)):
+            raise ValueError("Duplicate entries in publication policy")
     approved_exts = {e.lower() for e in policy["asset_extensions"]}
     if any(not e.startswith(".") for e in approved_exts):
         raise ValueError("Invalid asset extension policy")
@@ -165,22 +168,12 @@ def generate(source: Path, policy_path: Path = DEFAULT_POLICY) -> dict[str, Any]
 
 
 def validate(source: Path, manifest: dict[str, Any], policy_path: Path = DEFAULT_POLICY) -> None:
-    if manifest.get("schema") != SCHEMA:
-        raise ValueError("Incorrect manifest schema")
-    if manifest.get("policy_sha256") != sha256(policy_path):
-        raise ValueError("Publication policy has changed since manifest generation")
-    names: set[str] = set()
-    policy = json.loads(policy_path.read_text(encoding="utf-8"))
-    for entry in manifest.get("files", []):
-        rel = relative_path(entry["path"])
-        if rel in names:
-            raise ValueError(f"Duplicate manifest file: {rel}")
-        names.add(rel)
-        actual = _check_file(source.resolve(), rel, policy)
-        if actual.stat().st_size != entry["size"] or sha256(actual) != entry["sha256"]:
-            raise ValueError(f"Source changed since manifest generation: {rel}")
-    if not names or not set(manifest.get("pages", [])).issubset(names):
-        raise ValueError("Missing approved HTML pages in manifest")
+    # Never trust a supplied manifest as authorization. Reproduce it from the
+    # reviewed policy and exact source bytes, including the discovered file list.
+    # This rejects injected but otherwise plausible files in data/ or assets/.
+    expected = generate(source, policy_path)
+    if manifest != expected:
+        raise ValueError("Manifest does not match approved policy and source bytes")
 
 
 def main() -> None:
