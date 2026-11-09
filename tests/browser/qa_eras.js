@@ -308,7 +308,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     const museum = await ctx.newPage();
     for (const route of ["", "world/"]) {
       await museum.goto(base + route, { waitUntil: "domcontentloaded" });
-      await museum.locator("#museumPanel").waitFor();
+      await museum.locator("#museumPanel").waitFor({ state: "attached" });
       const section = route || "home";
       ok(`${vp.n} ${section} menu starts physically collapsed`,
         await museum.locator("#museumPanel").evaluate(el =>
