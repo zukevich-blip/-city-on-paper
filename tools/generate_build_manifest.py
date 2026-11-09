@@ -84,14 +84,14 @@ def generate(source: Path, policy_path: Path = DEFAULT_POLICY) -> dict[str, Any]
     policy = json.loads(policy_path.read_text(encoding="utf-8"))
     if policy.get("schema") != "city-on-paper/publication-policy/v1":
         raise ValueError("Unsupported or missing publication policy schema")
-    required = ("pages", "data", "asset_roots", "asset_extensions",
+    required = ("pages", "data", "support_files", "asset_roots", "asset_extensions",
                 "forbidden_paths", "forbidden_path_parts", "forbidden_suffixes")
     if any(not isinstance(policy.get(k), list) for k in required):
         raise ValueError("Publication policy must contain explicit lists")
     pages, data = policy["pages"], policy["data"]
     if not pages or not data:
         raise ValueError("Publication policy has zero pages/data")
-    for group in (pages, data, policy["asset_roots"]):
+    for group in (pages, data, policy["support_files"], policy["asset_roots"]):
         if len(group) != len(set(group)):
             raise ValueError("Duplicate entries in publication policy")
     approved_exts = {e.lower() for e in policy["asset_extensions"]}
@@ -120,6 +120,8 @@ def generate(source: Path, policy_path: Path = DEFAULT_POLICY) -> dict[str, Any]
         add(rel, "page")
     for rel in data:
         add(rel, "data")
+    for rel in policy["support_files"]:
+        add(rel, "support")
 
     ignored = []
     for root in policy["asset_roots"]:
@@ -142,6 +144,8 @@ def generate(source: Path, policy_path: Path = DEFAULT_POLICY) -> dict[str, Any]
                 continue
             if is_forbidden(rel, policy):
                 raise ValueError(f"Restricted file under public asset root: {rel}")
+            if rel in entries:
+                continue
             if path.suffix.lower() not in approved_exts:
                 ignored.append({"path": rel, "reason": "unsupported_extension"})
                 continue
@@ -160,6 +164,7 @@ def generate(source: Path, policy_path: Path = DEFAULT_POLICY) -> dict[str, Any]
             "pages": len(pages),
             "data": sum(x["kind"] == "data" for x in files),
             "assets": sum(x["kind"] == "asset" for x in files),
+            "support": sum(x["kind"] == "support" for x in files),
             "bytes": sum(x["size"] for x in files),
             "ignored": ignored,
         },
