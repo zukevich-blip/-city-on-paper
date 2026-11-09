@@ -128,6 +128,36 @@ def collect(root: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]], lis
                 qid=row.get("wikidata_id"),
             ))
 
+    # The complete packaged museum also contains two generated open-art
+    # collections that are not tracked as source JSON in the repository.
+    # These are machine-discovered candidates, never editorial sign-off.
+    generated = (
+        "data/curation/museum-expansion-v1.json",
+        "data/curation/world-graphic-archive-v1.json",
+    )
+    for rel in generated:
+        path = root / rel
+        if not path.is_file():
+            continue
+        data = _read_json(path)
+        if not isinstance(data.get("items"), list):
+            raise ValueError(f"Invalid generated archive collection: {rel}")
+        for idx, row in enumerate(data["items"]):
+            if not isinstance(row, dict):
+                warnings.append(f"{rel} row {idx} is not an object")
+                continue
+            records.append(_record(
+                rel, idx, row,
+                title=str(row.get("title_original") or row.get("name") or ""),
+                institution=str(row.get("source") or row.get("institution") or ""),
+                accession=str(row.get("source_id") or row.get("id") or ""),
+                url=row.get("url"), city=str(row.get("city") or ""),
+                country=str(row.get("country") or ""),
+                maker=str(row.get("maker") or ""), date=str(row.get("date") or ""),
+                rights=str(row.get("rights") or ""),
+                qid=row.get("wikidata_id"),
+            ))
+
     ledger = root / "data/catalog/ledger-2026-11-01.csv"
     if ledger.is_file():
         with ledger.open(encoding="utf-8-sig", newline="") as handle:
@@ -572,6 +602,10 @@ def main(argv: list[str] | None = None) -> int:
     })
     write_json(out / "normalized_catalog.json", catalog)
     result = report(catalog, len(raw), warnings, remote)
+    origins: dict[str, int] = defaultdict(int)
+    for row in raw:
+        origins[row["origin_file"]] += 1
+    result["source_counts"] = dict(sorted(origins.items()))
     write_json(out / "normalization_report.json", result)
     print("PASS", json.dumps({
         k: v for k, v in result.items()
