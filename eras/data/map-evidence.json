@@ -1,0 +1,23 @@
+{
+  "schema": "city-on-paper/world-map-catalogue/v1",
+  "generated": "2026-11-09",
+  "publication_status": "source_evidence_only_not_georeferenced",
+  "notes": [
+    "Only known original LoC item below is listed. Discovery results are separately staged and must be inspected before appending.",
+    "This catalog never certifies GCPs or automatically mirrors archival images."
+  ],
+  "items": [
+    {
+      "city_id": "paris",
+      "map_id": "loc-2012586603",
+      "object_url": "https://www.loc.gov/item/2012586603/",
+      "title": "Paris et ses environs : 1878",
+      "date_as_reported": "1878",
+      "institution": "Library of Congress",
+      "rights_note": "Geography and Map Division: no Rights Advisory; reuse terms must be checked at item",
+      "status": "catalogue_source_checked",
+      "georeferencing_status": "research_affine_not_independently_verified",
+      "image_api_status": "working_IIIF_Image_API_for_this_item"
+    }
+  ]
+}
