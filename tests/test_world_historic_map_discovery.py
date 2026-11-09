@@ -94,3 +94,25 @@ def test_429_stops_and_never_ignores_rate_limit():
     assert report["throttled"]
     assert report["attempted_city_count"] == 1
     assert report["errors"][0]["retry_after"] == "42"
+
+def test_geonames_adds_worldwide_city_searches_without_collapsing_homonyms():
+    a = {"cities": [{"id": "paris", "name": "Париж", "country": "Франция",
+                      "lat": 48.85, "lon": 2.3, "works": []}]}
+    seed = {"cities": []}
+    geonames = {
+        "schema": "city-on-paper/geonames-major-city-candidates/v1",
+        "cities": [{
+            "candidate_city_id": "geonames-123",
+            "name": "Paris", "name_ascii": "Paris", "country_iso2": "FR",
+            "lat": 48.85, "lon": 2.3, "population_reported_by_geonames": 2000000,
+            "source_url": "https://www.geonames.org/123/",
+        }],
+    }
+    rows = build_queue(a, seed, geonames)
+    assert len(rows) == 2
+    assert {r["city_id"] for r in rows} == {"paris", "geonames-123"}
+    geo = next(x for x in rows if x["city_id"] == "geonames-123")
+    assert geo["query"] == "Paris historical city map"
+    assert geo["identity_status"] == "geonames_candidate_not_reconciled_with_atlas"
+    assert geo["review_status"] == "search_queued_not_a_verified_map"
+
