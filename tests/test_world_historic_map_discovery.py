@@ -11,6 +11,7 @@ from tools.maps.discover_loc_historical_maps import (
     discover,
     loc_url,
     official_loc_record,
+    relevance,
     search_phrase,
 )
 
@@ -67,7 +68,7 @@ def test_mocked_discovery_deduplicates_while_keeping_only_source_candidates():
     def fake_fetch(url):
         called.append(url)
         return {"results": [
-            {"id": "https://www.loc.gov/item/2012586603/", "title": "Map A", "date": "1878"},
+            {"id": "https://www.loc.gov/item/2012586603/", "title": "Plan of Paris 1878", "date": "1878"},
             {"id": "http://www.loc.gov/item/2012586603/", "title": "Map A duplicate"},
             {"id": "https://thirdparty.invalid/item/12345/", "title": "Fake"},
         ]}
@@ -115,4 +116,38 @@ def test_geonames_adds_worldwide_city_searches_without_collapsing_homonyms():
     assert geo["query"] == "Paris historical city map"
     assert geo["identity_status"] == "geonames_candidate_not_reconciled_with_atlas"
     assert geo["review_status"] == "search_queued_not_a_verified_map"
+
+def test_false_loc_hits_never_enter_city_map_candidates():
+    row = {"city_id": "paris", "name": "Париж",
+           "country": "Франция", "query": "Paris architecture map"}
+    assert relevance({"title": "Physical Map of the Indian Ocean.",
+                      "location": ["Indian Ocean"]}, row) is None
+    assert relevance({"title": "Socio-economic atlas of Myanmar",
+                      "location": ["Burma"]}, row) is None
+    assert relevance({"title": "Plan de Paris 1878",
+                      "location": ["France", "Paris"]}, row) == "city_alias_in_title"
+
+    def misleading(_url):
+        return {"results": [
+            {"id": "https://www.loc.gov/item/2021668725/",
+             "title": "Physical Map of the Indian Ocean."},
+            {"id": "https://www.loc.gov/item/2020718056/",
+             "title": "Socio-economic atlas of Myanmar"},
+        ]}
+
+    archive, report = discover([row], budget=1, delay=0, fetch=misleading)
+    assert archive["city_search_results"][0]["candidate_maps"] == []
+    assert report["map_candidate_count"] == 0
+    assert not report["throttled"]
+
+
+def test_geographic_aliases_require_real_title_or_location_evidence():
+    row = {"query": "Edo historical city map"}
+    assert relevance({"title": "Enju Oedo ezu",
+                      "location": ["Japan", "Tokyo"]}, row) == "city_alias_in_location"
+    row = {"query": "London city map"}
+    assert relevance({"title": "London city plan"}, row) == "city_alias_in_title"
+    assert relevance({"title": "Sanborn map of London, Ohio",
+                      "location": ["United States", "Ohio"]}, row) == "city_alias_in_title"
+    # The word London still matches: an additional country/place review is required.
 
