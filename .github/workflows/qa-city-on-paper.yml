@@ -116,7 +116,7 @@ jobs:
           python-version: '3.12'
       - name: Install Playwright
         run: |
-          npm install --no-save playwright@1.56.1
+          npm install --no-save playwright@1.56.1 @axe-core/playwright@4.14.0
           npx playwright install --with-deps chromium
       - name: Serve local museum
         run: |
@@ -138,6 +138,11 @@ jobs:
           node tests/browser/qa_idea_lab.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_salon_exhibition.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_close_reading.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+      - name: Offline PWA regression plus automated museum accessibility consilium
+        run: |
+          mkdir -p /tmp/city-on-paper-screens
+          node tests/browser/qa_eras_offline.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_museum_a11y.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
       - name: Restore resumable Commons archive
         uses: actions/cache/restore@v4
         with:
