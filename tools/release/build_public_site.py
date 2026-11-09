@@ -6,60 +6,17 @@ import html
 import json
 import re
 import shutil
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 BASE = "https://zukevich-blip.github.io/-city-on-paper/"
-PAGES = (
-    "index.html", "salon/index.html", "closeup/index.html",
-    "photography/index.html", "world/index.html",
-    "exhibitions/city-as-evidence/index.html",
-    "exhibitions/lost-florence/index.html", "discover/index.html",
-    "journeys/index.html", "atlas-prototype/index.html", "detective/index.html", "studio/index.html",
-    "ornaments/index.html", "atelier/bargue/index.html",
-    "atelier/ornament/index.html", "printlab/index.html",
-    "fieldwork/index.html", "ideas/index.html",
-    "poc/compare/index.html", "poc/compare/editor.html",
-    "eras/index.html", "desk/index.html",
-)
-DATA = (
-    "data/curation/cc0-gallery-20261103.json",
-    "data/curation/close-reading-20261103.json",
-    "data/curation/close-reading-benoist-20261103.json",
-    "data/curation/era-journeys-20261102.json",
-    "data/curation/world-cities-v1.json",
-    "data/curation/benoist-paris-musees-v1.json",
-    "data/curation/museum-expansion-v1.json",
-    "data/curation/modern-city-photography-v1.json",
-    "data/curation/world-graphic-archive-v1.json",
-    "data/curation/modern-photos-cc0-20261103.json",
-    "data/stories/madeleine-dossier-20261103.json",
-    "data/research/benoist-production-network-v1.json",
-    "data/catalog/ornament-workshop-2026-11-02.json",
-    "data/catalog/bargue-academy-2026-11-02.json",
-    "data/catalog/ledger-2026-11-01.csv",
-    "data/ideas/radar-20261103.json",
-)
-ASSETS = (
-    "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
-    "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav",
-)
-FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
-             "PROJECT_HANDOFF.md", "serve_local.py")
+# Explicit pages, approved catalog files and asset roots now live in
+# publication_policy.json. The scanner hashes concrete assets but never approves
+# arbitrary research folders just because files are present.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-
-def copy(src: Path, dst: Path, rel: str, mandatory: bool = False) -> None:
-    original = src / rel
-    if not original.exists():
-        if mandatory:
-            raise FileNotFoundError(f"Missing verified museum file: {rel}")
-        return
-    target = dst / rel
-    target.parent.mkdir(parents=True, exist_ok=True)
-    if original.is_dir():
-        shutil.copytree(original, target, dirs_exist_ok=True)
-    else:
-        shutil.copy2(original, target)
+from generate_build_manifest import DEFAULT_POLICY, generate, sha256, validate  # noqa: E402
 
 
 def optimize(page: Path, rel: str) -> None:
@@ -203,46 +160,68 @@ def info_pages(destination: Path) -> None:
         optimize(page, f"{slug}/index.html")
 
 
-def build(source: Path, output: Path) -> dict:
+def build(source: Path, output: Path, manifest_path: Path | None = None,
+          policy_path: Path = DEFAULT_POLICY) -> dict:
     source, output = source.resolve(), output.resolve()
     if source == output or output.is_relative_to(source):
         raise ValueError("Public output must not overwrite the archive")
+    if manifest_path:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    else:
+        manifest = generate(source, policy_path)
+    validate(source, manifest, policy_path)
+
+    # Fail closed: the public bundle consists of exactly the checksummed files
+    # in this manifest plus explicit legal/info pages and generated metadata.
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
-    for rel in PAGES:
-        copy(source, output, rel, mandatory=True)
-    for rel in (*DATA, *ASSETS):
-        copy(source, output, rel)
-    for rel in PAGES:
+    for entry in manifest["files"]:
+        rel = entry["path"]
+        target = output / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source / rel, target)
+        if sha256(target) != entry["sha256"]:
+            raise ValueError(f"Copied museum file checksum mismatch: {rel}")
+    for rel in manifest["pages"]:
         optimize(output / rel, rel)
     info_pages(output)
-    for rel in FORBIDDEN:
-        if (output / rel).exists():
-            raise ValueError(f"Restricted file found in public bundle: {rel}")
+
+    (output / "BUILD_MANIFEST.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     (output / ".nojekyll").touch()
     (output / "robots.txt").write_text(
         "User-agent: *\nAllow: /\nSitemap: " + BASE + "sitemap.xml\n",
         encoding="utf-8",
     )
-    pages = [*PAGES, "about/index.html", "rights/index.html", "privacy/index.html", "contribute/index.html"]
+    pages = [*manifest["pages"], "about/index.html", "rights/index.html",
+             "privacy/index.html", "contribute/index.html"]
     root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for rel in pages:
         ET.SubElement(ET.SubElement(root, "url"), "loc").text = (
             BASE + ("" if rel == "index.html" else rel.removesuffix("index.html"))
         )
-    ET.ElementTree(root).write(output / "sitemap.xml", encoding="utf-8", xml_declaration=True)
+    ET.ElementTree(root).write(output / "sitemap.xml", encoding="utf-8",
+                               xml_declaration=True)
     (output / "PUBLIC_BUILD.json").write_text(json.dumps({
         "source": "Tested GitHub Actions City on Paper museum artifact",
-        "public_html_pages": len(pages), "candidate_research_included": False,
-        "source_review": "Automated metadata checks; human artwork editorial review pending"
+        "public_html_pages": len(pages),
+        "candidate_research_included": False,
+        "source_review": "Automated metadata checks; human artwork editorial review pending",
+        "manifest_sha256": sha256(output / "BUILD_MANIFEST.json"),
+        "manifest_files": manifest["summary"]["files"],
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return {"html_pages": len(pages), "files": sum(p.is_file() for p in output.rglob("*"))}
+    return {"html_pages": len(pages), "files": sum(p.is_file() for p in output.rglob("*")),
+            "manifest_files": manifest["summary"]["files"]}
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path,
+                        help="Optional pre-generated checksummed BUILD_MANIFEST.json")
+    parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
     args = parser.parse_args()
-    print(build(args.source, args.out))
+    print(build(args.source, args.out, args.manifest, args.policy))
