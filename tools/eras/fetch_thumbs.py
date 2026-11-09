@@ -11,7 +11,9 @@ Writes eras/thumbs/<key>.jpg and eras/data/thumbs.json {commons_file_name: "thum
 from __future__ import annotations
 
 import hashlib
+import io
 import json
+import re
 import sys
 import time
 import urllib.error
@@ -49,9 +51,9 @@ def key(name: str) -> str:
     return hashlib.sha1(name.encode("utf-8")).hexdigest()[:16]
 
 
-def get(url: str) -> bytes | None:
+def get(url: str, headers: dict | None = None) -> bytes | None:
     for attempt in range(4):
-        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        req = urllib.request.Request(url, headers=headers or {"User-Agent": UA})
         try:
             with urllib.request.urlopen(req, timeout=40) as r:
                 if not r.headers.get("Content-Type", "").startswith("image/"):
@@ -95,6 +97,21 @@ def collect(paths: list[Path]) -> list[str]:
     return out
 
 
+AIC = re.compile(r"^https://www\.artic\.edu/iiif/2/[0-9a-f-]{36}/full/\d+,/0/default\.jpg$")
+
+
+def collect_urls(paths: list[Path]) -> list[str]:
+    """Exact image URLs from hosts that browsers block cross-origin (Art Institute of Chicago IIIF, CC0)."""
+    out = []
+    for p in paths:
+        d = json.loads(p.read_text("utf-8"))
+        for it in d if isinstance(d, list) else d.get("items", []):
+            u = it.get("image") or ""
+            if AIC.match(u) and u not in out:
+                out.append(u)
+    return out
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     old = json.loads(MAP.read_text("utf-8")) if MAP.exists() else {}
@@ -122,6 +139,20 @@ def main() -> None:
             miss.append(n)
             if n in old:
                 result[n] = old[n]
+    for u in collect_urls([Path(a) for a in sys.argv[1:]]):
+        f = OUT / f"aic-{hashlib.sha1(u.encode()).hexdigest()[:16]}.jpg"
+        if not f.exists():
+            # AIC asks API clients to identify themselves with the AIC-User-Agent header
+            data = get(u, {"User-Agent": "CityOnPaper/1.0",
+                           "AIC-User-Agent": "CityOnPaper (github.com/zukevich-blip/-city-on-paper)"})
+            time.sleep(0.7)
+            if not data or data[:3] != b"\xff\xd8\xff":
+                miss.append(u)
+                continue
+            im = Image.open(io.BytesIO(data)).convert("RGB")
+            im.thumbnail((600, 600))
+            im.save(f, "JPEG", quality=80, optimize=True, progressive=True)
+        result[u] = f"thumbs/{f.name}"
     MAP.write_text(json.dumps(dict(sorted(result.items())), ensure_ascii=False, indent=0) + "\n", "utf-8")
     print(f"{len(result)} thumbnails, {len(miss)} missing")
     for n in miss[:20]:
