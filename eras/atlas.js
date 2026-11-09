@@ -41,6 +41,7 @@ window.Atlas = (() => {
       <span class="eyebrow">Атлас эпох · вход через старую карту</span>
       <h1>Города на бумаге:<br>от Бретани до Вильнюса</h1>
       <p class="lede">${A.cities.length} городов и мест — в основном Европа; ${A.counts.benoist_places} из них рисовали Феликс и Филипп Бенуа (${A.counts.benoist_works} работ в музеях и библиотеках). Метки стоят на подлинной карте Европы XVIII века — она красива, но неточна, поэтому положение меток приблизительное. Внутри города — работы из музеев и библиотек с источниками и правами.</p>
+      <div class="museum-journey-host" data-kind="portal"></div>
       <div class="tools" role="search"><label class="sr" for="q">Поиск города</label>
         <input id="q" type="search" placeholder="Город, страна или регион" value="${esc(filter.q)}" autocomplete="off">
         <select id="grp" aria-label="Показать">${groups.map(([v, l]) => `<option value="${esc(v)}" ${filter.group === v ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></div>
@@ -54,6 +55,7 @@ window.Atlas = (() => {
       <nav class="country-index" id="countryIndex" aria-label="Страны в атласе"></nav>
       <p class="note" id="shown" role="status" aria-live="polite"></p>
       <div class="country-collection" id="list"></div></div>`;
+    if (window.MuseumJourney) MuseumJourney.mount(app.querySelector(".museum-journey-host"));
     const q = document.getElementById("q"), grp = document.getElementById("grp");
     let selectedCountry = null;
     const draw = () => {
@@ -177,7 +179,7 @@ window.Atlas = (() => {
     const head = `<nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <a href="#/country/${encodeURIComponent(c.country)}">${esc(c.country)}</a> › <span aria-current="page">${esc(c.name)}</span></nav>
       <span class="eyebrow">${esc(c.country)}${c.area ? " · " + esc(c.area) : ""}</span>
       <h1>${esc(c.name)}${c.name_orig && c.name_orig !== c.name ? ` <small class="orig">${esc(c.name_orig)}</small>` : ""}</h1>`;
-    const body = `<p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">город сегодня на карте OSM ↗</a></p>
+    const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">город сегодня на карте OSM ↗</a></p>
       <section class="cmap" aria-labelledby="cmapH"><h2 id="cmapH">Карта города${c.plan ? ": тогда и сейчас" : ""}</h2><div id="cmaphost"></div></section>
       <section id="historicCartography" class="historic-cartography" aria-label="Исторические карты и первоисточники города"></section>
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
@@ -199,10 +201,14 @@ window.Atlas = (() => {
       <div class="wgrid" id="wg"><p class="note">Загружаем…</p></div>
       <button type="button" id="more" class="morebtn" hidden>Показать ещё</button>
       ${(c.halls || []).length ? `<section class="halls"><span class="eyebrow">Этот город в других залах музея</span><p>${c.halls.map(([u, t]) => `<a href="${esc(/^\.\.\/[a-z]/.test(u) ? u : "#")}">${esc(t)} →</a>`).join("")}</p></section>` : ""}
-      <section class="hunt2"><span class="eyebrow">Найти больше</span><p>Поиск в открытых архивах (откроется у хранителя; права проверяйте в карточке):</p>
+      <section class="hunt2" id="archiveSearch"><span class="eyebrow">Найти больше</span><p>Поиск в открытых архивах (откроется у хранителя; права проверяйте в карточке):</p>
         <p>${search.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join(" · ")}</p></section>`;
     if (append) app.querySelector(".view").insertAdjacentHTML("beforeend", `<hr class="sep">${body}`);
     else app.innerHTML = `<div class="view">${head}${body}</div>`;
+    if (window.MuseumJourney) {
+      const j = app.querySelectorAll(".museum-journey-host");
+      MuseumJourney.mount(j[j.length - 1], c);
+    }
     const sites = c.sites || [];
     const siteBy = new Map(sites.map((x) => [x.url, x]));
     if (window.Maps) try { Maps.city(document.getElementById("cmaphost"), c, sites, thumb); } catch (e) { /* map optional */ }
