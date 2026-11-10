@@ -231,6 +231,7 @@ def city_index(raw_cities: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], 
                 "geonames_status": "location_pending",
                 "latitude": row["latitude_claim"], "longitude": row["longitude_claim"],
                 "source": row["source"], "provenance": "research_seed_not_verified",
+                "id_stability": "provisional_name_country_hash_until_identity_review",
             }
         if city_id not in index[fold(name)]:
             index[fold(name)].append(city_id)
@@ -448,10 +449,12 @@ class API:
 
 def enrich_catalog(catalog: dict[str, Any], api: API, *,
                    enable_wikidata: bool, enable_geonames: bool,
-                   geonames_user: str | None, suggest_limit: int = 0) -> dict[str, Any]:
+                   geonames_user: str | None, suggest_limit: int = 0,
+                   geo_suggest_limit: int = 0) -> dict[str, Any]:
     results: dict[str, Any] = {
         "wikidata_checked": 0, "geonames_checked": 0,
-        "suggestions_checked": 0, "deferred": [],
+        "suggestions_checked": 0, "geonames_suggestions_checked": 0,
+        "deferred": [],
     }
     if enable_wikidata:
         for work in catalog["works"]:
@@ -529,6 +532,36 @@ def enrich_catalog(catalog: dict[str, Any], api: API, *,
                         "source": "GeoNames", "id": gid, "reason": str(exc),
                     })
                     break
+
+            for city in catalog["cities"]:
+                if results["geonames_suggestions_checked"] >= geo_suggest_limit:
+                    break
+                if city["geonames_id"]:
+                    continue
+                try:
+                    response = api.get(GEONAMES_API + "/searchJSON", {
+                        "name_equals": city["name"], "featureClass": "P",
+                        "maxRows": "5", "username": geonames_user,
+                    })
+                    # Similar names and translated countries can refer to
+                    # unrelated places. Never auto-adopt any search result.
+                    city["geonames_suggestions"] = [{
+                        "id": str(place.get("geonameId") or ""),
+                        "name": place.get("name"),
+                        "country_code": place.get("countryCode"),
+                        "country": place.get("countryName"),
+                        "latitude": place.get("lat"),
+                        "longitude": place.get("lng"),
+                        "status": "candidate_manual_geography_review",
+                    } for place in response.get("geonames", [])
+                       if GEONAME_RE.fullmatch(str(place.get("geonameId") or ""))]
+                    results["geonames_suggestions_checked"] += 1
+                except DeferredRemote as exc:
+                    results["deferred"].append({
+                        "source": "GeoNames search", "id": city["id"],
+                        "reason": str(exc),
+                    })
+                    break
     return results
 
 
@@ -575,9 +608,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--suggest", type=int, default=0,
                         help="Optional Wikidata title search, always unverified (max 10)")
     parser.add_argument("--geonames-user", default=os.getenv("GEONAMES_USERNAME", ""))
+    parser.add_argument("--suggest-cities", type=int, default=0,
+                        help="Search GeoNames for unresolved cities, unverified (max 10)")
     args = parser.parse_args(argv)
     if args.suggest < 0 or args.suggest > 10:
         parser.error("--suggest must be 0..10")
+    if args.suggest_cities < 0 or args.suggest_cities > 10:
+        parser.error("--suggest-cities must be 0..10")
     # Never accidentally write unreviewed raw research into tracked museum
     # folders. For output inside the repo only an ignored dist/ is allowed.
     root = args.root.resolve()
@@ -593,6 +630,7 @@ def main(argv: list[str] | None = None) -> int:
         remote = enrich_catalog(
             catalog, api, enable_wikidata=True, enable_geonames=True,
             geonames_user=args.geonames_user, suggest_limit=args.suggest,
+            geo_suggest_limit=args.suggest_cities,
         )
     # Do not copy raw archive records into a page or build artifact.
     out = args.out
