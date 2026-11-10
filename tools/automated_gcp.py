@@ -215,7 +215,7 @@ def run(source_path: Path, reference_path: Path, output_path: Path,
         s = all_s[selected]
         r = all_r[selected]
         lonlat = pixels_to_lonlat(r, geo, transformer) if geo else None
-        for i, (sp, rp) in enumerate(zip(s, r)):
+        for i, (sp, rp) in enumerate(zip(s, r, strict=True)):
             entry = {"id": i + 1, "source_pixel": [round(float(z), 3) for z in sp],
                      "reference_pixel": [round(float(z), 3) for z in rp],
                      "status": "unverified_machine_match"}
