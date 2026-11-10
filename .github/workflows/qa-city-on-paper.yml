@@ -28,6 +28,7 @@ on:
       - 'salon/**'
       - 'photography/**'
       - 'world/**'
+      - 'cities/**'
       - 'closeup/**'
       - 'exhibitions/**'
       - 'eras/**'
@@ -159,6 +160,7 @@ jobs:
           cp -R stories /tmp/city-on-paper-package/
           cp -R experience /tmp/city-on-paper-package/
           cp -R atlas /tmp/city-on-paper-package/
+          cp -R cities /tmp/city-on-paper-package/
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp -R assets/hybrid /tmp/city-on-paper-package/assets/
