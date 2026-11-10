@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Город на бумаге | City on Paper · Новая музейная мастерская</title>
-<meta name="description" content="Исторические литографии и современные города. Музейный каталог, визуальное сравнение и исследовательский атлас.">
+<title>Город на бумаге · Музей исторических изображений и городских историй</title>
+<meta name="description" content="Живой музей исторических городов: подлинные литографии, истории художников, старые карты, музейные источники и современные фотографии. Начните с Парижа Филиппа Бенуа.">
 <style>
 :root{--paper:#f5f0e7;--cream:#fbf8f2;--ink:#292720;--muted:#6e665e;--line:#d8d0c5;--red:#893f32;--warm:#b79362;--green:#3e604d;--page:1140px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font:16px/1.58 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
@@ -115,53 +115,81 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(prefers-reduced-motion:reduce){.landing-volume-cover{transition:none}}
 
 </style>
+<link rel="stylesheet" href="assets/hybrid/tokens.css">
+<link rel="stylesheet" href="assets/hybrid/museum.css">
 <script src="assets/nav/museum-nav.js" defer></script>
 </head>
 <body>
-<header><nav class="wrap"><a class="brand" href="#home"><strong>Город на бумаге</strong><span>City on Paper · Atelier 2026</span></a>
+<header><nav class="wrap"><a class="brand" href="#home"><strong>Город на бумаге</strong><span>City on Paper · Искусство и история городов</span></a>
 <div class="navlinks">
-<a href="experience/" class="main-book-link">Открыть книгу</a>
 <a href="stories/" class="main-story-link">Истории</a>
-<button data-go="home" aria-current="true">Главная</button>
+<a href="atlas/">Атлас времени</a>
 <button data-go="catalog">Коллекция</button>
-<a href="world/">Города</a>
-<a href="discover/">Начать исследование</a>
-<details class="allrooms"><summary>Все разделы</summary><div class="rooms-panel">
+<a href="studio/">Кабинет</a>
+<details class="allrooms"><summary>Все залы</summary><div class="rooms-panel">
+<button data-go="home" aria-current="true">Главная</button>
+<a href="experience/">Книга городов</a>
+<a href="world/">Города мира</a>
 <button data-go="compare">Тогда / Сейчас</button>
 <button data-go="research">Архивный поиск</button>
-<button data-go="cities">Места на литографиях</button>
+<button data-go="cities">Городские виды</button>
 <a href="eras/">Атлас эпох</a>
-<a href="journeys/">Атлас времени</a>
+<a href="journeys/">Путешествия по векам</a>
 <a href="salon/">Салон открытий</a>
 <a href="exhibitions/city-as-evidence/">Исторические выставки</a>
+<a href="exhibitions/lost-florence/">Исчезнувшая Флоренция</a>
 <a href="detective/">Литография под лупой</a>
-<a href="studio/">Кабинет коллекционера</a>
-<a href="ornaments/">Орнаменты</a>
+<a href="printlab/">Как печатали литографии</a>
 <a href="atelier/ornament/">Анатомия орнамента</a>
 <a href="atelier/bargue/index.html">Школа рисунка</a>
-<a href="printlab/">Как печатали литографии</a>
-<a href="fieldwork/">Полевая работа</a>
+<a href="fieldwork/">Фотоохота</a>
 <a href="photography/">Фотографии</a>
 </div></details></div>
 </nav></header>
 <main>
 <section id="home" class="tab wrap">
-<div class="hero storyhero book-landing">
-<div class="hero-copy"><div class="eyebrow">Город на бумаге · Исторический атлас</div>
-<h1>Книга<br>городов<br>открывается.</h1>
-<p>Старинная карта Европы, литографии Бенуа, улицы Флоренции и море Неаполя. Откройте переплёт, выберите город и прочитайте его историю через подлинные изображения.</p>
-<div class="actions"><a href="experience/" class="btn primary">Открыть книгу городов</a><a href="stories/paris-on-paper/" class="btn">Начать историю Парижа</a><a href="stories/" class="btn">Все выставки</a></div>
-<div class="subline">Новая интерактивная выставка: историческая карта, три города, девять глав. Для обычного просмотра все прежние разделы сохранены.</div></div>
-<figure class="landing-volume"><a href="experience/" class="landing-volume-link" aria-label="Открыть интерактивный атлас и книгу городов">
-<div class="landing-volume-map"><img src="eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Историческая карта Европы, карта G. de L’Isle и Ph. Buache, 1769 год, Library of Congress" width="1000" height="808"></div>
-<div class="landing-volume-cover"><span class="landing-flourish" aria-hidden="true">✣</span><small>ГОРОД НА БУМАГЕ</small><strong>КНИГА<br>ГОРОДОВ</strong><em>ATLAS DES VILLES</em><span class="landing-more">Открыть разворот →</span></div>
-</a><figcaption>Обложка создана для цифровой выставки; внутри подлинная карта Европы из Library of Congress, <a href="https://www.loc.gov/item/97683588/" target="_blank" rel="noopener noreferrer">оригинал</a>.</figcaption></figure></div>
-<div class="museum-pathway" aria-label="Четыре входа в музей">
-<a class="pathway-door featured-door" href="stories/"><span class="door-number">01 / Смотреть и понимать</span><strong>Истории</strong><p>Пять минут с произведением: город, художник, детали и первоисточник.</p><em>Войти в историю →</em></a>
-<button class="pathway-door" data-go="catalog"><span class="door-number">02 / Изучать</span><strong>Коллекция</strong><p>Произведения с музейными карточками, авторами и сведениями о правах.</p><em>Рассмотреть листы →</em></button>
-<a class="pathway-door" href="world/"><span class="door-number">03 / Путешествовать</span><strong>Города</strong><p>Переходить от городских видов к историческим изображениям мира.</p><em>Открыть атлас →</em></a>
-<a class="pathway-door" href="detective/"><span class="door-number">04 / Проверять</span><strong>Мастерская</strong><p>Увеличивать детали, читать подписи, сохранять собственные выводы.</p><em>Исследовать →</em></a>
+<div class="hybrid-story-hero">
+<div class="hybrid-story-copy">
+  <div class="eyebrow">История недели · Париж · XIX век</div>
+  <h1>Париж,<br><em>который</em><br>напечатали.</h1>
+  <p class="lead">Два городских вида Филиппа Бенуа. Один хранит торжественную Мадлен, другой зовёт прогуляться по Пале-Рояль.</p>
+  <p class="supporting">Что художник увидел сам, что выбрал для композиции и как его рисунок превратился в литографский оттиск? Пройдём пять глав, сопоставим изображения и вернёмся к музейным оригиналам.</p>
+  <div class="actions"><a href="stories/paris-on-paper/" class="btn primary">Начать историю Парижа <span aria-hidden="true">→</span></a></div>
+  <p class="hybrid-meta">5 глав · Подлинные листы Library of Congress · 1845–1860 · Датировки, роли и права по архивным карточкам</p>
 </div>
+<figure class="hybrid-hero-picture">
+<a class="artwork-link" href="stories/paris-on-paper/" aria-label="Читать историю литографии «Париж. Мадлен»"><img src="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" alt="Раскрашенная литография Филиппа Бенуа: церковь Мадлен в Париже, люди и экипаж перед колоннадой" width="1024" height="750" loading="eager" fetchpriority="high"></a>
+<figcaption>Филипп Бенуа, рисунок; типография Lemercier. <i>Paris. La Madeleine</i>, 1845–1860. Library of Congress, LC-DIG-pga-14315. <a href="https://www.loc.gov/item/2016652452/" target="_blank" rel="noopener noreferrer">Открыть оригинал</a>.</figcaption>
+</figure>
+</div>
+<div class="hybrid-journal-index" aria-label="Быстрые маршруты музея">
+ <span>Музей исторических изображений</span>
+ <a href="stories/">Все истории</a>
+ <a href="atlas/">Атлас времени</a>
+ <a href="experience/">Книга городов</a>
+</div>
+<section class="hybrid-editorial" aria-labelledby="hybrid-collections-heading">
+ <div class="hybrid-editorial-head"><div><div class="eyebrow">Следующие путешествия</div><h2 id="hybrid-collections-heading">С какого города продолжить?</h2></div><p>Листы и фотографии с подтверждённым происхождением. У каждого сюжета свой город, художник, время и вопрос.</p></div>
+ <div class="hybrid-editorial-grid">
+  <a class="hybrid-story-tile" href="stories/paris-on-paper/"><img src="poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg" alt="Филипп Бенуа. Пале-Рояль. Архивная раскрашенная литография XIX века" loading="lazy" width="1024" height="756"><div class="hybrid-tile-copy"><span class="tile-kicker">Париж · История 01</span><h3>Сад, в котором гуляет город</h3><p>Пале-Рояль на старой литографии. Как архитектура, аллеи и прохожие превращаются в рассказ о повседневной жизни?</p><span class="tile-go">Пять глав и источники →</span></div></a>
+  <a class="hybrid-story-tile" href="experience/?city=florence&chapter=1"><img src="eras/img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg" alt="Джозеф Пеннелл. Офорт Ponte Vecchio, Florence, 1883 год" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Флоренция · 1883</span><h3>Мост, который стал рисунком</h3><p>Сопоставляем офорт Пеннелла и исторический фотоснимок Понте-Веккьо. Ракурсы различаются.</p><span class="tile-go">Исследовать Флоренцию →</span></div></a>
+  <a class="hybrid-story-tile" href="experience/?city=naples&chapter=1"><img src="eras/img/naples_santalucia_1846_calvert-jones_aic-27086.jpg" alt="Калверт Ричард Джонс. Старинная фотография побережья Санта-Лючия в Неаполе, 1846" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Неаполь · 1846</span><h3>Город перед морем</h3><p>Ранняя фотография Калверта Ричарда Джонса из Художественного института Чикаго. Вход в историю морского города.</p><span class="tile-go">Исследовать Неаполь →</span></div></a>
+ </div>
+</section>
+<section class="hybrid-mode-section" aria-labelledby="hybrid-tools-heading">
+ <div class="eyebrow">Три способа посетить музей</div><h2 id="hybrid-tools-heading">Продолжайте в своём темпе.</h2>
+ <p class="hybrid-mode-lead">Истории остаются главным маршрутом. Карта и коллекция открываются по вашему выбору; анимация книги никогда не обязательна.</p>
+ <div class="museum-pathway">
+  <a class="pathway-door featured-door" href="atlas/"><span class="door-number">01 / Исследовать место и век</span><strong>Атлас времени</strong><p>Выберите город, эпоху и архивный лист. Исторические изображения не выдаются за точные географические координаты.</p><em>Открыть атлас →</em></a>
+  <button class="pathway-door" data-go="catalog"><span class="door-number">02 / Изучать произведения</span><strong>Коллекция</strong><p>Архивные карточки, художники, техника, оригиналы и проверка прав.</p><em>Смотреть работы →</em></button>
+  <a class="pathway-door" href="studio/"><span class="door-number">03 / Запомнить находки</span><strong>Мой кабинет</strong><p>Личные заметки и сохранённые материалы в браузере. Без обещания облачной синхронизации.</p><em>Перейти в кабинет →</em></a>
+ </div>
+ <div class="hybrid-book-row">
+  <a class="hybrid-book-thin" href="experience/"><span class="hybrid-book-thumb" aria-hidden="true">✣</span><span><strong>Книга городов</strong><small>Необязательное погружение. Три тома, девять глав.</small></span></a>
+  <p>Любите атмосферу старинной библиотеки? Откройте переплёт и путешествуйте по разворотам. Включите спокойный режим, чтобы убрать анимацию.</p>
+  <a class="btn" href="experience/">Открыть книгу <span aria-hidden="true">↗</span></a>
+ </div>
+</section>
 <p class="collection-status">Открытые данные проекта: проверенные музейные карточки отделены от исследовательских кандидатов. Количество найденных записей не означает количество подтверждённых работ.</p>
 <div class="stats"><div class="stat"><strong>27</strong><span>Архивно сверенных карточек</span></div><div class="stat"><strong>1 019</strong><span>Исследовательских кандидатов Claude</span></div><div class="stat"><strong>7</strong><span>Сравнений в прежней выставке</span></div><div class="stat"><strong>0</strong><span>Независимо подтверждённых новых пар</span></div></div>
 <div class="sectionhead"><div><div class="eyebrow">01 / Содержание</div><h2>Париж: следующий взгляд</h2></div><p>После истории Мадлен откройте сад Пале-Рояль. Даже два вида одного города нельзя автоматически считать снимками с одного ракурса.</p></div>
