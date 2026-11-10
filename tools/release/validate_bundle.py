@@ -33,6 +33,8 @@ DATA = (
     "data/curation/benoist-paris-musees-v1.json",
     "data/curation/world-graphic-archive-v1.json",
     "data/candidates/candidates-2026-11-01b.json",
+    "data/coverage/world-coverage-20261110.json",
+    "data/coverage/world-coverage-20261110.csv",
     "poc/compare/pairs/index.json",
     "museum-expansion-report.json",
     "modern-photo-discovery-report.json",
