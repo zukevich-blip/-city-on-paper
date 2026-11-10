@@ -92,12 +92,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:1000px){.museum-pathway{grid-template-columns:repeat(2,minmax(0,1fr))}.pathway-door{min-height:205px}}
 @media(max-width:850px){.navlinks{overflow:visible;gap:16px}.rooms-panel{right:auto;left:0}.storyhero figure{transform:none}}
 @media(max-width:560px){.storyhero h1{font-size:46px}.storyhero figure img{height:270px}.museum-pathway{grid-template-columns:1fr 1fr;gap:9px}.pathway-door{padding:17px 14px;min-height:210px}.pathway-door strong{font-size:24px}.pathway-door p{font-size:12px}.rooms-panel{right:0;left:auto;grid-template-columns:1fr}}
+
+/* The book becomes the museum's narrative entrance; legacy rooms remain intact. */
+.navlinks a.main-book-link{font-weight:700;color:#893f32;text-decoration:none;border-bottom:1px solid #893f32}
+.book-landing{align-items:center;gap:40px}
+.book-landing h1{font-size:clamp(46px,5.6vw,76px)}
+.landing-volume{margin:0;min-width:0;position:relative}
+.landing-volume-link{position:relative;display:block;width:100%;max-width:580px;aspect-ratio:1.14;text-decoration:none;filter:drop-shadow(12px 20px 14px #342a2280)}
+.landing-volume-map{position:absolute;right:0;top:7%;width:65%;height:85%;padding:15px;background:#e9dfc9;border:1px solid #ac9671;transform:rotate(4deg)}
+.landing-volume-map img{width:100%;height:100%;object-fit:contain;background:#eee1cb}
+.landing-volume-cover{position:absolute;top:3%;left:0;bottom:4%;width:69%;padding:28px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(110deg,#152b20,#284536 50%,#15291e);border:5px solid #94744d;outline:1px solid #c9ac69;outline-offset:-18px;transform:rotate(-4deg);color:#d9be87;box-shadow:inset 7px 0 7px #0006}
+.landing-volume-cover small{font:11px/1.5 Georgia,serif;letter-spacing:.2em}
+.landing-volume-cover strong{font:clamp(34px,4vw,57px)/.98 Georgia,serif;letter-spacing:.08em;margin:24px 0}
+.landing-volume-cover em{font:12px Georgia,serif;letter-spacing:.17em}
+.landing-flourish{font:30px Georgia,serif}
+.landing-more{font:12px -apple-system,system-ui,sans-serif;color:#f3e7cb;border-top:1px solid #d9be87;padding-top:15px;margin-top:26px}
+.landing-volume>figcaption{font-size:11px;max-width:540px;padding-top:20px}
+.landing-volume-link:hover .landing-volume-cover{transform:rotate(-7deg) translateX(-7px)}
+.landing-volume-cover{transition:transform .25s}
+@media(max-width:850px){.landing-volume-link{margin:auto}.landing-volume-cover strong{font-size:clamp(40px,8vw,55px)}}
+@media(max-width:560px){.landing-volume-link{min-height:310px}.landing-volume-cover{padding:17px 12px}.landing-volume-cover small{font-size:9px}.landing-volume-cover strong{font-size:clamp(30px,9vw,45px);margin:14px 0}.landing-more{font-size:10px;margin-top:13px}.landing-volume-map{padding:8px}.book-landing{padding-top:35px}}
+@media(prefers-reduced-motion:reduce){.landing-volume-cover{transition:none}}
+
 </style>
 <script src="assets/nav/museum-nav.js" defer></script>
 </head>
 <body>
 <header><nav class="wrap"><a class="brand" href="#home"><strong>Город на бумаге</strong><span>City on Paper · Atelier 2026</span></a>
 <div class="navlinks">
+<a href="experience/" class="main-book-link">Открыть книгу</a>
 <a href="stories/" class="main-story-link">Истории</a>
 <button data-go="home" aria-current="true">Главная</button>
 <button data-go="catalog">Коллекция</button>
@@ -123,18 +146,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </nav></header>
 <main>
 <section id="home" class="tab wrap">
-<div class="hero storyhero">
-<div class="hero-copy"><div class="eyebrow">Город на бумаге · Истории, изображения, источники</div>
-<h1>История<br>начинается<br>с одного листа.</h1>
-<p>На старой литографии видно больше, чем просто красивый фасад. Кто нарисовал этот Париж? Как он попал в печатную мастерскую? И почему знакомое место сегодня выглядит совсем иначе?</p>
-<div class="actions">
-<a href="stories/paris-on-paper/" class="btn primary">Начать историю Парижа · 5 глав</a>
-<a href="stories/" class="btn">Выбрать другую историю</a>
-</div>
-<div class="subline">В основе первой истории — оригиналы Филиппа Бенуа из Library of Congress. Непроверенные совпадения и догадки отмечены отдельно.</div>
-</div>
-<figure><a href="stories/paris-on-paper/" aria-label="Открыть историю о Париже Бенуа"><img src="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" alt="Литография Филиппа Бенуа: церковь Мадлен, Париж XIX века" width="1024" height="750" loading="eager"></a><figcaption>«Paris. La Madeleine». Филипп Бенуа, рисунок; Lemercier, печать. 1845–1860, Library of Congress.</figcaption></figure>
-</div>
+<div class="hero storyhero book-landing">
+<div class="hero-copy"><div class="eyebrow">Город на бумаге · Исторический атлас</div>
+<h1>Книга<br>городов<br>открывается.</h1>
+<p>Старинная карта Европы, литографии Бенуа, улицы Флоренции и море Неаполя. Откройте переплёт, выберите город и прочитайте его историю через подлинные изображения.</p>
+<div class="actions"><a href="experience/" class="btn primary">Открыть книгу городов</a><a href="stories/paris-on-paper/" class="btn">Начать историю Парижа</a><a href="stories/" class="btn">Все выставки</a></div>
+<div class="subline">Новая интерактивная выставка: историческая карта, три города, девять глав. Для обычного просмотра все прежние разделы сохранены.</div></div>
+<figure class="landing-volume"><a href="experience/" class="landing-volume-link" aria-label="Открыть интерактивный атлас и книгу городов">
+<div class="landing-volume-map"><img src="eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Историческая карта Европы, карта G. de L’Isle и Ph. Buache, 1769 год, Library of Congress" width="1000" height="808"></div>
+<div class="landing-volume-cover"><span class="landing-flourish" aria-hidden="true">✣</span><small>ГОРОД НА БУМАГЕ</small><strong>КНИГА<br>ГОРОДОВ</strong><em>ATLAS DES VILLES</em><span class="landing-more">Открыть разворот →</span></div>
+</a><figcaption>Обложка создана для цифровой выставки; внутри подлинная карта Европы из Library of Congress, <a href="https://www.loc.gov/item/97683588/" target="_blank" rel="noopener noreferrer">оригинал</a>.</figcaption></figure></div>
 <div class="museum-pathway" aria-label="Четыре входа в музей">
 <a class="pathway-door featured-door" href="stories/"><span class="door-number">01 / Смотреть и понимать</span><strong>Истории</strong><p>Пять минут с произведением: город, художник, детали и первоисточник.</p><em>Войти в историю →</em></a>
 <button class="pathway-door" data-go="catalog"><span class="door-number">02 / Изучать</span><strong>Коллекция</strong><p>Произведения с музейными карточками, авторами и сведениями о правах.</p><em>Рассмотреть листы →</em></button>
