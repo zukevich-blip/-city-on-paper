@@ -220,7 +220,7 @@
     $("openBook").disabled = true;
     $("closeBook").hidden = false;
     $("bookStatus").textContent = "Том открыт. Выберите главу или разверните карту.";
-    $(".spread").inert = false;
+    root.querySelector(".spread").inert = false;
   }
   function closeBook() {
     if (!opened) return;
@@ -231,9 +231,9 @@
     $("openBook").disabled = false;
     $("closeBook").hidden = true;
     $("bookStatus").textContent = "Атлас закрыт. Откройте первую страницу.";
-    $(".spread").inert = true;
+    root.querySelector(".spread").inert = true;
   }
-  function $(query) { return root.querySelector(query); } // Small CSS-selector helper.
+
 
   function setCity(id) {
     if (!Object.prototype.hasOwnProperty.call(cities, id)) return;
