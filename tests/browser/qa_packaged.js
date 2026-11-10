@@ -5,7 +5,7 @@ const fs = require("fs");
 const [,,base,outDir]=process.argv;
 if(!base||!outDir)throw Error("Usage: qa_packaged.js <http-origin> <screenshots-directory>");
 fs.mkdirSync(outDir,{recursive:true});
-const paths=["","stories/","stories/paris-on-paper/","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","poc/compare/","fieldwork/",
+const paths=["","experience/","stories/","stories/paris-on-paper/","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","poc/compare/","fieldwork/",
  "journeys/","detective/","discover/","desk/","studio/","ideas/","printlab/","ornaments/","atelier/bargue/","atelier/ornament/"];
 async function requireImage(page,id,min=80){await page.waitForFunction(({selector,min})=>{const n=document.querySelector(selector);return n instanceof HTMLImageElement&&n.complete&&n.naturalWidth>=min;},{selector:id,min},{timeout:22000})}
 (async()=>{
