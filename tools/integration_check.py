@@ -13,7 +13,6 @@ import math
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-
 PROJECT_PREFIX = "/-city-on-paper/"
 
 
