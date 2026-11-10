@@ -55,7 +55,7 @@ def test_book_local_resources_exist_in_source_repository():
         assert location.is_file(), url
 
 
-def test_all_nine_chapters_use_source-linked_allowed_images():
+def test_all_nine_chapters_use_source_linked_allowed_images():
     js = (ROOT / "experience/app.js").read_text(encoding="utf-8")
     paths = [
         "poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg",
