@@ -209,6 +209,7 @@
     $("quietToggle").setAttribute("aria-pressed", String(quiet));
     $("quietToggle").textContent = quiet ? "Включить анимацию" : "Спокойный режим";
     if (quiet && !opened) openBook();
+    $("closeBook").hidden = quiet || !opened;
     savePreference(quiet);
   }
   function openBook() {
@@ -223,7 +224,7 @@
     root.querySelector(".spread").inert = false;
   }
   function closeBook() {
-    if (!opened) return;
+    if (!opened || quiet) return;
     opened = false;
     $("atlasBook").dataset.open = "false";
     $("openBook").setAttribute("aria-expanded", "false");
