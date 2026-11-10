@@ -21,6 +21,19 @@ function check(name,condition){if(!condition)throw Error(name);}
    await menu.scrollIntoViewIfNeeded();
    const desktopNav=await menu.boundingBox();
    check(device+" main nav compact",!desktopNav || desktopNav.height < 110);
+   const showRooms=page.locator("header .allrooms summary");
+   await showRooms.click();
+   const panel=page.locator("header .rooms-panel");
+   check(device+" rooms menu opened",await panel.isVisible());
+   const menuFirst=page.locator("header .rooms-panel a").first();
+   await menuFirst.waitFor({state:"visible"});
+   const menuAccessible=await menuFirst.evaluate(node=>{
+     const r=node.getBoundingClientRect();
+     const point=document.elementFromPoint(Math.min(innerWidth-1,r.left+Math.min(20,r.width/2)),Math.min(innerHeight-1,r.top+Math.min(20,r.height/2)));
+     return !!point && (point===node||node.contains(point));
+   });
+   check(device+" rooms menu is not clipped on viewport",menuAccessible);
+   await showRooms.click();
    const firstTitle=await page.locator(".hybrid-story-hero h1").textContent();
    check(device+" story-first home",firstTitle.includes("Париж"));
    const response=await page.goto(new URL("cities/",base).href,{waitUntil:"domcontentloaded"});
