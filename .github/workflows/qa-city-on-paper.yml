@@ -106,6 +106,9 @@ jobs:
           node --check atlas/app.js
           node --check tests/browser/qa_hybrid.js
           node tests/browser/qa_hybrid.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node --check cities/app.js
+          node --check tests/browser/qa_cities.js
+          node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
           node --check tests/browser/qa_experience.js
           node tests/browser/qa_experience.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -202,7 +205,7 @@ jobs:
           Для комфортного запуска есть serve_local.py: python3 serve_local.py
           Для iPad/iPhone по доверенному домашнему Wi-Fi: python3 serve_local.py --lan
           Программа покажет LAN-адрес для Safari; доступ без пароля, не использовать общественный Wi-Fi.
-          3A. Мировой атлас: /world/; Салон: /salon/; Фотографии: /photography/;
+          3A. Мировой указатель: /cities/; атлас: /atlas/; галерея: /world/; Салон: /salon/; Фотографии: /photography/;
           Всё хранится в одном ZIP/проекте, дополнительный сайт не создаётся.
           В пакет включены PROJECT_HANDOFF.md и RELEASE_QA.json.
           Историческая графика Commons и некоторые музейные файлы требуют подключения к Интернету.
@@ -257,6 +260,7 @@ jobs:
           node tests/browser/qa_packaged.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_experience.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_hybrid.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+          node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
