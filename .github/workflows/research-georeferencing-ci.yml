@@ -1,0 +1,40 @@
+name: Research georeferencing checks
+
+on:
+  pull_request:
+    paths:
+      - 'tools/automated_gcp.py'
+      - 'tools/integration_check.py'
+      - 'tools/validate_geographic_accuracy.py'
+      - 'tools/requirements-gcp.txt'
+      - 'tests/test_geo_pipeline.py'
+      - 'tests/test_validate_geographic_accuracy.py'
+      - 'data/vision-lab/georef-paris-1878.json'
+      - '.github/workflows/research-georeferencing-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install research-only test dependencies
+        run: python -m pip install -r tools/requirements-gcp.txt
+      - name: Compile, run synthetic and negative tests
+        run: |
+          python -m compileall -q tools/automated_gcp.py tools/integration_check.py tools/validate_geographic_accuracy.py tests/test_geo_pipeline.py tests/test_validate_geographic_accuracy.py
+          python -m pytest -q tests/test_geo_pipeline.py tests/test_validate_geographic_accuracy.py
+          python tools/validate_geographic_accuracy.py --legacy-paris data/vision-lab/georef-paris-1878.json --output /tmp/paris-1878-research-only.json
+      - name: Preserve inspectable Paris 1878 research-only measurement report
+        uses: actions/upload-artifact@v4
+        with:
+          name: paris-1878-internal-affine-audit
+          path: /tmp/paris-1878-research-only.json
+          retention-days: 14

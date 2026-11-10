@@ -370,7 +370,9 @@ async function loadPair(id){
   pair = await (await fetch(`pairs/${encodeURIComponent(id)}.json`)).json();
   // low confidence: never force a fit by default; the attempt stays one click away
   aligned = canAlign() && ["high", "medium"].includes(pair.alignment.confidence);
-  if (!userMode) mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider";
+  // A mismatched historic viewpoint must always open in the honest two-original view.
+  if (pair.alignment?.confidence === "viewpoint_mismatch") mode = "sbs";
+  else if (!userMode) mode = "slider";
   imgFailed.hist = imgFailed.photo = false; showImgError();
   const hi = $("histImg"), pi = $("photoImg");
   const settle = (im, key) => new Promise(r => {
