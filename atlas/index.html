@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#29463D">
+<title>Атлас времени · Город на бумаге</title>
+<meta name="description" content="Исследовательский атлас музея: Париж, Флоренция, Неаполь. Исторические карты, проверенные изображения и архивные источники. Без выдуманной географической точности.">
+<link rel="stylesheet" href="../assets/hybrid/tokens.css">
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию атласа</a>
+<header class="atlas-header">
+ <nav class="shell nav" aria-label="Навигация музея">
+  <a class="logo" href="../"><strong>Город на бумаге</strong><span>City on Paper · Исторические изображения</span></a>
+  <div class="navigation"><a href="../">Главная</a><a href="../stories/">Истории</a><a aria-current="page" href="./">Атлас времени</a><a href="../#catalog">Коллекция</a><a href="../experience/">Книга городов</a></div>
+ </nav>
+</header>
+<main id="main">
+<section class="hero shell" aria-labelledby="title">
+ <div><span class="eyebrow">Исследовательский зал / Том II</span><h1 id="title">Атлас <em>времени.</em></h1>
+ <p class="lead">Как менялся взгляд на город? Сравните литографии, офорты, ранние фотографии и современные снимки. Начните с места и эпохи, а каждое изображение проверяйте по первоисточнику.</p></div>
+ <a class="book-signpost" href="../experience/" aria-label="Открыть интерактивную Книгу городов"><span class="book-mark" aria-hidden="true">✣</span><span>Предпочитаете путешествие по главам?<strong>Открыть книгу городов ↗</strong></span></a>
+</section>
+<section class="shell atlas-workspace" aria-label="Исследование исторических изображений">
+ <div class="filters" role="group" aria-label="Фильтры атласа">
+  <div class="filter-group"><span class="filter-label">Город</span>
+   <div id="cityFilters" class="option-set" aria-label="Выбор города">
+    <button type="button" data-city="paris" aria-pressed="true">Париж</button>
+    <button type="button" data-city="florence" aria-pressed="false">Флоренция</button>
+    <button type="button" data-city="naples" aria-pressed="false">Неаполь</button>
+   </div>
+  </div>
+  <div class="filter-group"><span class="filter-label">Эпоха / техника</span>
+   <div id="eraFilters" class="option-set" aria-label="Выбор эпохи">
+    <button type="button" data-era="all" aria-pressed="true">Все периоды</button>
+    <button type="button" data-era="print" aria-pressed="false">Печатная графика</button>
+    <button type="button" data-era="photo" aria-pressed="false">Ранние фотографии</button>
+    <button type="button" data-era="today" aria-pressed="false">Наше время</button>
+   </div>
+  </div>
+ </div>
+ <div class="atlas-grid">
+  <section class="map-pane" aria-labelledby="map-title">
+    <div class="pane-title"><span class="eyebrow">Карта как документ</span><a href="../eras/">Большой исторический атлас ↗</a></div>
+    <h2 id="map-title">Европа. 1769 год.</h2>
+    <figure>
+      <a href="../experience/#museum" aria-label="Перейти к интерактивной книге с картой Европы">
+       <img src="../eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Карта Европы 1769 года, исторический оригинал из Library of Congress" width="1000" height="808" fetchpriority="high">
+      </a>
+      <figcaption>G. de L’Isle / Ph. Buache. <i>Carte d’Europe</i>. Library of Congress, запись <a href="https://www.loc.gov/item/97683588/" target="_blank" rel="noopener noreferrer">97683588</a>. Историческое изображение приведено для чтения, без автоматической географической подгонки.</figcaption>
+    </figure>
+    <div class="map-warning"><strong>Что показывает эта карта?</strong><p>Подлинную карту своей эпохи, а не современную схему координат. Мы не ставим на неё фиктивные геометки и не утверждаем, что точка зрения художника найдена с метрической точностью.</p></div>
+    <div class="map-more"><a href="../eras/">Исследовать исторические планы и сравнения</a><a href="../stories/paris-on-paper/">Читать историю Парижа</a></div>
+  </section>
+  <section class="results-pane" aria-labelledby="results-title">
+    <div class="results-head"><div><span class="eyebrow" id="currentCity">Париж · Франция</span><h2 id="results-title">Листы и свидетельства</h2></div><span class="counter" id="resultCount" role="status">Загружаем музейные карточки…</span></div>
+    <p class="results-intro" id="cityDescription">Мадлен, сад Пале-Рояль и городская жизнь в произведениях и фотографиях разных лет.</p>
+    <div id="atlasResults" class="results" aria-live="polite">
+      <div class="empty">Источники загружаются из исследовательского каталога музея.</div>
+    </div>
+    <div class="result-footer">Показываются только изображения с локальным файлом и открытым статусом прав. Результаты могут включать исследовательские материалы. Оригинал и сведения об авторстве проверяются по ссылке на музей.</div>
+  </section>
+ </div>
+</section>
+<section class="shell" id="selectedArea" aria-labelledby="selectedTitle">
+ <div class="selected-area" hidden id="selection">
+  <div class="selected-art">
+   <img src="../eras/img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg" id="selectedImage" alt="Исторический лист церкви Мадлен: Филипп Бенуа, Париж">
+   <p class="artifact-caption" id="selectedCaption">Library of Congress · историческое изображение</p>
+  </div>
+  <div class="selected-body">
+    <span class="eyebrow" id="selectedKind">Исторический лист</span>
+    <h2 id="selectedTitle">Название произведения</h2>
+    <p class="record-row" id="selectedAttribution"></p>
+    <p class="record-row" id="selectedDate"></p>
+    <p class="record-row" id="selectedInstitution"></p>
+    <p class="record-row" id="selectedRights"></p>
+    <div class="record-disclaimer"><strong>Доказательность</strong><p>Название и атрибуция взяты из исходной музейной записи. Совпадение ракурса, геометрии и видимые изменения между эпохами требуют отдельной проверки.</p></div>
+    <div class="selected-actions"><a class="button primary" id="selectedSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/2016652452/">Музейный оригинал ↗</a><a class="button secondary" id="selectedStory" href="../stories/paris-on-paper/">Читать связанную историю</a></div>
+  </div>
+ </div>
+ <p id="selectPrompt" class="select-prompt">Выберите карточку выше, чтобы рассмотреть оригинал и открыть его архивную запись.</p>
+</section>
+<section class="shell further" aria-labelledby="further-title">
+ <span class="eyebrow">После атласа</span><h2 id="further-title">У каждого города есть история.</h2>
+ <div class="further-grid">
+  <a href="../stories/paris-on-paper/"><strong>Париж</strong><span>Бенуа, Мадлен и Пале-Рояль. Пять глав о рисунке и городе.</span><em>Читать историю →</em></a>
+  <a href="../experience/?city=florence&chapter=1"><strong>Флоренция</strong><span>Понте-Веккьо. Фотография и офорт в разных ракурсах.</span><em>Войти в том →</em></a>
+  <a href="../experience/?city=naples&chapter=1"><strong>Неаполь</strong><span>Санта-Лючия и ранняя фотография побережья.</span><em>Войти в том →</em></a>
+ </div>
+</section>
+</main>
+<footer><div class="shell foot-inner"><p>Город на бумаге · Исторические изображения и архивные источники. Неподтверждённая геопривязка не выдаётся за факт.</p><div><a href="../">Главная</a><a href="../stories/">Истории</a><a href="../experience/">Книга</a></div></div></footer>
+<noscript><div class="nojs">Для фильтрации источников нужен JavaScript. Можно открыть <a href="../eras/">исторический атлас</a> или <a href="../stories/">музейные истории</a> без него.</div></noscript>
+</body>
+</html>
