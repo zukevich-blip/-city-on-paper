@@ -111,6 +111,14 @@ jobs:
           node tests/browser/qa_idea_lab.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_salon_exhibition.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_close_reading.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+      - name: Upload book review screenshots before large archive packaging
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-of-cities-review-screens
+          path: /tmp/city-on-paper-screens/*book*.jpg
+          if-no-files-found: warn
+          retention-days: 14
       - name: Restore resumable Commons archive
         uses: actions/cache/restore@v4
         with:
