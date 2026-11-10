@@ -138,11 +138,10 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
    width:100%;
    margin:0;
    gap:clamp(9px,2.5vw,18px);
-   overflow-x:auto;
-   overflow-y:visible;
+   overflow:visible;
    flex-wrap:nowrap;
    align-items:center;
-   justify-content:flex-start;
+   justify-content:space-between;
    scrollbar-width:thin;
  }
  header .navlinks>a[href="studio/"]{display:none}
