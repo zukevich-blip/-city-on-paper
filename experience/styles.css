@@ -88,7 +88,7 @@ figure{margin:0}
 .chapter-link.current strong{text-decoration:underline;text-underline-offset:4px}
 .begin-chapter{font-size:12px;background:var(--forest-2);color:#f3e8d5;border:1px solid var(--forest-2);padding:11px 14px;margin:16px 0 0;align-self:center}
 .begin-chapter:hover{background:#304d3b}
-.book-cover{position:absolute;inset:0;z-index:3;transform-style:preserve-3d;backface-visibility:hidden;transform-origin:2% 50%;background:linear-gradient(110deg,#3e241d 0%,#67392b 4%,#193426 9%,#1f3b30 20%,#1b322a 82%,#11251d 94%,#503223 100%);border:3px solid #8c7551;border-radius:8px 14px 14px 8px;box-shadow:inset 8px 0 7px #0c1c14aa,inset -4px 0 8px #b2946033,0 10px 22px #101910ae;transition:transform .92s cubic-bezier(.22,.7,.2,1),opacity .85s ease;pointer-events:none}
+.book-cover{position:absolute;inset:0;z-index:3;transform-style:preserve-3d;backface-visibility:hidden;transform-origin:2% 50%;background:linear-gradient(110deg,#3e241d 0%,#67392b 4%,#193426 9%,#1f3b30 20%,#1b322a 82%,#11251d 94%,#503223 100%);border:3px solid #8c7551;border-radius:8px 14px 14px 8px;box-shadow:inset 8px 0 7px #0c1c14aa,inset -4px 0 8px #b2946033,0 10px 22px #101910ae;transition:transform .92s cubic-bezier(.22,.7,.2,1),opacity .85s ease;pointer-events:auto;cursor:pointer}
 .cover-inner{position:absolute;inset:clamp(17px,3.1vw,44px);border:2px solid #ac915a;outline:1px solid #bba87560;outline-offset:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#d6bd83}
 .cover-corner{position:absolute;width:40px;height:40px;border-color:#bda267;opacity:.8}
 .corner-a{top:10px;left:10px;border-top:1px solid;border-left:1px solid}
