@@ -13,6 +13,8 @@ on:
       - 'index.html'
       - 'stories/**'
       - 'experience/**'
+      - 'atlas/**'
+      - 'assets/hybrid/**'
       - 'assets/nav/**'
       - 'journeys/**'
       - 'detective/**'
@@ -100,6 +102,9 @@ jobs:
           node tests/browser/qa_antique_atlas.js http://127.0.0.1:8765/atlas-prototype/ /tmp/city-on-paper-screens
           node tests/browser/qa_eras.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_stories.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node --check atlas/app.js
+          node --check tests/browser/qa_hybrid.js
+          node tests/browser/qa_hybrid.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
           node --check tests/browser/qa_experience.js
           node tests/browser/qa_experience.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -153,8 +158,10 @@ jobs:
           cp -R eras /tmp/city-on-paper-package/
           cp -R stories /tmp/city-on-paper-package/
           cp -R experience /tmp/city-on-paper-package/
+          cp -R atlas /tmp/city-on-paper-package/
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
+          cp -R assets/hybrid /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
@@ -235,6 +242,7 @@ jobs:
           curl -fsS http://127.0.0.1:8766/index.html -o /dev/null
           node tests/browser/qa_packaged.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_experience.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+          node tests/browser/qa_hybrid.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
