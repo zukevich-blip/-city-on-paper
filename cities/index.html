@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#F4EFE5">
+<title>Города мира · Город на бумаге</title>
+<meta name="description" content="Исторические изображения городов мира: музейные оригиналы, места, авторы и городские истории. Честный каталог с указанием стадии проверки каждого материала.">
+<link rel="stylesheet" href="../assets/hybrid/tokens.css">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#collection">Перейти к городам</a>
+<header>
+  <nav class="shell topbar" aria-label="Разделы музея">
+    <a href="../" class="brand"><strong>Город на бумаге</strong><small>City on Paper · Исторический музей городов</small></a>
+    <div class="menu"><a href="../stories/">Истории</a><a href="../atlas/">Атлас времени</a><a href="../#catalog">Коллекция</a><a href="./" aria-current="page">Города мира</a><a href="../experience/">Книга</a></div>
+  </nav>
+</header>
+<main>
+<section class="shell world-hero" aria-labelledby="page-title">
+  <div class="hero-copy">
+    <span class="eyebrow">География искусства · Коллекция в развитии</span>
+    <h1 id="page-title">Весь мир <em>на бумаге.</em></h1>
+    <p class="lead">От Парижа и Неаполя до портов Азии и городов Америки. Старые изображения позволяют увидеть города глазами художников, путешественников и фотографов.</p>
+    <p class="hero-detail">Мы показываем не только найденные листы, но и степень их проверки. Поисковая заготовка не считается музейной экспозицией. Архивные записи связаны с оригиналами, а законченные истории выделены отдельно.</p>
+    <a href="#collection" class="hero-btn">Исследовать города <span aria-hidden="true">↓</span></a>
+  </div>
+  <figure class="hero-art">
+    <div class="hero-art-grid">
+      <img src="../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" alt="Париж. Церковь Мадлен, раскрашенная литография Филиппа Бенуа, XIX век" loading="eager">
+      <img src="../eras/img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg" alt="Флоренция. Понте-Веккьо, офорт Джозефа Пеннелла 1883 года" loading="eager">
+      <img src="../eras/img/naples_santalucia_1846_calvert-jones_aic-27086.jpg" alt="Неаполь. Санта-Лючия, историческая фотография Калверта Ричарда Джонса, 1846" loading="eager">
+    </div>
+    <figcaption>Париж: <a href="https://www.loc.gov/item/2016652452/" target="_blank" rel="noopener noreferrer">Library of Congress</a>. Флоренция: <a href="https://www.artic.edu/artworks/194443" target="_blank" rel="noopener noreferrer">Art Institute of Chicago</a>. Неаполь: <a href="https://www.artic.edu/artworks/27086" target="_blank" rel="noopener noreferrer">Art Institute of Chicago</a>.</figcaption>
+  </figure>
+</section>
+<section class="shell featured" aria-labelledby="featured-title">
+  <div class="sectionhead"><div><span class="eyebrow">С чего начать</span><h2 id="featured-title">Города с подробным атласом</h2></div><p>У этих трёх городов есть архивные свидетельства с датировками, источниками и объяснением различий между изображениями.</p></div>
+  <div class="featured-grid">
+    <a href="../atlas/?city=paris" class="feature-card"><span>Франция · 1845–1900</span><h3>Париж</h3><p>Мадлен, Пале-Рояль, Филипп Бенуа и городские виды разных эпох.</p><em>Открыть источники ↗</em></a>
+    <a href="../atlas/?city=florence" class="feature-card"><span>Италия · 1859–1900</span><h3>Флоренция</h3><p>Понте-Веккьо и Дуомо в старых фотографиях и офортах.</p><em>Открыть источники ↗</em></a>
+    <a href="../atlas/?city=naples" class="feature-card"><span>Италия · 1846–1900</span><h3>Неаполь</h3><p>Побережье Санта-Лючия, площадь Плебисцита и Королевский дворец.</p><em>Открыть источники ↗</em></a>
+  </div>
+</section>
+<section class="shell explorer" id="collection" aria-labelledby="explorer-heading">
+  <div class="sectionhead"><div><span class="eyebrow">Глобальный справочник</span><h2 id="explorer-heading">Города и места</h2></div><p>В реестре есть города, исторические виды и отдельные памятники. Количество находок не равно количеству проверенных музейных работ.</p></div>
+  <div class="stats" id="coverageStats" role="status" aria-live="polite"><span>Загрузка реестра…</span></div>
+  <form class="filters" id="filters" onsubmit="return false" role="search" aria-label="Поиск и фильтрация городов">
+    <div class="filter-field search">
+      <label for="query">Найти город или место</label>
+      <input id="query" type="search" placeholder="Например, Прага, Лондон, Санкт-Петербург…" autocomplete="off">
+    </div>
+    <div class="filter-field">
+      <label for="region">Часть света</label>
+      <select id="region"><option value="all">Все регионы</option></select>
+    </div>
+    <div class="filter-field">
+      <label for="status">Степень наполнения</label>
+      <select id="status">
+        <option value="all">Все</option>
+        <option value="detailed">Подробный атлас</option>
+        <option value="candidate">Есть исследовательские находки</option>
+        <option value="seed_only">Ожидают материалов</option>
+      </select>
+    </div>
+    <div class="filter-field">
+      <label for="type">Тип объекта</label>
+      <select id="type"><option value="all">Города и места</option><option value="city">Города и поселения</option><option value="place">Отдельные места</option><option value="unclassified">Тип не проверен</option></select>
+    </div>
+  </form>
+  <div class="result-summary"><p id="resultCount" role="status" aria-live="polite">Загрузка…</p><button id="reset" type="button">Сбросить фильтры</button></div>
+  <div class="city-grid" id="cityGrid" aria-label="Карточки городов и мест"></div>
+  <button class="more" id="showMore" type="button" hidden>Показать ещё города</button>
+  <p class="registry-note" id="sourceNote">Список собирается по именам географических объектов. Встроенный алгоритм пока не считает одинаковые названия в разных странах разными объектами; такие совпадения требуют ручного разрешения.</p>
+</section>
+<section class="shell method" aria-labelledby="method-heading">
+ <div class="method-title"><span class="eyebrow">Прозрачная редакционная политика</span><h2 id="method-heading">Что означают статусы?</h2><p>Исторический музей строится из первоисточников. Поэтому этапы поиска и проверки показываются открыто.</p></div>
+ <div class="method-grid">
+  <article><span class="step">01 / Материалы ищутся</span><h3>Город намечен</h3><p>Название включено в географический указатель, но конкретные изображения ещё не подтверждены. Мы не создаём имитацию коллекции.</p></article>
+  <article><span class="step">02 / Есть находки</span><h3>Исследовательские записи</h3><p>Найдены архивные указатели или кандидаты. Их атрибуция, соответствие городу и права могут нуждаться в редакционной проверке.</p></article>
+  <article><span class="step">03 / Подробный атлас</span><h3>История с источниками</h3><p>Есть проверяемые изображения, датировки и объяснения. Гипотезы о местах съёмки отделены от подтверждённых фактов.</p></article>
+ </div>
+</section>
+</main>
+<footer><div class="shell foot"><a href="../">Город на бумаге</a><span>Архивные произведения, история городов, прозрачные источники и права.</span><a href="../stories/">Истории</a><a href="../atlas/">Атлас времени</a></div></footer>
+<noscript><p class="shell nojs">Для фильтрации городов требуется JavaScript. Список исходных городов хранится в <a href="../data/curation/world-cities-v1.json">открытом JSON-файле</a>. Три готовых исследования доступны по ссылкам выше.</p></noscript>
+</body>
+</html>
