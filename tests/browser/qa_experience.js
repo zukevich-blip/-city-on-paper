@@ -22,7 +22,7 @@ fs.mkdirSync(output,{recursive:true});
       if(await page.locator("h1").count()!==1)throw Error(name+" book lacks single H1");
       const cover=page.locator("#atlasBook");
       if((await cover.getAttribute("data-open"))!=="false")throw Error(name+" cover not closed initially");
-      await page.locator("#openBook").click();
+      await page.locator("#bookCover").click();
       if((await cover.getAttribute("data-open"))!=="true")throw Error(name+" click failed to open cover");
       await page.screenshot({path:output+"/"+name+"-atlas-first-spread.jpg",type:"jpeg",quality:82,fullPage:false});
       await page.locator("#mapOpen").click();
