@@ -6,7 +6,7 @@
   if (!me || document.getElementById("museumBar")) return;
   const base = me.src.replace(/assets\/nav\/museum-nav\.js.*$/, "");
   const HALLS = [
-    ["Главный вход", [["eras/", "Атлас эпох", "Карта Европы 1769 г., 186 городов, планы городов, тогда и сейчас"], ["", "Главная музея", "О проекте и все разделы"]]],
+    ["Главный вход", [["stories/", "Истории", "Короткие документированные рассказы по произведениям и городам"], ["eras/", "Атлас эпох", "Карта Европы 1769 г., 186 городов, планы городов, тогда и сейчас"], ["", "Главная музея", "О проекте и все разделы"]]],
     ["Смотреть", [["salon/", "Салон открытий", "Литографии и картины из открытых музеев"], ["closeup/", "Кабинет деталей", "Рассматривать лист в подробностях"],
       ["exhibitions/city-as-evidence/", "Город как свидетельство", "Выставка: что рассказывает гравюра"], ["exhibitions/lost-florence/", "Исчезнувшая Флоренция", "Выставка о старом центре"],
       ["photography/", "Современный город", "Фотографии тех же мест сегодня"]]],
@@ -18,6 +18,8 @@
       ["ornaments/", "Мастерская орнамента", "Узоры и декор"], ["ideas/", "Лаборатория идей", "Куда растёт музей"]]],
   ];
   const here = location.pathname.replace(/index\.html$/, "");
+  // The curated homepage owns its primary navigation. Keep the global bar in inner rooms.
+  if (here === new URL(base).pathname) return;
   const isHere = (p) => here.endsWith("/" + p) || (p === "" && new URL(base).pathname === here);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const css = `#museumBar{background:#17251f;color:#eadfc9;font:13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;position:relative;z-index:1000}
@@ -31,10 +33,10 @@
 #museumBar .mbp a[aria-current] b{color:#f0c987}
 @media(max-width:700px){#museumBar .mbq{display:none}}`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  const quick = [["eras/", "Атлас"], ["salon/", "Смотреть"], ["journeys/", "Путешествовать"], ["detective/", "Расследовать"], ["printlab/", "Как сделано"]];
+  const quick = [["stories/", "Истории"], ["eras/", "Атлас"], ["salon/", "Коллекция"], ["detective/", "Расследовать"], ["printlab/", "Ремесло"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
-  bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}eras/">Город на бумаге</a>
+  bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>
     <nav class="mbq" aria-label="Залы музея">${quick.map(([p, t]) => `<a href="${esc(base + p)}"${isHere(p) ? ' aria-current="page"' : ""}>${esc(t)}</a>`).join("")}</nav>
     <button type="button" aria-expanded="false" aria-controls="museumPanel">Все залы ▾</button></div>
     <nav class="mbp" id="museumPanel" aria-label="Все залы музея" hidden>${HALLS.map(([h, items]) => `<div><p class="mbt">${esc(h)}</p>${items.map(([p, t, d]) =>
