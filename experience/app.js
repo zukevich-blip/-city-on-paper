@@ -336,6 +336,7 @@
 
   $("atlasBook").querySelector(".spread").inert = true;
   $("openBook").addEventListener("click", openBook);
+  $("bookCover").addEventListener("click", openBook);
   $("closeBook").addEventListener("click", closeBook);
   $("quietToggle").addEventListener("click", () => setQuiet(!quiet));
   root.querySelectorAll(".spine[data-city]").forEach(button =>
