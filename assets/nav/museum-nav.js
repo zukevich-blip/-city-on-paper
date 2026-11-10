@@ -6,11 +6,11 @@
   if (!me || document.getElementById("museumBar")) return;
   const base = me.src.replace(/assets\/nav\/museum-nav\.js.*$/, "");
   const HALLS = [
-    ["Главный вход", [["stories/", "Истории", "Короткие документированные рассказы по произведениям и городам"], ["eras/", "Атлас эпох", "Карта Европы 1769 г., 186 городов, планы городов, тогда и сейчас"], ["", "Главная музея", "О проекте и все разделы"]]],
+    ["Главный вход", [["", "Живой музей", "Истории, коллекция, мастерская и все разделы"], ["stories/", "Истории", "Документированные рассказы по произведениям и городам"], ["atlas/", "Атлас времени", "Исследование мест, эпох и музейных первоисточников"], ["experience/", "Книга городов", "Необязательное путешествие с раскрывающейся книгой"], ["eras/", "Архивный атлас эпох", "Карты Европы, планы городов, тогда и сейчас"]]],
     ["Смотреть", [["salon/", "Салон открытий", "Литографии и картины из открытых музеев"], ["closeup/", "Кабинет деталей", "Рассматривать лист в подробностях"],
       ["exhibitions/city-as-evidence/", "Город как свидетельство", "Выставка: что рассказывает гравюра"], ["exhibitions/lost-florence/", "Исчезнувшая Флоренция", "Выставка о старом центре"],
       ["photography/", "Современный город", "Фотографии тех же мест сегодня"]]],
-    ["Путешествовать", [["journeys/", "Атлас времени", "Города по векам"], ["world/", "Города мира", "Виды городов за пределами Европы"],
+    ["Путешествовать", [["journeys/", "Путешествие по векам", "Города по векам"], ["world/", "Города мира", "Виды городов за пределами Европы"],
       ["poc/compare/", "Тогда / сейчас", "Сравнить литографию и фотографию"], ["atlas-prototype/", "Исторический атлас (прототип)", "Первый вариант карты"]]],
     ["Расследовать", [["discover/", "Первое расследование", "Начать знакомство"], ["detective/", "Дело № 01 · Мадлен", "Литография под лупой"],
       ["fieldwork/", "Городская фотоохота", "Найти ракурс художника самому"], ["studio/", "Кабинет коллекционера", "Происхождение листов, блокнот"]]],
@@ -22,9 +22,9 @@
   if (here === new URL(base).pathname) return;
   const isHere = (p) => here.endsWith("/" + p) || (p === "" && new URL(base).pathname === here);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const css = `#museumBar{background:#17251f;color:#eadfc9;font:13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;position:relative;z-index:1000}
+  const css = `#museumBar{background:#29463D;color:#f4efe5;font:13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;position:relative;z-index:1000}
 #museumBar .mb{max-width:1500px;margin:0 auto;display:flex;align-items:center;gap:6px 14px;padding:4px clamp(12px,3vw,40px);flex-wrap:wrap}
-#museumBar a{color:#eadfc9;text-decoration:none}#museumBar .mbh{font:15px Georgia,serif;letter-spacing:.02em;margin-right:auto;display:inline-flex;align-items:center;min-height:44px}
+#museumBar a{color:#eadfc9;text-decoration:none}#museumBar .mbh{font:15px "Iowan Old Style",Georgia,serif;letter-spacing:.02em;margin-right:auto;display:inline-flex;align-items:center;min-height:44px}
 #museumBar .mbq{display:flex;gap:2px;flex-wrap:wrap}#museumBar .mbq a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border-radius:2px}#museumBar .mbq a:hover,#museumBar .mbq a[aria-current]{background:#ffffff1a}
 #museumBar button{min-height:44px;border:1px solid #dcb88c;background:none;color:#f1e3c4;padding:4px 12px;border-radius:2px;font:inherit;cursor:pointer}
 #museumBar .mbp{max-width:1500px;margin:0 auto;padding:6px clamp(12px,3vw,40px) 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 22px}
@@ -33,7 +33,7 @@
 #museumBar .mbp a[aria-current] b{color:#f0c987}
 @media(max-width:700px){#museumBar .mbq{display:none}}`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  const quick = [["stories/", "Истории"], ["eras/", "Атлас"], ["salon/", "Коллекция"], ["detective/", "Расследовать"], ["printlab/", "Ремесло"]];
+  const quick = [["stories/", "Истории"], ["atlas/", "Атлас времени"], ["salon/", "Коллекция"], ["studio/", "Кабинет"], ["experience/", "Книга"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>
