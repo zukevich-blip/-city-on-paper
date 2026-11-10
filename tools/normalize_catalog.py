@@ -19,6 +19,8 @@ import sys
 import time
 import unicodedata
 from collections import defaultdict
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -425,16 +427,27 @@ class API:
                     raise ValueError("API response is not an object")
                 if data.get("error"):
                     raise DeferredRemote("Remote API error: " + str(data["error"])[:180])
+                if isinstance(data.get("status"), dict) and data["status"].get("message"):
+                    raise DeferredRemote("Remote service status: " + str(
+                        data["status"]["message"])[:180])
                 path.write_text(json.dumps(data, sort_keys=True), encoding="utf-8")
                 return data
             except HTTPError as exc:
                 if exc.code not in (429, 500, 502, 503, 504):
                     raise DeferredRemote(f"HTTP {exc.code}") from exc
                 value = exc.headers.get("Retry-After") if exc.headers else None
-                try:
-                    delay = max(float(value), 0) if value else max(5, 5 * 2 ** attempt)
-                except ValueError:
-                    delay = max(5, 5 * 2 ** attempt)
+                delay = max(5, 5 * 2 ** attempt)
+                if value:
+                    try:
+                        delay = max(float(value), 0)
+                    except ValueError:
+                        try:
+                            stamp = parsedate_to_datetime(value)
+                            if stamp.tzinfo is None:
+                                stamp = stamp.replace(tzinfo=timezone.utc)
+                            delay = max(0, (stamp - datetime.now(timezone.utc)).total_seconds())
+                        except (TypeError, ValueError, OverflowError):
+                            pass
                 # Respect long server Retry-After by deferring the whole run,
                 # not hammering the server or blocking CI for 20 minutes.
                 if delay > 20 or attempt >= self.retries:
@@ -553,7 +566,7 @@ def enrich_catalog(catalog: dict[str, Any], api: API, *,
                         "latitude": place.get("lat"),
                         "longitude": place.get("lng"),
                         "status": "candidate_manual_geography_review",
-                    } for place in response.get("geonames", [])
+                    } for place in (response.get("geonames") or [])
                        if GEONAME_RE.fullmatch(str(place.get("geonameId") or ""))]
                     results["geonames_suggestions_checked"] += 1
                 except DeferredRemote as exc:
