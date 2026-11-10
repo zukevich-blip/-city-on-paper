@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - release/city-on-paper-private-preview-20261104
+      - feature/consilium-museum-world-20261110
   pull_request:
     paths:
       - 'tools/**'
