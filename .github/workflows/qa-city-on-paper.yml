@@ -11,6 +11,7 @@ on:
       - 'schemas/**'
       - 'poc/**'
       - 'index.html'
+      - 'stories/**'
       - 'assets/nav/**'
       - 'journeys/**'
       - 'detective/**'
@@ -71,7 +72,7 @@ jobs:
   browser-viewer:
     name: Then/Now responsive Chromium
     if: ${{ github.event_name != 'pull_request' || github.head_ref != 'release/city-on-paper-private-preview-20261104' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
@@ -97,6 +98,7 @@ jobs:
           node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
           node tests/browser/qa_antique_atlas.js http://127.0.0.1:8765/atlas-prototype/ /tmp/city-on-paper-screens
           node tests/browser/qa_eras.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_stories.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_detective.js http://127.0.0.1:8765/detective/ /tmp/city-on-paper-screens
           node tests/browser/qa_studio.js http://127.0.0.1:8765/studio/ /tmp/city-on-paper-screens
           node tests/browser/qa_museum_rooms.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -137,6 +139,7 @@ jobs:
           mkdir -p /tmp/city-on-paper-package/atlas-prototype
           cp atlas-prototype/index.html /tmp/city-on-paper-package/atlas-prototype/
           cp -R eras /tmp/city-on-paper-package/
+          cp -R stories /tmp/city-on-paper-package/
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
