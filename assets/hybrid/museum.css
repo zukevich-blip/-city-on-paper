@@ -101,3 +101,68 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
   .hybrid-story-tile img{height:185px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hybrid-editorial-grid .hybrid-story-tile{transition:none}}
+
+/* Consilium refinement: world-cities discovery without cluttering the reader's path. */
+.hybrid-world-portal{
+  margin:8px 0 34px;
+  padding:clamp(25px,3.5vw,44px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  background:#F8F3EA;
+  border:1px solid var(--cop-line);
+  border-top:3px solid var(--cop-gold)
+}
+.hybrid-world-portal h2{
+  font:normal clamp(29px,3.4vw,44px)/1.12 var(--cop-display);
+  max-width:740px;
+  margin:12px 0 15px
+}
+.hybrid-world-portal p{font-size:14px;color:var(--cop-muted);line-height:1.7;max-width:700px;margin:0}
+.hybrid-world-portal .btn{flex:none;background:var(--cop-green);border-color:var(--cop-green);color:#FFFCF6;white-space:nowrap}
+.hybrid-world-portal .btn:hover{background:#3b5b4b}
+@media(max-width:850px){
+ .hybrid-world-portal{flex-direction:column;align-items:stretch;gap:20px}
+ .hybrid-world-portal .btn{align-self:flex-start}
+}
+@media(max-width:720px){
+ header{position:sticky;top:0;z-index:20}
+ header nav.wrap{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:11px 0 6px;min-height:0}
+ header .brand{display:block}
+ header .brand strong{font-size:23px;line-height:1.15}
+ header .brand span{display:none}
+ header .navlinks{
+   order:0;
+   display:flex;
+   width:100%;
+   margin:0;
+   gap:clamp(9px,2.5vw,18px);
+   overflow-x:auto;
+   overflow-y:visible;
+   flex-wrap:nowrap;
+   align-items:center;
+   justify-content:flex-start;
+   scrollbar-width:thin;
+ }
+ header .navlinks>a[href="studio/"]{display:none}
+ header .navlinks a,
+ header .navlinks button,
+ header .navlinks summary{
+   font:600 12px/1.3 var(--cop-ui);
+   display:inline-flex;
+   align-items:center;
+   min-height:38px;
+   padding:7px 0;
+   white-space:nowrap;
+ }
+ header .allrooms{flex:none}
+ header .rooms-panel{top:100%;max-width:calc(100vw - 28px);overflow:auto;max-height:70vh}
+ .hybrid-story-hero{padding-top:28px}
+ .hybrid-world-portal{padding:23px 19px}
+ .hybrid-world-portal .btn{max-width:100%;white-space:normal}
+}
+@media(max-width:390px){
+ header .navlinks{gap:12px}
+ header .navlinks a,header .navlinks button,header .navlinks summary{font-size:11px}
+}
