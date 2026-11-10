@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#172920">
+<meta name="description" content="Город на бумаге. Откройте исторический атлас, выберите Париж, Флоренцию или Неаполь и пройдите документированный маршрут через изображения XVIII–XXI веков.">
+<title>Книга городов · Город на бумаге</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#museum">Перейти к книге</a>
+<div class="site">
+<header class="site-head">
+ <a class="identity" href="../" aria-label="Город на бумаге, главная"><span class="identity-figure" aria-hidden="true">G<span>•</span>P</span><span><strong>Город на бумаге</strong><small>Исторические изображения · С 2026</small></span></a>
+ <nav class="site-menu" aria-label="Навигация"><a href="../stories/">Истории</a><a href="../world/">Города</a><a href="../#catalog">Коллекция</a><a href="../eras/">Исторический атлас</a></nav>
+ <button id="quietToggle" type="button" class="quiet-toggle" aria-pressed="false">Спокойный режим</button>
+</header>
+
+<main id="museum">
+<section class="opening" aria-labelledby="welcome-title">
+ <div class="headnote"><span>Частная цифровая коллекция</span><span class="rule" aria-hidden="true"></span><span>Том I / Европа</span></div>
+ <h1 id="welcome-title">Откройте город, <em>которого уже нет.</em></h1>
+ <p class="intro">Листайте старинный атлас. За каждой страницей скрываются произведение, место и время. Начните с Парижа, продолжите во Флоренции или отправьтесь к морю Неаполя.</p>
+
+ <div class="atlas-stage">
+  <aside class="bookshelf" aria-label="Тома и тематические полки">
+   <div class="shelf-head"><span class="tiny-label">Библиотека</span><span>Выберите том</span></div>
+   <button type="button" class="spine active" data-city="paris" aria-pressed="true"><span class="spine-number">I</span><span class="spine-title">Париж</span><span class="spine-year">1845–1900</span></button>
+   <button type="button" class="spine" data-city="florence" aria-pressed="false"><span class="spine-number">II</span><span class="spine-title">Флоренция</span><span class="spine-year">1859–1900</span></button>
+   <button type="button" class="spine" data-city="naples" aria-pressed="false"><span class="spine-number">III</span><span class="spine-title">Неаполь</span><span class="spine-year">1846–1900</span></button>
+   <div class="shelf-rule" aria-hidden="true"></div>
+   <button type="button" id="topicsToggle" class="spine smaller" aria-expanded="false" aria-controls="topicsPanel"><span class="spine-number">+</span><span class="spine-title">Другие темы</span></button>
+  </aside>
+
+  <div class="book-area">
+   <div class="atlas-book" id="atlasBook" data-open="false" aria-label="Интерактивная книга городов">
+    <div class="spread" aria-live="polite">
+     <div class="left-page">
+      <div class="paper-border">
+       <span class="folio-head">ATLAS HISTORIQUE <span>•</span> EUROPE</span>
+       <figure class="foldout-map">
+        <img src="../eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Подлинная историческая карта Европы XVIII века: Carte d'Europe, датировка Библиотеки Конгресса 1769 год" width="1000" height="808">
+        <figcaption>Карта Европы, G. de L’Isle / Ph. Buache. Экземпляр Library of Congress, 1769. <a href="https://www.loc.gov/item/97683588/" target="_blank" rel="noopener noreferrer">Архив</a>. Отметки городов вынесены отдельно, без ложной геопривязки.</figcaption>
+       </figure>
+       <button type="button" class="map-expand" id="mapOpen">Развернуть карту <span aria-hidden="true">↗</span></button>
+      </div>
+      <span class="page-number">I</span>
+     </div>
+     <div class="right-page">
+      <div class="paper-border right-contents">
+       <span class="folio-head" id="pageCountry">FRANCE · 1845–1900</span>
+       <span class="chapter-index">Путешествие по документам</span>
+       <h2 id="cityHeading">Париж<br><em>на бумаге</em></h2>
+       <p id="cityIntro">Два взгляда Филиппа Бенуа, печатная мастерская и Париж, который менялся на протяжении века.</p>
+       <div class="ornamental-rule" aria-hidden="true">✦</div>
+       <div class="chapter-list" id="chapterList" aria-label="Главы выбранного города">
+         <button type="button" class="chapter-link current" data-chapter="0" aria-current="step"><span>01</span><strong>Мадлен</strong></button>
+         <button type="button" class="chapter-link" data-chapter="1"><span>02</span><strong>Пале-Рояль</strong></button>
+         <button type="button" class="chapter-link" data-chapter="2"><span>03</span><strong>Город меняет лицо</strong></button>
+       </div>
+       <button type="button" class="begin-chapter" id="startStory">Читать выбранную главу <span aria-hidden="true">→</span></button>
+      </div>
+      <span class="page-number">II</span>
+     </div>
+    </div>
+    <div class="book-cover" id="bookCover" aria-hidden="true">
+     <div class="cover-inner">
+      <span class="cover-corner corner-a"></span><span class="cover-corner corner-b"></span><span class="cover-corner corner-c"></span><span class="cover-corner corner-d"></span>
+      <span class="cover-ornament">✣</span>
+      <span class="cover-subtitle">Город на бумаге</span>
+      <span class="cover-rule" aria-hidden="true"></span>
+      <span class="cover-title">КНИГА<br>ГОРОДОВ</span>
+      <span class="cover-latin">ATLAS DES VILLES</span>
+      <span class="cover-emblem" aria-hidden="true">❧</span>
+      <span class="cover-footer">ИСКУССТВО · КАРТЫ · ИСТОРИЯ</span>
+     </div>
+    </div>
+   </div>
+   <div class="book-underbar">
+    <span id="bookStatus" role="status">Атлас закрыт. Откройте первую страницу.</span>
+    <div class="book-controls">
+      <button type="button" class="book-primary" id="openBook" aria-expanded="false" aria-controls="atlasBook">Открыть атлас</button>
+      <button type="button" class="book-text-button" id="closeBook" hidden>Закрыть книгу</button>
+    </div>
+   </div>
+  </div>
+  <aside class="topic-panel" id="topicsPanel" hidden aria-label="Тематические залы">
+    <div><span class="tiny-label">Полка исследователя</span><button type="button" id="topicsClose" aria-label="Закрыть список тем">×</button></div>
+    <h2>Куда пойти дальше?</h2>
+    <a href="../printlab/"><strong>Искусство литографии</strong><span>Как рисунок становился оттиском</span></a>
+    <a href="../atelier/ornament/"><strong>Архитектура и орнамент</strong><span>Капители, фасады и ремесло</span></a>
+    <a href="../exhibitions/lost-florence/"><strong>Исчезнувшие города</strong><span>Прогулка по старой Флоренции</span></a>
+    <a href="../detective/"><strong>Кабинет исследователя</strong><span>Подписи, детали, доказательства</span></a>
+    <a href="../salon/"><strong>Музейная коллекция</strong><span>Архивные произведения и авторы</span></a>
+    <a href="../eras/"><strong>Большой атлас эпох</strong><span>Карты и другие временные слои</span></a>
+  </aside>
+ </div>
+ <div class="underhint"><span class="small-star" aria-hidden="true">✦</span> Все изображения взяты из обозначенных музейных коллекций. Книга и её анимация — современный интерфейс, не исторический предмет.</div>
+</section>
+
+<section class="reading" id="reading" aria-labelledby="reading-title" hidden>
+ <div class="reading-topline">
+  <span class="eyebrow">Вы читаете · <span id="readingCity">Париж</span></span>
+  <div class="reading-progress"><span id="readingCounter">Глава 1 из 3</span><div class="progress-track"><span id="progressFill"></span></div></div>
+ </div>
+ <div class="reading-layout">
+  <div class="reading-photo">
+   <figure>
+    <button type="button" id="zoomPicture" class="image-open" aria-label="Увеличить изображение"><img id="chapterImage" src="../poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" alt="Старинная литография церкви Мадлен, Париж"></button>
+    <figcaption id="chapterCaption">Филипп Бенуа. «Paris. La Madeleine». Library of Congress.</figcaption>
+   </figure>
+   <span class="view-hint">Нажмите на изображение, чтобы увидеть детали</span>
+  </div>
+  <article class="chapter-story">
+    <span class="eyebrow" id="chapterEra">Париж · 1845–1860</span>
+    <h2 id="reading-title">Город начинается с фасада</h2>
+    <p class="story-lead" id="chapterLead">На старой литографии знакомый город оборачивается неожиданной стороной.</p>
+    <div id="chapterBody" class="chapter-body"><p>Изображение хранит детали городской жизни и время, когда было создано.</p></div>
+    <div class="source-label"><strong>Архивный оригинал</strong><a id="chapterSource" href="https://www.loc.gov/item/2016652452/" target="_blank" rel="noopener noreferrer">Открыть в Library of Congress ↗</a><p id="chapterRights">Библиотека Конгресса: отсутствие известных ограничений на публикацию.</p></div>
+    <div class="chapter-actions">
+      <button type="button" class="prev" id="prevChapter">← Назад</button>
+      <button type="button" class="next" id="nextChapter">Следующая глава →</button>
+    </div>
+  </article>
+ </div>
+ <div class="reading-outro"><p>Это исследовательский рассказ, а не фотограмметрическая реконструкция. Оценки ракурсов и дат здесь отделены от подтверждённых музейных сведений.</p><a href="../stories/paris-on-paper/">Большая история Парижа</a><a href="../poc/compare/">Тогда / Сейчас</a></div>
+</section>
+
+<section class="discover-more" id="collections" aria-labelledby="collection-title">
+ <div class="section-eyebrow"><span>Залы музея</span><span>Куда ведёт книга</span></div>
+ <h2 id="collection-title">За пределами одной страницы</h2>
+ <div class="hall-grid">
+  <a href="../stories/"><span class="hall-num">01 / Истории</span><strong>Города и их судьбы</strong><p>Короткие выставки, в которых каждое изображение становится началом расследования.</p><span class="hall-arrow">→</span></a>
+  <a href="../eras/"><span class="hall-num">02 / География</span><strong>Атлас эпох</strong><p>Исторические карты, разные временные слои и проверяемые музейные изображения.</p><span class="hall-arrow">→</span></a>
+  <a href="../closeup/"><span class="hall-num">03 / Детали</span><strong>Литография под лупой</strong><p>Рассмотрите штрих, подпись, архитектуру и самую незаметную улику.</p><span class="hall-arrow">→</span></a>
+  <a href="../studio/"><span class="hall-num">04 / Мой кабинет</span><strong>Личный архив</strong><p>Сохраняйте собственные вопросы и исследования на устройстве.</p><span class="hall-arrow">→</span></a>
+ </div>
+</section>
+</main>
+<footer class="foot"><div><a class="identity footer-identity" href="../"><span class="identity-figure" aria-hidden="true">G<span>•</span>P</span><span><strong>Город на бумаге</strong><small>Архив. Искусство. История.</small></span></a><p>Редакционный эксперимент. Источники Library of Congress, Art Institute of Chicago, Cleveland Museum of Art и другие музейные собрания. Статус прав указан у каждого изображения.</p></div><div><a href="../">Обычная версия музея</a><a href="../stories/">Все истории</a><a href="../eras/">Атлас эпох</a><a href="https://www.loc.gov/item/97683588/" target="_blank" rel="noopener noreferrer">Карта Европы: оригинал LoC</a></div></footer>
+</div>
+
+<dialog id="mapDialog" class="folio-dialog" aria-labelledby="map-title">
+ <div class="dialog-top"><span class="eyebrow">Документ · География XVIII века</span><button type="button" id="mapClose" aria-label="Закрыть карту">×</button></div>
+ <h2 id="map-title">Карта Европы. 1769.</h2>
+ <p>Развёрнутый исторический оригинал. Выбор города ниже открывает музейные истории и не претендует на точность координат на этом листе.</p>
+ <figure><img src="../eras/img/loc-97683588-carte-d-europe-1769.jpg" alt="Большой оригинал старинной карты Европы. Carte d’Europe, датировка LoC 1769" width="2000" height="1616"><figcaption><a href="https://www.loc.gov/item/97683588/" target="_blank" rel="noopener noreferrer">Library of Congress, G5700 1724 .L5 TIL</a>; источник сохранён в существующем атласе проекта.</figcaption></figure>
+ <div class="dialog-cities"><button type="button" data-city="paris">Париж</button><button type="button" data-city="florence">Флоренция</button><button type="button" data-city="naples">Неаполь</button></div>
+</dialog>
+
+<dialog id="imageDialog" class="image-dialog" aria-label="Увеличенное изображение">
+ <div class="dialog-top"><span class="eyebrow">Оригинал в подробностях</span><button type="button" id="imageClose" aria-label="Закрыть увеличенное изображение">×</button></div>
+ <div class="image-zoom"><img id="largeImage" alt=""><label for="zoomSlider">Увеличение <output id="zoomLabel">100%</output></label><input id="zoomSlider" type="range" min="100" max="250" step="10" value="100"></div>
+ <p id="imageCredit"></p>
+</dialog>
+</body>
+</html>
