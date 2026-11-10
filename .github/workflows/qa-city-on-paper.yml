@@ -71,7 +71,7 @@ jobs:
   browser-viewer:
     name: Then/Now responsive Chromium
     if: ${{ github.event_name != 'pull_request' || github.head_ref != 'release/city-on-paper-private-preview-20261104' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
