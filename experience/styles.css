@@ -291,3 +291,4 @@ body.quiet-mode .opening:before{display:none}
 }
 
 .noscript-fallback{background:#fff2cb;color:#262e27;text-align:center;padding:13px 16px;font:13px/1.6 var(--ui-font)}
+:root{--forest:var(--cop-green);--cream:var(--cop-paper);--ink:var(--cop-ink);--brass:var(--cop-gold);--book-font:var(--cop-display);--ui-font:var(--cop-ui)}
