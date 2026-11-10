@@ -1,0 +1,15 @@
+/* Shared museum identity – approved hybrid, 10 November 2026.
+   Single color / type vocabulary for Journal, Living Atlas and Book. */
+:root{
+  --cop-paper:#F4EFE5;
+  --cop-green:#29463D;
+  --cop-ink:#292D29;
+  --cop-gold:#B79567;
+  --cop-terracotta:#88513B;
+  --cop-sheet:#FFFCF6;
+  --cop-line:#D8CDBA;
+  --cop-muted:#716D61;
+  --cop-display:"Iowan Old Style","Palatino Linotype",Baskerville,Georgia,serif;
+  --cop-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --cop-max:1240px;
+}
