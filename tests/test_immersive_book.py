@@ -111,10 +111,11 @@ def test_calm_mode_and_keyboard_accessibility_have_real_implementation():
     assert "localStorage" in js
 
 
-def test_home_has_real_book_as_first_call_to_action_without_losing_old_home():
+def test_book_is_available_as_optional_entry_below_story_in_hybrid_home():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert 'href="experience/" class="btn primary"' in html
-    assert 'href="stories/paris-on-paper/"' in html
-    assert html.index('href="experience/" class="btn primary"') < html.index('class="stats"')
+    assert 'href="stories/paris-on-paper/" class="btn primary"' in html
+    assert 'href="experience/"' in html
+    assert 'href="atlas/"' in html
+    assert html.index('href="stories/paris-on-paper/" class="btn primary"') < html.index('class="hybrid-book-row"')
     assert 'id="home"' in html
     assert 'id="catalog"' in html
