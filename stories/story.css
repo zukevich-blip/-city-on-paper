@@ -1,4 +1,5 @@
 /* City on Paper — editorial story system, research preview 2026-11-10 */
+/* Shared hybrid museum variables come from assets/hybrid/tokens.css */
 :root{color-scheme:light;--paper:#f4efe6;--sheet:#fffdf7;--ink:#23312d;--text:#33362f;--muted:#716e63;--line:#d8cebc;--forest:#203b34;--deep:#152c27;--gold:#ac8454;--rust:#9b5540;--white:#fdf9ee;--max:1180px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
@@ -150,3 +151,6 @@ small.narrow{display:block;max-width:580px;line-height:1.6;color:var(--muted)}
 }
 @media(max-width:430px){.rail-grid{grid-template-columns:1fr}.toplinks a{font-size:12px}.diptych figure img{height:245px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.story-card{transition:none}}
+:root{--paper:var(--cop-paper);--forest:var(--cop-green);--ink:var(--cop-ink);--rust:var(--cop-terracotta);--gold:var(--cop-gold);--line:var(--cop-line);--sheet:var(--cop-sheet)}
+body{font-family:var(--cop-ui)}
+h1,h2,h3,blockquote,.brand strong{font-family:var(--cop-display)}
