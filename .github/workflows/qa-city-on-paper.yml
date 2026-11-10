@@ -234,6 +234,18 @@ jobs:
             /tmp/city-on-paper-package/data/curation/world-graphic-archive-v1.json
             /tmp/city-on-paper-package/data/curation/world-graphic-progress-v1.json
           key: world-v2-${{ hashFiles('tools/curation/build_world_graphics.py', 'data/curation/world-cities-v1.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Build transparent world coverage registry
+        run: |
+          python tools/audit/world_coverage.py --root /tmp/city-on-paper-package
+          python - <<'PY'
+          import json, pathlib
+          base = pathlib.Path("/tmp/city-on-paper-package")
+          d = json.loads((base/"data/coverage/world-coverage-20261110.json").read_text(encoding="utf-8"))
+          assert d["summary"]["combined_names"] == len(d["entries"])
+          assert d["summary"]["detailed_names"] <= d["summary"]["names_with_candidates_or_detail"]
+          assert all(item["status"] in ("detailed", "candidate", "seed_only") for item in d["entries"])
+          print("World coverage registry checked")
+          PY
       - name: Audit and browser-test the ACTUAL delivered package
         run: |
           python tools/release/validate_bundle.py --root /tmp/city-on-paper-package
