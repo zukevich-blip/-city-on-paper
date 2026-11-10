@@ -231,3 +231,30 @@ def test_packaged_generated_collections_are_imported_without_false_approval(tmp_
                for work in normalized["works"])
     assert all(work["depiction"]["status"] == "location_pending"
                for work in normalized["works"])
+
+
+def test_geonames_name_search_never_automatically_assigns_id() -> None:
+    raw_city = seed()[0].copy()
+    raw_city["geonames_claim"] = None
+    catalog = normalize([rec(0)], [raw_city])
+
+    class CandidateApi:
+        def get(self, url, params):
+            assert url.endswith("/searchJSON")
+            assert params["name_equals"] == "Париж"
+            return {"geonames": [
+                {"geonameId": 2988507, "name": "Paris", "countryCode": "FR",
+                 "lat": "48.85", "lng": "2.35"},
+                {"geonameId": 4717560, "name": "Paris", "countryCode": "US",
+                 "lat": "33.66", "lng": "-95.55"},
+            ]}
+
+    state = enrich_catalog(
+        catalog, CandidateApi(), enable_wikidata=False,
+        enable_geonames=True, geonames_user="test-user", geo_suggest_limit=1,
+    )
+    assert state["geonames_suggestions_checked"] == 1
+    assert catalog["cities"][0]["geonames_id"] is None
+    assert catalog["cities"][0]["geonames_status"] == "location_pending"
+    assert len(catalog["cities"][0]["geonames_suggestions"]) == 2
+    assert catalog["cities"][0]["id_stability"].startswith("provisional_")
