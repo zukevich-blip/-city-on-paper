@@ -258,3 +258,42 @@ def test_geonames_name_search_never_automatically_assigns_id() -> None:
     assert catalog["cities"][0]["geonames_status"] == "location_pending"
     assert len(catalog["cities"][0]["geonames_suggestions"]) == 2
     assert catalog["cities"][0]["id_stability"].startswith("provisional_")
+
+
+def test_geonames_json_status_is_not_mistaken_for_empty_result(tmp_path: Path, monkeypatch) -> None:
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def read(self, limit):
+            return b'{"status":{"message":"hourly credit limit exceeded","value":19}}'
+
+    import tools.normalize_catalog as module
+    monkeypatch.setattr(module, "urlopen", lambda *a, **kw: Response())
+    with pytest.raises(DeferredRemote, match="credit limit"):
+        API(tmp_path / "cache").get("https://secure.geonames.org/searchJSON", {
+            "name_equals": "Paris", "username": "example",
+        })
+
+
+def test_http_date_retry_after_defers_request(tmp_path: Path, monkeypatch) -> None:
+    from datetime import datetime, timedelta, timezone
+    from email.utils import format_datetime
+
+    due = format_datetime(
+        datetime.now(timezone.utc) + timedelta(minutes=15), usegmt=True,
+    )
+
+    def rate_limited(*args, **kwargs):
+        raise HTTPError("https://www.wikidata.org", 429, "rate limited",
+                        {"Retry-After": due}, None)
+
+    import tools.normalize_catalog as module
+    monkeypatch.setattr(module, "urlopen", rate_limited)
+    with pytest.raises(DeferredRemote, match="retry after"):
+        API(tmp_path / "cache", sleeper=lambda _: pytest.fail("No premature retry")).get(
+            "https://www.wikidata.org/w/api.php", {"ids": "Q12418"},
+        )
