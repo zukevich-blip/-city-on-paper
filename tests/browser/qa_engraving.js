@@ -60,6 +60,15 @@ async function originalIntegrity(page,selector,device){
       const display=await page.locator(".hybrid-story-hero h1").evaluate(node=>getComputedStyle(node).fontFamily);
       assert(device+" engraved title type",/Bodoni|Didot|Iowan|Georgia/i.test(display));
       await originalIntegrity(page,".hybrid-hero-picture img",device+" home");
+      if(width<=720){
+        const order=await page.evaluate(()=>{
+          const rect=q=>document.querySelector(q).getBoundingClientRect();
+          return {print:rect(".hybrid-story-hero .hybrid-hero-picture").top,
+                  prose:rect(".hybrid-story-hero .lead").top};
+        });
+        assert(device+" original above essay in reading order",order.print<order.prose);
+        assert(device+" historic art starts within first fold",order.print<height);
+      }
       assert(device+" source archive link",await page.locator('.hybrid-hero-picture figcaption a[href="https://www.loc.gov/item/2016652452/"]').count()===1);
       assert(device+" engraving rule",await page.locator(".hybrid-story-copy .cop-engraved-line").count()===1);
       await paint(page,device,"home");
@@ -70,6 +79,18 @@ async function originalIntegrity(page,selector,device){
       await styleCheck(page,device,"cities");
       assert(device+" city masthead stamp",await page.locator(".hero-copy .cop-signet").count()===1);
       await originalIntegrity(page,".hero-art-grid img",device+" cities");
+      const gallery=await page.evaluate(()=>{
+        const rect=q=>document.querySelector(q).getBoundingClientRect();
+        const a=rect(".hero-art-grid"),b=rect(".hero-art .cop-plate-mark"),c=rect(".hero-art figcaption");
+        return {gridBottom:a.bottom,plateTop:b.top,plateBottom:b.bottom,captionTop:c.top,
+                leadTop:rect(".world-hero .lead").top,figureTop:rect(".world-hero .hero-art").top};
+      });
+      assert(device+" no caption crossing the archival montage",gallery.plateTop>=gallery.gridBottom-2);
+      assert(device+" credits after plate signature",gallery.captionTop>=gallery.plateBottom-2);
+      if(width<=720){
+        assert(device+" city artworks shown before essay",gallery.figureTop<gallery.leadTop);
+        assert(device+" city artworks start within first fold",gallery.figureTop<height);
+      }
       assert(device+" three source institutions",await page.locator(".hero-art figcaption a[href^='https://']").count()===3);
       assert(device+" status plate not claiming verification",await page.locator(".city-card .status").first().textContent()!=="Verified");
       await paint(page,device,"cities");
