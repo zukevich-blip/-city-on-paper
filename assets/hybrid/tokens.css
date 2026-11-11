@@ -12,4 +12,12 @@
   --cop-display:"Iowan Old Style","Palatino Linotype",Baskerville,Georgia,serif;
   --cop-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   --cop-max:1240px;
+  /* Engraving Museum v1: editorial typography and authentic sheet framing */
+  --cop-titling:"Bodoni MT",Didot,"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --cop-letterpress:#3F4137;
+  --cop-sanguine:#895140;
+  --cop-engraved-rule:#A89473;
+  --cop-engraved-faint:#E4D9C8;
+  --cop-matte:#F9F5EC;
+  --cop-card:#FFFDF8;
 }
