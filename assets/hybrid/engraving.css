@@ -1,0 +1,324 @@
+/*
+ * CITY ON PAPER / ENGRAVING MUSEUM DESIGN SYSTEM
+ * Version 1, 11 November 2026. Original CSS ornamentation; no external fonts,
+ * print textures, trackers, or imitation institutional seals.
+ *
+ * Hierarchy: quiet archival page, engraved titling, authentic unfiltered print,
+ * museum caption, research status. Display type remains platform-local.
+ */
+.cop-engraved {
+  --cop-titling:"Bodoni MT",Didot,"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --cop-letterpress:#3f4137;
+  --cop-sanguine:#895140;
+  --cop-engraved-rule:#a89473;
+  --cop-engraved-faint:#e4d9c8;
+  --cop-matte:#f9f5ec;
+  --cop-card:#fffdf8;
+  background-color:#f8f4ec;
+  color:var(--cop-ink);
+  font-kerning:normal;
+  text-rendering:optimizeLegibility;
+}
+.cop-engraved h1,
+.cop-engraved h2,
+.cop-engraved h3,
+.cop-engraved .brand strong,
+.cop-engraved .logo strong,
+.cop-engraved .feature-card h3,
+.cop-engraved .story-card h3 {
+  font-family:var(--cop-titling);
+  font-optical-sizing:auto;
+}
+.cop-engraved :is(h1,h2,h3) {
+  overflow-wrap:normal;
+  text-wrap:balance;
+}
+.cop-engraved :is(.eyebrow,.filter-label,.tile-kicker,.region,.step,.door-number,.record-mini span,.cop-museum-caption) {
+  font-variant-caps:all-small-caps;
+  letter-spacing:.11em;
+}
+.cop-engraved :is(a,button,summary,input,select):focus-visible {
+  outline:3px solid var(--cop-sanguine);
+  outline-offset:3px;
+}
+.cop-engraved .cop-imprint {
+  display:inline-grid;
+  grid-template-columns:47px minmax(0,1fr);
+  gap:12px;
+  align-items:center;
+  max-width:440px;
+  padding:0 0 13px;
+  margin-bottom:13px;
+  border-bottom:1px solid var(--cop-engraved-rule);
+  color:var(--cop-ink);
+}
+.cop-engraved .cop-signet {
+  width:46px;height:46px;
+  display:grid;place-items:center;
+  position:relative;
+  border:2px double var(--cop-sanguine);
+  outline:1px solid var(--cop-engraved-rule);
+  outline-offset:3px;
+  border-radius:50%;
+  font:700 15px/1 var(--cop-titling);
+  color:var(--cop-sanguine);
+  letter-spacing:-.06em;
+  flex:none;
+}
+.cop-engraved .cop-signet::before {
+  content:"";
+  position:absolute;inset:5px;border:1px solid currentColor;
+  border-radius:50%;opacity:.65;
+}
+.cop-engraved .cop-signet::after {
+  content:"✦";
+  position:absolute;bottom:-8px;right:-8px;
+  font:12px Georgia,serif;background:var(--cop-matte);
+  padding:0 3px;line-height:1;color:var(--cop-sanguine);
+}
+.cop-engraved .cop-imprint-copy {
+  display:flex;flex-direction:column;gap:2px;
+  font-size:10px;line-height:1.35;
+  font-variant-caps:all-small-caps;
+  letter-spacing:.12em;
+  font-weight:700;
+}
+.cop-engraved .cop-imprint-copy span:last-child{
+  font-size:10px;color:var(--cop-muted);
+  font-weight:500;letter-spacing:.065em;
+}
+.cop-engraved .cop-imprint[aria-label] {
+  user-select:none;
+}
+.cop-engraved .cop-engraved-line {
+  display:flex;align-items:center;gap:12px;
+  width:min(190px,100%);height:20px;
+  margin:16px 0 19px;color:var(--cop-sanguine);
+  line-height:1;font-size:13px;
+  pointer-events:none;
+}
+.cop-engraved .cop-engraved-line::before,
+.cop-engraved .cop-engraved-line::after{
+  content:"";height:3px;flex:1;
+  border-top:1px solid var(--cop-engraved-rule);
+  border-bottom:1px solid var(--cop-engraved-rule);
+}
+.cop-engraved .cop-engraved-line span{font-family:Georgia,serif}
+.cop-engraved .cop-plate-mark {
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 0 2px;
+  font:700 10px/1.4 var(--cop-ui);
+  font-variant-caps:all-small-caps;
+  letter-spacing:.13em;
+  color:var(--cop-sanguine);
+  border-bottom:1px solid var(--cop-engraved-rule);
+}
+.cop-engraved .cop-plate-mark::before {
+  content:"✦";font-size:10px;
+}
+/* Engraved sheet surround, no filter ever applied to the historical original. */
+.cop-engraved :is(.hybrid-hero-picture .artwork-link,.hero-art-grid img,.selected-art,.map-pane figure img) {
+  background:var(--cop-matte);
+  border:1px solid #bea98a;
+  box-shadow:0 0 0 4px #f8f3ea,0 0 0 5px #d1bea1,0 14px 32px #34271a12;
+}
+.cop-engraved .hybrid-hero-picture .artwork-link{
+  padding:clamp(12px,2vw,23px);
+  position:relative;
+}
+.cop-engraved .hybrid-hero-picture .artwork-link::before,
+.cop-engraved .hybrid-hero-picture .artwork-link::after{
+  content:"";position:absolute;pointer-events:none;
+  border-color:var(--cop-engraved-rule);border-style:solid;
+  height:13px;width:13px;
+}
+.cop-engraved .hybrid-hero-picture .artwork-link::before{
+  left:6px;top:6px;border-width:1px 0 0 1px;
+}
+.cop-engraved .hybrid-hero-picture .artwork-link::after{
+  right:6px;bottom:6px;border-width:0 1px 1px 0;
+}
+.cop-engraved .hybrid-hero-picture img{
+  border:0;box-shadow:none;padding:0;background:#e6dccb;
+  filter:none;mix-blend-mode:normal;
+}
+.cop-engraved .hybrid-hero-picture::before{
+  border-color:var(--cop-engraved-rule);
+  inset:13px -10px -13px 10px;
+}
+.cop-engraved .hybrid-hero-picture figcaption,
+.cop-engraved .hero-art figcaption,
+.cop-engraved .map-pane figcaption,
+.cop-engraved .selected-art figcaption {
+  font-family:var(--cop-ui);
+  font-size:11px;
+  line-height:1.65;
+  border-top:1px solid #dccbb3;
+  margin-top:17px;
+  padding-top:10px;
+}
+.cop-engraved .hybrid-hero-picture figcaption a,
+.cop-engraved .hero-art figcaption a,
+.cop-engraved .map-pane figcaption a{color:var(--cop-sanguine)}
+.cop-engraved .hybrid-story-hero h1{
+  letter-spacing:-.035em;
+  font-weight:400;
+}
+.cop-engraved .hybrid-story-copy .lead{font-family:var(--cop-display)}
+.cop-engraved .hybrid-journal-index {
+  border-top:3px double var(--cop-engraved-rule);
+  border-bottom:3px double var(--cop-engraved-rule);
+  background:linear-gradient(90deg,transparent 0%,#f3ede184 50%,transparent 100%);
+  padding:15px 0;
+}
+.cop-engraved .hybrid-editorial-head .eyebrow::before,
+.cop-engraved .sectionhead .eyebrow::before,
+.cop-engraved .results-head .eyebrow::before{
+  content:"◆";font:8px Georgia,serif;
+  margin-right:11px;color:var(--cop-gold);
+}
+.cop-engraved :is(.hybrid-story-tile,.city-card,.story-card){
+  background:var(--cop-card);
+  border:1px solid #cbb99b;
+  box-shadow:inset 0 0 0 5px var(--cop-card),inset 0 0 0 6px #e5d9c6;
+  border-radius:0;
+}
+.cop-engraved .hybrid-story-tile img{
+  background:#eee5d8;
+  padding:clamp(12px,1.8vw,19px);
+  filter:none;mix-blend-mode:normal;
+}
+.cop-engraved .hybrid-story-tile h3{
+  font-variant-ligatures:common-ligatures;
+  letter-spacing:-.015em;
+}
+.cop-engraved .hybrid-story-tile .tile-kicker{
+  border-bottom:1px solid #dbc6a4;
+  display:inline-block;padding-bottom:7px;
+  align-self:flex-start;
+}
+.cop-engraved .hybrid-world-portal{
+  border:1px solid var(--cop-engraved-rule);
+  border-top:4px double var(--cop-engraved-rule);
+  background:linear-gradient(135deg,#fdfaf3,#eee6d6);
+  box-shadow:inset 0 0 0 6px #f9f4e8,inset 0 0 0 7px #e4d5be;
+}
+.cop-engraved .hybrid-world-portal h2{
+  font-family:var(--cop-titling);
+}
+.cop-engraved .feature-card{
+  position:relative;
+  outline:1px solid #b5a48c;
+  outline-offset:-9px;
+}
+.cop-engraved .feature-card h3{letter-spacing:-.018em}
+.cop-engraved .feature-card span::before{
+  content:"✦";display:inline-block;margin-right:9px;
+}
+.cop-engraved .hero-art-grid img{
+  padding:clamp(10px,1.6vw,17px);
+  object-fit:contain;
+  filter:none;
+  mix-blend-mode:normal;
+}
+.cop-engraved .hero-art figcaption{border-top:0;padding-top:0}
+.cop-engraved .world-hero h1{
+  font-family:var(--cop-titling);
+  letter-spacing:-.025em;
+}
+.cop-engraved .city-card{
+  position:relative;
+  padding:23px 23px 21px;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.cop-engraved .city-card::after{
+  content:"";position:absolute;right:13px;bottom:12px;
+  width:12px;height:12px;
+  border-right:1px solid #bdaa8d;border-bottom:1px solid #bdaa8d;
+  opacity:.65;pointer-events:none;
+}
+.cop-engraved .city-card .status {
+  border:1px double #b79a76;
+  background:#f8f2e8;
+  color:var(--cop-sanguine);
+  border-radius:0;
+  text-transform:uppercase;
+  font-variant-caps:all-small-caps;
+  letter-spacing:.08em;
+  padding:5px 7px;
+  white-space:normal;
+  text-align:center;
+  line-height:1.35;
+}
+.cop-engraved .city-card .status.is-detailed {
+  border-color:var(--cop-green);
+  background:#e8eee8;
+  color:var(--cop-green);
+}
+.cop-engraved .city-card .status.is-seed_only {
+  border-color:#d4c9b7;
+  background:#f3eee5;color:#776e63;
+}
+.cop-engraved .city-card h3{letter-spacing:-.018em}
+.cop-engraved .stats{
+  border-top:3px double var(--cop-engraved-rule);
+  border-bottom:3px double var(--cop-engraved-rule);
+  background:linear-gradient(100deg,#f7f0e3,#fdf9f2,#f7f0e3);
+}
+.cop-engraved .stats .stat strong{font-family:var(--cop-titling)}
+.cop-engraved .method-grid article{
+  border-top:3px double var(--cop-engraved-rule);
+}
+.cop-engraved .atlas-workspace .map-pane,
+.cop-engraved .atlas-workspace .results-pane{
+  background:#fdfaf4;
+  border-color:var(--cop-engraved-rule);
+}
+.cop-engraved .atlas-workspace .result-item{
+  border:1px solid #d3bea1;
+  background:#fffdf9;
+  box-shadow:inset 0 0 0 4px #fffdf9,inset 0 0 0 5px #e4d5bf;
+  text-align:left;
+}
+.cop-engraved .atlas-workspace .result-item[aria-pressed=true]{
+  border-color:var(--cop-green);
+  box-shadow:inset 0 0 0 3px #fffdf9,inset 0 0 0 5px var(--cop-green);
+}
+.cop-engraved .atlas-workspace .result-item img{
+  filter:none;
+}
+.cop-engraved .atlas-workspace .record-mini strong,
+.cop-engraved .selected-area h2{
+  font-family:var(--cop-titling);
+}
+.cop-engraved .map-pane figure img {
+  max-width:calc(100% - 12px);
+  margin:7px auto 12px;
+  filter:none;
+}
+.cop-engraved .book-signpost .book-mark{
+  color:var(--cop-sanguine);
+  border:1px solid var(--cop-engraved-rule);
+  border-radius:50%;
+  padding:3px;
+}
+.cop-engraved .story-card .copy{background:transparent}
+.cop-engraved .story-card img{filter:none;mix-blend-mode:normal}
+.cop-engraved .opening .headnote{
+  border-top:3px double var(--cop-engraved-rule);
+  border-bottom:3px double var(--cop-engraved-rule);
+}
+.cop-engraved .opening h1{font-family:var(--cop-titling)}
+.cop-engraved .identity-figure{border:1px solid var(--cop-engraved-rule)}
+@media(max-width:720px){
+  .cop-engraved .cop-imprint{margin-bottom:6px;grid-template-columns:38px minmax(0,1fr);gap:11px;}
+  .cop-engraved .cop-signet{width:37px;height:37px;font-size:13px;outline-offset:2px}
+  .cop-engraved .cop-signet::before{inset:4px}
+  .cop-engraved .cop-engraved-line{margin:10px 0 13px}
+  .cop-engraved .hybrid-story-hero h1{letter-spacing:-.045em}
+  .cop-engraved .hybrid-hero-picture::before{display:none}
+  .cop-engraved .city-card{padding:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cop-engraved .city-card,.cop-engraved .hybrid-story-tile{transition:none}
+}
