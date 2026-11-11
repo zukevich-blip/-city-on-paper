@@ -315,3 +315,61 @@
 @media(prefers-reduced-motion:reduce){
   .cop-engraved .city-card,.cop-engraved .hybrid-story-tile{transition:none}
 }
+
+/* Editorial QA pass 2: grid intrinsic sizes must not collide with museum captions. */
+.cop-engraved .cop-imprint{display:grid}
+.cop-engraved .hero-art{min-width:0}
+.cop-engraved .hero-art-grid{
+  height:415px;
+  min-height:0;
+  grid-template-rows:repeat(2,minmax(0,1fr));
+}
+.cop-engraved .hero-art-grid img{
+  min-height:0;
+  min-width:0;
+  height:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.cop-engraved .hero-art-grid img:first-child{
+  grid-row:1 / span 2;
+}
+.cop-engraved .hero-art .cop-plate-mark{
+  margin-top:16px;
+}
+.cop-engraved .hero-art figcaption{
+  margin-top:11px;
+  padding-top:7px;
+  border-top:1px solid var(--cop-engraved-rule);
+}
+@media(max-width:720px){
+  /* Read the actual print before the essay; the print itself opens the story. */
+  .cop-engraved .hybrid-story-hero .hybrid-story-copy,
+  .cop-engraved .world-hero .hero-copy{
+    display:contents;
+  }
+  .cop-engraved .hybrid-story-hero .cop-imprint,
+  .cop-engraved .world-hero .cop-imprint{order:1}
+  .cop-engraved .hybrid-story-hero .eyebrow,
+  .cop-engraved .world-hero .eyebrow{order:2}
+  .cop-engraved .hybrid-story-hero h1,
+  .cop-engraved .world-hero h1{order:3}
+  .cop-engraved .hybrid-story-hero .cop-engraved-line,
+  .cop-engraved .world-hero .cop-engraved-line{order:4}
+  .cop-engraved .hybrid-story-hero .hybrid-hero-picture,
+  .cop-engraved .world-hero .hero-art{order:5;width:100%}
+  .cop-engraved .hybrid-story-hero .lead,
+  .cop-engraved .world-hero .lead{order:6}
+  .cop-engraved .hybrid-story-hero .actions,
+  .cop-engraved .world-hero .hero-btn{order:7}
+  .cop-engraved .hybrid-story-hero .supporting,
+  .cop-engraved .world-hero .hero-detail{order:8}
+  .cop-engraved .hybrid-story-hero .hybrid-meta{order:9}
+  .cop-engraved .world-hero .hero-art-grid{height:270px}
+  .cop-engraved .world-hero .hero-art figcaption{font-size:10px;line-height:1.55}
+  .cop-engraved .hybrid-story-hero .hybrid-hero-picture{margin:0 0 2px}
+  .cop-engraved .hybrid-story-hero .supporting{max-width:100%}
+}
+@media(max-width:400px){
+  .cop-engraved .world-hero .hero-art-grid{height:238px}
+}
