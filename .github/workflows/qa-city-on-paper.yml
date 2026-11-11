@@ -4,6 +4,7 @@ on:
     branches:
       - release/city-on-paper-private-preview-20261104
       - feature/consilium-museum-world-20261110
+      - feature/engraving-museum-design-20261111
   pull_request:
     paths:
       - 'tools/**'
@@ -110,6 +111,8 @@ jobs:
           node --check cities/app.js
           node --check tests/browser/qa_cities.js
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node --check tests/browser/qa_engraving.js
+          node tests/browser/qa_engraving.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
           node --check tests/browser/qa_experience.js
           node tests/browser/qa_experience.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -262,6 +265,7 @@ jobs:
           node tests/browser/qa_experience.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_hybrid.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+          node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
