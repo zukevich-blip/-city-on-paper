@@ -7,13 +7,6 @@
  * museum caption, research status. Display type remains platform-local.
  */
 .cop-engraved {
-  --cop-titling:"Bodoni MT",Didot,"Iowan Old Style","Palatino Linotype",Georgia,serif;
-  --cop-letterpress:#3f4137;
-  --cop-sanguine:#895140;
-  --cop-engraved-rule:#a89473;
-  --cop-engraved-faint:#e4d9c8;
-  --cop-matte:#f9f5ec;
-  --cop-card:#fffdf8;
   background-color:#f8f4ec;
   color:var(--cop-ink);
   font-kerning:normal;
