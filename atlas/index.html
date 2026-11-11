@@ -8,9 +8,10 @@
 <meta name="description" content="Исследовательский атлас музея: Париж, Флоренция, Неаполь. Исторические карты, проверенные изображения и архивные источники. Без выдуманной географической точности.">
 <link rel="stylesheet" href="../assets/hybrid/tokens.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../assets/hybrid/engraving.css">
 <script defer src="app.js"></script>
 </head>
-<body>
+<body class="cop-engraved">
 <a class="skip" href="#main">К содержанию атласа</a>
 <header class="atlas-header">
  <nav class="shell nav" aria-label="Навигация музея">
@@ -20,7 +21,7 @@
 </header>
 <main id="main">
 <section class="hero shell" aria-labelledby="title">
- <div><span class="eyebrow">Исследовательский зал / Том II</span><h1 id="title">Атлас <em>времени.</em></h1>
+ <div><div class="cop-imprint" aria-label="Авторский знак цифрового музея «Город на бумаге»"><span class="cop-signet" aria-hidden="true">ГБ</span><span class="cop-imprint-copy"><span>Атлас времени · City on Paper</span><span>Источники · Эпохи · Техники изображения</span></span></div><span class="eyebrow">Исследовательский зал / Том II</span><h1 id="title">Атлас <em>времени.</em></h1><div class="cop-engraved-line" aria-hidden="true"><span>✦</span></div>
  <p class="lead">Как менялся взгляд на город? Сравните литографии, офорты, ранние фотографии и современные снимки. Начните с места и эпохи, а каждое изображение проверяйте по первоисточнику.</p></div>
  <a class="book-signpost" href="../experience/" aria-label="Открыть интерактивную Книгу городов"><span class="book-mark" aria-hidden="true">✣</span><span>Предпочитаете путешествие по главам?<strong>Открыть книгу городов ↗</strong></span></a>
 </section>
@@ -45,7 +46,7 @@
  <div class="atlas-grid">
   <section class="map-pane" aria-labelledby="map-title">
     <div class="pane-title"><span class="eyebrow">Карта как документ</span><a href="../eras/">Большой исторический атлас ↗</a></div>
-    <h2 id="map-title">Европа. 1769 год.</h2>
+    <h2 id="map-title">Европа. 1769 год.</h2><span class="cop-plate-mark">Карта из Library of Congress · без геопривязки</span>
     <figure>
       <a href="../experience/#museum" aria-label="Перейти к интерактивной книге с картой Европы">
        <img src="../eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Карта Европы 1769 года, исторический оригинал из Library of Congress" width="1000" height="808" fetchpriority="high">
