@@ -281,9 +281,9 @@ jobs:
           retention-days: 7
 
   publish-pages:
-    name: Optional public mobile preview (GitHub Pages)
+    name: Publish source-checked museum preview (GitHub Pages)
     needs: [source-and-catalog, browser-viewer]
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/release/city-on-paper-private-preview-20261104' }}
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/release/city-on-paper-private-preview-20261104' || github.ref == 'refs/heads/feature/engraving-museum-design-20261111') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     continue-on-error: true
