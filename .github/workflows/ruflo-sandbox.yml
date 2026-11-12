@@ -1,0 +1,60 @@
+name: Ruflo isolated compatibility smoke test
+on:
+  push:
+    branches:
+      - review/safe-agent-consilium-20261112
+    paths:
+      - '.github/workflows/ruflo-sandbox.yml'
+  workflow_dispatch:
+
+# Zero repository and API permissions. No checkout, no secrets, no release.
+permissions: {}
+
+jobs:
+  ruflo-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    continue-on-error: true
+    env:
+      npm_config_ignore_scripts: 'true'
+      npm_config_audit: 'false'
+      npm_config_fund: 'false'
+      GIT_CONFIG_NOSYSTEM: '1'
+    steps:
+      - name: Set up isolated runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inspect the pinned published Ruflo release WITHOUT running lifecycle scripts
+        continue-on-error: true
+        run: |
+          set -u
+          mkdir -p "$RUNNER_TEMP/ruflo/home" "$RUNNER_TEMP/ruflo/report"
+          export HOME="$RUNNER_TEMP/ruflo/home"
+          export npm_config_cache="$RUNNER_TEMP/ruflo/cache"
+          set +e
+          timeout 210s npm install \
+            --prefix "$RUNNER_TEMP/ruflo/app" \
+            --ignore-scripts --no-fund --no-audit \
+            ruflo@3.76.0 >"$RUNNER_TEMP/ruflo/report/npm-install.log" 2>&1
+          rc=$?
+          echo "npm_install_exit=$rc" >"$RUNNER_TEMP/ruflo/report/status.txt"
+          if [ "$rc" = 0 ]; then
+            timeout 35s node "$RUNNER_TEMP/ruflo/app/node_modules/ruflo/bin/ruflo.js" --version \
+              >"$RUNNER_TEMP/ruflo/report/ruflo-version.txt" 2>&1
+            echo "cli_version_exit=$?" >>"$RUNNER_TEMP/ruflo/report/status.txt"
+            timeout 35s node "$RUNNER_TEMP/ruflo/app/node_modules/ruflo/bin/ruflo.js" --help \
+              >"$RUNNER_TEMP/ruflo/report/ruflo-help.txt" 2>&1
+            echo "cli_help_exit=$?" >>"$RUNNER_TEMP/ruflo/report/status.txt"
+          fi
+          set -e
+          echo "Pinned Ruflo smoke report (not an LLM swarm activation):"
+          cat "$RUNNER_TEMP/ruflo/report/status.txt"
+          test -f "$RUNNER_TEMP/ruflo/report/ruflo-version.txt" && head -c 500 "$RUNNER_TEMP/ruflo/report/ruflo-version.txt" || true
+      - name: Save sandbox evidence (no user data)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruflo-pinned-sandbox-smoke
+          path: ${{ runner.temp }}/ruflo/report
+          retention-days: 7
