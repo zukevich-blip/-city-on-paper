@@ -60,6 +60,8 @@ a{color:var(--accent)}
 table{border-collapse:collapse;font-size:13px} td,th{border:1px solid var(--line);padding:2px 6px;text-align:right}
 .help table td,.help table th{text-align:left;vertical-align:top}
 .zoomwrap.zoomed{overflow:auto;max-height:80vh} .zoomwrap.zoomed .stage{width:250%}
+#zoomwrap{scroll-margin-top:16px}
+.jumpcompare{display:inline-flex;min-height:44px;align-items:center;margin:0 0 12px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;font:14px system-ui,sans-serif;text-decoration:none;background:var(--panel)}
 footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 .noscript{border:2px solid var(--bad);background:var(--panel);padding:12px;font:15px/1.5 system-ui,sans-serif;margin:12px 0}
 </style>
@@ -77,6 +79,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <label for="pairSel" data-i18n="pair">Пара</label>
     <select id="pairSel"></select>
   </div>
+  <a class="jumpcompare" href="#stage" data-i18n="jump">К изображениям ↓</a>
 </header>
 <main>
   <noscript><div class="noscript">
@@ -94,6 +97,23 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <button data-mode="flicker" aria-pressed="false" data-i18n="m_flicker">Мерцание A/B</button>
     <button data-mode="sbs" aria-pressed="false" data-i18n="m_sbs">Рядом</button>
   </div>
+  <div id="verdict" class="verdict" role="status"></div>
+  <div id="imgError" class="imgerr" role="alert" hidden></div>
+  <div class="zoomwrap" id="zoomwrap">
+    <div class="stage" id="stage">
+      <img class="hist" id="histImg" alt="">
+      <div class="overlay" id="overlay"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div>
+      <svg class="region" id="region" aria-hidden="true"></svg>
+      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
+      <div class="badge" id="badge"></div>
+      <span class="tag l" data-i18n="then">Тогда</span><span class="tag r" data-i18n="now">Сейчас</span>
+    </div>
+  </div>
+  <p class="creditline" id="creditLine"></p>
+  <div class="sbs" id="sbs" hidden>
+    <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
+    <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
+  </div>
   <div class="bar">
     <button id="alignBtn" aria-pressed="true">Фото: совмещённое</button>
     <button id="regionBtn" aria-pressed="true" data-i18n="region">Зона доверия</button>
@@ -101,8 +121,6 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
     <span id="flickerCtl" hidden><button id="flickBtn">A ⇄ B</button> <button id="flickPlay" aria-pressed="false" data-i18n="auto">Авто</button></span>
   </div>
-  <div id="verdict" class="verdict" role="status"></div>
-  <div id="imgError" class="imgerr" role="alert" hidden></div>
   <details class="help" id="help">
     <summary data-i18n="helpSum">Как читать вердикт</summary>
     <div data-lang="ru">
@@ -136,21 +154,6 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
       No generative fill is used; both originals can always be opened untouched from the Sources panel.</p>
     </div>
   </details>
-  <div class="zoomwrap" id="zoomwrap">
-    <div class="stage" id="stage">
-      <img class="hist" id="histImg" alt="">
-      <div class="overlay" id="overlay"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div>
-      <svg class="region" id="region" aria-hidden="true"></svg>
-      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
-      <div class="badge" id="badge"></div>
-      <span class="tag l" data-i18n="then">Тогда</span><span class="tag r" data-i18n="now">Сейчас</span>
-    </div>
-  </div>
-  <p class="creditline" id="creditLine"></p>
-  <div class="sbs" id="sbs" hidden>
-    <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
-    <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
-  </div>
   <details id="credits" open>
     <summary data-i18n="creditsSum">Источники, права и параметры совмещения</summary>
     <div id="creditBody"></div>
@@ -168,7 +171,7 @@ const T = {
   ru: {
     poc: "Прототип · не выставка", title: "Тогда / Сейчас", alt: "· Then / Now",
     intro: "Историческое изображение никогда не меняется. Геометрию можно (обратимо) подогнать только у современного фото — и это всегда помечено.",
-    pair: "Пара", modes: "Режим сравнения", m_slider: "Шторка", m_opacity: "Прозрачность", m_flicker: "Мерцание A/B", m_sbs: "Рядом",
+    pair: "Пара", jump: "К изображениям ↓", modes: "Режим сравнения", m_slider: "Шторка", m_opacity: "Прозрачность", m_flicker: "Мерцание A/B", m_sbs: "Рядом",
     region: "Зона доверия", zoom: "Увеличить ×2.5", photoPct: "Фото, %", auto: "Авто", helpSum: "Как читать вердикт",
     then: "Тогда", now: "Сейчас", capHist: "Историческое изображение — без изменений", capPhoto: "Фото — оригинал, без коррекции",
     creditsSum: "Источники, права и параметры совмещения", footer: "Прототип для Issue #6. Не публиковать без проверки владельцем.",
@@ -198,7 +201,7 @@ const T = {
   en: {
     poc: "Prototype · not the exhibition", title: "Then / Now", alt: "· Тогда / Сейчас",
     intro: "The historic image is never altered. Only the modern photo may be reversibly re-projected, and that is always labelled.",
-    pair: "Pair", modes: "Comparison mode", m_slider: "Slider", m_opacity: "Opacity", m_flicker: "Flicker A/B", m_sbs: "Side by side",
+    pair: "Pair", jump: "Go to images ↓", modes: "Comparison mode", m_slider: "Slider", m_opacity: "Opacity", m_flicker: "Flicker A/B", m_sbs: "Side by side",
     region: "Trust zone", zoom: "Zoom ×2.5", photoPct: "Photo, %", auto: "Auto", helpSum: "How to read the verdict",
     then: "Then", now: "Now", capHist: "Historic image — unaltered", capPhoto: "Photo — original, uncorrected",
     creditsSum: "Sources, rights and alignment parameters", footer: "Prototype for Issue #6. Do not publish without owner review.",
