@@ -172,7 +172,7 @@ async function robustnessChecks(browser) {
   await page.goto(`${base}?mode=bogus#synthetic-near-identical`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.getElementById("creditBody").textContent.length > 50);
   const sec = await page.evaluate(() => ({
-    bad: [...document.querySelectorAll("a")].filter(a => !/^(https?:|pairs\/|editor\.html)/i.test(a.getAttribute("href") || "")).map(a => a.getAttribute("href")),
+    bad: [...document.querySelectorAll("a")].filter(a => !/^(https?:|pairs\/|editor\.html|#[a-z][a-z0-9_-]*$)/i.test(a.getAttribute("href") || "")).map(a => a.getAttribute("href")),
     injected: document.querySelectorAll("#creditBody img").length,
     mode: document.querySelector("[data-mode][aria-pressed=true]").dataset.mode }));
   check("security: no javascript:/data: links rendered from pair JSON", sec.bad.length === 0, sec.bad.join(" "));
