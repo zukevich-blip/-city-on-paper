@@ -46,6 +46,16 @@ jobs:
             timeout 35s node "$RUNNER_TEMP/ruflo/app/node_modules/ruflo/bin/ruflo.js" --help \
               >"$RUNNER_TEMP/ruflo/report/ruflo-help.txt" 2>&1
             echo "cli_help_exit=$?" >>"$RUNNER_TEMP/ruflo/report/status.txt"
+            (
+              cd "$RUNNER_TEMP/ruflo/home"
+              timeout 35s node "$RUNNER_TEMP/ruflo/app/node_modules/ruflo/bin/ruflo.js" agent list \
+                >"$RUNNER_TEMP/ruflo/report/agent-list.txt" 2>&1
+              echo "agent_list_exit=$?" >>"$RUNNER_TEMP/ruflo/report/status.txt"
+              timeout 35s node "$RUNNER_TEMP/ruflo/app/node_modules/ruflo/bin/ruflo.js" swarm init \
+                --topology hierarchical --max-agents 3 \
+                >"$RUNNER_TEMP/ruflo/report/swarm-init.txt" 2>&1
+              echo "swarm_init_exit=$?" >>"$RUNNER_TEMP/ruflo/report/status.txt"
+            )
           fi
           set -e
           echo "Pinned Ruflo smoke report (not an LLM swarm activation):"
