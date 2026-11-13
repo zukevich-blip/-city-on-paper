@@ -93,7 +93,7 @@ window.Epochs = (() => {
       const kind = m.workType === "print" ? "print" : m.workType === "historic_photo" ? "photo" : "mine";
       const author = m.author ? `Автор: ${m.author}` : "Автор не указан";
       uniq.push({ kind, img: blobUrl(m),
-        year: m.artYear || yearOf(m.date) || "моё",
+        year: m.artYear || (kind === "mine" ? yearOf(m.date) : null) || "дата не установлена",
         label: m.name || "Моё изображение",
         url: /^https:\/\//.test(m.source || "") ? m.source : "",
         credit: `Личный материал, только на устройстве · ${author}`,
