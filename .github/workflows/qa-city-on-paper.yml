@@ -289,6 +289,7 @@ jobs:
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8767/
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8767/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8767/
+          node tests/browser/qa_full_museum_routes.js http://127.0.0.1:8767/ /tmp/city-on-paper-screens/PUBLIC_ROUTE_AUDIT.json
           python - <<'PY'
           import json
           from pathlib import Path
