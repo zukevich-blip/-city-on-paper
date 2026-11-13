@@ -90,6 +90,12 @@
     if(!state.ready)return;
     const city=selectedCity();
     if(!city)return;
+    const cityName=names[state.city];
+    $("routeCity").href="../cities/?query="+encodeURIComponent(cityName);
+    $("routeWorks").href="../salon/?city="+encodeURIComponent(cityName);
+    $("routePhotos").href="../photography/?city="+encodeURIComponent(cityName);
+    $("routeCompare").hidden=state.city!=="paris";
+    $("routeCompare").href="../poc/compare/#madeleine-ph-benoist";
     $("currentCity").textContent=names[state.city]+" · Исторические изображения";
     $("cityDescription").textContent=city.places.map(p=>p.title).join(" · ")+". Выберите лист для просмотра архивной карточки.";
     const items=available();
