@@ -33,7 +33,7 @@ const output=process.argv[3]||"/tmp/city-on-paper-screens";
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+5),"No horizontal overflow");
       if(width===390) {
         await page.locator("#vpaContribution summary").click();
-        await page.locator("#vpaLink").fill("loc-2016652452");
+        await page.locator("#vpaLink").selectOption("loc-2016652452");
         await page.locator("#vpaLat").fill("48.8694");
         await page.locator("#vpaLon").fill("2.3236");
         await page.locator("#vpaAz").fill("45");
