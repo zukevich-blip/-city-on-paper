@@ -204,6 +204,19 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 }
 
 
+
+.map-archive{margin:15px 0 24px;background:#fdf9ef;border:1px solid #c7b797;padding:12px 16px}
+.map-archive summary{cursor:pointer;min-height:42px;padding:10px 0;font:600 15px Georgia,serif;color:#344637}
+.map-archive-actions{display:flex;gap:7px;flex-wrap:wrap;padding:8px 0}
+.map-archive-actions button{min-height:44px;padding:8px 13px;border:1px solid #b6a180;
+ background:#fdfbf6;color:#2d4034;font:13px system-ui}
+.map-archive-actions button[aria-pressed=true]{background:#284438;color:#fff}
+.map-archive figure{margin:8px 0 0;padding:12px;background:#e7dcc8;border:1px solid #d2bfa5;min-width:0}
+.map-archive img{display:block;max-height:460px;width:100%;height:auto;object-fit:contain;filter:none}
+.map-archive figcaption{margin:11px 0 0;font:12px/1.65 system-ui;color:#615749;overflow-wrap:anywhere}
+.map-archive a{color:#825039;text-decoration:underline}
+@media(max-width:650px){.map-archive{padding:10px}.map-archive img{max-height:300px}}
+
 /* v6: evidence-safe historical comparisons and locally added artworks. */
 .ep-modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:11px 0 8px}
 .ep-modes button{min-width:0;min-height:44px;padding:8px 5px;background:#fffaf2;
