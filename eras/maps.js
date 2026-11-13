@@ -169,7 +169,8 @@ window.Maps = (() => {
             <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
         </figure>
         <p class="map-summary">Другие карты можно листать как отдельные документы. Пока на них нет независимо проверенной геопривязки, маркеры автоматически не накладываются.</p>
-      </details>`;
+      </details>
+      <p class="map-summary"><a href="../cities/">Полный мировой указатель: города с материалами, кандидаты и города без координат ↗</a></p>`;
     const sheets = {
       europe: { file: "img/loc-97683588-carte-d-europe-1769_w1000.jpg",
         name: "Карта Европы de L’Isle / Buache, 1769. Library of Congress.",
