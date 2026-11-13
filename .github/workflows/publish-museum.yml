@@ -1,5 +1,5 @@
 name: Publish City on Paper public museum
-run-name: City on Paper · опубликованный прототип письменного стола и альбомов
+run-name: Город на бумаге · единый проверенный музей
 
 on:
   push:
@@ -7,8 +7,6 @@ on:
     paths:
       - '.github/workflows/publish-museum.yml'
   workflow_dispatch:
-  schedule:
-    - cron: '27 4 * * *'
 
 permissions:
   contents: read
@@ -35,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: fcdf9ab9770c577e66772fe96c4dcdee64d824a3
+          ref: e3c888a2acd9ee8f0e4d2683d9629b2b1aef585a
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -45,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=42651154693
-          EXPECTED_SHA=fcdf9ab9770c577e66772fe96c4dcdee64d824a3
+          RUN_ID=43336253340
+          EXPECTED_SHA=e3c888a2acd9ee8f0e4d2683d9629b2b1aef585a
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -97,7 +95,14 @@ jobs:
           test -s public/eras/journey.css
           test -s public/eras/cartography.js
           test -s public/eras/data/map-evidence.json
-          test -s public/assets/nav/museum-polish.css
+          test -s public/assets/nav/museum-nav.js
+          test -s public/assets/hybrid/engraving.css
+          test -s public/cities/index.html
+          test -s public/atlas/index.html
+          test -s public/stories/index.html
+          test -s public/stories/paris-on-paper/index.html
+          test -s public/experience/index.html
+          test -s public/data/coverage/world-coverage-20261110.json
           test -s public/contribute/index.html
           grep -q 'CityOnPaperChronoscope' public/eras/chronoscope.js
           grep -q 'CityOnPaperCuratorialDesk' public/eras/curatorial-desk.js
@@ -119,7 +124,7 @@ jobs:
           from pathlib import Path
           site=Path("public")
           manifest=json.loads((site/"PUBLIC_BUILD.json").read_text(encoding="utf-8"))
-          assert manifest["public_html_pages"] >= 20
+          assert manifest["public_html_pages"] >= 30
           assert not manifest["candidate_research_included"]
           files=[p for p in site.rglob("*") if p.is_file()]
           assert not any(p.suffix in {".env", ".pem", ".p12", ".key", ".sqlite", ".db"} for p in files)
@@ -139,8 +144,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "fcdf9ab9770c577e66772fe96c4dcdee64d824a3",
-            "qa_run": 42651154693,
+            "source_revision": "e3c888a2acd9ee8f0e4d2683d9629b2b1aef585a",
+            "qa_run": 43336253340,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
@@ -149,7 +154,7 @@ jobs:
 
       - name: Audit internal links and files of the published version
         run: |
-          python tools/release/audit_public_links.py --root public --report public/LINK_AUDIT.json
+          python tools/release/audit_public_links.py --root public --report public/LINK_AUDIT.json --strict
           test -s public/LINK_AUDIT.json
 
       - name: Configure GitHub Pages
