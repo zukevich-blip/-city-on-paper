@@ -75,3 +75,5 @@
 .vpa-mode input{flex:1}
 }
 .vpa-more{min-height:44px;margin-top:15px;padding:10px 18px;border:1px solid #385244;background:#385244;color:#fff;font:13px system-ui,sans-serif}
+
+.city-compare-jump{margin:10px 0}.city-compare-jump button{width:100%;min-height:48px;background:#2b473a;border:1px solid #2b473a;color:#fff4e1;padding:11px 15px;font:15px Georgia,serif;cursor:pointer;text-align:left}.city-compare-jump button:hover{background:#385849}
