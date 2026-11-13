@@ -24,6 +24,7 @@ PAGES = (
     "cities/index.html", "atlas/index.html",
     "stories/index.html", "stories/paris-on-paper/index.html",
     "experience/index.html",
+    "walk/index.html", "submit/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -178,6 +179,7 @@ def info_pages(destination: Path) -> None:
         page = destination / slug / "index.html"
         page.parent.mkdir(parents=True, exist_ok=True)
         extra = (
+            '<p><a href="../submit/">Открыть форму предложения литографии, фотографии или ракурса</a></p>'
             '<p><a href="https://github.com/zukevich-blip/-city-on-paper/issues/new/choose">'
             'Предложить произведение, ракурс или исправление через GitHub</a></p>'
             '<p><a href="https://github.com/zukevich-blip/-city-on-paper/blob/main/CONTRIBUTING.md">'

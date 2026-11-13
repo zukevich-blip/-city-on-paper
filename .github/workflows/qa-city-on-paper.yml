@@ -15,6 +15,8 @@ on:
       - 'index.html'
       - 'stories/**'
       - 'experience/**'
+      - 'walk/**'
+      - 'submit/**'
       - 'atlas/**'
       - 'assets/hybrid/**'
       - 'assets/nav/**'
@@ -112,6 +114,7 @@ jobs:
           node --check tests/browser/qa_cities.js
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
+          node tests/browser/qa_visitor_first.js http://127.0.0.1:8765/
           node --check tests/browser/qa_engraving.js
           node tests/browser/qa_engraving.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
@@ -169,6 +172,8 @@ jobs:
           cp -R experience /tmp/city-on-paper-package/
           cp -R atlas /tmp/city-on-paper-package/
           cp -R cities /tmp/city-on-paper-package/
+          cp -R walk /tmp/city-on-paper-package/
+          cp -R submit /tmp/city-on-paper-package/
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp -R assets/hybrid /tmp/city-on-paper-package/assets/
@@ -267,6 +272,7 @@ jobs:
           node tests/browser/qa_hybrid.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
+          node tests/browser/qa_visitor_first.js http://127.0.0.1:8766/
           node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Build and audit the real PUBLIC museum release
         run: |
@@ -276,6 +282,7 @@ jobs:
           sleep 2
           curl -fsS http://127.0.0.1:8767/cities/ -o /dev/null
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8767/
+          node tests/browser/qa_visitor_first.js http://127.0.0.1:8767/
           python - <<'PY'
           import json
           from pathlib import Path
@@ -285,7 +292,7 @@ jobs:
           coverage = json.loads((root / "data/coverage/world-coverage-20261110.json").read_text(encoding="utf-8"))
           assert coverage["summary"]["combined_names"] == len(coverage["entries"])
           assert all("source_examples" not in row for row in coverage["entries"])
-          for page in ("cities/", "atlas/", "stories/", "experience/", "world/", "salon/", "poc/compare/"):
+          for page in ("cities/", "atlas/", "stories/", "experience/", "walk/", "submit/", "world/", "salon/", "poc/compare/"):
               assert (root / page / "index.html").exists(), page
           print("UNIFIED PUBLIC GATE OK", report["public_html_pages"], len(coverage["entries"]))
           PY

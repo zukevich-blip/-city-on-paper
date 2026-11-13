@@ -1,0 +1,91 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Предложить находку · Город на бумаге</title><meta name="description" content="Предложите историческую литографию, карту, фотографию или новый ракурс: источники, права и городская история.">
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;background:#f4efe5;color:#293b30}*{box-sizing:border-box}body{margin:0}a{color:#825039}button,input,textarea,select{font:inherit}button{cursor:pointer}
+.wrap{max-width:1000px;width:calc(100% - 38px);margin:auto}.hero{background:#254238;color:#f5ecd9;padding:55px 0}
+.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:#c5a97d;font-weight:700}
+h1,h2,h3{font-family:Georgia,serif;font-weight:normal}h1{font-size:clamp(42px,6vw,72px);line-height:1.05;margin:12px 0}
+.hero p{max-width:720px;font:17px/1.7 Georgia,serif;color:#e9dccc}
+main{padding:34px 0 70px}.intro{font:14px/1.7 system-ui;color:#625a4e;max-width:760px}
+form{margin-top:27px;display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#544e43;font-weight:700}
+label.full,.full{grid-column:1/-1}
+input,select,textarea{border:1px solid #c8b89c;background:#fffdf8;padding:13px 14px;min-height:48px;color:#2a332c;width:100%;border-radius:2px}
+textarea{min-height:140px;resize:vertical}
+legend{font-size:13px;font-weight:700}button.primary,.send{background:#28473a;color:#fff;border:1px solid #28473a;padding:13px 19px;min-height:46px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.preview{background:#ebe1cd;border:1px solid #d1bea0;padding:21px;margin-top:29px}
+.preview[hidden],#photoPreview[hidden],.send[hidden]{display:none!important}
+#textResult{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace;background:#fffcf5;padding:15px;border:1px solid #cdbca3;max-height:330px;overflow:auto}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.action-row button{padding:12px 18px;background:#f8f1e4;border:1px solid #a79575;color:#384339}
+#photoPreview{max-width:100%;max-height:230px;object-fit:contain;display:block;margin-top:8px;border:1px solid #c8bca8}
+.notice{border-left:3px solid #9c7353;padding:11px 15px;background:#faf5ea;color:#655848;font:13px/1.65 system-ui;margin:22px 0}
+footer{padding:28px 0;background:#182f26;color:#eee4d1}footer a{color:#e7d5b4}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #ad7553;outline-offset:3px}
+@media(max-width:660px){form{grid-template-columns:1fr}.wrap{width:calc(100% - 30px)}.hero{padding:35px 0}.preview{padding:14px}}
+</style><script src="../assets/nav/museum-nav.js" defer></script></head>
+<body><header class="hero"><div class="wrap"><div class="eyebrow">Сообщество · Пополнение коллекции</div><h1>Помогите вернуть<br>городу его прошлое.</h1><p>Старинная гравюра, семейная фотография улицы, забытый фасад или новый ракурс известного листа могут стать началом исследования. Опишите находку и пришлите ссылку на оригинал.</p></div></header>
+<main class="wrap">
+ <h2>Предложить произведение или фотографию</h2><p class="intro">Заполните то, что известно. Предложение попадёт на редакционную проверку через публичное обращение GitHub. Учитываем художественную ценность, доказуемый источник, права, географию и интерес для посетителей.</p>
+ <div class="notice">Файл, выбранный в браузере, показывается только на вашем устройстве и никуда не отправляется. Для окончательной отправки потребуется учётная запись GitHub: после открытия обращения можно прикрепить изображение или дать ссылку на архив. Не загружайте чужие фотографии без разрешения. Ваш текст в обращении станет публичным.</div>
+ <form id="suggestion">
+  <label>Что предлагаете?
+   <select id="kind" required><option value="Историческая литография / гравюра">Историческая литография или гравюра</option><option value="Историческая карта">Историческая карта</option><option value="Современный ракурс">Современный ракурс / фотография</option><option value="Городская история">История места</option><option value="Исправление атрибуции">Исправление атрибуции</option></select></label>
+  <label>Город и страна <input id="city" required maxlength="160" placeholder="Например, Париж, Франция"></label>
+  <label class="full">Как называется работа или место? <input id="title" required maxlength="220" placeholder="Церковь Мадлен, улица Руаяль…"></label>
+  <label>Автор, дата (если известны) <input id="artist" maxlength="200" placeholder="Бенуа, 1845–1860 или неизвестно"></label>
+  <label>Статус прав <select id="license"><option>Требует проверки</option><option>CC0 / общественное достояние (документировано)</option><option>CC BY с указанием автора</option><option>CC BY-SA с указанием автора</option><option>Я автор современного снимка</option><option>Неизвестно / разрешения нет</option></select></label>
+  <label class="full">Ссылка на музей, архив или страницу изображения <input id="source" type="url" maxlength="1500" placeholder="https://www.loc.gov/item/..." autocomplete="off"></label>
+  <label class="full">Почему эта находка интересна? Что изменилось на месте? <textarea id="story" maxlength="2200" placeholder="Опишите детали, известную историю, примерное место и что стоит проверить…"></textarea></label>
+  <label class="full">Предпросмотр изображения на своём устройстве (не отправляется) <input id="file" type="file" accept="image/jpeg,image/png,image/webp"><img id="photoPreview" hidden alt="Предпросмотр выбранного изображения"></label>
+  <div class="full"><button type="submit" class="primary">Подготовить предложение →</button></div>
+ </form>
+ <div class="preview" id="preview" hidden aria-live="polite">
+  <h2>Проверьте текст перед отправкой</h2>
+  <p class="intro">Предложение ещё не отправлено. По кнопке ниже откроется GitHub с заполненным заголовком и описанием. При необходимости добавьте вложение там же.</p>
+  <div id="textResult"></div><div class="action-row"><button type="button" id="copy">Скопировать текст</button><a id="send" class="send" href="#" target="_blank" rel="noopener noreferrer">Открыть GitHub и отправить ↗</a></div><p id="copyStatus" role="status"></p>
+ </div>
+ <div class="notice">Редакционные критерии: первоисточник, автор или честная пометка «неизвестен», примерная дата, география, право публикации. Мы не обещаем размещение каждого присланного материала. Пока это пилот приёма предложений через GitHub, а не собственный сервер загрузки изображений.</div>
+ <p><a href="../studio/">Мой кабинет коллекционера</a> · <a href="../walk/">Посмотреть сравнение эпох</a> · <a href="../rights/">Права и источники</a></p>
+</main><footer><div class="wrap"><a href="../">Город на бумаге</a> · <a href="../cities/">Города мира</a></div></footer>
+<script>
+"use strict";
+(()=>{const $=id=>document.getElementById(id);let value="";let prevUrl=null;
+$("file").addEventListener("change",()=>{
+  if(prevUrl)URL.revokeObjectURL(prevUrl);
+  const file=$("file").files[0];
+  if(!file||!file.type.startsWith("image/")||file.size>15*1024*1024){
+    $("photoPreview").hidden=true;
+    if(file&&file.size>15*1024*1024)alert("Файл больше 15 МБ. Загрузите в GitHub ссылку на оригинал.");
+    return;
+  }
+  prevUrl=URL.createObjectURL(file);$("photoPreview").src=prevUrl;$("photoPreview").hidden=false;
+});
+$("suggestion").addEventListener("submit",e=>{
+  e.preventDefault();
+  const fields={kind:$("kind").value,city:$("city").value.trim(),title:$("title").value.trim(),
+    author:$("artist").value.trim(),rights:$("license").value,source:$("source").value.trim(),story:$("story").value.trim()};
+  if(!fields.city||!fields.title)return;
+  const text=[
+    "Категория: "+fields.kind,
+    "Город / страна: "+fields.city,
+    "Произведение / место: "+fields.title,
+    "Автор / дата: "+(fields.author||"Не установлены"),
+    "Предварительный статус прав: "+fields.rights,
+    "Оригинал / музей: "+(fields.source||"Ссылка пока не указана"),
+    "Описание: "+(fields.story||"Требует исследования"),
+    "",
+    "Нужно проверить источник, географию, атрибуцию, дату, разрешение на публикацию.",
+    "Если нужно приложить фото, добавьте файл в открывшемся обращении GitHub вручную."
+  ].join("\n");
+  value=text;$("textResult").textContent=text;
+  const title="[Находка] "+fields.city+": "+fields.title;
+  $("send").href="https://github.com/zukevich-blip/-city-on-paper/issues/new?title="+encodeURIComponent(title.slice(0,180))+"&body="+encodeURIComponent(text.slice(0,4600));
+  $("preview").hidden=false;$("preview").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("copy").addEventListener("click",async()=>{
+  try{await navigator.clipboard.writeText(value);$("copyStatus").textContent="Текст скопирован."}
+  catch{$("copyStatus").textContent="Выделите текст выше и скопируйте его вручную."}
+});
+})();
+</script></body></html>
