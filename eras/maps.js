@@ -152,6 +152,7 @@ window.Maps = (() => {
           <button type="button" id="mapFit">Показать выбранные города</button>
           <button type="button" id="mapWorld">Все города атласа</button>
           <button type="button" id="mapEurope">Европа крупнее</button>
+          <button type="button" id="mapArchiveOpen">Листать архивные карты</button>
         </div>
         <p class="map-summary" role="status" aria-live="polite" id="mapSummary"></p>
       </div>
@@ -246,6 +247,11 @@ window.Maps = (() => {
       nowCities.update(selectedIds);
       nowCities.fit();
       note();
+    };
+    document.getElementById("mapArchiveOpen").onclick = () => {
+      const archive = document.getElementById("mapArchive");
+      archive.open = true;
+      archive.scrollIntoView({ behavior: "smooth", block: "start" });
     };
     document.getElementById("mapEurope").onclick = () => {
       show(false);
