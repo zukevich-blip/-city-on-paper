@@ -158,7 +158,7 @@ window.Maps = (() => {
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для остальных городов с известными центрами используйте современную карту. Метка города не означает известную точку съёмки художника. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
+      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Метки здесь указывают города, а не точки художников. На современной карте при увеличении до уровня улиц отображаются подтверждённые и исследовательские позиции камер. Карточка города раскрывает фото, источник и неопределённость. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
@@ -217,6 +217,9 @@ window.Maps = (() => {
           ? [Number(c.lat), Number(c.lon)] : null);
       nowCities.update(selectedIds);
       nowCities.fit();
+      // Individual evidenced historical and visitor camera positions appear at street zoom.
+      // City markers on the old continental sheet remain city positions, not camera positions.
+      if (window.CityOnPaperViewpoints) CityOnPaperViewpoints.portal(modern, A.cities);
       homeButton(modern, () => nowCities.fit());
       labelClass(modern, document.getElementById("nmap"), modern.getZoom());
       modern.on("zoomend", note);
