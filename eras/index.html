@@ -170,6 +170,39 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .eph{position:absolute;top:0;bottom:0;width:44px;margin-left:-22px;display:flex;justify-content:center;cursor:ew-resize}.eph:before{content:"";width:2px;background:#fff;box-shadow:0 0 0 1px #0007}.eph span{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;border:1px solid #0005;color:#222}
 .halls{margin:18px 0}.halls p{display:flex;flex-wrap:wrap;gap:8px}.halls a{display:inline-flex;align-items:center;min-height:44px;border:1px solid var(--line);background:var(--paper2);padding:6px 12px;text-decoration:none;font:14px system-ui}
 
+
+/* v5: readable geographic overview with cluster counts and filter-aware map camera. */
+.lmap[hidden]{display:none!important}
+.map-top{display:flex;flex-direction:column;gap:5px}
+.map-actions{display:flex;gap:7px;flex-wrap:wrap;margin:5px 0 10px}
+.map-actions button{min-height:44px;padding:8px 12px;border:1px solid #b9a68d;background:#fefaf2;
+ color:#284235;font:600 12px/1.4 system-ui;border-radius:3px;white-space:normal}
+.map-actions button:hover{background:#e9dbc5}
+.map-summary{margin:6px 0 12px;font:13px/1.55 system-ui;color:#62584c}
+.mtabs button[aria-selected=true]{box-shadow:inset 0 -3px 0 #bea17d}
+.mk.city-cluster{display:grid;place-items:center;background:#264b3d;border:3px solid #fff7e7;
+ border-radius:50%;box-shadow:0 2px 9px #182d2770,0 0 0 2px #9b784d;
+ color:#fff7e7;font:700 14px/1 system-ui;cursor:pointer}
+.mk.city-cluster b{display:block;text-align:center;line-height:34px;font-variant-numeric:tabular-nums}
+.mk.city-cluster:hover,.mk.city-cluster:focus-visible{background:#935b36}
+.cluster-list{display:flex;flex-direction:column;max-height:220px;overflow:auto;gap:2px;
+ min-width:185px;font:13px/1.3 system-ui}
+.cluster-list strong{padding:7px 5px;border-bottom:1px solid #d6c7b1}
+.cluster-list a{padding:7px 5px;border-bottom:1px solid #eee5d9;color:#814631}
+.cluster-list a:focus-visible{outline:2px solid #bb754e}
+#pmap .leaflet-control-zoom-in,#nmap .leaflet-control-zoom-in{border-bottom:1px solid #c8c3bc}
+@media(max-width:650px){
+ .lmap{height:min(66dvh,580px);min-height:310px}
+ .mtabs{display:grid;grid-template-columns:1fr 1fr}
+ .mtabs button{padding:9px 8px;min-height:48px;font-size:12px}
+ .map-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .map-actions button{min-height:45px;padding:7px 6px}
+ .map-actions button:first-child{grid-column:1/-1}
+ .map-summary{font-size:12px}
+ .leaflet-control-zoom,.leaflet-bar.mhome{margin:10px 9px 0 0!important}
+ .mk.featured span{display:none}
+}
+
 /* v4: epochs + my viewpoint */
 .doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:14px 0}.door{display:flex;flex-direction:column;gap:4px;padding:14px 16px;background:var(--dark);color:#f1eadb;text-decoration:none;border-left:4px solid #c59446;min-height:44px}.door b{font:400 22px Georgia,serif}.door span{font:13px/1.45 system-ui;color:#d9cfbb}.door:hover{background:#2c463d}
 .hbtn .sm{display:none}
