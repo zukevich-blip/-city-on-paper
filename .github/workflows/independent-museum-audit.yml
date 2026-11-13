@@ -1,0 +1,46 @@
+name: City on Paper independent full-site audit
+on:
+  push:
+    branches:
+      - feature/independent-ux-consilium-20261113
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: museum-independent-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  multi-view-route-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install reproducible browser
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve museum sources
+        run: |
+          python -m http.server 8791 --bind 127.0.0.1 >/tmp/museum-audit-http.log 2>&1 &
+          sleep 3
+          curl -fsS http://127.0.0.1:8791/index.html >/dev/null
+      - name: Independent route, link, and mobile audit
+        run: |
+          mkdir -p /tmp/museum-independent
+          node tests/browser/qa_full_museum_routes.js http://127.0.0.1:8791/ /tmp/museum-independent/report.json
+      - name: Preserve raw audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-visitor-consilium-report
+          path: /tmp/museum-independent/report.json
+          if-no-files-found: warn
