@@ -126,7 +126,7 @@ window.Atlas = (() => {
     window.addEventListener("city-atlas-reset", () => {
       filter.q = ""; filter.group = "all"; selectedCountry = null;
       q.value = ""; grp.value = "all"; draw();
-    }, { once: true });
+    });
     draw();
     works().then(draw);
   }
