@@ -96,13 +96,23 @@ window.CityOnPaperViewpoints = (() => {
         finite(x.lat,-90,90)&&finite(x.lon,-180,180));
       const selected={row:null,overlay:false};
       const gallery=list.rows.filter(x=>x.kind!=="today");
-      const works=gallery.length?gallery:(city.sites||[]).slice(0,120).map((s,i)=>({
+      const have=new Set(gallery.map(x=>x.source).filter(Boolean));
+      const bySite=(city.sites||[]).filter(s=>!have.has(https(s.url))).map((s,i)=>({
         id:String(s.wid||("site-"+i)),place:String(s.site_ru||s.site_name||city.name),
         title:String(s.title||s.site_ru||"Вид города"),year:String(s.date||"Дата уточняется"),
         author:(city.works||[]).find(w=>w.url===s.url)?.artist||"Автор в каталоге",
         image:"",source:https(s.url),rights:"Смотреть права у хранителя",kind:"print",
         cam:null,modern:null,match:"missing",target:null,placeId:null,object:{lat:+s.lat,lon:+s.lon}
       }));
+      bySite.forEach(x=>{if(x.source)have.add(x.source);});
+      const fromCatalog=(city.works||[]).filter(w=>!have.has(https(w.url))).map((w,i)=>({
+        id:"catalog-"+i,place:city.name,
+        title:String(w.title||"Литография"),year:String(w.date||"Дата уточняется"),
+        author:String(w.artist||"Автор в архиве"),
+        image:"",source:https(w.url),rights:String(w.rights_label||"Смотреть права у хранителя"),
+        kind:"print",cam:null,modern:null,match:"missing",target:null,placeId:null
+      }));
+      const works=gallery.concat(bySite,fromCatalog);
       const years=works.length, located=gallery.filter(x=>x.cam).length,
         analogues=gallery.filter(x=>x.modern).length;
       const historic=list.city && (list.city.places||[]).find(p=>p.plan_detail && (p.images||[]).some(x=>x.camera&&finite(x.camera.px,0,1e6)));
@@ -340,5 +350,56 @@ window.CityOnPaperViewpoints = (() => {
       if(host.isConnected)host.innerHTML='<p class="note">Не удалось загрузить карту ракурсов. Каталог города и исторические карты выше остаются доступны.</p>';
     });
   }
-  return {mount,curated,status};
+
+  // Modern world map: detailed cameras only at street zoom. At continent zoom,
+  // atlas markers are cities, never invented camera coordinates.
+  function portal(map, cities) {
+    if(!map||!window.L)return;
+    const layer=L.layerGroup().addTo(map);
+    const known=new Set((cities||[]).map(c=>c.id));
+    let rows=[],own=[];
+    let scheduled=false;
+    const draw=()=>{
+      scheduled=false;layer.clearLayers();
+      if(map.getZoom()<11)return;
+      const visible=map.getBounds();
+      for(const r of rows) {
+        if(!visible.contains([r.lat,r.lon]))continue;
+        const dot=L.circleMarker([r.lat,r.lon],{radius:6,color:r.modern?"#2d6573":"#a44c31",
+          fillColor:"#fff5da",fillOpacity:.9,weight:2}).addTo(layer);
+        dot.bindPopup("<strong>"+esc(r.cityName)+" · "+esc(r.name)+"</strong>"+
+          "<p>"+(r.modern?"Современная камера.":"Историческая точка: исследовательская оценка.")+
+          "</p><a href='#/city/"+encodeURIComponent(r.cityId)+"'>Открыть город и сравнение</a>");
+      }
+      for(const p of own) {
+        if(!visible.contains([p.lat,p.lon]))continue;
+        L.circleMarker([p.lat,p.lon],{radius:6,color:"#1a4d77",
+          fillColor:"#e6bf69",fillOpacity:.9,weight:2}).addTo(layer)
+          .bindPopup("<strong>Личный снимок (только на устройстве)</strong>"+
+            "<p>Привязка введена посетителем.</p><a href='#/city/"+
+            encodeURIComponent(p.city)+"'>Открыть город</a>");
+      }
+    };
+    const schedule=()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(draw);};
+    Promise.all([archive(),localDb.all()]).then(([data,personal])=>{
+      for(const city of data.cities||[]) {
+        if(!known.has(city.id))continue;
+        for(const place of city.places||[])for(const image of place.images||[]) {
+          const c=image.camera;
+          if(!c||!finite(c.lat,-90,90)||!finite(c.lon,-180,180))continue;
+          rows.push({lat:+c.lat,lon:+c.lon,cityId:city.id,cityName:city.name,
+            name:image.title||place.title,modern:image.era==="today"});
+        }
+      }
+      own=personal.filter(x=>known.has(x.city)&&x.workType==="modern"&&x.blob&&
+        finite(x.lat,-90,90)&&finite(x.lon,-180,180));
+      schedule();
+    });
+    window.addEventListener("city-on-paper-photo-saved",()=>localDb.all().then(p=>{
+      own=p.filter(x=>known.has(x.city)&&x.workType==="modern"&&x.blob&&
+        finite(x.lat,-90,90)&&finite(x.lon,-180,180));schedule();
+    }));
+    map.on("zoomend",schedule);map.on("moveend",schedule);
+  }
+  return {mount,curated,status,portal};
 })();
