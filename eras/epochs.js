@@ -193,7 +193,15 @@ window.Epochs = (() => {
     $("epMine").innerHTML = mine.length ? `<p class="eyebrow">Мои изображения этого места</p>${mine.map((m) => `<p class="mine1"><span>${esc(m.name)}${m.lat != null ? ` · ${m.lat.toFixed(5)}, ${m.lon.toFixed(5)}` : " · без точки"}</span> <button type="button" class="ghost" data-del="${esc(m.id)}">Удалить</button></p>`).join("")}` : "";
     $("epMine").querySelectorAll("[data-del]").forEach((x) => (x.onclick = async () => { await DB.del(x.dataset.del); viewer(host, c, g, thumb, imgTag); }));
     // add my photo
-    const dlg = $("epDlg"); let file = null, pick = null, pmk = null;
+    const dlg = $("epDlg"); let file = null, pick = null, pmk = null, previewUrl = null;
+    const isModern = () => $("epKind").value === "modern";
+    $("epKind").onchange = () => {
+      $("epLocationGroup").hidden = !isModern();
+      $("epMsg").textContent = isModern()
+        ? "Для современного снимка можно указать позицию и направление камеры."
+        : "Для исторической работы точка съёмки неизвестна и автоматически не устанавливается.";
+      if (pick && isModern()) setTimeout(() => pick.invalidateSize(), 30);
+    };
     const az = $("epAz"), azO = $("epAzO"), latI = $("epLat"), lonI = $("epLon");
     const setPoint = (lat, lon, azv) => {
       latI.value = (+lat).toFixed(6); lonI.value = (+lon).toFixed(6);
@@ -205,21 +213,35 @@ window.Epochs = (() => {
     [latI, lonI].forEach((x) => (x.onchange = () => { const la = parseFloat(latI.value), lo = parseFloat(lonI.value); if (isFinite(la) && isFinite(lo) && Math.abs(la) <= 90 && Math.abs(lo) <= 180) setPoint(la, lo); }));
     $("epAdd").onclick = () => {
       dlg.showModal();
-      if (window.L && !pick) {
+      if (window.L && isModern() && !pick) {
         pick = L.map($("epPick"), { zoomControl: false }).setView(site, 17);
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OSM" }).addTo(pick);
         L.control.zoom({ position: "topright" }).addTo(pick);
         L.marker(site, { icon: L.divIcon({ className: "mk star", html: "★", iconSize: [28, 28], iconAnchor: [14, 14] }), keyboard: false }).addTo(pick);
         pick.on("click", (e) => setPoint(e.latlng.lat, e.latlng.lng));
       }
-      setTimeout(() => pick && pick.invalidateSize(), 50);
+      setTimeout(() => pick && isModern() && pick.invalidateSize(), 50);
     };
     $("epFile").onchange = async (e) => {
-      file = e.target.files[0] || null; if (!file) return;
-      $("epPrev").innerHTML = `<img src="${esc(URL.createObjectURL(file))}" alt="Предпросмотр вашего фото">`;
-      const gps = await exifGps(file);
-      if (gps) { setPoint(gps.lat, gps.lon, gps.az); $("epMsg").textContent = "Точка съёмки взята из GPS фото. Проверьте и при необходимости поправьте на карте."; if (pick) pick.setView([gps.lat, gps.lon], 17); }
-      else $("epMsg").textContent = "В фото нет GPS. Нажмите на карте, где вы стояли, или «Где я сейчас».";
+      file = e.target.files[0] || null;
+      if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+      if (!file) { $("epSave").disabled = true; return; }
+      if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) || file.size > 15 * 1024 * 1024) {
+        $("epMsg").textContent = "Допустимы JPG, PNG и WebP до 15 МБ. Слишком большие и другие файлы не сохраняются.";
+        file = null; $("epSave").disabled = true; $("epPrev").replaceChildren(); return;
+      }
+      previewUrl = URL.createObjectURL(file);
+      const im = document.createElement("img");
+      im.src = previewUrl; im.alt = "Предпросмотр выбранного изображения";
+      $("epPrev").replaceChildren(im);
+      if (isModern()) {
+        const gps = await exifGps(file);
+        if (gps) {
+          setPoint(gps.lat, gps.lon, gps.az);
+          $("epMsg").textContent = "Точка съёмки взята из GPS файла. Проверьте её на карте.";
+          if (pick) pick.setView([gps.lat, gps.lon], 17);
+        } else $("epMsg").textContent = "GPS не найден. Поставьте точку на карте или оставьте её пустой.";
+      } else $("epMsg").textContent = "Лист будет сохранён без предполагаемой позиции художника.";
       $("epSave").disabled = false;
     };
     $("epGeo").onclick = () => { if (!navigator.geolocation) return; $("epMsg").textContent = "Определяем местоположение…";
@@ -227,10 +249,29 @@ window.Epochs = (() => {
         () => { $("epMsg").textContent = "Не удалось определить место. Поставьте точку на карте."; }, { enableHighAccuracy: true, timeout: 10000 }); };
     $("epSave").onclick = async () => {
       if (!file) return;
-      const la = parseFloat(latI.value), lo = parseFloat(lonI.value), ok = isFinite(la) && isFinite(lo);
-      await DB.put({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, place: key, city: c.id, cityName: c.name, placeName: cap(g.name), name: file.name.slice(0, 80),
-        date: file.lastModified ? new Date(file.lastModified).toISOString().slice(0, 10) : "", blob: file, lat: ok ? la : null, lon: ok ? lo : null, az: ok ? +az.value : null, fov: 60, created: Date.now() });
-      dlg.close(); viewer(host, c, g, thumb, imgTag);
+      const la = parseFloat(latI.value), lo = parseFloat(lonI.value);
+      const validPoint = isModern() && Number.isFinite(la) && Number.isFinite(lo) && Math.abs(la) <= 90 && Math.abs(lo) <= 180;
+      const proposedYear = parseInt($("epWorkYear").value, 10);
+      try {
+        await DB.put({
+          id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+          place: key, city: c.id, cityName: c.name, placeName: cap(g.name),
+          name: file.name.slice(0, 80), blob: file,
+          workType: $("epKind").value,
+          artYear: Number.isInteger(proposedYear) && proposedYear >= 1400 && proposedYear <= 2100 ? proposedYear : null,
+          author: $("epArtist").value.trim().slice(0, 120),
+          source: $("epSource").value.trim().slice(0, 1500),
+          rights: $("epRights").value,
+          date: file.lastModified ? new Date(file.lastModified).toISOString().slice(0, 10) : "",
+          lat: validPoint ? la : null, lon: validPoint ? lo : null,
+          az: validPoint ? +az.value : null, fov: 60, created: Date.now()
+        });
+        dlg.close();
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        viewer(host, c, g, thumb, imgTag);
+      } catch (error) {
+        $("epMsg").textContent = "Не удалось сохранить изображение. Проверьте свободное место браузера или возьмите файл меньше 15 МБ.";
+      }
     };
   }
 
