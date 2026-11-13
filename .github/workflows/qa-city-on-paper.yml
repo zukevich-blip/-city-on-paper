@@ -115,6 +115,7 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8765/
+          node tests/browser/qa_atlas_studio.js http://127.0.0.1:8765/
           node --check tests/browser/qa_engraving.js
           node tests/browser/qa_engraving.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
@@ -273,6 +274,7 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8766/
+          node tests/browser/qa_atlas_studio.js http://127.0.0.1:8766/
           node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Build and audit the real PUBLIC museum release
         run: |
@@ -283,6 +285,7 @@ jobs:
           curl -fsS http://127.0.0.1:8767/cities/ -o /dev/null
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8767/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8767/
+          node tests/browser/qa_atlas_studio.js http://127.0.0.1:8767/
           python - <<'PY'
           import json
           from pathlib import Path
