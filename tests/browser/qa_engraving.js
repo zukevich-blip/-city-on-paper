@@ -67,7 +67,7 @@ async function originalIntegrity(page,selector,device){
                   prose:rect(".hybrid-story-hero .lead").top};
         });
         assert(device+" original above essay in reading order",order.print<order.prose);
-        assert(device+" historic art starts within first fold",order.print<height);
+        assert(device+" visitor mission starts within first fold",await page.locator(".front-copy h1").evaluate(node=>node.getBoundingClientRect().top<innerHeight));
       }
       assert(device+" source archive link",await page.locator('.hybrid-hero-picture figcaption a[href="https://www.loc.gov/item/2016652452/"]').count()===1);
       assert(device+" engraving rule",await page.locator(".hybrid-story-copy .cop-engraved-line").count()===1);
