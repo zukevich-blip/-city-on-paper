@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: 54d352bf831b4415bf632c97e1b0d6c34e688e24
+          ref: b3092329ccc3ade45035315a35539174e2e1c703
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=43351768300
-          EXPECTED_SHA=54d352bf831b4415bf632c97e1b0d6c34e688e24
+          RUN_ID=43384278097
+          EXPECTED_SHA=b3092329ccc3ade45035315a35539174e2e1c703
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -97,6 +97,10 @@ jobs:
           test -s public/eras/cartography.js
           test -s public/eras/data/map-evidence.json
           test -s public/eras/cartography.css
+          grep -q "function clusterCityMarkers" public/eras/maps.js
+          grep -q "data-compare-mode=\"opacity\"" public/eras/epochs.js
+          grep -q "epKind" public/eras/epochs.js
+          grep -q "atlas-v5-20261113-world-studio" public/eras/sw.js
           test -s public/assets/nav/museum-polish.css
           test -s public/assets/nav/museum-nav.js
           test -s public/assets/hybrid/engraving.css
@@ -153,8 +157,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "54d352bf831b4415bf632c97e1b0d6c34e688e24",
-            "qa_run": 43351768300,
+            "source_revision": "b3092329ccc3ade45035315a35539174e2e1c703",
+            "qa_run": 43384278097,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
