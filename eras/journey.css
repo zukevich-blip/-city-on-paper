@@ -35,3 +35,19 @@
   .museum-journey{margin-top:14px}}
 @media(prefers-reduced-motion:reduce){.museum-journey-step{transition:none}
   .museum-journey-step:hover{transform:none}}
+
+/* Historical cartography shelf: source evidence, not a georeferenced overlay. */
+.historic-cartography{margin:20px 0;padding:18px;border:1px solid #d9cbb5;background:#faf6ee;scroll-margin-top:88px}
+.historic-cartography h3{font:normal 29px/1.15 Georgia,serif;margin:0 0 15px}
+.historic-map-list{list-style:none;padding:0;margin:0;display:grid;gap:15px}
+.historic-map-source{padding:15px;border:1px solid #d4c5ab;background:#fffdf8;overflow-wrap:anywhere}
+.historic-map-source>strong{display:block;font:normal 21px/1.25 Georgia,serif}
+.historic-map-source>small{display:block;margin:8px 0;color:#675647}
+.historic-map-source>a,.historic-map-search a{display:inline-flex;min-height:40px;align-items:center;color:#6e452e}
+.map-source-chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:10px 0}
+.map-source-chain li{border-top:2px solid #a98a64;padding:8px 0;min-width:0}
+.map-source-chain b,.map-source-chain small{display:block;font:12px/1.45 system-ui,sans-serif;overflow-wrap:anywhere}
+.map-source-chain small{color:#685849}
+.map-chain-index{font:20px Georgia,serif;margin-right:8px}
+.historic-map-caution{font-size:12px;color:#694a37}
+@media(max-width:650px){.historic-cartography{padding:12px}.map-source-chain{grid-template-columns:repeat(2,minmax(0,1fr))}}
