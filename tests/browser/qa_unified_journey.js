@@ -32,7 +32,7 @@ function assert(label,ok){if(!ok)throw Error(label);}
    await page.locator("#museumBar button").click();
    assert(width+" menu closes",await page.locator("#museumPanel").isHidden());
    await go("atlas/?city=florence");
-   await page.waitForFunction(()=>document.querySelector("#routeCity")?.href.includes("query="));
+   await page.waitForFunction(()=>document.querySelector("#routeCity")?.href.includes(encodeURIComponent("Флоренция")));
    assert(width+" route goes to Florence",await page.locator("#routeCity").getAttribute("href")===
      "../cities/?query="+encodeURIComponent("Флоренция"));
    assert(width+" no unchecked comparison",await page.locator("#routeCompare").isHidden());
