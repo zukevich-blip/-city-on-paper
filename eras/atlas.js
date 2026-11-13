@@ -198,6 +198,7 @@ window.Atlas = (() => {
     const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">город сегодня на карте OSM ↗</a></p>
       <section class="cmap" aria-labelledby="cmapH"><h2 id="cmapH">Карта города${c.plan ? ": тогда и сейчас" : ""}</h2><div id="cmaphost"></div></section>
       <section id="historicCartography" class="historic-cartography" aria-label="Исторические карты и первоисточники города"></section>
+      <section id="cityViewpoints" aria-labelledby="vpaTitle"><p class="note">Сверяем точки наблюдения с историческими источниками…</p></section>
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
         <p class="lede">Как было и как есть: листы XIX века и снимок того же места сегодня. Точки съёмки обычно не совпадают — это сопоставление, а не наложение; изображения не искажаются.</p>
         <div id="eplist"></div><p class="mapnote"><a id="epopen" href="#/epochs">Открыть место на отдельной странице ↗</a> · <a href="#/epochs">все места «Эпох»</a></p><div id="epview"></div></section>` : ""}
@@ -228,6 +229,7 @@ window.Atlas = (() => {
     if (window.CityHistoricCartography) {
       CityHistoricCartography.mount(document.getElementById("historicCartography"), c);
     }
+    if (window.CityOnPaperViewpoints) CityOnPaperViewpoints.mount(document.getElementById("cityViewpoints"), c);
     const sites = c.sites || [];
     const siteBy = new Map(sites.map((x) => [x.url, x]));
     if (window.Maps) try { Maps.city(document.getElementById("cmaphost"), c, sites, thumb); } catch (e) { /* map optional */ }
