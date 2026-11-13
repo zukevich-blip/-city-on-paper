@@ -18,7 +18,7 @@ const output=process.argv[3]||"/tmp/city-on-paper-screens";
       await page.goto(base+"eras/#/city/paris",{waitUntil:"domcontentloaded"});
       await page.locator("#vpaGallery .vpa-art").first().waitFor({timeout:25000});
       assert(await page.locator("#vpaOld").count(),"Named Paris 1878 detail map");
-      assert(await page.locator("#vpaNow .leaflet-container").count(),"Modern city map");
+      assert(await page.locator("#vpaNow.leaflet-container").count(),"Modern city map");
       assert((await page.locator("#vpaGallery .vpa-art").count())>=4,"Archive cards");
       assert(await page.locator("#vpaStatus").textContent()!=="","Viewpoint status");
       const selected=await page.locator("#vpaSelected").textContent();
