@@ -273,7 +273,15 @@ window.Maps = (() => {
         note();
       },
       showModern: () => show(false),
-      showHistoric: () => show(true)
+      showHistoric: () => show(true),
+      invalidateSize() {
+        map.invalidateSize({ pan: false });
+        oldCities.refresh();
+        if (modern) {
+          modern.invalidateSize({ pan: false });
+          nowCities.refresh();
+        }
+      }
     };
   }
 
