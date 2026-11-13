@@ -14,7 +14,7 @@
    if(await page.locator("#museumPanel").isVisible())throw Error("panel unexpectedly open");
    await btn.click();
    if(!(await page.locator("#museumPanel").isVisible()))throw Error("menu cannot open "+w);
-   await page.locator("header h1").click();
+   await page.mouse.click(12, 825); // visible viewport outside the absolute-positioned hall panel
    if(!(await page.locator("#museumPanel").isHidden()))throw Error("menu cannot close outside "+w);
    await btn.click();
    await page.keyboard.press("Escape");
