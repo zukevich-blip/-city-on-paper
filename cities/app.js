@@ -14,6 +14,10 @@
   const typeLabels = {city:"Город",place:"Памятник или место",unclassified:"Тип не уточнён"};
 
   const compact = (x) => String(x||"").normalize("NFKC").trim().toLocaleLowerCase("ru-RU").replace(/\s+/g," ");
+  const plural = (n, one, few, many) => {
+    const a = Math.abs(n) % 100, b = a % 10;
+    return n + " " + (a >= 11 && a <= 14 ? many : b === 1 ? one : b >= 2 && b <= 4 ? few : many);
+  };
   function el(tag,className,text){
     const x=document.createElement(tag);
     if(className)x.className=className;
@@ -111,9 +115,9 @@
     item.append(el("p","place-meta",place));
     const details=row.detail_images||0,candidates=row.candidate_records||0;
     let hint=row.status==="detailed" ?
-      (details?details+" изображений с источниками в детальном атласе":"Есть подробная музейная история") :
-      row.status==="candidate" ? 
-      (candidates+" ссылок и находок для исследовательской проверки") :
+      (details?plural(details,"изображение","изображения","изображений")+" с источниками в детальном атласе":"Есть подробная музейная история") :
+      row.status==="candidate" ?
+      (plural(candidates,"архивная запись","архивные записи","архивных записей")+" для исследовательской проверки. Изображения могут быть недоступны для публикации.") :
       "Пока нет предметных карточек в исследовательском реестре";
     item.append(el("p","info",hint));
     const city=known.get(compact(row.name));
@@ -125,7 +129,9 @@
       const sources=Array.isArray(row.source_examples)?row.source_examples.filter(x=>goodUrl(x.url)).slice(0,3):[];
       if(sources.length){
         const box=el("details");
-        box.append(el("summary",null,"Открыть архивные записи ("+sources.length+")"));
+        box.append(el("summary",null,"Архивные первоисточники ("+sources.length+")"));
+        const note=el("p","archive-notice","Предпросмотр не публикуется, если права или атрибуция ещё не подтверждены. Ссылка ведёт к записи хранителя.");
+        box.append(note);
         for(const source of sources){
           const a=el("a",null,source.title||"Перейти к архивной записи");
           a.href=goodUrl(source.url);
@@ -165,7 +171,7 @@
   }
   function render(){
     const list=filtered();
-    $("resultCount").textContent="Показано "+Math.min(list.length,state.take)+" из "+list.length+" найденных объектов";
+    $("resultCount").textContent="Показано "+Math.min(list.length,state.take)+" из "+plural(list.length,"найденного объекта","найденных объектов","найденных объектов");
     const grid=$("cityGrid");
     grid.replaceChildren();
     if(!list.length)grid.append(el("div","empty","По этим условиям ничего не найдено. Попробуйте другое название или регион."));
