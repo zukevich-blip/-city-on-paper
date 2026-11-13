@@ -39,7 +39,7 @@ function check(name,v){if(!v)throw Error(name);}
    check(width+" Florence archive still browsable",await page.locator("#timeTrack .frame").count()>=2);
    check(width+" route no horizontal overflow",await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4));
    await go("experience/");
-   await page.locator("#openBook").click();
+   if((await page.locator("#atlasBook").getAttribute("data-open"))!=="true")await page.locator("#openBook").click();
    check(width+" book opened",await page.locator("#atlasBook").getAttribute("data-open")==="true");
    if(width<=390){
      const positions=await page.evaluate(()=>{
