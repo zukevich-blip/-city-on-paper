@@ -68,6 +68,7 @@ window.Atlas = (() => {
     if (dm) dm.onclick = (e) => { e.preventDefault(); document.getElementById("maphost").scrollIntoView({ behavior: "smooth", block: "start" }); };
     const q = document.getElementById("q"), grp = document.getElementById("grp");
     let selectedCountry = null;
+    let mapController = null;
     const draw = () => {
       const t = filter.q.trim().toLowerCase();
       const rows = A.cities.filter((c) => {
@@ -76,8 +77,8 @@ window.Atlas = (() => {
         if (filter.group.startsWith("r:") && c.country !== filter.group.slice(2)) return false;
         return !t || [c.name, c.name_orig, c.country, c.area].some((x) => (x || "").toLowerCase().includes(t));
       }).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.works || []).length - (a.works || []).length || count(b) - count(a) || a.name.localeCompare(b.name, "ru"));
-      const ids = new Set(rows.map((c) => c.id));
-      document.querySelectorAll(".dot").forEach((d) => d.classList.toggle("dim", !ids.has(d.dataset.id)));
+      const ids = rows.map((c) => c.id);
+      if (mapController) mapController.setVisible(ids, Boolean(filter.q || filter.group !== "all"));
       const groupsByCountry = new Map();
       rows.forEach((c) => {
         const country = c.country || "Страна уточняется";
@@ -121,7 +122,11 @@ window.Atlas = (() => {
       document.querySelectorAll(".country-group").forEach((el) => { el.open = true; }));
     document.getElementById("countriesClose").addEventListener("click", () =>
       document.querySelectorAll(".country-group").forEach((el) => { el.open = false; }));
-    window.Maps && Maps.portal(document.getElementById("maphost"), A, () => draw());
+    if (window.Maps) mapController = Maps.portal(document.getElementById("maphost"), A);
+    window.addEventListener("city-atlas-reset", () => {
+      filter.q = ""; filter.group = "all"; selectedCountry = null;
+      q.value = ""; grp.value = "all"; draw();
+    }, { once: true });
     draw();
     works().then(draw);
   }
