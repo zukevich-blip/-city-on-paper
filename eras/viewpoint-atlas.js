@@ -95,6 +95,23 @@ window.CityOnPaperViewpoints = (() => {
       const own=personal.filter(x=>x.city===city.id && x.workType==="modern" && x.blob &&
         finite(x.lat,-90,90)&&finite(x.lon,-180,180));
       const selected={row:null,overlay:false};
+      // Pair only through an established depicted-site group; a city-wide match is not evidence.
+      const epochPhotos=new Map();
+      const safeAsset=u=>typeof u==="string" &&
+        (/^https:\/\//.test(u)||/^(?:img|thumbs|now)\//.test(u))?u:"";
+      for(const g of city.epochs||[]) {
+        let candidate=null;
+        if(g.today && (g.today.image||g.today.file))candidate={
+          file:safeAsset(window.Atlas&&Atlas.thumb?Atlas.thumb(g.today.image||g.today.file):g.today.image||g.today.file),
+          year:g.today.date||"Современное фото",author:g.today.author||"Фотограф в источнике",
+          source:https(g.today.page),cam:null};
+        if(!candidate || !candidate.file) {
+          const st=(g.street||[]).find(x=>x.file&&x.camera&&finite(x.camera.lat,-90,90));
+          if(st)candidate={file:safeAsset(st.file),year:st.date||"Современная панорама",
+            author:st.author||"Panoramax",source:https(st.page),cam:st.camera};
+        }
+        if(candidate&&candidate.file)for(const wid of g.works||[])epochPhotos.set(String(wid),candidate);
+      }
       const gallery=list.rows.filter(x=>x.kind!=="today");
       const have=new Set(gallery.map(x=>x.source).filter(Boolean));
       const bySite=(city.sites||[]).filter(s=>!have.has(https(s.url))).map((s,i)=>({
@@ -102,7 +119,8 @@ window.CityOnPaperViewpoints = (() => {
         title:String(s.title||s.site_ru||"Вид города"),year:String(s.date||"Дата уточняется"),
         author:(city.works||[]).find(w=>w.url===s.url)?.artist||"Автор в каталоге",
         image:"",source:https(s.url),rights:"Смотреть права у хранителя",kind:"print",
-        cam:null,modern:null,match:"missing",target:null,placeId:null,object:{lat:+s.lat,lon:+s.lon}
+        cam:null,modern:null,atlasToday:epochPhotos.get(String(s.wid))||null,
+        match:"missing",target:null,placeId:null,object:{lat:+s.lat,lon:+s.lon}
       }));
       bySite.forEach(x=>{if(x.source)have.add(x.source);});
       const fromCatalog=(city.works||[]).filter(w=>!have.has(https(w.url))).map((w,i)=>({
@@ -110,11 +128,12 @@ window.CityOnPaperViewpoints = (() => {
         title:String(w.title||"Литография"),year:String(w.date||"Дата уточняется"),
         author:String(w.artist||"Автор в архиве"),
         image:"",source:https(w.url),rights:String(w.rights_label||"Смотреть права у хранителя"),
-        kind:"print",cam:null,modern:null,match:"missing",target:null,placeId:null
+        kind:"print",cam:null,modern:null,atlasToday:null,
+        match:"missing",target:null,placeId:null
       }));
       const works=gallery.concat(bySite,fromCatalog);
       const years=works.length, located=gallery.filter(x=>x.cam).length,
-        analogues=gallery.filter(x=>x.modern).length;
+        analogues=works.filter(x=>x.modern||x.atlasToday).length;
       const historic=list.city && (list.city.places||[]).find(p=>p.plan_detail && (p.images||[]).some(x=>x.camera&&finite(x.camera.px,0,1e6)));
       const oldSheet=historic?historic.plan_detail:null;
       const oldMapHtml=oldSheet?'<div class="vpa-map-col"><h3>Исторический план · '+esc(oldSheet.title)+
@@ -164,6 +183,7 @@ window.CityOnPaperViewpoints = (() => {
       function modernFor(r){
         const p=own.find(x=>x.workLink===r.id);
         if(p)return {file:ownURL(p),year:p.date||"Мой снимок",author:p.author||"Посетитель",cam:{lat:p.lat,lon:p.lon,az:p.az||0},source:"",local:true};
+        if(r.atlasToday && r.atlasToday.file)return r.atlasToday;
         if(r.modern&&localFile(r.modern.file))return {file:r.modern.file,
           year:r.modern.year_label||r.modern.date||"Сегодня",
           author:creator(r.modern),cam:r.modern.camera,source:https(r.modern.object_url)};
@@ -263,6 +283,14 @@ window.CityOnPaperViewpoints = (() => {
             fillOpacity:.2}).addTo(camLayer);
           mark.bindPopup("<b>"+esc(s.site_ru||s.site_name||"Место")+"</b><p>Изображённый объект. "+
             "Точка художника по этому маркеру не установлена.</p>");
+        }
+        for(const g of city.epochs||[])for(const st of g.street||[]) {
+          if(!st.camera||!finite(st.camera.lat,-90,90)||!finite(st.camera.lon,-180,180))continue;
+          L.circleMarker([+st.camera.lat,+st.camera.lon],{radius:5,color:"#2e6579",
+            fillColor:"#d4e5e4",fillOpacity:.7,weight:2}).addTo(camLayer)
+            .bindPopup("<b>"+esc(g.name)+" · современная панорама</b><p>"+
+              "Точка и направление камеры из опубликованных геометаданных.</p>"+
+              (https(st.page)?"<a href='"+esc(https(st.page))+"' target='_blank' rel='noopener'>Источник фотографии</a>":""));
         }
         refreshOwn();
         current.on("click",e=>{
