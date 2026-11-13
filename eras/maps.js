@@ -142,6 +142,7 @@ window.Maps = (() => {
       host.innerHTML = '<p class="note">Карта недоступна. Используйте список стран и городов ниже.</p>'; return;
     }
     const P = A.portal;
+    const archiveRoot = location.pathname.includes("/desk/") ? "../eras/" : "";
     host.innerHTML = `<div class="map-top">
         <div class="mtabs" role="tablist" aria-label="Выбор картографического слоя">
           <button type="button" role="tab" id="tOld" aria-selected="true">Европа · 1769</button>
@@ -163,7 +164,7 @@ window.Maps = (() => {
           <button type="button" data-sheet="europe" aria-pressed="true">Европа · 1769</button>
           <button type="button" data-sheet="paris" aria-pressed="false">Париж · 1878</button>
         </div>
-        <figure><img id="mapSheetImage" src="img/loc-97683588-carte-d-europe-1769_w1000.jpg"
+        <figure><img id="mapSheetImage" src="${archiveRoot}img/loc-97683588-carte-d-europe-1769_w1000.jpg"
           alt="Историческая карта Европы, 1769 год" loading="lazy" decoding="async">
           <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Library of Congress, 1769.
             <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
@@ -182,7 +183,7 @@ window.Maps = (() => {
     host.querySelectorAll("[data-sheet]").forEach((button) => button.addEventListener("click", () => {
       const selected = sheets[button.dataset.sheet];
       if (!selected) return;
-      document.getElementById("mapSheetImage").src = selected.file;
+      document.getElementById("mapSheetImage").src = archiveRoot + selected.file;
       document.getElementById("mapSheetImage").alt = selected.name;
       document.getElementById("mapSheetCaption").firstChild.textContent = selected.name + " ";
       document.getElementById("mapSheetSource").href = selected.src;
