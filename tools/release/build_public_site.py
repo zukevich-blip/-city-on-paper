@@ -24,6 +24,7 @@ PAGES = (
     "cities/index.html", "atlas/index.html",
     "stories/index.html", "stories/paris-on-paper/index.html",
     "experience/index.html",
+    "walk/index.html", "submit/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
