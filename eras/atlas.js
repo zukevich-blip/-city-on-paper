@@ -123,10 +123,10 @@ window.Atlas = (() => {
     document.getElementById("countriesClose").addEventListener("click", () =>
       document.querySelectorAll(".country-group").forEach((el) => { el.open = false; }));
     if (window.Maps) mapController = Maps.portal(document.getElementById("maphost"), A);
-    window.addEventListener("city-atlas-reset", () => {
+    window.cityAtlasReset = () => {
       filter.q = ""; filter.group = "all"; selectedCountry = null;
       q.value = ""; grp.value = "all"; draw();
-    });
+    };
     draw();
     works().then(draw);
   }
