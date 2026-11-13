@@ -32,6 +32,7 @@ const output=process.argv[3]||"/tmp/city-on-paper-screens";
       assert(await page.locator("#vpaCompare:not(.is-wipe)").count(),"Side mode");
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+5),"No horizontal overflow");
       if(width===390) {
+        const priorMarkers=await page.locator("#vpaNow .leaflet-overlay-pane path").count();
         await page.locator("#vpaContribution summary").click();
         await page.locator("#vpaLink").selectOption("loc-2016652452");
         await page.locator("#vpaLat").fill("48.8694");
@@ -44,7 +45,7 @@ const output=process.argv[3]||"/tmp/city-on-paper-screens";
         await page.locator("#vpaSave").click();
         await page.waitForFunction(()=>/сохранён/.test(document.querySelector("#vpaFeedback")?.textContent||""));
         assert.equal((await page.locator("#vpaOwnCount").textContent()).trim(),"1");
-        assert((await page.locator("#vpaNow .leaflet-overlay-pane circle").count())>=1,"Geo marker after save");
+        assert((await page.locator("#vpaNow .leaflet-overlay-pane path").count())>priorMarkers,"New personal geo marker after save");
         await page.reload({waitUntil:"domcontentloaded"});
         await page.locator("#vpaOwnCount").waitFor();
         await page.waitForFunction(()=>document.querySelector("#vpaOwnCount")?.textContent==="1");
