@@ -21,6 +21,9 @@ PAGES = (
     "fieldwork/index.html", "ideas/index.html",
     "poc/compare/index.html", "poc/compare/editor.html",
     "eras/index.html", "desk/index.html",
+    "cities/index.html", "atlas/index.html",
+    "stories/index.html", "stories/paris-on-paper/index.html",
+    "experience/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -42,6 +45,7 @@ DATA = (
 )
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
+    "assets/hybrid", "cities", "atlas", "stories", "experience",
     "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
@@ -203,6 +207,45 @@ def info_pages(destination: Path) -> None:
         optimize(page, f"{slug}/index.html")
 
 
+def publish_coverage_index(source: Path, output: Path) -> None:
+    """Expose geography and stage only, not unpublished museum candidates.
+
+    The source registry is derived from multiple research feeds. Do not copy
+    its example candidate URLs, raw records, notes or other unpublished data.
+    """
+    source_file = source / "data/coverage/world-coverage-20261110.json"
+    if not source_file.is_file():
+        return
+    registry = json.loads(source_file.read_text(encoding="utf-8"))
+    entries = registry.get("entries")
+    if not isinstance(entries, list):
+        raise ValueError("Coverage registry has no entries")
+    safe = []
+    for row in entries:
+        if not isinstance(row, dict) or row.get("status") not in (
+            "detailed", "candidate", "seed_only"
+        ):
+            raise ValueError("Invalid coverage entry")
+        item = {key: row[key] for key in (
+            "name", "country", "region", "type", "status",
+            "detail_images", "candidate_records", "country_conflict",
+        ) if key in row}
+        if not isinstance(item.get("name"), str) or not item["name"]:
+            raise ValueError("Coverage entry without a name")
+        safe.append(item)
+    summary = {"combined_names": len(safe)}
+    expected = registry.get("summary", {}).get("combined_names")
+    if expected != len(safe):
+        raise ValueError("Coverage registry count mismatch")
+    destination = output / "data/coverage/world-coverage-20261110.json"
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(
+        json.dumps({"summary": summary, "entries": safe},
+                   ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+
+
 def build(source: Path, output: Path) -> dict:
     source, output = source.resolve(), output.resolve()
     if source == output or output.is_relative_to(source):
@@ -214,6 +257,7 @@ def build(source: Path, output: Path) -> dict:
         copy(source, output, rel, mandatory=True)
     for rel in (*DATA, *ASSETS):
         copy(source, output, rel)
+    publish_coverage_index(source, output)
     for rel in PAGES:
         optimize(output / rel, rel)
     info_pages(output)

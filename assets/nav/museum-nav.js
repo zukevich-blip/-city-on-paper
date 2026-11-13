@@ -22,28 +22,30 @@
   if (here === new URL(base).pathname) return;
   const isHere = (p) => here.endsWith("/" + p) || (p === "" && new URL(base).pathname === here);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const css = `#museumBar{background:#29463D;color:#f4efe5;font:13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;position:relative;z-index:1000}
+  const css = `#museumBar{background:#29463D;color:#f4efe5;font:13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;position:sticky;top:0;z-index:1000;border-bottom:1px solid #bfae97}
 #museumBar .mb{max-width:1500px;margin:0 auto;display:flex;align-items:center;gap:6px 14px;padding:4px clamp(12px,3vw,40px);flex-wrap:wrap}
 #museumBar a{color:#eadfc9;text-decoration:none}#museumBar .mbh{font:15px "Iowan Old Style",Georgia,serif;letter-spacing:.02em;margin-right:auto;display:inline-flex;align-items:center;min-height:44px}
 #museumBar .mbq{display:flex;gap:2px;flex-wrap:wrap}#museumBar .mbq a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border-radius:2px}#museumBar .mbq a:hover,#museumBar .mbq a[aria-current]{background:#ffffff1a}
 #museumBar button{min-height:44px;border:1px solid #dcb88c;background:none;color:#f1e3c4;padding:4px 12px;border-radius:2px;font:inherit;cursor:pointer}
+#museumBar .mbp[hidden]{display:none!important}
+#museumBar a:focus-visible,#museumBar button:focus-visible{outline:3px solid #b79567;outline-offset:2px}
 #museumBar .mbp{max-width:1500px;margin:0 auto;padding:6px clamp(12px,3vw,40px) 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 22px}
 #museumBar .mbp .mbt{font:600 11px system-ui;letter-spacing:.16em;text-transform:uppercase;color:#c9a96e;margin:8px 0 4px}
 #museumBar .mbp a{display:block;min-height:44px;padding:7px 0;border-bottom:1px solid #ffffff14}#museumBar .mbp a b{font:400 16px Georgia,serif;display:block}#museumBar .mbp a small{color:#b8ad98}
 #museumBar .mbp a[aria-current] b{color:#f0c987}
 @media(max-width:700px){#museumBar .mbq{display:none}}`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  const quick = [["stories/", "Истории"], ["atlas/", "Атлас времени"], ["salon/", "Коллекция"], ["studio/", "Кабинет"], ["cities/", "Города"]];
+  const quick = [["cities/", "Мир и города"], ["world/", "Городская графика"], ["salon/", "Произведения"], ["eras/", "Карты"], ["poc/compare/", "Тогда / Сейчас"], ["studio/", "Кабинет"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>
     <nav class="mbq" aria-label="Залы музея">${quick.map(([p, t]) => `<a href="${esc(base + p)}"${isHere(p) ? ' aria-current="page"' : ""}>${esc(t)}</a>`).join("")}</nav>
-    <button type="button" aria-expanded="false" aria-controls="museumPanel">Все залы ▾</button></div>
+    <button type="button" aria-label="Открыть все залы музея" aria-expanded="false" aria-controls="museumPanel">Все залы ▾</button></div>
     <nav class="mbp" id="museumPanel" aria-label="Все залы музея" hidden>${HALLS.map(([h, items]) => `<div><p class="mbt">${esc(h)}</p>${items.map(([p, t, d]) =>
       `<a href="${esc(base + p)}"${isHere(p) ? ' aria-current="page"' : ""}><b>${esc(t)}</b><small>${esc(d)}</small></a>`).join("")}</div>`).join("")}</nav>`;
   document.body.insertBefore(bar, document.body.firstChild);
   const btn = bar.querySelector("button"), panel = bar.querySelector("#museumPanel");
-  btn.addEventListener("click", () => { const open = panel.hidden; panel.hidden = !open; btn.setAttribute("aria-expanded", String(open)); btn.textContent = open ? "Закрыть ▴" : "Все залы ▾"; });
+  btn.addEventListener("click", () => { const open = panel.hidden; panel.hidden = !open; btn.setAttribute("aria-expanded", String(open)); btn.textContent = open ? "Закрыть ▴" : "Все залы ▾"; btn.setAttribute("aria-label", open ? "Закрыть меню музея" : "Открыть все залы музея"); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) btn.click(); });
   window.MuseumHalls = HALLS;
 })();

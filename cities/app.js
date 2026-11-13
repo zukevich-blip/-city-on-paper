@@ -138,6 +138,28 @@
     } else {
       item.append(el("span","status-note","Редакционная страница ещё не подготовлена"));
     }
+    if(row.status==="detailed"){
+      const journey=el("nav","city-journey");
+      journey.setAttribute("aria-label","Исследование города "+row.name);
+      const art=el("a",null,"Произведения ↗");
+      art.href="../salon/?city="+encodeURIComponent(row.name);
+      const modern=el("a",null,"Сегодня ↗");
+      modern.href="../photography/?city="+encodeURIComponent(row.name);
+      journey.append(art,modern);
+      if(city==="paris"){
+        const comparison=el("a",null,"Тогда / Сейчас ↗");
+        comparison.href="../poc/compare/#madeleine-ph-benoist";
+        journey.append(comparison);
+      }
+      const regionMap=el("a",null,"Историческая карта ↗");
+      regionMap.href="../eras/";
+      journey.append(regionMap);
+      item.append(journey);
+    } else if(row.status==="candidate"){
+      const openArchive=el("a","action","Проверить открытую графику ↗");
+      openArchive.href="../world/?query="+encodeURIComponent(row.name);
+      item.append(openArchive);
+    }
     if(row.country_conflict)item.append(el("small","status-note","Название или страна требуют проверки при объединении"));
     return item;
   }

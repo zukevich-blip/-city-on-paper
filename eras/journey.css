@@ -1,0 +1,53 @@
+/* Museum visitor journey: calm editorial motion, consistent gallery hierarchy. */
+.museum-journey{margin:20px 0 24px;padding:16px 18px 18px;border:1px solid #725c42;
+  background:linear-gradient(126deg,#1c3029 0%,#283d33 72%,#334333 100%);
+  color:#f4eada;box-shadow:0 14px 30px -26px #1c3029;
+  position:relative;isolation:isolate}
+.museum-journey:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:#c6a16d}
+.museum-journey-heading{display:block;color:#d8b985;font:600 11px/1.5 system-ui,sans-serif;
+  letter-spacing:.13em;text-transform:uppercase;margin:0 0 12px 3px}
+.museum-journey-track{display:flex;align-items:stretch;gap:4px;overflow-x:auto;
+  scrollbar-width:thin;scroll-snap-type:x proximity;padding-bottom:2px}
+.museum-journey-step{flex:1 0 155px;display:flex;align-items:center;gap:10px;min-width:0;
+  border:1px solid transparent;background:transparent;color:#f9efe1;text-align:left;text-decoration:none;
+  padding:12px 9px;min-height:66px;cursor:pointer;position:relative;scroll-snap-align:start;
+  transition:background-color .22s ease,transform .22s ease,border-color .22s ease}
+.museum-journey-step:not(:last-child):after{content:"";position:absolute;right:-4px;
+  top:calc(50% - 2px);width:6px;height:6px;border-top:1px solid #b99967;
+  border-right:1px solid #b99967;transform:rotate(45deg);opacity:.75}
+.museum-journey-step:hover{background:#ffffff10;border-color:#c3ad8959;transform:translateY(-2px)}
+.museum-journey-step:active{transform:none}
+.museum-journey-step:focus-visible{outline:2px solid #ecd09d;outline-offset:0}
+.museum-journey-number{flex:none;align-self:flex-start;font:20px/1.1 Georgia,serif;color:#d7ba8b}
+.museum-journey-caption{min-width:0;display:block}
+.museum-journey-caption strong{display:block;font:500 14px/1.25 Georgia,serif;color:#f9f1e6}
+.museum-journey-caption small{display:block;font:11px/1.35 system-ui,sans-serif;color:#bcbcaf;margin-top:5px}
+#cmapH,.historic-cartography,#cityLab,#others,#archiveSearch,#epH,#countryIndex,#maphost{
+  scroll-margin-top:72px}
+.cmap .lmap,.plate .lmap{box-shadow:inset 0 0 0 1px #d0c4ab}
+.cmap h2{margin-bottom:12px}
+.historic-cartography{box-shadow:0 7px 24px -24px #20190e}
+@media(max-width:850px){.museum-journey{margin:15px 0 20px;padding:13px}
+  .museum-journey-step{flex:0 0 174px;padding:10px 9px}
+  .museum-journey-caption strong{font-size:14px}}
+@media(max-width:440px){.museum-journey-heading{font-size:10px;letter-spacing:.09em}
+  .museum-journey-step{flex-basis:169px}
+  .museum-journey{margin-top:14px}}
+@media(prefers-reduced-motion:reduce){.museum-journey-step{transition:none}
+  .museum-journey-step:hover{transform:none}}
+
+/* Historical cartography shelf: source evidence, not a georeferenced overlay. */
+.historic-cartography{margin:20px 0;padding:18px;border:1px solid #d9cbb5;background:#faf6ee;scroll-margin-top:88px}
+.historic-cartography h3{font:normal 29px/1.15 Georgia,serif;margin:0 0 15px}
+.historic-map-list{list-style:none;padding:0;margin:0;display:grid;gap:15px}
+.historic-map-source{padding:15px;border:1px solid #d4c5ab;background:#fffdf8;overflow-wrap:anywhere}
+.historic-map-source>strong{display:block;font:normal 21px/1.25 Georgia,serif}
+.historic-map-source>small{display:block;margin:8px 0;color:#675647}
+.historic-map-source>a,.historic-map-search a{display:inline-flex;min-height:40px;align-items:center;color:#6e452e}
+.map-source-chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:10px 0}
+.map-source-chain li{border-top:2px solid #a98a64;padding:8px 0;min-width:0}
+.map-source-chain b,.map-source-chain small{display:block;font:12px/1.45 system-ui,sans-serif;overflow-wrap:anywhere}
+.map-source-chain small{color:#685849}
+.map-chain-index{font:20px Georgia,serif;margin-right:8px}
+.historic-map-caution{font-size:12px;color:#694a37}
+@media(max-width:650px){.historic-cartography{padding:12px}.map-source-chain{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -19,7 +19,7 @@ main{padding:19px clamp(18px,5vw,75px) 75px;max-width:1650px;margin:auto}.eyebro
 .note{border-left:3px solid var(--gold);padding:9px 15px;margin:20px 0 30px;background:#f9f5ec;color:#69675d;font:13px/1.6 sans-serif}
  .sectionTitle{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin:18px 0 14px}.sectionTitle h2{font:normal clamp(33px,4vw,54px)/1.08 Georgia,serif;letter-spacing:-.04em;margin:5px 0}.sectionTitle small{color:#706c62;max-width:410px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}.city{min-width:0;border:1px solid #d2c6b4;background:#fcf9f2;display:flex;flex-direction:column}
-.city figure{margin:0;position:relative;height:185px;background:#dcd5c8;overflow:hidden}.city figure img{height:100%;width:100%;object-fit:cover;display:block;filter:saturate(.78)}
+.city figure{margin:0;position:relative;height:185px;background:#dcd5c8;overflow:hidden}.city figure img{height:100%;width:100%;object-fit:contain;display:block;filter:none}
 .city .place{padding:18px;flex:1;display:flex;flex-direction:column;gap:7px}.city .place small{font-size:11px;color:#7e7466;text-transform:uppercase;letter-spacing:.13em}
 .city h3{font:normal 27px/1.1 Georgia,serif;margin:0}.city p{font:13px/1.5 sans-serif;color:#66685e;margin:0}.city .actions{display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:11px;flex-wrap:wrap}.city .actions a{font:12px sans-serif;color:#66502e;text-decoration:underline;text-underline-offset:4px}
 .city .quality{color:#807d70;font:11px sans-serif;margin-top:4px}.city figcaption{position:absolute;bottom:9px;left:10px;background:#22362fe0;color:white;padding:5px 9px;font-size:11px}
@@ -42,6 +42,8 @@ footer{padding:29px clamp(18px,5vw,75px);background:#e7dfd2;font:12px/1.55 sans-
 const $=id=>document.getElementById(id);
 const REGIONS=["Все регионы","Европа","Азия","Африка","Северная Америка","Латинская Америка","Океания"];
 let all=[], active="Все регионы", limit=45, catalogue=[], citySeed=new Map();
+const requestedCity=new URLSearchParams(location.search).get("query");
+if(requestedCity)$("query").value=requestedCity.slice(0,120);
 function valid(a){return a?.id&&a?.name&&a?.city&&a?.image&&a?.url?.startsWith("https://")}
 function tech(a){let m=(a.medium||a.style||a.name||"").toLowerCase();if(/litho|литограф|litograf|chromolitho/.test(m))return "Литография";if(/woodblock|woodcut|ксилограф|ukiyo/.test(m))return "Ксилография";if(/engraving|etching|gravure|гравюр|офорт/.test(m))return "Гравюра / офорт";if(/watercol|drawing|рисунок|акварель/.test(m))return "Рисунок";return "Городская графика"}
 function info(name){return citySeed.get(name)||null}
@@ -88,7 +90,10 @@ function render(){
   const actions=document.createElement("div");actions.className="actions";
   const artLink=document.createElement("a");artLink.href=link("../salon/",c.name);artLink.textContent="Смотреть графику ↗";
   const photoLink=document.createElement("a");photoLink.href=link("../photography/",c.name);photoLink.textContent="Найти фотографии ↗";
-  actions.append(artLink,photoLink);body.append(label,h,p,q,actions);node.append(fig,body);$("cityGrid").append(node);
+  const directoryLink=document.createElement("a");
+  directoryLink.href="../cities/?query="+encodeURIComponent(c.name);
+  directoryLink.textContent="Город и источники ↗";
+  actions.append(directoryLink,artLink,photoLink);body.append(label,h,p,q,actions);node.append(fig,body);$("cityGrid").append(node);
  }
 }
 $("query").oninput=()=>{limit=45;render()};$("tech").onchange=()=>{limit=45;render()};

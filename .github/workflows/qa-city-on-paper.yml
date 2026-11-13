@@ -111,6 +111,7 @@ jobs:
           node --check cities/app.js
           node --check tests/browser/qa_cities.js
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
           node --check tests/browser/qa_engraving.js
           node tests/browser/qa_engraving.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
@@ -265,7 +266,29 @@ jobs:
           node tests/browser/qa_experience.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_hybrid.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+          node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
           node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+      - name: Build and audit the real PUBLIC museum release
+        run: |
+          python tools/release/build_public_site.py --source /tmp/city-on-paper-package --out /tmp/city-on-paper-public
+          python tools/release/audit_public_links.py --root /tmp/city-on-paper-public --report /tmp/city-on-paper-screens/PUBLIC_LINK_AUDIT.json --strict
+          python -m http.server 8767 --directory /tmp/city-on-paper-public --bind 127.0.0.1 >/tmp/city-public-http.log 2>&1 &
+          sleep 2
+          curl -fsS http://127.0.0.1:8767/cities/ -o /dev/null
+          node tests/browser/qa_unified_journey.js http://127.0.0.1:8767/
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("/tmp/city-on-paper-public")
+          report = json.loads((root / "PUBLIC_BUILD.json").read_text(encoding="utf-8"))
+          assert report["public_html_pages"] >= 30, report
+          coverage = json.loads((root / "data/coverage/world-coverage-20261110.json").read_text(encoding="utf-8"))
+          assert coverage["summary"]["combined_names"] == len(coverage["entries"])
+          assert all("source_examples" not in row for row in coverage["entries"])
+          for page in ("cities/", "atlas/", "stories/", "experience/", "world/", "salon/", "poc/compare/"):
+              assert (root / page / "index.html").exists(), page
+          print("UNIFIED PUBLIC GATE OK", report["public_html_pages"], len(coverage["entries"]))
+          PY
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
         with:
