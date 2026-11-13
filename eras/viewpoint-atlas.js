@@ -13,6 +13,49 @@ window.CityOnPaperViewpoints = (() => {
     return Math.hypot(dx,dy);
   };
   const azdiff = (a,b) => Math.abs(((a-b+540)%360)-180);
+  const bearing=(a,b)=>{
+    const p1=a.lat*Math.PI/180,p2=b.lat*Math.PI/180,
+      dl=(b.lon-a.lon)*Math.PI/180;
+    return (Math.atan2(Math.sin(dl)*Math.cos(p2),
+      Math.cos(p1)*Math.sin(p2)-Math.sin(p1)*Math.cos(p2)*Math.cos(dl))*180/Math.PI+360)%360;
+  };
+  // Read only GPS EXIF from first 256 KiB of a visitor JPEG, without uploading it.
+  async function exifGps(file) {
+    if(!file||file.type!=="image/jpeg")return null;
+    try{
+      const v=new DataView(await file.slice(0,256*1024).arrayBuffer());
+      if(v.byteLength<16||v.getUint16(0)!==0xffd8)return null;
+      let o=2;
+      while(o+12<v.byteLength){
+        if(v.getUint8(o)!==255){o++;continue;}
+        const marker=v.getUint16(o),len=v.getUint16(o+2);
+        if(!Number.isFinite(len)||len<2||o+2+len>v.byteLength)break;
+        if(marker===0xffe1&&v.getUint32(o+4)===0x45786966){
+          const t=o+10,le=v.getUint16(t)===0x4949;
+          const u16=x=>v.getUint16(x,le),u32=x=>v.getUint32(x,le);
+          const ifd=x=>{const n=u16(x);if(n>1000)throw Error("Invalid EXIF");
+            const out={};for(let i=0;i<n;i++){
+              const e=x+2+i*12;
+              out[u16(e)]={count:u32(e+4),at:e+8};
+            }return out;};
+          const base=ifd(t+u32(t+4));
+          if(!base[0x8825])return null;
+          const gps=ifd(t+u32(base[0x8825].at));
+          const rat=(e,i)=>{const p=t+u32(e.at)+i*8;return u32(p)/(u32(p+4)||1);};
+          if(!gps[2]||!gps[4])return null;
+          const dms=e=>rat(e,0)+rat(e,1)/60+rat(e,2)/3600;
+          let lat=dms(gps[2]),lon=dms(gps[4]);
+          if(gps[1]&&String.fromCharCode(v.getUint8(gps[1].at))==="S")lat=-lat;
+          if(gps[3]&&String.fromCharCode(v.getUint8(gps[3].at))==="W")lon=-lon;
+          const az=gps[17]?rat(gps[17],0):null;
+          return finite(lat,-90,90)&&finite(lon,-180,180)?
+            {lat,lon,az:finite(az,0,360)?az:null}:null;
+        }
+        o+=2+len;
+      }
+    }catch(_){return null;}
+    return null;
+  }
   const target = (cam, angle, length) => {
     const rad=angle*Math.PI/180;
     return [cam.lat + (length/111195)*Math.cos(rad),
@@ -164,8 +207,9 @@ window.CityOnPaperViewpoints = (() => {
         '</select></label>'+
         '<div class="vpa-geofields"><label>Широта<input id="vpaLat" type="number" min="-90" max="90" step="any" required></label>'+
         '<label>Долгота<input id="vpaLon" type="number" min="-180" max="180" step="any" required></label>'+
-        '<label>Направление взгляда, °<input id="vpaAz" type="number" min="0" max="359" value="0" required></label></div>'+
-        '<div class="vpa-form-actions"><button type="button" id="vpaPick">Указать точку на карте</button>'+
+        '<label>Направление взгляда, °<input id="vpaAz" type="number" min="0" max="359" placeholder="Укажите взгляд на карте" required></label></div>'+
+        '<div class="vpa-form-actions"><button type="button" id="vpaPick">Где я стоял</button>'+ 
+        '<button type="button" id="vpaAim">Куда смотрел</button>'+
         '<button type="submit" id="vpaSave">Сохранить локально</button></div>'+
         '<p id="vpaFeedback" role="status" aria-live="polite"></p></form></details>'+
         '<h3 class="vpa-list-title">Произведения и паспорт точки</h3>'+
@@ -300,10 +344,19 @@ window.CityOnPaperViewpoints = (() => {
         refreshOwn();
         current.on("click",e=>{
           if(!pickMode)return;
+          if(pickMode==="aim") {
+            const camera={lat:+$("#vpaLat").value,lon:+$("#vpaLon").value};
+            if(finite(camera.lat,-90,90)&&finite(camera.lon,-180,180)){
+              $("#vpaAz").value=String(Math.round(bearing(camera,{
+                lat:e.latlng.lat,lon:e.latlng.lng})));
+              feedback.textContent="Направление выбрано: "+$("#vpaAz").value+"°. Проверьте фото и сохраните.";
+            }
+          }else{
+            $("#vpaLat").value=e.latlng.lat.toFixed(6);
+            $("#vpaLon").value=e.latlng.lng.toFixed(6);
+            feedback.textContent="Позиция выбрана. Теперь нажмите «Куда смотрел» и отметьте объект.";
+          }
           pickMode=false;
-          $("#vpaLat").value=e.latlng.lat.toFixed(6);
-          $("#vpaLon").value=e.latlng.lng.toFixed(6);
-          feedback.textContent="Точка съёмки выбрана. Проверьте направление камеры и сохраните.";
           current.getContainer().classList.remove("vpa-picking");
           $("#vpaContribution").open=true;
           $("#vpaContribution").scrollIntoView({behavior:"smooth",block:"nearest"});
@@ -319,6 +372,10 @@ window.CityOnPaperViewpoints = (() => {
           m.bindPopup("<b>Мой снимок</b><p>"+esc(linked?linked.title:"Своя фотография")+
             "</p><small>Точка введена посетителем, совпадение с историческим ракурсом не проверено.</small>");
           m.on("click",()=>{if(linked)compare(linked);});
+          if(finite(p.az,0,359))L.polyline(
+            [[p.lat,p.lon],target(p,p.az,35)],{
+              color:"#154f78",weight:3,dashArray:"7 5"
+            }).addTo(ownLayer);
         }
       }
       function drawOld(){
@@ -339,9 +396,33 @@ window.CityOnPaperViewpoints = (() => {
         }
         requestAnimationFrame(()=>old.invalidateSize());
       }
+      $("#vpaFile").onchange=async()=>{
+        const file=$("#vpaFile").files[0];
+        if(!file)return;
+        const gps=await exifGps(file);
+        if($("#vpaFile").files[0]!==file)return;
+        if(gps) {
+          $("#vpaLat").value=gps.lat.toFixed(6);
+          $("#vpaLon").value=gps.lon.toFixed(6);
+          if(gps.az!==null)$("#vpaAz").value=String(Math.round(gps.az)%360);
+          if(current)current.setView([gps.lat,gps.lon],17);
+          feedback.textContent="GPS найден в исходном фото. Проверьте точку на карте и направление камеры.";
+        }else feedback.textContent="GPS в файле не найден. Отметьте точку и направление на карте.";
+      };
+      $("#vpaAim").onclick=()=>{
+        const lat=$("#vpaLat").value,lon=$("#vpaLon").value;
+        if(!lat||!lon||!finite(lat,-90,90)||!finite(lon,-180,180)) {
+          feedback.textContent="Сначала выберите точку, где стояли.";return;
+        }
+        if(!current){feedback.textContent="Карта недоступна. Введите азимут вручную.";return;}
+        pickMode="aim";
+        current.getContainer().classList.add("vpa-picking");
+        feedback.textContent="Теперь нажмите на карте объект, на который смотрели.";
+        nowNode.scrollIntoView({behavior:"smooth",block:"center"});
+      };
       $("#vpaPick").onclick=()=>{
         if(!current){feedback.textContent="Карта недоступна; координаты можно ввести вручную.";return;}
-        pickMode=true;
+        pickMode="camera";
         current.getContainer().classList.add("vpa-picking");
         feedback.textContent="Нажмите на современной карте, где вы стояли, когда снимали фото.";
         nowNode.scrollIntoView({behavior:"smooth",block:"center"});
@@ -355,7 +436,8 @@ window.CityOnPaperViewpoints = (() => {
           feedback.textContent="Нужен JPG, PNG или WebP до 15 МБ.";return;
         }
         if(!r){feedback.textContent="Выберите произведение из списка. Для него будет создан современный аналог.";return;}
-        if(!finite(lat,-90,90)||!finite(lon,-180,180)||!finite(az,0,359)){
+        if(!$("#vpaLat").value||!$("#vpaLon").value||!$("#vpaAz").value ||
+          !finite(lat,-90,90)||!finite(lon,-180,180)||!finite(az,0,359)){
           feedback.textContent="Проверьте широту, долготу и направление (0–359°).";return;
         }
         const save=$("#vpaSave");save.disabled=true;
