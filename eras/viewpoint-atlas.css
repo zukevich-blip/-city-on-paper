@@ -1,0 +1,76 @@
+/* Viewpoint Atlas. Museum plates are never filtered, warped or cropped. */
+.vpa-shell{margin:28px 0 34px;padding:clamp(14px,2.3vw,28px);background:#f5efe3;border:1px solid #c9baa2;box-shadow:0 5px 27px #292b2520;color:#26362d;scroll-margin-top:90px}
+.vpa-intro{border-bottom:1px double #c9baa2;padding-bottom:14px;margin-bottom:17px}
+.vpa-intro h2{font:400 clamp(26px,3.3vw,42px)/1.12 Georgia,serif;max-width:850px;margin:8px 0}
+.vpa-intro p{font:15px/1.6 system-ui,sans-serif;max-width:790px;color:#5a554b}
+.vpa-counts{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.vpa-counts span{border:1px solid #cbbba2;background:#fcf7ed;padding:6px 10px;font:12px/1.5 system-ui,sans-serif}
+.vpa-counts b{color:#7b492f;font-size:16px}
+.vpa-map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:14px;margin:20px 0}
+.vpa-map-col{padding:10px;background:#fcf8ee;border:1px solid #c6b79e;min-width:0}
+.vpa-map-col h3{font:400 20px/1.3 Georgia,serif;margin:3px 4px 10px}
+.vpa-map{height:min(52vh,410px);min-height:300px;border:1px solid #a9a48c;background:#ebe2d1;z-index:0}
+.vpa-map img{filter:none!important;transform:none}
+.vpa-map .leaflet-container{background:#ebe2d1}
+.vpa-note{font:12px/1.6 system-ui,sans-serif;color:#675a49;margin:9px 0 4px}
+.vpa-picking{cursor:crosshair!important;outline:4px solid #b88148;outline-offset:-4px}
+.vpa-film{background:#fffaf0;border:1px solid #c4b497;padding:clamp(12px,2vw,18px);scroll-margin-top:70px}
+.vpa-film-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.vpa-film-head h3{font:400 24px/1.25 Georgia,serif;margin:0 0 9px}
+.vpa-film-head span{font:12px/1.5 system-ui,sans-serif;color:#7b5b43}
+.vpa-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;position:relative;max-width:100%;background:#e4d9c5;padding:7px;border:1px solid #c8b99d}
+.vpa-compare figure{min-width:0;margin:0;background:#f6f2ea;position:relative}
+.vpa-compare img{display:block;width:100%;height:min(48vh,410px);object-fit:contain;filter:none!important}
+.vpa-compare figcaption{font:12px/1.5 system-ui,sans-serif;padding:10px 8px;color:#5d5243}
+.vpa-empty{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font:14px/1.5 Georgia,serif;min-height:220px;border:1px dashed #c6b697;background:#f7efe1}
+.vpa-compare.is-wipe{display:block;overflow:hidden;min-height:300px}
+.vpa-compare.is-wipe figure{width:100%;margin:0}
+.vpa-compare.is-wipe figure:first-child{position:relative;z-index:1}
+.vpa-compare.is-wipe figure:nth-child(2){position:absolute;inset:7px;z-index:2;clip-path:inset(0 calc(100% - var(--wipe,50%)) 0 0)}
+.vpa-compare.is-wipe figcaption{background:#fff9ee}
+.vpa-compare.is-wipe figure:nth-child(2) img{height:min(48vh,410px)}
+.vpa-mode{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.vpa-mode button{min-height:44px;border:1px solid #aa987d;padding:8px 16px;background:#fffdf9;color:#314337;font:13px system-ui,sans-serif}
+.vpa-mode button[aria-pressed=true]{background:#2d4839;color:#fff}
+.vpa-mode button:disabled{opacity:.5}
+.vpa-mode label{display:flex;align-items:center;gap:10px;font:12px system-ui,sans-serif}
+.vpa-mode input{min-width:150px;accent-color:#9d6540}
+.vpa-list-title{font:400 26px Georgia,serif;margin:28px 0 12px}
+.vpa-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,275px),1fr));gap:12px}
+.vpa-art{background:#fffaf1;border:1px solid #cdbda5;display:flex;flex-direction:column;min-width:0}
+.vpa-art>button{display:flex;flex-direction:column;align-items:stretch;text-align:left;border:0;background:transparent;cursor:pointer;padding:10px;gap:9px;color:inherit;min-height:200px}
+.vpa-art>button[aria-pressed=true]{outline:3px solid #9a6039;outline-offset:-3px;background:#fff4dd}
+.vpa-art img{display:block;width:100%;height:150px;object-fit:contain;filter:none!important;background:#ede5d9}
+.vpa-placeholder{height:110px;display:grid;place-items:center;color:#796957;background:#e9dfcb}
+.vpa-art-text{display:flex;flex-direction:column;gap:5px}
+.vpa-art-text b{font:400 19px/1.25 Georgia,serif}
+.vpa-art-text small{font:12px/1.4 system-ui,sans-serif;color:#5d6257}
+.vpa-art-text em{font:12px/1.4 system-ui,sans-serif;color:#835737}
+.vpa-art-foot{padding:8px 10px 11px;border-top:1px solid #ded1bd;display:flex;gap:8px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+.vpa-art-foot small,.vpa-art-foot a{font:12px/1.4 system-ui,sans-serif}
+.vpa-art-foot a{color:#815433}
+.vpa-contribute{margin-top:21px;padding:12px 16px;background:#eee3cf;border:1px solid #bba886}
+.vpa-contribute summary{font:600 17px/1.35 Georgia,serif;cursor:pointer;min-height:44px;display:flex;align-items:center}
+.vpa-contribute p{font:13px/1.55 system-ui,sans-serif;color:#5e5a50}
+.vpa-contribute form{display:grid;gap:12px;max-width:750px}
+.vpa-contribute label{display:flex;flex-direction:column;gap:6px;font:12px/1.4 system-ui,sans-serif;color:#4a4e42}
+.vpa-contribute input{width:100%;font:16px system-ui,sans-serif;min-height:44px;padding:7px 10px;border:1px solid #b3a283;color:#27372d;background:#fffefa}
+.vpa-geofields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.vpa-form-actions{display:flex;flex-wrap:wrap;gap:9px}
+.vpa-form-actions button{background:#2c4438;color:#fff;border:1px solid #2c4438;padding:10px 13px;min-height:44px;cursor:pointer}
+.vpa-form-actions button:disabled{opacity:.5}
+#vpaFeedback{font:13px/1.5 system-ui,sans-serif;color:#725237}
+@media(max-width:650px){
+.vpa-shell{padding:12px;margin:20px -4px}
+.vpa-map{height:min(57dvh,385px);min-height:280px}
+.vpa-compare{grid-template-columns:1fr}
+.vpa-compare img,.vpa-compare.is-wipe img,.vpa-compare.is-wipe figure:nth-child(2) img{height:240px}
+.vpa-compare.is-wipe{min-height:270px}
+.vpa-geofields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.vpa-geofields label:last-child{grid-column:1/-1}
+.vpa-intro h2{font-size:29px}
+.vpa-art img{height:185px}
+.vpa-gallery{grid-template-columns:1fr}
+.vpa-mode label{width:100%}
+.vpa-mode input{flex:1}
+}
