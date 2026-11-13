@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Маршрут по времени: подлинные исторические виды города, карта, архивные документы и современные снимки. Выберите место и сопоставьте несколько эпох.">
+<title>Маршрут по времени · Город на бумаге</title>
+<style>
+:root{--paper:#f1ece2;--ink:#27372e;--dark:#183329;--gold:#bda071;--rust:#8d4937;--line:#d1c5b4;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
+*{box-sizing:border-box}body{margin:0}a{color:inherit}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #b86f3e;outline-offset:2px}
+.shell{width:min(1240px,calc(100% - 40px));margin:auto}
+.top{background:var(--dark);color:#f7eee0;padding:57px 0 48px;position:relative;overflow:hidden}
+.top:after{content:"";position:absolute;width:500px;height:500px;right:-260px;top:-280px;border:1px solid #c7ae865e;border-radius:50%;box-shadow:0 0 0 50px #d1bc8c11,0 0 0 100px #d1bc8c0b;pointer-events:none}
+.eyebrow{font:700 11px/1.5 system-ui;letter-spacing:.17em;text-transform:uppercase;color:#b58b5a}
+.top .eyebrow{color:#d5b47f}.top h1{font:normal clamp(47px,7vw,93px)/1.02 Georgia,serif;letter-spacing:-.045em;max-width:850px;margin:12px 0 20px}.top h1 em{font-style:italic;color:#dcc49c}
+.top p{max-width:720px;color:#e0d8c7;font:17px/1.7 Georgia,serif}
+.crumbs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;margin-top:28px}.crumbs a{color:#ead9b8;text-underline-offset:4px}
+.notice{padding:14px 18px;margin:20px 0 25px;border-left:3px solid #a4764d;background:#faf6ed;font:13px/1.65 system-ui;color:#554f44}
+.picker{padding:34px 0 15px}.picker h2,.tour h2,.context h2{font:normal clamp(26px,3.5vw,40px)/1.15 Georgia,serif;margin:0 0 17px}
+.pickers{display:flex;flex-wrap:wrap;gap:9px}.choice{min-height:45px;padding:11px 17px;border:1px solid #c9b89f;background:#fcfaf5;color:#34433b;border-radius:2px}
+.choice[aria-pressed=true]{color:#fff;background:var(--dark);border-color:var(--dark)}
+.place-row{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:18px 0 3px}
+.place-row>span{font:12px system-ui;color:#625849;min-width:110px}.place-row .choice{font-size:13px;padding:10px 14px}
+.section-title{display:flex;align-items:end;gap:25px;justify-content:space-between;margin:30px 0 15px;flex-wrap:wrap}
+.section-title p{font:13px/1.55 system-ui;color:#666055;margin:0;max-width:550px}
+.evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.witness{border:1px solid #d0c0a7;background:#faf6ed;min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.witness-head{padding:14px 17px 12px;display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #d4c7b6}
+.witness-head strong{font:normal 24px Georgia,serif}.witness-head span{font-size:11px;color:#8c553c}
+.witness figure{margin:0;background:#d8c8ad;min-height:290px;height:clamp(280px,34vw,430px);display:flex;align-items:center;justify-content:center;padding:13px}
+.witness img{width:100%;height:100%;object-fit:contain;filter:none;mix-blend-mode:normal}
+.witness figcaption{min-height:115px;padding:14px 17px 16px;display:flex;flex-direction:column;gap:8px;color:#595246}
+.witness figcaption b{font:17px/1.3 Georgia,serif;color:var(--ink);overflow-wrap:anywhere}
+.witness figcaption span{font:12px/1.4 system-ui}
+.witness figcaption a{font:12px/1.5 system-ui;color:#7d3d2b;margin-top:auto;align-self:flex-start}
+#stageMessage{margin:0;padding:22px;line-height:1.7;max-width:660px}.empty-stage{background:#e7dac8}
+.tour{padding:26px 0 14px}.tour p,.context p{font:14px/1.7 system-ui;color:#625c52;max-width:900px}
+.track{display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x proximity;padding:7px 0 18px}
+.frame{scroll-snap-align:start;display:flex;flex-direction:column;gap:7px;flex:0 0 166px;padding:10px;border:1px solid #cfbeaa;background:#fcf9f3;text-align:left}
+.frame[aria-pressed=true]{border:2px solid #8c4738;padding:9px;background:#f6e9d7}
+.frame img{width:100%;height:91px;object-fit:contain;background:#e8dcc9;filter:none}
+.frame span{font-size:12px;font-weight:700}.frame small{font-size:11px;line-height:1.4;color:#685d50}
+.frame:focus-visible{outline:3px solid #b86f3e}
+.context{padding:30px 0 74px}
+.routebox{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+.mapcard{border:1px solid #c8b597;background:#e4d7c0;display:flex;flex-direction:column;padding:16px;min-width:0}
+.mapcard img{width:100%;max-height:270px;object-fit:contain;filter:none}
+.mapcard p{margin:9px 0;font-size:12px;line-height:1.55}
+.mapcard a{font-size:13px;color:#7b462e;margin-top:auto;padding:10px 0;align-self:flex-start}
+.nextsteps{padding:23px;background:#203a30;color:#efe8da;display:flex;flex-direction:column;gap:13px}
+.nextsteps h2{color:#f4eee4;margin:0 0 5px}
+.nextsteps a{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #ffffff2e;padding:11px 0;text-decoration:none;font:14px/1.4 system-ui}
+.nextsteps a:hover{text-decoration:underline}
+.nextsteps .route-note{font:12px/1.55 system-ui;color:#d3cab7;margin-top:auto}
+.footer{background:#162d24;color:#e6d9bc;padding:30px 0;font:13px/1.6 system-ui}
+.footer a{color:#e6d9bc}
+.loading{padding:40px 0;color:#70563f}
+@media(max-width:750px){.evidence,.routebox{grid-template-columns:1fr}.top{padding:37px 0 32px}.top h1{font-size:clamp(41px,10vw,67px)}.shell{width:calc(100% - 30px)}.witness figure{height:300px;min-height:0}.witness figcaption{min-height:0}.picker{padding-top:26px}.mapcard img{max-height:220px}.routebox{gap:12px}}
+@media(max-width:420px){.top p{font-size:15px}.witness figure{height:230px;padding:9px}.witness-head strong{font-size:20px}.choice{padding:9px 12px;font-size:13px}.frame{flex-basis:142px}}
+</style>
+<script src="../assets/nav/museum-nav.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="shell">
+    <div class="eyebrow">Город на бумаге / исследование мест</div>
+    <h1>Одно место.<br><em>Несколько времён.</em></h1>
+    <p>Старинные литографии, офорты, первые фотографии, историческая карта и сегодняшний вид. Здесь можно пройти по одному месту через десятилетия, открыть архивный оригинал и понять, что действительно изменилось.</p>
+    <nav class="crumbs" aria-label="Путь по музею"><a href="../cities/">Мир</a><span>›</span><a href="../eras/">Историческая карта</a><span>›</span><span>Маршрут по времени</span></nav>
+  </div>
+</header>
+<main class="shell">
+  <div class="notice">Работы и даты берутся из музейного каталога. Две фотографии могут быть сделаны с разных точек. Это сравнительное чтение источников, не точное совмещение пикселей и не доказанная геопривязка каждого листа.</div>
+  <section class="picker" aria-labelledby="cityTitle">
+    <span class="eyebrow">01 / Выберите направление</span>
+    <h2 id="cityTitle">Сначала город, затем конкретное место</h2>
+    <div class="pickers" id="cityButtons" role="group" aria-label="Выбор города">
+      <button type="button" class="choice" data-city="paris" aria-pressed="true">Париж</button>
+      <button type="button" class="choice" data-city="florence" aria-pressed="false">Флоренция</button>
+      <button type="button" class="choice" data-city="naples" aria-pressed="false">Неаполь</button>
+    </div>
+    <div class="place-row"><span>Улица, памятник:</span><div class="pickers" id="placeButtons" role="group" aria-label="Выберите историческое место"></div></div>
+  </section>
+  <section class="compare" aria-label="Два свидетельства из разных эпох">
+    <div class="section-title">
+      <div><span class="eyebrow">02 / Сопоставьте свидетельства</span><h2 id="placeHeading">История одного места</h2></div>
+      <p id="placeMeta">Даты, авторы и права на оригиналы отмечены у изображений.</p>
+    </div>
+    <div class="evidence">
+      <article class="witness"><div class="witness-head"><strong>Исторический лист</strong><span id="oldDate">XIX век</span></div>
+        <figure><img id="oldImage" alt="" src="../eras/img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg" loading="eager"></figure>
+        <figcaption><b id="oldTitle">Филипп Бенуа. Мадлен</b><span id="oldRights">Музейный оригинал</span><a id="oldSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/2016652452/">Исходная архивная запись ↗</a></figcaption>
+      </article>
+      <article class="witness"><div class="witness-head"><strong id="newHeading">Сегодня</strong><span id="newDate">2017</span></div>
+        <figure id="rightFigure"><img id="newImage" alt="" src="../eras/img/derived_paris_madeleine_2017_sw-corner_persp100_from-panoramax-4606ccdb.jpg" loading="eager"></figure>
+        <figcaption><b id="newTitle">Современная фотография</b><span id="newRights">Автор и лицензия указаны в архиве</span><a id="newSource" target="_blank" rel="noopener noreferrer" href="https://api.panoramax.xyz/">Открыть первоисточник ↗</a></figcaption>
+      </article>
+    </div>
+    <p class="notice" id="comparisonNote" role="status">Начните с Парижа. Слева оригинал XIX века, справа современный снимок. Ракурсы не подтверждены как совпадающие.</p>
+  </section>
+  <section class="tour" aria-labelledby="timelineHeading">
+    <span class="eyebrow">03 / Лента свидетельств</span>
+    <h2 id="timelineHeading">Выберите другой год и другой взгляд</h2>
+    <p id="timelineIntro">Каждая миниатюра открывает другой исторический источник на левой странице. Современная фотография остаётся справа, если она существует в проверенном наборе.</p>
+    <div class="track" id="timeTrack" role="group" aria-label="Датированные архивные листы"></div>
+  </section>
+  <section class="context" aria-labelledby="routeHeading">
+    <span class="eyebrow">04 / От свидетельства к месту</span><h2 id="routeHeading">История продолжается на карте</h2>
+    <p id="placeStory">После просмотра архивных листов откройте город на карте, найдите другие произведения и сравните их с сегодняшними фотографиями.</p>
+    <div class="routebox">
+      <div class="mapcard">
+        <img src="../eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Оригинальная карта Европы XVIII века из Library of Congress" loading="lazy">
+        <p>Историческая карта Европы, G. de L’Isle / Ph. Buache, 1769. Она показывает географию своей эпохи. Современные метки городов изучайте в интерактивном атласе, отдельно от исторического растра.</p>
+        <a id="mapRoute" href="../eras/#/city/paris">Открыть город на карте ↗</a>
+      </div>
+      <div class="nextsteps">
+        <h2>Куда дальше?</h2>
+        <a id="atlasRoute" href="../atlas/?city=paris">Все эпохи и оригиналы <span aria-hidden="true">↗</span></a>
+        <a id="worksRoute" href="../salon/?city=%D0%9F%D0%B0%D1%80%D0%B8%D0%B6">Все произведения города <span aria-hidden="true">↗</span></a>
+        <a id="photoRoute" href="../photography/?city=%D0%9F%D0%B0%D1%80%D0%B8%D0%B6">Современные фотографии <span aria-hidden="true">↗</span></a>
+        <a id="pairRoute" href="../poc/compare/#madeleine-ph-benoist">Просмотрщик «Тогда / Сейчас» <span aria-hidden="true">↗</span></a>
+        <a href="../contribute/">Предложить свою литографию или ракурс <span aria-hidden="true">↗</span></a>
+        <p class="route-note">География, авторство, датировки и изображения требуют отдельных подтверждений. Если парного современного вида нет, мы так и указываем.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="shell"><a href="../">Город на бумаге</a> · <a href="../rights/">Источники и права</a> · <a href="../cities/">Мир и города</a></div></footer>
+<script>
+"use strict";
+(function(){
+  const $=id=>document.getElementById(id);
+  const names={paris:"Париж",florence:"Флоренция",naples:"Неаполь"};
+  const cityHash={paris:"paris",florence:"florence",naples:"neapol"};
+  let cities=[],selectedCity="paris",selectedPlace=0,selectedOld=0;
+  const clean=(x)=>String(x||"");
+  function asset(img){
+    if(!img||!/^img\/[a-zA-Z0-9._/-]+\.(jpg|jpeg|png|webp)$/.test(img.file||"")||(img.file||"").includes(".."))return "";
+    return "../eras/"+img.file;
+  }
+  function safeLink(s){try{const u=new URL(s);return u.protocol==="https:"?u.href:"#"}catch{return "#"}}
+  function dated(images){return images.filter(x=>asset(x)&&x.rights_class==="open"&&safeLink(x.object_url)!=="#")}
+  function imageDetails(prefix,x){
+    $(prefix+"Image").src=asset(x);
+    $(prefix+"Image").alt=clean(x.alt||x.title);
+    $(prefix+"Title").textContent=clean(x.title);
+    $(prefix+"Date").textContent=clean(x.year_label||x.date||"Дата уточняется");
+    $(prefix+"Rights").textContent=clean(x.institution||"Архив")+" · "+clean(x.rights_short||x.rights||"Права уточняются");
+    $(prefix+"Source").href=safeLink(x.object_url);
+  }
+  function selectPlace(index){
+    const city=cities.find(x=>x.id===selectedCity);
+    if(!city||!city.places[index])return;
+    selectedPlace=index;selectedOld=0;
+    for(const b of $("placeButtons").querySelectorAll("button"))b.setAttribute("aria-pressed",String(Number(b.dataset.place)===index));
+    const place=city.places[index],all=dated(place.images||[]),historical=all.filter(x=>x.era!=="today"),now=all.filter(x=>x.era==="today");
+    $("placeHeading").textContent=place.title;
+    $("placeMeta").textContent=names[selectedCity]+" · "+historical.length+" исторических свидетельств"+(now.length?" · "+now.length+" современных снимков":" · современная пара не подтверждена");
+    $("placeStory").textContent=clean(place.summary||"Изучите разные изображения этого места. Сведения об их происхождении указаны в музейных источниках.");
+    if(!historical.length){$("comparisonNote").textContent="Нет опубликованных изображений для этого места.";return}
+    imageDetails("old",historical[0]);
+    const right=now.length?now[now.length-1]:historical[historical.length>1?historical.length-1:0];
+    imageDetails("new",right);
+    $("newHeading").textContent=now.length?"Современный вид":"Другой исторический год";
+    $("comparisonNote").textContent=now.length
+      ?"Исторический лист и современный снимок относятся к одному месту. Их точные точки съёмки и перспективы не считаются совпадающими: это сопоставление источников без геометрического наложения."
+      :"Для этого места пока нет проверенного современного вида. Справа показано другое датированное историческое свидетельство; современное совпадение не выдумывается.";
+    const track=$("timeTrack");track.replaceChildren();
+    historical.forEach((x,i)=>{
+      const b=document.createElement("button");b.type="button";b.className="frame";b.dataset.index=i;b.setAttribute("aria-pressed",String(i===0));
+      const img=document.createElement("img");img.loading="lazy";img.alt="";img.src=asset(x);
+      const date=document.createElement("span");date.textContent=clean(x.year_label||x.date);
+      const caption=document.createElement("small");caption.textContent=clean(x.title);
+      b.append(img,date,caption);
+      b.addEventListener("click",()=>{
+        selectedOld=i;imageDetails("old",historical[i]);
+        track.querySelectorAll(".frame").forEach(button=>button.setAttribute("aria-pressed",String(Number(button.dataset.index)===i)));
+      });
+      track.append(b);
+    });
+    $("mapRoute").href="../eras/#/city/"+cityHash[selectedCity];
+    $("atlasRoute").href="../atlas/?city="+selectedCity;
+    $("worksRoute").href="../salon/?city="+encodeURIComponent(names[selectedCity]);
+    $("photoRoute").href="../photography/?city="+encodeURIComponent(names[selectedCity]);
+    const pair=$("pairRoute");
+    pair.hidden=selectedCity!=="paris"||index!==0;
+    pair.href="../poc/compare/#madeleine-ph-benoist";
+    const address=new URL(location.href);address.searchParams.set("city",selectedCity);address.searchParams.set("place",String(index));
+    history.replaceState(null,"",address.pathname+address.search);
+  }
+  function selectCity(id,index){
+    const city=cities.find(c=>c.id===id);if(!city)return;selectedCity=id;
+    $("cityButtons").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.city===id)));
+    const places=$("placeButtons");places.replaceChildren();
+    city.places.forEach((p,i)=>{
+      const b=document.createElement("button");b.className="choice";b.type="button";b.dataset.place=i;b.textContent=p.short||p.title;
+      b.addEventListener("click",()=>selectPlace(i));places.append(b);
+    });
+    selectPlace(Number.isInteger(index)&&index>=0&&index<city.places.length?index:0);
+  }
+  $("cityButtons").addEventListener("click",e=>{
+    const btn=e.target.closest("button[data-city]");if(btn)selectCity(btn.dataset.city,0);
+  });
+  fetch("../eras/data/eras.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(data=>{
+    cities=(data.cities||[]).filter(x=>Object.prototype.hasOwnProperty.call(names,x.id));
+    const q=new URLSearchParams(location.search);
+    const id=Object.prototype.hasOwnProperty.call(names,q.get("city"))?q.get("city"):"paris";
+    const place=Number(q.get("place")||0);
+    selectCity(id,place);
+  }).catch(()=>{
+    $("placeButtons").textContent="Не удалось загрузить музейный каталог. Откройте Атлас времени.";
+    $("comparisonNote").textContent="Данные временно недоступны. Исходные материалы находятся в архивном атласе.";
+  });
+})();
+</script>
+</body>
+</html>
