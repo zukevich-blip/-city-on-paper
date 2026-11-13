@@ -111,6 +111,7 @@ jobs:
           node --check cities/app.js
           node --check tests/browser/qa_cities.js
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
           node --check tests/browser/qa_engraving.js
           node tests/browser/qa_engraving.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check experience/app.js
@@ -265,6 +266,7 @@ jobs:
           node tests/browser/qa_experience.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_hybrid.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
+          node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
           node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Upload standalone preview bundle
         uses: actions/upload-artifact@v4
