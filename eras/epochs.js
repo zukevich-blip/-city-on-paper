@@ -89,8 +89,21 @@ window.Epochs = (() => {
       credit: `Фото: ${g.today.author || "автор на Commons"}`, lic: g.today.license, licUrl: g.today.license_url });
     for (const s of g.street || []) uniq.push({ kind: "street", img: s.file, year: yearOf(s.date), label: `Улица сегодня: ${cap(g.name)} (${s.camera.distance_m} м)`, url: s.page,
       credit: `Фото: ${s.author}, Panoramax; ${s.note}`, lic: s.license, licUrl: s.license_url, camera: s.camera });
-    for (const m of mine) uniq.push({ kind: "mine", img: blobUrl(m), year: yearOf(m.date) || "моё", label: m.name || "Моё фото", url: "", credit: "Хранится только на вашем устройстве",
-      camera: m.lat != null ? { lat: m.lat, lon: m.lon, azimuth: m.az ?? bearing([m.lat, m.lon], [g.lat, g.lon]), fov: m.fov || 60 } : null, mineId: m.id });
+    for (const m of mine) {
+      const kind = m.workType === "print" ? "print" : m.workType === "historic_photo" ? "photo" : "mine";
+      const author = m.author ? `Автор: ${m.author}` : "Автор не указан";
+      uniq.push({ kind, img: blobUrl(m),
+        year: m.artYear || yearOf(m.date) || "моё",
+        label: m.name || "Моё изображение",
+        url: /^https:\/\//.test(m.source || "") ? m.source : "",
+        credit: `Личный материал, только на устройстве · ${author}`,
+        lic: m.rights || "Права требуют проверки", licUrl: "",
+        camera: kind === "mine" && m.lat != null && m.lon != null
+          ? { lat: m.lat, lon: m.lon,
+              azimuth: m.az ?? bearing([m.lat, m.lon], [g.lat, g.lon]), fov: m.fov || 60 } : null,
+        mineId: m.id
+      });
+    }
     return uniq;
   }
 
@@ -116,14 +129,26 @@ window.Epochs = (() => {
           <p class="mapnote">★ — изображённое место. Конусы — откуда и куда смотрит камера (уличные фото Panoramax и ваши). Для старых листов точка художника обычно неизвестна.</p>
           <div id="epMine"></div></div></div>
       <dialog id="epDlg" class="epdlg" aria-labelledby="epDlgT"><form method="dialog">
-        <h2 id="epDlgT">Моё фото: ${esc(cap(g.name))}</h2>
-        <p class="mapnote">Фото остаётся только на этом устройстве (в памяти браузера) и никуда не загружается. Точку съёмки можно взять из фото (GPS), из вашего местоположения или поставить на карте.</p>
-        <label class="file">Выбрать фото <input type="file" id="epFile" accept="image/*"></label>
+        <h2 id="epDlgT">Добавить свою литографию или фотографию: ${esc(cap(g.name))}</h2>
+        <p class="mapnote">Изображение хранится только на этом устройстве (IndexedDB). Для старого листа год, автор и права требуют проверки. Точка съёмки не приписывается литографии автоматически.</p>
+        <div class="epmetadata">
+          <label>Что добавляем <select id="epKind">
+            <option value="modern">Моя современная фотография</option>
+            <option value="print">Литография / гравюра</option>
+            <option value="historic_photo">Старинная фотография</option>
+          </select></label>
+          <label>Год создания <input id="epWorkYear" type="number" min="1400" max="2100" placeholder="например, 1860"></label>
+          <label>Автор или собрание <input id="epArtist" maxlength="120" placeholder="Если известно"></label>
+          <label>Архивная ссылка <input id="epSource" type="url" placeholder="https://..." maxlength="1500"></label>
+          <label>Права <select id="epRights"><option>Требуют проверки</option><option>CC0 (документировано)</option><option>CC BY (с атрибуцией)</option><option>CC BY-SA (с атрибуцией)</option><option>Моё авторское фото</option></select></label>
+        </div>
+        <label class="file">Выбрать изображение <input type="file" id="epFile" accept="image/jpeg,image/png,image/webp"></label>
         <div id="epPrev" class="epprev"></div>
-        <div class="lmap pick" id="epPick" aria-label="Карта: нажмите, где вы стояли"></div>
+        <div id="epLocationGroup"><p class="mapnote">Для современного снимка можно указать точку и направление камеры.</p><div class="lmap pick" id="epPick" aria-label="Карта: нажмите, где вы стояли"></div>
         <div class="coords2"><label>Широта <input id="epLat" inputmode="decimal" placeholder="48.8700"></label><label>Долгота <input id="epLon" inputmode="decimal" placeholder="2.3245"></label>
           <label>Направление, ° <input id="epAz" type="range" min="0" max="359" step="1"><output id="epAzO"></output></label></div>
-        <div class="fbrow"><button type="button" class="ghost" id="epGeo">Где я сейчас</button><button value="cancel" class="ghost">Отмена</button><button type="button" class="solid" id="epSave" disabled>Сохранить</button></div>
+        <div class="fbrow"><button type="button" class="ghost" id="epGeo">Где я сейчас</button></div></div>
+        <div class="fbrow"><button value="cancel" class="ghost">Отмена</button><button type="button" class="solid" id="epSave" disabled>Сохранить на устройстве</button></div>
         <p class="mapnote" id="epMsg" role="status"></p></form></dialog>`;
     const $ = (id) => host.querySelector("#" + id);
     const selA = $("epA"), selB = $("epB"), st = $("epstage"), top = $("epTop"), h = $("epH2");
@@ -165,7 +190,7 @@ window.Epochs = (() => {
     h.addEventListener("keydown", (e) => { const v = +h.getAttribute("aria-valuenow"); if (e.key === "ArrowLeft") setPos(v - 5); else if (e.key === "ArrowRight") setPos(v + 5); else if (e.key === "Home") setPos(0); else if (e.key === "End") setPos(100); else return; e.preventDefault(); });
     setPos(50); upd();
     // my photos list
-    $("epMine").innerHTML = mine.length ? `<p class="eyebrow">Мои фото этого места</p>${mine.map((m) => `<p class="mine1"><span>${esc(m.name)}${m.lat != null ? ` · ${m.lat.toFixed(5)}, ${m.lon.toFixed(5)}` : " · без точки"}</span> <button type="button" class="ghost" data-del="${esc(m.id)}">Удалить</button></p>`).join("")}` : "";
+    $("epMine").innerHTML = mine.length ? `<p class="eyebrow">Мои изображения этого места</p>${mine.map((m) => `<p class="mine1"><span>${esc(m.name)}${m.lat != null ? ` · ${m.lat.toFixed(5)}, ${m.lon.toFixed(5)}` : " · без точки"}</span> <button type="button" class="ghost" data-del="${esc(m.id)}">Удалить</button></p>`).join("")}` : "";
     $("epMine").querySelectorAll("[data-del]").forEach((x) => (x.onclick = async () => { await DB.del(x.dataset.del); viewer(host, c, g, thumb, imgTag); }));
     // add my photo
     const dlg = $("epDlg"); let file = null, pick = null, pmk = null;
