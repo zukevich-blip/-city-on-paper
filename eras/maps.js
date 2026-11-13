@@ -50,56 +50,199 @@ window.Maps = (() => {
     return L.divIcon({ className: `mk dot ${cls}`, iconSize: [26, 26], iconAnchor: [13, 13],
       html: `<i></i><span>${esc(c.name)}</span>` });
   }
-  function addCities(map, cities, pos) {
-    const out = [];
-    for (const c of cities) {
-      const ll = pos(c);
-      if (!ll) continue;
-      const m = L.marker(ll, { icon: cityIcon(c), title: c.name, keyboard: false, riseOnHover: true }).addTo(map);
-      m.on("click", () => { location.hash = `#/city/${c.id}`; });
-      m.getElement && m.getElement() && (m.getElement().dataset.id = c.id);
-      out.push(m);
+  function clusterCityMarkers(map, cities, pos) {
+    const rows = cities.map((city) => ({ city, point: pos(city) }))
+      .filter((r) => r.point && Number.isFinite(r.point.lat ?? r.point[0]) && Number.isFinite(r.point.lng ?? r.point[1]));
+    const active = new Set(rows.map((r) => r.city.id));
+    const layer = L.layerGroup().addTo(map);
+    const visible = () => rows.filter((r) => active.has(r.city.id));
+    function fit() {
+      const list = visible(); if (!list.length) return false;
+      if (list.length === 1) {
+        map.setView(list[0].point, Math.min(map.getMaxZoom(), Math.max(map.getZoom(), map.options.crs === L.CRS.Simple ? 3 : 10)), { animate: false });
+      } else {
+        map.fitBounds(L.latLngBounds(list.map((r) => r.point)), {
+          padding: [40, 40], maxZoom: map.options.crs === L.CRS.Simple ? 3 : 11, animate: false
+        });
+      }
+      return true;
     }
-    return out;
+    function render() {
+      if (!map.getContainer().isConnected) return;
+      layer.clearLayers();
+      const zoom = map.getZoom();
+      const gridSize = map.getContainer().clientWidth < 520 ? 58 : 74;
+      const groups = new Map();
+      for (const item of visible()) {
+        const px = map.project(item.point, zoom);
+        const key = `${Math.floor(px.x / gridSize)}:${Math.floor(px.y / gridSize)}`;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push({ ...item, px });
+      }
+      for (const group of groups.values()) {
+        if (group.length === 1) {
+          const city = group[0].city;
+          const marker = L.marker(group[0].point, {
+            icon: cityIcon(city), title: city.name, keyboard: true, riseOnHover: true
+          }).addTo(layer);
+          marker.on("click", () => { location.hash = `#/city/${encodeURIComponent(city.id)}`; });
+          if (marker.getElement()) {
+            marker.getElement().dataset.id = city.id;
+            marker.getElement().dataset.count = "1";
+          }
+          continue;
+        }
+        const center = group.reduce((p, r) => [p[0] + r.px.x, p[1] + r.px.y], [0, 0]);
+        const ll = map.unproject([center[0] / group.length, center[1] / group.length], zoom);
+        const clusterIcon = L.divIcon({
+          className: "mk city-cluster", iconSize: [42, 42], iconAnchor: [21, 21],
+          html: `<b>${group.length}</b>`
+        });
+        const marker = L.marker(ll, {
+          icon: clusterIcon, keyboard: true, title: `${group.length} городов. Нажмите, чтобы приблизить или выбрать город.`
+        }).addTo(layer);
+        if (marker.getElement()) marker.getElement().dataset.count = String(group.length);
+        const links = group.slice().sort((a, b) => a.city.name.localeCompare(b.city.name, "ru"))
+          .map((r) => `<a href="#/city/${encodeURIComponent(r.city.id)}">${esc(r.city.name)}</a>`).join("");
+        marker.bindPopup(`<div class="cluster-list"><strong>${group.length} городов</strong>${links}</div>`, { maxWidth: 260 });
+        marker.on("click", () => {
+          if (map.getZoom() >= map.getMaxZoom() - 0.6) {
+            marker.openPopup();
+          } else {
+            const bounds = L.latLngBounds(group.map((r) => r.point));
+            if (bounds.getSouthWest().equals(bounds.getNorthEast())) {
+              map.setView(ll, Math.min(map.getMaxZoom(), map.getZoom() + 2));
+            } else {
+              map.fitBounds(bounds, {
+                padding: [48, 48], maxZoom: Math.min(map.getMaxZoom(), map.getZoom() + 2)
+              });
+            }
+          }
+        });
+      }
+    }
+    map.on("zoomend", render);
+    map.on("moveend", render);
+    render();
+    return {
+      count: () => rows.length,
+      visibleCount: () => visible().length,
+      fit,
+      update(ids) {
+        active.clear();
+        ids.forEach((id) => active.add(id));
+        render();
+      },
+      refresh: render
+    };
   }
 
-  // ---------- portal: old map + modern map tabs
   function portal(host, A, onReady) {
-    if (!ok()) { host.innerHTML = '<p class="note">Карта не загрузилась. Список городов ниже.</p>'; return; }
+    if (!ok()) {
+      host.innerHTML = '<p class="note">Карта недоступна. Используйте список стран и городов ниже.</p>'; return;
+    }
     const P = A.portal;
-    host.innerHTML = `<div class="mtabs" role="tablist" aria-label="Вид карты">
-        <button type="button" role="tab" id="tOld" aria-selected="true">Карта Европы 1769 г.</button>
-        <button type="button" role="tab" id="tNew" aria-selected="false">Современная карта</button></div>
-      <div class="lmap" id="pmap" aria-label="Старая карта Европы с метками городов. Кнопки приближения — в правом верхнем углу."></div>
-      <div class="lmap" id="nmap" hidden aria-label="Современная карта с метками городов"></div>`;
-    const t = { ...P.tiles, credit: "Карта: Library of Congress, G5700 1724 .L5 TIL" };
+    host.innerHTML = `<div class="map-top">
+        <div class="mtabs" role="tablist" aria-label="Выбор картографического слоя">
+          <button type="button" role="tab" id="tOld" aria-selected="true">Европа · 1769</button>
+          <button type="button" role="tab" id="tNew" aria-selected="false">Современный мир · все города</button>
+        </div>
+        <div class="map-actions" role="group" aria-label="Масштаб и область карты">
+          <button type="button" id="mapFit">Показать выбранные города</button>
+          <button type="button" id="mapWorld">Все города мира</button>
+          <button type="button" id="mapEurope">Европа крупнее</button>
+        </div>
+        <p class="map-summary" role="status" aria-live="polite" id="mapSummary"></p>
+      </div>
+      <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
+      <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
+      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для городов вне её изображения доступна современная карта мира. Метка города не означает известную точку съёмки художника.</p>`;
+    const t = { ...P.tiles, credit: "Исторический оригинал: Library of Congress, G5700 1724 .L5 TIL" };
     const { map, at } = imageMap(document.getElementById("pmap"), t);
     const k = P.tiles.width / P.width;
-    addCities(map, A.cities.filter((c) => c.xy), (c) => at(c.xy[0] * k, c.xy[1] * k));
+    const oldCities = clusterCityMarkers(map, A.cities.filter((c) => Array.isArray(c.xy) && c.xy.length === 2), (c) => at(c.xy[0] * k, c.xy[1] * k));
     labelClass(map, document.getElementById("pmap"), map.getZoom());
-    let nmap = null;
-    const show = (old) => {
-      document.getElementById("tOld").setAttribute("aria-selected", String(old));
-      document.getElementById("tNew").setAttribute("aria-selected", String(!old));
-      document.getElementById("pmap").hidden = !old;
-      document.getElementById("nmap").hidden = old;
-      if (old) { map.invalidateSize(); return; }
-      if (!nmap) {
-        nmap = L.map("nmap", { zoomControl: false, zoomSnap: 0.5 });
-        L.tileLayer(...OSM).addTo(nmap);
-        L.control.zoom({ position: "topright", zoomInTitle: "Приблизить", zoomOutTitle: "Отдалить" }).addTo(nmap);
-        const ms = addCities(nmap, A.cities, (c) => (c.lat != null ? [c.lat, c.lon] : null));
-        const b = L.featureGroup(ms).getBounds();
-        nmap.fitBounds(b, { padding: [10, 10] });
-        homeButton(nmap, () => nmap.fitBounds(b, { padding: [10, 10] }));
-        labelClass(nmap, document.getElementById("nmap"), nmap.getZoom());
-        onReady && onReady();
-      } else nmap.invalidateSize();
+    let modern = null, nowCities = null;
+    let oldSelected = true;
+    let selectedIds = new Set(A.cities.map((c) => c.id));
+    let filtered = false;
+    const note = () => {
+      const total = selectedIds.size, inEurope = oldCities.visibleCount();
+      document.getElementById("mapSummary").textContent = oldSelected
+        ? `На исторической карте ${inEurope} из ${total} выбранных городов. Остальные доступны на современной карте и в указателе.`
+        : `Современная карта: ${nowCities ? nowCities.visibleCount() : total} городов с координатами. Выбирайте кластер, чтобы приблизить.`;
+      document.getElementById("mapTruth").hidden = !oldSelected;
     };
+    function makeModern() {
+      if (modern) return;
+      modern = L.map("nmap", { zoomControl: false, zoomSnap: 0.5, worldCopyJump: true });
+      L.tileLayer(...OSM).addTo(modern);
+      L.control.zoom({ position: "topright", zoomInTitle: "Приблизить", zoomOutTitle: "Отдалить" }).addTo(modern);
+      nowCities = clusterCityMarkers(modern, A.cities,
+        (c) => Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon))
+          ? [Number(c.lat), Number(c.lon)] : null);
+      nowCities.update(selectedIds);
+      nowCities.fit();
+      homeButton(modern, () => nowCities.fit());
+      labelClass(modern, document.getElementById("nmap"), modern.getZoom());
+      modern.on("zoomend", note);
+    }
+    function show(old) {
+      oldSelected = !!old;
+      document.getElementById("tOld").setAttribute("aria-selected", String(oldSelected));
+      document.getElementById("tNew").setAttribute("aria-selected", String(!oldSelected));
+      document.getElementById("pmap").hidden = !oldSelected;
+      document.getElementById("nmap").hidden = oldSelected;
+      if (oldSelected) {
+        map.invalidateSize({ pan: false });
+        oldCities.refresh();
+      } else {
+        makeModern();
+        modern.invalidateSize({ pan: false });
+        nowCities.refresh();
+      }
+      note();
+    }
     document.getElementById("tOld").onclick = () => show(true);
     document.getElementById("tNew").onclick = () => show(false);
-    onReady && onReady();
-    return map;
+    document.getElementById("mapWorld").onclick = () => {
+      selectedIds = new Set(A.cities.map((c) => c.id));
+      oldCities.update(selectedIds);
+      show(false);
+      nowCities.update(selectedIds);
+      nowCities.fit();
+      note();
+    };
+    document.getElementById("mapEurope").onclick = () => {
+      show(false);
+      modern.setView([50, 12], 4, { animate: false });
+      note();
+    };
+    document.getElementById("mapFit").onclick = () => {
+      if (oldSelected) {
+        if (!oldCities.visibleCount()) { show(false); nowCities.fit(); }
+        else oldCities.fit();
+      } else nowCities.fit();
+      note();
+    };
+    note();
+    if (onReady) onReady();
+    return {
+      setVisible(ids, shouldFit = false) {
+        selectedIds = new Set(ids);
+        filtered = ids.length < A.cities.length;
+        oldCities.update(selectedIds);
+        if (nowCities) nowCities.update(selectedIds);
+        if (oldSelected && oldCities.visibleCount() === 0 && selectedIds.size) show(false);
+        if (shouldFit && selectedIds.size) {
+          if (oldSelected) oldCities.fit();
+          else if (nowCities) nowCities.fit();
+        }
+        note();
+      },
+      showModern: () => show(false),
+      showHistoric: () => show(true)
+    };
   }
 
   // ---------- city: historic plan (if any) + modern map, markers where works were drawn
