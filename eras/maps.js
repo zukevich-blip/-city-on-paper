@@ -179,7 +179,7 @@ window.Maps = (() => {
       L.tileLayer(...OSM).addTo(modern);
       L.control.zoom({ position: "topright", zoomInTitle: "Приблизить", zoomOutTitle: "Отдалить" }).addTo(modern);
       nowCities = clusterCityMarkers(modern, A.cities,
-        (c) => Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon))
+        (c) => c.lat != null && c.lon != null && Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon))
           ? [Number(c.lat), Number(c.lon)] : null);
       nowCities.update(selectedIds);
       nowCities.fit();
@@ -207,6 +207,7 @@ window.Maps = (() => {
     document.getElementById("tNew").onclick = () => show(false);
     document.getElementById("mapWorld").onclick = () => {
       selectedIds = new Set(A.cities.map((c) => c.id));
+      window.dispatchEvent(new Event("city-atlas-reset"));
       oldCities.update(selectedIds);
       show(false);
       nowCities.update(selectedIds);
