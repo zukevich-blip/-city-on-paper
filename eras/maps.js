@@ -156,7 +156,38 @@ window.Maps = (() => {
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для городов вне её изображения доступна современная карта мира. Метка города не означает известную точку съёмки художника.</p>`;
+      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для городов вне её изображения доступна современная карта мира. Метка города не означает известную точку съёмки художника.</p>
+      <details class="map-archive" id="mapArchive">
+        <summary>Перелистать другие исторические карты и планы</summary>
+        <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
+          <button type="button" data-sheet="europe" aria-pressed="true">Европа · 1769</button>
+          <button type="button" data-sheet="paris" aria-pressed="false">Париж · 1878</button>
+        </div>
+        <figure><img id="mapSheetImage" src="img/loc-97683588-carte-d-europe-1769_w1000.jpg"
+          alt="Историческая карта Европы, 1769 год" loading="lazy" decoding="async">
+          <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Library of Congress, 1769.
+            <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
+        </figure>
+        <p class="map-summary">Другие карты можно листать как отдельные документы. Пока на них нет независимо проверенной геопривязки, маркеры автоматически не накладываются.</p>
+      </details>`;
+    const sheets = {
+      europe: { file: "img/loc-97683588-carte-d-europe-1769_w1000.jpg",
+        name: "Карта Европы de L’Isle / Buache, 1769. Library of Congress.",
+        src: "https://www.loc.gov/item/97683588/" },
+      paris: { file: "img/loc-2012586603-paris-1878.jpg",
+        name: "План Парижа и окрестностей, 1878. Library of Congress. Привязка контрольных точек остаётся исследовательской.",
+        src: "https://www.loc.gov/item/2012586603/" }
+    };
+    host.querySelectorAll("[data-sheet]").forEach((button) => button.addEventListener("click", () => {
+      const selected = sheets[button.dataset.sheet];
+      if (!selected) return;
+      document.getElementById("mapSheetImage").src = selected.file;
+      document.getElementById("mapSheetImage").alt = selected.name;
+      document.getElementById("mapSheetCaption").firstChild.textContent = selected.name + " ";
+      document.getElementById("mapSheetSource").href = selected.src;
+      host.querySelectorAll("[data-sheet]").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b === button)));
+    }));
     const t = { ...P.tiles, credit: "Исторический оригинал: Library of Congress, G5700 1724 .L5 TIL" };
     const { map, at } = imageMap(document.getElementById("pmap"), t);
     const k = P.tiles.width / P.width;
@@ -207,7 +238,7 @@ window.Maps = (() => {
     document.getElementById("tNew").onclick = () => show(false);
     document.getElementById("mapWorld").onclick = () => {
       selectedIds = new Set(A.cities.map((c) => c.id));
-      window.dispatchEvent(new Event("city-atlas-reset"));
+      if (typeof window.cityAtlasReset === "function") window.cityAtlasReset();
       oldCities.update(selectedIds);
       show(false);
       nowCities.update(selectedIds);
