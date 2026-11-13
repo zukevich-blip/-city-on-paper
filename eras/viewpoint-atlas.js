@@ -156,19 +156,20 @@ window.CityOnPaperViewpoints = (() => {
         '<button id="vpaWipe" type="button" aria-pressed="false">Шторка</button>'+
         '<label id="vpaWipeWrap" hidden>Положение шторки <input id="vpaWipeRange" type="range" min="0" max="100" value="50"></label></div>'+
         '<p class="vpa-note" id="vpaCompareTruth">Пара не выбрана. При разных ракурсах геометрическое наложение не подтверждено.</p></div>'+
-        '<h3 class="vpa-list-title">Произведения и паспорт точки</h3>'+
-        '<div id="vpaGallery" class="vpa-gallery"></div>'+
         '<details class="vpa-contribute" id="vpaContribution"><summary>Добавить современное фото и точку съёмки на карту</summary>'+
         '<p>Ваш снимок останется в этом браузере. Выберите произведение, нажмите на современную карту в месте съёмки, укажите направление взгляда. На карте появится ваш маркер.</p>'+
         '<form id="vpaForm"><label>Файл JPG/PNG/WebP (до 15 МБ)<input id="vpaFile" type="file" accept="image/jpeg,image/png,image/webp" required></label>'+
-        '<label>К какому произведению снимок<input id="vpaLink" list="vpaWorks" placeholder="Выберите произведение" required></label>'+
-        '<datalist id="vpaWorks">'+works.map(r=>'<option value="'+esc(r.id)+'">'+esc(r.title)+'</option>').join("")+'</datalist>'+
+        '<label>К какому произведению снимок<select id="vpaLink" required><option value="">Выберите работу…</option>'+
+        works.map(r=>'<option value="'+esc(r.id)+'">'+esc(r.title)+' · '+esc(r.year)+'</option>').join("")+
+        '</select></label>'+
         '<div class="vpa-geofields"><label>Широта<input id="vpaLat" type="number" min="-90" max="90" step="any" required></label>'+
         '<label>Долгота<input id="vpaLon" type="number" min="-180" max="180" step="any" required></label>'+
         '<label>Направление взгляда, °<input id="vpaAz" type="number" min="0" max="359" value="0" required></label></div>'+
         '<div class="vpa-form-actions"><button type="button" id="vpaPick">Указать точку на карте</button>'+
         '<button type="submit" id="vpaSave">Сохранить локально</button></div>'+
-        '<p id="vpaFeedback" role="status" aria-live="polite"></p></form></details></div>';
+        '<p id="vpaFeedback" role="status" aria-live="polite"></p></form></details>'+
+        '<h3 class="vpa-list-title">Произведения и паспорт точки</h3>'+
+        '<div id="vpaGallery" class="vpa-gallery"></div><button type="button" class="vpa-more" id="vpaMore" hidden>Показать ещё произведения</button></div>';
       const $=s=>host.querySelector(s);
       const galleryHost=$("#vpaGallery"), feedback=$("#vpaFeedback");
       const nowNode=$("#vpaNow");
@@ -234,8 +235,9 @@ window.CityOnPaperViewpoints = (() => {
           L.polyline([anchor,endpoint],{color:"#9d4a32",weight:3,dashArray:"8 5"}).addTo(temp);
         }
       }
+      let galleryLimit=18;
       function drawGallery(){
-        const all=works.slice(0,90);
+        const all=works.slice(0,galleryLimit);
         galleryHost.innerHTML=all.length?all.map(r=>{
           const analog=modernFor(r), a=r.source?
             '<a href="'+esc(r.source)+'" target="_blank" rel="noopener noreferrer">Архивный источник</a>':'';
@@ -252,7 +254,10 @@ window.CityOnPaperViewpoints = (() => {
         galleryHost.querySelectorAll("button[data-vpa-id]").forEach(b=>
           b.onclick=()=>{const r=works.find(x=>x.id===b.dataset.vpaId);
             if(r){compare(r);$(".vpa-film").scrollIntoView({behavior:"smooth",block:"start"});}});
+        $("#vpaMore").hidden=works.length<=galleryLimit;
+        $("#vpaMore").textContent="Показать ещё "+Math.min(18,works.length-galleryLimit)+" из "+works.length;
       }
+      $("#vpaMore").onclick=()=>{galleryLimit+=18;drawGallery();};
       $("#vpaSide").onclick=()=>{mode="side";$("#vpaSide").setAttribute("aria-pressed","true");
         $("#vpaWipe").setAttribute("aria-pressed","false");if(selected.row)compare(selected.row);};
       $("#vpaWipe").onclick=()=>{mode="wipe";$("#vpaSide").setAttribute("aria-pressed","false");
