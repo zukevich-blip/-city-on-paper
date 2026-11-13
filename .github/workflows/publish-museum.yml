@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: e3c888a2acd9ee8f0e4d2683d9629b2b1aef585a
+          ref: 85068eef4076f2da7a333da55e4e5d02d3c104ce
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=43336253340
-          EXPECTED_SHA=e3c888a2acd9ee8f0e4d2683d9629b2b1aef585a
+          RUN_ID=43338185959
+          EXPECTED_SHA=85068eef4076f2da7a333da55e4e5d02d3c104ce
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -70,6 +70,7 @@ jobs:
 
       - name: Build strict allowlisted public site
         run: |
+          set -euxo pipefail
           python tools/release/build_public_site.py --source private-site --out public
           test -s public/index.html
           test -s public/salon/index.html
@@ -95,6 +96,8 @@ jobs:
           test -s public/eras/journey.css
           test -s public/eras/cartography.js
           test -s public/eras/data/map-evidence.json
+          test -s public/eras/cartography.css
+          test -s public/assets/nav/museum-polish.css
           test -s public/assets/nav/museum-nav.js
           test -s public/assets/hybrid/engraving.css
           test -s public/cities/index.html
@@ -144,8 +147,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "e3c888a2acd9ee8f0e4d2683d9629b2b1aef585a",
-            "qa_run": 43336253340,
+            "source_revision": "85068eef4076f2da7a333da55e4e5d02d3c104ce",
+            "qa_run": 43338185959,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
