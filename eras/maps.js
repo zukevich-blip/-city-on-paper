@@ -145,18 +145,18 @@ window.Maps = (() => {
     host.innerHTML = `<div class="map-top">
         <div class="mtabs" role="tablist" aria-label="Выбор картографического слоя">
           <button type="button" role="tab" id="tOld" aria-selected="true">Европа · 1769</button>
-          <button type="button" role="tab" id="tNew" aria-selected="false">Современный мир · все города</button>
+          <button type="button" role="tab" id="tNew" aria-selected="false">Современная карта · города атласа</button>
         </div>
         <div class="map-actions" role="group" aria-label="Масштаб и область карты">
           <button type="button" id="mapFit">Показать выбранные города</button>
-          <button type="button" id="mapWorld">Все города мира</button>
+          <button type="button" id="mapWorld">Все города атласа</button>
           <button type="button" id="mapEurope">Европа крупнее</button>
         </div>
         <p class="map-summary" role="status" aria-live="polite" id="mapSummary"></p>
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для городов вне её изображения доступна современная карта мира. Метка города не означает известную точку съёмки художника.</p>
+      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для остальных городов с известными центрами используйте современную карту. Метка города не означает известную точку съёмки художника. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
