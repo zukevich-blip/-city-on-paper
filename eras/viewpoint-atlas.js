@@ -161,7 +161,8 @@ window.CityOnPaperViewpoints = (() => {
         id:String(s.wid||("site-"+i)),place:String(s.site_ru||s.site_name||city.name),
         title:String(s.title||s.site_ru||"Вид города"),year:String(s.date||"Дата уточняется"),
         author:(city.works||[]).find(w=>w.url===s.url)?.artist||"Автор в каталоге",
-        image:"",source:https(s.url),rights:"Смотреть права у хранителя",kind:"print",
+        image:safeAsset(window.Atlas&&Atlas.thumb?Atlas.thumb(s.image):s.image),
+        source:https(s.url),rights:"Смотреть права у хранителя",kind:"print",
         cam:null,modern:null,atlasToday:epochPhotos.get(String(s.wid))||null,
         match:"missing",target:null,placeId:null,object:{lat:+s.lat,lon:+s.lon}
       }));
@@ -170,7 +171,8 @@ window.CityOnPaperViewpoints = (() => {
         id:"catalog-"+i,place:city.name,
         title:String(w.title||"Литография"),year:String(w.date||"Дата уточняется"),
         author:String(w.artist||"Автор в архиве"),
-        image:"",source:https(w.url),rights:String(w.rights_label||"Смотреть права у хранителя"),
+        image:safeAsset(window.Atlas&&Atlas.thumb?Atlas.thumb(w.image):w.image),
+        source:https(w.url),rights:String(w.rights_label||"Смотреть права у хранителя"),
         kind:"print",cam:null,modern:null,atlasToday:null,
         match:"missing",target:null,placeId:null
       }));
@@ -243,7 +245,10 @@ window.CityOnPaperViewpoints = (() => {
           esc(r.year)+" · "+esc(r.author)+'</figcaption></figure>':
           '<div class="vpa-empty">Источник изображения находится у хранителя. Откройте архивную карточку.</div>';
         const right=analog?'<figure><img loading="lazy" src="'+esc(analog.file)+'" alt="Современный аналог объекта"><figcaption>'+
-          esc(analog.year)+" · "+esc(analog.author)+'</figcaption></figure>':
+          esc(analog.year)+" · "+esc(analog.author)+
+          (analog.source?' · <a href="'+esc(https(analog.source))+
+            '" target="_blank" rel="noopener noreferrer">Источник современного фото</a>':'')+
+          '</figcaption></figure>':
           '<div class="vpa-empty">Современный снимок пока не найден. Можно добавить свой.</div>';
         box.className="vpa-compare "+(mode==="wipe"&&r.image&&analog?"is-wipe":"");
         box.innerHTML=left+right;
