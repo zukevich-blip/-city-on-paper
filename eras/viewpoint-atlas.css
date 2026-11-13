@@ -10,7 +10,7 @@
 .vpa-map-col{padding:10px;background:#fcf8ee;border:1px solid #c6b79e;min-width:0}
 .vpa-map-col h3{font:400 20px/1.3 Georgia,serif;margin:3px 4px 10px}
 .vpa-map{height:min(52vh,410px);min-height:300px;border:1px solid #a9a48c;background:#ebe2d1;z-index:0}
-.vpa-map img{filter:none!important;transform:none}
+.vpa-map .leaflet-image-layer{filter:none!important}
 .vpa-map .leaflet-container{background:#ebe2d1}
 .vpa-note{font:12px/1.6 system-ui,sans-serif;color:#675a49;margin:9px 0 4px}
 .vpa-picking{cursor:crosshair!important;outline:4px solid #b88148;outline-offset:-4px}
