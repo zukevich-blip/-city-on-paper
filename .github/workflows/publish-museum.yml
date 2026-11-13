@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: b3092329ccc3ade45035315a35539174e2e1c703
+          ref: c6172a3f1cbdb6e172f2d09010b0800bfee5e000
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=43384278097
-          EXPECTED_SHA=b3092329ccc3ade45035315a35539174e2e1c703
+          RUN_ID=43390823252
+          EXPECTED_SHA=c6172a3f1cbdb6e172f2d09010b0800bfee5e000
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -157,8 +157,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "b3092329ccc3ade45035315a35539174e2e1c703",
-            "qa_run": 43384278097,
+            "source_revision": "c6172a3f1cbdb6e172f2d09010b0800bfee5e000",
+            "qa_run": 43390823252,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
