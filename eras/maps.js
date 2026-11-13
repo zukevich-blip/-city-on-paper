@@ -315,12 +315,22 @@ window.Maps = (() => {
         <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
       ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
-      <p class="mapnote">${pts.length ? `Метки — места, изображённые на работах (${pts.length}); нажмите, чтобы увидеть работу. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
+      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены изображённые места (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Это пока не позиции художников. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
       <span class="mlinks"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
+    let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
+    const choosePlace = (s, onHistoric) => {
+      selectedPlace = s;
+      if (!showMap) return;
+      if (onHistoric && (!s.px || !oldAt || !oldMap)) return;
+      showMap(onHistoric);
+      if (onHistoric) oldMap.setView(oldAt(s.px[0] * (plan.width / (plan.px_width || plan.width)),
+        s.px[1] * (plan.width / (plan.px_width || plan.width))), Math.min(oldMap.getMaxZoom(), Math.max(oldMap.getZoom(), 3)));
+      else if (now) now.setView([s.lat, s.lon], Math.max(16, now.getZoom()));
+    };
     const siteIcon = (s) => L.divIcon({ className: `mk site ${s.kind || ""}`, iconSize: [26, 26], iconAnchor: [13, 13], html: `<i></i><span>${esc(cap(s.site_ru || s.site_name))}</span>` });
-    const addSites = (m, pos) => {
+    const addSites = (m, pos, onHistoric = false) => {
       const ms = [];
       const seen = new Map();
       for (const s of pts) {
@@ -330,7 +340,14 @@ window.Maps = (() => {
         const n = seen.get(key) || 0; seen.set(key, n + 1);
         const mk = L.marker(ll, { icon: siteIcon(s), title: s.site_ru || s.site_name, keyboard: false, riseOnHover: true }).addTo(m);
         if (n) mk.setZIndexOffset(-n);
-        mk.bindPopup(pop(s), { maxWidth: 240, autoPanPadding: [20, 20] });
+        const jump = onHistoric ? `<button type="button" class="map-jump" data-action="now">Место сегодня →</button>` :
+          (plan && s.px ? `<button type="button" class="map-jump" data-action="old">На старом плане →</button>` : "");
+        mk.bindPopup(pop(s) + jump + '<small>Место объекта · точка автора уточняется</small>',
+          { maxWidth: 270, autoPanPadding: [20, 20] });
+        mk.on("popupopen", () => {
+          const button = mk.getPopup()?.getElement()?.querySelector(".map-jump");
+          if (button) button.onclick = () => choosePlace(s, button.dataset.action === "old");
+        });
         ms.push(mk);
       }
       return ms;
@@ -348,7 +365,8 @@ window.Maps = (() => {
     if (plan) {
       const { map, at } = imageMap(document.getElementById("cplan"), plan);
       const k = plan.width / (plan.px_width || plan.width);
-      addSites(map, (s) => (s.px ? at(s.px[0] * k, s.px[1] * k) : null));
+      oldMap = map; oldAt = at;
+      addSites(map, (s) => (s.px ? at(s.px[0] * k, s.px[1] * k) : null), true);
       labelClass(map, document.getElementById("cplan"), map.getZoom());
       const show = (old) => {
         document.getElementById("cOld").setAttribute("aria-selected", String(old));
@@ -356,6 +374,7 @@ window.Maps = (() => {
         document.getElementById("cplan").hidden = !old; document.getElementById("cnow").hidden = old;
         if (old) map.invalidateSize(); else if (!now) mkNow(); else now.invalidateSize();
       };
+      showMap = show;
       document.getElementById("cOld").onclick = () => show(true);
       document.getElementById("cNew").onclick = () => show(false);
     } else mkNow();
