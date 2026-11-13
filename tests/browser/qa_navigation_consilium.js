@@ -22,7 +22,7 @@
    const back=page.locator("#museumBack");
    if(!(await back.getAttribute("href")).includes("/-city-on-paper/")&&!(await back.getAttribute("href")).endsWith("/"))throw Error("back doesn't point to museum");
    await page.locator("#query").fill("Париж");
-   await page.locator("#toggleFilters").click();
+   if(await page.locator("#toggleFilters").isVisible())await page.locator("#toggleFilters").click();
    await page.locator("#scope").selectOption("curated");
    await page.locator("#resetFilters").click();
    if(await page.locator("#query").inputValue())throw Error("reset failed search");
