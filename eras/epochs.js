@@ -89,8 +89,21 @@ window.Epochs = (() => {
       credit: `Фото: ${g.today.author || "автор на Commons"}`, lic: g.today.license, licUrl: g.today.license_url });
     for (const s of g.street || []) uniq.push({ kind: "street", img: s.file, year: yearOf(s.date), label: `Улица сегодня: ${cap(g.name)} (${s.camera.distance_m} м)`, url: s.page,
       credit: `Фото: ${s.author}, Panoramax; ${s.note}`, lic: s.license, licUrl: s.license_url, camera: s.camera });
-    for (const m of mine) uniq.push({ kind: "mine", img: blobUrl(m), year: yearOf(m.date) || "моё", label: m.name || "Моё фото", url: "", credit: "Хранится только на вашем устройстве",
-      camera: m.lat != null ? { lat: m.lat, lon: m.lon, azimuth: m.az ?? bearing([m.lat, m.lon], [g.lat, g.lon]), fov: m.fov || 60 } : null, mineId: m.id });
+    for (const m of mine) {
+      const kind = m.workType === "print" ? "print" : m.workType === "historic_photo" ? "photo" : "mine";
+      const author = m.author ? `Автор: ${m.author}` : "Автор не указан";
+      uniq.push({ kind, img: blobUrl(m),
+        year: m.artYear || (kind === "mine" ? yearOf(m.date) : null) || "дата не установлена",
+        label: m.name || "Моё изображение",
+        url: /^https:\/\//.test(m.source || "") ? m.source : "",
+        credit: `Личный материал, только на устройстве · ${author}`,
+        lic: m.rights || "Права требуют проверки", licUrl: "",
+        camera: kind === "mine" && m.lat != null && m.lon != null
+          ? { lat: m.lat, lon: m.lon,
+              azimuth: m.az ?? bearing([m.lat, m.lon], [g.lat, g.lon]), fov: m.fov || 60 } : null,
+        mineId: m.id
+      });
+    }
     return uniq;
   }
 
@@ -100,7 +113,11 @@ window.Epochs = (() => {
     const mine = (await DB.all()).filter((m) => m.place === key).sort((a, b) => a.created - b.created);
     const fs = framesOf(c, g, thumb, mine);
     const lab = (f) => `${f.year || "год?"} · ${KIND[f.kind]}`;
-    let a = 0, b = fs.length - 1;
+    const sessionKey = `city-on-paper-compare-v2:${key}`;
+    let session = null;
+    try { session = JSON.parse(localStorage.getItem(sessionKey) || "null"); } catch { /* private mode */ }
+    const validIndex = (x, fallback) => Number.isInteger(x) && x >= 0 && x < fs.length ? x : fallback;
+    let a = validIndex(session?.a, 0), b = validIndex(session?.b, fs.length - 1);
     if (fs.length < 2) b = 0;
     host.innerHTML = `<div class="eptrack" role="list">${fs.map((f, i) => `<button type="button" class="epf ${f.kind}" data-f="${i}" role="listitem" aria-label="${esc(lab(f))}: ${esc(f.label)}">
         ${f.kind === "mine" ? `<img src="${esc(f.img)}" alt="${esc(f.label)}">` : imgTag(f.img, f.label || g.name)}<b>${esc(f.year || "")}</b><small>${esc(KIND[f.kind])}</small></button>`).join("")}
@@ -108,27 +125,83 @@ window.Epochs = (() => {
       <div class="epgrid"><div class="epcmp">
         <div class="ctrls"><label>Было <select id="epA">${fs.map((f, i) => `<option value="${i}">${esc(lab(f))} — ${esc((f.label || "").slice(0, 50))}</option>`).join("")}</select></label>
           <label>Стало <select id="epB">${fs.map((f, i) => `<option value="${i}">${esc(lab(f))} — ${esc((f.label || "").slice(0, 50))}</option>`).join("")}</select></label></div>
+        <div class="ep-modes" role="group" aria-label="Способ сравнения">
+          <button type="button" data-compare-mode="slider" aria-pressed="true">Шторка</button>
+          <button type="button" data-compare-mode="side" aria-pressed="false">Рядом</button>
+          <button type="button" data-compare-mode="opacity" aria-pressed="false">Прозрачность</button>
+          <button type="button" data-compare-mode="flip" aria-pressed="false">A/B</button>
+        </div>
+        <div class="ep-mode-tools">
+          <label id="epAmountWrap" for="epAmount">Граница / прозрачность, % <input type="range" id="epAmount" min="0" max="100" value="50"></label>
+          <button type="button" id="epFlipBtn" hidden>Показать другой кадр</button>
+          <button type="button" id="epExport">Сохранить сравнение (JSON)</button>
+        </div>
+        <p class="ep-caution" id="epCaution" role="status">Пары относятся к одному месту; совпадение ракурса не доказано. Исторический оригинал не трансформируется.</p>
         <div class="epstage" id="epstage"><img id="epImB" alt=""><div class="epTop" id="epTop"><img id="epImA" alt=""></div>
           <div class="eph" id="epH2" role="slider" tabindex="0" aria-label="Граница сравнения: стрелки влево и вправо" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⇆</span></div>
           <span class="tag l" id="epTagA"></span><span class="tag r" id="epTagB"></span></div>
+        <div class="ep-side" id="epSide" hidden>
+          <figure><img id="epSideA" alt=""><figcaption id="epSideCapA"></figcaption></figure>
+          <figure><img id="epSideB" alt=""><figcaption id="epSideCapB"></figcaption></figure>
+        </div>
         <p class="mapnote" id="epCredit"></p></div>
         <div class="epside"><p class="eyebrow">Ракурсы</p><div class="lmap angles" id="epMap" aria-label="Карта ракурсов: место и точки съёмки"></div>
           <p class="mapnote">★ — изображённое место. Конусы — откуда и куда смотрит камера (уличные фото Panoramax и ваши). Для старых листов точка художника обычно неизвестна.</p>
           <div id="epMine"></div></div></div>
       <dialog id="epDlg" class="epdlg" aria-labelledby="epDlgT"><form method="dialog">
-        <h2 id="epDlgT">Моё фото: ${esc(cap(g.name))}</h2>
-        <p class="mapnote">Фото остаётся только на этом устройстве (в памяти браузера) и никуда не загружается. Точку съёмки можно взять из фото (GPS), из вашего местоположения или поставить на карте.</p>
-        <label class="file">Выбрать фото <input type="file" id="epFile" accept="image/*"></label>
+        <h2 id="epDlgT">Добавить свою литографию или фотографию: ${esc(cap(g.name))}</h2>
+        <p class="mapnote">Изображение хранится только на этом устройстве (IndexedDB). Для старого листа год, автор и права требуют проверки. Точка съёмки не приписывается литографии автоматически.</p>
+        <div class="epmetadata">
+          <label>Что добавляем <select id="epKind">
+            <option value="modern">Моя современная фотография</option>
+            <option value="print">Литография / гравюра</option>
+            <option value="historic_photo">Старинная фотография</option>
+          </select></label>
+          <label>Год создания <input id="epWorkYear" type="number" min="1400" max="2100" placeholder="например, 1860"></label>
+          <label>Автор или собрание <input id="epArtist" maxlength="120" placeholder="Если известно"></label>
+          <label>Архивная ссылка <input id="epSource" type="url" placeholder="https://..." maxlength="1500"></label>
+          <label>Права <select id="epRights"><option>Требуют проверки</option><option>CC0 (документировано)</option><option>CC BY (с атрибуцией)</option><option>CC BY-SA (с атрибуцией)</option><option>Моё авторское фото</option></select></label>
+        </div>
+        <label class="file">Выбрать изображение <input type="file" id="epFile" accept="image/jpeg,image/png,image/webp"></label>
         <div id="epPrev" class="epprev"></div>
-        <div class="lmap pick" id="epPick" aria-label="Карта: нажмите, где вы стояли"></div>
+        <div id="epLocationGroup"><p class="mapnote">Для современного снимка можно указать точку и направление камеры.</p><div class="lmap pick" id="epPick" aria-label="Карта: нажмите, где вы стояли"></div>
         <div class="coords2"><label>Широта <input id="epLat" inputmode="decimal" placeholder="48.8700"></label><label>Долгота <input id="epLon" inputmode="decimal" placeholder="2.3245"></label>
           <label>Направление, ° <input id="epAz" type="range" min="0" max="359" step="1"><output id="epAzO"></output></label></div>
-        <div class="fbrow"><button type="button" class="ghost" id="epGeo">Где я сейчас</button><button value="cancel" class="ghost">Отмена</button><button type="button" class="solid" id="epSave" disabled>Сохранить</button></div>
+        <div class="fbrow"><button type="button" class="ghost" id="epGeo">Где я сейчас</button></div></div>
+        <div class="fbrow"><button value="cancel" class="ghost">Отмена</button><button type="button" class="solid" id="epSave" disabled>Сохранить на устройстве</button></div>
         <p class="mapnote" id="epMsg" role="status"></p></form></dialog>`;
     const $ = (id) => host.querySelector("#" + id);
     const selA = $("epA"), selB = $("epB"), st = $("epstage"), top = $("epTop"), h = $("epH2");
     selA.value = a; selB.value = b;
-    const setPos = (p) => { p = Math.max(0, Math.min(100, p)); top.style.clipPath = `inset(0 ${100 - p}% 0 0)`; h.style.left = p + "%"; h.setAttribute("aria-valuenow", String(Math.round(p))); };
+    let mode = ["slider", "side", "opacity", "flip"].includes(session?.mode) ? session.mode : "slider";
+    let ratio = Number.isFinite(session?.ratio) ? Math.max(0, Math.min(100, session.ratio)) : 50;
+    let flipA = false;
+    const store = () => {
+      try { localStorage.setItem(sessionKey, JSON.stringify({ a, b, mode, ratio })); }
+      catch { /* storage may be disabled */ }
+    };
+    const showMode = () => {
+      const side = mode === "side", op = mode === "opacity", flip = mode === "flip";
+      st.hidden = side;
+      $("epSide").hidden = !side;
+      $("epAmountWrap").hidden = side || flip;
+      $("epFlipBtn").hidden = !flip;
+      h.hidden = side || op || flip;
+      top.style.clipPath = mode === "slider" ? `inset(0 ${100 - ratio}% 0 0)` : "none";
+      top.style.opacity = op ? String(ratio / 100) : flip ? String(flipA ? 1 : 0) : "1";
+      h.style.left = ratio + "%";
+      h.setAttribute("aria-valuenow", String(Math.round(ratio)));
+      $("epAmount").value = String(Math.round(ratio));
+      host.querySelectorAll("[data-compare-mode]").forEach((btn) =>
+        btn.setAttribute("aria-pressed", String(btn.dataset.compareMode === mode)));
+      $("epCaution").textContent = side
+        ? "Сравнение рядом: оба исторических оригинала и фото сохранены без изменений. Ракурсы могут различаться."
+        : "Ракурсы не подтверждены как идентичные. Шторка, прозрачность и A/B служат для наблюдения деталей, а не являются точной геометрической привязкой.";
+    };
+    const setPos = (p) => {
+      ratio = Math.max(0, Math.min(100, p));
+      showMode(); store();
+    };
     // angles map
     let amap = null, layers = null;
     const site = [g.lat, g.lon];
@@ -151,10 +224,34 @@ window.Epochs = (() => {
       const A = fs[a], B = fs[b];
       const ia = $("epImA"), ib = $("epImB");
       ia.src = A.img; ia.alt = `Было: ${lab(A)} — ${A.label}`; ib.src = B.img; ib.alt = `Стало: ${lab(B)} — ${B.label}`;
+      $("epSideA").src = A.img; $("epSideA").alt = ia.alt;
+      $("epSideB").src = B.img; $("epSideB").alt = ib.alt;
+      $("epSideCapA").textContent = `${lab(A)} · ${A.label}`;
+      $("epSideCapB").textContent = `${lab(B)} · ${B.label}`;
       $("epTagA").textContent = lab(A); $("epTagB").textContent = lab(B);
       $("epCredit").innerHTML = [A, B].map((f) => `${f.url ? `<a href="${esc(safeLink(f.url))}" target="_blank" rel="noopener">${esc(lab(f))}: источник ↗</a>` : esc(lab(f))}${f.credit ? " · " + esc(f.credit) : ""}${f.lic ? `, ${/^https?:\/\//.test(f.licUrl || "") ? `<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>` : esc(f.lic)}` : ""}${f.camera ? ` · точка съёмки ${f.camera.lat.toFixed(5)}, ${f.camera.lon.toFixed(5)}, направление ${Math.round(f.camera.azimuth)}°` : ""}`).join("<br>");
       host.querySelectorAll(".epf[data-f]").forEach((x) => x.classList.toggle("on", +x.dataset.f === a || +x.dataset.f === b));
       drawCones();
+      showMode(); store();
+    };
+    host.querySelectorAll("[data-compare-mode]").forEach((btn) => btn.onclick = () => {
+      mode = btn.dataset.compareMode; flipA = false; showMode(); store();
+    });
+    $("epAmount").oninput = (event) => setPos(Number(event.target.value));
+    $("epFlipBtn").onclick = () => { flipA = !flipA; showMode(); };
+    $("epExport").onclick = () => {
+      const summary = [fs[a], fs[b]].map((frame) => ({
+        kind: frame.kind, year: frame.year, title: frame.label,
+        source: frame.mineId ? null : frame.url || null, rights: frame.lic || "уточняются",
+        local_image: Boolean(frame.mineId)
+      }));
+      const payload = { schema: "city-on-paper/compare-session/v1",
+        city: c.name, place: g.name, mode, ratio, viewport_status: "viewpoint_unverified",
+        selected_frames: summary, note: "Локальные изображения не включены в JSON. Исторический оригинал неизменён." };
+      const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }));
+      const link = document.createElement("a"); link.href = url;
+      link.download = "city-on-paper-comparison.json"; link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
     };
     selA.onchange = () => { a = +selA.value; upd(); };
     selB.onchange = () => { b = +selB.value; upd(); };
@@ -163,12 +260,20 @@ window.Epochs = (() => {
     st.addEventListener("pointerdown", (e) => { st.setPointerCapture(e.pointerId); move(e); st.onpointermove = move; });
     st.addEventListener("pointerup", () => (st.onpointermove = null));
     h.addEventListener("keydown", (e) => { const v = +h.getAttribute("aria-valuenow"); if (e.key === "ArrowLeft") setPos(v - 5); else if (e.key === "ArrowRight") setPos(v + 5); else if (e.key === "Home") setPos(0); else if (e.key === "End") setPos(100); else return; e.preventDefault(); });
-    setPos(50); upd();
+    setPos(ratio); upd();
     // my photos list
-    $("epMine").innerHTML = mine.length ? `<p class="eyebrow">Мои фото этого места</p>${mine.map((m) => `<p class="mine1"><span>${esc(m.name)}${m.lat != null ? ` · ${m.lat.toFixed(5)}, ${m.lon.toFixed(5)}` : " · без точки"}</span> <button type="button" class="ghost" data-del="${esc(m.id)}">Удалить</button></p>`).join("")}` : "";
+    $("epMine").innerHTML = mine.length ? `<p class="eyebrow">Мои изображения этого места</p>${mine.map((m) => `<p class="mine1"><span>${esc(m.name)}${m.lat != null ? ` · ${m.lat.toFixed(5)}, ${m.lon.toFixed(5)}` : " · без точки"}</span> <button type="button" class="ghost" data-del="${esc(m.id)}">Удалить</button></p>`).join("")}` : "";
     $("epMine").querySelectorAll("[data-del]").forEach((x) => (x.onclick = async () => { await DB.del(x.dataset.del); viewer(host, c, g, thumb, imgTag); }));
     // add my photo
-    const dlg = $("epDlg"); let file = null, pick = null, pmk = null;
+    const dlg = $("epDlg"); let file = null, pick = null, pmk = null, previewUrl = null;
+    const isModern = () => $("epKind").value === "modern";
+    $("epKind").onchange = () => {
+      $("epLocationGroup").hidden = !isModern();
+      $("epMsg").textContent = isModern()
+        ? "Для современного снимка можно указать позицию и направление камеры."
+        : "Для исторической работы точка съёмки неизвестна и автоматически не устанавливается.";
+      if (pick && isModern()) setTimeout(() => pick.invalidateSize(), 30);
+    };
     const az = $("epAz"), azO = $("epAzO"), latI = $("epLat"), lonI = $("epLon");
     const setPoint = (lat, lon, azv) => {
       latI.value = (+lat).toFixed(6); lonI.value = (+lon).toFixed(6);
@@ -180,21 +285,35 @@ window.Epochs = (() => {
     [latI, lonI].forEach((x) => (x.onchange = () => { const la = parseFloat(latI.value), lo = parseFloat(lonI.value); if (isFinite(la) && isFinite(lo) && Math.abs(la) <= 90 && Math.abs(lo) <= 180) setPoint(la, lo); }));
     $("epAdd").onclick = () => {
       dlg.showModal();
-      if (window.L && !pick) {
+      if (window.L && isModern() && !pick) {
         pick = L.map($("epPick"), { zoomControl: false }).setView(site, 17);
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OSM" }).addTo(pick);
         L.control.zoom({ position: "topright" }).addTo(pick);
         L.marker(site, { icon: L.divIcon({ className: "mk star", html: "★", iconSize: [28, 28], iconAnchor: [14, 14] }), keyboard: false }).addTo(pick);
         pick.on("click", (e) => setPoint(e.latlng.lat, e.latlng.lng));
       }
-      setTimeout(() => pick && pick.invalidateSize(), 50);
+      setTimeout(() => pick && isModern() && pick.invalidateSize(), 50);
     };
     $("epFile").onchange = async (e) => {
-      file = e.target.files[0] || null; if (!file) return;
-      $("epPrev").innerHTML = `<img src="${esc(URL.createObjectURL(file))}" alt="Предпросмотр вашего фото">`;
-      const gps = await exifGps(file);
-      if (gps) { setPoint(gps.lat, gps.lon, gps.az); $("epMsg").textContent = "Точка съёмки взята из GPS фото. Проверьте и при необходимости поправьте на карте."; if (pick) pick.setView([gps.lat, gps.lon], 17); }
-      else $("epMsg").textContent = "В фото нет GPS. Нажмите на карте, где вы стояли, или «Где я сейчас».";
+      file = e.target.files[0] || null;
+      if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+      if (!file) { $("epSave").disabled = true; return; }
+      if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) || file.size > 15 * 1024 * 1024) {
+        $("epMsg").textContent = "Допустимы JPG, PNG и WebP до 15 МБ. Слишком большие и другие файлы не сохраняются.";
+        file = null; $("epSave").disabled = true; $("epPrev").replaceChildren(); return;
+      }
+      previewUrl = URL.createObjectURL(file);
+      const im = document.createElement("img");
+      im.src = previewUrl; im.alt = "Предпросмотр выбранного изображения";
+      $("epPrev").replaceChildren(im);
+      if (isModern()) {
+        const gps = await exifGps(file);
+        if (gps) {
+          setPoint(gps.lat, gps.lon, gps.az);
+          $("epMsg").textContent = "Точка съёмки взята из GPS файла. Проверьте её на карте.";
+          if (pick) pick.setView([gps.lat, gps.lon], 17);
+        } else $("epMsg").textContent = "GPS не найден. Поставьте точку на карте или оставьте её пустой.";
+      } else $("epMsg").textContent = "Лист будет сохранён без предполагаемой позиции художника.";
       $("epSave").disabled = false;
     };
     $("epGeo").onclick = () => { if (!navigator.geolocation) return; $("epMsg").textContent = "Определяем местоположение…";
@@ -202,10 +321,29 @@ window.Epochs = (() => {
         () => { $("epMsg").textContent = "Не удалось определить место. Поставьте точку на карте."; }, { enableHighAccuracy: true, timeout: 10000 }); };
     $("epSave").onclick = async () => {
       if (!file) return;
-      const la = parseFloat(latI.value), lo = parseFloat(lonI.value), ok = isFinite(la) && isFinite(lo);
-      await DB.put({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, place: key, city: c.id, cityName: c.name, placeName: cap(g.name), name: file.name.slice(0, 80),
-        date: file.lastModified ? new Date(file.lastModified).toISOString().slice(0, 10) : "", blob: file, lat: ok ? la : null, lon: ok ? lo : null, az: ok ? +az.value : null, fov: 60, created: Date.now() });
-      dlg.close(); viewer(host, c, g, thumb, imgTag);
+      const la = parseFloat(latI.value), lo = parseFloat(lonI.value);
+      const validPoint = isModern() && Number.isFinite(la) && Number.isFinite(lo) && Math.abs(la) <= 90 && Math.abs(lo) <= 180;
+      const proposedYear = parseInt($("epWorkYear").value, 10);
+      try {
+        await DB.put({
+          id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+          place: key, city: c.id, cityName: c.name, placeName: cap(g.name),
+          name: file.name.slice(0, 80), blob: file,
+          workType: $("epKind").value,
+          artYear: Number.isInteger(proposedYear) && proposedYear >= 1400 && proposedYear <= 2100 ? proposedYear : null,
+          author: $("epArtist").value.trim().slice(0, 120),
+          source: $("epSource").value.trim().slice(0, 1500),
+          rights: $("epRights").value,
+          date: file.lastModified ? new Date(file.lastModified).toISOString().slice(0, 10) : "",
+          lat: validPoint ? la : null, lon: validPoint ? lo : null,
+          az: validPoint ? +az.value : null, fov: 60, created: Date.now()
+        });
+        dlg.close();
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        viewer(host, c, g, thumb, imgTag);
+      } catch (error) {
+        $("epMsg").textContent = "Не удалось сохранить изображение. Проверьте свободное место браузера или возьмите файл меньше 15 МБ.";
+      }
     };
   }
 

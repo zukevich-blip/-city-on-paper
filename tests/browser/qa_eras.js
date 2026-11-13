@@ -40,7 +40,10 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} portal: historical map tile loaded and served`,
       mapTileCount >= 1 && mapTileResponse.ok() && String(mapTileResponse.headers()["content-type"] || "").startsWith("image/"),
       `${mapTileCount} / ${mapTileResponse.status()} / ${mapTileUrl}`);
-    ok(`${vp.n} portal: pins on map`, (await p.locator("#pmap .mk").count()) >= 150);
+    const historicCount = await p.locator("#pmap .mk").evaluateAll((all) => all.reduce((sum, n) => sum + Number(n.dataset.count || 1), 0));
+    ok(`${vp.n} portal: all historically positioned cities grouped accessibly`, historicCount >= 150, String(historicCount));
+    ok(`${vp.n} portal: clustered pins show count on small screens`,
+      (await p.locator("#pmap .city-cluster").count()) > 0);
     ok(`${vp.n} museum bar: all halls`, await p.$$eval("#museumPanel a", (a) => a.length) >= 18);
     await p.fill("#q", "Лиссаб");
     ok(`${vp.n} portal: search filters list`, (await p.$$eval(".ccard", (c) => c.map((x) => x.textContent))).every((t) => /Лиссабон/.test(t)) && (await p.locator(".ccard").count()) >= 1);
@@ -58,7 +61,10 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} portal: zoom control is ≥44px, top-right`, zb[0] >= 44 && zb[1] < 30 && zb[2] < 30, zb.join(","));
     await p.click("#pmap .mhome"); await p.waitForTimeout(500);
     await p.click("#tNew"); await p.waitForTimeout(800);
-    ok(`${vp.n} portal: modern map tab`, (await p.locator("#nmap .mk").count()) >= 180);
+    const worldCount = await p.locator("#nmap .mk").evaluateAll((all) => all.reduce((sum, n) => sum + Number(n.dataset.count || 1), 0));
+    ok(`${vp.n} portal: modern map covers every geocoded atlas city`, worldCount >= 180, String(worldCount));
+    ok(`${vp.n} portal: map layers do not stack when switched`,
+      await p.locator("#pmap").isHidden() && await p.locator("#nmap").isVisible());
     await p.click("#tOld");
     await p.screenshot({ path: `${out}/${vp.n}-1-portal.jpg`, type: "jpeg", quality: 60 });
     const man = await p.evaluate(async () => { const l = document.querySelector('link[rel="manifest"]'); const r = await fetch(l.href); const j = await r.json(); return j.display + "|" + j.icons.length; });
