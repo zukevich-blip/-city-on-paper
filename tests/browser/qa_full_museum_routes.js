@@ -14,7 +14,7 @@
       page.on("pageerror", e=>jserrors.push(e.message.slice(0,180)));
       page.on("response",r=>{if(r.status()>=400 && r.url().startsWith(base.origin)){badHTTP.push({status:r.status(),url:r.url()})}});
       const url=new URL(route,base).href; let status=0,navError="";
-      try {const res=await page.goto(url,{waitUntil:"domcontentloaded",timeout:13000});status=res?.status()||0;await page.waitForTimeout(680);}
+      try {const res=await page.goto(url,{waitUntil:"domcontentloaded",timeout:7000});status=res?.status()||0;await page.waitForTimeout(250);}
       catch(e){navError=String(e.message).slice(0,180);}
       const details=await page.evaluate(()=>{
         const anchors=[...document.querySelectorAll("a[href]")].map(a=>({href:a.href,label:(a.innerText||a.getAttribute("aria-label")||"").trim().slice(0,50)}));
@@ -44,14 +44,18 @@
     }
     await context.close();
   }
-  const probe=await browser.newContext({ignoreHTTPSErrors:false}),checked=[];
-  for(const [rel,referrers] of internal){
-    const target=new URL(rel,base).href;
-    let status=null;
-    try{const response=await probe.request.get(target,{timeout:9000,maxRedirects:3});status=response.status();}
-    catch(e){status="NETWORK_ERROR";}
-    checked.push({path:rel,status,referrers});
-  }
+  const probe=await browser.newContext({ignoreHTTPSErrors:false});
+  const list=[...internal.entries()],checked=new Array(list.length),workers=Math.min(14,list.length);
+  let index=0;
+  await Promise.all(Array.from({length:workers},async()=>{
+    while(index<list.length){
+      const n=index++, [rel,referrers]=list[n],target=new URL(rel,base).href;
+      let status=null;
+      try {const response=await probe.request.head(target,{timeout:3500,maxRedirects:3});status=response.status();}
+      catch(e){status="NETWORK_ERROR";}
+      checked[n]={path:rel,status,referrers};
+    }
+  }));
   await probe.close();await browser.close();
   const broken=checked.filter(x=>typeof x.status!=="number"||x.status>=400);
   const overflows=results.filter(x=>x.scrollWidth>x.width+8);
