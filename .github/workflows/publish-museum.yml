@@ -108,7 +108,7 @@ jobs:
           grep -q "function clusterCityMarkers" public/eras/maps.js
           grep -q "data-compare-mode=\"opacity\"" public/eras/epochs.js
           grep -q "epKind" public/eras/epochs.js
-          grep -q "atlas-v5-20261113-world-studio" public/eras/sw.js
+          grep -q "atlas-v6-20261114-artwork-histories" public/eras/sw.js
           test -s public/assets/nav/museum-polish.css
           test -s public/assets/nav/museum-nav.js
           test -s public/assets/hybrid/engraving.css
