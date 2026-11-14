@@ -318,7 +318,7 @@ window.Maps = (() => {
       <div class="city-place-picker" aria-label="Выбор изображённого места на картах">
         <label for="cPlaceSelect">Найти объект на карте</label>
         <select id="cPlaceSelect"><option value="">Выберите здание, площадь или исторический вид</option>
-          ${pts.map((s,i)=>`<option value="${i}">${esc(cap(s.site_ru || s.site_name || s.title || "Место"))}</option>`).join("")}
+          ${pts.map((s,i)=>`<option value="${i}" data-on-plan="${!!(plan && Array.isArray(s.px))}">${esc(cap(s.site_ru || s.site_name || s.title || "Место"))}</option>`).join("")}
         </select>
         <div class="city-place-actions">
           <button type="button" id="cPlaceNow" disabled>На карте сегодня</button>
