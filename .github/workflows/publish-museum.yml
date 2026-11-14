@@ -166,8 +166,9 @@ jobs:
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
-          }, ensure_ascii=False, indent=2)+"\\n", encoding="utf-8")
+          }, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
           PY
+          python -m json.tool public/PUBLIC_DEMO_REVISION.json > /dev/null
 
       - name: Audit internal links and files of the published version
         run: |
