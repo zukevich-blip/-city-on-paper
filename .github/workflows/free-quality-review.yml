@@ -1,0 +1,104 @@
+name: Museum | Free independent quality review
+run-name: Город на бумаге · бесплатный независимый аудит
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/free-quality-review.yml'
+  workflow_dispatch:
+  schedule:
+    # Saturday at 09:10 Asia/Novokuznetsk, with no per-day ChatGPT/Work usage.
+    - cron: '10 2 * * 6'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: city-paper-free-audit
+  cancel-in-progress: true
+
+jobs:
+  browser-accessibility:
+    name: Chromium + WebKit + WCAG + route/link review
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install open-source browser and accessibility tools
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1 @axe-core/playwright@4.14.0
+          npx playwright install --with-deps chromium webkit
+      - name: Audit LIVE museum without writing to it
+        run: node audits/public-museum-review.cjs
+      - name: Retain machine-readable findings and selected screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-free-browser-wcag
+          path: review-results/
+          retention-days: 3
+          if-no-files-found: warn
+
+  lighthouse:
+    name: Lighthouse performance / SEO / accessibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check that standard runner provides Chrome
+        run: google-chrome --version
+      - name: Run free Lighthouse on public home and Paris atlas
+        shell: bash
+        run: |
+          mkdir -p review-results
+          npx --yes lighthouse@13.6.0 "https://zukevich-blip.github.io/-city-on-paper/" \
+            --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --output=json --output-path=review-results/lighthouse-home.json
+          npx --yes lighthouse@13.6.0 "https://zukevich-blip.github.io/-city-on-paper/eras/#/city/paris" \
+            --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --output=json --output-path=review-results/lighthouse-paris.json
+      - name: Present scores and top audit findings
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          rows = ["## Lighthouse: аудит опубликованного музея", "",
+                  "Показатели зависят от сети и виртуальной машины. Это лабораторная оценка, а не реальная скорость на iPhone.", ""]
+          for name in ("home", "paris"):
+              file = Path(f"review-results/lighthouse-{name}.json")
+              if not file.exists():
+                  rows.append(f"- {name}: отчёт не создан")
+                  continue
+              data = json.loads(file.read_text())
+              categories = data.get("categories", {})
+              scores = ", ".join(f"{k} {round(v['score']*100) if v.get('score') is not None else '?'}"
+                                 for k,v in categories.items())
+              rows.append(f"- {name}: {scores}")
+              audits = sorted((v for v in data.get("audits",{}).values()
+                               if v.get("score") is not None and v["score"] < 0.5 and
+                               v.get("scoreDisplayMode") not in ("notApplicable","informative")),
+                              key=lambda v:v.get("score",1))
+              for a in audits[:5]:
+                  rows.append(f"  - {a.get('title','Audit finding')}")
+          print("\n".join(rows))
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write("\n".join(rows)+"\n")
+          PY
+      - name: Retain technical Lighthouse JSON evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-free-lighthouse
+          path: review-results/lighthouse-*.json
+          retention-days: 3
+          if-no-files-found: warn
