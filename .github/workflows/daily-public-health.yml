@@ -1,0 +1,66 @@
+name: City on Paper — daily public health
+run-name: City on Paper — check published museum without altering content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily-public-health.yml'
+  schedule:
+    - cron: '21 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: city-public-daily-health
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    name: Check visitor pages (read-only)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - name: Verify public museum pages and record results
+        env:
+          GITHUB_STEP_SUMMARY: ${{ env.GITHUB_STEP_SUMMARY }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          from urllib.request import Request, urlopen
+          from urllib.error import URLError, HTTPError
+          import os, sys, time
+          base = "https://zukevich-blip.github.io/-city-on-paper/"
+          paths = ["", "atlas/", "cities/", "stories/"]
+          summary = ["## City on Paper: daily public check", "", f"Base: {base}", ""]
+          failures = []
+          for path in paths:
+              url = base + path
+              ok = False
+              detail = ""
+              for attempt in range(2):
+                  try:
+                      request = Request(url, headers={"User-Agent": "CityOnPaper-ScheduledHealth/1.0"})
+                      with urlopen(request, timeout=20) as response:
+                          status = response.status
+                          head = response.read(1600)
+                      if status == 200 and b"<html" in head.lower():
+                          ok = True
+                          detail = "HTTP 200 and HTML"
+                          break
+                      detail = f"HTTP {status}; HTML={b'<html' in head.lower()}"
+                  except (URLError, HTTPError, TimeoutError) as error:
+                      detail = str(error)
+                      time.sleep(2)
+              summary.append(f"- {'PASS' if ok else 'FAIL'}: {path or '/'} ({detail})")
+              if not ok:
+                  failures.append(path or "/")
+          summary += ["", "Only health status is checked. Research drafts, source assets and released content are never changed."]
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as result:
+              result.write("\n".join(summary) + "\n")
+          print("\n".join(summary))
+          if failures:
+              sys.exit(f"Public pages unavailable: {', '.join(failures)}")
+          PY
