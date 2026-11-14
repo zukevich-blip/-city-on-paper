@@ -116,6 +116,8 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8765/
+          node --check tests/browser/qa_first_impression.js
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check eras/viewpoint-atlas.js
           node --check tests/browser/qa_viewpoints.js
           node tests/browser/qa_viewpoints.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -282,6 +284,7 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8766/
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8766/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8766/
           node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
@@ -296,6 +299,7 @@ jobs:
           curl -fsS http://127.0.0.1:8767/cities/ -o /dev/null
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8767/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8767/
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8767/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8767/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8767/
           node tests/browser/qa_full_museum_routes.js http://127.0.0.1:8767/ /tmp/city-on-paper-screens/PUBLIC_ROUTE_AUDIT.json
