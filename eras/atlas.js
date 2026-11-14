@@ -164,6 +164,7 @@ window.Atlas = (() => {
       <h4>${esc(w.title || w.name)}</h4>
       <p>${esc(w.artist || w.maker || "")}${w.date ? " · " + esc(w.date) : ""}</p>
       <p class="src">${esc(w.institution || w.source || "")} · <span class="rights ${w.rights_class === "link" ? "link" : "open"}">${esc(w.rights_label || RIGHTS[w.rights] || w.rights || "")}</span> · <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">источник ↗</a></p>
+      ${window.CityArtworkHistory ? CityArtworkHistory.markup(w,{compact:true}) : ""}
     </article>`;
 
   // ---------- "одно место — разные эпохи": all works of one depicted site + the same place today, swipe compare
