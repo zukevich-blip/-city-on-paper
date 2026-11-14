@@ -53,6 +53,8 @@ async function check(browser,engine,width,item){
         test.experience.mapSwitch=true;
       }else test.errors.push("No historical site with map coordinates");
       await page.locator("#vpaCompare").waitFor({timeout:30000});
+      test.experience.artworkHistory=await page.locator("#vpaStory .art-history").count()===1;
+      if(!test.experience.artworkHistory)test.errors.push("The selected print has no individual history");
       test.experience.viewpointAtlas=true;
       if(!(await page.locator("#vpaSelected").textContent())?.trim())
         test.errors.push("No historical work selected");
@@ -62,11 +64,28 @@ async function check(browser,engine,width,item){
         await frame("05-wipe","#vpaCompare");
         test.experience.wipe=await page.locator("#vpaCompare").evaluate(e=>e.classList.contains("is-wipe"));
         if(!test.experience.wipe)test.errors.push("Wipe comparison failed");
+        test.experience.visibleCredits=await page.locator("#vpaWipeCredits").isVisible()&&
+          await page.locator("#vpaWipeCredits > div").count()===2;
+        if(!test.experience.visibleCredits)test.errors.push("Wipe mode is missing both independently readable image credits");
         await page.locator("#vpaSide").click();
         await frame("06-side-by-side","#vpaCompare");
       }
       test.experience.cameraUncertainty=(await page.locator("#vpaCompareTruth").textContent())?.includes("подтверждено")||false;
       if(!test.experience.cameraUncertainty)test.errors.push("Missing uncertainty disclaimer");
+    }
+    if(item.id==="salon"){
+      await page.locator("#gallery .art").first().waitFor({timeout:30000});
+      const n=await page.locator("#gallery .art").count(),withHistory=await page.locator("#gallery .art-history").count();
+      test.experience.artworks=n;test.experience.stories=withHistory;
+      if(n<5 || n!==withHistory)test.errors.push("Individual sourced stories missing in the Salon: "+withHistory+"/"+n);
+      else{
+        await page.locator("#gallery .art-history summary").first().click();
+        test.experience.storyOpened=await page.locator("#gallery .art-history-body").first().isVisible();
+        test.experience.sourced=await page.locator("#gallery .art-history-sources a").first().count()>0;
+        if(!test.experience.storyOpened||!test.experience.sourced)
+          test.errors.push("Artwork story is not expandable or has no museum source");
+        await frame("08-individual-history","#gallery .art-history-body");
+      }
     }
     test.horizontalOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+5);
     if(test.horizontalOverflow){
