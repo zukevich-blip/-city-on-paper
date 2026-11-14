@@ -181,14 +181,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 #home .wow-actions .wow-secondary{color:#25483d;border:1px solid #9e9d87;background:#fdfbf6}
 #home .wow-actions a:hover,#home .wow-actions a:focus-visible{outline-offset:3px;filter:brightness(1.06)}
 #home .wow-trust{font:12px/1.5 system-ui,sans-serif!important;color:#726a5c!important;max-width:500px;margin:0!important}
-#home .wow-visual{display:block;min-width:0;background:#d9c9ae;padding:19px;align-self:stretch}
+#home .wow-visual{display:flex;flex-direction:column;justify-content:center;min-width:0;background:#d9c9ae;padding:19px;align-self:stretch}
 #home .museum-wow .front-map.wow-visual>div{background:transparent;color:inherit;padding:0}
 #home .wow-visual-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
 #home .wow-visual-top span{font:700 10px/1.3 system-ui,sans-serif;letter-spacing:.12em;color:#514637}
 #home .wow-visual-top strong{font:normal 18px/1.3 Georgia,serif;color:#374b3d}
 #home .wow-duet{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:0}
 #home .wow-duet figure{min-width:0;margin:0;background:#eee5d7;padding:7px;box-shadow:0 8px 18px #453c2829}
-#home .wow-duet img{width:100%;height:clamp(270px,31vw,390px);display:block;object-fit:contain;background:#eae0cd}
+#home .wow-duet img{width:100%;height:auto;aspect-ratio:4/3;display:block;object-fit:contain;background:#eae0cd}
 #home .wow-duet figcaption{display:flex;align-items:flex-start;flex-direction:column;gap:3px;margin:0;padding:9px 2px 5px;line-height:1.35}
 #home .wow-duet figcaption b{color:#875039;font:700 10px system-ui,sans-serif;letter-spacing:.12em}
 #home .wow-duet figcaption span{color:#433a30;font:12px system-ui,sans-serif}
@@ -220,7 +220,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  #home .museum-wow{grid-template-columns:1fr 1fr}
  #home .museum-wow .front-copy{padding:24px}
  #home .museum-wow h1{font-size:clamp(39px,4.4vw,53px)}
- #home .wow-duet img{height:270px}
+ #home .wow-duet img{height:auto}
  #home .wow-features{grid-template-columns:repeat(2,minmax(0,1fr))}
  #home .wow-features>a:nth-child(2){border-right:0}
  #home .wow-features>a:nth-child(-n+2){border-bottom:1px solid #d2c6b4}
@@ -238,7 +238,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  #home .wow-trust{font-size:10px!important}
  #home .wow-visual{padding:13px}
  #home .wow-visual-top strong{font-size:15px}
- #home .wow-duet img{height:210px}
+ #home .wow-duet img{height:auto}
  #home .wow-duet figcaption span{font-size:10px}
  #home .wow-features{grid-template-columns:repeat(2,minmax(0,1fr))}
  #home .wow-features>a{padding:13px 12px;min-height:106px}
@@ -251,7 +251,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 }
 @media(max-width:380px){
  #home .museum-wow h1{font-size:36px}
- #home .wow-duet img{height:165px}
+ #home .wow-duet img{height:auto}
  #home .wow-visual-top strong{font-size:14px}
  #home .wow-features strong{font-size:16px}
 }
