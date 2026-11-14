@@ -36,6 +36,23 @@ async function check(browser,engine,width,item){
         await page.screenshot({path:dest(item.id+"-"+width+"-"+stage+".png"),fullPage:false,timeout:30000});
       }catch(e){test.errors.push("Screenshot "+stage+": "+String(e.message||e).slice(0,200));}
     };
+    if(item.id==="home"){
+      await page.locator(".museum-wow").waitFor({timeout:20000});
+      test.experience.heroFeatures=await page.locator(".wow-features>a").count();
+      test.experience.pairImages=await page.locator(".wow-duet img").count();
+      if(test.experience.heroFeatures!==4)test.errors.push("Homepage lost four first-impression feature doors");
+      if(test.experience.pairImages!==2)test.errors.push("Homepage lost actual historical/current image pair");
+      await page.locator(".wow-duet img").evaluateAll(async images=>{
+        await Promise.all(images.map(x=>x.decode().catch(()=>{})));
+      });
+      test.experience.pairImagesLoaded=await page.locator(".wow-duet img").evaluateAll(
+        images=>images.length===2&&images.every(x=>x.naturalWidth>500&&x.naturalHeight>400));
+      if(!test.experience.pairImagesLoaded)test.errors.push("Live first-impression image pair did not load");
+      test.experience.directComparison=await page.locator(".wow-primary").getAttribute("href");
+      if(!test.experience.directComparison?.includes("poc/compare/"))
+        test.errors.push("Main CTA no longer opens the actual comparison");
+      await frame("09-first-impression",".museum-wow");
+    }
     if(item.id==="paris"){
       await frame("01-landmarks","#cPlaceSelect");
       const historic=page.locator('#cPlaceSelect option[data-on-plan="true"]').first();
