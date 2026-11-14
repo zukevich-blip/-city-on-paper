@@ -27,7 +27,12 @@
 .vpa-compare.is-wipe figure{width:100%;margin:0}
 .vpa-compare.is-wipe figure:first-child{position:relative;z-index:1}
 .vpa-compare.is-wipe figure:nth-child(2){position:absolute;inset:7px;z-index:2;clip-path:inset(0 calc(100% - var(--wipe,50%)) 0 0)}
-.vpa-compare.is-wipe figcaption{background:#fff9ee}
+.vpa-compare.is-wipe figcaption{display:none}
+.vpa-wipe-credits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:9px 0 12px}
+.vpa-wipe-credits[hidden]{display:none!important}
+.vpa-wipe-credits>div{padding:10px 12px;background:#fff9ee;border:1px solid #c7b89e;min-width:0;overflow-wrap:anywhere}
+.vpa-wipe-credits strong{display:block;font:600 12px/1.4 system-ui,sans-serif;color:#29463d}
+.vpa-wipe-credits span{display:block;font:12px/1.45 system-ui,sans-serif;color:#574839;margin-top:4px}
 .vpa-compare.is-wipe figure:nth-child(2) img{height:min(48vh,410px)}
 .vpa-mode{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
 .vpa-mode button{min-height:44px;border:1px solid #aa987d;padding:8px 16px;background:#fffdf9;color:#314337;font:13px system-ui,sans-serif}
@@ -72,6 +77,7 @@
 .vpa-art img{height:185px}
 .vpa-gallery{grid-template-columns:1fr}
 .vpa-mode label{width:100%}
+.vpa-wipe-credits{grid-template-columns:1fr}
 .vpa-mode input{flex:1}
 }
 .vpa-more{min-height:44px;margin-top:15px;padding:10px 18px;border:1px solid #385244;background:#385244;color:#fff;font:13px system-ui,sans-serif}
