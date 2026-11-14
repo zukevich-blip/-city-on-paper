@@ -29,15 +29,25 @@ async function check(browser,engine,width,item){
     test.status=response?.status()||0;
     if(test.status!==200)throw Error("HTTP "+test.status+" on "+url);
     await page.locator(item.wait).first().waitFor({timeout:30000});
+    const frame=async(stage,element)=>{
+      if(engine!=="chromium")return;
+      try{
+        if(element)await page.locator(element).first().scrollIntoViewIfNeeded({timeout:15000});
+        await page.screenshot({path:dest(item.id+"-"+width+"-"+stage+".png"),fullPage:false,timeout:30000});
+      }catch(e){test.errors.push("Screenshot "+stage+": "+String(e.message||e).slice(0,200));}
+    };
     if(item.id==="paris"){
+      await frame("01-landmarks","#cPlaceSelect");
       const historic=page.locator('#cPlaceSelect option[data-on-plan="true"]').first();
       if(await historic.count()){
         const key=await historic.getAttribute("value");
         await page.locator("#cPlaceSelect").selectOption(key);
         await page.locator("#cPlaceNow").click();
+        await frame("02-current-map","#cnow");
         if(await page.locator("#cNew").getAttribute("aria-selected")!=="true")
           test.errors.push("Historic landmark did not navigate to modern map");
         await page.locator("#cPlaceOld").click();
+        await frame("03-historic-plan","#cplan");
         if(await page.locator("#cOld").getAttribute("aria-selected")!=="true")
           test.errors.push("Modern landmark did not navigate back to old map");
         test.experience.mapSwitch=true;
@@ -46,11 +56,14 @@ async function check(browser,engine,width,item){
       test.experience.viewpointAtlas=true;
       if(!(await page.locator("#vpaSelected").textContent())?.trim())
         test.errors.push("No historical work selected");
+      await frame("04-viewpoint","#vpaCompare");
       if(await page.locator("#vpaWipe").isEnabled()){
         await page.locator("#vpaWipe").click();
+        await frame("05-wipe","#vpaCompare");
         test.experience.wipe=await page.locator("#vpaCompare").evaluate(e=>e.classList.contains("is-wipe"));
         if(!test.experience.wipe)test.errors.push("Wipe comparison failed");
         await page.locator("#vpaSide").click();
+        await frame("06-side-by-side","#vpaCompare");
       }
       test.experience.cameraUncertainty=(await page.locator("#vpaCompareTruth").textContent())?.includes("подтверждено")||false;
       if(!test.experience.cameraUncertainty)test.errors.push("Missing uncertainty disclaimer");
@@ -89,6 +102,7 @@ async function check(browser,engine,width,item){
           affected:v.nodes.length,selectors:v.nodes.slice(0,3).map(n=>n.target.join(" "))}));
       }catch(e){test.errors.push("axe scan: "+String(e.message||e).slice(0,260));}
     }
+    if(["cities","salon","compare"].includes(item.id)&&engine==="chromium")await frame("07-gallery","body");
     if((item.id==="home"||item.id==="paris")&&engine==="chromium"){
       await page.screenshot({path:dest(item.id+"-"+width+".png"),fullPage:false,timeout:30000});
     }
