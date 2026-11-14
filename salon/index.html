@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#171a18"><title>Салон открытий | City on Paper</title>
+<meta name="theme-color" content="#171a18"><title>Салон открытий | City on Paper</title><meta name="description" content="Музейная коллекция исторической городской графики. У каждого листа есть история, сведения о художнике, датировке, источнике и открытые вопросы атрибуции.">
 <style>
 :root{color-scheme:dark;font-family:Georgia,'Times New Roman',serif;background:#151917;color:#f4edda}
 *{box-sizing:border-box}body{margin:0}a{color:#d7c796}header{padding:35px max(24px,5vw) 28px;border-bottom:1px solid #44483e;background:linear-gradient(120deg,#202b29,#151917)}
@@ -107,7 +107,7 @@ let content=document.createElement('div');content.className='details';let h=docu
 const cityName=String(a.city||'').toLocaleLowerCase('ru-RU');
 const cityId=/париж|paris/.test(cityName)?'paris':/флоренц|floren|firenze/.test(cityName)?'firenze':/неапол|naples|napoli/.test(cityName)?'naples':null;
 if(cityId){let timeline=document.createElement('a');timeline.href='../eras/#/city/'+cityId;
-timeline.textContent='Карты и эпохи ↗';timeline.setAttribute('aria-label','Карты и исторические изображения города '+a.city);
+timeline.textContent='Карты и эпохи ↗';timeline.setAttribute('aria-label','Карты и эпохи · '+a.city);
 actions.append(timeline)}
 if(guidedIds.has(a.id)){let study=document.createElement('a');study.href='../closeup/?art='+encodeURIComponent(a.id);study.textContent='Исследовать ↗';actions.append(study)}actions.append(fav);content.append(h,info,status,quality,observation,historyPanel,credit,actions);article.append(img,content);$('gallery').append(article)}}
 $('toggleFilters').addEventListener('click',()=>{const expanded=$('filterControls').classList.toggle('open');$('toggleFilters').setAttribute('aria-expanded',String(expanded))});
