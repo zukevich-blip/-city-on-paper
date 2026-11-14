@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: c6172a3f1cbdb6e172f2d09010b0800bfee5e000
+          ref: 643b283ca2e5e9a602e767105349abf8bce898ed
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=43390823252
-          EXPECTED_SHA=c6172a3f1cbdb6e172f2d09010b0800bfee5e000
+          RUN_ID=43541581761
+          EXPECTED_SHA=643b283ca2e5e9a602e767105349abf8bce898ed
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -97,6 +97,10 @@ jobs:
           test -s public/eras/cartography.js
           test -s public/eras/data/map-evidence.json
           test -s public/eras/cartography.css
+          test -s public/eras/viewpoint-atlas.js
+          test -s public/eras/viewpoint-atlas.css
+          grep -q 'city-place-picker' public/eras/maps.js
+          grep -q 'CityOnPaperViewpoints' public/eras/viewpoint-atlas.js
           grep -q "function clusterCityMarkers" public/eras/maps.js
           grep -q "data-compare-mode=\"opacity\"" public/eras/epochs.js
           grep -q "epKind" public/eras/epochs.js
@@ -157,8 +161,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "c6172a3f1cbdb6e172f2d09010b0800bfee5e000",
-            "qa_run": 43390823252,
+            "source_revision": "643b283ca2e5e9a602e767105349abf8bce898ed",
+            "qa_run": 43541581761,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
