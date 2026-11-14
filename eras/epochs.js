@@ -119,7 +119,7 @@ window.Epochs = (() => {
     const validIndex = (x, fallback) => Number.isInteger(x) && x >= 0 && x < fs.length ? x : fallback;
     let a = validIndex(session?.a, 0), b = validIndex(session?.b, fs.length - 1);
     if (fs.length < 2) b = 0;
-    host.innerHTML = `<div class="eptrack" role="list">${fs.map((f, i) => `<button type="button" class="epf ${f.kind}" data-f="${i}" role="listitem" aria-label="${esc(lab(f))}: ${esc(f.label)}">
+    host.innerHTML = `<div class="eptrack" role="group" aria-label="Кадры временной шкалы">${fs.map((f, i) => `<button type="button" class="epf ${f.kind}" data-f="${i}" aria-label="${esc(lab(f))}: ${esc(f.label)}">
         ${f.kind === "mine" ? `<img src="${esc(f.img)}" alt="${esc(f.label)}">` : imgTag(f.img, f.label || g.name)}<b>${esc(f.year || "")}</b><small>${esc(KIND[f.kind])}</small></button>`).join("")}
         <button type="button" class="epf add" id="epAdd"><span>＋</span><b>Моё фото</b><small>и точка съёмки</small></button></div>
       <div class="epgrid"><div class="epcmp">
