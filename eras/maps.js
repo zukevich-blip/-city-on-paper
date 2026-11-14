@@ -330,8 +330,22 @@ window.Maps = (() => {
       <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены изображённые места (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Это пока не позиции художников. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
     host.querySelector("#cViewpoints")?.addEventListener("click", () =>
       document.getElementById("cityViewpoints")?.scrollIntoView({ behavior:"smooth", block:"start" }));
+    const historicalStatus=(item)=>{
+      if(c.id!=="paris" || !plan || !/1878/.test(String(plan.year||plan.title||"")))return null;
+      const name=[item.site_name,item.site_ru,item.title].join(" ").toLowerCase();
+      if(/tour de nesle|нельск/.test(name))return {
+        label:"Историческое место · башня уничтожена в 1663 году",
+        url:"https://www.paris.fr/pages/ces-lieux-disparus-qui-font-aussi-l-histoire-de-paris-17263"
+      };
+      if(/palais des tuileries|palais des thuileries|дворец тюильри|palace of the tuileries/.test(name))return {
+        label:"1878 год · дворец в руинах после пожара 1871 года; разборка завершена в 1883 году",
+        url:"https://pop.culture.gouv.fr/notice/joconde/00000104601"
+      };
+      return null;
+    };
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
+      ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗</a></small>':""}
       <span class="mlinks"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
     let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
     const picker=host.querySelector("#cPlaceSelect");
@@ -345,8 +359,10 @@ window.Maps = (() => {
       picker.value=String(pts.indexOf(s));
       btnNow.disabled=!Number.isFinite(Number(s.lat))||!Number.isFinite(Number(s.lon));
       if(btnOld)btnOld.disabled=!Array.isArray(s.px)||s.px.length<2;
+      const state=historicalStatus(s);
       feedback.textContent=(s.site_ru||s.site_name||"Место")+
-        " · объект изображён на работе. Позиция художника подтверждается отдельно.";
+        (state?" · "+state.label:" · объект изображён на работе.")+
+        " Позиция художника подтверждается отдельно.";
     };
     picker.addEventListener("change",()=>{
       const idx=Number(picker.value);
