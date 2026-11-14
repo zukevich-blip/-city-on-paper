@@ -183,6 +183,7 @@ jobs:
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp -R assets/hybrid /tmp/city-on-paper-package/assets/
+          cp -R assets/story /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
@@ -269,6 +270,8 @@ jobs:
           PY
       - name: Audit and browser-test the ACTUAL delivered package
         run: |
+          test -s /tmp/city-on-paper-package/assets/story/artwork-history.js
+          test -s /tmp/city-on-paper-package/assets/story/artwork-history.css
           python tools/release/validate_bundle.py --root /tmp/city-on-paper-package
           python -m http.server 8766 --directory /tmp/city-on-paper-package --bind 127.0.0.1 >/tmp/city-preview.log 2>&1 &
           sleep 2
@@ -285,6 +288,8 @@ jobs:
       - name: Build and audit the real PUBLIC museum release
         run: |
           python tools/release/build_public_site.py --source /tmp/city-on-paper-package --out /tmp/city-on-paper-public
+          test -s /tmp/city-on-paper-public/assets/story/artwork-history.js
+          test -s /tmp/city-on-paper-public/assets/story/artwork-history.css
           python tools/release/audit_public_links.py --root /tmp/city-on-paper-public --report /tmp/city-on-paper-screens/PUBLIC_LINK_AUDIT.json --strict
           python -m http.server 8767 --directory /tmp/city-on-paper-public --bind 127.0.0.1 >/tmp/city-public-http.log 2>&1 &
           sleep 2
