@@ -200,7 +200,7 @@ window.CityOnPaperViewpoints = (() => {
         '<div class="vpa-mode"><button id="vpaSide" type="button" aria-pressed="true">Рядом</button>'+
         '<button id="vpaWipe" type="button" aria-pressed="false">Шторка</button>'+
         '<label id="vpaWipeWrap" hidden>Положение шторки <input id="vpaWipeRange" type="range" min="0" max="100" value="50"></label></div>'+
-        '<p class="vpa-note" id="vpaCompareTruth">Пара не выбрана. При разных ракурсах геометрическое наложение не подтверждено.</p></div>'+
+        '<p class="vpa-note" id="vpaCompareTruth">Пара не выбрана. При разных ракурсах геометрическое наложение не подтверждено.</p><div id="vpaWipeCredits" class="vpa-wipe-credits" hidden aria-label="Атрибуция изображений"></div><div id="vpaStory" aria-label="История выбранного произведения"></div></div>'+
         '<details class="vpa-contribute" id="vpaContribution"><summary>Добавить современное фото и точку съёмки на карту</summary>'+
         '<p>Ваш снимок останется в этом браузере. Выберите произведение, нажмите на современную карту в месте съёмки, укажите направление взгляда. На карте появится ваш маркер.</p>'+
         '<form id="vpaForm"><label>Файл JPG/PNG/WebP (до 15 МБ)<input id="vpaFile" type="file" accept="image/jpeg,image/png,image/webp" required></label>'+
@@ -252,6 +252,17 @@ window.CityOnPaperViewpoints = (() => {
           '<div class="vpa-empty">Современный снимок пока не найден. Можно добавить свой.</div>';
         box.className="vpa-compare "+(mode==="wipe"&&r.image&&analog?"is-wipe":"");
         box.innerHTML=left+right;
+        const credits=$("#vpaWipeCredits");
+        credits.hidden=!(mode==="wipe"&&r.image&&analog);
+        credits.replaceChildren();
+        if(!credits.hidden)for(const [head,detail] of [["Исторический лист",r.year+" · "+r.author],["Современный снимок",analog.year+" · "+analog.author]]){
+          const cell=document.createElement("div"),b=document.createElement("strong"),t=document.createElement("span");
+          b.textContent=head;t.textContent=detail;cell.append(b,t);credits.append(cell);
+        }
+        if(window.CityArtworkHistory)$("#vpaStory").innerHTML=CityArtworkHistory.markup({
+          id:r.id,title:r.title,author:r.author,date:r.year,place:r.place,
+          url:r.source,medium:r.kind
+        },{compact:true});
         if(box.classList.contains("is-wipe"))box.style.setProperty("--wipe",$("#vpaWipeRange").value+"%");
         $("#vpaWipeWrap").hidden=!(r.image&&analog&&mode==="wipe");
         $("#vpaWipe").disabled=!(r.image&&analog);
