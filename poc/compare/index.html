@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тогда / Сейчас — прототип</title>
+<meta name="description" content="Сравните старинную литографию с современным снимком: режимы шторки и рядом, точное указание источников, проверка совпадения ракурсов.">
 <style>
 :root{
   --paper:#f4efe4; --ink:#2b241c; --muted:#6d6254; --line:#d8cdb8; --accent:#8a3b1e;
@@ -71,7 +72,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 <header>
   <div class="top">
     <span class="poc" data-i18n="poc">Прототип · не выставка</span>
-    <button id="langBtn" lang="en" aria-label="Switch interface to English">EN</button>
+    <button id="langBtn" lang="en" aria-label="EN · Switch interface to English">EN</button>
   </div>
   <h1><span data-i18n="title">Тогда / Сейчас</span> <span id="titleAlt" lang="en" style="color:var(--muted)">· Then / Now</span></h1>
   <p class="sub" data-i18n="intro">Историческое изображение никогда не меняется. Геометрию можно (обратимо) подогнать только у современного фото — и это всегда помечено.</p>
@@ -254,7 +255,7 @@ function applyLang(){
   $("titleAlt").textContent = t("alt"); $("titleAlt").lang = lang === "en" ? "ru" : "en";
   const b = $("langBtn");
   b.textContent = lang === "en" ? "RU" : "EN"; b.lang = lang === "en" ? "ru" : "en";
-  b.setAttribute("aria-label", lang === "en" ? "Переключить интерфейс на русский" : "Switch interface to English");
+  b.setAttribute("aria-label", lang === "en" ? "RU · Переключить интерфейс на русский" : "EN · Switch interface to English");
   $("handle").setAttribute("aria-label", t("handle"));
   $("alignBtn").title = t("alignTitle");
   if (pair) { renderMeta(); layout(); }
