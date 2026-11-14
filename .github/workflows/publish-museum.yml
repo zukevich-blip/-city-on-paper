@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: a489bfcfd6cdb8d1e5f98a20a04eacc3251abc39
+          ref: ce9ca97208c78fc8a4d416b53099213cf082aa32
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=43555916082
-          EXPECTED_SHA=a489bfcfd6cdb8d1e5f98a20a04eacc3251abc39
+          RUN_ID=43560599686
+          EXPECTED_SHA=ce9ca97208c78fc8a4d416b53099213cf082aa32
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -101,6 +101,11 @@ jobs:
           test -s public/eras/viewpoint-atlas.css
           test -s public/assets/story/artwork-history.js
           test -s public/assets/story/artwork-history.css
+          grep -q 'museum-frontdoor museum-wow' public/index.html
+          grep -q 'class="wow-features"' public/index.html
+          grep -q 'madeleine-photo-panoramax-38b6d262.jpg' public/index.html
+          test -s public/poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg
+          test -s public/poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg
           grep -q "CityArtworkHistory" public/salon/index.html
           grep -q "vpaWipeCredits" public/eras/viewpoint-atlas.js
           grep -q 'city-place-picker' public/eras/maps.js
@@ -165,8 +170,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "a489bfcfd6cdb8d1e5f98a20a04eacc3251abc39",
-            "qa_run": 43555916082,
+            "source_revision": "ce9ca97208c78fc8a4d416b53099213cf082aa32",
+            "qa_run": 43560599686,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
