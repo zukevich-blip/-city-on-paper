@@ -56,6 +56,15 @@ async function check(browser,engine,width,item){
       if(!test.experience.cameraUncertainty)test.errors.push("Missing uncertainty disclaimer");
     }
     test.horizontalOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+5);
+    if(test.horizontalOverflow)test.overflowDetail=await page.evaluate(()=>({
+      scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth,
+      suspects:[...document.querySelectorAll("body *")]
+        .map(el=>({el,r:el.getBoundingClientRect()}))
+        .filter(x=>x.r.width>0&&x.r.right>innerWidth+5&&x.r.left<innerWidth+200)
+        .sort((a,b)=>b.r.right-a.r.right)
+        .slice(0,8).map(x=>({tag:x.el.tagName,css:x.el.className?.toString().slice(0,90),
+          id:x.el.id,right:Math.round(x.r.right),width:Math.round(x.r.width)}))
+    }));
     test.brokenVisibleImages=await page.locator("img").evaluateAll(images=>images
       .filter(i=>{const r=i.getBoundingClientRect();return r.width>0&&r.height>0&&r.top<innerHeight&&r.bottom>0&&i.complete&&i.naturalWidth===0;})
       .slice(0,12).map(i=>i.currentSrc||i.src||"unknown"));
