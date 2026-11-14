@@ -24,8 +24,6 @@ jobs:
     timeout-minutes: 6
     steps:
       - name: Verify public museum pages and record results
-        env:
-          GITHUB_STEP_SUMMARY: ${{ env.GITHUB_STEP_SUMMARY }}
         shell: bash
         run: |
           python - <<'PY'
