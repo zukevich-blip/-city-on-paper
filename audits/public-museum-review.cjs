@@ -56,6 +56,19 @@ async function check(browser,engine,width,item){
       if(!test.experience.cameraUncertainty)test.errors.push("Missing uncertainty disclaimer");
     }
     test.horizontalOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+5);
+    if(test.horizontalOverflow){
+      test.overflowElements=await page.evaluate(()=>Array.from(document.querySelectorAll("body *"))
+        .filter(el=>{
+          const rect=el.getBoundingClientRect(),style=getComputedStyle(el);
+          return rect.width>0&&rect.right>innerWidth+5&&rect.left<innerWidth&&
+            style.display!=="none"&&style.visibility!=="hidden"&&!el.closest("[hidden]");
+        })
+        .sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right)
+        .slice(0,16)
+        .map(el=>({tag:el.tagName.toLowerCase(),id:el.id||null,
+          className:typeof el.className==="string"?el.className.slice(0,140):"",
+          right:Math.round(el.getBoundingClientRect().right),width:Math.round(el.getBoundingClientRect().width)})));
+    }
     if(test.horizontalOverflow)test.overflowDetail=await page.evaluate(()=>({
       scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth,
       suspects:[...document.querySelectorAll("body *")]
@@ -147,6 +160,7 @@ async function run(){
     "WCAG: critical "+t.criticalWCAG+", serious "+t.seriousWCAG+" (число правил, не отдельных узлов)",
     "Сломанные внутренние ссылки: "+t.brokenInternalLinks+"/"+report.internal_links.length,
     "Горизонтальные переполнения: "+t.horizontalOverflows,
+    "Элементы справа за экраном: "+JSON.stringify(report.checks.filter(x=>x.horizontalOverflow).map(x=>({engine:x.engine,width:x.width,route:x.route,elements:x.overflowElements?.slice(0,5)}))),
     "",
     "Ревизор не меняет код и не публикует фотографии. Замечания WCAG требуют ручной оценки.",
     "Подробности: museum-review.json и снимки экрана в артефактах запуска."
