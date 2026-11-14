@@ -73,7 +73,7 @@ window.CityArtworkHistory = (() => {
     date:s(w.date||w.year_label||w.year),place:s(w.place||w.city||w.site_name||w.site_ru),
     medium:s(w.medium||w.style||w.kind),institution:s(w.institution||w.source||""),
     url:link(w.url||w.object_url||w.source_url),album:s(w.album||w.series||""),
-    note:s(w.note),identity:s(w.identity_certainty),roles:Array.isArray(w.creator_roles)?w.creator_roles:[],
+    note:s(w.note||w.description),identity:s(w.identity_certainty),creatorField:s(w.creator_field),roles:Array.isArray(w.creator_roles)?w.creator_roles:[],
     confidence:s(w.confidence)
   });
   function story(work){
@@ -87,6 +87,8 @@ window.CityArtworkHistory = (() => {
     if(a.place)data.push("В записи произведение связано с местом: "+limit(a.place,110)+". Эта запись сама по себе не доказывает точку наблюдателя.");
     if(a.album)data.push("Указанная в источнике серия или альбом: "+limit(a.album,140)+".");
     if(a.roles.length)data.push("Участники изготовления по музейной записи: "+a.roles.slice(0,4).map(r=>limit(r.name||"",70)+(r.role?" ("+limit(r.role,50)+")":"")).join("; ")+".");
+    if(a.creatorField)data.push("Поля атрибуции исходного каталога: "+limit(a.creatorField,260)+". Запись не всегда разделяет художника рисунка, литографа и издателя.");
+    if(a.identity&&/probable|album-level|unresolved|uncertain|initial|question|not confirmed|неопредел/i.test(a.identity))data.push("Авторская атрибуция предварительна: "+limit(a.identity,120)+".");
     const source=[];
     if(a.url)source.push(["Карточка произведения у хранителя",a.url]);
     if(deep)for(const [name,url] of deep.sources)if(!source.some(x=>x[1]===url))source.push([name,url]);
@@ -101,6 +103,7 @@ window.CityArtworkHistory = (() => {
   function markup(w,{open=false,compact=false}={}){
     const x=story(w),{a,deep}=x,heading=deep?deep.badge:"Индивидуальный паспорт · история уточняется";
     const origins=x.data.map(t=>"<p>"+h(t)+"</p>").join("");
+    const editorial=a.note&&!deep?'<div class="art-history-editorial"><h5>Описание в каталоге проекта</h5><p>'+h(limit(a.note,450))+'</p><small>Редакционная помета, не независимое подтверждение исторического события.</small></div>':"";
     const deepHtml=deep?'<div class="art-history-context"><h5>Что происходило с местом и листом</h5>'+
       deep.text.map(t=>"<p>"+h(t)+"</p>").join("")+
       (deep.context?"<p>"+h(deep.context)+"</p>":"")+"</div>":
@@ -112,7 +115,7 @@ window.CityArtworkHistory = (() => {
     return '<details class="art-history'+(compact?" art-history-compact":"")+'"'+(open?" open":"")+'> '+
       '<summary><span>История произведения</span><small>'+h(heading)+'</small></summary>'+
       '<div class="art-history-body"><h4>'+h(a.title)+'</h4><section><h5>Паспорт и происхождение</h5>'+origins+'</section>'+
-      deepHtml+
+      deepHtml+editorial+
       '<p class="art-history-unknown"><b>Что пока неизвестно:</b> '+h(x.missing.join("; "))+'.</p>'+refs+
       '</div></details>';
   }
