@@ -22,7 +22,7 @@ if str(ROOT) not in sys.path:
 STATIC_DIRS = (
     "poc/compare", "docs/ux/mockups", "world", "salon", "photography",
     "closeup", "exhibitions/city-as-evidence", "exhibitions/lost-florence",
-    "discover", "journeys", "atlas-prototype",
+    "discover", "journeys", "atlas-prototype", "assets/story",
     "detective", "fieldwork", "printlab", "ideas", "studio", "ornaments",
     "atelier/bargue", "atelier/ornament",
 )

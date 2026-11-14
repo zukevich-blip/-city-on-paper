@@ -66,7 +66,7 @@ header{background:#FFFCF6f5;border-bottom:1px solid #ddd2c0}
 .city-card .status.is-detailed{color:#fff;background:var(--cop-green)}
 .city-card .status.is-seed_only{color:#655e54;background:#f0e9dd}
 .city-card h3{font:29px/1.13 var(--cop-display);letter-spacing:-.028em;overflow-wrap:anywhere}
-.city-card .place-meta{font-size:12px;color:#69685c;margin-top:-6px}
+.city-card .place-meta{font-size:12px;color:#4f5148;margin-top:-6px}
 .city-card .info{font-size:12px;color:#6b665c;line-height:1.65;flex:1}
 .city-card .action{font-size:12px;line-height:1.5;font-weight:700;color:var(--cop-terracotta);text-decoration:none;margin-top:3px;align-self:flex-start}
 .city-card .action:hover{text-decoration:underline}
@@ -74,7 +74,7 @@ header{background:#FFFCF6f5;border-bottom:1px solid #ddd2c0}
 .city-journey a{display:inline-flex;min-height:36px;align-items:center;color:#7c4935;font-size:12px;font-weight:600;text-decoration:none}
 .city-journey a:hover{text-decoration:underline}
 .city-journey a:focus-visible{outline:3px solid #895140;outline-offset:2px}
-.city-card .status-note{font-size:11px;color:#857d70;margin-top:2px}
+.city-card .status-note{font-size:12px;color:#555044;margin-top:2px}
 .city-card .source-links{font-size:11px;line-height:1.7;display:flex;flex-wrap:wrap;gap:8px}
 .city-card .source-links a{color:var(--cop-terracotta)}
 .city-card details{font-size:11px;margin-top:2px;color:var(--cop-muted)}

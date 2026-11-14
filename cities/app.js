@@ -157,8 +157,8 @@
         comparison.href="../poc/compare/#madeleine-ph-benoist";
         journey.append(comparison);
       }
-      const regionMap=el("a",null,"Историческая карта ↗");
-      regionMap.href="../eras/";
+      const regionMap=el("a",null,"Карта ракурсов и эпох ↗");
+      regionMap.href=city?"../eras/#/city/"+encodeURIComponent(city):"../eras/";
       journey.append(regionMap);
       item.append(journey);
     } else if(row.status==="candidate"){

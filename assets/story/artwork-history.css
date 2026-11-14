@@ -1,0 +1,21 @@
+/* Research-led microhistories. Evidence never hidden behind an image hover. */
+.art-history{margin-top:12px;border:1px solid #b3a287;background:#f8f3e8;color:#27352d;border-radius:3px;min-width:0}
+.art-history>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px;min-height:44px;padding:10px 12px;font:600 14px/1.3 system-ui,sans-serif;color:#29463d}
+.art-history>summary::-webkit-details-marker{display:none}
+.art-history>summary:before{content:"+";font:22px Georgia,serif;color:#88513b}
+.art-history[open]>summary:before{content:"−"}
+.art-history summary small{font:11px/1.35 system-ui,sans-serif;color:#76614a}
+.art-history-body{border-top:1px solid #c7b69c;padding:12px 15px 15px;max-width:100%;overflow-wrap:anywhere}
+.art-history-body h4{font:400 20px/1.3 Georgia,serif;color:#29463d;margin:0 0 13px}
+.art-history-body h5{font:600 13px/1.5 system-ui,sans-serif;color:#684830;margin:13px 0 7px}
+.art-history-body p{font:13px/1.62 system-ui,sans-serif;color:#433d36;margin:6px 0}
+.art-history-context{border-left:2px solid #b79567;padding-left:12px;margin:10px 0}
+.art-history-body .art-history-pending{font-style:italic;color:#776553}
+.art-history-body .art-history-unknown{background:#eee5d8;padding:9px;border-radius:2px}
+.art-history-sources{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-top:12px}
+.art-history-sources b{width:100%;font:600 12px system-ui,sans-serif;color:#3a483c}
+.art-history-sources a{font:12px/1.4 system-ui,sans-serif;text-decoration:underline;color:#604d35;overflow-wrap:anywhere}
+.art-history :focus-visible{outline:2px solid #ab714b;outline-offset:3px}
+.art-history-compact{margin:10px 0 4px}
+.art-history-compact>.art-history-body h4{font-size:17px}
+@media(max-width:650px){.art-history-body{padding:10px 11px 13px}.art-history>summary{align-items:flex-start;flex-direction:column;gap:4px}.art-history>summary:before{float:left}}

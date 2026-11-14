@@ -5,6 +5,7 @@ on:
       - release/city-on-paper-private-preview-20261104
       - feature/consilium-museum-world-20261110
       - feature/engraving-museum-design-20261111
+      - feature/viewpoint-evidence-atlas-20261113
   pull_request:
     paths:
       - 'tools/**'
@@ -115,6 +116,11 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8765/
+          node --check tests/browser/qa_first_impression.js
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
+          node --check eras/viewpoint-atlas.js
+          node --check tests/browser/qa_viewpoints.js
+          node tests/browser/qa_viewpoints.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8765/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8765/
           node --check tests/browser/qa_engraving.js
@@ -179,6 +185,7 @@ jobs:
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp -R assets/hybrid /tmp/city-on-paper-package/assets/
+          cp -R assets/story /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
           cp detective/index.html /tmp/city-on-paper-package/detective/
           cp studio/index.html /tmp/city-on-paper-package/studio/
@@ -265,6 +272,8 @@ jobs:
           PY
       - name: Audit and browser-test the ACTUAL delivered package
         run: |
+          test -s /tmp/city-on-paper-package/assets/story/artwork-history.js
+          test -s /tmp/city-on-paper-package/assets/story/artwork-history.css
           python tools/release/validate_bundle.py --root /tmp/city-on-paper-package
           python -m http.server 8766 --directory /tmp/city-on-paper-package --bind 127.0.0.1 >/tmp/city-preview.log 2>&1 &
           sleep 2
@@ -275,18 +284,22 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8766/
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8766/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8766/
           node tests/browser/qa_engraving.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
       - name: Build and audit the real PUBLIC museum release
         run: |
           python tools/release/build_public_site.py --source /tmp/city-on-paper-package --out /tmp/city-on-paper-public
+          test -s /tmp/city-on-paper-public/assets/story/artwork-history.js
+          test -s /tmp/city-on-paper-public/assets/story/artwork-history.css
           python tools/release/audit_public_links.py --root /tmp/city-on-paper-public --report /tmp/city-on-paper-screens/PUBLIC_LINK_AUDIT.json --strict
           python -m http.server 8767 --directory /tmp/city-on-paper-public --bind 127.0.0.1 >/tmp/city-public-http.log 2>&1 &
           sleep 2
           curl -fsS http://127.0.0.1:8767/cities/ -o /dev/null
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8767/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8767/
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8767/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8767/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8767/
           node tests/browser/qa_full_museum_routes.js http://127.0.0.1:8767/ /tmp/city-on-paper-screens/PUBLIC_ROUTE_AUDIT.json

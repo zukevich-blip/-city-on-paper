@@ -158,7 +158,7 @@ window.Maps = (() => {
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Для остальных городов с известными центрами используйте современную карту. Метка города не означает известную точку съёмки художника. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
+      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Метки здесь указывают города, а не точки художников. На современной карте при увеличении до уровня улиц отображаются подтверждённые и исследовательские позиции камер. Карточка города раскрывает фото, источник и неопределённость. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
@@ -217,6 +217,9 @@ window.Maps = (() => {
           ? [Number(c.lat), Number(c.lon)] : null);
       nowCities.update(selectedIds);
       nowCities.fit();
+      // Individual evidenced historical and visitor camera positions appear at street zoom.
+      // City markers on the old continental sheet remain city positions, not camera positions.
+      if (window.CityOnPaperViewpoints) CityOnPaperViewpoints.portal(modern, A.cities);
       homeButton(modern, () => nowCities.fit());
       labelClass(modern, document.getElementById("nmap"), modern.getZoom());
       modern.on("zoomend", note);
@@ -297,7 +300,7 @@ window.Maps = (() => {
   function city(host, c, sites, thumbOf) {
     if (!ok()) return;
     const plan = c.plan;
-    const pts = sites.filter((s) => s.lat != null);
+    const pts = sites.filter((s) => Number.isFinite(Number(s.lat)) && Number.isFinite(Number(s.lon)) && s.lat !== null && s.lon !== null);
     if (!plan && !pts.length) {
       host.innerHTML = `<div class="lmap small" id="cmap" aria-label="Современная карта: ${esc(c.name)}"></div>
         <p class="mapnote">Где именно рисовали виды этого города, мы ещё устанавливаем. Метка — центр города.</p>`;
@@ -312,12 +315,76 @@ window.Maps = (() => {
         <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
       ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
-      <p class="mapnote">${pts.length ? `Метки — места, изображённые на работах (${pts.length}); нажмите, чтобы увидеть работу. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
+      <div class="city-place-picker" aria-label="Выбор изображённого места на картах">
+        <label for="cPlaceSelect">Найти объект на карте</label>
+        <select id="cPlaceSelect"><option value="">Выберите здание, площадь или исторический вид</option>
+          ${pts.map((s,i)=>`<option value="${i}" data-on-plan="${!!(plan && Array.isArray(s.px))}">${esc(cap(s.site_ru || s.site_name || s.title || "Место"))}</option>`).join("")}
+        </select>
+        <div class="city-place-actions">
+          <button type="button" id="cPlaceNow" disabled>На карте сегодня</button>
+          ${plan ? '<button type="button" id="cPlaceOld" disabled>На историческом плане</button>' : ""}
+        </div>
+        <p id="cPlaceFeedback" role="status" aria-live="polite">Сначала выберите место. Координата объекта не означает точку художника.</p>
+      </div>
+      <div class="city-compare-jump"><button id="cViewpoints" type="button">Где стоял автор · ракурсы и фотографии ↓</button></div>
+      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены изображённые места (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Это пока не позиции художников. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
+    host.querySelector("#cViewpoints")?.addEventListener("click", () =>
+      document.getElementById("cityViewpoints")?.scrollIntoView({ behavior:"smooth", block:"start" }));
+    const historicalStatus=(item)=>{
+      if(c.id!=="paris" || !plan || !/1878/.test(String(plan.year||plan.title||"")))return null;
+      const name=[item.site_name,item.site_ru,item.title].join(" ").toLowerCase();
+      if(/tour de nesle|нельск/.test(name))return {
+        label:"Историческое место · башня уничтожена в 1663 году",
+        url:"https://www.paris.fr/pages/ces-lieux-disparus-qui-font-aussi-l-histoire-de-paris-17263"
+      };
+      if(/palais des tuileries|palais des thuileries|дворец тюильри|palace of the tuileries/.test(name))return {
+        label:"1878 год · дворец в руинах после пожара 1871 года; разборка завершена в 1883 году",
+        url:"https://pop.culture.gouv.fr/notice/joconde/00000104601"
+      };
+      return null;
+    };
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
+      ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗</a></small>':""}
       <span class="mlinks"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
+    let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
+    const picker=host.querySelector("#cPlaceSelect");
+    const btnNow=host.querySelector("#cPlaceNow");
+    const btnOld=host.querySelector("#cPlaceOld");
+    const feedback=host.querySelector("#cPlaceFeedback");
+    const markerBySite={now:new Map(),old:new Map()};
+    const updateSelected = (s) => {
+      selectedPlace=s;
+      if(!s){ btnNow.disabled=true; if(btnOld)btnOld.disabled=true; return; }
+      picker.value=String(pts.indexOf(s));
+      btnNow.disabled=!Number.isFinite(Number(s.lat))||!Number.isFinite(Number(s.lon));
+      if(btnOld)btnOld.disabled=!Array.isArray(s.px)||s.px.length<2;
+      const state=historicalStatus(s);
+      feedback.textContent=(s.site_ru||s.site_name||"Место")+
+        (state?" · "+state.label:" · объект изображён на работе.")+
+        " Позиция художника подтверждается отдельно.";
+    };
+    picker.addEventListener("change",()=>{
+      const idx=Number(picker.value);
+      if(picker.value===""||!Number.isInteger(idx)||!pts[idx]){updateSelected(null);return;}
+      updateSelected(pts[idx]);
+    });
+    const choosePlace = (s, onHistoric) => {
+      if (!s) return;
+      if (onHistoric && (!Array.isArray(s.px) || !oldAt || !oldMap)) return;
+      updateSelected(s);
+      if (showMap) showMap(onHistoric);
+      if (onHistoric) oldMap.setView(oldAt(s.px[0] * (plan.width / (plan.px_width || plan.width)),
+        s.px[1] * (plan.width / (plan.px_width || plan.width))),
+        Math.min(oldMap.getMaxZoom(), Math.max(oldMap.getZoom(), 1)), {animate:false});
+      else if (now) now.setView([s.lat, s.lon], Math.min(now.getMaxZoom(), Math.max(16, now.getZoom())), {animate:false});
+      const mk=markerBySite[onHistoric?"old":"now"].get(s);
+      if(mk)mk.openPopup();
+    };
+    btnNow.addEventListener("click",()=>choosePlace(selectedPlace,false));
+    if(btnOld)btnOld.addEventListener("click",()=>choosePlace(selectedPlace,true));
     const siteIcon = (s) => L.divIcon({ className: `mk site ${s.kind || ""}`, iconSize: [26, 26], iconAnchor: [13, 13], html: `<i></i><span>${esc(cap(s.site_ru || s.site_name))}</span>` });
-    const addSites = (m, pos) => {
+    const addSites = (m, pos, onHistoric = false) => {
       const ms = [];
       const seen = new Map();
       for (const s of pts) {
@@ -327,7 +394,16 @@ window.Maps = (() => {
         const n = seen.get(key) || 0; seen.set(key, n + 1);
         const mk = L.marker(ll, { icon: siteIcon(s), title: s.site_ru || s.site_name, keyboard: false, riseOnHover: true }).addTo(m);
         if (n) mk.setZIndexOffset(-n);
-        mk.bindPopup(pop(s), { maxWidth: 240, autoPanPadding: [20, 20] });
+        const jump = onHistoric ? `<button type="button" class="map-jump" data-action="now">Место сегодня →</button>` :
+          (plan && s.px ? `<button type="button" class="map-jump" data-action="old">На старом плане →</button>` : "");
+        mk.bindPopup(pop(s) + jump + '<small>Место объекта · точка автора уточняется</small>',
+          { maxWidth: 270, autoPanPadding: [20, 20] });
+        mk.on("popupopen", () => {
+          updateSelected(s);
+          const button = mk.getPopup()?.getElement()?.querySelector(".map-jump");
+          if (button) button.onclick = () => choosePlace(s, button.dataset.action === "old");
+        });
+        markerBySite[onHistoric?"old":"now"].set(s,mk);
         ms.push(mk);
       }
       return ms;
@@ -345,7 +421,8 @@ window.Maps = (() => {
     if (plan) {
       const { map, at } = imageMap(document.getElementById("cplan"), plan);
       const k = plan.width / (plan.px_width || plan.width);
-      addSites(map, (s) => (s.px ? at(s.px[0] * k, s.px[1] * k) : null));
+      oldMap = map; oldAt = at;
+      addSites(map, (s) => (s.px ? at(s.px[0] * k, s.px[1] * k) : null), true);
       labelClass(map, document.getElementById("cplan"), map.getZoom());
       const show = (old) => {
         document.getElementById("cOld").setAttribute("aria-selected", String(old));
@@ -353,6 +430,7 @@ window.Maps = (() => {
         document.getElementById("cplan").hidden = !old; document.getElementById("cnow").hidden = old;
         if (old) map.invalidateSize(); else if (!now) mkNow(); else now.invalidateSize();
       };
+      showMap = show;
       document.getElementById("cOld").onclick = () => show(true);
       document.getElementById("cNew").onclick = () => show(false);
     } else mkNow();

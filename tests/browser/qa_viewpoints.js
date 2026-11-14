@@ -1,0 +1,93 @@
+/* Evidence-aware viewpoint atlas QA at iPhone and desktop widths. */
+"use strict";
+const { chromium } = require("playwright");
+const assert=require("node:assert/strict");
+const fs=require("node:fs");
+const path=require("node:path");
+const base=(process.argv[2]||"http://127.0.0.1:8765/").replace(/\/?$/,"/");
+const output=process.argv[3]||"/tmp/city-on-paper-screens";
+(async()=>{
+  fs.mkdirSync(output,{recursive:true});
+  const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
+  try {
+    for(const width of [390,1440]) {
+      const context=await browser.newContext({viewport:{width,height:845}});
+      const page=await context.newPage();
+      const errors=[];
+      page.on("pageerror",e=>errors.push(e.message));
+      await page.goto(base+"eras/#/city/paris",{waitUntil:"domcontentloaded"});
+      await page.locator("#vpaGallery .vpa-art").first().waitFor({timeout:25000});
+      assert(await page.locator("#cplan .mk.site").count()>0,"Paris old plan has site markers derived from published GCP model");
+      const historicOption=page.locator('#cPlaceSelect option[data-on-plan="true"]').first();
+      assert(await historicOption.count(),"A source-georeferenced site must be listed");
+      const key=await historicOption.getAttribute("value");
+      await page.locator("#cPlaceSelect").selectOption(key);
+      assert(await page.locator("#cPlaceNow").isEnabled(),"Selected historical site allows modern navigation");
+      assert(await page.locator("#cPlaceOld").isEnabled(),"Selected site has a studied point on the original scan");
+      await page.locator("#cPlaceNow").click();
+      assert.equal(await page.locator("#cNew").getAttribute("aria-selected"),"true","Site locator shows same depicted object today");
+      assert(await page.locator("#cnow .leaflet-popup").count(),"Modern map opens source-linked landmark");
+      await page.locator("#cPlaceOld").click();
+      assert.equal(await page.locator("#cOld").getAttribute("aria-selected"),"true","Site locator returns to original historical plan");
+      assert(await page.locator("#cplan .leaflet-popup").count(),"Historically positioned site opens on antique map");
+      assert(await page.locator("#vpaOld").count(),"Named Paris 1878 detail map");
+      assert(await page.locator("#vpaNow.leaflet-container").count(),"Modern city map");
+      assert((await page.locator("#vpaGallery .vpa-art").count())>=4,"Archive cards");
+      assert(await page.locator("#vpaStatus").textContent()!=="","Viewpoint status");
+      const selected=await page.locator("#vpaSelected").textContent();
+      assert(selected && selected.length>3,"Selected artwork");
+      const callout=(await page.locator("#vpaCompareTruth").textContent()).toLowerCase();
+      assert(/ракурс|перспектив|пара/.test(callout),"Scientific caution about angles");
+      await page.locator("#vpaWipe").click();
+      assert.equal(await page.locator("#vpaWipe").getAttribute("aria-pressed"),"true");
+      assert(await page.locator("#vpaCompare.is-wipe").count(),"Wipe interaction");
+      assert(await page.locator("#vpaWipeCredits").isVisible(),"Separate visible credits in the wipe mode");
+      assert.equal(await page.locator("#vpaWipeCredits > div").count(),2,"Both original and current photo are credited");
+      assert((await page.locator("#vpaWipeCredits").innerText()).length>24,"Credits contain artist and years");
+      assert.equal(await page.locator("#vpaCompare figcaption:visible").count(),0,"Clipped captions cannot overlap images");
+      assert(await page.locator("#vpaStory .art-history").count()===1,"Selected artwork has an individual story");
+      await page.locator("#vpaStory .art-history summary").click();
+      assert(await page.locator("#vpaStory .art-history-body").isVisible(),"Historical details can open");
+      assert(await page.locator("#vpaStory .art-history-sources a").count()>0,"Historical story links to verified holder");
+      await page.locator("#vpaSide").click();
+      assert(await page.locator("#vpaCompare:not(.is-wipe)").count(),"Side mode");
+      assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+5),"No horizontal overflow");
+      if(width===390) {
+        const priorMarkers=await page.locator("#vpaNow .leaflet-overlay-pane path").count();
+        await page.locator("#vpaContribution summary").click();
+        await page.locator("#vpaLink").selectOption("loc-2016652452");
+        await page.locator("#vpaLat").fill("48.8694");
+        await page.locator("#vpaLon").fill("2.3236");
+        await page.locator("#vpaAz").fill("45");
+        await page.locator("#vpaFile").setInputFiles({
+          name:"mine-viewpoint.png",mimeType:"image/png",
+          buffer:Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL/nwAAAABJRU5ErkJggg==","base64")
+        });
+        await page.locator("#vpaSave").click();
+        await page.waitForFunction(()=>/сохранён/.test(document.querySelector("#vpaFeedback")?.textContent||""));
+        assert.equal((await page.locator("#vpaOwnCount").textContent()).trim(),"1");
+        assert((await page.locator("#vpaNow .leaflet-overlay-pane path").count())>priorMarkers,"New personal geo marker after save");
+        await page.reload({waitUntil:"domcontentloaded"});
+        await page.locator("#vpaOwnCount").waitFor();
+        await page.waitForFunction(()=>document.querySelector("#vpaOwnCount")?.textContent==="1");
+        assert.equal((await page.locator("#vpaOwnCount").textContent()).trim(),"1","Private photo preserved");
+      }
+      await page.goto(base+"salon/",{waitUntil:"domcontentloaded"});
+      await page.locator("#gallery .art").first().waitFor({timeout:30000});
+      const galleryCount=await page.locator("#gallery .art").count();
+      assert(galleryCount>5,"Museum salon contains archival works");
+      assert.equal(await page.locator("#gallery .art-history").count(),galleryCount,"Each artwork card has its own history panel");
+      await page.locator("#gallery .art-history summary").first().click();
+      const individual=page.locator("#gallery .art-history-body").first();
+      assert(await individual.isVisible(),"Individual artwork narrative opens");
+      assert((await individual.innerText()).includes("Что пока неизвестно"),"Story marks absent facts explicitly");
+      assert(await individual.locator(".art-history-sources a").count()>0,"Museum source is linked");
+      await page.goto(base+"eras/#/city/paris",{waitUntil:"domcontentloaded"});
+      await page.locator("#vpaGallery .vpa-art").first().waitFor({timeout:25000});
+      await page.screenshot({path:path.join(output,"viewpoint-"+width+".png"),fullPage:true});
+      assert.equal(errors.length,0,"No uncaught JS errors: "+errors.join(" | "));
+      console.log("PASS viewpoint atlas "+width+"px, old/new maps, provenance, slider, private geo photo");
+      await context.close();
+    }
+  }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exit(1);});

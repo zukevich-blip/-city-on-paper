@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Город на бумаге · Музей исторических изображений и городских историй</title>
-<meta name="description" content="Живой музей исторических городов: подлинные литографии, истории художников, старые карты, музейные источники и современные фотографии. Начните с Парижа Филиппа Бенуа.">
+<meta name="description" content="Сравните литографию XIX века с сегодняшним городом. Шторка «Тогда / Сейчас», старые карты, ракурсы художников и истории произведений с музейными источниками. Попробуйте на примере Парижа.">
 <style>
 :root{--paper:#f5f0e7;--cream:#fbf8f2;--ink:#292720;--muted:#6e665e;--line:#d8d0c5;--red:#893f32;--warm:#b79362;--green:#3e604d;--page:1140px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font:16px/1.58 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
@@ -167,6 +167,95 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  .article-grid{grid-template-columns:1fr}.participate-home{display:block;padding:21px}
  .participate-home a{display:block;margin-top:18px;text-align:center;white-space:normal}
 }
+
+/* First-impression design: the product experience before the museum inventory. */
+#home .museum-wow{display:grid;grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);margin:12px 0 0;background:#f9f5eb;border:1px solid #c8b79c}
+#home .museum-wow .front-copy{padding:clamp(24px,3.6vw,45px);min-width:0}
+#home .museum-wow .eyebrow{font:700 11px/1.5 system-ui,sans-serif;letter-spacing:.12em;color:#8d4b36}
+#home .museum-wow h1{font:normal clamp(42px,4.7vw,68px)/1.04 Georgia,serif;letter-spacing:-.048em;margin:13px 0 18px;max-width:620px;color:#272e28}
+#home .museum-wow h1 em{font-style:normal;color:#945237}
+#home .museum-wow .wow-lead{font:17px/1.55 system-ui,sans-serif;color:#4b4d43;margin:0;max-width:510px}
+#home .wow-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin:24px 0 15px}
+#home .wow-actions a{display:flex;gap:12px;align-items:center;justify-content:space-between;min-height:46px;padding:11px 17px;font:700 14px/1.35 system-ui,sans-serif;text-decoration:none;border-radius:2px}
+#home .wow-actions .wow-primary{background:#23493d;color:#fff9ed;border:1px solid #23493d}
+#home .wow-actions .wow-secondary{color:#25483d;border:1px solid #9e9d87;background:#fdfbf6}
+#home .wow-actions a:hover,#home .wow-actions a:focus-visible{outline-offset:3px;filter:brightness(1.06)}
+#home .wow-trust{font:12px/1.5 system-ui,sans-serif!important;color:#726a5c!important;max-width:500px;margin:0!important}
+#home .wow-visual{display:flex;flex-direction:column;justify-content:center;min-width:0;background:#d9c9ae;padding:19px;align-self:stretch}
+#home .museum-wow .front-map.wow-visual>div{background:transparent;color:inherit;padding:0}
+#home .wow-visual-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+#home .wow-visual-top span{font:700 10px/1.3 system-ui,sans-serif;letter-spacing:.12em;color:#514637}
+#home .wow-visual-top strong{font:normal 18px/1.3 Georgia,serif;color:#374b3d}
+#home .wow-duet{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:0}
+#home .wow-duet figure{min-width:0;margin:0;background:#eee5d7;padding:7px;box-shadow:0 8px 18px #453c2829}
+#home .wow-duet img{width:100%;height:auto;aspect-ratio:4/3;display:block;object-fit:contain;background:#eae0cd}
+#home .wow-duet figcaption{display:flex;align-items:flex-start;flex-direction:column;gap:3px;margin:0;padding:9px 2px 5px;line-height:1.35}
+#home .wow-duet figcaption b{color:#875039;font:700 10px system-ui,sans-serif;letter-spacing:.12em}
+#home .wow-duet figcaption span{color:#433a30;font:12px system-ui,sans-serif}
+#home .wow-visual-bottom{display:flex;flex-direction:column;gap:7px;margin-top:13px}
+#home .wow-visual-bottom>span{font:12px/1.45 system-ui,sans-serif;color:#544838}
+#home .wow-visual-bottom>a{align-self:flex-start;font:700 13px/1.5 system-ui,sans-serif;color:#25483d;text-underline-offset:4px}
+#home .wow-visual-bottom>small{font:10px/1.45 system-ui,sans-serif;color:#514939}
+#home .wow-features{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #c8b79c}
+#home .wow-features>a{position:relative;display:flex;flex-direction:column;gap:7px;min-width:0;padding:18px 19px 20px;text-decoration:none;background:#fcf9f2;border-right:1px solid #d2c6b4}
+#home .wow-features>a:last-child{border-right:0}
+#home .wow-features>a:hover,#home .wow-features>a:focus-visible{background:#f1e8d8}
+#home .wow-feature-num{color:#98633e;font:700 11px system-ui,sans-serif;letter-spacing:.12em}
+#home .wow-features strong{font:normal 22px/1.13 Georgia,serif;color:#284338;padding-right:9px}
+#home .wow-features small{font:12px/1.5 system-ui,sans-serif;color:#686051}
+#home .wow-feature-arrow{position:absolute;top:19px;right:15px;color:#8d5239;font:18px Georgia,serif}
+#home .wow-find{display:grid;grid-template-columns:minmax(180px,.7fr) 1.3fr;gap:7px 20px;padding:21px 26px;margin:0 0 14px;border:1px solid #d9cbb5;border-top:0;background:#fffdf8}
+#home .wow-find-heading{display:flex;flex-direction:column;gap:3px}
+#home .wow-find-heading strong{font:normal 21px Georgia,serif;color:#29443a}
+#home .wow-find-heading span{font:12px/1.5 system-ui,sans-serif;color:#655d50}
+#home .wow-find .front-search{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+#home .wow-find .front-search input{flex:1 1 180px;min-width:0}
+#home .wow-find .front-search button{font-size:12px;min-height:44px;padding:8px 11px}
+#home .wow-find .front-quick{grid-column:2;border-top:0;padding-top:2px}
+#home .wow-literacy{display:flex;flex-wrap:wrap;gap:6px 11px;align-items:baseline;padding:10px 0 16px;margin-bottom:15px;border-bottom:1px solid #d8cbb8;font:12px/1.5 system-ui,sans-serif;color:#6e6255}
+#home .wow-literacy strong{color:#2e4539;font-size:13px}
+#home .wow-literacy span{flex:1 1 500px}
+#home .wow-literacy a{color:#7f4432;font-weight:700}
+@media(max-width:960px){
+ #home .museum-wow{grid-template-columns:1fr 1fr}
+ #home .museum-wow .front-copy{padding:24px}
+ #home .museum-wow h1{font-size:clamp(39px,4.4vw,53px)}
+ #home .wow-duet img{height:auto}
+ #home .wow-features{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #home .wow-features>a:nth-child(2){border-right:0}
+ #home .wow-features>a:nth-child(-n+2){border-bottom:1px solid #d2c6b4}
+ #home .wow-find{grid-template-columns:1fr}
+ #home .wow-find .front-quick{grid-column:1}
+}
+@media(max-width:700px){
+ #home .museum-wow{grid-template-columns:1fr;margin-top:7px}
+ #home .museum-wow .front-copy{padding:18px 17px 19px}
+ #home .museum-wow .eyebrow{font-size:10px;letter-spacing:.09em}
+ #home .museum-wow h1{font-size:clamp(37px,9vw,46px);margin:8px 0 10px}
+ #home .museum-wow .wow-lead{font-size:14px;line-height:1.47}
+ #home .wow-actions{margin:15px 0 8px;gap:8px}
+ #home .wow-actions a{width:100%;font-size:13px;min-height:44px}
+ #home .wow-trust{font-size:10px!important}
+ #home .wow-visual{padding:13px}
+ #home .wow-visual-top strong{font-size:15px}
+ #home .wow-duet img{height:auto}
+ #home .wow-duet figcaption span{font-size:10px}
+ #home .wow-features{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #home .wow-features>a{padding:13px 12px;min-height:106px}
+ #home .wow-features strong{font-size:18px}
+ #home .wow-features small{font-size:11px}
+ #home .wow-find{padding:14px;margin-bottom:11px}
+ #home .wow-find .front-search input{flex:1 1 100%}
+ #home .wow-find .front-search button{flex:1 1 46%;font-size:12px}
+ #home .wow-find .front-quick{flex-wrap:wrap;gap:4px 17px}
+}
+@media(max-width:380px){
+ #home .museum-wow h1{font-size:36px}
+ #home .wow-duet img{height:auto}
+ #home .wow-visual-top strong{font-size:14px}
+ #home .wow-features strong{font-size:16px}
+}
+
 </style>
 <link rel="stylesheet" href="assets/hybrid/tokens.css">
 <link rel="stylesheet" href="assets/hybrid/museum.css">
@@ -206,23 +295,52 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <main>
 <section id="home" class="tab wrap">
 
-<div class="museum-frontdoor" aria-label="Знакомство с Городом на бумаге">
- <div class="front-copy"><span class="eyebrow">Музей исторических изображений · Города мира</span>
-  <h1>Увидеть город <em>сквозь время.</em></h1>
-  <p>Как выглядели улицы до нас? Мы собираем подлинные литографии, гравюры, карты и фотографии, изучаем их авторов, находим места на карте и сравниваем с сегодняшним городом.</p>
-  <p>Начните с города или произведения. Каждое изображение ведёт к архивному оригиналу. Там, где ракурс ещё не подтверждён, мы не выдаём предположение за точное совпадение.</p>
-  <form class="front-search" id="museumFind" action="cities/" method="get" role="search">
-   <input name="query" id="frontQuery" type="search" placeholder="Париж, Флоренция, Москва…" aria-label="Поиск города или произведения">
-   <button type="submit">Найти город →</button>
-   <button type="button" id="frontArt">Найти произведение →</button>
-  </form>
-  <div class="front-quick"><a href="walk/?city=paris">Париж</a><a href="walk/?city=florence">Флоренция</a><a href="walk/?city=naples">Неаполь</a><a href="cities/">Весь мир</a></div>
- </div>
- <div class="front-map">
-  <a href="eras/" aria-label="Перейти к историческим картам и городам"><img src="eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" width="1000" height="808" alt="Подлинная карта Европы 1769 года из Library of Congress" fetchpriority="high"></a>
-  <div><strong>Мир → город → улица → архивный лист</strong><p>Старинная карта без выдуманной точной геопривязки. Современные города и их свидетельства открываются в интерактивном атласе.</p><a href="eras/">Открыть карту и города →</a></div>
- </div>
+<div class="museum-frontdoor museum-wow" aria-label="Что умеет музей «Город на бумаге»">
+  <div class="front-copy">
+    <span class="eyebrow">Литографии · старые карты · фотографии · истории</span>
+    <h1>Каким был этот город <em>150 лет назад?</em></h1>
+    <p class="wow-lead">Откройте старую литографию, найдите место на карте и посмотрите, как оно выглядит сегодня. Не просто читать историю. Исследовать её самому.</p>
+    <div class="wow-actions">
+      <a class="wow-primary" href="poc/compare/#madeleine-ph-benoist">Попробовать «Тогда / Сейчас» <span aria-hidden="true">↗</span></a>
+      <a class="wow-secondary" href="eras/#/city/paris">Париж на карте 1878 года <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="wow-trust">Настоящие музейные источники. Проверяем даты и авторов, не выдаём похожий ракурс за точное совпадение.</p>
+  </div>
+  <div class="front-map wow-visual" aria-label="Пример: церковь Мадлен на литографии и современной фотографии">
+    <div class="wow-visual-top"><span>ПАРИЖ · ЦЕРКОВЬ МАДЛЕН</span><strong>Два века. Один адрес.</strong></div>
+    <div class="wow-duet">
+      <figure>
+        <img src="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" width="1024" height="750" alt="Церковь Мадлен в Париже на раскрашенной литографии Филиппа Бенуа, 1845–1860 годы" loading="eager" decoding="async" fetchpriority="high">
+        <figcaption><b>ТОГДА</b><span>Литография · 1845–1860</span></figcaption>
+      </figure>
+      <figure>
+        <img src="poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" width="2048" height="1536" alt="Церковь Мадлен на современной фотографии jerome92370 с Panoramax, 30 апреля 2026 года" loading="eager" decoding="async">
+        <figcaption><b>СЕЙЧАС</b><span>Фотография · 2026</span></figcaption>
+      </figure>
+    </div>
+    <div class="wow-visual-bottom">
+      <span>Один памятник, но разные точки наблюдения. В просмотрщике это отмечено.</span>
+      <a href="poc/compare/#madeleine-ph-benoist">Сравнить изображения <span aria-hidden="true">↗</span></a>
+      <small>Бенуа / Library of Congress · Фото jerome92370 / Panoramax, CC BY-SA 4.0</small>
+    </div>
+  </div>
+  <div class="wow-features" aria-label="Четыре возможности музея">
+    <a href="poc/compare/#madeleine-ph-benoist"><span class="wow-feature-num">01</span><strong>Сравнить эпохи</strong><small>Шторка, фото и литография рядом</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="eras/#/city/paris"><span class="wow-feature-num">02</span><strong>Путешествовать по картам</strong><small>Старый план и город сегодня</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="eras/#/city/paris"><span class="wow-feature-num">03</span><strong>Искать взгляд художника</strong><small>Где стоял автор, что он видел</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="salon/"><span class="wow-feature-num">04</span><strong>Раскрывать истории листов</strong><small>Авторы, места, судьбы и источники</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+  </div>
 </div>
+<div class="wow-find">
+  <div class="wow-find-heading"><strong>А если хочется увидеть свой город?</strong><span>Начните с названия места или выберите готовый маршрут.</span></div>
+  <form class="front-search" id="museumFind" action="cities/" method="get" role="search">
+    <input name="query" id="frontQuery" type="search" placeholder="Париж, Флоренция, Москва…" aria-label="Поиск города или произведения">
+    <button type="submit">Найти город <span aria-hidden="true">→</span></button>
+    <button type="button" id="frontArt">Найти литографию <span aria-hidden="true">→</span></button>
+  </form>
+  <div class="front-quick"><a href="walk/?city=paris">Париж</a><a href="walk/?city=florence">Флоренция</a><a href="walk/?city=naples">Неаполь</a><a href="cities/">Все города мира</a></div>
+</div>
+<div class="wow-literacy"><strong>Что такое литография?</strong><span>Печатный рисунок, который переносили с камня на бумагу. До эпохи массовой фотографии такие листы помогали людям увидеть далёкие города. Сегодня по ним можно изучать, как менялись улицы и здания.</span><a href="printlab/">Посмотреть, как её печатали →</a></div>
 <div class="hybrid-story-hero">
 <div class="hybrid-story-copy">
   <div class="cop-imprint" aria-label="Авторский знак цифрового музея «Город на бумаге»"><span class="cop-signet" aria-hidden="true">ГБ</span><span class="cop-imprint-copy"><span>Город на бумаге · City on Paper</span><span>Цифровое издание · Графика и города</span></span></div>
