@@ -300,7 +300,7 @@ window.Maps = (() => {
   function city(host, c, sites, thumbOf) {
     if (!ok()) return;
     const plan = c.plan;
-    const pts = sites.filter((s) => s.lat != null);
+    const pts = sites.filter((s) => Number.isFinite(Number(s.lat)) && Number.isFinite(Number(s.lon)) && s.lat !== null && s.lon !== null);
     if (!plan && !pts.length) {
       host.innerHTML = `<div class="lmap small" id="cmap" aria-label="Современная карта: ${esc(c.name)}"></div>
         <p class="mapnote">Где именно рисовали виды этого города, мы ещё устанавливаем. Метка — центр города.</p>`;
@@ -315,6 +315,17 @@ window.Maps = (() => {
         <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
       ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
+      <div class="city-place-picker" aria-label="Выбор изображённого места на картах">
+        <label for="cPlaceSelect">Найти объект на карте</label>
+        <select id="cPlaceSelect"><option value="">Выберите здание, площадь или исторический вид</option>
+          ${pts.map((s,i)=>`<option value="${i}">${esc(cap(s.site_ru || s.site_name || s.title || "Место"))}</option>`).join("")}
+        </select>
+        <div class="city-place-actions">
+          <button type="button" id="cPlaceNow" disabled>На карте сегодня</button>
+          ${plan ? '<button type="button" id="cPlaceOld" disabled>На историческом плане</button>' : ""}
+        </div>
+        <p id="cPlaceFeedback" role="status" aria-live="polite">Сначала выберите место. Координата объекта не означает точку художника.</p>
+      </div>
       <div class="city-compare-jump"><button id="cViewpoints" type="button">Где стоял автор · ракурсы и фотографии ↓</button></div>
       <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены изображённые места (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Это пока не позиции художников. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
     host.querySelector("#cViewpoints")?.addEventListener("click", () =>
@@ -323,15 +334,39 @@ window.Maps = (() => {
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
       <span class="mlinks"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
     let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
-    const choosePlace = (s, onHistoric) => {
-      selectedPlace = s;
-      if (!showMap) return;
-      if (onHistoric && (!s.px || !oldAt || !oldMap)) return;
-      showMap(onHistoric);
-      if (onHistoric) oldMap.setView(oldAt(s.px[0] * (plan.width / (plan.px_width || plan.width)),
-        s.px[1] * (plan.width / (plan.px_width || plan.width))), Math.min(oldMap.getMaxZoom(), Math.max(oldMap.getZoom(), 3)));
-      else if (now) now.setView([s.lat, s.lon], Math.max(16, now.getZoom()));
+    const picker=host.querySelector("#cPlaceSelect");
+    const btnNow=host.querySelector("#cPlaceNow");
+    const btnOld=host.querySelector("#cPlaceOld");
+    const feedback=host.querySelector("#cPlaceFeedback");
+    const markerBySite={now:new Map(),old:new Map()};
+    const updateSelected = (s) => {
+      selectedPlace=s;
+      if(!s){ btnNow.disabled=true; if(btnOld)btnOld.disabled=true; return; }
+      picker.value=String(pts.indexOf(s));
+      btnNow.disabled=!Number.isFinite(Number(s.lat))||!Number.isFinite(Number(s.lon));
+      if(btnOld)btnOld.disabled=!Array.isArray(s.px)||s.px.length<2;
+      feedback.textContent=(s.site_ru||s.site_name||"Место")+
+        " · объект изображён на работе. Позиция художника подтверждается отдельно.";
     };
+    picker.addEventListener("change",()=>{
+      const idx=Number(picker.value);
+      if(picker.value===""||!Number.isInteger(idx)||!pts[idx]){updateSelected(null);return;}
+      updateSelected(pts[idx]);
+    });
+    const choosePlace = (s, onHistoric) => {
+      if (!s) return;
+      if (onHistoric && (!Array.isArray(s.px) || !oldAt || !oldMap)) return;
+      updateSelected(s);
+      if (showMap) showMap(onHistoric);
+      if (onHistoric) oldMap.setView(oldAt(s.px[0] * (plan.width / (plan.px_width || plan.width)),
+        s.px[1] * (plan.width / (plan.px_width || plan.width))),
+        Math.min(oldMap.getMaxZoom(), Math.max(oldMap.getZoom(), 1)), {animate:false});
+      else if (now) now.setView([s.lat, s.lon], Math.min(now.getMaxZoom(), Math.max(16, now.getZoom())), {animate:false});
+      const mk=markerBySite[onHistoric?"old":"now"].get(s);
+      if(mk)mk.openPopup();
+    };
+    btnNow.addEventListener("click",()=>choosePlace(selectedPlace,false));
+    if(btnOld)btnOld.addEventListener("click",()=>choosePlace(selectedPlace,true));
     const siteIcon = (s) => L.divIcon({ className: `mk site ${s.kind || ""}`, iconSize: [26, 26], iconAnchor: [13, 13], html: `<i></i><span>${esc(cap(s.site_ru || s.site_name))}</span>` });
     const addSites = (m, pos, onHistoric = false) => {
       const ms = [];
@@ -348,9 +383,11 @@ window.Maps = (() => {
         mk.bindPopup(pop(s) + jump + '<small>Место объекта · точка автора уточняется</small>',
           { maxWidth: 270, autoPanPadding: [20, 20] });
         mk.on("popupopen", () => {
+          updateSelected(s);
           const button = mk.getPopup()?.getElement()?.querySelector(".map-jump");
           if (button) button.onclick = () => choosePlace(s, button.dataset.action === "old");
         });
+        markerBySite[onHistoric?"old":"now"].set(s,mk);
         ms.push(mk);
       }
       return ms;
