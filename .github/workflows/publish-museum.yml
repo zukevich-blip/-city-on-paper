@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: ce9ca97208c78fc8a4d416b53099213cf082aa32
+          ref: bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=43560599686
-          EXPECTED_SHA=ce9ca97208c78fc8a4d416b53099213cf082aa32
+          RUN_ID=43908032492
+          EXPECTED_SHA=bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -113,7 +113,7 @@ jobs:
           grep -q "function clusterCityMarkers" public/eras/maps.js
           grep -q "data-compare-mode=\"opacity\"" public/eras/epochs.js
           grep -q "epKind" public/eras/epochs.js
-          grep -q "atlas-v6-20261114-artwork-histories" public/eras/sw.js
+          grep -q "atlas-v7-20261116" public/eras/sw.js
           test -s public/assets/nav/museum-polish.css
           test -s public/assets/nav/museum-nav.js
           test -s public/assets/hybrid/engraving.css
@@ -123,6 +123,10 @@ jobs:
           test -s public/stories/paris-on-paper/index.html
           test -s public/experience/index.html
           test -s public/walk/index.html
+          test -s public/eras/history.js
+          test -s public/eras/data/history.json
+          test -s public/data/curation/world-open-views-v2.json
+          test -s public/assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg
           test -s public/submit/index.html
           grep -q 'museum-frontdoor' public/index.html
           grep -q 'class="signature"' public/index.html
@@ -170,8 +174,8 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "ce9ca97208c78fc8a4d416b53099213cf082aa32",
-            "qa_run": 43560599686,
+            "source_revision": "bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2",
+            "qa_run": 43908032492,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
