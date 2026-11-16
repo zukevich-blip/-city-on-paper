@@ -230,6 +230,7 @@
     else if (h[0] === "epochs" && window.Epochs && Atlas.data) Epochs.gallery(app, Atlas.data, Atlas.thumb, Atlas.imgTag);
     else if (h[0] === "epoch" && window.Epochs && Atlas.data) { if (!Epochs.placePage(app, Atlas.data, h[1], decodeURIComponent(h.slice(2).join("/")), Atlas.thumb, Atlas.imgTag)) notFound(); }
     else if (h[0] === "mine" && window.Epochs) Epochs.minePage(app);
+    else if (h[0] === "masters" && window.History) History.masters(app);
     else if (window.Atlas && Atlas.data) { Atlas.setCountry(""); Atlas.portal(app); }
     else portal();
     if (location.hash && location.hash !== "#/") app.focus({ preventScroll: true });

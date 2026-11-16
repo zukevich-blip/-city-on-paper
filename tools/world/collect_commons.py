@@ -53,11 +53,16 @@ ALT = {"Istanbul": ["Constantinople"], "Tokyo": ["Edo"], "Mumbai": ["Bombay"], "
        "Veracruz (city)": ["Veracruz (city)", "Veracruz"]}
 
 
+class Blocked(RuntimeError):
+    """The server keeps refusing (429): stop instead of recording empty results."""
+
+
 def api(base: str, **params) -> dict:
     url = base + "?" + urllib.parse.urlencode({"format": "json", **params})
     for attempt in range(8):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=45) as r:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=45) as r:
                 time.sleep(0.6)
                 return json.load(r)
         except urllib.error.HTTPError as e:
@@ -68,7 +73,7 @@ def api(base: str, **params) -> dict:
             return {}
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
             time.sleep(5)
-    return {}
+    raise Blocked(url[:90])
 
 
 def strip(s) -> str:
@@ -143,7 +148,8 @@ def main() -> None:
     extra = [{"name": "Санкт-Петербург", "region": "Европа", "country": "Россия", "query": ""}]
     names = {s["name"] for s in seeds}
     seeds += [e for e in extra if e["name"] not in names]
-    first = ["Санкт-Петербург", "Стамбул", "Нью-Йорк", "Каир", "Иерусалим", "Токио", "Киото", "Пекин", "Дели", "Калькутта",
+    first = ["Санкт-Петербург", "Стамбул", "Нью-Йорк", "Каир", "Иерусалим", "Токио", "Киото", "Пекин", "Дели",
+             "Калькутта",
              "Мумбаи", "Вена", "Мадрид", "Лиссабон", "Эдинбург", "Дрезден", "Гавана", "Мехико", "Рио-де-Жанейро",
              "Сидней", "Кейптаун", "Самарканд", "Дамаск", "Гонконг", "Шанхай", "Бостон", "Сан-Франциско", "Квебек"]
     seeds.sort(key=lambda s: first.index(s["name"]) if s["name"] in first else 99)
@@ -155,7 +161,12 @@ def main() -> None:
         if ru in state["cities"] or (only and ru not in only):
             continue
         en = english(s)
-        wd = wikidata(en) if en else {}
+        try:
+            wd = wikidata(en) if en else {}
+            nonempty(["Paris"])  # probe: is Commons answering at all?
+        except Blocked as e:
+            print("blocked, stopping; resume later:", e, flush=True)
+            break
         variants = list(dict.fromkeys(ALT.get(en, []) + [wd.get("commons") or en, en]))
         seen, picked = set(), []
         per_cat: list[list[dict]] = []

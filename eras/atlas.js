@@ -11,9 +11,9 @@ window.Atlas = (() => {
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const safe = (u) => (/^https:\/\//.test(u || "") || /^(img|thumbs|now|\.\.\/assets)\//.test(u || "") ? u : "#");
   const safeLink = (u) => (/^https?:\/\//.test(u || "") ? u : "#"); // holder pages; some institutions are http-only
-  const CURATION = ["../data/curation/world-graphic-archive-v1.json", "../data/curation/museum-expansion-v1.json",
+  const CURATION = ["../data/curation/world-graphic-archive-v1.json", "../data/curation/museum-expansion-v1.json", "../data/curation/world-open-views-v2.json",
     "../data/curation/cc0-gallery-20261103.json", "../data/curation/benoist-paris-musees-v1.json"];
-  const RIGHTS = { cc0: "CC0", public_domain_commons: "общественное достояние (Commons)", cc_by: "CC BY", cc_by_sa: "CC BY-SA" };
+  const RIGHTS = { cc0: "CC0", public_domain_commons: "общественное достояние (Commons)", cc_by: "CC BY", cc_by_sa: "CC BY-SA", loc_no_known_restrictions: "LoC: нет известных ограничений" };
   let A = null, W = null, T = {}, filter = { q: "", group: "all" };
 
   const load = () => A ? Promise.resolve(A) : Promise.all([
@@ -221,8 +221,10 @@ window.Atlas = (() => {
       ${(c.halls || []).length ? `<section class="halls"><span class="eyebrow">Этот город в других залах музея</span><p>${c.halls.map(([u, t]) => `<a href="${esc(/^\.\.\/[a-z]/.test(u) ? u : "#")}">${esc(t)} →</a>`).join("")}</p></section>` : ""}
       <section class="hunt2" id="archiveSearch"><span class="eyebrow">Найти больше</span><p>Поиск в открытых архивах (откроется у хранителя; права проверяйте в карточке):</p>
         <p>${search.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join(" · ")}</p></section>`;
-    if (append) app.querySelector(".view").insertAdjacentHTML("beforeend", `<hr class="sep">${body}`);
-    else app.innerHTML = `<div class="view">${head}${body}</div>`;
+    const hist = '<section class="cityhist" id="cityHistory" hidden></section>';
+    if (append) app.querySelector(".view").insertAdjacentHTML("beforeend", `<hr class="sep">${hist}${body}`);
+    else app.innerHTML = `<div class="view">${head}${hist}${body}</div>`;
+    if (window.History) History.city(document.getElementById("cityHistory"), c.name);
     if (window.MuseumJourney) {
       const hosts=app.querySelectorAll(".museum-journey-host");
       MuseumJourney.mount(hosts[hosts.length - 1], c);

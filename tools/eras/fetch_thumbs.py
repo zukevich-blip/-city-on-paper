@@ -80,6 +80,10 @@ def collect(paths: list[Path]) -> list[str]:
     if pr.exists():
         for it in json.loads(pr.read_text("utf-8")).get("items", []):
             names.append(commons_name(it.get("image")))
+    wc = ROOT / "data" / "curation" / "world-open-views-v2.json"
+    if wc.exists():
+        for it in json.loads(wc.read_text("utf-8")).get("items", []):
+            names.append(commons_name(it.get("image")))
     today = ROOT / "data" / "vision-lab" / "today-photos.json"
     if today.exists():
         for t in json.loads(today.read_text("utf-8")).values():

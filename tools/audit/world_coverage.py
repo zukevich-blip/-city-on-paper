@@ -17,6 +17,7 @@ FILES = {
     "commons": "data/curation/world-graphic-archive-v1.json",
     "museum": "data/curation/museum-expansion-v1.json",
     "modern": "data/curation/modern-city-photography-v1.json",
+    "commons2": "data/curation/world-open-views-v2.json",
 }
 
 
@@ -98,6 +99,7 @@ def build(root: Path) -> dict:
     orphan = Counter()
     for group, field in (
         ("commons", "commons_candidates"),
+        ("commons2", "commons_candidates"),
         ("museum", "museum_candidates"),
         ("modern", "modern_candidates"),
     ):
