@@ -17,6 +17,7 @@ FILES = {
     "commons": "data/curation/world-graphic-archive-v1.json",
     "museum": "data/curation/museum-expansion-v1.json",
     "modern": "data/curation/modern-city-photography-v1.json",
+    "commons2": "data/curation/world-open-views-v2.json",
 }
 
 
@@ -46,6 +47,9 @@ def build(root: Path) -> dict:
     for key, relative in FILES.items():
         file = root / relative
         if not file.is_file():
+            if key == "commons2":  # optional: world open views (LoC / Commons collectors)
+                sources[key] = {"items": []}
+                continue
             raise FileNotFoundError(f"Required museum data missing: {relative}")
         sources[key] = json.loads(file.read_text(encoding="utf-8"))
     records = {}
@@ -98,6 +102,7 @@ def build(root: Path) -> dict:
     orphan = Counter()
     for group, field in (
         ("commons", "commons_candidates"),
+        ("commons2", "commons_candidates"),
         ("museum", "museum_candidates"),
         ("modern", "modern_candidates"),
     ):

@@ -119,8 +119,11 @@ def test_atlas_cities_are_valid_and_unique():
     ids = [c["id"] for c in ATLAS["cities"]]
     assert len(ids) == len(set(ids)) and len(ids) >= 180
     for c in ATLAS["cities"]:
-        assert -30 < c["lon"] < 60 or c["country"] in {"Бразилия", "Канада"}, c["name"]
-        assert 0 < c["lat"] < 72 or c["country"] == "Бразилия", c["name"]
+        if c.get("world"):  # world registry: any valid coordinate, must carry a country
+            assert -180 <= c["lon"] <= 180 and -60 < c["lat"] < 72 and c["country"], c["name"]
+        else:
+            assert -30 < c["lon"] < 60 or c["country"] in {"Бразилия", "Канада"}, c["name"]
+            assert 0 < c["lat"] < 72 or c["country"] == "Бразилия", c["name"]
         if c["xy"]:
             assert 0 <= c["xy"][0] <= ATLAS["portal"]["width"] and 0 <= c["xy"][1] <= ATLAS["portal"]["height"]
 

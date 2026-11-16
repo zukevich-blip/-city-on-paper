@@ -325,19 +325,29 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .country-cities .ccard{padding:12px;min-height:120px}.country-cities .ccard b{font-size:17px}
 .country-group summary{padding:12px;gap:7px}.country-name{font-size:21px}.country-count{font-size:11px}}
 @media(max-width:390px){.country-cities{grid-template-columns:1fr}}
+
+/* v6: city history + masters */
+.cityhist{background:var(--paper2);border:1px solid var(--line);border-left:4px solid #c59446;padding:clamp(14px,2.5vw,26px);margin:14px 0 22px}
+.hist-tag{font-size:clamp(24px,3vw,36px);margin:6px 0 8px}
+.hist-chapter{border-top:1px solid var(--line);padding:4px 0}.hist-chapter summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font:19px Georgia,serif}.hist-chapter summary b{font-weight:400}
+.hist-chapter p{font:16px/1.7 Georgia,serif;max-width:760px;margin:6px 0}.hist-src{font:12px/1.6 system-ui!important;color:var(--muted)}.hist-src a{color:#6d5430}
+.hist-time{list-style:none;padding:0;margin:16px 0;display:grid;gap:6px}.hist-time li{display:grid;grid-template-columns:64px 1fr;gap:10px;font:14px/1.5 system-ui;border-left:2px solid #c59446;padding-left:10px}.hist-time b{font:400 20px Georgia,serif;color:#7a3f22}
+.hist-fact{background:#efe6d6;border:1px solid #d9cbb5;padding:10px 14px;font:14px/1.6 system-ui;max-width:760px}
+.masters{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0}.master{background:var(--paper2);border:1px solid var(--line);padding:16px}.master h2{font-size:26px;margin:0}.master .mrole{font:12px/1.5 system-ui;color:#8c6e41;letter-spacing:.04em;margin:4px 0 8px}.master p{font:15px/1.65 Georgia,serif;margin:6px 0}
 </style>
 <script src="../assets/nav/museum-nav.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#app">К содержанию</a>
 <header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
-<nav class="anav" aria-label="Разделы атласа"><a href="#/">Карта</a><a href="#/epochs">Эпохи</a><a href="#/mine">Мой ракурс</a></nav><button type="button" class="hbtn" id="shareBtn"><span class="lg">Поделиться</span><span class="sm">Ссылка</span></button><button type="button" class="hbtn" id="fbBtn"><span class="lg">Оставить отзыв</span><span class="sm">Отзыв</span></button></header>
+<nav class="anav" aria-label="Разделы атласа"><a href="#/">Карта</a><a href="#/epochs">Эпохи</a><a href="#/masters">Мастера</a><a href="#/mine">Мой ракурс</a></nav><button type="button" class="hbtn" id="shareBtn"><span class="lg">Поделиться</span><span class="sm">Ссылка</span></button><button type="button" class="hbtn" id="fbBtn"><span class="lg">Оставить отзыв</span><span class="sm">Отзыв</span></button></header>
 <dialog id="fb" aria-labelledby="fbTitle"><form method="dialog" id="fbForm"><h2 id="fbTitle" style="margin:0 0 6px;font-size:26px">Ваш отзыв об атласе</h2><p style="font:13px/1.5 system-ui;margin:0 0 10px;color:#6f6f63">Отзыв не сохраняется на сайте. Кнопка «Отправить» откроет меню «Поделиться» вашего телефона — выберите мессенджер или почту и отправьте автору. На компьютере текст скопируется.</p><fieldset style="border:0;padding:0;margin:0 0 8px"><legend style="font:13px system-ui">Оценка</legend><div class="stars"><label><input type="radio" name="r" value="1"> 1</label><label><input type="radio" name="r" value="2"> 2</label><label><input type="radio" name="r" value="3"> 3</label><label><input type="radio" name="r" value="4"> 4</label><label><input type="radio" name="r" value="5"> 5</label></div></fieldset><label for="fbText" style="font:13px system-ui">Что понравилось, что улучшить, какие города добавить</label><textarea id="fbText" rows="5" maxlength="2000"></textarea><div class="fbrow"><button type="submit" value="cancel" class="ghost">Закрыть</button><button type="button" id="fbSend" class="solid">Отправить автору</button></div><p id="fbStatus" role="status" style="font:13px system-ui;color:#2f6b3a;min-height:18px"></p></form></dialog>
 <main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
 <noscript><p class="note">Для атласа нужен JavaScript. Все источники перечислены в <a href="data/eras.json">eras.json</a>.</p></noscript>
 <footer>«Атлас эпох» — часть музея «Город на бумаге». На iPhone: «Поделиться» → «На экран „Домой“»; на Android: меню браузера → «Установить приложение». Исторические изображения показаны без изменений: без кадрирования, ретуши и перекраски. Современные фото не деформируются; совпадение ракурса оценивается вручную и подписано. Каждая работа ведёт к карточке хранителя — проверяйте права там.</footer>
 <script src="vendor/leaflet-1.9.4/leaflet.js"></script>
 <script src="maps.js"></script>
+<script src="history.js"></script>
 <script src="epochs.js"></script>
 <script src="city-lab.js"></script>
 <script src="cartography.js"></script>

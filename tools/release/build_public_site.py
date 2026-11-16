@@ -36,6 +36,7 @@ DATA = (
     "data/curation/museum-expansion-v1.json",
     "data/curation/modern-city-photography-v1.json",
     "data/curation/world-graphic-archive-v1.json",
+    "data/curation/world-open-views-v2.json",
     "data/curation/modern-photos-cc0-20261103.json",
     "data/stories/madeleine-dossier-20261103.json",
     "data/research/benoist-production-network-v1.json",
@@ -46,7 +47,7 @@ DATA = (
 )
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
-    "assets/hybrid", "cities", "atlas", "stories", "experience",
+    "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
     "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",

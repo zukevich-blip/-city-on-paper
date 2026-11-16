@@ -136,9 +136,11 @@ def attach_sites_and_plans(rows: list[dict]) -> None:
         if dx * dx + dy * dy > 35 ** 2:
             continue
         img = it.get("image") or ""
+        # never ship a holder's multi-megabyte print master as a preview (Cleveland: *_print.jpg -> *_web.jpg)
+        img = re.sub(r"(openaccess-cdn\.clevelandart\.org/.+)_print\.jpg$", r"\1_web.jpg", img)
         c.setdefault("sites", []).append({
             "wid": wid(it["work_url"]), "url": it["work_url"], "title": (it.get("title") or "")[:140],
-            "image": commons_image(it.get("image")) or (img if img.startswith("https://") else None),
+            "image": commons_image(img) or (img if img.startswith("https://") else None),
             "site_name": it.get("site_name"), "site_ru": it.get("site_name_ru") or it.get("site_name"),
             "qid": it.get("qid"), "lat": round(it["lat"], 6), "lon": round(it["lon"], 6),
             "kind": it.get("kind"), "confidence": it.get("confidence"),
@@ -252,6 +254,16 @@ def build() -> dict:
                                "image": commons_image(w.get("image")) if open_ else None,
                                "rights_class": "open" if open_ else "link",
                                "rights_label": (w.get("rights") or "")[:90], "basis": w.get("attribution_basis")})
+    # world registry: cities found by the open-archive collectors (coordinates from the collector's table / Wikidata)
+    reg = ROOT / "data" / "world" / "registry.json"
+    if reg.exists():
+        for w in json.loads(reg.read_text("utf-8"))["cities"]:
+            if norm(w["city"]) not in cities and w.get("lat") is not None:
+                cities[norm(w["city"])] = {
+                    "id": slug(w["city"]), "name": w["city"], "name_orig": None, "country": w.get("country") or "",
+                    "area": w.get("region"), "lat": round(w["lat"], 4), "lon": round(w["lon"], 4),
+                    "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+                    "benoist": False, "works": [], "albums": [], "kind": "city", "world": True}
     for c in cities.values():
         c["featured"] = FEATURED.get(c["name"])
         c["xy"] = None

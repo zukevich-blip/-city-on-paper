@@ -20,7 +20,11 @@
   const here = location.pathname.replace(/index\.html$/, "");
   // The curated homepage owns its primary navigation. Keep the global bar in inner rooms.
   if (here === new URL(base).pathname) return;
-  const isHere = (p) => here.endsWith("/" + p) || (p === "" && new URL(base).pathname === here);
+  const isHere = (p) => {
+    if (p.includes("#")) { const [path, hash] = p.split("#"); return here.endsWith("/" + path) && location.hash.startsWith("#" + hash); }
+    if (p === "eras/" && /^#\/epoch/.test(location.hash)) return false;
+    return here.endsWith("/" + p) || (p === "" && new URL(base).pathname === here);
+  };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const css = `#museumBar{background:#29463D;color:#f4efe5;font:13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;position:sticky;top:0;z-index:1000;border-bottom:1px solid #bfae97}
 #museumBar .mb{max-width:1500px;margin:0 auto;display:flex;align-items:center;gap:6px 12px;padding:4px clamp(12px,3vw,40px);flex-wrap:wrap}
@@ -42,13 +46,17 @@
  #museumBar .mb{flex-wrap:nowrap;gap:7px}
  #museumBar .mbh{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis}
  #museumBar .mbback{padding:0 9px;font-size:12px}
- #museumBar .mbq{display:none}
+ #museumBar .mb{flex-wrap:wrap!important;padding-bottom:0}
+ #museumBar .mbq{order:9;flex:1 0 100%;display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0;margin:0 -4px;scrollbar-width:none;border-top:1px solid #ffffff1f}
+ #museumBar .mbq::-webkit-scrollbar{display:none}
+ #museumBar .mbq a{flex:none;padding:0 10px;font-size:13px}
  #museumBar .mbp{max-height:75dvh;grid-template-columns:1fr!important;padding:8px 16px 18px}
  #museumBar .mbp a{min-height:44px}
  #museumBar button{padding:4px 9px;white-space:nowrap}
 }`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  const quick = [["cities/", "Мир"], ["walk/", "Маршрут по времени"], ["salon/", "Произведения"], ["eras/", "Карты"], ["poc/compare/", "Тогда / Сейчас"], ["submit/", "Внести находку"]];
+  // One primary menu for the whole museum — the same five doors as on the home page.
+  const quick = [["stories/", "Истории"], ["cities/", "Города"], ["eras/", "Атлас"], ["eras/#/epochs", "Эпохи"], ["salon/", "Каталог"], ["experience/", "Книга"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>
@@ -58,6 +66,12 @@
     <nav class="mbp" id="museumPanel" aria-label="Все залы музея" hidden>${HALLS.map(([h, items]) => `<div><p class="mbt">${esc(h)}</p>${items.map(([p, t, d]) =>
       `<a href="${esc(base + p)}"${isHere(p) ? ' aria-current="page"' : ""}><b>${esc(t)}</b><small>${esc(d)}</small></a>`).join("")}</div>`).join("")}</nav>`;
   document.body.insertBefore(bar, document.body.firstChild);
+  // One header per page: a page-level header that only repeats the brand and section links is hidden
+  // (headers that carry the page title or controls — h1, buttons, inputs — stay).
+  for (const h of document.querySelectorAll("body > header, body > div > header")) {
+    if (h.closest("#museumBar") || h.querySelector("h1, button, input, select, details, form")) continue;
+    if (/Город на бумаге/.test(h.textContent) && h.querySelectorAll("a").length <= 9 && h.textContent.trim().length < 260) h.hidden = true;
+  }
   const btn = bar.querySelector('[aria-controls="museumPanel"]'), panel = bar.querySelector("#museumPanel");
   const back = bar.querySelector("#museumBack");
   const closeMenu = (restoreFocus = false) => {

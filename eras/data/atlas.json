@@ -20,7 +20,9 @@
  },
  "portal_note": "Метки городов рассчитаны по модели привязки карты (полином 2-й степени по 51 опорным городам, проверка исключением ≈18 px); метки Парижа, Флоренции и Неаполя сверены со знаками городов на самой карте.",
  "regions": [
+  "Австралия",
   "Австрия",
+  "Алжир",
   "Бельгия",
   "Бразилия",
   "Великобритания",
@@ -28,31 +30,45 @@
   "Германия",
   "Гернси",
   "Греция",
+  "Грузия",
   "Дания",
   "Джерси",
+  "Египет",
+  "Индия",
+  "Ирландия",
   "Испания",
   "Италия",
   "Канада",
+  "Китай",
   "Крым",
+  "Куба",
+  "Ливан",
   "Литва",
+  "Мексика",
   "Нидерланды",
   "Норвегия",
+  "Палестина / Израиль",
   "Польша",
   "Португалия",
   "Россия",
+  "США",
+  "Сирия",
+  "Тунис",
+  "Турция",
   "Украина",
   "Финляндия",
   "Франция",
   "Чехия",
   "Швейцария",
-  "Швеция"
+  "Швеция",
+  "Япония"
  ],
  "counts": {
-  "cities": 186,
+  "cities": 214,
   "benoist_places": 122,
   "benoist_works": 342,
   "benoist_open_images": 163,
-  "on_portal": 178
+  "on_portal": 183
  },
  "cities": [
   {
@@ -93,6 +109,37 @@
     [
      "../salon/?city=%D0%90%D0%B2%D1%80%D0%B0%D0%BD%D1%88",
      "Салон открытий: листы этого города"
+    ]
+   ]
+  },
+  {
+   "id": "alzhir",
+   "name": "Алжир",
+   "name_orig": null,
+   "country": "Алжир",
+   "area": "Африка",
+   "lat": 36.7538,
+   "lon": 3.0588,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": [
+    523.5,
+    1413.6
+   ],
+   "xy_approx": true,
+   "halls": [
+    [
+     "../salon/?city=%D0%90%D0%BB%D0%B6%D0%B8%D1%80",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
     ]
    ]
   },
@@ -186,7 +233,7 @@
      "wid": "f18c62a6d2",
      "url": "https://clevelandart.org/art/1941.128",
      "title": "The New Market, Amsterdam",
-     "image": "https://openaccess-cdn.clevelandart.org/1941.128/1941.128_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1941.128/1941.128_web.jpg",
      "site_name": "Nieuwmarkt",
      "site_ru": "Ниумаркт",
      "qid": "Q1568693",
@@ -200,7 +247,7 @@
      "wid": "ba16d9b595",
      "url": "https://clevelandart.org/art/1944.27.1",
      "title": "Various Ships and Views of Amsterdam (Verscheÿde Schepen en Gesichten van Amstelredam), Part II:  Canal near Amsterdam and Tower of Monkel",
-     "image": "https://openaccess-cdn.clevelandart.org/1944.27.1/1944.27.1_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1944.27.1/1944.27.1_web.jpg",
      "site_name": "Montelbaanstoren",
      "site_ru": "башня Монтелбан",
      "qid": "Q1946061",
@@ -214,7 +261,7 @@
      "wid": "c13e6dbdef",
      "url": "https://clevelandart.org/art/1944.27.8",
      "title": "Various Ships and Views of Amsterdam (Verscheÿde Schepen en Gesichten van Amstelredam), Part II: The Geldersche Quai and Schreiers Tower",
-     "image": "https://openaccess-cdn.clevelandart.org/1944.27.8/1944.27.8_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1944.27.8/1944.27.8_web.jpg",
      "site_name": "Schreierstoren",
      "site_ru": "Плачущая башня (Схрейерстoрен)",
      "qid": "Q610402",
@@ -228,7 +275,7 @@
      "wid": "dd3199cf97",
      "url": "https://clevelandart.org/art/1922.447",
      "title": "Amsterdam from the Tolhuis",
-     "image": "https://openaccess-cdn.clevelandart.org/1922.447/1922.447_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1922.447/1922.447_web.jpg",
      "site_name": "Tolhuis (Amsterdam-Noord)",
      "site_ru": "Толхёйс",
      "qid": "Q17302344",
@@ -1798,6 +1845,34 @@
    ]
   },
   {
+   "id": "beyrut",
+   "name": "Бейрут",
+   "name_orig": null,
+   "country": "Ливан",
+   "area": "Азия",
+   "lat": 33.8938,
+   "lon": 35.5018,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%91%D0%B5%D0%B9%D1%80%D1%83%D1%82",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "bergen",
    "name": "Берген",
    "name_orig": null,
@@ -2167,6 +2242,34 @@
    "halls": [
     [
      "../salon/?city=%D0%91%D0%BE%D1%80%D0%B4%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "boston",
+   "name": "Бостон",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 42.3601,
+   "lon": -71.0589,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD",
      "Салон открытий: листы этого города"
     ],
     [
@@ -2694,6 +2797,34 @@
    ]
   },
   {
+   "id": "vashington",
+   "name": "Вашингтон",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 38.9072,
+   "lon": -77.0369,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%92%D0%B0%D1%88%D0%B8%D0%BD%D0%B3%D1%82%D0%BE%D0%BD",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "vena",
    "name": "Вена",
    "name_orig": null,
@@ -3064,7 +3195,7 @@
      "wid": "e5538017fa",
      "url": "https://clevelandart.org/art/1920.151",
      "title": "Entrance to the Grand Canal, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1920.151/1920.151_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1920.151/1920.151_web.jpg",
      "site_name": "Canal Grande",
      "site_ru": "Большой канал",
      "qid": "Q309243",
@@ -3082,7 +3213,7 @@
      "wid": "9a59eb5b42",
      "url": "https://clevelandart.org/art/1921.221",
      "title": "Entrance to Grand Canal",
-     "image": "https://openaccess-cdn.clevelandart.org/1921.221/1921.221_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1921.221/1921.221_web.jpg",
      "site_name": "Canal Grande",
      "site_ru": "Большой канал",
      "qid": "Q309243",
@@ -3100,7 +3231,7 @@
      "wid": "bab86918de",
      "url": "https://clevelandart.org/art/1921.236",
      "title": "Grand Canal, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1921.236/1921.236_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1921.236/1921.236_web.jpg",
      "site_name": "Canal Grande",
      "site_ru": "Большой канал",
      "qid": "Q309243",
@@ -3118,7 +3249,7 @@
      "wid": "59a3d373bc",
      "url": "https://clevelandart.org/art/1925.1239.15",
      "title": "Views:  The Library, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1925.1239.15/1925.1239.15_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1925.1239.15/1925.1239.15_web.jpg",
      "site_name": "Biblioteca Marciana",
      "site_ru": "библиотека Марчиана",
      "qid": "Q578460",
@@ -3136,7 +3267,7 @@
      "wid": "59a223c6a2",
      "url": "https://clevelandart.org/art/1925.1239.18",
      "title": "Views:  The Prison, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1925.1239.18/1925.1239.18_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1925.1239.18/1925.1239.18_web.jpg",
      "site_name": "Prigioni Nuove",
      "site_ru": "Новые тюрьмы",
      "qid": "Q55685903",
@@ -3154,7 +3285,7 @@
      "wid": "f51c0efa1b",
      "url": "https://clevelandart.org/art/1925.1239.22",
      "title": "Views:  The Procurator's Palace and the Church of St. Géminien, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1925.1239.22/1925.1239.22_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1925.1239.22/1925.1239.22_web.jpg",
      "site_name": "Piazza San Marco",
      "site_ru": "площадь Сан-Марко",
      "qid": "Q217527",
@@ -3172,7 +3303,7 @@
      "wid": "f9923176a8",
      "url": "https://clevelandart.org/art/1938.141",
      "title": "Grand Canal, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1938.141/1938.141_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1938.141/1938.141_web.jpg",
      "site_name": "Canal Grande",
      "site_ru": "Большой канал",
      "qid": "Q309243",
@@ -3190,7 +3321,7 @@
      "wid": "24e38e7978",
      "url": "https://clevelandart.org/art/1978.136.16",
      "title": "Views of Venice:  Grand Canal",
-     "image": "https://openaccess-cdn.clevelandart.org/1978.136.16/1978.136.16_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1978.136.16/1978.136.16_web.jpg",
      "site_name": "Canal Grande",
      "site_ru": "Большой канал",
      "qid": "Q309243",
@@ -3208,7 +3339,7 @@
      "wid": "7839d8c1d9",
      "url": "https://clevelandart.org/art/1997.40",
      "title": "Santa Maria della Salute, View of the Grand Canal, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/1997.40/1997.40_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1997.40/1997.40_web.jpg",
      "site_name": "Santa Maria della Salute",
      "site_ru": "Санта-Мария-делла-Салюте",
      "qid": "Q52531",
@@ -3226,7 +3357,7 @@
      "wid": "59a05a1cff",
      "url": "https://clevelandart.org/art/2008.321",
      "title": "Grand Canal, Venice",
-     "image": "https://openaccess-cdn.clevelandart.org/2008.321/2008.321_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2008.321/2008.321_web.jpg",
      "site_name": "Canal Grande",
      "site_ru": "Большой канал",
      "qid": "Q309243",
@@ -8035,6 +8166,34 @@
    ]
   },
   {
+   "id": "gavana",
+   "name": "Гавана",
+   "name_orig": null,
+   "country": "Куба",
+   "area": "Латинская Америка",
+   "lat": 23.1136,
+   "lon": -82.3666,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%93%D0%B0%D0%B2%D0%B0%D0%BD%D0%B0",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "gamburg",
    "name": "Гамбург",
    "name_orig": null,
@@ -8210,6 +8369,34 @@
    "halls": [
     [
      "../salon/?city=%D0%93%D0%B5%D0%BD%D1%83%D1%8F",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "gonkong",
+   "name": "Гонконг",
+   "name_orig": null,
+   "country": "Китай",
+   "area": "Азия",
+   "lat": 22.3193,
+   "lon": 114.1694,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%93%D0%BE%D0%BD%D0%BA%D0%BE%D0%BD%D0%B3",
      "Салон открытий: листы этого города"
     ],
     [
@@ -8436,6 +8623,34 @@
    ]
   },
   {
+   "id": "damask",
+   "name": "Дамаск",
+   "name_orig": null,
+   "country": "Сирия",
+   "area": "Азия",
+   "lat": 33.5138,
+   "lon": 36.2765,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%94%D0%B0%D0%BC%D0%B0%D1%81%D0%BA",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "daulas-abbatstvo",
    "name": "Даулас (аббатство)",
    "name_orig": "Daoulas",
@@ -8473,6 +8688,34 @@
     [
      "../salon/?city=%D0%94%D0%B0%D1%83%D0%BB%D0%B0%D1%81%20%28%D0%B0%D0%B1%D0%B1%D0%B0%D1%82%D1%81%D1%82%D0%B2%D0%BE%29",
      "Салон открытий: листы этого города"
+    ]
+   ]
+  },
+  {
+   "id": "deli",
+   "name": "Дели",
+   "name_orig": null,
+   "country": "Индия",
+   "area": "Азия",
+   "lat": 28.6139,
+   "lon": 77.209,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%94%D0%B5%D0%BB%D0%B8",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
     ]
    ]
   },
@@ -8652,6 +8895,33 @@
     [
      "../world/",
      "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "dublin",
+   "name": "Дублин",
+   "name_orig": null,
+   "country": "Ирландия",
+   "area": "Европа",
+   "lat": 53.3498,
+   "lon": -6.2603,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": [
+    429.7,
+    695.7
+   ],
+   "xy_approx": true,
+   "halls": [
+    [
+     "../salon/?city=%D0%94%D1%83%D0%B1%D0%BB%D0%B8%D0%BD",
+     "Салон открытий: листы этого города"
     ]
    ]
   },
@@ -9305,6 +9575,34 @@
    ]
   },
   {
+   "id": "ierusalim",
+   "name": "Иерусалим",
+   "name_orig": null,
+   "country": "Палестина / Израиль",
+   "area": "Азия",
+   "lat": 31.7767,
+   "lon": 35.2345,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%98%D0%B5%D1%80%D1%83%D1%81%D0%B0%D0%BB%D0%B8%D0%BC",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "york",
    "name": "Йорк",
    "name_orig": null,
@@ -9399,6 +9697,62 @@
    "halls": [
     [
      "../salon/?city=%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "kair",
+   "name": "Каир",
+   "name_orig": null,
+   "country": "Египет",
+   "area": "Африка",
+   "lat": 30.0444,
+   "lon": 31.2357,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9A%D0%B0%D0%B8%D1%80",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "kalkutta",
+   "name": "Калькутта",
+   "name_orig": null,
+   "country": "Индия",
+   "area": "Азия",
+   "lat": 22.5726,
+   "lon": 88.3639,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D1%82%D1%82%D0%B0",
      "Салон открытий: листы этого города"
     ],
     [
@@ -9648,6 +10002,34 @@
    ]
   },
   {
+   "id": "kvebek",
+   "name": "Квебек",
+   "name_orig": null,
+   "country": "Канада",
+   "area": "Северная Америка",
+   "lat": 46.8139,
+   "lon": -71.208,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9A%D0%B2%D0%B5%D0%B1%D0%B5%D0%BA",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "kembridzh",
    "name": "Кембридж",
    "name_orig": null,
@@ -9736,6 +10118,34 @@
    "halls": [
     [
      "../salon/?city=%D0%9A%D0%B8%D0%B5%D0%B2",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "kioto",
+   "name": "Киото",
+   "name_orig": null,
+   "country": "Япония",
+   "area": "Азия",
+   "lat": 35.0116,
+   "lon": 135.7681,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9A%D0%B8%D0%BE%D1%82%D0%BE",
      "Салон открытий: листы этого города"
     ],
     [
@@ -10806,7 +11216,7 @@
      "wid": "059f07a7b6",
      "url": "https://clevelandart.org/art/1924.51",
      "title": "Old Westminster Bridge",
-     "image": "https://openaccess-cdn.clevelandart.org/1924.51/1924.51_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1924.51/1924.51_web.jpg",
      "site_name": "Westminster Bridge",
      "site_ru": "Вестминстерский мост",
      "qid": "Q456960",
@@ -10824,7 +11234,7 @@
      "wid": "3754b62a88",
      "url": "https://clevelandart.org/art/1925.602",
      "title": "Palace of Westminster",
-     "image": "https://openaccess-cdn.clevelandart.org/1925.602/1925.602_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1925.602/1925.602_web.jpg",
      "site_name": "Palace of Westminster",
      "site_ru": "Вестминстерский дворец",
      "qid": "Q62408",
@@ -10842,7 +11252,7 @@
      "wid": "57c3b2831e",
      "url": "https://clevelandart.org/art/1928.643",
      "title": "Views of London:  New Palace Yard with Westminster Hall, and the Clock House",
-     "image": "https://openaccess-cdn.clevelandart.org/1928.643/1928.643_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1928.643/1928.643_web.jpg",
      "site_name": "New Palace Yard",
      "site_ru": "Нью-Пэлас-Ярд",
      "qid": "Q3875347",
@@ -10860,7 +11270,7 @@
      "wid": "12c99aab99",
      "url": "https://clevelandart.org/art/1941.96",
      "title": "View of London:  New Palace Yard with Westminster Hall, and the Clock House",
-     "image": "https://openaccess-cdn.clevelandart.org/1941.96/1941.96_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1941.96/1941.96_web.jpg",
      "site_name": "New Palace Yard",
      "site_ru": "Нью-Пэлас-Ярд",
      "qid": "Q3875347",
@@ -10878,7 +11288,7 @@
      "wid": "e0e0ad71ca",
      "url": "https://clevelandart.org/art/1946.10.h",
      "title": "London As It Is:  Westminster, from Waterloo Bridge",
-     "image": "https://openaccess-cdn.clevelandart.org/1946.10.h/1946.10.h_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1946.10.h/1946.10.h_web.jpg",
      "site_name": "Palace of Westminster",
      "site_ru": "Вестминстерский дворец",
      "qid": "Q62408",
@@ -10896,7 +11306,7 @@
      "wid": "00d7484502",
      "url": "https://clevelandart.org/art/1946.305",
      "title": "Westminster Bridge, or Westminster Tower",
-     "image": "https://openaccess-cdn.clevelandart.org/1946.305/1946.305_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1946.305/1946.305_web.jpg",
      "site_name": "Westminster Bridge",
      "site_ru": "Вестминстерский мост",
      "qid": "Q456960",
@@ -10914,7 +11324,7 @@
      "wid": "459c3b4f86",
      "url": "https://clevelandart.org/art/1966.82",
      "title": "Old Westminster Bridge",
-     "image": "https://openaccess-cdn.clevelandart.org/1966.82/1966.82_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1966.82/1966.82_web.jpg",
      "site_name": "Westminster Bridge",
      "site_ru": "Вестминстерский мост",
      "qid": "Q456960",
@@ -10932,7 +11342,7 @@
      "wid": "96ef169dbe",
      "url": "https://clevelandart.org/art/1924.870",
      "title": "Westminster Hall, Interior, with The Trial of the Earl of Strafford",
-     "image": "https://openaccess-cdn.clevelandart.org/1924.870/1924.870_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1924.870/1924.870_web.jpg",
      "site_name": "Westminster Hall",
      "site_ru": "Вестминстер-холл",
      "qid": "Q114004148",
@@ -10950,7 +11360,7 @@
      "wid": "ee9a0f5de5",
      "url": "https://clevelandart.org/art/1946.10.i",
      "title": "London As It Is:  Westminster Abbey",
-     "image": "https://openaccess-cdn.clevelandart.org/1946.10.i/1946.10.i_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1946.10.i/1946.10.i_web.jpg",
      "site_name": "Westminster Abbey",
      "site_ru": "Вестминстерское аббатство",
      "qid": "Q5933",
@@ -10968,7 +11378,7 @@
      "wid": "6d70e0f0a3",
      "url": "https://clevelandart.org/art/2014.247",
      "title": "London from Greenwich",
-     "image": "https://openaccess-cdn.clevelandart.org/2014.247/2014.247_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2014.247/2014.247_web.jpg",
      "site_name": "Greenwich Park",
      "site_ru": "Гринвичский парк",
      "qid": "Q929586",
@@ -12513,6 +12923,34 @@
     [
      "../salon/?city=%D0%9C%D0%B5%D0%BD%D0%B3%D0%B8%D1%80%D1%8B%20%D0%9A%D0%B5%D1%80%D0%B3%D0%B0%D0%B4%D1%8C%D1%8E%20%28%D0%9F%D0%BB%D1%83%D1%80%D0%B5%D0%BD%29",
      "Салон открытий: листы этого города"
+    ]
+   ]
+  },
+  {
+   "id": "mekhiko",
+   "name": "Мехико",
+   "name_orig": null,
+   "country": "Мексика",
+   "area": "Латинская Америка",
+   "lat": 19.4326,
+   "lon": -99.1332,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9C%D0%B5%D1%85%D0%B8%D0%BA%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
     ]
    ]
   },
@@ -14169,6 +14607,34 @@
    ]
   },
   {
+   "id": "mumbai",
+   "name": "Мумбаи",
+   "name_orig": null,
+   "country": "Индия",
+   "area": "Азия",
+   "lat": 19.076,
+   "lon": 72.8777,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9C%D1%83%D0%BC%D0%B1%D0%B0%D0%B8",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "mys-sen-mate-abbatstvo-i-mayak",
    "name": "Мыс Сен-Матьё (аббатство и маяк)",
    "name_orig": "Pointe Saint-Mathieu",
@@ -14636,7 +15102,7 @@
      "wid": "ed11050e34",
      "url": "https://clevelandart.org/art/1997.13",
      "title": "The King's Palace, Naples",
-     "image": "https://openaccess-cdn.clevelandart.org/1997.13/1997.13_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1997.13/1997.13_web.jpg",
      "site_name": "Palazzo Reale di Napoli",
      "site_ru": "Королевский дворец (Неаполь)",
      "qid": "Q426339",
@@ -14654,7 +15120,7 @@
      "wid": "34c53b9007",
      "url": "https://clevelandart.org/art/2018.436",
      "title": "Farnese Hercules, Museum of Naples, Italy",
-     "image": "https://openaccess-cdn.clevelandart.org/2018.436/2018.436_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2018.436/2018.436_web.jpg",
      "site_name": "Museo Archeologico Nazionale di Napoli",
      "site_ru": "Национальный археологический музей Неаполя",
      "qid": "Q637248",
@@ -14672,7 +15138,7 @@
      "wid": "262a401ef3",
      "url": "https://clevelandart.org/art/1983.14",
      "title": "View of the Gulf of Pozzuoli from Solfatara",
-     "image": "https://openaccess-cdn.clevelandart.org/1983.14/1983.14_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1983.14/1983.14_web.jpg",
      "site_name": "Solfatara (Pozzuoli)",
      "site_ru": "Сольфатара",
      "qid": "Q943209",
@@ -15466,6 +15932,62 @@
    "halls": [
     [
      "../salon/?city=%D0%9D%D0%B8%D1%86%D1%86%D0%B0",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "novyy-orlean",
+   "name": "Новый Орлеан",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 29.9511,
+   "lon": -90.0715,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%9E%D1%80%D0%BB%D0%B5%D0%B0%D0%BD",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "nyu-york",
+   "name": "Нью-Йорк",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 40.7128,
+   "lon": -74.006,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9D%D1%8C%D1%8E-%D0%99%D0%BE%D1%80%D0%BA",
      "Салон открытий: листы этого города"
     ],
     [
@@ -18201,7 +18723,7 @@
      "wid": "90e5181677",
      "url": "https://clevelandart.org/art/1937.632",
      "title": "Etchings of Paris:  The Apsis of the Cathedral of Notre Dame",
-     "image": "https://openaccess-cdn.clevelandart.org/1937.632/1937.632_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1937.632/1937.632_web.jpg",
      "site_name": "Cathédrale Notre-Dame de Paris",
      "site_ru": "собор Парижской Богоматери",
      "qid": "Q2981",
@@ -18219,7 +18741,7 @@
      "wid": "d8ca23b739",
      "url": "https://clevelandart.org/art/1942.751",
      "title": "Etchings of Paris:  The Apse of the Cathedral of Notre Dame",
-     "image": "https://openaccess-cdn.clevelandart.org/1942.751/1942.751_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1942.751/1942.751_web.jpg",
      "site_name": "Cathédrale Notre-Dame de Paris",
      "site_ru": "собор Парижской Богоматери",
      "qid": "Q2981",
@@ -18237,7 +18759,7 @@
      "wid": "23f0a67cab",
      "url": "https://clevelandart.org/art/1950.219.11",
      "title": "A Selection of Twenty of the Most Picturesque Views in Paris:  View of Pont de la Tournelle and Notre Dame taken from the Arsenal",
-     "image": "https://openaccess-cdn.clevelandart.org/1950.219.11/1950.219.11_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1950.219.11/1950.219.11_web.jpg",
      "site_name": "Pont de la Tournelle",
      "site_ru": "мост Турнель",
      "qid": "Q21500144",
@@ -18255,7 +18777,7 @@
      "wid": "9ba52b9c9f",
      "url": "https://clevelandart.org/art/1950.219.7",
      "title": "A Selection of Twenty of the Most Picturesque Views in Paris:  View of Pont Neuf, part of the Louvre, Notre Dame, and the College of Four Na",
-     "image": "https://openaccess-cdn.clevelandart.org/1950.219.7/1950.219.7_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1950.219.7/1950.219.7_web.jpg",
      "site_name": "Pont Neuf",
      "site_ru": "Новый мост",
      "qid": "Q335277",
@@ -18273,7 +18795,7 @@
      "wid": "dd89896d68",
      "url": "https://clevelandart.org/art/1950.219.9",
      "title": "A Selection of Twenty of the Most Picturesque Views in Paris:  View of Pont au Change, the City Theatre, Pont Neuf, Conciergerie Prison, and",
-     "image": "https://openaccess-cdn.clevelandart.org/1950.219.9/1950.219.9_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1950.219.9/1950.219.9_web.jpg",
      "site_name": "Pont au Change",
      "site_ru": "мост Менял",
      "qid": "Q124813081",
@@ -18291,7 +18813,7 @@
      "wid": "c2df0e01cd",
      "url": "https://clevelandart.org/art/1953.681",
      "title": "Etchings of Paris:  An Arch of the Notre Dame Bridge",
-     "image": "https://openaccess-cdn.clevelandart.org/1953.681/1953.681_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1953.681/1953.681_web.jpg",
      "site_name": "Pont Notre-Dame",
      "site_ru": "мост Нотр-Дам",
      "qid": "Q21500125",
@@ -18309,7 +18831,7 @@
      "wid": "5c5889e92a",
      "url": "https://clevelandart.org/art/1954.882",
      "title": "Etchings of Paris:  An Arch of the Notre Dame Bridge",
-     "image": "https://openaccess-cdn.clevelandart.org/1954.882/1954.882_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1954.882/1954.882_web.jpg",
      "site_name": "Pont Notre-Dame",
      "site_ru": "мост Нотр-Дам",
      "qid": "Q21500125",
@@ -18327,7 +18849,7 @@
      "wid": "29f359d62c",
      "url": "https://clevelandart.org/art/1954.895",
      "title": "Etchings of Paris:  The Apse of the Cathedral of Notre Dame",
-     "image": "https://openaccess-cdn.clevelandart.org/1954.895/1954.895_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1954.895/1954.895_web.jpg",
      "site_name": "Cathédrale Notre-Dame de Paris",
      "site_ru": "собор Парижской Богоматери",
      "qid": "Q2981",
@@ -18345,7 +18867,7 @@
      "wid": "b7a96cb148",
      "url": "https://clevelandart.org/art/2006.227",
      "title": "A Selection of Twenty of the Most Picturesque Views in Paris: View of Pont au Change, the City Theatre, Pont Neuf, Conciergerie Prison, &c t",
-     "image": "https://openaccess-cdn.clevelandart.org/2006.227/2006.227_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2006.227/2006.227_web.jpg",
      "site_name": "Pont au Change",
      "site_ru": "мост Менял",
      "qid": "Q124813081",
@@ -18363,7 +18885,7 @@
      "wid": "d584c5d65b",
      "url": "https://clevelandart.org/art/2006.230",
      "title": "A Selection of Twenty of the Most Picturesque Views in Paris: View of the Pont de la Tournelle & Notre Dame Taken from the Arsenal",
-     "image": "https://openaccess-cdn.clevelandart.org/2006.230/2006.230_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2006.230/2006.230_web.jpg",
      "site_name": "Pont de la Tournelle",
      "site_ru": "мост Турнель",
      "qid": "Q21500144",
@@ -18381,7 +18903,7 @@
      "wid": "1153d6f5f1",
      "url": "https://clevelandart.org/art/2006.243",
      "title": "A Selection of Twenty of the Most Picturesque Views in Paris: View of Pont de la Tournelle & Notre Dame taken from the Arsenal",
-     "image": "https://openaccess-cdn.clevelandart.org/2006.243/2006.243_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2006.243/2006.243_web.jpg",
      "site_name": "Pont de la Tournelle",
      "site_ru": "мост Турнель",
      "qid": "Q21500144",
@@ -18399,7 +18921,7 @@
      "wid": "7346a7ee96",
      "url": "https://clevelandart.org/art/2006.245",
      "title": "Boulevard Montmartre",
-     "image": "https://openaccess-cdn.clevelandart.org/2006.245/2006.245_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2006.245/2006.245_web.jpg",
      "site_name": "Boulevard Montmartre",
      "site_ru": "бульвар Монмартр",
      "qid": "Q1027566",
@@ -18417,7 +18939,7 @@
      "wid": "0bc277153f",
      "url": "https://clevelandart.org/art/1921.1363",
      "title": "Le Boulevard Montmartre, le Soir",
-     "image": "https://openaccess-cdn.clevelandart.org/1921.1363/1921.1363_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1921.1363/1921.1363_web.jpg",
      "site_name": "Boulevard Montmartre",
      "site_ru": "бульвар Монмартр",
      "qid": "Q1027566",
@@ -18435,7 +18957,7 @@
      "wid": "e48cd2ee44",
      "url": "https://clevelandart.org/art/2007.253",
      "title": "Boulevard Montmartre, Evening",
-     "image": "https://openaccess-cdn.clevelandart.org/2007.253/2007.253_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2007.253/2007.253_web.jpg",
      "site_name": "Boulevard Montmartre",
      "site_ru": "бульвар Монмартр",
      "qid": "Q1027566",
@@ -18453,7 +18975,7 @@
      "wid": "8b77da71bd",
      "url": "https://clevelandart.org/art/1920.144",
      "title": "Moulin de la Gallette, Montmartre",
-     "image": "https://openaccess-cdn.clevelandart.org/1920.144/1920.144_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1920.144/1920.144_web.jpg",
      "site_name": "Moulin de la Galette",
      "site_ru": "Мулен-де-ла-Галетт",
      "qid": "Q924480",
@@ -18471,7 +18993,7 @@
      "wid": "37617abfd8",
      "url": "https://clevelandart.org/art/1921.1312",
      "title": "Notre Dame vue du Marché aux pommes",
-     "image": "https://openaccess-cdn.clevelandart.org/1921.1312/1921.1312_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1921.1312/1921.1312_web.jpg",
      "site_name": "Cathédrale Notre-Dame de Paris",
      "site_ru": "собор Парижской Богоматери",
      "qid": "Q2981",
@@ -18489,7 +19011,7 @@
      "wid": "2ac006f0b0",
      "url": "https://clevelandart.org/art/1921.1350",
      "title": "Notre Dame, le Soir",
-     "image": "https://openaccess-cdn.clevelandart.org/1921.1350/1921.1350_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1921.1350/1921.1350_web.jpg",
      "site_name": "Cathédrale Notre-Dame de Paris",
      "site_ru": "собор Парижской Богоматери",
      "qid": "Q2981",
@@ -18507,7 +19029,7 @@
      "wid": "f2b9ac3144",
      "url": "https://clevelandart.org/art/1921.1364",
      "title": "Le Stryge de Notre Dame",
-     "image": "https://openaccess-cdn.clevelandart.org/1921.1364/1921.1364_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1921.1364/1921.1364_web.jpg",
      "site_name": "Cathédrale Notre-Dame de Paris",
      "site_ru": "собор Парижской Богоматери",
      "qid": "Q2981",
@@ -18525,7 +19047,7 @@
      "wid": "0d788c5baa",
      "url": "https://clevelandart.org/art/1922.147",
      "title": "L'arch du Pont Notre Dame, Paris",
-     "image": "https://openaccess-cdn.clevelandart.org/1922.147/1922.147_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1922.147/1922.147_web.jpg",
      "site_name": "Pont Notre-Dame",
      "site_ru": "мост Нотр-Дам",
      "qid": "Q21500125",
@@ -30396,6 +30918,34 @@
    ]
   },
   {
+   "id": "pekin",
+   "name": "Пекин",
+   "name_orig": null,
+   "country": "Китай",
+   "area": "Азия",
+   "lat": 39.9042,
+   "lon": 116.4074,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9F%D0%B5%D0%BA%D0%B8%D0%BD",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "piza",
    "name": "Пиза",
    "name_orig": null,
@@ -30633,7 +31183,7 @@
      "wid": "27149e5a94",
      "url": "https://clevelandart.org/art/2014.235",
      "title": "Facisimilies of Sketches made in Flanders and Germany: Hotel de Ville, Prague",
-     "image": "https://openaccess-cdn.clevelandart.org/2014.235/2014.235_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2014.235/2014.235_web.jpg",
      "site_name": "Staroměstská radnice",
      "site_ru": "Староместская ратуша",
      "qid": "Q2332231",
@@ -30647,7 +31197,7 @@
      "wid": "ba596731fc",
      "url": "https://clevelandart.org/art/2014.236",
      "title": "Facisimilies of Sketches made in Flanders and Germany: Thein Church, Prague",
-     "image": "https://openaccess-cdn.clevelandart.org/2014.236/2014.236_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2014.236/2014.236_web.jpg",
      "site_name": "Kostel Matky Boží před Týnem",
      "site_ru": "Тынский храм",
      "qid": "Q1453427",
@@ -32556,7 +33106,7 @@
      "wid": "64fa693216",
      "url": "https://clevelandart.org/art/1922.225",
      "title": "Views of Rome:  The Colosseum",
-     "image": "https://openaccess-cdn.clevelandart.org/1922.225/1922.225_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1922.225/1922.225_web.jpg",
      "site_name": "Colosseo",
      "site_ru": "Колизей",
      "qid": "Q10285",
@@ -32574,7 +33124,7 @@
      "wid": "f255192d3f",
      "url": "https://clevelandart.org/art/1943.257",
      "title": "Eighteen Views of Rome: The Piazza Farnese (recto); Cartouche (verso)",
-     "image": "https://openaccess-cdn.clevelandart.org/1943.257/1943.257_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1943.257/1943.257_web.jpg",
      "site_name": "Piazza Farnese",
      "site_ru": "площадь Фарнезе",
      "qid": "Q2091963",
@@ -32592,7 +33142,7 @@
      "wid": "71eae1bb3a",
      "url": "https://clevelandart.org/art/1943.257.a",
      "title": "Eighteen Views of Rome: The Piazza Farnese (recto)",
-     "image": "https://openaccess-cdn.clevelandart.org/1943.257.a/1943.257.a_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1943.257.a/1943.257.a_web.jpg",
      "site_name": "Piazza Farnese",
      "site_ru": "площадь Фарнезе",
      "qid": "Q2091963",
@@ -32610,7 +33160,7 @@
      "wid": "7b14139cb0",
      "url": "https://clevelandart.org/art/1943.258",
      "title": "Eighteen Views of Rome: The Piazza Colonna",
-     "image": "https://openaccess-cdn.clevelandart.org/1943.258/1943.258_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1943.258/1943.258_web.jpg",
      "site_name": "Piazza Colonna",
      "site_ru": "площадь Колонна",
      "qid": "Q63785",
@@ -32628,7 +33178,7 @@
      "wid": "ad8e87e7ca",
      "url": "https://clevelandart.org/art/1943.264",
      "title": "Eighteen Views of Rome: The Campidoglio",
-     "image": "https://openaccess-cdn.clevelandart.org/1943.264/1943.264_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1943.264/1943.264_web.jpg",
      "site_name": "Piazza del Campidoglio",
      "site_ru": "площадь Капитолия",
      "qid": "Q34921",
@@ -32646,7 +33196,7 @@
      "wid": "3d110ab433",
      "url": "https://clevelandart.org/art/2022.129",
      "title": "A View of the Vestibule of St. Peter at Rome",
-     "image": "https://openaccess-cdn.clevelandart.org/2022.129/2022.129_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2022.129/2022.129_web.jpg",
      "site_name": "Basilica di San Pietro",
      "site_ru": "собор Святого Петра",
      "qid": "Q12512",
@@ -32664,7 +33214,7 @@
      "wid": "16d3f1d480",
      "url": "https://clevelandart.org/art/2022.130",
      "title": "A View of the Vestibule of St. Peter at Rome",
-     "image": "https://openaccess-cdn.clevelandart.org/2022.130/2022.130_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2022.130/2022.130_web.jpg",
      "site_name": "Basilica di San Pietro",
      "site_ru": "собор Святого Петра",
      "qid": "Q12512",
@@ -32682,7 +33232,7 @@
      "wid": "3b6b6fd1d7",
      "url": "https://clevelandart.org/art/2021.144",
      "title": "The Pyramid of Cestius, Rome",
-     "image": "https://openaccess-cdn.clevelandart.org/2021.144/2021.144_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2021.144/2021.144_web.jpg",
      "site_name": "Piramide Cestia",
      "site_ru": "пирамида Цестия",
      "qid": "Q725404",
@@ -32700,7 +33250,7 @@
      "wid": "4a84840fea",
      "url": "https://clevelandart.org/art/1975.149",
      "title": "The Arch of Titus and the Coliseum, Rome",
-     "image": "https://openaccess-cdn.clevelandart.org/1975.149/1975.149_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1975.149/1975.149_web.jpg",
      "site_name": "Arco di Tito",
      "site_ru": "арка Тита",
      "qid": "Q723887",
@@ -40496,6 +41046,34 @@
    ]
   },
   {
+   "id": "san-frantsisko",
+   "name": "Сан-Франциско",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 37.7749,
+   "lon": -122.4194,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A1%D0%B0%D0%BD-%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%81%D0%BA%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "sankt-peterburg",
    "name": "Санкт-Петербург",
    "name_orig": null,
@@ -41532,6 +42110,34 @@
    ]
   },
   {
+   "id": "sidney",
+   "name": "Сидней",
+   "name_orig": null,
+   "country": "Австралия",
+   "area": "Океания",
+   "lat": -33.8688,
+   "lon": 151.2093,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A1%D0%B8%D0%B4%D0%BD%D0%B5%D0%B9",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "sintra",
    "name": "Синтра",
    "name_orig": null,
@@ -41552,6 +42158,37 @@
    "halls": [
     [
      "../salon/?city=%D0%A1%D0%B8%D0%BD%D1%82%D1%80%D0%B0",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "stambul",
+   "name": "Стамбул",
+   "name_orig": null,
+   "country": "Турция",
+   "area": "Азия",
+   "lat": 41.0082,
+   "lon": 28.9784,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": [
+    1321.7,
+    1249.2
+   ],
+   "xy_approx": true,
+   "halls": [
+    [
+     "../salon/?city=%D0%A1%D1%82%D0%B0%D0%BC%D0%B1%D1%83%D0%BB",
      "Салон открытий: листы этого города"
     ],
     [
@@ -41672,6 +42309,37 @@
    ]
   },
   {
+   "id": "tbilisi",
+   "name": "Тбилиси",
+   "name_orig": null,
+   "country": "Грузия",
+   "area": "Азия",
+   "lat": 41.7151,
+   "lon": 44.8271,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": [
+    1776.5,
+    1092.2
+   ],
+   "xy_approx": true,
+   "halls": [
+    [
+     "../salon/?city=%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "tivoli",
    "name": "Тиволи",
    "name_orig": "Tivoli",
@@ -41709,6 +42377,34 @@
     [
      "../salon/?city=%D0%A2%D0%B8%D0%B2%D0%BE%D0%BB%D0%B8",
      "Салон открытий: листы этого города"
+    ]
+   ]
+  },
+  {
+   "id": "tokio",
+   "name": "Токио",
+   "name_orig": null,
+   "country": "Япония",
+   "area": "Азия",
+   "lat": 35.6762,
+   "lon": 139.6503,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A2%D0%BE%D0%BA%D0%B8%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
     ]
    ]
   },
@@ -43184,6 +43880,37 @@
    ]
   },
   {
+   "id": "tunis",
+   "name": "Тунис",
+   "name_orig": null,
+   "country": "Тунис",
+   "area": "Африка",
+   "lat": 36.8065,
+   "lon": 10.1815,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": [
+    749.1,
+    1439.7
+   ],
+   "xy_approx": true,
+   "halls": [
+    [
+     "../salon/?city=%D0%A2%D1%83%D0%BD%D0%B8%D1%81",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "turin",
    "name": "Турин",
    "name_orig": null,
@@ -43204,6 +43931,34 @@
    "halls": [
     [
      "../salon/?city=%D0%A2%D1%83%D1%80%D0%B8%D0%BD",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "filadelfiya",
+   "name": "Филадельфия",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 39.9526,
+   "lon": -75.1652,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A4%D0%B8%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%84%D0%B8%D1%8F",
      "Салон открытий: листы этого города"
     ],
     [
@@ -44047,7 +44802,7 @@
      "wid": "b2474e23d6",
      "url": "https://clevelandart.org/art/1988.140",
      "title": "The Ponte Vecchio, Florence",
-     "image": "https://openaccess-cdn.clevelandart.org/1988.140/1988.140_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/1988.140/1988.140_web.jpg",
      "site_name": "Ponte Vecchio",
      "site_ru": "Понте-Веккьо",
      "qid": "Q208633",
@@ -44061,7 +44816,7 @@
      "wid": "dd267c65a6",
      "url": "https://clevelandart.org/art/2011.192",
      "title": "Study for the \"Essequie\" Conducted in San Lorenzo, Florence, in 1637 in Honour of Holy Roman Emperor Ferdinand II",
-     "image": "https://openaccess-cdn.clevelandart.org/2011.192/2011.192_print.jpg",
+     "image": "https://openaccess-cdn.clevelandart.org/2011.192/2011.192_web.jpg",
      "site_name": "Basilica di San Lorenzo",
      "site_ru": "базилика Сан-Лоренцо",
      "qid": "Q573881",
@@ -45358,6 +46113,34 @@
    ]
   },
   {
+   "id": "chikago",
+   "name": "Чикаго",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 41.8781,
+   "lon": -87.6298,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A7%D0%B8%D0%BA%D0%B0%D0%B3%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "shamberi",
    "name": "Шамбери",
    "name_orig": null,
@@ -45379,6 +46162,34 @@
     [
      "../salon/?city=%D0%A8%D0%B0%D0%BC%D0%B1%D0%B5%D1%80%D0%B8",
      "Салон открытий: листы этого города"
+    ]
+   ]
+  },
+  {
+   "id": "shankhay",
+   "name": "Шанхай",
+   "name_orig": null,
+   "country": "Китай",
+   "area": "Азия",
+   "lat": 31.2304,
+   "lon": 121.4737,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A8%D0%B0%D0%BD%D1%85%D0%B0%D0%B9",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
     ]
    ]
   },
