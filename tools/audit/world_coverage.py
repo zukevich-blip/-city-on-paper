@@ -47,6 +47,9 @@ def build(root: Path) -> dict:
     for key, relative in FILES.items():
         file = root / relative
         if not file.is_file():
+            if key == "commons2":  # optional: world open views (LoC / Commons collectors)
+                sources[key] = {"items": []}
+                continue
             raise FileNotFoundError(f"Required museum data missing: {relative}")
         sources[key] = json.loads(file.read_text(encoding="utf-8"))
     records = {}
