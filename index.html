@@ -260,6 +260,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <link rel="stylesheet" href="assets/hybrid/tokens.css">
 <link rel="stylesheet" href="assets/hybrid/museum.css">
 <link rel="stylesheet" href="assets/hybrid/engraving.css">
+<link rel="stylesheet" href="assets/story/first-visit-experiment.css">
+<script src="assets/story/first-visit-experiment.js" defer></script>
 <script src="assets/nav/museum-nav.js" defer></script>
 </head>
 <body class="cop-engraved">
@@ -308,6 +310,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
   <div class="front-map wow-visual" aria-label="Пример: церковь Мадлен на литографии и современной фотографии">
     <div class="wow-visual-top"><span>ПАРИЖ · ЦЕРКОВЬ МАДЛЕН</span><strong>Два века. Один адрес.</strong></div>
+    <div class="wow-picture-controls" role="group" aria-label="Покажите один год или оба вида рядом">
+      <span>Попробуйте переключить время</span>
+      <button type="button" data-wow-view="pair" aria-pressed="true">Рядом</button>
+      <button type="button" data-wow-view="past" aria-pressed="false">XIX век</button>
+      <button type="button" data-wow-view="now" aria-pressed="false">Сегодня</button>
+    </div>
     <div class="wow-duet">
       <figure>
         <img src="assets/web/poc-compare-pairs-madeleine-historic-loc-pga14315v-720.jpg" data-full="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" width="1024" height="750" alt="Церковь Мадлен в Париже на раскрашенной литографии Филиппа Бенуа, 1845–1860 годы" loading="eager" decoding="async" fetchpriority="high">
@@ -318,6 +326,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         <figcaption><b>СЕЙЧАС</b><span>Фотография · 2026</span></figcaption>
       </figure>
     </div>
+    <p id="wowViewStatus" role="status" aria-live="polite">Два вида рядом. Это одно здание, но изображения сняты с разных точек.</p>
     <div class="wow-visual-bottom">
       <span>Один памятник, но разные точки наблюдения. В просмотрщике это отмечено.</span>
       <a href="poc/compare/#madeleine-ph-benoist">Сравнить изображения <span aria-hidden="true">↗</span></a>
@@ -329,6 +338,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     <a href="eras/#/city/paris"><span class="wow-feature-num">02</span><strong>Путешествовать по картам</strong><small>Старый план и город сегодня</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="eras/#/city/paris"><span class="wow-feature-num">03</span><strong>Искать взгляд художника</strong><small>Где стоял автор, что он видел</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="salon/"><span class="wow-feature-num">04</span><strong>Раскрывать истории листов</strong><small>Авторы, места, судьбы и источники</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+  </div>
+  <div class="wow-print-quiz" id="wowPrintQuiz" aria-label="Короткая загадка по подлинной литографии">
+    <div><small>20 СЕКУНД · ИСТОРИЧЕСКИЙ ДЕТЕКТИВ</small>
+      <strong>На литографии написано «Imp. Lemercier». Кто это?</strong>
+    </div>
+    <div class="wow-print-options" role="group" aria-label="Выберите ответ">
+      <button type="button" data-wow-answer="artist" aria-pressed="false">Художник</button>
+      <button type="button" data-wow-answer="printer" aria-pressed="false">Печатная мастерская</button>
+    </div>
+    <p id="wowPrintAnswer" class="wow-print-answer" role="status" aria-live="polite" hidden></p>
+    <a class="wow-print-source" href="https://www.loc.gov/item/2016652452/" target="_blank" rel="noopener noreferrer">Проверить на оригинале в Library of Congress ↗</a>
   </div>
 </div>
 <div class="wow-find">
