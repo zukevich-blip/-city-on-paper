@@ -51,15 +51,15 @@ def key(name: str) -> str:
     return hashlib.sha1(name.encode("utf-8")).hexdigest()[:16]
 
 
-def get(url: str, headers: dict | None = None) -> bytes | None:
+def get(url: str, headers: dict | None = None, limit: int = MAX_BYTES) -> bytes | None:
     for attempt in range(4):
         req = urllib.request.Request(url, headers=headers or {"User-Agent": UA})
         try:
             with urllib.request.urlopen(req, timeout=40) as r:
                 if not r.headers.get("Content-Type", "").startswith("image/"):
                     return None
-                data = r.read(MAX_BYTES + 1)
-                return data if len(data) <= MAX_BYTES else None
+                data = r.read(limit + 1)
+                return data if len(data) <= limit else None
         except urllib.error.HTTPError as e:
             if e.code == 429:
                 time.sleep(8 * (attempt + 1))
@@ -98,17 +98,28 @@ def collect(paths: list[Path]) -> list[str]:
 
 
 AIC = re.compile(r"^https://www\.artic\.edu/iiif/2/[0-9a-f-]{36}/full/\d+,/0/default\.jpg$")
+MUSEUM = re.compile(r"^https://(openaccess-cdn\.clevelandart\.org/|images\.metmuseum\.org/|www\.artic\.edu/iiif/2/|"
+                    r"cdn\.loc\.gov/|tile\.loc\.gov/)")
 
 
 def collect_urls(paths: list[Path]) -> list[str]:
-    """Exact image URLs from hosts that browsers block cross-origin (Art Institute of Chicago IIIF, CC0)."""
+    """Exact image URLs on museum hosts (CMA, Met, AIC, LoC): a light copy is kept on the site, because browsers block
+    some of them cross-origin and the holders' web files are 0.3-8 MB each."""
     out = []
+
+    def add(u: str | None) -> None:
+        if u and MUSEUM.match(u) and u not in out:
+            out.append(u)
+    atlas = json.loads((ROOT / "eras" / "data" / "atlas.json").read_text("utf-8"))
+    for c in atlas["cities"]:
+        for w in c.get("works", []):
+            add(w.get("image"))
+        for x in c.get("sites", []):
+            add(x.get("image"))
     for p in paths:
         d = json.loads(p.read_text("utf-8"))
         for it in d if isinstance(d, list) else d.get("items", []):
-            u = it.get("image") or ""
-            if AIC.match(u) and u not in out:
-                out.append(u)
+            add(it.get("image"))
     return out
 
 
@@ -140,11 +151,13 @@ def main() -> None:
             if n in old:
                 result[n] = old[n]
     for u in collect_urls([Path(a) for a in sys.argv[1:]]):
-        f = OUT / f"aic-{hashlib.sha1(u.encode()).hexdigest()[:16]}.jpg"
+        pre = "aic" if AIC.match(u) else "mus"
+        f = OUT / f"{pre}-{hashlib.sha1(u.encode()).hexdigest()[:16]}.jpg"
         if not f.exists():
             # AIC asks API clients to identify themselves with the AIC-User-Agent header
             data = get(u, {"User-Agent": "CityOnPaper/1.0",
-                           "AIC-User-Agent": "CityOnPaper (github.com/zukevich-blip/-city-on-paper)"})
+                           "AIC-User-Agent": "CityOnPaper (github.com/zukevich-blip/-city-on-paper)"},
+                       limit=3_000_000)
             time.sleep(0.7)
             if not data or data[:3] != b"\xff\xd8\xff":
                 miss.append(u)

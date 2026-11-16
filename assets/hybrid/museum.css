@@ -128,7 +128,8 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
 }
 @media(max-width:720px){
  header{position:sticky;top:0;z-index:20}
- header nav.wrap{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:11px 0 6px;min-height:0}
+ header nav.wrap{display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:9px 16px 4px;min-height:0}
+ header{background:#fbf8f4}
  header .brand{display:block}
  header .brand strong{font-size:23px;line-height:1.15}
  header .brand span{display:none}
@@ -151,7 +152,7 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
    font:600 12px/1.3 var(--cop-ui);
    display:inline-flex;
    align-items:center;
-   min-height:38px;
+   min-height:44px;
    padding:7px 0;
    white-space:nowrap;
  }
@@ -165,3 +166,6 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
  header .navlinks{gap:12px}
  header .navlinks a,header .navlinks button,header .navlinks summary{font-size:11px}
 }
+
+/* sticky header must never cover the top of a section the page scrolls to (hash navigation) */
+html{scroll-padding-top:112px}

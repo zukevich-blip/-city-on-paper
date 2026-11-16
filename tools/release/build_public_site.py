@@ -46,7 +46,7 @@ DATA = (
 )
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
-    "assets/hybrid", "cities", "atlas", "stories", "experience",
+    "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
     "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",

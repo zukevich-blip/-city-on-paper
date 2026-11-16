@@ -136,9 +136,11 @@ def attach_sites_and_plans(rows: list[dict]) -> None:
         if dx * dx + dy * dy > 35 ** 2:
             continue
         img = it.get("image") or ""
+        # never ship a holder's multi-megabyte print master as a preview (Cleveland: *_print.jpg -> *_web.jpg)
+        img = re.sub(r"(openaccess-cdn\.clevelandart\.org/.+)_print\.jpg$", r"\1_web.jpg", img)
         c.setdefault("sites", []).append({
             "wid": wid(it["work_url"]), "url": it["work_url"], "title": (it.get("title") or "")[:140],
-            "image": commons_image(it.get("image")) or (img if img.startswith("https://") else None),
+            "image": commons_image(img) or (img if img.startswith("https://") else None),
             "site_name": it.get("site_name"), "site_ru": it.get("site_name_ru") or it.get("site_name"),
             "qid": it.get("qid"), "lat": round(it["lat"], 6), "lon": round(it["lon"], 6),
             "kind": it.get("kind"), "confidence": it.get("confidence"),
