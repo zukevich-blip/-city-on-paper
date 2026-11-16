@@ -58,7 +58,7 @@
   "Швеция"
  ],
  "counts": {
-  "cities": 196,
+  "cities": 203,
   "benoist_places": 122,
   "benoist_works": 342,
   "benoist_open_images": 163,
@@ -2245,6 +2245,34 @@
    ]
   },
   {
+   "id": "boston",
+   "name": "Бостон",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 42.3601,
+   "lon": -71.0589,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "brest",
    "name": "Брест",
    "name_orig": "Brest",
@@ -2754,6 +2782,34 @@
    "halls": [
     [
      "../salon/?city=%D0%92%D0%B0%D1%80%D1%88%D0%B0%D0%B2%D0%B0",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "vashington",
+   "name": "Вашингтон",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 38.9072,
+   "lon": -77.0369,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%92%D0%B0%D1%88%D0%B8%D0%BD%D0%B3%D1%82%D0%BE%D0%BD",
      "Салон открытий: листы этого города"
     ],
     [
@@ -9828,6 +9884,34 @@
    ]
   },
   {
+   "id": "kvebek",
+   "name": "Квебек",
+   "name_orig": null,
+   "country": "Канада",
+   "area": "Северная Америка",
+   "lat": 46.8139,
+   "lon": -71.208,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9A%D0%B2%D0%B5%D0%B1%D0%B5%D0%BA",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "kembridzh",
    "name": "Кембридж",
    "name_orig": null,
@@ -15646,6 +15730,34 @@
    "halls": [
     [
      "../salon/?city=%D0%9D%D0%B8%D1%86%D1%86%D0%B0",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
+   "id": "novyy-orlean",
+   "name": "Новый Орлеан",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 29.9511,
+   "lon": -90.0715,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%9E%D1%80%D0%BB%D0%B5%D0%B0%D0%BD",
      "Салон открытий: листы этого города"
     ],
     [
@@ -40704,6 +40816,34 @@
    ]
   },
   {
+   "id": "san-frantsisko",
+   "name": "Сан-Франциско",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 37.7749,
+   "lon": -122.4194,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A1%D0%B0%D0%BD-%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%81%D0%BA%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "sankt-peterburg",
    "name": "Санкт-Петербург",
    "name_orig": null,
@@ -43514,6 +43654,34 @@
    ]
   },
   {
+   "id": "filadelfiya",
+   "name": "Филадельфия",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 39.9526,
+   "lon": -75.1652,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A4%D0%B8%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%84%D0%B8%D1%8F",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
+    ]
+   ]
+  },
+  {
    "id": "florence",
    "name": "Флоренция",
    "name_orig": null,
@@ -45655,6 +45823,34 @@
     [
      "../salon/?city=%D0%A7%D0%B8%D0%B2%D0%B8%D1%82%D0%B0%D0%B2%D0%B5%D0%BA%D0%BA%D1%8C%D1%8F",
      "Салон открытий: листы этого города"
+    ]
+   ]
+  },
+  {
+   "id": "chikago",
+   "name": "Чикаго",
+   "name_orig": null,
+   "country": "США",
+   "area": "Северная Америка",
+   "lat": 41.8781,
+   "lon": -87.6298,
+   "coord_source": "реестр городов мира (Wikidata / справочные координаты центра)",
+   "benoist": false,
+   "works": [],
+   "albums": [],
+   "kind": "city",
+   "world": true,
+   "featured": null,
+   "xy": null,
+   "xy_approx": null,
+   "halls": [
+    [
+     "../salon/?city=%D0%A7%D0%B8%D0%BA%D0%B0%D0%B3%D0%BE",
+     "Салон открытий: листы этого города"
+    ],
+    [
+     "../world/",
+     "Города мира"
     ]
    ]
   },
