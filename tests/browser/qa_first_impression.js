@@ -42,6 +42,35 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
         "Hero points to real interactive compare");
       assert((await page.locator(".wow-secondary").getAttribute("href")).includes("eras/"),
         "Hero points to real historical atlas");
+      // New micro-interaction must not alter originals, routes, or georeferencing.
+      assert.equal(await page.locator("[data-wow-view]").count(),3,"Three accessible direct era modes");
+      const artA=page.locator(".wow-duet figure").nth(0);
+      const artB=page.locator(".wow-duet figure").nth(1);
+      await page.locator('[data-wow-view="past"]').click();
+      assert(await artA.isVisible() && !(await artB.isVisible()),"Historical image only mode");
+      assert.equal(await page.locator('[data-wow-view="past"]').getAttribute("aria-pressed"),"true");
+      await page.locator('[data-wow-view="now"]').click();
+      assert(!(await artA.isVisible()) && await artB.isVisible(),"Modern image only mode");
+      assert((await page.locator("#wowViewStatus").innerText()).includes("2026"),"Clear photo year");
+      await page.locator('[data-wow-view="pair"]').click();
+      assert(await artA.isVisible() && await artB.isVisible(),"Pair mode is reversible");
+      assert((await page.locator("#wowViewStatus").innerText()).includes("разных точек"),"Pair warns different camera positions");
+      assert.equal(await page.locator("#wowPrintQuiz [data-wow-answer]").count(),2);
+      await page.locator('[data-wow-answer="artist"]').click();
+      assert((await page.locator("#wowPrintAnswer").innerText()).includes("типография"),"Wrong answer explains the inscription");
+      await page.locator('[data-wow-answer="printer"]').click();
+      assert((await page.locator("#wowPrintAnswer").innerText()).includes("Ph. Benoist del."),
+        "Correct answer explains the historic draughtsman and printer");
+      assert.equal(await page.locator('[data-wow-answer="printer"]').getAttribute("aria-pressed"),"true");
+      assert((await page.locator(".wow-print-source").getAttribute("href")).startsWith("https://www.loc.gov/item/"),
+        "The clue has its own authoritative archive source");
+      const mobilePeek=page.locator(".wow-mobile-peek");
+      if(width<=700){
+        assert(await mobilePeek.isVisible(),"Historical/modern preview is visible immediately after mobile headline");
+        assert(await mobilePeek.locator("img").evaluateAll(a=>a.every(i=>i.naturalWidth>500)),
+          "Both mobile teaser illustrations are available");
+      }else assert(!(await mobilePeek.isVisible()),"Desktop doesn't duplicate the pair visually");
+      if(width===390||width===1440)await page.screenshot({path:path.join(out,"interactive-clue-"+width+".png"),fullPage:false});
       const overflow=await page.evaluate(()=>({
         body:document.body.scrollWidth,
         html:document.documentElement.scrollWidth,
@@ -53,6 +82,7 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
         const r=e.getBoundingClientRect();return {top:r.top,width:r.width,right:r.right};
       });
       assert(clip.top<320,"Actual product showcase appears within the first screen, not below long introduction");
+      await page.evaluate(()=>scrollTo(0,0));
       await page.screenshot({path:path.join(out,"three-second-hero-"+width+".png"),fullPage:false,timeout:25000});
       assert.equal(errors.length,0,"No JS errors: "+errors.join(" | "));
       console.log("PASS first impression "+width+"px: actual historical photo pair, two actions, four features, no overflow");
