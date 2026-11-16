@@ -1,0 +1,60 @@
+{
+  "schema": "city-on-paper/specific-institutional-permission-v1",
+  "id": "hertziana-rome-dans-sa-grandeur-web-thumbnails-20261116",
+  "holding_institution": "Bibliotheca Hertziana (Max Planck Institute for Art History), Rome",
+  "project": "Город на бумаге / City on Paper",
+  "correspondence": {
+    "inquiry_date": "2026-11-08",
+    "reply_date": "2026-11-16",
+    "reply_from_role": "Photographic Collection, Bibliotheca Hertziana",
+    "confirmation_excerpt": "you are welcome to use the photographs requested",
+    "credit_line_as_supplied": "Bibliotheca Hertziana (Max Planck Institute for Art History), Rome",
+    "evidence": "Direct written permission in the project owner's email; private correspondence not committed to the public repository"
+  },
+  "specific_scope": {
+    "website_use": "non-commercial educational digital museum, public GitHub Pages",
+    "reproduced_material": "web thumbnails of individual plates already included in the 2026-11-08 request",
+    "max_image_dimension_px": 1000,
+    "catalog_records": [
+      {
+        "id": "obj08003573",
+        "volume": "2: Rome chrétienne",
+        "count_requested": 1,
+        "example": "Santi Apostoli",
+        "source": "https://foto.biblhertz.it/obj08003573"
+      },
+      {
+        "id": "obj08003574",
+        "volume": "3: Rome moderne",
+        "count_requested": 39,
+        "example": "Villa Borghese; Vatican; Tivoli; Civitavecchia",
+        "source": "https://foto.biblhertz.it/obj08003574"
+      }
+    ],
+    "total_plates_referenced_in_request": 40,
+    "original_unmodified": true,
+    "full_image_no_cropping": true,
+    "link_back_to_holder_record": true,
+    "remove_on_holder_request": true,
+    "other_usage": "NOT granted: general open license, commercial advertising, resale, third-party redistribution, AI alterations, higher resolution, unrelated records",
+    "reuse_license": "restricted, individual written permission; not Creative Commons"
+  },
+  "conflict_or_caution": [
+    "The institution's generic reproduction form lists additional conditions, including no promotional/advertising usage and no altered photographs. The personal permission is scoped to the educational atlas; do not use the photographs in separate advertising campaigns or as transformed swipe-overlays.",
+    "Permission to publish does not confirm individual plate artist attribution: the book credits both Philippe and Félix Benoist. Confirm inscription for each plate.",
+    "Before publishing each thumbnail, verify the exact photo ID against an in-scope record, source quality and full unaltered image. Mark it with this permission ID and credit directly on screen.",
+    "Do not change the underlying source's In Copyright statement to Public Domain or CC0. A rights-exempt unlicensed thumbnail is not an open-data download."
+  ],
+  "publication_status": {
+    "email_grant_received": true,
+    "source_file_checks_complete": false,
+    "images_uploaded_under_this_permission": 0,
+    "status": "permission_registered_waiting_for_source_asset_QA",
+    "automatic_publication": false
+  },
+  "reference_links": [
+    "https://www.biblhertz.it/en/photographic-collection",
+    "https://www.biblhertz.it/2618466/publikationsformular_engl.pdf",
+    "https://nav.biblhertz.it/hilfe.html"
+  ]
+}
