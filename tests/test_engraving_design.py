@@ -56,4 +56,4 @@ def test_documented_distinction_between_editing_and_source_authentication():
     assert 'Три вида · три техники' in cities
     assert "1883" in cities and "1846" in cities
     atlas = (ROOT / "atlas/index.html").read_text(encoding="utf-8")
-    assert "без геопривязки" in atlas
+    assert "без точной привязки к местности" in atlas
