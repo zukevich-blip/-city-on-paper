@@ -22,7 +22,7 @@ jobs:
   deploy:
     name: Deploy verified public museum to GitHub Pages
     if: github.repository == 'zukevich-blip/-city-on-paper'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     environment:
       name: github-pages
