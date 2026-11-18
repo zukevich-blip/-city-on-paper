@@ -153,7 +153,7 @@
 .cop-engraved .hybrid-hero-picture figcaption a,
 .cop-engraved .hero-art figcaption a,
 .cop-engraved .map-pane figcaption a{color:var(--cop-sanguine)}
-.cop-engraved .hybrid-story-hero h1{
+.cop-engraved .hybrid-story-hero :is(h1,h2.storytitle){
   letter-spacing:-.035em;
   font-weight:400;
 }
@@ -308,7 +308,7 @@
   .cop-engraved .cop-signet{width:37px;height:37px;font-size:13px;outline-offset:2px}
   .cop-engraved .cop-signet::before{inset:4px}
   .cop-engraved .cop-engraved-line{margin:10px 0 13px}
-  .cop-engraved .hybrid-story-hero h1{letter-spacing:-.045em}
+  .cop-engraved .hybrid-story-hero :is(h1,h2.storytitle){letter-spacing:-.045em}
   .cop-engraved .hybrid-hero-picture::before{display:none}
   .cop-engraved .city-card{padding:19px}
 }
@@ -354,7 +354,7 @@
   .cop-engraved .world-hero .cop-imprint{margin-bottom:16px}
   .cop-engraved .hybrid-story-hero .eyebrow,
   .cop-engraved .world-hero .eyebrow{margin:0 0 5px}
-  .cop-engraved .hybrid-story-hero h1,
+  .cop-engraved .hybrid-story-hero :is(h1,h2.storytitle),
   .cop-engraved .world-hero h1{margin:7px 0 2px}
   .cop-engraved .hybrid-story-hero .cop-engraved-line,
   .cop-engraved .world-hero .cop-engraved-line{margin:12px 0 21px}
@@ -370,7 +370,7 @@
   .cop-engraved .world-hero .cop-imprint{order:1}
   .cop-engraved .hybrid-story-hero .eyebrow,
   .cop-engraved .world-hero .eyebrow{order:2}
-  .cop-engraved .hybrid-story-hero h1,
+  .cop-engraved .hybrid-story-hero :is(h1,h2.storytitle),
   .cop-engraved .world-hero h1{order:3}
   .cop-engraved .hybrid-story-hero .cop-engraved-line,
   .cop-engraved .world-hero .cop-engraved-line{order:4}

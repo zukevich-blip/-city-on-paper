@@ -17,12 +17,12 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
       const response=await page.goto(base,{waitUntil:"domcontentloaded",timeout:30000});
       assert.equal(response?.status(),200,"Museum homepage responds HTTP 200");
       assert.equal(await page.locator(".museum-frontdoor").count(),1);
-      assert.equal(await page.locator(".wow-features>a").count(),4,"Four ways to explore visible in one section");
+      assert.equal(await page.locator(".wow-features>a").count(),5,"Five-step route visible in one section");
       assert(await page.locator(".wow-primary").isVisible(),"Primary direct demo CTA is visible");
       assert(await page.locator(".wow-secondary").isVisible(),"Second atlas CTA visible");
       assert(await page.locator("#frontQuery").count()===1,"Preserve city search");
       const labels=await page.locator(".wow-features strong").allTextContents();
-      for(const word of ["эпохи","картам","художника","истории"]){
+      for(const word of ["тогда и сейчас","историю","карте","город","фото"]){
         assert(labels.some(t=>t.toLowerCase().includes(word)),word+" feature is missing");
       }
       const images=page.locator(".wow-duet img");
@@ -34,14 +34,14 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
       });
       assert(await images.evaluateAll(a=>a.every(i=>i.naturalWidth>500&&i.naturalHeight>400)),
         "Both original artwork and modern documentary photo actually load");
-      assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("разные точки наблюдения")),
+      assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("с разных мест")),
         "No false viewpoint match on the first screen");
       assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("CC BY-SA")),
         "Modern photograph attribution is present");
       assert((await page.locator(".wow-primary").getAttribute("href")).includes("poc/compare/"),
         "Hero points to real interactive compare");
-      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("world/#worldComparisons"),
-        "Hero points to the museum world atlas");
+      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("cities/"),
+        "Hero points to the world cities catalogue");
       const overflow=await page.evaluate(()=>({
         body:document.body.scrollWidth,
         html:document.documentElement.scrollWidth,

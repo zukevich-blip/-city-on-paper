@@ -60,7 +60,7 @@ def test_story_local_resources_and_links_exist(page):
 
 def test_homepage_presents_story_before_the_collection_and_research_queues():
     body = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert body.index("Начать историю Парижа") < body.index('class="stats"')
+    assert body.index("Начать историю Парижа") < body.index('class="more-museum"')
     assert 'href="stories/"' in body
     assert 'href="stories/paris-on-paper/"' in body
     assert 'class="museum-pathway"' in body

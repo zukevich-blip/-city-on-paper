@@ -42,12 +42,12 @@ window.Atlas = (() => {
     const P = A.portal;
     const groups = [["all", "Все города"], ["benoist", "Города Бенуа"], ["featured", "С историями эпох"], ...A.regions.map((r) => [`r:${r}`, r])];
     app.innerHTML = `<div class="view">
-      <span class="eyebrow">Атлас эпох · вход через старую карту</span>
-      <h1>Города на бумаге:<br>от Бретани до Вильнюса</h1>
-      <p class="lede">${A.cities.length} городов и мест — в основном Европа; ${A.counts.benoist_places} из них рисовали Феликс и Филипп Бенуа (${A.counts.benoist_works} работ в музеях и библиотеках). Метки стоят на подлинной карте Европы XVIII века — она красива, но неточна, поэтому положение меток приблизительное. Внутри города — работы из музеев и библиотек с источниками и правами.</p>
+      <span class="eyebrow">Города на старой карте</span>
+      <h1>Выберите город на карте — и откройте его старые виды</h1>
+      <p class="lede">Это настоящая карта Европы 1769 года. Нажмите на метку города — и увидите литографии, гравюры и старые фото. Вкладка «Карта сегодня» покажет, где всё это на самом деле. Метки на старой карте стоят приблизительно: она рисовалась без спутников.</p>
       <div class="museum-journey-host" data-kind="portal"></div>
       <nav class="doors" aria-label="С чего начать">
-        <a href="#/" class="door" id="doorMap"><b>Карта 1769 года</b><span>${plural(A.cities.length, ...C3)} на старинной карте; приближайте и заходите в город</span></a>
+        <a href="#/" class="door" id="doorMap"><b>Старая карта</b><span>${plural(A.cities.length, ...C3)} на карте 1769 года. Приближайте и заходите в город</span></a>
         <a href="#/epochs" class="door"><b>Эпохи</b><span>${plural((A.cities || []).reduce((n, c) => n + (c.epochs || []).length, 0), "место", "места", "мест")}: листы XVIII–XIX веков рядом со снимками сегодня</span></a>
         <a href="#/mine" class="door"><b>Мой ракурс</b><span>Сфотографируйте место сами и отметьте точку съёмки</span></a></nav>
       <div class="tools" role="search"><label class="sr" for="q">Поиск города</label>

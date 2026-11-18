@@ -145,8 +145,8 @@ window.Maps = (() => {
     const archiveRoot = location.pathname.includes("/desk/") ? "../eras/" : "";
     host.innerHTML = `<div class="map-top">
         <div class="mtabs" role="tablist" aria-label="Выбор картографического слоя">
-          <button type="button" role="tab" id="tOld" aria-selected="true">Европа · 1769</button>
-          <button type="button" role="tab" id="tNew" aria-selected="false">Современная карта · города атласа</button>
+          <button type="button" role="tab" id="tOld" aria-selected="true">Старая карта · 1769</button>
+          <button type="button" role="tab" id="tNew" aria-selected="false">Карта сегодня</button>
         </div>
         <div class="map-actions" role="group" aria-label="Масштаб и область карты">
           <button type="button" id="mapFit">Показать выбранные города</button>
