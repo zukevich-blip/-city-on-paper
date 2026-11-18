@@ -72,19 +72,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git fetch --depth=1 origin 803da464cb31645db1abdd060686b24c13c72d95
-          git diff --name-status bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2 803da464cb31645db1abdd060686b24c13c72d95 > /tmp/city-overlay.tsv
+          git fetch --depth=1 origin 1cb93e7e8ed87234cf47beee12e2df052d5093d9
+          git diff --name-status bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2 1cb93e7e8ed87234cf47beee12e2df052d5093d9 > /tmp/city-overlay.tsv
           while IFS=$'\t' read -r status file; do
             case "$status:$file" in
               M:tests/browser/qa_compare.js|M:tests/browser/qa_first_impression.js) ;;
               M:index.html|M:walk/index.html|M:world/index.html|M:poc/compare/index.html|M:poc/compare/pairs/CREDITS.md|M:poc/compare/pairs/index.json|A:poc/compare/pairs/*.jpg|A:poc/compare/pairs/*.json)
-                test "$(git ls-tree 803da464cb31645db1abdd060686b24c13c72d95 -- "$file" | cut -d ' ' -f 1)" = 100644
-                git show "803da464cb31645db1abdd060686b24c13c72d95:$file" > "private-site/$file"
+                test "$(git ls-tree 1cb93e7e8ed87234cf47beee12e2df052d5093d9 -- "$file" | cut -d ' ' -f 1)" = 100644
+                git show "1cb93e7e8ed87234cf47beee12e2df052d5093d9:$file" > "private-site/$file"
                 ;;
               *) echo "Unapproved overlay path: $status $file" >&2; exit 1 ;;
             esac
           done < /tmp/city-overlay.tsv
-          git checkout --detach 803da464cb31645db1abdd060686b24c13c72d95
+          git checkout --detach 1cb93e7e8ed87234cf47beee12e2df052d5093d9
 
       - name: Build strict allowlisted public site
         run: |
@@ -213,7 +213,7 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "803da464cb31645db1abdd060686b24c13c72d95",
+            "source_revision": "1cb93e7e8ed87234cf47beee12e2df052d5093d9",
             "base_source_revision": "bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2",
             "overlay_browser_qa": "passed",
             "qa_run": 43908032492,
