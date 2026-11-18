@@ -20,7 +20,7 @@
 - `rio-guanabara-historic.jpg` — Жан-Батист Дебре · Thierry Frères · Biblioteca Brasiliana Guita e José Mindlin, https://digital.bbm.usp.br/handle/bbm/3641.
 - `rio-guanabara-photo.jpg` — Jazzmaster1997 · Wikimedia Commons · CC0 1.0, https://commons.wikimedia.org/wiki/File:Tourists_overlooking_Sugarloaf_Mountain_from_Corcovado_-_Rio_de_Janeiro.jpg. JPEG resized with metadata removed; image licence retained.
 
-- `naples-san-francesco-di-paola-historic.jpg` — Library of Congress · LC-DIG-ppmsc-06576, https://www.loc.gov/item/2001700916/.
+- `naples-san-francesco-di-paola-historic.jpg` — Шарль Клод Башелье по рисунку Филиппа Бенуа · Lemercier · Rijksmuseum · RP-P-1908-250, https://id.rijksmuseum.nl/200151610. Public Domain. Музейная репродукция уменьшена.
 - `naples-san-francesco-di-paola-photo.jpg` — Lucia Montanaro · Wikimedia Commons · CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:7K5A3060Piazza_del_Plebiscito_Naples_lateral_view_2025.jpg. JPEG resized with metadata removed; image licence retained.
 
 - `giza-great-sphinx-historic.jpg` — Дэвид Робертс · Луи Аг · Library of Congress · LCCN 2002717585, https://www.loc.gov/pictures/item/2002717585/.

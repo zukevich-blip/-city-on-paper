@@ -396,8 +396,13 @@ function showImgError(){
 
 async function loadPair(id){
   pair = await (await fetch(`pairs/${encodeURIComponent(id)}.json`)).json();
-  // low confidence: never force a fit by default; the attempt stays one click away
+  // Reviewed local fits start inside the measured region; other low-confidence fits are opt-in.
   aligned = canAlign() && (["high", "medium"].includes(pair.alignment.confidence) || pair.local_overlay === true);
+  const region = pair.alignment?.valid_region_historic;
+  if (pair.local_overlay && aligned && region?.length) {
+    const xs = region.map(point => point[0]);
+    split = 50 * (Math.min(...xs) + Math.max(...xs)) / pair.historic.size[0];
+  }
   if (!userMode) mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider";
   imgFailed.hist = imgFailed.photo = false; showImgError();
   const hi = $("histImg"), pi = $("photoImg");
