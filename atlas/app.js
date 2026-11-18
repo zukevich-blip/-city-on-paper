@@ -97,7 +97,7 @@
     $("routeCompare").hidden=state.city!=="paris";
     $("routeCompare").href="../poc/compare/#madeleine-ph-benoist";
     $("currentCity").textContent=names[state.city]+" · Исторические изображения";
-    $("cityDescription").textContent=city.places.map(p=>p.title).join(" · ")+". Выберите лист для просмотра архивной карточки.";
+    $("cityDescription").textContent=city.places.map(p=>p.title).join(" · ")+". Выберите лист, чтобы увидеть, кто его сделал и где он хранится.";
     const items=available();
     $("resultCount").textContent=items.length+" изображений с открытым статусом прав";
     const container=$("atlasResults");

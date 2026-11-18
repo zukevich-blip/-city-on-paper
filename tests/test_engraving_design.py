@@ -53,7 +53,7 @@ def test_documented_distinction_between_editing_and_source_authentication():
     for item in ("candidate", "seed_only", "rights_class=open", "Library of Congress", "320, 390, 820"):
         assert item in doc
     cities = (ROOT / "cities/index.html").read_text(encoding="utf-8")
-    assert 'Три исторических свидетельства · разные техники' in cities
+    assert 'Три вида · три техники' in cities
     assert "1883" in cities and "1846" in cities
     atlas = (ROOT / "atlas/index.html").read_text(encoding="utf-8")
     assert "без геопривязки" in atlas

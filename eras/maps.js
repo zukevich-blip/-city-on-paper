@@ -158,7 +158,7 @@ window.Maps = (() => {
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Метки здесь указывают города, а не точки художников. На современной карте при увеличении до уровня улиц отображаются подтверждённые и исследовательские позиции камер. Карточка города раскрывает фото, источник и неопределённость. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
+      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Метки здесь указывают города, а не точки художников. На современной карте при увеличении до уровня улиц отображаются подтверждённые и исследовательские позиции камер. Карточка города раскрывает фото, источник и неопределённость. <a href="../cities/">Все города мира, в том числе без старой карты ↗</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
@@ -170,15 +170,15 @@ window.Maps = (() => {
           <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Library of Congress, 1769.
             <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
         </figure>
-        <p class="map-summary">Другие карты можно листать как отдельные документы. Пока на них нет независимо проверенной геопривязки, маркеры автоматически не накладываются.</p>
+        <p class="map-summary">Другие карты можно листать как отдельные документы. Положение мест на них мы пока не проверили, поэтому метки на этих картах не ставим.</p>
       </details>
-      <p class="map-summary"><a href="../cities/">Полный мировой указатель: города с материалами, кандидаты и города без координат ↗</a></p>`;
+      <p class="map-summary"><a href="../cities/">Все города мира: с материалами, с непроверенными находками и без координат ↗</a></p>`;
     const sheets = {
       europe: { file: "img/loc-97683588-carte-d-europe-1769_w1000.jpg",
         name: "Карта Европы de L’Isle / Buache, 1769. Library of Congress.",
         src: "https://www.loc.gov/item/97683588/" },
       paris: { file: "img/loc-2012586603-paris-1878.jpg",
-        name: "План Парижа и окрестностей, 1878. Library of Congress. Привязка контрольных точек остаётся исследовательской.",
+        name: "План Парижа и окрестностей, 1878. Library of Congress. Положение мест на плане указано примерно.",
         src: "https://www.loc.gov/item/2012586603/" }
     };
     host.querySelectorAll("[data-sheet]").forEach((button) => button.addEventListener("click", () => {
