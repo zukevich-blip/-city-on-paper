@@ -71,7 +71,7 @@
     const arr=[
       [records.length,state.source==="registry"?"Географических названий в сводном указателе":"Городов в стартовом списке"],
       [detailed,"С подробными материалами"],
-      [candidates,"С исследовательскими кандидатами"],
+      [candidates,"С непроверенными находками"],
       [blank,"Ожидают наполнения"]
     ];
     for(const [number,label] of arr){
@@ -117,8 +117,8 @@
     let hint=row.status==="detailed" ?
       (details?plural(details,"изображение","изображения","изображений")+" с источниками в детальном атласе":"Есть подробная музейная история") :
       row.status==="candidate" ?
-      (plural(candidates,"архивная запись","архивные записи","архивных записей")+" для исследовательской проверки. Изображения могут быть недоступны для публикации.") :
-      "Пока нет предметных карточек в исследовательском реестре";
+      (plural(candidates,"архивная запись","архивные записи","архивных записей")+" в архиве, пока не проверены. Картинки может не быть.") :
+      "Пока нет найденных листов — этот город в очереди";
     item.append(el("p","info",hint));
     const city=known.get(compact(row.name));
     if(row.status==="detailed" && city){
@@ -130,10 +130,10 @@
       if(sources.length){
         const box=el("details");
         box.append(el("summary",null,"Архивные первоисточники ("+sources.length+")"));
-        const note=el("p","archive-notice","Предпросмотр не публикуется, если права или атрибуция ещё не подтверждены. Ссылка ведёт к записи хранителя.");
+        const note=el("p","archive-notice","Картинку мы не показываем, пока не проверим права и авторство. Ссылка ведёт на страницу в архиве.");
         box.append(note);
         for(const source of sources){
-          const a=el("a",null,source.title||"Перейти к архивной записи");
+          const a=el("a",null,source.title||"Открыть в архиве");
           a.href=goodUrl(source.url);
           a.target="_blank";
           a.rel="noopener noreferrer";

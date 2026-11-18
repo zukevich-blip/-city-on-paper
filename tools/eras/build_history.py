@@ -7,11 +7,25 @@ source are dropped; texts are stored as plain text (the page escapes them).
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data" / "history"
 OUT = ROOT / "eras" / "data" / "history.json"
+
+
+def shorten(text: str, limit: int = 85) -> str:
+    """Keep whole sentences while the chapter stays readable on a phone (no rewriting, no new claims)."""
+    parts = re.split(r"(?<=[.!?])\s+", text.strip())
+    out, words = [], 0
+    for part in parts:
+        n = len(part.split())
+        if out and words + n > limit:
+            break
+        out.append(part)
+        words += n
+    return " ".join(out)
 
 
 def ok(u) -> bool:
@@ -26,7 +40,7 @@ def build() -> dict:
     cities, masters = [], []
     f = SRC / "cities.json"
     for c in (json.loads(f.read_text("utf-8")).get("cities", []) if f.exists() else []):
-        chapters = [{"title": ch["title"], "text": ch["text"], "sources": sources(ch.get("sources"))}
+        chapters = [{"title": ch["title"], "text": shorten(ch["text"]), "sources": sources(ch.get("sources"))}
                     for ch in c.get("chapters", [])
                     if ch.get("title") and ch.get("text") and sources(ch.get("sources"))]
         if not c.get("city") or not chapters:

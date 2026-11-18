@@ -9,7 +9,7 @@
   const KIND = { print: "Литография / гравюра", photo: "Фотография", photochrom: "Фотохром", today: "Сегодня", map: "Карта" };
   const VERDICT = {
     close: "Ракурс близок: та же точка и направление в пределах указанной погрешности (оценено вручную).",
-    partial: "Ракурс частично совпадает: тот же объект, но точка или направление отличаются. Сравнивайте как свидетельства, а не как наложение.",
+    partial: "Ракурс частично совпадает: тот же объект, но точка или направление отличаются. Сравнивайте их по очереди, а не наложением.",
     different_viewpoint: "Ракурсы разные: точное наложение невозможно. Показываем рядом и честно отмечаем расхождение.",
     unknown: "Совпадение ракурса не оценивалось.",
   };
@@ -49,7 +49,7 @@
     app.innerHTML = `<div class="view">
       <span class="eyebrow">Атлас эпох · вход через старую карту</span>
       <h1>Найдите город на старой карте<br>и пройдите сквозь время</h1>
-      <p class="lede">Подлинная карта — это портал, а не навигатор: её геометрия XVIII века неточна, поэтому точки городов поставлены по самой карте. Внутри города — геопривязанный план и точки, откуда смотрели художник, фотограф и наш современник.</p>
+      <p class="lede">Подлинная карта — это портал, а не навигатор: её геометрия XVIII века неточна, поэтому точки городов поставлены по самой карте. Внутри города — старый план и метки мест, которые рисовали и снимали.</p>
       <div class="eras" role="group" aria-label="Эпохи">${eras}</div>
       <figure class="plate"><div class="frame"><img src="${esc(P.image)}" ${P.image_small ? `srcset="${esc(P.image_small)} 1000w, ${esc(P.image)} 2000w" sizes="(max-width: 700px) 100vw, 1400px"` : ""} width="${P.width}" height="${P.height}" alt="${esc(P.alt)}" fetchpriority="high">
         <div class="pins">${pins}</div></div>
@@ -98,7 +98,7 @@
       <div class="twocol">
         <div>${P ? `<figure class="plate"><div class="frame"><img src="${esc(P.image)}" width="${P.width}" height="${P.height}" alt="${esc(P.alt)}"><div class="pins">${cams}</div></div>
           <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">карточка ↗</a>.
-          ${P.georef ? `Геопривязка приблизительная: ${esc(P.georef)}.` : "План ещё не геопривязан: места на нём не отмечены."}</figcaption></figure>`
+          ${P.georef ? `Положение на плане указано примерно: ${esc(P.georef)}.` : "На этом плане пока нет меток мест."}</figcaption></figure>`
           : `<p class="note">Исторический план этого города ещё не подобран с подтверждёнными правами.</p>`}</div>
         <div><h2>Места</h2><div class="places">${c.places.map((pl) => `<a href="#/place/${esc(pl.id)}"><b>${esc(pl.title)}</b><small>${pl.images.map((i) => esc(i.year_label)).join(" → ")} · ${esc(VERDICT_SHORT(pl))}</small></a>`).join("") || '<p class="note">Места готовятся.</p>'}</div></div>
       </div></div>`;
@@ -146,7 +146,7 @@
           <div class="handle" id="handle" role="slider" tabindex="0" aria-label="Граница между эпохами" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
           <span class="tag l" id="tagA"></span><span class="tag r" id="tagB"></span></div>
         <div class="sbs" id="sbs" hidden><img id="sA" alt=""><img id="sB" alt=""></div>
-        <p class="note">Изображения не деформируются и не подгоняются друг под друга: шторка показывает два подлинных кадра в одной рамке. Если ракурсы разные, различие видно — это и есть свидетельство.</p>
+        <p class="note">Изображения не деформируются и не подгоняются друг под друга: шторка показывает два подлинных кадра в одной рамке. Если рисунок и фото сняты с разных мест, разница видна сразу — это тоже часть рассказа.</p>
       </section>
       <section id="threeEpochs" class="cp3" aria-label="Три эпохи одним ползунком"></section>
       <section id="chronoscope" class="chronoscope" aria-label="Любое число эпох и увеличение деталей"></section>

@@ -19,6 +19,7 @@ KIND_RU = {"lithograph": "Литография", "engraving": "Гравюра", 
            "woodcut": "Ксилография", "print": "Эстамп", "photochrom": "Фотохром", "painting": "Живопись",
            "drawing": "Рисунок", "artwork": "Произведение искусства", "view": "Вид города",
            "historic image": "Историческое изображение", "photograph": "Фотография"}
+RIGHTS_LOC = "Библиотека Конгресса: ограничений на публикацию не известно"
 NOTE = "rights, date and author read from the holder's record; subject matched by title/category, not curator-reviewed"
 
 
@@ -45,7 +46,8 @@ def main() -> None:
             "source": "Library of Congress, Prints & Photographs Division",
             "source_id": w.get("call_number") or str(w["pk"]),
             "url": w["page"], "image": w["image"], "rights": "loc_no_known_restrictions",
-            "rights_label": "LoC: " + w["rights"], "verified": NOTE})
+            "rights_label": RIGHTS_LOC if "no known restrictions" in w["rights"].lower() else "LoC: " + w["rights"],
+            "verified": NOTE})
     for w in load("works.json").get("items", []):
         if w["file"] in seen or not (w.get("page") or "").startswith("https://"):
             continue
