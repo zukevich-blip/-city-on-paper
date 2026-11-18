@@ -1,0 +1,388 @@
+{
+ "id": "florence-ponte-vecchio-silvestre",
+ "status": "candidate_real_pair",
+ "local_overlay": true,
+ "condition": "Совмещена часть галереи и главной арки. Остальная геометрия рисунка и фотографии различается.",
+ "control_points": [
+  {
+   "historic": [
+    292.8,
+    238.27
+   ],
+   "photo": [
+    579,
+    462
+   ],
+   "label": "Арка галереи 1 · левая опора"
+  },
+  {
+   "historic": [
+    300.9,
+    231.18
+   ],
+   "photo": [
+    609,
+    427
+   ],
+   "label": "Арка галереи 1 · замок"
+  },
+  {
+   "historic": [
+    307.5,
+    238.51
+   ],
+   "photo": [
+    643,
+    463
+   ],
+   "label": "Арка галереи 1 · правая опора"
+  },
+  {
+   "historic": [
+    311.1,
+    238.02
+   ],
+   "photo": [
+    646,
+    462
+   ],
+   "label": "Арка галереи 2 · левая опора"
+  },
+  {
+   "historic": [
+    317.7,
+    230.69
+   ],
+   "photo": [
+    675,
+    426
+   ],
+   "label": "Арка галереи 2 · замок"
+  },
+  {
+   "historic": [
+    324.3,
+    238.51
+   ],
+   "photo": [
+    708,
+    462
+   ],
+   "label": "Арка галереи 2 · правая опора"
+  },
+  {
+   "historic": [
+    325.8,
+    238.51
+   ],
+   "photo": [
+    709,
+    461
+   ],
+   "label": "Арка галереи 3 · левая опора"
+  },
+  {
+   "historic": [
+    333.3,
+    231.18
+   ],
+   "photo": [
+    740,
+    423
+   ],
+   "label": "Арка галереи 3 · замок"
+  },
+  {
+   "historic": [
+    340.5,
+    238.51
+   ],
+   "photo": [
+    769,
+    458
+   ],
+   "label": "Арка галереи 3 · правая опора"
+  },
+  {
+   "historic": [
+    300.9,
+    225.56
+   ],
+   "photo": [
+    609,
+    404
+   ],
+   "label": "Окно 1 · центр"
+  },
+  {
+   "historic": [
+    317.7,
+    226.04
+   ],
+   "photo": [
+    674,
+    402
+   ],
+   "label": "Окно 2 · центр"
+  },
+  {
+   "historic": [
+    333.0,
+    226.53
+   ],
+   "photo": [
+    738,
+    400
+   ],
+   "label": "Окно 3 · центр"
+  },
+  {
+   "historic": [
+    300.9,
+    220.91
+   ],
+   "photo": [
+    610,
+    372
+   ],
+   "label": "Карниз · ориентир 1"
+  },
+  {
+   "historic": [
+    317.7,
+    221.4
+   ],
+   "photo": [
+    675,
+    369
+   ],
+   "label": "Карниз · ориентир 2"
+  },
+  {
+   "historic": [
+    333.0,
+    222.13
+   ],
+   "photo": [
+    739,
+    366
+   ],
+   "label": "Карниз · ориентир 3"
+  },
+  {
+   "historic": [
+    314.1,
+    251.96
+   ],
+   "photo": [
+    681,
+    505
+   ],
+   "label": "Главная арка · вершина"
+  },
+  {
+   "historic": [
+    276.6,
+    263.44
+   ],
+   "photo": [
+    539,
+    573
+   ],
+   "label": "Главная арка · левая пята"
+  },
+  {
+   "historic": [
+    351.9,
+    267.11
+   ],
+   "photo": [
+    825,
+    574
+   ],
+   "label": "Главная арка · правая пята"
+  }
+ ],
+ "historic": {
+  "title": "View of the Ponte Vecchio, Florence",
+  "date": "XVII век",
+  "medium": "Рисунок кистью и размывкой по чёрному мелу и графиту",
+  "holding": "The Metropolitan Museum of Art",
+  "object_url": "https://www.metmuseum.org/art/collection/search/339767",
+  "rights": "Public Domain, The Metropolitan Museum of Art",
+  "credit": "Израэль Сильвестр · The Metropolitan Museum of Art",
+  "file": "florence-ponte-vecchio-silvestre-historic.jpg",
+  "size": [
+   600,
+   422
+  ],
+  "sha256": "794045db3408bc7e8f0be0327d719f426fdf3635b2262156f5b8c1de3a40c108"
+ },
+ "photo": {
+  "title": "Ponte Vecchio, Firenze",
+  "date": "2026-07-08",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Ponte_Vecchio-Firenze.jpg",
+  "credit": "Hein56didden · Wikimedia Commons · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "JPEG перекодирован без метаданных. Совмещённый фрагмент показан с коррекцией перспективы на тех же условиях CC BY-SA 4.0.",
+  "file": "florence-ponte-vecchio-photo.jpg",
+  "size": [
+   1425,
+   841
+  ],
+  "sha256": "34900fedb1a94f04f5ba99ba2da4624d0bac32acf324c5b35195a54460a2f32d"
+ },
+ "story": {
+  "title": "Ход над Арно",
+  "text": "Коридор над мостом проложил Джорджо Вазари в 1565 году. По этому переходу Медичи могли попасть из Палаццо-Питти во дворец Палаццо-Веккьо. Подвиньте шторку и посмотрите, как читаются арки галереи на рисунке XVII века и фотографии 2026 года.",
+  "source": "https://www.uffizi.it/en/corridoio-vasariano",
+  "source_label": "История коридора в Галерее Уффици"
+ },
+ "alignment": {
+  "n_points": 18,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   600,
+   422
+  ],
+  "photo_size": [
+   1425,
+   841
+  ],
+  "method": "cv2.findHomography RANSAC 7.3px",
+  "H": [
+   [
+    0.3333699918,
+    -0.218581103,
+    163.6718013734
+   ],
+   [
+    0.0825841027,
+    0.0230582905,
+    149.8283177144
+   ],
+   [
+    0.0003222511,
+    -0.0006723171,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    4.8095871849,
+    4.2171350841,
+    -1419.0400536466
+   ],
+   [
+    -1.3327143628,
+    10.9030874132,
+    -1415.4634845399
+   ],
+   [
+    -0.0024459016,
+    0.0059713559,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   1.01,
+   0.33,
+   1.49,
+   1.34,
+   0.69,
+   1.26,
+   0.08,
+   0.17,
+   0.32,
+   0.97,
+   0.84,
+   0.66,
+   1.03,
+   0.57,
+   1.13,
+   6.37,
+   0.2,
+   5.97
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false
+  ],
+  "rms_px": 0.87,
+  "rms_all_points_px": 2.22,
+  "rms_rel_diag": 0.00119,
+  "outlier_fraction": 0.111,
+  "loo_px": [
+   1.01,
+   0.21,
+   0.88,
+   2.72,
+   1.25,
+   1.19,
+   1.64,
+   0.83,
+   1.67,
+   1.25,
+   0.83,
+   0.72,
+   2.67,
+   1.64,
+   2.75,
+   4.75,
+   2.5,
+   7.8
+  ],
+  "loo_max_px": 7.8,
+  "loo_max_rel_diag": 0.01063,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.0094,
+  "valid_region_historic": [
+   [
+    351.8999938964844,
+    267.1000061035156
+   ],
+   [
+    276.6000061035156,
+    263.3999938964844
+   ],
+   [
+    300.8999938964844,
+    220.89999389648438
+   ],
+   [
+    317.70001220703125,
+    221.39999389648438
+   ],
+   [
+    333.0,
+    222.10000610351562
+   ],
+   [
+    340.5,
+    238.5
+   ]
+  ],
+  "scope": "local: control points span 1% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 1% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

@@ -25,6 +25,7 @@ h2{font-size:1rem;margin:12px 0 4px}
 .sub{color:var(--muted);margin:0 0 12px;font-size:.92rem}
 .poc{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:0 6px;border-radius:3px;font:12px/1.6 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
 select,button{font:15px system-ui,sans-serif;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+#pairSel{min-width:0;max-width:100%}
 button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
@@ -111,6 +112,11 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     </div>
   </div>
   <p class="creditline" id="creditLine"></p>
+  <aside class="verdict" id="pairStory" aria-labelledby="pairStoryTitle" hidden>
+    <strong id="pairStoryTitle"></strong>
+    <p id="pairStoryText"></p>
+    <a id="pairStorySource" target="_blank" rel="noopener noreferrer"></a>
+  </aside>
   <div class="sbs" id="sbs" hidden>
     <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
     <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
@@ -320,7 +326,9 @@ function renderMeta(){
   const a = pair.alignment || {}, conf = a.confidence || "insufficient_points";
   const v = $("verdict");
   v.className = "verdict " + conf;
-  v.innerHTML = `<strong>${esc(conf.replace("_"," "))}</strong> — ${esc(t("verdict")[conf] || "")}`
+  v.innerHTML = pair.local_overlay
+    ? `<strong>${lang === "en" ? "Local alignment" : "Совмещение по контуру"}</strong><br>${esc(pair.condition)}`
+    : `<strong>${esc(conf.replace("_"," "))}</strong> — ${esc(t("verdict")[conf] || "")}`
     + (a.reason ? ` <small>(${esc(a.reason)})</small>` : "")
     + (a.scope && a.scope !== "global" ? `<br>${esc(t("scope"))}: ${esc(a.scope)}` : "")
     + (pair.status === "synthetic_test" ? `<br><em>${esc(t("synthetic"))} (${esc(pair.condition)}). ${esc(t("expected"))}: ${esc(pair.expected_confidence)}.</em>` : `<br>${esc(pair.condition)}`);
@@ -330,14 +338,26 @@ function renderMeta(){
   $("alignBtn").setAttribute("aria-pressed", on);
   $("alignBtn").disabled = !canAlign();
   const H = pair.historic, P = pair.photo;
+  const story = pair.story;
+  $("pairStory").hidden = !story?.text;
+  if (story?.text) {
+    $("pairStoryTitle").textContent = story.title || "";
+    $("pairStoryText").textContent = story.text;
+    const source = $("pairStorySource"), url = safeUrl(story.source);
+    source.hidden = !url;
+    if (url) {
+      source.href = url;
+      source.textContent = story.source_label || "Источник";
+    }
+  }
   $("histImg").alt = t("histAlt") + (H.title || "");
   $("photoImg").alt = t("photoAlt") + (P.title || "");
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
   const synthetic = pair.status === "synthetic_test";
-  $("creditLine").textContent = `${t("then")}: ${H.credit || ""} · ${t("now")}: ${P.credit || ""}`
-    + (!synthetic && P.license ? ` · ${t("changesShort")}: ${lang === "en" ? "re-encoded to strip metadata; the aligned view is a derivative" : "перекодировано для удаления метаданных; совмещённый вид — производная работа"} (${P.license})` : "");
-  const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
   const changes = P.changes || "";
+  $("creditLine").textContent = `${t("then")}: ${[H.date, H.credit].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, P.credit].filter(Boolean).join(" · ")}`
+    + (!synthetic && changes ? ` · ${changes}` : "");
+  const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
   $("creditBody").innerHTML = `
    <h2>${esc(t("hThen"))}</h2><dl>
     <dt>${esc(t("tTitle"))}</dt><dd>${esc(H.title)}</dd>

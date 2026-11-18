@@ -1,0 +1,61 @@
+{
+ "id": "giza-great-sphinx",
+ "status": "candidate_real_pair",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch"
+ },
+ "control_points": [],
+ "condition": "Сфинкс и пирамиды показаны с разных точек. Сравните, сколько корпуса видно над песком на каждом кадре.",
+ "historic": {
+  "title": "The Great Sphinx, pyramids of Girzeh July 17th 1839",
+  "date": "1846, по рисунку с датой 1839",
+  "medium": "Цветная литография",
+  "holding": "Library of Congress, Prints & Photographs Division",
+  "object_url": "https://www.loc.gov/pictures/item/2002717585/",
+  "rights": "Library of Congress: No known restrictions on publication",
+  "credit": "Дэвид Робертс · Луи Аг · Library of Congress · LCCN 2002717585",
+  "file": "giza-great-sphinx-historic.jpg",
+  "size": [
+   1024,
+   827
+  ],
+  "sha256": "e33961f194daffbd34bc34ccb42bc3dc2f1a67efc400fe68ae52b851e8a9fa62"
+ },
+ "photo": {
+  "title": "The Great Pyramid & The Pyramid of Khafre with the Great Sphinx in the foreground",
+  "date": "2026-08-28",
+  "object_url": "https://commons.wikimedia.org/wiki/File:The_Great_Pyramid_%26_The_Pyramid_of_Khafre_with_the_Great_Sphinx_in_the_foreground.jpg",
+  "credit": "Slyronit · Wikimedia Commons · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "Экранная JPEG-копия уменьшена, метаданные удалены.",
+  "file": "giza-great-sphinx-photo.jpg",
+  "size": [
+   1460,
+   1095
+  ],
+  "sha256": "e9da5dee1ce77d81ae907594778eba122342a5e3c778950dc8bcb775b9191551"
+ },
+ "story": {
+  "title": "Сколько Сфинкса было видно из песка",
+  "text": "На листе Робертса над песком возвышается голова Сфинкса. На фотографии виден и лежащий корпус. Обратите внимание на людей у памятника: в обоих кадрах они помогают почувствовать его масштаб.",
+  "source": "https://www.loc.gov/pictures/item/2002717585/",
+  "source_label": "Лист Робертса и Ага в Библиотеке Конгресса"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1024,
+   827
+  ],
+  "photo_size": [
+   1460,
+   1095
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

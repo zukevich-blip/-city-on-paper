@@ -1,0 +1,61 @@
+{
+ "id": "rio-guanabara",
+ "status": "candidate_real_pair",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch"
+ },
+ "control_points": [],
+ "condition": "Литография включает две панорамы залива с горных точек. Фотография снята на смотровой площадке Корковаду.",
+ "historic": {
+  "title": "Suite du Panorama de la Baie de Rio de Janeiro",
+  "date": "1839",
+  "medium": "Литография",
+  "holding": "Biblioteca Brasiliana Guita e José Mindlin, Universidade de São Paulo",
+  "object_url": "https://digital.bbm.usp.br/handle/bbm/3641",
+  "rights": "Общественное достояние по карточке библиотеки",
+  "credit": "Жан-Батист Дебре · Thierry Frères · Biblioteca Brasiliana Guita e José Mindlin",
+  "file": "rio-guanabara-historic.jpg",
+  "size": [
+   1460,
+   971
+  ],
+  "sha256": "76fe8eddc94596180e4c03cf005fd2e4111893c06c3a7e1ec5fa77e78a7efe67"
+ },
+ "photo": {
+  "title": "Вид с Корковаду на бухту Гуанабара и Сахарную голову",
+  "date": "2026-09-25",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Tourists_overlooking_Sugarloaf_Mountain_from_Corcovado_-_Rio_de_Janeiro.jpg",
+  "credit": "Jazzmaster1997 · Wikimedia Commons · CC0 1.0",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "changes": "Экранная JPEG-копия уменьшена, метаданные удалены.",
+  "file": "rio-guanabara-photo.jpg",
+  "size": [
+   1460,
+   1096
+  ],
+  "sha256": "aaf09c8937730408e107d48948c40634a10943034b9d99f3b1b5e5fe56c8f346"
+ },
+ "story": {
+  "title": "Одна бухта и разные точки на горах",
+  "text": "На нижней панораме Дебре Сахарная голова стоит у левого края. С Корковаду она оказалась почти в центре фотографии. Найдите её по округлой вершине и посмотрите, насколько иначе с разных точек открывается вход в залив.",
+  "source": "https://atom.itamaraty.gov.br/index.php/icon-b6-2-v3-1839-50",
+  "source_label": "Описание литографии в архиве Итамарати"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1460,
+   971
+  ],
+  "photo_size": [
+   1460,
+   1096
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

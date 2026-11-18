@@ -1,0 +1,262 @@
+{
+ "id": "agra-taj-mahal",
+ "status": "candidate_real_pair",
+ "local_overlay": true,
+ "condition": "Контур отмечает центральный портал. Фотография снята ближе к комплексу, поэтому купол, минареты и сад сравнивайте в режиме «Рядом».",
+ "control_points": [
+  {
+   "historic": [
+    709,
+    449
+   ],
+   "photo": [
+    595,
+    405
+   ],
+   "label": "Левый верхний угол портала"
+  },
+  {
+   "historic": [
+    809,
+    448
+   ],
+   "photo": [
+    815,
+    407
+   ],
+   "label": "Правый верхний угол портала"
+  },
+  {
+   "historic": [
+    722,
+    463
+   ],
+   "photo": [
+    630,
+    438
+   ],
+   "label": "Свод слева"
+  },
+  {
+   "historic": [
+    797,
+    463
+   ],
+   "photo": [
+    784,
+    439
+   ],
+   "label": "Свод справа"
+  },
+  {
+   "historic": [
+    759.5,
+    471.5
+   ],
+   "photo": [
+    709,
+    456
+   ],
+   "label": "Вершина арки"
+  },
+  {
+   "historic": [
+    722,
+    587
+   ],
+   "photo": [
+    626,
+    674
+   ],
+   "label": "Низ левого косяка"
+  },
+  {
+   "historic": [
+    797,
+    587
+   ],
+   "photo": [
+    790,
+    674
+   ],
+   "label": "Низ правого косяка"
+  },
+  {
+   "historic": [
+    707,
+    586
+   ],
+   "photo": [
+    594,
+    655
+   ],
+   "label": "Левый край портала"
+  },
+  {
+   "historic": [
+    808,
+    586
+   ],
+   "photo": [
+    813,
+    656
+   ],
+   "label": "Правый край портала"
+  }
+ ],
+ "historic": {
+  "title": "The Taje Mahel, Agra, taken in the garden. No. II",
+  "date": "1801",
+  "medium": "Акватинта",
+  "holding": "Library of Congress, Prints & Photographs Division",
+  "object_url": "https://www.loc.gov/item/2005675752/",
+  "rights": "Library of Congress: No known restrictions on publication",
+  "credit": "Томас и Уильям Дэниелл · Library of Congress · LCCN 2005675752",
+  "file": "agra-taj-mahal-historic.jpg",
+  "size": [
+   1536,
+   1006
+  ],
+  "sha256": "e7f28d0390b923474029b5f6b22f67671d05e7ba64959ee8c7a6607ca8a8bb6d"
+ },
+ "photo": {
+  "title": "Taj Mahal, главный фасад",
+  "date": "2026-03-12",
+  "object_url": "https://commons.wikimedia.org/wiki/File:TajMahalfront.jpg",
+  "credit": "Pushpam Kumar · Wikimedia Commons · CC BY 4.0",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "changes": "JPEG перекодирован без метаданных. В режиме совмещения изменена перспектива фото внутри отмеченной области.",
+  "file": "agra-taj-mahal-photo.jpg",
+  "size": [
+   1442,
+   736
+  ],
+  "sha256": "4b15cca9d6c978190a92831fdbab800d9731da72dd900b3d1704d6b4e9f60158"
+ },
+ "story": {
+  "title": "Взгляд от главных ворот",
+  "text": "Дэниеллы рисовали этот вид сразу за главными воротами. Британская библиотека отмечает, что художники уделили особое внимание садовым водным каналам и фонтанам. Приблизьте в шторке центральную арку и попробуйте найти тот же ритм по краям портала.",
+  "source": "https://searcharchives.bl.uk/catalog/040-003288355",
+  "source_label": "Описание Британской библиотеки"
+ },
+ "alignment": {
+  "n_points": 9,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1536,
+   1006
+  ],
+  "photo_size": [
+   1442,
+   736
+  ],
+  "method": "cv2.findHomography RANSAC 18.4px",
+  "H": [
+   [
+    0.4129770798,
+    0.0184071285,
+    440.4410344589
+   ],
+   [
+    -0.031978673,
+    0.5409025322,
+    238.2460399784
+   ],
+   [
+    -5.18486e-05,
+    2.70591e-05,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    2.386293822,
+    -0.0289735583,
+    -1044.1188839588
+   ],
+   [
+    0.0876279759,
+    1.9458646673,
+    -502.1895076564
+   ],
+   [
+    0.0001213549,
+    -5.41556e-05,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   2.24,
+   1.91,
+   2.42,
+   2.07,
+   2.4,
+   4.22,
+   3.99,
+   4.86,
+   4.74
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 3.4,
+  "rms_all_points_px": 3.4,
+  "rms_rel_diag": 0.00185,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   8.19,
+   6.47,
+   3.39,
+   2.93,
+   3.0,
+   7.78,
+   7.58,
+   10.44,
+   9.7
+  ],
+  "loo_max_px": 10.44,
+  "loo_max_rel_diag": 0.00569,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.009,
+  "valid_region_historic": [
+   [
+    809.0,
+    448.0
+   ],
+   [
+    808.0,
+    586.0
+   ],
+   [
+    797.0,
+    587.0
+   ],
+   [
+    722.0,
+    587.0
+   ],
+   [
+    707.0,
+    586.0
+   ],
+   [
+    709.0,
+    449.0
+   ]
+  ],
+  "scope": "local: control points span 1% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 1% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

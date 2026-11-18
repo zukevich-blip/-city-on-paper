@@ -9,7 +9,7 @@ const viewports = [
   { name: "ipad-820", width: 820, height: 1180, isMobile: true, hasTouch: true, deviceScaleFactor: 1 },
   { name: "desktop-1440", width: 1440, height: 900, deviceScaleFactor: 1 },
 ];
-const PAIRS = ["madeleine-ph-benoist", "palais-royal-ph-benoist", "synthetic-near-identical", "synthetic-rotation-only", "synthetic-parallax"];
+const { pairs: PAIRS } = require("../../poc/compare/pairs/index.json");
 const origin = new URL(base).origin;
 const results = [];
 const check = (name, ok, detail = "") => { results.push({ name, ok: !!ok, detail }); console.log(`${ok ? "PASS" : "FAIL"} ${name} ${detail}`); };
@@ -45,7 +45,15 @@ async function viewerChecks(browser, vp) {
       check(`${vp.name} ${id}: viewpoint_mismatch never applies matrix3d`, (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
       if (id === "palais-royal-ph-benoist") await shot(page, `${vp.name}-${id}-side-by-side.jpg`, { fullPage: vp.name !== "iphone-375" });
     } else {
-      if (!["high", "medium"].includes(conf)) {
+      if (pair.local_overlay) {
+        check(`${vp.name} ${id}: local fit opens inside a polygon`,
+          (await page.$eval("#photoMask", e => e.style.clipPath)).startsWith("polygon("));
+        await page.click("#alignBtn");
+        check(`${vp.name} ${id}: original photo clears polygon and transform`,
+          (await page.$eval("#photoMask", e => e.style.clipPath)) === ""
+          && (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
+        await page.click("#alignBtn");
+      } else if (!["high", "medium"].includes(conf)) {
         check(`${vp.name} ${id}: '${conf}' opens with the untouched photo`,
           (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
         await page.click("#alignBtn");
@@ -69,6 +77,11 @@ async function viewerChecks(browser, vp) {
         return vis("stage") && !vis("sbs");
       });
       check(`${vp.name} ${id}: slider mode hides side-by-side panel`, exclusive);
+    }
+    if (pair.story) {
+      check(`${vp.name} ${id}: sourced story visible`,
+        await page.locator("#pairStory").isVisible()
+        && (await page.locator("#pairStorySource").getAttribute("href")) === pair.story.source);
     }
     const histUntouched = await page.evaluate(() => [document.getElementById("histImg"), document.getElementById("sbsHist")].every(h => {
       const cs = getComputedStyle(h); return cs.transform === "none" && cs.filter === "none" && h.naturalWidth > 0; }));

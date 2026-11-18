@@ -1,0 +1,298 @@
+{
+ "id": "naples-san-francesco-di-paola",
+ "status": "candidate_real_pair",
+ "local_overlay": true,
+ "condition": "Совмещён входной портик. Купол и боковые колоннады находятся за пределами проверенной области.",
+ "control_points": [
+  {
+   "label": "Портик · ориентир 1",
+   "historic": [
+    713.6,
+    362.0
+   ],
+   "photo": [
+    615.94,
+    281.73
+   ]
+  },
+  {
+   "label": "Портик · ориентир 2",
+   "historic": [
+    607.2,
+    416.0
+   ],
+   "photo": [
+    489.9,
+    365.57
+   ]
+  },
+  {
+   "label": "Портик · ориентир 3",
+   "historic": [
+    832.4,
+    396.0
+   ],
+   "photo": [
+    745.97,
+    338.2
+   ]
+  },
+  {
+   "label": "Портик · ориентир 4",
+   "historic": [
+    612.8,
+    442.8
+   ],
+   "photo": [
+    495.03,
+    396.94
+   ]
+  },
+  {
+   "label": "Портик · ориентир 5",
+   "historic": [
+    832.8,
+    432.4
+   ],
+   "photo": [
+    740.84,
+    378.12
+   ]
+  },
+  {
+   "label": "Портик · ориентир 6",
+   "historic": [
+    620.0,
+    534.0
+   ],
+   "photo": [
+    495.6,
+    528.11
+   ]
+  },
+  {
+   "label": "Портик · ориентир 7",
+   "historic": [
+    678.0,
+    533.6
+   ],
+   "photo": [
+    547.5,
+    529.25
+   ]
+  },
+  {
+   "label": "Портик · ориентир 8",
+   "historic": [
+    708.4,
+    532.4
+   ],
+   "photo": [
+    584.0,
+    531.53
+   ]
+  },
+  {
+   "label": "Портик · ориентир 9",
+   "historic": [
+    741.2,
+    531.2
+   ],
+   "photo": [
+    618.79,
+    534.38
+   ]
+  },
+  {
+   "label": "Портик · ориентир 10",
+   "historic": [
+    770.8,
+    530.4
+   ],
+   "photo": [
+    651.87,
+    537.23
+   ]
+  },
+  {
+   "label": "Портик · ориентир 11",
+   "historic": [
+    801.6,
+    528.8
+   ],
+   "photo": [
+    690.08,
+    539.52
+   ]
+  }
+ ],
+ "historic": {
+  "title": "Plaza and church of San Francesco di Paola, Naples, Italy",
+  "date": "около 1890–1900",
+  "medium": "Фотохром",
+  "holding": "Library of Congress, Prints & Photographs Division",
+  "object_url": "https://www.loc.gov/item/2001700916/",
+  "rights": "Library of Congress: No known restrictions on reproduction",
+  "credit": "Library of Congress · LC-DIG-ppmsc-06576",
+  "file": "naples-san-francesco-di-paola-historic.jpg",
+  "size": [
+   1024,
+   731
+  ],
+  "sha256": "d34904de6771f05cb05e5027dde16a03a770848cc75b2faddfc7e43fff780d94"
+ },
+ "photo": {
+  "title": "Piazza del Plebiscito, Naples, lateral view",
+  "date": "2025-10-22",
+  "object_url": "https://commons.wikimedia.org/wiki/File:7K5A3060Piazza_del_Plebiscito_Naples_lateral_view_2025.jpg",
+  "credit": "Lucia Montanaro · Wikimedia Commons · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "JPEG уменьшен, метаданные удалены. В совмещённом фрагменте скорректирована перспектива, действует CC BY-SA 4.0.",
+  "file": "naples-san-francesco-di-paola-photo.jpg",
+  "size": [
+   1460,
+   973
+  ],
+  "sha256": "a059df38bde287bf63638f707634ad09babb032a8a02013efa61675c5bbd0b1f"
+ },
+ "story": {
+  "title": "Как в Неаполе переосмыслили Пантеон",
+  "text": "Архитектор Пьетро Бьянки взял за образец римский Пантеон. Связку треугольного фронтона и круглого объёма под куполом лучше всего видно в режиме «Рядом». Шторка даёт рассмотреть сам портик.",
+  "source": "https://bibliotecauniversitarianapoli.cultura.gov.it/it/450/piazza-del-plebiscito",
+  "source_label": "Университетская библиотека Неаполя"
+ },
+ "alignment": {
+  "n_points": 11,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1024,
+   731
+  ],
+  "photo_size": [
+   1460,
+   973
+  ],
+  "method": "cv2.findHomography RANSAC 12.6px",
+  "H": [
+   [
+    1.7258292431,
+    0.1110388713,
+    -91.1241106056
+   ],
+   [
+    0.2685909909,
+    0.9356143049,
+    77.1169605404
+   ],
+   [
+    0.0006506568,
+    -7.7926e-06,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    0.5907143834,
+    -0.0696130489,
+    59.1966695542
+   ],
+   [
+    -0.1378106992,
+    1.1263391929,
+    -99.4177324903
+   ],
+   [
+    -0.0003854262,
+    5.40713e-05,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   3.68,
+   3.99,
+   4.55,
+   2.11,
+   6.74,
+   4.15,
+   3.48,
+   1.21,
+   0.42,
+   1.37,
+   2.5
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 3.56,
+  "rms_all_points_px": 3.56,
+  "rms_rel_diag": 0.00283,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   9.62,
+   7.4,
+   8.07,
+   3.12,
+   11.0,
+   9.1,
+   4.62,
+   1.52,
+   0.5,
+   1.83,
+   4.73
+  ],
+  "loo_max_px": 11.0,
+  "loo_max_rel_diag": 0.00874,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.0416,
+  "valid_region_historic": [
+   [
+    832.7999877929688,
+    432.3999938964844
+   ],
+   [
+    801.5999755859375,
+    528.7999877929688
+   ],
+   [
+    770.7999877929688,
+    530.4000244140625
+   ],
+   [
+    678.0,
+    533.5999755859375
+   ],
+   [
+    620.0,
+    534.0
+   ],
+   [
+    607.2000122070312,
+    416.0
+   ],
+   [
+    713.5999755859375,
+    362.0
+   ],
+   [
+    832.4000244140625,
+    396.0
+   ]
+  ],
+  "scope": "local: control points span 4% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 4% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}
