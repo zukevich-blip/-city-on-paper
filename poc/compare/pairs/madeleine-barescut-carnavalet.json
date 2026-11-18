@@ -1,0 +1,326 @@
+{
+ "id": "madeleine-barescut-carnavalet",
+ "status": "candidate_real_pair",
+ "condition": "Совмещён портик Мадлен. Контур ограничивает область, где проверены точки фасада.",
+ "local_overlay": true,
+ "historic": {
+  "title": "Église de la Madeleine",
+  "medium": "Литография",
+  "holding": "Musée Carnavalet, Histoire de Paris",
+  "object_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/eglise-de-la-madeleine",
+  "file_source_url": "https://apicollections.parismusees.paris.fr/iiif/320295108/manifest",
+  "file_note": "Музейная репродукция уменьшена до 1280 пикселей без обрезки и изменения геометрии.",
+  "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+  "file": "madeleine-barescut-carnavalet.jpg",
+  "size": [
+   1280,
+   862
+  ],
+  "sha256": "673698d439d21ec320286a1c88088159e5fa4b09752dcde1dcc02807b59429a7",
+  "credit": "Estelle Félicité Marie de Barescut · Paris Musées / Musée Carnavalet · CC0"
+ },
+ "photo": {
+  "title": "Église de la Madeleine, south portico, 30 Apr 2026",
+  "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
+  "panoramax_id": "38b6d262-648f-461e-b9a3-ab05eb22d92a",
+  "object_url": "https://api.panoramax.xyz/api/collections/732a0136-de7a-4ee5-94d7-07853d4d9f08/items/38b6d262-648f-461e-b9a3-ab05eb22d92a",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=38b6d262-648f-461e-b9a3-ab05eb22d92a",
+  "author": "jerome92370 (Panoramax account)",
+  "date": "2026-04-30",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "azimuth_deg": 21,
+  "distance_to_building_m_approx": 89,
+  "file": "madeleine-photo-panoramax-38b6d262.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/38/b6/d2/62/648f-461e-b9a3-ab05eb22d92a/sd.jpg",
+  "source_sha256": "6229b1c4d7e331569ecd60c5cb76f8a12a0b04c981d1ebee14812bb01bcf76ff",
+  "sha256": "3493d570d149616d37947072a4e6d1e365635d88f856dd43b3ec09f5eb72f0c6",
+  "file_note": "Panoramax 'sd' derivative (faces already blurred by Panoramax). Re-encoded once (JPEG q92) only to strip EXIF/GPS; no geometric or colour change.",
+  "size": [
+   2048,
+   1536
+  ],
+  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded once (JPEG q92) to strip EXIF/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under CC BY-SA 4.0"
+ },
+ "control_points": [
+  {
+   "label": "Вершина фронтона",
+   "historic": [
+    511.0,
+    298.5
+   ],
+   "photo": [
+    1080.0,
+    195.2
+   ]
+  },
+  {
+   "label": "Левый край карниза",
+   "historic": [
+    361.5,
+    392.5
+   ],
+   "photo": [
+    312.0,
+    400.0
+   ]
+  },
+  {
+   "label": "Правый край карниза",
+   "historic": [
+    687.5,
+    337.0
+   ],
+   "photo": [
+    1825.6,
+    414.4
+   ]
+  },
+  {
+   "label": "Левый край антаблемента",
+   "historic": [
+    376.5,
+    422.0
+   ],
+   "photo": [
+    353.6,
+    552.0
+   ]
+  },
+  {
+   "label": "Правый край антаблемента",
+   "historic": [
+    678.5,
+    376.0
+   ],
+   "photo": [
+    1771.2,
+    576.0
+   ]
+  },
+  {
+   "label": "Основание колонны 1",
+   "historic": [
+    387.0,
+    570.0
+   ],
+   "photo": [
+    254.4,
+    1203.2
+   ]
+  },
+  {
+   "label": "Основание колонны 2",
+   "historic": [
+    419.5,
+    570.0
+   ],
+   "photo": [
+    470.4,
+    1220.8
+   ]
+  },
+  {
+   "label": "Основание колонны 3",
+   "historic": [
+    456.5,
+    568.5
+   ],
+   "photo": [
+    704.0,
+    1232.0
+   ]
+  },
+  {
+   "label": "Основание колонны 4",
+   "historic": [
+    496.0,
+    566.5
+   ],
+   "photo": [
+    932.8,
+    1236.8
+   ]
+  },
+  {
+   "label": "Основание колонны 5",
+   "historic": [
+    540.5,
+    565.5
+   ],
+   "photo": [
+    1153.6,
+    1243.2
+   ]
+  },
+  {
+   "label": "Основание колонны 6",
+   "historic": [
+    582.5,
+    564.5
+   ],
+   "photo": [
+    1382.4,
+    1249.6
+   ]
+  },
+  {
+   "label": "Основание колонны 7",
+   "historic": [
+    623.0,
+    560.5
+   ],
+   "photo": [
+    1619.2,
+    1256.0
+   ]
+  },
+  {
+   "label": "Основание колонны 8",
+   "historic": [
+    671.0,
+    556.0
+   ],
+   "photo": [
+    1862.4,
+    1267.2
+   ]
+  }
+ ],
+ "alignment": {
+  "n_points": 13,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   862
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "method": "cv2.findHomography RANSAC 15.4px",
+  "H": [
+   [
+    0.1451030608,
+    0.1405492089,
+    283.4205965605
+   ],
+   [
+    -0.0897409041,
+    0.378434102,
+    291.1191366039
+   ],
+   [
+    -0.0001263005,
+    0.0002509921,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    4.5222611157,
+    -1.0279588318,
+    -982.4434556206
+   ],
+   [
+    0.7844862536,
+    2.6789980137,
+    -1002.2471506949
+   ],
+   [
+    0.0003742641,
+    -0.0008022391,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   4.94,
+   2.24,
+   13.63,
+   6.1,
+   5.64,
+   1.58,
+   0.14,
+   1.4,
+   0.91,
+   4.36,
+   4.31,
+   2.93,
+   4.98
+  ],
+  "inliers": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 3.82,
+  "rms_all_points_px": 5.27,
+  "rms_rel_diag": 0.00247,
+  "outlier_fraction": 0.077,
+  "loo_px": [
+   4.72,
+   5.62,
+   13.63,
+   7.2,
+   15.36,
+   4.05,
+   0.24,
+   2.38,
+   2.16,
+   4.06,
+   4.45,
+   3.94,
+   8.0
+  ],
+  "loo_max_px": 15.36,
+  "loo_max_rel_diag": 0.00995,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.0657,
+  "valid_region_historic": [
+   [
+    687.5,
+    337.0
+   ],
+   [
+    671.0,
+    556.0
+   ],
+   [
+    582.5,
+    564.5
+   ],
+   [
+    419.5,
+    570.0
+   ],
+   [
+    387.0,
+    570.0
+   ],
+   [
+    361.5,
+    392.5
+   ],
+   [
+    511.0,
+    298.5
+   ]
+  ],
+  "scope": "local: control points span 7% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 7% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

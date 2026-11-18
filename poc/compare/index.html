@@ -35,7 +35,7 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .stage{position:relative;width:100%;overflow:hidden;background:#0000;border:1px solid var(--line);touch-action:pan-y;user-select:none}
 .stage img{display:block;-webkit-user-drag:none}
 .hist{width:100%;height:auto}
-.overlay{position:absolute;inset:0;overflow:hidden}
+.overlay,.photoMask{position:absolute;inset:0;overflow:hidden}
 .photoLayer{position:absolute;left:0;top:0;transform-origin:0 0}
 .photoLayer img{width:100%;height:100%}
 .region{position:absolute;inset:0;pointer-events:none}
@@ -103,7 +103,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
   <div class="zoomwrap" id="zoomwrap">
     <div class="stage" id="stage">
       <img class="hist" id="histImg" alt="">
-      <div class="overlay" id="overlay"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div>
+      <div class="overlay" id="overlay"><div class="photoMask" id="photoMask"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div></div>
       <svg class="region" id="region" aria-hidden="true"></svg>
       <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
       <div class="badge" id="badge"></div>
@@ -285,6 +285,10 @@ function layout(){
   const svg = $("region");
   svg.setAttribute("viewBox", `0 0 ${hw} ${hh}`);
   const r = pair.alignment && pair.alignment.valid_region_historic;
+  const localOverlay = pair.local_overlay && aligned && canAlign() && Array.isArray(r);
+  $("photoMask").style.clipPath = localOverlay
+    ? `polygon(${r.map(([x, y]) => `${100 * x / hw}% ${100 * y / hh}%`).join(", ")})`
+    : "";
   svg.innerHTML = (showRegion && aligned && canAlign() && Array.isArray(r))
     ? `<polygon points="${r.map(p => p.map(Number).join(",")).join(" ")}" fill="none" stroke="#ff3b30" stroke-width="${hw/300}" stroke-dasharray="${hw/80} ${hw/160}"/>`
       + pair.control_points.map(c => `<circle cx="${Number(c.historic[0])}" cy="${Number(c.historic[1])}" r="${hw/170}" fill="none" stroke="#ffd60a" stroke-width="${hw/400}"><title>${esc(c.label)}</title></circle>`).join("")
@@ -373,7 +377,7 @@ function showImgError(){
 async function loadPair(id){
   pair = await (await fetch(`pairs/${encodeURIComponent(id)}.json`)).json();
   // low confidence: never force a fit by default; the attempt stays one click away
-  aligned = canAlign() && ["high", "medium"].includes(pair.alignment.confidence);
+  aligned = canAlign() && (["high", "medium"].includes(pair.alignment.confidence) || pair.local_overlay === true);
   if (!userMode) mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider";
   imgFailed.hist = imgFailed.photo = false; showImgError();
   const hi = $("histImg"), pi = $("photoImg");
@@ -395,7 +399,7 @@ async function init(){
   const idx = await (await fetch("pairs/index.json")).json();
   const ids = (idx.pairs || []).filter(p => /^[\w-]+$/.test(p));
   const sel = $("pairSel");
-  sel.innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+  sel.innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(idx.labels?.[p] || p)}</option>`).join("");
   const start = location.hash.slice(1);
   if (ids.includes(start)) sel.value = start;
   const q = new URLSearchParams(location.search);
