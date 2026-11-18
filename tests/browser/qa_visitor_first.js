@@ -20,7 +20,7 @@ function check(name,v){if(!v)throw Error(name);}
    await go("");
    check(width+" front door",await page.locator(".museum-frontdoor").count()===1);
    check(width+" global search",await page.locator("#frontQuery").count()===1);
-   check(width+" visual time layers",await page.locator(".signature-pair img").count()===2);
+   check(width+" visual time layers",await page.locator(".wow-duet img").count()===2);
    check(width+" editorial journal",await page.locator(".article-grid a").count()===3);
    check(width+" community invitation",await page.locator('.participate-home a[href="submit/"]').count()===1);
    check(width+" homepage no horizontal scrolling",await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4));

@@ -34,7 +34,7 @@ function check(name,condition){if(!condition)throw Error(name);}
    });
    check(device+" rooms menu is not clipped on viewport",menuAccessible);
    await showRooms.click();
-   const firstTitle=await page.locator(".hybrid-story-hero h1").textContent();
+   const firstTitle=await page.locator(".hybrid-story-hero .storytitle").textContent();
    check(device+" story-first home",firstTitle.includes("Париж"));
    const response=await page.goto(new URL("cities/",base).href,{waitUntil:"domcontentloaded"});
    check(device+" city index status",response && response.status()===200);

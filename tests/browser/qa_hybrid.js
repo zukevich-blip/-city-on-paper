@@ -16,7 +16,7 @@ fs.mkdirSync(out,{recursive:true});
    if(!home || home.status()!==200)throw Error(device+" homepage status "+home?.status());
    const first=await page.locator(".hybrid-story-hero a.btn.primary").getAttribute("href");
    if(first!=="stories/paris-on-paper/")throw Error(device+" wrong first CTA: "+first);
-   if(await page.locator(".hybrid-story-hero h1").count()!==1)throw Error(device+" missing story-first headline");
+   if(await page.locator(".hybrid-story-hero .storytitle").count()!==1)throw Error(device+" missing story-first headline");
    const hero=page.locator(".hybrid-story-hero .hybrid-hero-picture img");
    await hero.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>{const x=document.querySelector(".hybrid-hero-picture img");return x&&x.complete&&x.naturalWidth>150;},null,{timeout:17000});

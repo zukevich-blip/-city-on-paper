@@ -13,8 +13,8 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
 .navlinks .allrooms summary{color:var(--cop-muted)}
 .hybrid-story-hero{padding:65px 0 54px;display:grid;grid-template-columns:.93fr 1.07fr;gap:clamp(25px,4vw,62px);align-items:center;min-height:580px}
 .hybrid-story-hero .eyebrow{font-size:11px;letter-spacing:.17em;color:var(--cop-terracotta)}
-.hybrid-story-hero h1{font-family:var(--cop-display);font-size:clamp(50px,6.4vw,94px);line-height:1.0;letter-spacing:-.048em;margin:17px 0 23px}
-.hybrid-story-hero h1 em{font-weight:400;color:var(--cop-terracotta)}
+.hybrid-story-hero :is(h1,h2.storytitle){font-family:var(--cop-display);font-size:clamp(50px,6.4vw,94px);line-height:1.0;letter-spacing:-.048em;margin:17px 0 23px}
+.hybrid-story-hero :is(h1,h2.storytitle) em{font-weight:400;color:var(--cop-terracotta)}
 .hybrid-story-hero .lead{font:clamp(18px,1.9vw,23px)/1.58 var(--cop-display);color:#4a4c43;max-width:570px;margin-bottom:18px}
 .hybrid-story-hero .supporting{color:#66665b;font-size:15px;line-height:1.68;max-width:500px}
 .hybrid-story-hero .actions{margin:22px 0 14px}
@@ -70,7 +70,7 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
 #home .sectionhead h2,#home .livingLab h2{font-family:var(--cop-display)}
 @media(max-width:1040px){
   .hybrid-story-hero{grid-template-columns:1fr 1fr;gap:28px}
-  .hybrid-story-hero h1{font-size:clamp(47px,6vw,65px)}
+  .hybrid-story-hero :is(h1,h2.storytitle){font-size:clamp(47px,6vw,65px)}
   .hybrid-editorial-grid{grid-template-columns:1fr 1fr}
   .hybrid-story-tile:first-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
   .hybrid-story-tile:first-child img{height:100%;max-height:360px}
@@ -78,7 +78,7 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
 }
 @media(max-width:720px){
   .hybrid-story-hero{display:flex;flex-direction:column;padding:35px 0 34px;min-height:0;gap:24px;align-items:stretch}
-  .hybrid-story-hero h1{font-size:clamp(48px,11vw,71px)}
+  .hybrid-story-hero :is(h1,h2.storytitle){font-size:clamp(48px,11vw,71px)}
   .hybrid-story-hero .lead{font-size:20px}
   .hybrid-hero-picture img{max-height:365px}
   .hybrid-journal-index{gap:10px;flex-wrap:wrap}
@@ -93,7 +93,7 @@ header .navlinks a.main-story-link{color:var(--cop-terracotta);font-weight:750}
   .hybrid-book-row .btn{align-self:flex-start}
 }
 @media(max-width:450px){
-  .hybrid-story-hero h1{font-size:48px}
+  .hybrid-story-hero :is(h1,h2.storytitle){font-size:48px}
   .hybrid-story-hero .btn.primary{width:100%}
   .hybrid-hero-picture .artwork-link{padding:8px}
   .hybrid-hero-picture img{max-height:270px}

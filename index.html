@@ -256,6 +256,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  #home .wow-features strong{font-size:16px}
 }
 
+
+
+#home .museum-wow .front-copy h1{font-size:clamp(34px,4.3vw,58px);line-height:1.06;letter-spacing:-.03em}
+#home .museum-wow .front-map.wow-visual{justify-content:flex-start}
+@media(max-width:760px){
+ #home .museum-wow .front-copy h1{font-size:33px}
+ #home .museum-wow .wow-lead{font-size:16px}
+ #home .museum-wow .wow-trust{display:none}
+}
+/* first-visit route: hero toggle, five steps, facts, "more" fold */
+#home .herotoggle{display:none;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+#home .herotoggle button,#home .herotoggle a{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;border:1px solid #b9ab94;background:#fffdf7;color:#29342d;font:600 14px system-ui,sans-serif;border-radius:4px;text-decoration:none;cursor:pointer}
+#home .herotoggle button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}
+#home .herotoggle a{color:#7a3f22;border-color:#c9a88f}
+@media(max-width:760px){
+ #home .herotoggle{display:flex}
+ #home .wow-duet{grid-template-columns:1fr}
+ #home .wow-duet figure[data-pane]{display:none}
+ #home .wow-duet[data-active=then] figure[data-pane=then],#home .wow-duet[data-active=now] figure[data-pane=now]{display:block}
+}
+#home .route-head{grid-column:1/-1;padding:26px 4px 6px}#home .route-head h2{font:normal clamp(24px,3.4vw,34px)/1.15 Georgia,serif;margin:4px 0 0}
+#home .wow-features{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:1000px){#home .wow-features{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){#home .wow-features{grid-template-columns:1fr}#home .wow-features>a{border-right:0;border-bottom:1px solid #d8cbb4;min-height:0}}
+#home .wow-feature-num{font-size:20px;font-family:Georgia,serif;color:#7a3f22}
+.fv-facts{margin:34px 0 10px}.fv-facts h2{font:normal clamp(26px,3.6vw,38px)/1.15 Georgia,serif;margin:0 0 14px}
+.fv-facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media(max-width:1000px){.fv-facts-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.fv-facts-grid{grid-template-columns:1fr}}
+.fv-facts-grid article{background:#fffaf2;border:1px solid #d3c4ad;border-top:3px solid #b79567;padding:16px;display:flex;flex-direction:column;gap:8px}
+.fv-facts-grid b{font:normal 20px Georgia,serif;color:#7a3f22}.fv-facts-grid p{font:14px/1.6 system-ui,sans-serif;margin:0;flex:1;color:#3b3a33}.fv-facts-grid a{font:12px system-ui,sans-serif;color:#6d5430;min-height:32px;display:inline-flex;align-items:center}
+.more-museum{margin:30px 0 20px;border-top:1px solid #d3c4ad}
+.more-museum>summary{min-height:56px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;cursor:pointer;padding:14px 4px;list-style:none}
+.more-museum>summary::-webkit-details-marker{display:none}.more-museum>summary span{font:normal 24px Georgia,serif}.more-museum>summary small{font:13px system-ui,sans-serif;color:#6f6f63}
+.more-museum>summary::after{content:"+";margin-left:auto;font:26px Georgia,serif;color:#7a3f22}.more-museum[open]>summary::after{content:"−"}
 </style>
 <link rel="stylesheet" href="assets/hybrid/tokens.css">
 <link rel="stylesheet" href="assets/hybrid/museum.css">
@@ -297,38 +331,44 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 <div class="museum-frontdoor museum-wow" aria-label="Что умеет музей «Город на бумаге»">
   <div class="front-copy">
-    <span class="eyebrow">Город на бумаге</span>
-    <h1>Что осталось на месте <em>со времён литографии?</em></h1>
-    <p class="wow-lead">Начните с одной детали парижского фасада. Она подскажет, как читать рисунок моста во Флоренции и вид Тадж-Махала.</p>
+    <span class="eyebrow">Старые виды городов — и как они выглядят сегодня</span>
+    <h1>Как выглядел город больше полутора веков назад — и что в нём осталось?</h1>
+    <p class="wow-lead">Литография — это печатный рисунок на бумаге: так до появления фотографии показывали далёкие города. Мы кладём такой лист рядом со снимком того же места сегодня. Начните с парижской церкви Мадлен: переключайте «Рисунок» и «Фото сегодня» и ищите, что не изменилось.</p>
     <div class="wow-actions">
-      <a class="wow-primary" href="poc/compare/?journey=1#madeleine-benoist-carnavalet">Начать с Парижа <span aria-hidden="true">↗</span></a>
-      <a class="wow-secondary" href="world/#worldComparisons">Выбрать другой город <span aria-hidden="true">↗</span></a>
+      <a class="wow-primary" href="poc/compare/?journey=1#madeleine-benoist-carnavalet">Сравнить тогда и сейчас <span aria-hidden="true">↗</span></a>
+      <a class="wow-secondary" href="cities/">Выбрать город <span aria-hidden="true">↗</span></a>
     </div>
-    <p class="wow-trust">Настоящие музейные источники. Проверяем даты и авторов, не выдаём похожий ракурс за точное совпадение.</p>
+    <p class="wow-trust">Рисунки — из архивов Библиотеки Конгресса США и Художественного института Чикаго. У каждого указаны автор, год и источник.</p>
   </div>
-  <div class="front-map wow-visual" aria-label="Пример: церковь Мадлен на литографии и современной фотографии">
+  <div class="front-map wow-visual" aria-label="Пример: церковь Мадлен на литографии и на современной фотографии">
     <div class="wow-visual-top"><span>ПАРИЖ · ЦЕРКОВЬ МАДЛЕН</span><strong>Два века. Один адрес.</strong></div>
-    <div class="wow-duet">
-      <figure>
-        <img src="assets/web/poc-compare-pairs-madeleine-historic-loc-pga14315v-720.jpg" data-full="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" width="1024" height="750" alt="Церковь Мадлен в Париже на раскрашенной литографии Филиппа Бенуа, 1845–1860 годы" loading="eager" decoding="async" fetchpriority="high">
-        <figcaption><b>ТОГДА</b><span>Литография · 1845–1860</span></figcaption>
+    <div class="herotoggle" role="group" aria-label="Что показать">
+      <button type="button" data-pane="then" aria-pressed="true">Рисунок</button>
+      <button type="button" data-pane="now" aria-pressed="false">Фото сегодня</button>
+      <a href="poc/compare/?view=fit#madeleine-ph-benoist">Совместить →</a>
+    </div>
+    <div class="wow-duet" id="heroDuet" data-active="then">
+      <figure data-pane="then">
+        <img src="assets/web/poc-compare-pairs-madeleine-historic-loc-pga14315v-720.jpg" data-full="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" width="1024" height="750" alt="Церковь Мадлен в Париже на раскрашенной литографии Филиппа Бенуа, 1845–1860 годы" loading="eager" fetchpriority="high">
+        <figcaption><b>РИСУНОК</b><span>Литография · 1845–1860</span></figcaption>
       </figure>
-      <figure>
-        <img src="assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg" data-full="poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" width="2048" height="1536" alt="Церковь Мадлен на современной фотографии jerome92370 с Panoramax, 30 апреля 2026 года" loading="eager" decoding="async">
-        <figcaption><b>СЕЙЧАС</b><span>Фотография · 2026</span></figcaption>
+      <figure data-pane="now">
+        <img src="assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg" data-full="poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" width="2048" height="1536" alt="Церковь Мадлен на современной фотографии, сделанной 30 апреля 2026 года" loading="eager">
+        <figcaption><b>ФОТО СЕГОДНЯ</b><span>Фотография · 2026</span></figcaption>
       </figure>
     </div>
     <div class="wow-visual-bottom">
-      <span>Здесь разные точки наблюдения. Какая часть церкви узнаваема в обоих кадрах?</span>
-      <a href="poc/compare/?journey=1#madeleine-benoist-carnavalet">Проверить шторкой <span aria-hidden="true">↗</span></a>
-      <small>Бенуа / Library of Congress · Фото jerome92370 / Panoramax, CC BY-SA 4.0</small>
+      <span>Рисунок и фото сняты с разных мест, поэтому совпадают не полностью. Какая часть церкви узнаётся в обоих кадрах?</span>
+      <small>Филипп Бенуа, Библиотека Конгресса · Фото jerome92370, Panoramax, CC BY-SA 4.0</small>
     </div>
   </div>
-  <div class="wow-features" aria-label="Четыре возможности музея">
-    <a href="poc/compare/#madeleine-ph-benoist"><span class="wow-feature-num">01</span><strong>Сравнить эпохи</strong><small>Шторка, фото и литография рядом</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="eras/#/city/paris"><span class="wow-feature-num">02</span><strong>Путешествовать по картам</strong><small>Старый план и город сегодня</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="eras/#/city/paris"><span class="wow-feature-num">03</span><strong>Искать взгляд художника</strong><small>Где стоял автор, что он видел</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="salon/"><span class="wow-feature-num">04</span><strong>Раскрывать истории листов</strong><small>Авторы, места, судьбы и источники</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+  <div class="route-head"><span class="eyebrow">Ваш маршрут</span><h2>Пять шагов от первого взгляда до своего фото</h2></div>
+  <div class="wow-features" aria-label="Маршрут по музею в пять шагов">
+    <a href="poc/compare/#madeleine-ph-benoist"><span class="wow-feature-num">1</span><strong>Сравните тогда и сейчас</strong><small>Переключайте рисунок и фото или двигайте границу между ними. Что осталось на месте?</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="stories/paris-on-paper/"><span class="wow-feature-num">2</span><strong>Прочтите историю места</strong><small>Кто нарисовал лист, как его печатали и что было с этим местом дальше. Пять глав, 5–7 минут.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="eras/"><span class="wow-feature-num">3</span><strong>Найдите место на карте</strong><small>Старая карта Европы 1769 года с метками городов. Нажмите на город — и увидите его старые виды.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="cities/"><span class="wow-feature-num">4</span><strong>Отправьтесь в другой город</strong><small>Санкт-Петербург, Москва, Рим, Венеция, Нью-Йорк и ещё десятки городов мира.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="eras/#/epoch/paris/Q330564"><span class="wow-feature-num">5</span><strong>Добавьте своё фото</strong><small>Снимите то же место сегодня и сравните со старым рисунком. Фото остаётся только в вашем браузере.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
   </div>
 </div>
 <div class="wow-find">
@@ -340,12 +380,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </form>
   <div class="front-quick"><a href="walk/?city=paris">Париж</a><a href="walk/?city=florence">Флоренция</a><a href="walk/?city=naples">Неаполь</a><a href="cities/">Все города мира</a></div>
 </div>
-<div class="wow-literacy"><strong>Что такое литография?</strong><span>Печатный рисунок, который переносили с камня на бумагу. До эпохи массовой фотографии такие листы помогали людям увидеть далёкие города. Сегодня по ним можно изучать, как менялись улицы и здания.</span><a href="printlab/">Посмотреть, как её печатали →</a></div>
 <div class="hybrid-story-hero">
 <div class="hybrid-story-copy">
   <div class="cop-imprint" aria-label="Авторский знак цифрового музея «Город на бумаге»"><span class="cop-signet" aria-hidden="true">ГБ</span><span class="cop-imprint-copy"><span>Город на бумаге · City on Paper</span><span>Цифровое издание · Графика и города</span></span></div>
   <div class="eyebrow">История недели · Париж · XIX век</div>
-  <h1>Париж,<br><em>который</em><br>напечатали.</h1>
+  <h2 class="storytitle">Париж,<br><em>который</em><br>напечатали.</h2>
   <div class="cop-engraved-line" aria-hidden="true"><span>✦</span></div>
   <p class="lead">Два городских вида Филиппа Бенуа. Один хранит торжественную Мадлен, другой зовёт прогуляться по Пале-Рояль.</p>
   <p class="supporting">Что художник увидел сам, что выбрал для композиции и как его рисунок превратился в литографский оттиск? Пройдём пять глав, сопоставим изображения и вернёмся к музейным оригиналам.</p>
@@ -358,6 +397,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <figcaption>Филипп Бенуа, рисунок; типография Lemercier. <i>Paris. La Madeleine</i>, 1845–1860. Library of Congress, LC-DIG-pga-14315. <a href="https://www.loc.gov/item/2016652452/" target="_blank" rel="noopener noreferrer">Открыть оригинал</a>.</figcaption>
 </figure>
 </div>
+<section class="fv-facts" aria-labelledby="factsH">
+  <h2 id="factsH">Знаете ли вы?</h2>
+  <div class="fv-facts-grid">
+    <article><b>Литография</b><p>Её придумал в 1796 году баварский актёр и драматург Алоис Зенефельдер. Рисуют жирным составом по гладкому камню: краска липнет только к рисунку, а мокрый камень её отталкивает.</p><a href="https://en.wikipedia.org/wiki/Lithography" target="_blank" rel="noopener">Википедия ↗</a></article>
+    <article><b>Санкт-Петербург</b><p>Один и тот же город трижды менял имя: с 1914 года Петроград, с 1924-го Ленинград, а с 1991-го снова Санкт-Петербург. Столицей России он был с 1712 по 1918 год.</p><a href="https://en.wikipedia.org/wiki/Saint_Petersburg" target="_blank" rel="noopener">Википедия ↗</a></article>
+    <article><b>Москва</b><p>Храм Христа Спасителя освятили в 1883 году и взорвали в 1931-м. На его месте в 1958 году сделали бассейн «Москва», а новый храм освятили в 2000-м.</p><a href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Википедия ↗</a></article>
+    <article><b>Нью-Йорк</b><p>Бруклинский мост открыли 24 мая 1883 года, а через год по нему провели 21 слона — цирк Барнума доказывал, что мост выдержит.</p><a href="https://en.wikipedia.org/wiki/Brooklyn_Bridge" target="_blank" rel="noopener">Википедия ↗</a></article>
+  </div>
+</section>
+<div class="participate-home"><div><span class="eyebrow" style="color:#dfcaa4">Открытая коллекция</span><h2>Есть старая литография или современный ракурс?</h2><p>Предложите изображение, адрес или историю здания. Сначала проверим автора, дату, источник и права; новые материалы не появятся в музее автоматически.</p></div><a href="submit/">Предложить находку →</a></div>
+<details class="more-museum"><summary><span>Ещё в музее</span><small>книга городов, мастерские, каталог, истории</small></summary>
 <div class="hybrid-journal-index" aria-label="Быстрые маршруты музея">
  <span>Музей исторических изображений</span>
  <a href="stories/">Все истории</a>
@@ -365,15 +415,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  <a href="experience/">Книга городов</a>
 <a href="cities/">Все города мира</a>
 </div>
-<section class="hybrid-editorial" aria-labelledby="hybrid-collections-heading">
- <div class="hybrid-editorial-head"><div><div class="eyebrow">Следующие путешествия</div><h2 id="hybrid-collections-heading">С какого города продолжить?</h2></div><p>Листы и фотографии с подтверждённым происхождением. У каждого сюжета свой город, художник, время и вопрос.</p></div>
- <div class="hybrid-editorial-grid">
-  <a class="hybrid-story-tile" href="stories/paris-on-paper/"><img src="assets/web/poc-compare-pairs-palais-royal-historic-loc-pga14314v-720.jpg" data-full="poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg" alt="Филипп Бенуа. Пале-Рояль. Архивная раскрашенная литография XIX века" loading="lazy" width="1024" height="756"><div class="hybrid-tile-copy"><span class="tile-kicker">Париж · История 01</span><h3>Сад, в котором гуляет город</h3><p>Пале-Рояль на старой литографии. Как архитектура, аллеи и прохожие превращаются в рассказ о повседневной жизни?</p><span class="tile-go">Пять глав и источники →</span></div></a>
-  <a class="hybrid-story-tile" href="experience/?city=florence&chapter=1"><img src="assets/web/eras-img-florence-pontevecchio-1883-pennell-etching-aic-194443-720.jpg" data-full="eras/img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg" alt="Джозеф Пеннелл. Офорт Ponte Vecchio, Florence, 1883 год" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Флоренция · 1883</span><h3>Мост, который стал рисунком</h3><p>Сопоставляем офорт Пеннелла и исторический фотоснимок Понте-Веккьо. Ракурсы различаются.</p><span class="tile-go">Исследовать Флоренцию →</span></div></a>
-  <a class="hybrid-story-tile" href="experience/?city=naples&chapter=1"><img src="assets/web/eras-img-naples-santalucia-1846-calvert-jones-aic-27086-720.jpg" data-full="eras/img/naples_santalucia_1846_calvert-jones_aic-27086.jpg" alt="Калверт Ричард Джонс. Старинная фотография побережья Санта-Лючия в Неаполе, 1846" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Неаполь · 1846</span><h3>Город перед морем</h3><p>Ранняя фотография Калверта Ричарда Джонса из Художественного института Чикаго. Вход в историю морского города.</p><span class="tile-go">Исследовать Неаполь →</span></div></a>
- </div>
-</section>
-
 <div class="signature" aria-labelledby="signatureHeading">
  <span class="eyebrow">Главная особенность музея / История на карте</span>
  <h2 id="signatureHeading">Один фасад. Четыре эпохи.</h2>
@@ -385,6 +426,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  <div class="signature-bottom"><p>Виды показаны рядом без геометрического наложения: точки съёмки не подтверждены как совпадающие. Внутри есть дополнительные кадры, даты, музейные источники и карта.</p><a class="btn primary" href="walk/?city=paris&amp;place=0">Пройти маршрут по времени →</a> <a class="btn" href="poc/compare/#madeleine-benoist-carnavalet">Совместить второй лист Бенуа →</a> <a class="btn" href="world/#worldComparisons">Сравнить города мира →</a></div>
 </div>
 <div class="hybrid-world-portal"><div><span class="eyebrow">Города шести регионов</span><h2>История продолжается за пределами Европы.</h2><p>Открывайте исторические изображения городов мира. У каждого направления честно показано, что уже есть в архиве, а что пока только ищется. Городские истории не подменяются пустыми карточками.</p></div><a class="btn primary" href="cities/">Исследовать города мира ↗</a></div>
+<section class="hybrid-editorial" aria-labelledby="hybrid-collections-heading">
+ <div class="hybrid-editorial-head"><div><div class="eyebrow">Следующие путешествия</div><h2 id="hybrid-collections-heading">С какого города продолжить?</h2></div><p>Листы и фотографии с подтверждённым происхождением. У каждого сюжета свой город, художник, время и вопрос.</p></div>
+ <div class="hybrid-editorial-grid">
+  <a class="hybrid-story-tile" href="stories/paris-on-paper/"><img src="assets/web/poc-compare-pairs-palais-royal-historic-loc-pga14314v-720.jpg" data-full="poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg" alt="Филипп Бенуа. Пале-Рояль. Архивная раскрашенная литография XIX века" loading="lazy" width="1024" height="756"><div class="hybrid-tile-copy"><span class="tile-kicker">Париж · История 01</span><h3>Сад, в котором гуляет город</h3><p>Пале-Рояль на старой литографии. Как архитектура, аллеи и прохожие превращаются в рассказ о повседневной жизни?</p><span class="tile-go">Пять глав и источники →</span></div></a>
+  <a class="hybrid-story-tile" href="experience/?city=florence&chapter=1"><img src="assets/web/eras-img-florence-pontevecchio-1883-pennell-etching-aic-194443-720.jpg" data-full="eras/img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg" alt="Джозеф Пеннелл. Офорт Ponte Vecchio, Florence, 1883 год" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Флоренция · 1883</span><h3>Мост, который стал рисунком</h3><p>Сопоставляем офорт Пеннелла и исторический фотоснимок Понте-Веккьо. Ракурсы различаются.</p><span class="tile-go">Исследовать Флоренцию →</span></div></a>
+  <a class="hybrid-story-tile" href="experience/?city=naples&chapter=1"><img src="assets/web/eras-img-naples-santalucia-1846-calvert-jones-aic-27086-720.jpg" data-full="eras/img/naples_santalucia_1846_calvert-jones_aic-27086.jpg" alt="Калверт Ричард Джонс. Старинная фотография побережья Санта-Лючия в Неаполе, 1846" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Неаполь · 1846</span><h3>Город перед морем</h3><p>Ранняя фотография Калверта Ричарда Джонса из Художественного института Чикаго. Вход в историю морского города.</p><span class="tile-go">Исследовать Неаполь →</span></div></a>
+ </div>
+</section>
+
 <section class="hybrid-mode-section" aria-labelledby="hybrid-tools-heading">
  <div class="eyebrow">Три способа посетить музей</div><h2 id="hybrid-tools-heading">Продолжайте в своём темпе.</h2>
  <p class="hybrid-mode-lead">Истории остаются главным маршрутом. Карта и коллекция открываются по вашему выбору; анимация книги никогда не обязательна.</p>
@@ -399,8 +449,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <a class="btn" href="experience/">Открыть книгу <span aria-hidden="true">↗</span></a>
  </div>
 </section>
-<p class="collection-status">Открытые данные проекта: проверенные музейные карточки отделены от исследовательских кандидатов. Количество найденных записей не означает количество подтверждённых работ.</p>
-<div class="stats"><div class="stat"><strong>27</strong><span>Архивно сверенных карточек</span></div><div class="stat"><strong>1 019</strong><span>Исследовательских кандидатов Claude</span></div><div class="stat"><strong>7</strong><span>Сравнений в прежней выставке</span></div><div class="stat"><strong>0</strong><span>Независимо подтверждённых новых пар</span></div></div>
 <div class="sectionhead"><div><div class="eyebrow">01 / Содержание</div><h2>Париж: следующий взгляд</h2></div><p>После истории Мадлен откройте сад Пале-Рояль. Даже два вида одного города нельзя автоматически считать снимками с одного ракурса.</p></div>
 <div class="feature"><img src="assets/web/docs-ux-mockups-assets-loc-pga14314v-720.jpg" data-full="docs/ux/mockups/assets/loc-pga14314v.jpg" alt="Париж. Сад Пале-Рояль. Историческая литография Филиппа Бенуа"><div><span class="labels">Париж · 1845–1860</span><h2>Пале-Рояль</h2><p>Сад и галереи на листе Филиппа Бенуа. Существующая фотография сделана с противоположной стороны. Поэтому в просмотрщике честно показаны оба оригинала без натянутого совпадения.</p><button data-go="compare" class="btn">Посмотреть сравнение</button><div class="note">Точное совпадение ракурсов ещё не подтверждено.</div></div></div>
 <div class="museumWorkshops"><div class="eyebrow" style="margin-bottom:17px">Смежные залы · Изображение и ремесло</div><div class="workshopCards"><a href="atelier/ornament/" class="workshopCard"><span>01 / Архитектура</span><strong>Анатомия орнамента</strong><p>Карнизы, капители, маскароны, каталоги производителей и материал XIX века. 14 архивных моделей.</p><em>Изучить детали ↗</em></a><a href="atelier/bargue/" class="workshopCard"><span>02 / Школа художника</span><strong>Учимся видеть форму</strong><p>Курс по принципам Барга: измерение пропорций, построение контура, свет и тень. Можно рисовать прямо в браузере.</p><em>Начать упражнение ↗</em></a></div></div><div class="livingLab"><div class="eyebrow">После прогулки · исследовательские залы</div><h2>Когда захочется пойти глубже</h2><p class="livingIntro">Историю можно продолжить в мастерской печати, кабинете деталей, фототеке или мировом атласе. Это дополнительные исследовательские инструменты; музейный первоисточник и учебная реконструкция всегда помечаются отдельно.</p><div class="livingGrid"><a href="ideas/" class="livingCard"><span>01 / План проекта</span><strong>Лаборатория идей</strong><p>14 проверяемых направлений, приоритеты и три рабочие схемы. Что работает, а что только предстоит доказать.</p><em>Открыть рейтинг ↗</em></a><a href="printlab/" class="livingCard"><span>02 / Ремесло</span><strong>Как делали литографию</strong><p>Нарисуйте на условном камне и пройдите путь через воду, краску и печатный станок до отпечатка.</p><em>Запустить пресс ↗</em></a><a href="fieldwork/" class="livingCard"><span>03 / Собственный поиск</span><strong>Найди этот Париж сегодня</strong><p>Два оригинала Бенуа, современные виды и возможность сравнить свою фотографию без отправки на сервер.</p><em>Начать исследование ↗</em></a><a href="salon/" class="livingCard"><span>04 / Музейная коллекция</span><strong>Салон открытий</strong><p>41 работа в кураторском ядре и большой архивный фонд с фильтрами музеев, качества оригиналов, городов и собственной подборкой.</p><em>Рассмотреть коллекцию ↗</em></a><a href="exhibitions/city-as-evidence/" class="livingCard"><span>05 / История в деталях</span><strong>Город как свидетельство</strong><p>Рим, Венеция, Париж: девять подлинных произведений, три маршрута, вопросы и сравнение художественных взглядов.</p><em>Пройти выставку ↗</em></a><a href="closeup/" class="livingCard"><span>06 / Исследование</span><strong>Кабинет деталей</strong><p>Увеличение литографий Бенуа и музейной графики, сравнение штрихов, три вопроса к произведению и личные заметки без сервера.</p><em>Исследовать под лупой ↗</em></a><a href="photography/" class="livingCard"><span>07 / Город сегодня</span><strong>Современный фотоархив</strong><p>Документальные фотографии, открытые лицензии, авторы, разрешение снимка и подлинные музейные города. Без выдуманных совпадений ракурсов.</p><em>Посмотреть фотографии ↗</em></a><a href="world/" class="livingCard"><span>08 / Атлас мира</span><strong>Города шести регионов</strong><p>Европа, Азия, Африка, обе Америки и Океания. Исторические виды с первоисточниками, разрешением снимков и путешествием по пяти городам.</p><em>Исследовать мир ↗</em></a></div></div>
@@ -412,7 +460,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <a href="printlab/"><span class="eyebrow">Мастерская художника</span><strong>Как рисунок превращался в тираж</strong><p>Камень, штрих, краска, бумага и печатный пресс. Ремесло исторической литографии в интерактивной мастерской.</p><em>Попробовать →</em></a>
  </div>
 </div>
-<div class="participate-home"><div><span class="eyebrow" style="color:#dfcaa4">Открытая коллекция</span><h2>Есть старая литография или современный ракурс?</h2><p>Предложите изображение, адрес или историю здания. Сначала проверим автора, дату, источник и права; новые материалы не появятся в музее автоматически.</p></div><a href="submit/">Предложить находку →</a></div>
+</details>
 </section>
 <section id="catalog" class="tab wrap" hidden><div class="sectionhead"><div><div class="eyebrow">02 / Собрание</div><h2>Карточки произведений</h2></div><p>27 записей перечитаны Claude по музейным источникам. Указанное авторство подтверждено источниками для 22 и остаётся неопределённым для пяти работ. Право на показ изображения проверяется отдельно.</p></div>
 <div class="controls"><input id="search" type="search" placeholder="Название, художник, музей, серия" aria-label="Поиск по каталогу"><select id="rights"><option value="all">Все права</option><option value="allowed">Разрешённые репродукции</option><option value="link_only">Только музейная ссылка</option></select><select id="sort"><option value="title">По названию</option><option value="institution">По музею</option><option value="date">По дате</option></select><button id="onlyFav" class="btn">Избранное ♡</button></div>
@@ -458,5 +506,9 @@ $("researchQuery").addEventListener("input",()=>{researchTake=20;renderResearch(
 fetch("data/catalog/ledger-2026-11-01.csv").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.text()}).then(c=>{works=parseCSV(c);renderWorks()}).catch(()=>{$("count").textContent="Для каталога нужен локальный HTTP сервер (например python3 -m http.server)."});
 showPage(["home","catalog","compare","research","cities"].includes(location.hash.slice(1))?location.hash.slice(1):"home");
 </script>
-<script>document.getElementById("frontArt")?.addEventListener("click",()=>{const q=document.getElementById("frontQuery").value.trim();location.href="salon/"+(q?"?q="+encodeURIComponent(q):"")});</script>
+<script>document.getElementById("frontArt")?.addEventListener("click",()=>{const q=document.getElementById("frontQuery").value.trim();location.href="salon/"+(q?"?q="+encodeURIComponent(q):"")});
+(function(){const d=document.getElementById("heroDuet");if(!d)return;
+ document.querySelectorAll(".herotoggle [data-pane]").forEach(b=>b.addEventListener("click",()=>{d.dataset.active=b.dataset.pane;
+  document.querySelectorAll(".herotoggle [data-pane]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));}));})();
+</script>
 </body></html>

@@ -57,7 +57,7 @@ async function originalIntegrity(page,selector,device){
       const stamp=page.locator(".hybrid-story-copy .cop-signet");
       assert(device+" own publisher mark",await stamp.textContent()==="ГБ");
       assert(device+" no institutional forgery",((await page.locator(".cop-imprint").getAttribute("aria-label"))||"").includes("цифрового музея"));
-      const display=await page.locator(".hybrid-story-hero h1").evaluate(node=>getComputedStyle(node).fontFamily);
+      const display=await page.locator(".hybrid-story-hero .storytitle").evaluate(node=>getComputedStyle(node).fontFamily);
       assert(device+" engraved title type",/Bodoni|Didot|Iowan|Georgia/i.test(display));
       await originalIntegrity(page,".hybrid-hero-picture img",device+" home");
       if(width<=720){
