@@ -116,9 +116,10 @@ $("journey").onclick=()=>{
 function read(p){return fetch(p).then(r=>{if(!r.ok)throw Error(p+" HTTP "+r.status);return r.json()})}
 read("../poc/compare/pairs/index.json").then(index=>{
  const cards=$("worldComparisonCards");
+ const routeStops=new Set((index.journey||[]).map(scene=>scene.pair));
  for(const [id, scene] of Object.entries(index.places||{})){
   if(!index.pairs.includes(id)||!/^[-\w]+$/.test(id)||!/^[-\w]+\.(jpg|webp)$/.test(scene.image||""))continue;
-  const card=document.createElement("a"); card.href="../poc/compare/#"+id;
+  const card=document.createElement("a"); card.href="../poc/compare/"+(routeStops.has(id)?"?journey=1":"")+"#"+id;
   const image=document.createElement("img");image.src="../poc/compare/pairs/"+scene.image;
   image.alt="";image.loading="lazy";image.decoding="async";
   const title=document.createElement("b");title.textContent=scene.city+" · "+scene.name;
