@@ -9,7 +9,7 @@ const viewports = [
   { name: "ipad-820", width: 820, height: 1180, isMobile: true, hasTouch: true, deviceScaleFactor: 1 },
   { name: "desktop-1440", width: 1440, height: 900, deviceScaleFactor: 1 },
 ];
-const PAIRS = ["madeleine-ph-benoist", "palais-royal-ph-benoist", "synthetic-near-identical", "synthetic-rotation-only", "synthetic-parallax"];
+const { pairs: PAIRS, journey: JOURNEY } = require("../../poc/compare/pairs/index.json");
 const origin = new URL(base).origin;
 const results = [];
 const check = (name, ok, detail = "") => { results.push({ name, ok: !!ok, detail }); console.log(`${ok ? "PASS" : "FAIL"} ${name} ${detail}`); };
@@ -45,7 +45,15 @@ async function viewerChecks(browser, vp) {
       check(`${vp.name} ${id}: viewpoint_mismatch never applies matrix3d`, (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
       if (id === "palais-royal-ph-benoist") await shot(page, `${vp.name}-${id}-side-by-side.jpg`, { fullPage: vp.name !== "iphone-375" });
     } else {
-      if (!["high", "medium"].includes(conf)) {
+      if (pair.local_overlay) {
+        check(`${vp.name} ${id}: local fit opens inside a polygon`,
+          (await page.$eval("#photoMask", e => e.style.clipPath)).startsWith("polygon("));
+        await page.click("#alignBtn");
+        check(`${vp.name} ${id}: original photo clears polygon and transform`,
+          (await page.$eval("#photoMask", e => e.style.clipPath)) === ""
+          && (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
+        await page.click("#alignBtn");
+      } else if (!["high", "medium"].includes(conf)) {
         check(`${vp.name} ${id}: '${conf}' opens with the untouched photo`,
           (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
         await page.click("#alignBtn");
@@ -69,6 +77,11 @@ async function viewerChecks(browser, vp) {
         return vis("stage") && !vis("sbs");
       });
       check(`${vp.name} ${id}: slider mode hides side-by-side panel`, exclusive);
+    }
+    if (pair.story) {
+      check(`${vp.name} ${id}: sourced story visible`,
+        await page.locator("#pairStory").isVisible()
+        && (await page.locator("#pairStorySource").getAttribute("href")) === pair.story.source);
     }
     const histUntouched = await page.evaluate(() => [document.getElementById("histImg"), document.getElementById("sbsHist")].every(h => {
       const cs = getComputedStyle(h); return cs.transform === "none" && cs.filter === "none" && h.naturalWidth > 0; }));
@@ -172,7 +185,7 @@ async function robustnessChecks(browser) {
   await page.goto(`${base}?mode=bogus#synthetic-near-identical`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.getElementById("creditBody").textContent.length > 50);
   const sec = await page.evaluate(() => ({
-    bad: [...document.querySelectorAll("a")].filter(a => !/^(https?:|pairs\/|editor\.html|#[a-z][a-z0-9_-]*$)/i.test(a.getAttribute("href") || "")).map(a => a.getAttribute("href")),
+    bad: [...document.querySelectorAll("#creditBody a[href], #pairStory a[href], #imgError a[href]")].filter(a => !/^(https?:|pairs\/|editor\.html|#[a-z][a-z0-9_-]*$)/i.test(a.getAttribute("href") || "")).map(a => a.getAttribute("href")),
     injected: document.querySelectorAll("#creditBody img").length,
     mode: document.querySelector("[data-mode][aria-pressed=true]").dataset.mode }));
   check("security: no javascript:/data: links rendered from pair JSON", sec.bad.length === 0, sec.bad.join(" "));
@@ -275,11 +288,38 @@ async function editorChecks(browser, vp) {
   await ctx.close();
 }
 
+async function journeyChecks(browser, vp) {
+  const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
+  const start = JOURNEY[0].pair;
+  await page.goto(`${base}?journey=1#${start}`);
+  for (const [i, scene] of JOURNEY.entries()) {
+    await page.waitForFunction(id => document.getElementById("pairSel").value === id &&
+      document.getElementById("histImg").naturalWidth > 0 && document.getElementById("photoImg").naturalWidth > 0, scene.pair);
+    check(`${vp.name} ${scene.pair}: visible question, closed answer and collapsed sources`,
+      await page.locator("#journeyQuestion").textContent() === scene.question &&
+      !await page.locator("#journeyAnswer").isVisible() &&
+      await page.locator("#credits").getAttribute("open") === null);
+    await page.locator("#journeyReveal summary").click();
+    check(`${vp.name} ${scene.pair}: reveal opens without blocking continuation`,
+      await page.locator("#journeyAnswer").isVisible() &&
+      await page.locator("#journeyNext").textContent() === scene.next + " →");
+    check(`${vp.name} ${scene.pair}: no horizontal scroll`,
+      await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    if (i < JOURNEY.length - 1) await page.locator("#journeyNext").click();
+  }
+  check(`${vp.name}: ends at world atlas`, (await page.locator("#journeyNext").getAttribute("href")).endsWith("world/#worldComparisons"));
+  await page.locator("#journeyBack").click();
+  await page.waitForFunction(id => document.getElementById("pairSel").value === id, JOURNEY.at(-2).pair);
+  check(`${vp.name}: previous link returns to its scene`, await page.locator("#journeyTitle").textContent() === JOURNEY.at(-2).title);
+  await page.close();
+}
+
 (async () => {
   for (const f of fs.readdirSync(outDir)) if (f.endsWith(".jpg")) fs.unlinkSync(`${outDir}/${f}`);
   const browser = await chromium.launch();
   for (const vp of viewports) await viewerChecks(browser, vp);
   await robustnessChecks(browser);
+  for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) await journeyChecks(browser, vp);
   for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) await editorChecks(browser, vp);
   await browser.close();
   const failed = results.filter(r => !r.ok).length;

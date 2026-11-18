@@ -1,1 +1,111 @@
-{"pairs": ["madeleine-ph-benoist", "palais-royal-ph-benoist", "synthetic-near-identical", "synthetic-rotation-only", "synthetic-parallax"]}
+{
+  "pairs": [
+    "madeleine-ph-benoist",
+    "madeleine-benoist-carnavalet",
+    "madeleine-barescut-carnavalet",
+    "palais-royal-ph-benoist",
+    "new-york-statue-of-liberty",
+    "agra-taj-mahal",
+    "florence-ponte-vecchio",
+    "rio-guanabara",
+    "naples-san-francesco-di-paola",
+    "giza-great-sphinx",
+    "florence-ponte-vecchio-silvestre",
+    "synthetic-near-identical",
+    "synthetic-rotation-only",
+    "synthetic-parallax"
+  ],
+  "labels": {
+    "madeleine-ph-benoist": "Мадлен · Бенуа, Library of Congress",
+    "madeleine-benoist-carnavalet": "Мадлен · Бенуа, музей Карнавале",
+    "palais-royal-ph-benoist": "Сад Пале-Рояль · Бенуа",
+    "madeleine-barescut-carnavalet": "Мадлен · Эстель де Барескю, музей Карнавале",
+    "new-york-statue-of-liberty": "Нью-Йорк · Статуя Свободы",
+    "agra-taj-mahal": "Агра · Тадж-Махал",
+    "florence-ponte-vecchio": "Флоренция · Понте-Веккьо",
+    "rio-guanabara": "Рио-де-Жанейро · Бухта Гуанабара",
+    "naples-san-francesco-di-paola": "Неаполь · Сан-Франческо-ди-Паола",
+    "giza-great-sphinx": "Гиза · Большой сфинкс",
+    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра"
+  },
+  "places": {
+    "madeleine-benoist-carnavalet": {
+      "city": "Париж",
+      "name": "Церковь Мадлен",
+      "mode": "Совмещение портика · фото 2026",
+      "image": "madeleine-benoist-carnavalet-cargtop030438.jpg"
+    },
+    "new-york-statue-of-liberty": {
+      "city": "Нью-Йорк",
+      "name": "Статуя Свободы",
+      "mode": "Два вида рядом · 1885 и 2026",
+      "image": "new-york-statue-of-liberty-historic.jpg"
+    },
+    "agra-taj-mahal": {
+      "city": "Агра",
+      "name": "Тадж-Махал",
+      "mode": "Совмещение портала · 1801 и 2026",
+      "image": "agra-taj-mahal-historic.jpg"
+    },
+    "florence-ponte-vecchio": {
+      "city": "Флоренция",
+      "name": "Понте-Веккьо",
+      "mode": "Совмещение галереи · 1859–1866 и 2026",
+      "image": "florence-ponte-vecchio-historic.jpg"
+    },
+    "rio-guanabara": {
+      "city": "Рио-де-Жанейро",
+      "name": "Бухта Гуанабара",
+      "mode": "Два вида рядом · 1839 и 2026",
+      "image": "rio-guanabara-historic.jpg"
+    },
+    "naples-san-francesco-di-paola": {
+      "city": "Неаполь",
+      "name": "Сан-Франческо-ди-Паола",
+      "mode": "Совмещение портика · 1847 и 2025",
+      "image": "naples-san-francesco-di-paola-historic.jpg"
+    },
+    "giza-great-sphinx": {
+      "city": "Гиза",
+      "name": "Большой сфинкс",
+      "mode": "Два вида рядом · 1846 и 2026",
+      "image": "giza-great-sphinx-historic.jpg"
+    },
+    "florence-ponte-vecchio-silvestre": {
+      "city": "Флоренция",
+      "name": "Понте-Веккьо глазами Сильвестра",
+      "mode": "Совмещение арок · XVII век и 2026",
+      "image": "florence-ponte-vecchio-silvestre-historic.jpg"
+    }
+  },
+  "journey": [
+    {
+      "pair": "madeleine-benoist-carnavalet",
+      "title": "Что осталось на месте?",
+      "question": "Подвиньте шторку. Какая часть церкви совпадает с литографией, хотя художник смотрел сбоку?",
+      "answer": "Передний портик: фронтон и ряд колонн. Он достаточно плоский для совмещения. Боковые стены уходят в глубину под разными углами.",
+      "next": "Отыскать арки над Арно"
+    },
+    {
+      "pair": "florence-ponte-vecchio-silvestre",
+      "title": "Зачем мосту коридор?",
+      "question": "Найдите на рисунке ряд маленьких арок над главным пролётом. Куда вёл этот переход?",
+      "answer": "Это коридор Вазари. Медичи могли пройти по нему из Палаццо-Питти к Палаццо-Веккьо над улицами и рекой. Большая арка держит мост, маленькие выдают галерею.",
+      "next": "Проверить симметрию Тадж-Махала"
+    },
+    {
+      "pair": "agra-taj-mahal",
+      "title": "Где заканчивается совпадение?",
+      "question": "Сравните фасад. Какой контур сходится с акватинтой: купол, минареты или арка в центре?",
+      "answer": "Арка главного портала. Дэниеллы смотрели от ворот сада, фотограф подошёл ближе. В режиме «Рядом» видно, как расстояние меняет композицию.",
+      "next": "Увидеть статую до её открытия"
+    },
+    {
+      "pair": "new-york-statue-of-liberty",
+      "title": "Можно ли нарисовать будущее?",
+      "question": "Сравните лист и снимок. Как думаете, литографию выпустили до открытия статуи или после?",
+      "answer": "До. Лист вышел около 1885 года, а статую открыли 28 октября 1886-го. Гавань на литографии помогает представить, как издатели показывали будущую достопримечательность.",
+      "next": "Выбрать следующий город"
+    }
+  ]
+}

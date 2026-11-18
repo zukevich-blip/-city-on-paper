@@ -1,0 +1,273 @@
+{
+ "id": "florence-ponte-vecchio",
+ "status": "candidate_real_pair",
+ "local_overlay": true,
+ "condition": "Совмещена центральная галерея моста. Обрамление берега и полная линия моста выходят за пределы проверенной зоны.",
+ "control_points": [
+  {
+   "label": "Галерея моста · ориентир 1",
+   "historic": [
+    82.0,
+    190.0
+   ],
+   "photo": [
+    579,
+    462
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 2",
+   "historic": [
+    96.67,
+    177.67
+   ],
+   "photo": [
+    609,
+    427
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 3",
+   "historic": [
+    110.33,
+    190.33
+   ],
+   "photo": [
+    643,
+    463
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 4",
+   "historic": [
+    123.33,
+    179.33
+   ],
+   "photo": [
+    675,
+    426
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 5",
+   "historic": [
+    137.67,
+    190.67
+   ],
+   "photo": [
+    709,
+    461
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 6",
+   "historic": [
+    151.67,
+    180.0
+   ],
+   "photo": [
+    740,
+    423
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 7",
+   "historic": [
+    166.33,
+    191.0
+   ],
+   "photo": [
+    769,
+    458
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 8",
+   "historic": [
+    97.33,
+    161.0
+   ],
+   "photo": [
+    610,
+    372
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 9",
+   "historic": [
+    123.33,
+    162.0
+   ],
+   "photo": [
+    675,
+    369
+   ]
+  },
+  {
+   "label": "Галерея моста · ориентир 10",
+   "historic": [
+    151.67,
+    162.67
+   ],
+   "photo": [
+    739,
+    366
+   ]
+  }
+ ],
+ "historic": {
+  "title": "Ponte vechio dagli Uffizi (Firenze)",
+  "date": "1859–1866",
+  "medium": "Стереофотография",
+  "holding": "Library of Congress, Prints & Photographs Division",
+  "object_url": "https://www.loc.gov/item/2024722637/",
+  "rights": "Library of Congress: No known restrictions on publication",
+  "credit": "Giorgio Sommer и Edmond Behles · Library of Congress · 1s53703",
+  "file_note": "Для сравнения выделен левый кадр стереопары. Полная карточка доступна в архиве.",
+  "file": "florence-ponte-vecchio-historic.jpg",
+  "size": [
+   378,
+   406
+  ],
+  "sha256": "4949fa0df6ed65be042d6b2f683c52386af65da551f7eccb219e61a6e79b019d"
+ },
+ "photo": {
+  "title": "Ponte Vecchio, Firenze",
+  "date": "2026-07-08",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Ponte_Vecchio-Firenze.jpg",
+  "credit": "Hein56didden · Wikimedia Commons · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "JPEG перекодирован без метаданных. Совмещённый фрагмент показан с коррекцией перспективы на тех же условиях CC BY-SA 4.0.",
+  "file": "florence-ponte-vecchio-photo.jpg",
+  "size": [
+   1425,
+   841
+  ],
+  "sha256": "34900fedb1a94f04f5ba99ba2da4624d0bac32acf324c5b35195a54460a2f32d"
+ },
+ "story": {
+  "title": "Флоренция в стереоскопе",
+  "text": "На архивной карточке напечатаны два соседних снимка. При просмотре через стереоскоп они давали объём. Здесь левый кадр, снятый со стороны Уффици, сопоставлен с современной фотографией по деталям галереи над Арно.",
+  "source": "https://www.loc.gov/item/2024722637/",
+  "source_label": "Полная стереопара Библиотеки Конгресса"
+ },
+ "alignment": {
+  "n_points": 10,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   378,
+   406
+  ],
+  "photo_size": [
+   1425,
+   841
+  ],
+  "method": "cv2.findHomography RANSAC 5.5px",
+  "H": [
+   [
+    0.299504925,
+    -0.0519129662,
+    -88.767881775
+   ],
+   [
+    -0.0116724734,
+    0.160744604,
+    71.5493347856
+   ],
+   [
+    -0.0001408495,
+    -0.0003937324,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    3.9740102353,
+    1.8272546939,
+    222.0256129063
+   ],
+   [
+    0.0335477151,
+    6.0373371376,
+    -428.9894964605
+   ],
+   [
+    0.0005729461,
+    0.002634463,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   1.26,
+   1.13,
+   0.62,
+   0.5,
+   1.11,
+   0.64,
+   0.89,
+   0.84,
+   0.74,
+   0.94
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 0.9,
+  "rms_all_points_px": 0.9,
+  "rms_rel_diag": 0.00162,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   3.54,
+   1.47,
+   0.99,
+   0.64,
+   1.7,
+   0.82,
+   2.96,
+   1.55,
+   1.12,
+   2.29
+  ],
+  "loo_max_px": 3.54,
+  "loo_max_rel_diag": 0.00638,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.013,
+  "valid_region_historic": [
+   [
+    166.3000030517578,
+    191.0
+   ],
+   [
+    137.6999969482422,
+    190.6999969482422
+   ],
+   [
+    82.0,
+    190.0
+   ],
+   [
+    97.30000305175781,
+    161.0
+   ],
+   [
+    151.6999969482422,
+    162.6999969482422
+   ]
+  ],
+  "scope": "local: control points span 1% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 1% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

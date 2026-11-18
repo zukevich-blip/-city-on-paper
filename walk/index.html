@@ -91,9 +91,9 @@
         <figure><img id="oldImage" alt="" src="../eras/img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg" loading="eager"></figure>
         <figcaption><b id="oldTitle">Филипп Бенуа. Мадлен</b><span id="oldRights">Музейный оригинал</span><a id="oldSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/2016652452/">Исходная архивная запись ↗</a></figcaption>
       </article>
-      <article class="witness"><div class="witness-head"><strong id="newHeading">Сегодня</strong><span id="newDate">2017</span></div>
-        <figure id="rightFigure"><img id="newImage" alt="" src="../eras/img/derived_paris_madeleine_2017_sw-corner_persp100_from-panoramax-4606ccdb.jpg" loading="eager"></figure>
-        <figcaption><b id="newTitle">Современная фотография</b><span id="newRights">Автор и лицензия указаны в архиве</span><a id="newSource" target="_blank" rel="noopener noreferrer" href="https://api.panoramax.xyz/">Открыть первоисточник ↗</a></figcaption>
+      <article class="witness"><div class="witness-head"><strong id="newHeading">Современный вид</strong><span id="newDate">30 апреля 2026</span></div>
+        <figure id="rightFigure"><img id="newImage" alt="Портик Мадлен в Париже" src="../eras/img/paris_madeleine_2026_panoramax_facade_38b6d262.jpg" loading="eager"></figure>
+        <figcaption><b id="newTitle">Современная фотография</b><span id="newRights">jerome92370 / Panoramax · CC BY-SA 4.0</span><a id="newSource" target="_blank" rel="noopener noreferrer" href="https://api.panoramax.xyz/#focus=pic&amp;pic=38b6d262-648f-461e-b9a3-ab05eb22d92a">Открыть первоисточник ↗</a></figcaption>
       </article>
     </div>
     <p class="notice" id="comparisonNote" role="status">Начните с Парижа. Слева оригинал XIX века, справа современный снимок. Ракурсы не подтверждены как совпадающие.</p>
@@ -145,7 +145,7 @@
     $(prefix+"Image").alt=clean(x.alt||x.title);
     $(prefix+"Title").textContent=clean(x.title);
     $(prefix+"Date").textContent=clean(x.year_label||x.date||"Дата уточняется");
-    $(prefix+"Rights").textContent=clean(x.institution||"Архив")+" · "+clean(x.rights_short||x.rights||"Права уточняются");
+    $(prefix+"Rights").textContent=[...(prefix==="new"?(x.creators||[]).map(c=>c.name):[]),x.institution||"Архив",x.rights_short||x.rights||"Права уточняются"].filter(Boolean).map(clean).join(" · ");
     $(prefix+"Source").href=safeLink(x.object_url);
   }
   function selectPlace(index){
@@ -159,7 +159,8 @@
     $("placeStory").textContent=clean(place.summary||"Изучите разные изображения этого места. Сведения об их происхождении указаны в музейных источниках.");
     if(!historical.length){$("comparisonNote").textContent="Нет опубликованных изображений для этого места.";return}
     imageDetails("old",historical[0]);
-    const right=now.length?now[now.length-1]:historical[historical.length>1?historical.length-1:0];
+    const latest=now.sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")))[0];
+    const right=latest||historical[historical.length>1?historical.length-1:0];
     imageDetails("new",right);
     $("newHeading").textContent=now.length?"Современный вид":"Другой исторический год";
     $("comparisonNote").textContent=now.length

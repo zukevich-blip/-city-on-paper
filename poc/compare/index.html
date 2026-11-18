@@ -25,9 +25,22 @@ h2{font-size:1rem;margin:12px 0 4px}
 .sub{color:var(--muted);margin:0 0 12px;font-size:.92rem}
 .poc{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:0 6px;border-radius:3px;font:12px/1.6 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
 select,button{font:15px system-ui,sans-serif;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+#pairSel{min-width:0;max-width:100%}
 button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.journey-prompt{margin:14px 0;padding:13px 16px;background:var(--panel);border-left:3px solid var(--accent)}
+.guided header>.sub,.guided header>.bar,.guided .jumpcompare,.guided header>h1,
+.guided #museumBar .mbq{display:none!important}
+.guided .journey-prompt{margin:8px 0;padding:10px 12px}
+.guided .journey-end summary{min-height:44px;align-content:center;cursor:pointer}
+.journey-prompt h2{margin:2px 0 4px;font:1.4rem/1.15 Georgia,serif}
+.journey-prompt p,.journey-end p{margin:5px 0}
+.journey-step{color:var(--muted);font:13px system-ui,sans-serif}
+.journey-end{border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:12px 0;background:var(--panel)}
+.journey-actions{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:8px;align-items:center}
+.journey-actions a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:3px}
+.journey-actions a:first-child{background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:4px;text-decoration:none}
 .bar label{font:14px system-ui,sans-serif;color:var(--muted)}
 .verdict{font:14px/1.4 system-ui,sans-serif;border-left:4px solid var(--muted);background:var(--panel);padding:8px 12px;margin:8px 0}
 .verdict.high{border-color:var(--ok)} .verdict.medium{border-color:var(--warn)}
@@ -35,7 +48,7 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .stage{position:relative;width:100%;overflow:hidden;background:#0000;border:1px solid var(--line);touch-action:pan-y;user-select:none}
 .stage img{display:block;-webkit-user-drag:none}
 .hist{width:100%;height:auto}
-.overlay{position:absolute;inset:0;overflow:hidden}
+.overlay,.photoMask{position:absolute;inset:0;overflow:hidden}
 .photoLayer{position:absolute;left:0;top:0;transform-origin:0 0}
 .photoLayer img{width:100%;height:100%}
 .region{position:absolute;inset:0;pointer-events:none}
@@ -71,7 +84,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 <body>
 <header>
   <div class="top">
-    <span class="poc" data-i18n="poc">Прототип · не выставка</span>
+    <span class="poc" data-i18n="poc">Город на бумаге</span>
     <button id="langBtn" lang="en" aria-label="EN · Switch interface to English">EN</button>
   </div>
   <h1><span data-i18n="title">Тогда / Сейчас</span> <span id="titleAlt" lang="en" style="color:var(--muted)">· Then / Now</span></h1>
@@ -80,6 +93,11 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <label for="pairSel" data-i18n="pair">Пара</label>
     <select id="pairSel"></select>
   </div>
+  <section id="journeyPrompt" class="journey-prompt" hidden aria-labelledby="journeyTitle">
+    <span class="journey-step" id="journeyStep"></span>
+    <h2 id="journeyTitle" tabindex="-1"></h2>
+    <p id="journeyQuestion"></p>
+  </section>
   <a class="jumpcompare" href="#stage" data-i18n="jump">К изображениям ↓</a>
 </header>
 <main>
@@ -92,7 +110,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     </ul>
     <p>Источники и лицензии / sources and licences: <a href="pairs/CREDITS.md">pairs/CREDITS.md</a></p>
   </div></noscript>
-  <div class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
+  <div id="viewerModes" class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
     <button data-mode="slider" aria-pressed="true" data-i18n="m_slider">Шторка</button>
     <button data-mode="opacity" aria-pressed="false" data-i18n="m_opacity">Прозрачность</button>
     <button data-mode="flicker" aria-pressed="false" data-i18n="m_flicker">Мерцание A/B</button>
@@ -103,7 +121,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
   <div class="zoomwrap" id="zoomwrap">
     <div class="stage" id="stage">
       <img class="hist" id="histImg" alt="">
-      <div class="overlay" id="overlay"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div>
+      <div class="overlay" id="overlay"><div class="photoMask" id="photoMask"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div></div>
       <svg class="region" id="region" aria-hidden="true"></svg>
       <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
       <div class="badge" id="badge"></div>
@@ -115,6 +133,19 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
     <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
   </div>
+  <section id="journeyEnd" class="journey-end" hidden aria-label="Продолжить маршрут">
+    <details id="journeyReveal"><summary>Что заметить</summary><p id="journeyAnswer"></p></details>
+    <div class="journey-actions">
+      <a id="journeyNext"></a>
+      <a id="journeyBack" hidden>Предыдущая сцена</a>
+      <a href="../../world/#worldComparisons">Атлас сравнений</a>
+    </div>
+  </section>
+  <aside class="verdict" id="pairStory" aria-labelledby="pairStoryTitle" hidden>
+    <strong id="pairStoryTitle"></strong>
+    <p id="pairStoryText"></p>
+    <a id="pairStorySource" target="_blank" rel="noopener noreferrer"></a>
+  </aside>
   <div class="bar">
     <button id="alignBtn" aria-pressed="true">Фото: совмещённое</button>
     <button id="regionBtn" aria-pressed="true" data-i18n="region">Зона доверия</button>
@@ -160,7 +191,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <div id="creditBody"></div>
   </details>
 </main>
-<footer><span data-i18n="footer">Прототип для Issue #6. Не публиковать без проверки владельцем.</span>
+<footer><span data-i18n="footer">Город на бумаге · Сравнения и первоисточники.</span>
   <a href="editor.html" data-i18n="editorLink">Редактор контрольных точек</a> ·
   <code>pairs/*.json</code> · <code>tools/align/homography.py</code> (OpenCV)</footer>
 <script>
@@ -170,12 +201,12 @@ const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const MODES = ["slider", "opacity", "flicker", "sbs"];
 const T = {
   ru: {
-    poc: "Прототип · не выставка", title: "Тогда / Сейчас", alt: "· Then / Now",
+    poc: "Город на бумаге", title: "Тогда / Сейчас", alt: "· Then / Now",
     intro: "Историческое изображение никогда не меняется. Геометрию можно (обратимо) подогнать только у современного фото — и это всегда помечено.",
     pair: "Пара", jump: "К изображениям ↓", modes: "Режим сравнения", m_slider: "Шторка", m_opacity: "Прозрачность", m_flicker: "Мерцание A/B", m_sbs: "Рядом",
     region: "Зона доверия", zoom: "Увеличить ×2.5", photoPct: "Фото, %", auto: "Авто", helpSum: "Как читать вердикт",
     then: "Тогда", now: "Сейчас", capHist: "Историческое изображение — без изменений", capPhoto: "Фото — оригинал, без коррекции",
-    creditsSum: "Источники, права и параметры совмещения", footer: "Прототип для Issue #6. Не публиковать без проверки владельцем.",
+    creditsSum: "Источники, права и параметры совмещения", footer: "Город на бумаге · Сравнения и первоисточники.",
     editorLink: "Редактор контрольных точек", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
     alignTitle: "Переключить фото между оригиналом и совмещённым видом",
     badgeOn: "Геометрия фото скорректирована · обратимо", badgeOff: "Фото без коррекции",
@@ -205,7 +236,7 @@ const T = {
     pair: "Pair", jump: "Go to images ↓", modes: "Comparison mode", m_slider: "Slider", m_opacity: "Opacity", m_flicker: "Flicker A/B", m_sbs: "Side by side",
     region: "Trust zone", zoom: "Zoom ×2.5", photoPct: "Photo, %", auto: "Auto", helpSum: "How to read the verdict",
     then: "Then", now: "Now", capHist: "Historic image — unaltered", capPhoto: "Photo — original, uncorrected",
-    creditsSum: "Sources, rights and alignment parameters", footer: "Prototype for Issue #6. Do not publish without owner review.",
+    creditsSum: "Sources, rights and alignment parameters", footer: "City on Paper · Comparisons and sources.",
     editorLink: "Control-point editor", alignOn: "Photo: aligned", alignOff: "Photo: original",
     alignTitle: "Toggle the photo between the original and the aligned view",
     badgeOn: "Photo geometry adjusted · reversible", badgeOff: "Photo not corrected",
@@ -285,6 +316,10 @@ function layout(){
   const svg = $("region");
   svg.setAttribute("viewBox", `0 0 ${hw} ${hh}`);
   const r = pair.alignment && pair.alignment.valid_region_historic;
+  const localOverlay = pair.local_overlay && aligned && canAlign() && Array.isArray(r);
+  $("photoMask").style.clipPath = localOverlay
+    ? `polygon(${r.map(([x, y]) => `${100 * x / hw}% ${100 * y / hh}%`).join(", ")})`
+    : "";
   svg.innerHTML = (showRegion && aligned && canAlign() && Array.isArray(r))
     ? `<polygon points="${r.map(p => p.map(Number).join(",")).join(" ")}" fill="none" stroke="#ff3b30" stroke-width="${hw/300}" stroke-dasharray="${hw/80} ${hw/160}"/>`
       + pair.control_points.map(c => `<circle cx="${Number(c.historic[0])}" cy="${Number(c.historic[1])}" r="${hw/170}" fill="none" stroke="#ffd60a" stroke-width="${hw/400}"><title>${esc(c.label)}</title></circle>`).join("")
@@ -316,7 +351,9 @@ function renderMeta(){
   const a = pair.alignment || {}, conf = a.confidence || "insufficient_points";
   const v = $("verdict");
   v.className = "verdict " + conf;
-  v.innerHTML = `<strong>${esc(conf.replace("_"," "))}</strong> — ${esc(t("verdict")[conf] || "")}`
+  v.innerHTML = pair.local_overlay
+    ? `<strong>${lang === "en" ? "Local alignment" : "Совмещение по контуру"}</strong><br>${esc(pair.condition)}`
+    : `<strong>${esc(conf.replace("_"," "))}</strong> — ${esc(t("verdict")[conf] || "")}`
     + (a.reason ? ` <small>(${esc(a.reason)})</small>` : "")
     + (a.scope && a.scope !== "global" ? `<br>${esc(t("scope"))}: ${esc(a.scope)}` : "")
     + (pair.status === "synthetic_test" ? `<br><em>${esc(t("synthetic"))} (${esc(pair.condition)}). ${esc(t("expected"))}: ${esc(pair.expected_confidence)}.</em>` : `<br>${esc(pair.condition)}`);
@@ -326,14 +363,26 @@ function renderMeta(){
   $("alignBtn").setAttribute("aria-pressed", on);
   $("alignBtn").disabled = !canAlign();
   const H = pair.historic, P = pair.photo;
+  const story = pair.story;
+  $("pairStory").hidden = !story?.text;
+  if (story?.text) {
+    $("pairStoryTitle").textContent = story.title || "";
+    $("pairStoryText").textContent = story.text;
+    const source = $("pairStorySource"), url = safeUrl(story.source);
+    source.hidden = !url;
+    if (url) {
+      source.href = url;
+      source.textContent = story.source_label || "Источник";
+    }
+  }
   $("histImg").alt = t("histAlt") + (H.title || "");
   $("photoImg").alt = t("photoAlt") + (P.title || "");
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
   const synthetic = pair.status === "synthetic_test";
-  $("creditLine").textContent = `${t("then")}: ${H.credit || ""} · ${t("now")}: ${P.credit || ""}`
-    + (!synthetic && P.license ? ` · ${t("changesShort")}: ${lang === "en" ? "re-encoded to strip metadata; the aligned view is a derivative" : "перекодировано для удаления метаданных; совмещённый вид — производная работа"} (${P.license})` : "");
-  const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
   const changes = P.changes || "";
+  $("creditLine").textContent = `${t("then")}: ${[H.date, H.credit].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, P.credit].filter(Boolean).join(" · ")}`
+    + (!synthetic && changes ? ` · ${changes}` : "");
+  const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
   $("creditBody").innerHTML = `
    <h2>${esc(t("hThen"))}</h2><dl>
     <dt>${esc(t("tTitle"))}</dt><dd>${esc(H.title)}</dd>
@@ -370,24 +419,61 @@ function showImgError(){
   $("photoImg").style.visibility = imgFailed.photo ? "hidden" : "";
 }
 
+let requestedPair = 0;
 async function loadPair(id){
-  pair = await (await fetch(`pairs/${encodeURIComponent(id)}.json`)).json();
-  // low confidence: never force a fit by default; the attempt stays one click away
-  aligned = canAlign() && ["high", "medium"].includes(pair.alignment.confidence);
+  const request = ++requestedPair;
+  const response = await fetch(`pairs/${encodeURIComponent(id)}.json`);
+  if (!response.ok) throw new Error(response.status);
+  const data = await response.json();
+  if (request !== requestedPair) return;
+  pair = data;
+  // Reviewed local fits start inside the measured region; other low-confidence fits are opt-in.
+  aligned = canAlign() && (["high", "medium"].includes(pair.alignment.confidence) || pair.local_overlay === true);
+  const region = pair.alignment?.valid_region_historic;
+  if (pair.local_overlay && aligned && region?.length) {
+    const xs = region.map(point => point[0]);
+    split = 50 * (Math.min(...xs) + Math.max(...xs)) / pair.historic.size[0];
+  }
   if (!userMode) mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider";
   imgFailed.hist = imgFailed.photo = false; showImgError();
   const hi = $("histImg"), pi = $("photoImg");
   const settle = (im, key) => new Promise(r => {
-    if (im.complete) { if (!im.naturalWidth) { imgFailed[key] = true; showImgError(); } return r(); }
+    if (im.complete) { if (request === requestedPair && !im.naturalWidth) { imgFailed[key] = true; showImgError(); } return r(); }
     im.addEventListener("load", () => r(), { once: true });
-    im.addEventListener("error", () => { imgFailed[key] = true; showImgError(); r(); }, { once: true });
+    im.addEventListener("error", () => { if (request === requestedPair) { imgFailed[key] = true; showImgError(); } r(); }, { once: true });
   });
   hi.src = $("sbsHist").src = fileUrl(pair.historic.file);
   pi.src = $("sbsPhoto").src = fileUrl(pair.photo.file);
   renderMeta();
   await Promise.all([settle(hi, "hist"), settle(pi, "photo")]);
+  if (request !== requestedPair) return;
   layout();
   history.replaceState(null, "", location.pathname + location.search + "#" + id);
+}
+
+function renderJourney(idx, id) {
+  const route = Array.isArray(idx.journey) ? idx.journey : [];
+  const at = route.findIndex(scene => scene.pair === id);
+  const scene = route[at];
+  const on = new URLSearchParams(location.search).get("journey") === "1" && !!scene;
+  $("journeyPrompt").hidden = $("journeyEnd").hidden = !on;
+  document.body.classList.toggle("guided", on);
+  const controls = [$("viewerModes"), $("verdict")];
+  if (on) $("journeyEnd").after(...controls);
+  else $("imgError").before(...controls);
+  if (!on) return;
+
+  $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${idx.places?.[id]?.city || ""}`;
+  $("journeyTitle").textContent = scene.title;
+  $("journeyQuestion").textContent = scene.question;
+  $("journeyAnswer").textContent = scene.answer;
+  $("journeyReveal").open = false;
+  $("credits").open = false;
+  const linkTo = item => `?journey=1#${encodeURIComponent(item.pair)}`;
+  $("journeyNext").textContent = scene.next + " →";
+  $("journeyNext").href = route[at + 1] ? linkTo(route[at + 1]) : "../../world/#worldComparisons";
+  $("journeyBack").hidden = at === 0;
+  if (at > 0) $("journeyBack").href = linkTo(route[at - 1]);
 }
 
 async function init(){
@@ -395,13 +481,30 @@ async function init(){
   const idx = await (await fetch("pairs/index.json")).json();
   const ids = (idx.pairs || []).filter(p => /^[\w-]+$/.test(p));
   const sel = $("pairSel");
-  sel.innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+  sel.innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(idx.labels?.[p] || p)}</option>`).join("");
   const start = location.hash.slice(1);
   if (ids.includes(start)) sel.value = start;
   const q = new URLSearchParams(location.search);
   if (MODES.includes(q.get("mode"))) { mode = q.get("mode"); userMode = true; }
-  sel.onchange = () => loadPair(sel.value);
-  await loadPair(sel.value);
+  const show = id => {
+    renderJourney(idx, id);
+    return loadPair(id);
+  };
+  const onLoadError = err => { $("verdict").textContent = t("loadErr") + err; };
+  sel.onchange = () => show(sel.value).catch(onLoadError);
+  window.addEventListener("hashchange", () => {
+    const id = location.hash.slice(1);
+    if (!ids.includes(id) || id === sel.value) return;
+    sel.value = id;
+    userMode = false;
+    stopFlicker();
+    show(id).catch(onLoadError);
+    if (!$("journeyPrompt").hidden) {
+      window.scrollTo(0, 0);
+      $("journeyTitle").focus({preventScroll:true});
+    }
+  });
+  await show(sel.value);
   if (q.get("aligned") === "0") { aligned = false; renderMeta(); layout(); }
   if (q.get("split") && isFinite(+q.get("split"))) { split = Math.max(0, Math.min(100, +q.get("split"))); applyMode(); }
   if (q.get("opacity") && isFinite(+q.get("opacity"))) { $("opacity").value = q.get("opacity"); applyMode(); }
@@ -432,8 +535,6 @@ $("handle").addEventListener("keydown", e => {
   e.preventDefault(); applyMode();
 });
 addEventListener("resize", layout);
-addEventListener("hashchange", () => { const id = location.hash.slice(1); const sel = $("pairSel");
-  if ([...sel.options].some(o => o.value === id) && (!pair || pair.id !== id)) { sel.value = id; loadPair(id); } });
 init().catch(err => { $("verdict").textContent = t("loadErr") + err; });
 </script>
 </body>

@@ -1,0 +1,61 @@
+{
+ "id": "new-york-statue-of-liberty",
+ "status": "candidate_real_pair",
+ "condition": "Лист 1885 года показывает статую и гавань в воображении издателей. Фото 2026 года снято с другой точки.",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch"
+ },
+ "control_points": [],
+ "historic": {
+  "title": "The great Bartholdi statue, Liberty Enlightening the World",
+  "date": "около 1885",
+  "medium": "Хромолитография",
+  "holding": "Library of Congress, Prints & Photographs Division",
+  "object_url": "https://www.loc.gov/item/2001702146/",
+  "rights": "Library of Congress: No known restrictions on publication",
+  "credit": "Currier & Ives · Library of Congress · LC-DIG-pga-00752",
+  "file": "new-york-statue-of-liberty-historic.jpg",
+  "size": [
+   773,
+   1024
+  ],
+  "sha256": "666e25bf558522fe975037aa744049894eb26e752b9ab9b9fe60dc586d796f62"
+ },
+ "photo": {
+  "title": "Statue of Liberty, Liberty Island",
+  "date": "2026-04-17",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty,_Liberty_Island,_New_York_-_April_2026.jpg",
+  "credit": "Christian David · Wikimedia Commons · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "Экранная JPEG-копия уменьшена, метаданные удалены.",
+  "file": "new-york-statue-of-liberty-photo.jpg",
+  "size": [
+   1095,
+   1460
+  ],
+  "sha256": "9df343208d6c787c089c0172028c7d8808f1227b8f7fa4f64f0bb4bc151d69b6"
+ },
+ "story": {
+  "title": "Статуя до открытия",
+  "text": "Хромолитографию выпустили около 1885 года, за год до открытия статуи 28 октября 1886 года. Посмотрите, как издатели поместили статую на фоне портового города. Современный кадр показывает отдельно скульптуру, с другой стороны и без портовой панорамы.",
+  "source": "https://www.loc.gov/item/2001702146/",
+  "source_label": "Карточка Библиотеки Конгресса"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   773,
+   1024
+  ],
+  "photo_size": [
+   1095,
+   1460
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

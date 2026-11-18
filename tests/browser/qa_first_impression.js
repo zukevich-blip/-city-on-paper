@@ -40,8 +40,8 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
         "Modern photograph attribution is present");
       assert((await page.locator(".wow-primary").getAttribute("href")).includes("poc/compare/"),
         "Hero points to real interactive compare");
-      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("eras/"),
-        "Hero points to real historical atlas");
+      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("world/#worldComparisons"),
+        "Hero points to the museum world atlas");
       const overflow=await page.evaluate(()=>({
         body:document.body.scrollWidth,
         html:document.documentElement.scrollWidth,

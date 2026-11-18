@@ -1,0 +1,295 @@
+{
+ "id": "naples-san-francesco-di-paola",
+ "status": "candidate_real_pair",
+ "local_overlay": true,
+ "condition": "Совмещён входной портик. Купол и боковые колоннады находятся за пределами проверенной области.",
+ "control_points": [
+  {
+   "label": "Портик · ориентир 1",
+   "historic": [
+    665.38,
+    432.59
+   ],
+   "photo": [
+    415.94,
+    251.73
+   ]
+  },
+  {
+   "label": "Портик · ориентир 2",
+   "historic": [
+    592.38,
+    456.66
+   ],
+   "photo": [
+    289.9,
+    335.57
+   ]
+  },
+  {
+   "label": "Портик · ориентир 3",
+   "historic": [
+    722.97,
+    489.37
+   ],
+   "photo": [
+    545.97,
+    308.2
+   ]
+  },
+  {
+   "label": "Портик · ориентир 4",
+   "historic": [
+    595.36,
+    483.96
+   ],
+   "photo": [
+    295.03,
+    366.94
+   ]
+  },
+  {
+   "label": "Портик · ориентир 5",
+   "historic": [
+    721.89,
+    506.67
+   ],
+   "photo": [
+    540.84,
+    348.12
+   ]
+  },
+  {
+   "label": "Портик · ориентир 6",
+   "historic": [
+    598.06,
+    570.21
+   ],
+   "photo": [
+    295.6,
+    498.11
+   ]
+  },
+  {
+   "label": "Портик · ориентир 7",
+   "historic": [
+    634.29,
+    569.67
+   ],
+   "photo": [
+    347.5,
+    499.25
+   ]
+  },
+  {
+   "label": "Портик · ориентир 8",
+   "historic": [
+    653.21,
+    570.21
+   ],
+   "photo": [
+    384.0,
+    501.53
+   ]
+  },
+  {
+   "label": "Портик · ориентир 9",
+   "historic": [
+    669.98,
+    570.21
+   ],
+   "photo": [
+    418.79,
+    504.38
+   ]
+  },
+  {
+   "label": "Портик · ориентир 10",
+   "historic": [
+    685.93,
+    569.67
+   ],
+   "photo": [
+    451.87,
+    507.23
+   ]
+  },
+  {
+   "label": "Портик · ориентир 11",
+   "historic": [
+    700.26,
+    569.4
+   ],
+   "photo": [
+    490.08,
+    509.52
+   ]
+  }
+ ],
+ "historic": {
+  "title": "Вид на площадь в Неаполе",
+  "date": "1847",
+  "medium": "Литография",
+  "holding": "Rijksmuseum, Амстердам",
+  "object_url": "https://id.rijksmuseum.nl/200151610",
+  "rights": "Public Domain, Rijksmuseum",
+  "credit": "Шарль Клод Башелье по рисунку Филиппа Бенуа · Lemercier · Rijksmuseum · RP-P-1908-250",
+  "file_note": "Музейная репродукция уменьшена без обрезки и коррекции перспективы.",
+  "file": "naples-san-francesco-di-paola-historic.jpg",
+  "size": [
+   1460,
+   958
+  ],
+  "sha256": "56c3404ff924ca2596876982bb147efc0d2ed111bb10df384e07f1ad87135c43"
+ },
+ "photo": {
+  "title": "Piazza del Plebiscito, Naples, lateral view",
+  "date": "2025-10-22",
+  "object_url": "https://commons.wikimedia.org/wiki/File:7K5A3060Piazza_del_Plebiscito_Naples_lateral_view_2025.jpg",
+  "credit": "Lucia Montanaro · Wikimedia Commons · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "Выбран фрагмент фотографии вокруг базилики, JPEG перекодирован без метаданных. В совмещённом виде скорректирована перспектива. Исходный полный кадр доступен по ссылке Wikimedia Commons.",
+  "file": "naples-san-francesco-di-paola-photo.jpg",
+  "size": [
+   900,
+   870
+  ],
+  "sha256": "868ab623d320dc80ca71588d7c4341bfeb18bfe6f1328bc9c19ae837ef34f2d5"
+ },
+ "story": {
+  "title": "Как в Неаполе переосмыслили Пантеон",
+  "text": "Архитектор Пьетро Бьянки взял за образец римский Пантеон. Связку треугольного фронтона и круглого объёма под куполом лучше всего видно в режиме «Рядом». Шторка даёт рассмотреть сам портик.",
+  "source": "https://bibliotecauniversitarianapoli.cultura.gov.it/it/450/piazza-del-plebiscito",
+  "source_label": "Университетская библиотека Неаполя"
+ },
+ "alignment": {
+  "n_points": 11,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1460,
+   958
+  ],
+  "photo_size": [
+   900,
+   870
+  ],
+  "method": "cv2.findHomography RANSAC 17.5px",
+  "H": [
+   [
+    23.4570259302,
+    4.1561702932,
+    -2089.827499769
+   ],
+   [
+    14.1638441787,
+    10.5642631914,
+    -2898.4161685176
+   ],
+   [
+    0.0250726941,
+    0.0062463843,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    0.1517363151,
+    -0.0910878638,
+    53.0921867254
+   ],
+   [
+    -0.4595928654,
+    0.4014771588,
+    203.178079696
+   ],
+   [
+    -0.0009336446,
+    -0.0002239625,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   5.26,
+   3.85,
+   2.54,
+   1.71,
+   3.24,
+   2.63,
+   0.94,
+   1.13,
+   1.11,
+   2.2,
+   2.95
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 2.8,
+  "rms_all_points_px": 2.8,
+  "rms_rel_diag": 0.0016,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   13.24,
+   7.99,
+   4.35,
+   2.72,
+   5.04,
+   6.91,
+   1.23,
+   1.38,
+   1.36,
+   2.86,
+   4.39
+  ],
+  "loo_max_px": 13.24,
+  "loo_max_rel_diag": 0.00758,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.0103,
+  "valid_region_historic": [
+   [
+    723.0,
+    489.3999938964844
+   ],
+   [
+    721.9000244140625,
+    506.70001220703125
+   ],
+   [
+    700.2999877929688,
+    569.4000244140625
+   ],
+   [
+    670.0,
+    570.2000122070312
+   ],
+   [
+    598.0999755859375,
+    570.2000122070312
+   ],
+   [
+    592.4000244140625,
+    456.70001220703125
+   ],
+   [
+    665.4000244140625,
+    432.6000061035156
+   ]
+  ],
+  "scope": "local: control points span 1% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 1% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}
