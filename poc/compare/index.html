@@ -30,6 +30,10 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
 .journey-prompt{margin:14px 0;padding:13px 16px;background:var(--panel);border-left:3px solid var(--accent)}
+.guided header>.sub,.guided header>.bar,.guided .jumpcompare,.guided header>h1,
+.guided #museumBar .mbq{display:none!important}
+.guided .journey-prompt{margin:8px 0;padding:10px 12px}
+.guided .journey-end summary{min-height:44px;align-content:center;cursor:pointer}
 .journey-prompt h2{margin:2px 0 4px;font:1.4rem/1.15 Georgia,serif}
 .journey-prompt p,.journey-end p{margin:5px 0}
 .journey-step{color:var(--muted);font:13px system-ui,sans-serif}
@@ -106,7 +110,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     </ul>
     <p>Источники и лицензии / sources and licences: <a href="pairs/CREDITS.md">pairs/CREDITS.md</a></p>
   </div></noscript>
-  <div class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
+  <div id="viewerModes" class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
     <button data-mode="slider" aria-pressed="true" data-i18n="m_slider">Шторка</button>
     <button data-mode="opacity" aria-pressed="false" data-i18n="m_opacity">Прозрачность</button>
     <button data-mode="flicker" aria-pressed="false" data-i18n="m_flicker">Мерцание A/B</button>
@@ -453,6 +457,10 @@ function renderJourney(idx, id) {
   const scene = route[at];
   const on = new URLSearchParams(location.search).get("journey") === "1" && !!scene;
   $("journeyPrompt").hidden = $("journeyEnd").hidden = !on;
+  document.body.classList.toggle("guided", on);
+  const controls = [$("viewerModes"), $("verdict")];
+  if (on) $("journeyEnd").after(...controls);
+  else $("imgError").before(...controls);
   if (!on) return;
 
   $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${idx.places?.[id]?.city || ""}`;
