@@ -74,160 +74,7 @@ jobs:
           set -euo pipefail
           git fetch --depth=1 origin 803da464cb31645db1abdd060686b24c13c72d95
           git diff --name-status bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2 803da464cb31645db1abdd060686b24c13c72d95 > /tmp/city-overlay.tsv
-          while IFS=
-        run: |
-          set -euxo pipefail
-          python tools/release/build_public_site.py --source private-site --out public
-          test -s public/index.html
-          test -s public/salon/index.html
-          test -s public/world/index.html
-          test -s public/atlas-prototype/index.html
-          test -s public/eras/three-epochs.js
-          test -s public/eras/three-epochs.css
-          test -s public/eras/chronoscope.js
-          test -s public/eras/chronoscope.css
-          test -s public/eras/city-lab.js
-          test -s public/eras/city-lab.css
-          test -s public/desk/index.html
-          test -s public/desk/desk.css
-          test -s public/desk/desk.js
-          grep -q 'deskMap' public/desk/index.html
-          grep -q 'album-book' public/desk/desk.js
-          grep -q 'countryIndex' public/eras/atlas.js
-          grep -q 'CityOnPaperCityLab' public/eras/city-lab.js
-          grep -q 'user-photo' public/eras/city-lab.js
-          test -s public/eras/curatorial-desk.js
-          test -s public/eras/curatorial-desk.css
-          test -s public/eras/journey.js
-          test -s public/eras/journey.css
-          test -s public/eras/cartography.js
-          test -s public/eras/data/map-evidence.json
-          test -s public/eras/cartography.css
-          test -s public/eras/viewpoint-atlas.js
-          test -s public/eras/viewpoint-atlas.css
-          test -s public/assets/story/artwork-history.js
-          test -s public/assets/story/artwork-history.css
-          grep -q 'museum-frontdoor museum-wow' public/index.html
-          grep -q 'class="wow-features"' public/index.html
-          grep -q 'madeleine-photo-panoramax-38b6d262.jpg' public/index.html
-          test -s public/poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg
-          test -s public/poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg
-          grep -q "CityArtworkHistory" public/salon/index.html
-          grep -q "vpaWipeCredits" public/eras/viewpoint-atlas.js
-          grep -q 'city-place-picker' public/eras/maps.js
-          grep -q 'CityOnPaperViewpoints' public/eras/viewpoint-atlas.js
-          grep -q "function clusterCityMarkers" public/eras/maps.js
-          grep -q "data-compare-mode=\"opacity\"" public/eras/epochs.js
-          grep -q "epKind" public/eras/epochs.js
-          grep -q "atlas-v7-20261116" public/eras/sw.js
-          test -s public/assets/nav/museum-polish.css
-          test -s public/assets/nav/museum-nav.js
-          test -s public/assets/hybrid/engraving.css
-          test -s public/cities/index.html
-          test -s public/atlas/index.html
-          test -s public/stories/index.html
-          test -s public/stories/paris-on-paper/index.html
-          test -s public/experience/index.html
-          test -s public/walk/index.html
-          test -s public/eras/history.js
-          test -s public/eras/data/history.json
-          test -s public/data/curation/world-open-views-v2.json
-          test -s public/assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg
-          test -s public/submit/index.html
-          grep -q 'museum-frontdoor' public/index.html
-          grep -q 'class="signature"' public/index.html
-          grep -q 'id="placeButtons"' public/walk/index.html
-          grep -q 'id="suggestion"' public/submit/index.html
-          test -s public/data/coverage/world-coverage-20261110.json
-          test -s public/contribute/index.html
-          grep -q 'CityOnPaperChronoscope' public/eras/chronoscope.js
-          grep -q 'CityOnPaperCuratorialDesk' public/eras/curatorial-desk.js
-          grep -q 'upload-photo' public/eras/three-epochs.js
-          grep -q 'citySearch' public/atlas-prototype/index.html
-          grep -q 'localMarkers' public/atlas-prototype/index.html
-          test -s public/poc/compare/homography.js
-          test -s public/sitemap.xml
-          test -s public/robots.txt
-          test ! -e public/data/candidates
-          test ! -e public/docs/consilium
-          test ! -e public/PROJECT_HANDOFF.md
-
-      - name: Verify public-site safety and metadata
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          site=Path("public")
-          manifest=json.loads((site/"PUBLIC_BUILD.json").read_text(encoding="utf-8"))
-          assert manifest["public_html_pages"] >= 30
-          assert not manifest["candidate_research_included"]
-          files=[p for p in site.rglob("*") if p.is_file()]
-          assert not any(p.suffix in {".env", ".pem", ".p12", ".key", ".sqlite", ".db"} for p in files)
-          assert not any("secrets" in p.parts or "consilium" in p.parts for p in files)
-          assert "sitemap.xml" in {p.name for p in files}
-          assert "index,follow" in (site/"index.html").read_text(encoding="utf-8")
-          assert "Allow: /" in (site/"robots.txt").read_text(encoding="utf-8")
-          print(f"PUBLIC SAFETY PASS: {len(files)} allowlisted site files, {manifest['public_html_pages']} pages")
-          PY
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Browser-test the public comparison and updated home
-        shell: bash
-        run: |
-          set -euo pipefail
-          npm install --no-save playwright@1.56.1
-          npx playwright install --with-deps chromium
-          mkdir -p /tmp/city-public-screens
-          python -m http.server 8767 --bind 127.0.0.1 --directory public > /tmp/city-public.log 2>&1 &
-          trap 'kill $!' EXIT
-          for attempt in {1..15}; do
-            if curl -fsS http://127.0.0.1:8767/ -o /dev/null; then break; fi
-            sleep 1
-          done
-          node tests/browser/qa_compare.js http://127.0.0.1:8767/poc/compare/ /tmp/city-public-screens
-          node tests/browser/qa_first_impression.js http://127.0.0.1:8767/ /tmp/city-public-screens
-
-      - name: Record audited public demo provenance
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          path=Path("public/PUBLIC_DEMO_REVISION.json")
-          path.write_text(json.dumps({
-            "kind": "public demonstration / research preview",
-            "source_revision": "803da464cb31645db1abdd060686b24c13c72d95",
-            "base_source_revision": "bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2",
-            "overlay_browser_qa": "passed",
-            "qa_run": 43908032492,
-            "qa_conclusion": "success",
-            "publication": "museum-safe allowlist",
-            "scientific_acceptance": "research_draft_unverified"
-          }, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
-          PY
-          python -m json.tool public/PUBLIC_DEMO_REVISION.json > /dev/null
-
-      - name: Audit internal links and files of the published version
-        run: |
-          python tools/release/audit_public_links.py --root public --report public/LINK_AUDIT.json --strict
-          test -s public/LINK_AUDIT.json
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload vetted Pages artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: public
-
-      - name: Publish to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-\t' read -r status file; do
+          while IFS=$'\t' read -r status file; do
             case "$status:$file" in
               M:tests/browser/qa_compare.js|M:tests/browser/qa_first_impression.js) ;;
               M:index.html|M:walk/index.html|M:world/index.html|M:poc/compare/index.html|M:poc/compare/pairs/CREDITS.md|M:poc/compare/pairs/index.json|A:poc/compare/pairs/*.jpg|A:poc/compare/pairs/*.json)
@@ -336,6 +183,27 @@ jobs:
           print(f"PUBLIC SAFETY PASS: {len(files)} allowlisted site files, {manifest['public_html_pages']} pages")
           PY
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Browser-test the public comparison and updated home
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+          mkdir -p /tmp/city-public-screens
+          python -m http.server 8767 --bind 127.0.0.1 --directory public > /tmp/city-public.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in {1..15}; do
+            if curl -fsS http://127.0.0.1:8767/ -o /dev/null; then break; fi
+            sleep 1
+          done
+          node tests/browser/qa_compare.js http://127.0.0.1:8767/poc/compare/ /tmp/city-public-screens
+          node tests/browser/qa_first_impression.js http://127.0.0.1:8767/ /tmp/city-public-screens
+
       - name: Record audited public demo provenance
         shell: bash
         run: |
@@ -345,7 +213,9 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2",
+            "source_revision": "803da464cb31645db1abdd060686b24c13c72d95",
+            "base_source_revision": "bd5cf97b8b51a4ad03a4f3877cd3aaebc4639dc2",
+            "overlay_browser_qa": "passed",
             "qa_run": 43908032492,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
