@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "rossini-rome-1693",
+      "title": "Рим для приезжих",
+      "originalTitle": "Il Mercurio errante delle grandezze di Roma",
+      "authors": [
+        "Пьетро Россини"
+      ],
+      "year": 1693,
+      "city": "Рим",
+      "kind": "guidebook",
+      "summary": "Одна из книг, по которым приезжие знакомились с древними и современными памятниками Рима ещё в XVII веке.",
+      "institution": "Библиотека Герциана, Институт истории искусства Общества Макса Планка",
+      "sourceUrl": "https://rarebooks.biblhertz.it/it/roma-in-tasca/6-01-rossini-1693/",
+      "rights": "В библиотеке скан открыт для чтения. Библиотека сохраняет права на свою оцифровку.",
+      "readUrl": "https://dlib.biblhertz.it/dg4502930",
+      "rightsUrl": "https://rightsstatements.org/vocab/InC/1.0/",
+      "related": {
+        "map": "eras/#/city/rim"
+      }
+    },
+    {
+      "id": "vasi-rome-1747-1761",
+      "title": "Древний и современный Рим",
+      "originalTitle": "Delle magnificenze di Roma antica e moderna",
+      "authors": [
+        "Джузеппе Вази"
+      ],
+      "year": 1747,
+      "city": "Рим",
+      "kind": "view-series",
+      "summary": "Больше двухсот гравированных видов в десяти книгах. Площади, ворота, улицы, церкви и сады собраны по темам. Из книги о площадях взят наш офорт Пантеона.",
+      "institution": "Библиотека Герциана, Институт истории искусства Общества Макса Планка",
+      "sourceUrl": "https://rarebooks.biblhertz.it/it/roma-in-tasca/2-06-vasi-1747-1761/",
+      "rights": "В библиотеке скан открыт для чтения. Библиотека сохраняет права на свою оцифровку.",
+      "yearLabel": "1747–1761",
+      "image": "poc/compare/pairs/rome-pantheon-1752.jpg",
+      "imageAlt": "Джузеппе Вази. Площадь Ротонды и Пантеон, 1752",
+      "imageCredit": "Викисклад, общественное достояние",
+      "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Piazza_della_Rotonda_-_Plate_025_-_Giuseppe_Vasi.jpg",
+      "volumes": [
+        {
+          "label": "Книги 1–2",
+          "url": "https://dlib.biblhertz.it/dg536347012"
+        },
+        {
+          "label": "Книги 3–4",
+          "url": "https://dlib.biblhertz.it/dg536347034"
+        },
+        {
+          "label": "Книги 5–6",
+          "url": "https://dlib.biblhertz.it/dg536347056"
+        },
+        {
+          "label": "Книги 7–8",
+          "url": "https://dlib.biblhertz.it/dg536347078"
+        },
+        {
+          "label": "Книги 9–10",
+          "url": "https://dlib.biblhertz.it/dg5363470910"
+        }
+      ],
+      "related": {
+        "compare": "poc/compare/#rome-pantheon-vasi",
+        "map": "eras/#/epoch/rim/Q99309"
+      }
+    },
+    {
+      "id": "vasi-rome-1763",
+      "title": "Рим на восемь дней",
+      "originalTitle": "Itinerario istruttivo diviso in otto stazioni o giornate",
+      "authors": [
+        "Джузеппе Вази"
+      ],
+      "year": 1763,
+      "city": "Рим",
+      "kind": "guidebook",
+      "summary": "Вази предложил восемь прогулок по городу. Пантеон есть в книге, на отдельном офорте 1752 года и на современной фотографии, которую можно сравнить с офортом.",
+      "institution": "Библиотека Герциана, Институт истории искусства Общества Макса Планка",
+      "sourceUrl": "https://rarebooks.biblhertz.it/it/roma-in-tasca/5-01-vasi-1763/",
+      "rights": "В библиотеке скан открыт для чтения. Библиотека сохраняет права на свою оцифровку.",
+      "readUrl": "https://dlib.biblhertz.it/dg4503631",
+      "rightsUrl": "https://rightsstatements.org/vocab/InC/1.0/",
+      "related": {
+        "compare": "poc/compare/?journey=1&view=originals#rome-pantheon-vasi",
+        "map": "eras/#/epoch/rim/Q99309"
+      }
+    },
+    {
+      "id": "london-exhibition-1851",
+      "title": "Лондон к Всемирной выставке",
+      "originalTitle": "London as it is today: where to go and what to see, during the great exhibition",
+      "authors": [
+        "Издание H. G. Clarke & Co."
+      ],
+      "year": 1851,
+      "city": "Лондон",
+      "kind": "guidebook",
+      "summary": "Путеводитель с иллюстрациями издан к Всемирной выставке 1851 года. По нему можно посмотреть, что издатель советовал гостям увидеть в Лондоне.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/03011943/",
+      "rights": "Оцифровка в общественном достоянии по данным Библиотеки Конгресса США.",
+      "readUrl": "https://archive.org/details/londonasitistoda00unse",
+      "related": {
+        "map": "eras/#/city/london"
+      },
+      "image": "guides/images/london-1851.jpg",
+      "imageAlt": "Титульный лист лондонского путеводителя к Всемирной выставке 1851 года",
+      "imageCredit": "Библиотека Конгресса США, скан в Internet Archive. Общественное достояние.",
+      "imageSourceUrl": "https://archive.org/details/londonasitistoda00unse/page/n8/mode/1up",
+      "rightsUrl": "https://www.loc.gov/item/03011943/#rights-and-access"
+    },
+    {
+      "id": "benoist-paris-charpentier",
+      "title": "Париж в своём великолепии",
+      "originalTitle": "Paris dans sa splendeur",
+      "authors": [
+        "Филипп Бенуа и другие — рисунки и литографии",
+        "Феликс Бенуа и Катеначчи — виньетки",
+        "Арман Одиган и другие — текст"
+      ],
+      "year": 1861,
+      "city": "Париж",
+      "kind": "view-series",
+      "summary": "Трёхтомное издание Анри Шарпантье. В экземпляре Библиотеки Моргана сто литографированных листов. Для чтения доступны найденные оцифрованные тома; музейные листы Бенуа собраны отдельно.",
+      "institution": "Библиотека и музей Моргана; Гейдельбергский университет",
+      "sourceUrl": "https://www.themorgan.org/printed-books/162671",
+      "rights": "Тома для просмотра у Гейдельбергского университета. Условия для каждой цифровой копии указаны у хранителя.",
+      "yearLabel": "1861–1863",
+      "volumes": [
+        {
+          "label": "Том 1",
+          "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd1/"
+        },
+        {
+          "label": "Том 2",
+          "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd2/"
+        }
+      ],
+      "related": {
+        "salon": "salon/?q=Бенуа",
+        "map": "eras/#/city/paris"
+      }
+    },
+    {
+      "id": "murray-egypt-1873",
+      "title": "По Египту и Нубии",
+      "originalTitle": "A handbook for travellers in Egypt",
+      "authors": [
+        "Джон Гарднер Уилкинсон",
+        "Издание John Murray"
+      ],
+      "year": 1873,
+      "city": "Каир",
+      "kind": "guidebook",
+      "summary": "Четвёртое переработанное издание. В книге описаны путь по Нилу, Александрия, Каир, пирамиды, Фивы и Суэцкий канал.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/05008439/",
+      "rights": "Просмотр и скачивание на сайте библиотеки. Условия публикации сверяйте в записи.",
+      "readUrl": "https://archive.org/details/handbookfortrave00john_1",
+      "related": {
+        "compare": "poc/compare/#giza-great-sphinx",
+        "map": "eras/#/city/kair"
+      }
+    },
+    {
+      "id": "barnard-new-york-1895",
+      "title": "Город Нью-Йорк",
+      "originalTitle": "The city of New York",
+      "authors": [
+        "Чарльз Барнард"
+      ],
+      "year": 1895,
+      "city": "Нью-Йорк",
+      "kind": "guidebook",
+      "summary": "Иллюстрированный путеводитель по Нью-Йорку. В библиотечном просмотрщике доступны 220 кадров, в том числе страницы с видами города.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/01014671/",
+      "rights": "Оцифровка в общественном достоянии по данным Библиотеки Конгресса США.",
+      "readUrl": "https://archive.org/details/cityofnewyork01barn",
+      "related": {
+        "compare": "poc/compare/#new-york-statue-of-liberty",
+        "map": "eras/#/city/nyu-york"
+      },
+      "image": "guides/images/new-york-1895.jpg",
+      "imageAlt": "Титульный лист путеводителя Чарльза Барнарда по Нью-Йорку, 1895",
+      "imageCredit": "Библиотека Конгресса США, скан в Internet Archive. Общественное достояние.",
+      "imageSourceUrl": "https://archive.org/details/cityofnewyork01barn/page/n14/mode/1up",
+      "rightsUrl": "https://www.loc.gov/item/01014671/#rights-and-access"
+    },
+    {
+      "id": "chamberlain-mason-japan-1898",
+      "title": "Япония для путешественников",
+      "originalTitle": "A handbook for travellers in Japan",
+      "authors": [
+        "Бэзил Холл Чемберлен",
+        "У. Б. Мейсон"
+      ],
+      "year": 1898,
+      "city": "Япония",
+      "kind": "guidebook",
+      "summary": "Англоязычное руководство по Японии с подробными маршрутами и картами. В музее можно продолжить знакомство с Токио и Киото через городские виды.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/34008301/",
+      "rights": "Оцифровка в общественном достоянии по данным Библиотеки Конгресса США.",
+      "readUrl": "https://archive.org/details/handbookfortrave00murr",
+      "related": {
+        "map": "eras/#/city/tokio",
+        "salon": "salon/?city=Киото"
+      },
+      "image": "guides/images/japan-1898.jpg",
+      "imageAlt": "Титульный лист путеводителя Чемберлена и Мейсона по Японии, 1898",
+      "imageCredit": "Библиотека Конгресса США, скан в Internet Archive. Общественное достояние.",
+      "imageSourceUrl": "https://archive.org/details/handbookfortrave00murr/page/n12/mode/1up",
+      "rightsUrl": "https://www.loc.gov/item/34008301/#rights-and-access"
+    },
+    {
+      "id": "emery-petersburg-1902",
+      "title": "Петербург в стереоскопическом путешествии",
+      "originalTitle": "St. Petersburg; a part of Underwood & Underwood’s stereoscopic tour through Russia",
+      "authors": [
+        "Мейбл Сара Эмери"
+      ],
+      "year": 1902,
+      "city": "Санкт-Петербург",
+      "kind": "guidebook",
+      "summary": "Путеводитель для стереоскопического путешествия. На складных картах отмечены точки съёмки, откуда были сделаны пронумерованные виды.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/02010114/",
+      "rights": "Оцифровка в общественном достоянии по данным Библиотеки Конгресса США.",
+      "yearLabel": "1902, дата по каталогу",
+      "readUrl": "https://archive.org/details/stpetersburgapar00emer",
+      "related": {
+        "map": "eras/#/city/sankt-peterburg"
+      },
+      "rightsUrl": "https://www.loc.gov/item/02010114/#rights-and-access"
+    },
+    {
+      "id": "pessoa-rio-1905",
+      "title": "Городской путеводитель по Рио",
+      "originalTitle": "Guia da cidade do Rio de Janeiro",
+      "authors": [
+        "Паула Пессоа"
+      ],
+      "year": 1905,
+      "city": "Рио-де-Жанейро",
+      "kind": "guidebook",
+      "summary": "Путеводитель на португальском языке из исследовательской библиотеки Гетти. Отдельно в музее можно сопоставить старую графику с современным видом на бухту Гуанабара.",
+      "institution": "Исследовательский институт Гетти; Biodiversity Heritage Library",
+      "sourceUrl": "https://www.biodiversitylibrary.org/item/195672",
+      "rights": "Можно читать в цифровой библиотеке. Условия повторного использования в записи Гетти не указаны.",
+      "readUrl": "https://archive.org/details/guiadacidadedori00pess",
+      "related": {
+        "compare": "poc/compare/#rio-guanabara",
+        "map": "eras/#/city/rio-de-zhaneyro"
+      }
+    },
+    {
+      "id": "baedeker-paris-1907",
+      "title": "Париж и окрестности",
+      "originalTitle": "Paris and environs, with routes from London to Paris; handbook for travellers",
+      "authors": [
+        "Издание Karl Baedeker"
+      ],
+      "year": 1907,
+      "city": "Париж",
+      "kind": "guidebook",
+      "summary": "Шестнадцатое переработанное издание. В книгу вошли планы Парижа и маршруты из Лондона. По старому плану можно проследить путь к знакомым площадям.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/08017899/",
+      "rights": "Оцифровка в общественном достоянии по данным Библиотеки Конгресса США.",
+      "readUrl": "https://archive.org/details/parisenvironswit04karl",
+      "related": {
+        "compare": "poc/compare/#paris-eiffel",
+        "map": "eras/#/city/paris",
+        "salon": "salon/?city=Париж"
+      },
+      "image": "guides/images/paris-1907.jpg",
+      "imageAlt": "Титульный лист путеводителя Бедекера по Парижу, 1907",
+      "imageCredit": "Библиотека Конгресса США, скан в Internet Archive. Общественное достояние.",
+      "imageSourceUrl": "https://archive.org/details/parisenvironswit04karl/page/n19/mode/1up",
+      "rightsUrl": "https://www.loc.gov/item/08017899/#rights-and-access"
+    },
+    {
+      "id": "allen-venice-1912",
+      "title": "Венеция",
+      "originalTitle": "Venice",
+      "authors": [
+        "Грант Аллен"
+      ],
+      "year": 1912,
+      "city": "Венеция",
+      "kind": "guidebook",
+      "summary": "Культурно-исторический путеводитель. Первое издание вышло в 1898 году, здесь оцифрована перепечатка 1912 года.",
+      "institution": "Библиотека Конгресса США",
+      "sourceUrl": "https://www.loc.gov/item/12035738/",
+      "rights": "Просмотр и скачивание на сайте библиотеки. Условия публикации сверяйте в записи.",
+      "yearLabel": "1912, дата по каталогу",
+      "readUrl": "https://www.loc.gov/item/12035738/",
+      "related": {
+        "map": "eras/#/city/venetsiya"
+      }
+    }
+  ]
+}

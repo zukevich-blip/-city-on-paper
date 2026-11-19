@@ -302,13 +302,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .more-museum>summary::-webkit-details-marker{display:none}.more-museum>summary span{font:normal 24px Georgia,serif}.more-museum>summary small{font:13px system-ui,sans-serif;color:#6f6f63}
 .more-museum>summary::after{content:"+";margin-left:auto;font:26px Georgia,serif;color:#7a3f22}.more-museum[open]>summary::after{content:"−"}
 
-#home .paper-guide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);gap:clamp(18px,4vw,48px);align-items:center;padding:clamp(14px,3.6vw,38px);margin:28px 0 18px;background:#f6eddd;border-block:1px solid #c9b18c}
-#home .paper-guide img{width:100%;height:auto;display:block}
-#home .paper-guide h2{font:normal clamp(29px,4.5vw,50px)/1.08 Georgia,serif;margin:0 0 10px}
-#home .paper-guide p{font:15px/1.55 system-ui,sans-serif;color:#4d4b3c;margin:0 0 12px}
-#home .paper-guide-start{display:inline-flex;align-items:center;min-height:44px;margin-inline-end:12px;padding:8px 12px;background:#243c30;color:#fffaf0;border:1px solid #243c30;border-radius:3px;text-decoration:none}
-#home .paper-guide-start:hover{background:#364e40}
-@media(max-width:640px){#home .paper-guide{grid-template-columns:1fr;gap:14px}}
 </style>
 <link rel="stylesheet" href="assets/hybrid/tokens.css">
 <link rel="stylesheet" href="assets/hybrid/museum.css">
@@ -318,7 +311,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <body class="cop-engraved">
 <header><nav class="wrap"><a class="brand" href="#home"><strong>Город на бумаге</strong><span>City on Paper · Искусство и история городов</span></a>
 <div class="navlinks">
-<a href="stories/" class="main-story-link">Истории</a>
+<a href="guides/" class="main-story-link">Путеводители</a>
 <a href="cities/" aria-label="Все города мира">Города</a>
 <a href="atlas/" aria-label="Атлас времени">Атлас</a>
 <button data-go="catalog">Каталог</button>
@@ -326,6 +319,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <details class="allrooms"><summary>Залы</summary><div class="rooms-panel">
 <button data-go="home" aria-current="true">Главная</button>
 <a href="experience/">Книга городов</a>
+<a href="stories/">Истории</a>
 <a href="world/">Галерея исторических видов мира</a>
 <a href="discover/">Первое расследование</a>
 <button data-go="compare">Тогда / Сейчас</button>
@@ -350,47 +344,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 <div class="museum-frontdoor museum-wow" aria-label="Что умеет музей «Город на бумаге»">
   <div class="front-copy">
-    <span class="eyebrow">Цифровой музей городской графики</span>
-    <h1>Город на бумаге</h1>
-    <p class="wow-lead">В XVIII веке путеводитель вёл по Риму от площади к площади. Сегодня можно открыть гравюру, найти то же место на карте и сверить его с фотографией. Начните с Пантеона Вази или с Парижа, где в 1889 году зажгли Эйфелеву башню.</p>
+    <span class="eyebrow">Город на бумаге</span>
+    <h1>Города по старым путеводителям</h1>
+    <p class="wow-lead">В 1763 году Джузеппе Вази предложил восемь прогулок по Риму. Начните с Пантеона на его офорте 1752 года. Найдите круглую стену за колоннами и попробуйте увидеть её на фотографии.</p>
     <div class="wow-actions">
-      <a class="wow-primary" href="poc/compare/?journey=1#paris-eiffel">Начать с Эйфелевой башни <span aria-hidden="true">↗</span></a>
-      <a class="wow-secondary" href="cities/">Выбрать город <span aria-hidden="true">↗</span></a>
+      <a class="wow-primary" href="poc/compare/?journey=1&amp;view=originals#rome-pantheon-vasi">Сравнить Пантеон <span aria-hidden="true">↗</span></a>
+      <a class="wow-secondary" href="guides/">Открыть путеводители <span aria-hidden="true">↗</span></a>
     </div>
-    <a class="opening-more" href="#paperGuideTitle">Открыть исторический путеводитель ↓</a>
+    <a class="opening-more" href="guides/#vasi-rome-1763">Полистать книгу Вази</a>
   </div>
-  <div class="front-map wow-visual" aria-label="Эйфелева башня в 1889 году и сегодня">
-    <div class="wow-visual-top"><span>ПАРИЖ · ЭЙФЕЛЕВА БАШНЯ</span><strong>От выставки до наших дней</strong></div>
+  <div class="front-map wow-visual" aria-label="Площадь Ротонды в Риме в 1752 и 2025 годах">
+    <div class="wow-visual-top"><span>РИМ · ПЛОЩАДЬ РОТОНДЫ</span><strong>Пантеон с двух точек</strong></div>
     <div class="herotoggle" role="group" aria-label="Что показать">
-      <button type="button" data-pane="then" aria-pressed="true">Литография</button>
+      <button type="button" data-pane="then" aria-pressed="true">Офорт</button>
       <button type="button" data-pane="now" aria-pressed="false">Фото сегодня</button>
-      <a href="poc/compare/?journey=1#paris-eiffel">Рассмотреть →</a>
+      <a href="poc/compare/?journey=1&amp;view=originals#rome-pantheon-vasi">Рассмотреть →</a>
     </div>
     <div class="wow-duet" id="heroDuet" data-active="then">
       <figure data-pane="then">
-        <img src="poc/compare/pairs/paris-eiffel-1889.jpg" width="1052" height="1440" alt="Цветная литография Жоржа-Феликса Гарена. Эйфелева башня в огнях, 1889 год" loading="eager" fetchpriority="high">
-        <figcaption><b>ПЕЧАТНЫЙ ЛИСТ</b><span>Гарен · 1889</span></figcaption>
+        <img src="poc/compare/pairs/rome-pantheon-1752.jpg" width="733" height="522" alt="Площадь Ротонды и Пантеон на офорте Джузеппе Вази, 1752 год" loading="eager" fetchpriority="high">
+        <figcaption><b>ОФОРТ</b><span>Джузеппе Вази · 1752</span></figcaption>
       </figure>
       <figure data-pane="now">
-        <img src="poc/compare/pairs/paris-eiffel-2026.jpg" width="1440" height="899" alt="Эйфелева башня с Марсова поля, июль 2026 года" loading="eager">
-        <figcaption><b>ФОТО СЕГОДНЯ</b><span>Алива Саху · 2026</span></figcaption>
+        <img src="poc/compare/pairs/rome-pantheon-2025.jpg" width="1440" height="1080" alt="Портик Пантеона на фотографии 2025 года" loading="eager">
+        <figcaption><b>ФОТО</b><span>Van Der Meulen Christofle · 2025</span></figcaption>
       </figure>
     </div>
     <div class="wow-visual-bottom">
-      <span>Башня показана с разных мест. На листе ночь, на фото день.</span>
-      <small><a href="https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/embrasement-de-la-tour-eiffel">Музей Карнавале</a> · <a href="https://commons.wikimedia.org/wiki/File:Eiffel_Tower_located_on_the_Champ_de_Mars_in_Paris,_France.jpg">Фото А. Саху, CC BY-SA 4.0</a></small>
+      <span>Площадь показана с разных мест.</span>
+      <small><a href="https://commons.wikimedia.org/wiki/File:Piazza_della_Rotonda_-_Plate_025_-_Giuseppe_Vasi.jpg">Офорт Вази</a> · <a href="https://commons.wikimedia.org/wiki/File:Ext%C3%A9rieur_du_Panth%C3%A9on_%C3%A0_Rome.jpg">Фото · CC0</a></small>
     </div>
   </div>
-  <section class="paper-guide" aria-labelledby="paperGuideTitle">
-    <img src="poc/compare/pairs/rome-pantheon-1752.jpg" width="733" height="522"
-         alt="Площадь Ротонды и Пантеон на офорте Джузеппе Вази" loading="lazy">
-    <div>
-      <h2 id="paperGuideTitle">Рим на восемь дней</h2>
-      <p>В 1763 году Джузеппе Вази расписал прогулку по Риму на восемь дней. Мы начнём с площади Ротонды на его офорте. Подвиньте шторку, сравните площадь с фотографией 2025 года и найдите её на карте.</p>
-      <a class="paper-guide-start" href="poc/compare/?journey=1&amp;view=originals#rome-pantheon-vasi">Начать с площади Ротонды →</a>
-      <a class="opening-more" href="https://dlib.biblhertz.it/dg4503631">Полистать путеводитель 1763 года</a>
-    </div>
-  </section>
   <section class="opening-shelf" aria-labelledby="openingShelfTitle">
     <h2 id="openingShelfTitle">Что откроем дальше?</h2>
     <div class="opening-plates">
@@ -414,10 +398,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     <a class="opening-more" href="salon/?q=Бенуа">Листы Бенуа →</a>
     <a class="opening-more" href="salon/">Смотреть все листы коллекции →</a>
   </section>
-  <div class="route-head"><span class="eyebrow">Ваш маршрут</span><h2>Пять шагов от первого взгляда до своего фото</h2></div>
+  <div class="route-head"><h2>От книги к своему снимку</h2></div>
   <div class="wow-features" aria-label="Маршрут по музею в пять шагов">
     <a href="poc/compare/?journey=1#paris-eiffel"><span class="wow-feature-num">1</span><strong>Сравните тогда и сейчас</strong><small>Переключайте рисунок и фото или двигайте границу между ними. Что осталось на месте?</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="stories/paris-on-paper/"><span class="wow-feature-num">2</span><strong>Прочтите историю места</strong><small>Кто нарисовал лист, как его печатали и что было с этим местом дальше. Пять глав, 5–7 минут.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="guides/"><span class="wow-feature-num">2</span><strong>Откройте историю города</strong><small>Полистайте городские путеводители и альбомы прямо в библиотечных архивах.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="eras/"><span class="wow-feature-num">3</span><strong>Найдите место на карте</strong><small>Старая карта Европы 1769 года с метками городов. Нажмите на город — и увидите его старые виды.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="cities/"><span class="wow-feature-num">4</span><strong>Отправьтесь в другой город</strong><small>Санкт-Петербург, Москва, Рим, Венеция, Нью-Йорк и ещё десятки городов мира.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="eras/#/epoch/paris/Q330564"><span class="wow-feature-num">5</span><strong>Добавьте своё фото</strong><small>Снимите то же место сегодня и сравните со старым рисунком. Фото остаётся только в вашем браузере.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>

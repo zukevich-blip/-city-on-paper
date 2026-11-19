@@ -11,11 +11,12 @@ def read(path: str) -> str:
 
 
 def test_visitor_routes_are_shipped_in_public_bundle():
-    assert {"walk/index.html", "submit/index.html"} <= set(PAGES)
+    assert {"walk/index.html", "submit/index.html", "guides/index.html"} <= set(PAGES)
     home = read("index.html")
     assert 'class="museum-frontdoor museum-wow"' in home
     assert 'class="wow-features"' in home
     assert 'href="poc/compare/?journey=1#paris-eiffel"' in home
+    assert 'class="wow-secondary" href="guides/"' in home
     assert 'id="museumFind"' in home
     assert 'href="walk/?city=paris&amp;place=0"' in home
     assert 'href="submit/"' in home
