@@ -28,3 +28,6 @@
 
 - `florence-ponte-vecchio-silvestre-historic.jpg` — Израэль Сильвестр · The Metropolitan Museum of Art, https://www.metmuseum.org/art/collection/search/339767.
 - `florence-ponte-vecchio-photo.jpg` — Hein56didden · Wikimedia Commons · CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Ponte_Vecchio-Firenze.jpg. JPEG resized with metadata removed; image licence retained.
+
+- `paris-eiffel-1889.jpg` — Жорж-Феликс Гарен, «Эйфелева башня в огнях», 1889, Музей Карнавале, G.41013, CC0. https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/embrasement-de-la-tour-eiffel
+- `paris-eiffel-2026.jpg` — Aliva Sahoo, 24 июля 2026, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Eiffel_Tower_located_on_the_Champ_de_Mars_in_Paris,_France.jpg

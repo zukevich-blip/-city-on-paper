@@ -265,6 +265,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  #home .museum-wow .wow-lead{font-size:16px}
  #home .museum-wow .wow-trust{display:none}
 }
+#home .opening-shelf{grid-column:1/-1;padding:18px clamp(12px,3vw,24px);border-top:1px solid #c8b79c;background:#fffaf0}
+#home .opening-shelf h2{margin:0 0 12px;font:normal clamp(25px,3vw,34px)/1.14 Georgia,serif;color:#284338}
+#home .opening-plates{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#home .opening-plates>a{min-width:0;display:flex;flex-direction:column;gap:4px;padding:6px 6px 9px;border:1px solid #d9cbb5;text-decoration:none;color:#284338;background:#fffdf8}
+#home .opening-plates>a:hover,#home .opening-plates>a:focus-visible{border-color:#855239;background:#f3e9d8}
+#home .opening-plates img{width:100%;height:clamp(75px,12vw,128px);object-fit:contain;background:#eae0cd}
+#home .opening-plates strong{font:normal clamp(15px,2vw,21px)/1.15 Georgia,serif;padding:2px 3px}
+#home .opening-plates small{font:11px/1.3 system-ui,sans-serif;color:#55483b;padding:0 3px}
+#home .opening-more{display:inline-flex;align-items:center;min-height:44px;color:#25483d;text-underline-offset:3px}
+@media(max-width:700px){#home .opening-plates{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* first-visit route: hero toggle, five steps, facts, "more" fold */
 #home .herotoggle{display:none;gap:8px;margin:0 0 10px;flex-wrap:wrap}
 #home .herotoggle button,#home .herotoggle a{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;border:1px solid #b9ab94;background:#fffdf7;color:#29342d;font:600 14px system-ui,sans-serif;border-radius:4px;text-decoration:none;cursor:pointer}
@@ -331,40 +342,62 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 <div class="museum-frontdoor museum-wow" aria-label="Что умеет музей «Город на бумаге»">
   <div class="front-copy">
-    <span class="eyebrow">Старые виды городов — и как они выглядят сегодня</span>
-    <h1>Как выглядел город больше полутора веков назад — и что в нём осталось?</h1>
-    <p class="wow-lead">Литография — это печатный рисунок на бумаге: так до появления фотографии показывали далёкие города. Мы кладём такой лист рядом со снимком того же места сегодня. Начните с парижской церкви Мадлен: переключайте «Рисунок» и «Фото сегодня» и ищите, что не изменилось.</p>
+    <span class="eyebrow">Цифровой музей городской графики</span>
+    <h1>Город на бумаге</h1>
+    <p class="wow-lead">Париж вспыхивает в огнях. На Арно над мостом прячется коридор. В Нью-Йорке статую рисуют ещё до её открытия. Начните с Эйфелевой башни на листе 1889 года, а потом откройте городские виды Бенуа, Гарена и Сильвестра.</p>
     <div class="wow-actions">
-      <a class="wow-primary" href="poc/compare/?journey=1#madeleine-benoist-carnavalet">Сравнить тогда и сейчас <span aria-hidden="true">↗</span></a>
+      <a class="wow-primary" href="poc/compare/?journey=1#paris-eiffel">Начать с Эйфелевой башни <span aria-hidden="true">↗</span></a>
       <a class="wow-secondary" href="cities/">Выбрать город <span aria-hidden="true">↗</span></a>
     </div>
-    <p class="wow-trust">Рисунки — из архивов Библиотеки Конгресса США и Художественного института Чикаго. У каждого указаны автор, год и источник.</p>
   </div>
-  <div class="front-map wow-visual" aria-label="Пример: церковь Мадлен на литографии и на современной фотографии">
-    <div class="wow-visual-top"><span>ПАРИЖ · ЦЕРКОВЬ МАДЛЕН</span><strong>Два века. Один адрес.</strong></div>
+  <div class="front-map wow-visual" aria-label="Эйфелева башня в 1889 году и сегодня">
+    <div class="wow-visual-top"><span>ПАРИЖ · ЭЙФЕЛЕВА БАШНЯ</span><strong>От выставки до наших дней</strong></div>
     <div class="herotoggle" role="group" aria-label="Что показать">
-      <button type="button" data-pane="then" aria-pressed="true">Рисунок</button>
+      <button type="button" data-pane="then" aria-pressed="true">Литография</button>
       <button type="button" data-pane="now" aria-pressed="false">Фото сегодня</button>
-      <a href="poc/compare/?view=fit#madeleine-ph-benoist">Совместить →</a>
+      <a href="poc/compare/?journey=1#paris-eiffel">Рассмотреть →</a>
     </div>
     <div class="wow-duet" id="heroDuet" data-active="then">
       <figure data-pane="then">
-        <img src="assets/web/poc-compare-pairs-madeleine-historic-loc-pga14315v-720.jpg" data-full="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" width="1024" height="750" alt="Церковь Мадлен в Париже на раскрашенной литографии Филиппа Бенуа, 1845–1860 годы" loading="eager" fetchpriority="high">
-        <figcaption><b>РИСУНОК</b><span>Литография · 1845–1860</span></figcaption>
+        <img src="poc/compare/pairs/paris-eiffel-1889.jpg" width="1052" height="1440" alt="Цветная литография Жоржа-Феликса Гарена. Эйфелева башня в огнях, 1889 год" loading="eager" fetchpriority="high">
+        <figcaption><b>ПЕЧАТНЫЙ ЛИСТ</b><span>Гарен · 1889</span></figcaption>
       </figure>
       <figure data-pane="now">
-        <img src="assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg" data-full="poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" width="2048" height="1536" alt="Церковь Мадлен на современной фотографии, сделанной 30 апреля 2026 года" loading="eager">
-        <figcaption><b>ФОТО СЕГОДНЯ</b><span>Фотография · 2026</span></figcaption>
+        <img src="poc/compare/pairs/paris-eiffel-2026.jpg" width="1440" height="899" alt="Эйфелева башня с Марсова поля, июль 2026 года" loading="eager">
+        <figcaption><b>ФОТО СЕГОДНЯ</b><span>Алива Саху · 2026</span></figcaption>
       </figure>
     </div>
     <div class="wow-visual-bottom">
-      <span>Рисунок и фото сняты с разных мест, поэтому совпадают не полностью. Какая часть церкви узнаётся в обоих кадрах?</span>
-      <small>Филипп Бенуа, Библиотека Конгресса · Фото jerome92370, Panoramax, CC BY-SA 4.0</small>
+      <span>Башня показана с разных мест. На листе ночь, на фото день.</span>
+      <small><a href="https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/embrasement-de-la-tour-eiffel">Музей Карнавале</a> · <a href="https://commons.wikimedia.org/wiki/File:Eiffel_Tower_located_on_the_Champ_de_Mars_in_Paris,_France.jpg">Фото А. Саху, CC BY-SA 4.0</a></small>
     </div>
   </div>
+  <section class="opening-shelf" aria-labelledby="openingShelfTitle">
+    <h2 id="openingShelfTitle">Что откроем дальше?</h2>
+    <div class="opening-plates">
+      <a href="poc/compare/?journey=1#madeleine-benoist-carnavalet">
+        <img src="poc/compare/pairs/madeleine-benoist-carnavalet-cargtop030438.jpg" alt="" loading="lazy">
+        <strong>Что совпало у Бенуа?</strong><small>Париж · литография и фото</small>
+      </a>
+      <a href="poc/compare/?journey=1#florence-ponte-vecchio-silvestre">
+        <img src="poc/compare/pairs/florence-ponte-vecchio-silvestre-historic.jpg" alt="" loading="lazy">
+        <strong>Куда ведёт ход над Арно?</strong><small>Флоренция · рисунок и фото</small>
+      </a>
+      <a href="poc/compare/?journey=1#new-york-statue-of-liberty">
+        <img src="poc/compare/pairs/new-york-statue-of-liberty-historic.jpg" alt="" loading="lazy">
+        <strong>Зачем рисовать статую заранее?</strong><small>Нью-Йорк · литография и фото</small>
+      </a>
+      <a href="eras/">
+        <img src="eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="" loading="lazy">
+        <strong>Где искать знакомый город?</strong><small>Европа · карта 1769 года</small>
+      </a>
+    </div>
+    <a class="opening-more" href="salon/?q=Бенуа">Листы Бенуа →</a>
+    <a class="opening-more" href="salon/">Смотреть все листы коллекции →</a>
+  </section>
   <div class="route-head"><span class="eyebrow">Ваш маршрут</span><h2>Пять шагов от первого взгляда до своего фото</h2></div>
   <div class="wow-features" aria-label="Маршрут по музею в пять шагов">
-    <a href="poc/compare/#madeleine-ph-benoist"><span class="wow-feature-num">1</span><strong>Сравните тогда и сейчас</strong><small>Переключайте рисунок и фото или двигайте границу между ними. Что осталось на месте?</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
+    <a href="poc/compare/?journey=1#paris-eiffel"><span class="wow-feature-num">1</span><strong>Сравните тогда и сейчас</strong><small>Переключайте рисунок и фото или двигайте границу между ними. Что осталось на месте?</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="stories/paris-on-paper/"><span class="wow-feature-num">2</span><strong>Прочтите историю места</strong><small>Кто нарисовал лист, как его печатали и что было с этим местом дальше. Пять глав, 5–7 минут.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="eras/"><span class="wow-feature-num">3</span><strong>Найдите место на карте</strong><small>Старая карта Европы 1769 года с метками городов. Нажмите на город — и увидите его старые виды.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
     <a href="cities/"><span class="wow-feature-num">4</span><strong>Отправьтесь в другой город</strong><small>Санкт-Петербург, Москва, Рим, Венеция, Нью-Йорк и ещё десятки городов мира.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>

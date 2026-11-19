@@ -15,7 +15,7 @@ def test_visitor_routes_are_shipped_in_public_bundle():
     home = read("index.html")
     assert 'class="museum-frontdoor museum-wow"' in home
     assert 'class="wow-features"' in home
-    assert 'href="poc/compare/#madeleine-ph-benoist"' in home
+    assert 'href="poc/compare/?journey=1#paris-eiffel"' in home
     assert 'id="museumFind"' in home
     assert 'href="walk/?city=paris&amp;place=0"' in home
     assert 'href="submit/"' in home

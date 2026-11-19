@@ -11,6 +11,7 @@
     "naples-san-francesco-di-paola",
     "giza-great-sphinx",
     "florence-ponte-vecchio-silvestre",
+    "paris-eiffel",
     "synthetic-near-identical",
     "synthetic-rotation-only",
     "synthetic-parallax"
@@ -26,9 +27,16 @@
     "rio-guanabara": "Рио-де-Жанейро · Бухта Гуанабара",
     "naples-san-francesco-di-paola": "Неаполь · Сан-Франческо-ди-Паола",
     "giza-great-sphinx": "Гиза · Большой сфинкс",
-    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра"
+    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра",
+    "paris-eiffel": "Париж · Эйфелева башня"
   },
   "places": {
+    "paris-eiffel": {
+      "city": "Париж",
+      "name": "Эйфелева башня",
+      "mode": "Литография 1889 года и фото 2026 года",
+      "image": "paris-eiffel-1889.jpg"
+    },
     "madeleine-benoist-carnavalet": {
       "city": "Париж",
       "name": "Церковь Мадлен",
@@ -79,6 +87,13 @@
     }
   },
   "journey": [
+    {
+      "pair": "paris-eiffel",
+      "title": "Башня, которую печатали на выставке",
+      "question": "Вглядитесь в огни вокруг башни. Где, по-вашему, напечатали этот лист — в дальнем издательстве или прямо на Всемирной выставке?",
+      "answer": "Прямо на выставке. Это можно прочитать внизу листа: мастерская Монрок печатала его в Галерее машин. Переключитесь на фото, чтобы увидеть башню при дневном свете.",
+      "next": "Проверить, что совпадает у Бенуа"
+    },
     {
       "pair": "madeleine-benoist-carnavalet",
       "title": "Что осталось на месте?",

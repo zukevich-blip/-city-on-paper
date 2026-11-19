@@ -38,7 +38,8 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
         "No false viewpoint match on the first screen");
       assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("CC BY-SA")),
         "Modern photograph attribution is present");
-      assert((await page.locator(".wow-primary").getAttribute("href")).includes("poc/compare/"),
+      assert.equal(await page.locator(".opening-plates>a").count(),4,"Three archive scenes and a historical map are available directly");
+      assert((await page.locator(".wow-primary").getAttribute("href")).includes("poc/compare/?journey=1#paris-eiffel"),
         "Hero points to real interactive compare");
       assert((await page.locator(".wow-secondary").getAttribute("href")).includes("cities/"),
         "Hero points to the world cities catalogue");
