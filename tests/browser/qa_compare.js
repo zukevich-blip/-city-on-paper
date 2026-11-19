@@ -288,6 +288,32 @@ async function editorChecks(browser, vp) {
   await ctx.close();
 }
 
+async function originalWipeChecks(browser, vp) {
+  const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
+  await page.goto(`${base}?journey=1#madeleine-benoist-carnavalet`);
+  await page.waitForFunction(() => document.getElementById("histImg").naturalWidth > 0);
+  await page.locator('[data-view="fit"]').click();
+  check(`${vp.name}: alignment blends the photo with the historic print`,
+    (await page.$eval("#photoLayer", el => el.style.transform)).includes("matrix3d") &&
+    await page.locator("#opacity").isVisible());
+  const historic = await page.locator("#histImg").getAttribute("src");
+  await page.locator('[data-view="originals"]').click();
+  await page.locator("#handle").focus();
+  await page.keyboard.press("Home");
+  check(`${vp.name}: original wipe keeps the photo perspective and supports the keyboard`,
+    (await page.$eval("#photoLayer", el => el.style.transform)).startsWith("translate") &&
+    await page.locator("#handle").getAttribute("aria-valuenow") === "0" &&
+    await page.locator("#histImg").getAttribute("src") === historic &&
+    await page.$eval("#histImg", el => getComputedStyle(el).transform) === "none");
+  check(`${vp.name}: the map link opens the associated landmark`,
+    (await page.locator("#pairMap").getAttribute("href")).endsWith("/epoch/paris/Q330564"));
+  await page.locator("#pairEditor").click();
+  await page.waitForFunction(() => document.getElementById("backToPair").hash === "#madeleine-benoist-carnavalet");
+  check(`${vp.name}: manual adjustment opens the chosen pair and keeps the way back`,
+    (await page.locator("#backToPair").getAttribute("href")).endsWith("?journey=1#madeleine-benoist-carnavalet"));
+  await page.close();
+}
+
 async function journeyChecks(browser, vp) {
   const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
   const start = JOURNEY[0].pair;
@@ -319,7 +345,10 @@ async function journeyChecks(browser, vp) {
   const browser = await chromium.launch();
   for (const vp of viewports) await viewerChecks(browser, vp);
   await robustnessChecks(browser);
-  for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) await journeyChecks(browser, vp);
+  for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) {
+    await journeyChecks(browser, vp);
+    await originalWipeChecks(browser, vp);
+  }
   for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) await editorChecks(browser, vp);
   await browser.close();
   const failed = results.filter(r => !r.ok).length;

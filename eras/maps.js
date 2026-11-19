@@ -158,7 +158,7 @@ window.Maps = (() => {
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Метки здесь указывают города, а не точки художников. На современной карте при увеличении до уровня улиц отображаются подтверждённые и исследовательские позиции камер. Карточка города раскрывает фото, источник и неопределённость. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
+      <p class="map-summary" id="mapTruth">На старой карте отмечены города. Приблизьте современную карту, чтобы увидеть, откуда смотрели художники и фотографы. <a href="../cities/">Все города, включая те, которых ещё нет на карте ↗</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
@@ -167,18 +167,18 @@ window.Maps = (() => {
         </div>
         <figure><img id="mapSheetImage" src="${archiveRoot}img/loc-97683588-carte-d-europe-1769_w1000.jpg"
           alt="Историческая карта Европы, 1769 год" loading="lazy" decoding="async">
-          <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Library of Congress, 1769.
+          <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Библиотеки Конгресса США, 1769.
             <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
         </figure>
-        <p class="map-summary">Другие карты можно листать как отдельные документы. Пока на них нет независимо проверенной геопривязки, маркеры автоматически не накладываются.</p>
+        <p class="map-summary">На этих старых планах отметки мест появятся после проверки.</p>
       </details>
-      <p class="map-summary"><a href="../cities/">Полный мировой указатель: города с материалами, кандидаты и города без координат ↗</a></p>`;
+      <p class="map-summary"><a href="../cities/">Все города и находки в архивах ↗</a></p>`;
     const sheets = {
       europe: { file: "img/loc-97683588-carte-d-europe-1769_w1000.jpg",
-        name: "Карта Европы de L’Isle / Buache, 1769. Library of Congress.",
+        name: "Карта Европы de L’Isle / Buache, 1769. Библиотеки Конгресса США.",
         src: "https://www.loc.gov/item/97683588/" },
       paris: { file: "img/loc-2012586603-paris-1878.jpg",
-        name: "План Парижа и окрестностей, 1878. Library of Congress. Привязка контрольных точек остаётся исследовательской.",
+        name: "План Парижа и окрестностей, 1878. Библиотеки Конгресса США. Привязка контрольных точек остаётся исследовательской.",
         src: "https://www.loc.gov/item/2012586603/" }
     };
     host.querySelectorAll("[data-sheet]").forEach((button) => button.addEventListener("click", () => {
@@ -191,7 +191,7 @@ window.Maps = (() => {
       host.querySelectorAll("[data-sheet]").forEach((b) =>
         b.setAttribute("aria-pressed", String(b === button)));
     }));
-    const t = { ...P.tiles, credit: "Исторический оригинал: Library of Congress, G5700 1724 .L5 TIL" };
+    const t = { ...P.tiles, credit: "Исторический оригинал: Библиотеки Конгресса США, G5700 1724 .L5 TIL" };
     const { map, at } = imageMap(document.getElementById("pmap"), t);
     const k = P.tiles.width / P.width;
     const oldCities = clusterCityMarkers(map, A.cities.filter((c) => Array.isArray(c.xy) && c.xy.length === 2), (c) => at(c.xy[0] * k, c.xy[1] * k));
@@ -326,8 +326,8 @@ window.Maps = (() => {
         </div>
         <p id="cPlaceFeedback" role="status" aria-live="polite">Сначала выберите место. Координата объекта не означает точку художника.</p>
       </div>
-      <div class="city-compare-jump"><button id="cViewpoints" type="button">Где стоял автор · ракурсы и фотографии ↓</button></div>
-      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены изображённые места (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Это пока не позиции художников. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
+      <div class="city-compare-jump"><button id="cViewpoints" type="button">Откуда смотрел художник ↓</button></div>
+      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены места с изображений (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Метки показывают сами места. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>` : ""}</p>`;
     host.querySelector("#cViewpoints")?.addEventListener("click", () =>
       document.getElementById("cityViewpoints")?.scrollIntoView({ behavior:"smooth", block:"start" }));
     const historicalStatus=(item)=>{

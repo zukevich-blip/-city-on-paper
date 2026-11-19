@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Merge the world collectors' output into the museum's curation format.
 
-Inputs (either may be absent): data/world/loc-works.json (Library of Congress), data/world/works.json (Commons).
+Inputs (optional): data/world/loc-works.json (Library of Congress), data/world/works.json (Commons),
+and data/world/museum-works.json (selected museum records).
 Output: data/curation/world-open-views-v2.json and data/world/registry.json (cities with coordinates).
 Every field of a card is copied from the holder's record. Status of the cards: open rights confirmed in the record,
 subject selected by a title/category match — a machine-selected candidate, not curator approval.
@@ -62,8 +63,14 @@ def main() -> None:
             "source": "Wikimedia Commons" + (f" · {w['credit']}" if w.get("credit") else ""),
             "source_id": w["file"], "url": w["page"], "image": w["image"], "rights": rights,
             "rights_label": w.get("license"), "license_url": w.get("license_url"), "verified": NOTE})
+    known_urls = {item["url"] for item in items}
+    for item in load("museum-works.json").get("items", []):
+        if item["url"] not in known_urls:
+            items.append(item)
+            known_urls.add(item["url"])
     items.sort(key=lambda x: (x["city"], x["date"], x["id"]))
-    out = {"version": "2026-11-16", "source": "Library of Congress P&P JSON API; Wikimedia Commons API",
+    out = {"version": "2026-11-16",
+           "source": "Library of Congress P&P JSON API; Wikimedia Commons API; selected museum records",
            "editorial_policy": "Historic city views (≤ 1925) with open rights stated in the holder's record. "
                                "Machine-selected candidates: " + NOTE + ".", "items": items}
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", "utf-8")

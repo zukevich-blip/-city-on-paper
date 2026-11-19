@@ -26,7 +26,7 @@ window.History = (() => {
           <p class="hist-src">Источники: ${src(ch.sources) || "уточняются"}</p></details>`).join("")}</div>
         ${(c.timeline || []).length ? `<ol class="hist-time" aria-label="Хронология">${c.timeline.map((t) =>
           `<li><b>${esc(t.year)}</b><span>${esc(t.text)}${link(t.source_url) ? ` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" aria-label="Источник: ${esc(host(t.source_url))}">↗</a>` : ""}</span></li>`).join("")}</ol>` : ""}
-        ${c.did_you_know && c.did_you_know.text ? `<p class="hist-fact"><b>Знаете ли вы?</b> ${esc(c.did_you_know.text)}${link(c.did_you_know.source_url) ? ` <a href="${esc(c.did_you_know.source_url)}" target="_blank" rel="noopener">источник ↗</a>` : ""}</p>` : ""}
+        ${c.did_you_know && c.did_you_know.text ? `<p class="hist-fact"><b>А вы знали?</b> ${esc(c.did_you_know.text)}${link(c.did_you_know.source_url) ? ` <a href="${esc(c.did_you_know.source_url)}" target="_blank" rel="noopener">источник ↗</a>` : ""}</p>` : ""}
         <p class="mapnote">Текст составлен по открытым источникам, ссылки приведены у каждой главы. Заметили неточность — напишите через «Отзыв».</p>`;
     });
   }

@@ -24,7 +24,7 @@ PAGES = (
     "cities/index.html", "atlas/index.html",
     "stories/index.html", "stories/paris-on-paper/index.html",
     "experience/index.html",
-    "walk/index.html", "submit/index.html",
+    "walk/index.html", "submit/index.html", "guides/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -37,6 +37,7 @@ DATA = (
     "data/curation/modern-city-photography-v1.json",
     "data/curation/world-graphic-archive-v1.json",
     "data/curation/world-open-views-v2.json",
+    "data/curation/historical-guidebooks-v1.json",
     "data/curation/modern-photos-cc0-20261103.json",
     "data/stories/madeleine-dossier-20261103.json",
     "data/research/benoist-production-network-v1.json",
@@ -48,7 +49,7 @@ DATA = (
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
     "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
-    "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
+    "poc/compare", "guides", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
              "PROJECT_HANDOFF.md", "serve_local.py")
@@ -89,10 +90,10 @@ def optimize(page: Path, rel: str) -> None:
         content = re.sub(r'<button\s+data-go="research"\s*>[^<]*</button>', "", content)
         content = re.sub(r'(<section\s+id="research"\s+class="tab wrap")',
                          r'\1 hidden', content, count=1)
-        # This source-labelled image is a Library of Congress original.
+        # The cover reproduces Vasi’s print from Wikimedia Commons.
         metas += (
-            f'<meta property="og:image" content="{BASE}poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg">\\n'
-            '<meta property="og:image:alt" content="Париж. Церковь Мадлен, литография Филиппа Бенуа">\\n'
+            f'<meta property="og:image" content="{BASE}poc/compare/pairs/rome-pantheon-1752.jpg">\\n'
+            '<meta property="og:image:alt" content="Рим. Пантеон, офорт Джузеппе Вази">\\n'
         )
         content = content.replace(
             "Частная исследовательская выставка.", "Открытая цифровая выставка."

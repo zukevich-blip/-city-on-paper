@@ -44,5 +44,5 @@ def test_studio_is_connected_and_local_only_for_notes():
     assert "restoreArchive" in html and "exportMarkdown" in html and "exportJson" in html
     assert "textContent" in html and "innerHTML" not in html
     assert "studio/" in home and "../studio/" in atlas
-    assert "No known restrictions" in html
+    assert "не известно об ограничениях на публикацию" in html
     assert "Не установлено" in html or "Неизвест" in html

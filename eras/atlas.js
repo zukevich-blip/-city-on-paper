@@ -188,7 +188,7 @@ window.Atlas = (() => {
     if (!c) return false;
     const enc = encodeURIComponent;
     const search = [
-      ["Library of Congress", `https://www.loc.gov/pictures/search/?q=${enc((c.name_orig || c.name) + " lithograph")}`],
+      ["Библиотека Конгресса США", `https://www.loc.gov/pictures/search/?q=${enc((c.name_orig || c.name) + " lithograph")}`],
       ["Europeana", `https://www.europeana.eu/ru/search?query=${enc(c.name_orig || c.name)}&qf=TYPE%3A%22IMAGE%22`],
       ["Gallica", `https://gallica.bnf.fr/services/engine/search/sru?query=gallica%20all%20%22${enc(c.name_orig || c.name)}%22%20and%20dc.type%20all%20%22image%22`],
       ["Wikimedia Commons", `https://commons.wikimedia.org/w/index.php?search=${enc((c.name_orig || c.name) + " lithograph")}&title=Special:MediaSearch&type=image`],
@@ -196,12 +196,12 @@ window.Atlas = (() => {
     const head = `<nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <a href="#/country/${encodeURIComponent(c.country)}">${esc(c.country)}</a> › <span aria-current="page">${esc(c.name)}</span></nav>
       <span class="eyebrow">${esc(c.country)}${c.area ? " · " + esc(c.area) : ""}</span>
       <h1>${esc(c.name)}${c.name_orig && c.name_orig !== c.name ? ` <small class="orig">${esc(c.name_orig)}</small>` : ""}</h1>`;
-    const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">город сегодня на карте OSM ↗</a></p>
+    const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">Город на современной карте ↗</a></p>
       <section class="cmap" aria-labelledby="cmapH"><h2 id="cmapH">Карта города${c.plan ? ": тогда и сейчас" : ""}</h2><div id="cmaphost"></div></section>
       <section id="historicCartography" class="historic-cartography" aria-label="Исторические карты и первоисточники города"></section>
-      <section id="cityViewpoints" aria-labelledby="vpaTitle"><p class="note">Сверяем точки наблюдения с историческими источниками…</p></section>
+      <section id="cityViewpoints" aria-labelledby="vpaTitle"><p class="note">Загружаем места съёмки…</p></section>
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
-        <p class="lede">Как было и как есть: листы XIX века и снимок того же места сегодня. Точки съёмки обычно не совпадают — это сопоставление, а не наложение; изображения не искажаются.</p>
+        <p class="lede">Выберите место и сравните виды разных лет. Можно добавить своё фото.</p>
         <div id="eplist"></div><p class="mapnote"><a id="epopen" href="#/epochs">Открыть место на отдельной странице ↗</a> · <a href="#/epochs">все места «Эпох»</a></p><div id="epview"></div></section>` : ""}
       <section id="cityLab" class="citylab" aria-label="Исследование произведений города"><p class="note">Подготавливаем изображения для сравнения…</p></section>
       ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
@@ -218,8 +218,8 @@ window.Atlas = (() => {
       </div>
       <div class="wgrid" id="wg"><p class="note">Загружаем…</p></div>
       <button type="button" id="more" class="morebtn" hidden>Показать ещё</button>
-      ${(c.halls || []).length ? `<section class="halls"><span class="eyebrow">Этот город в других залах музея</span><p>${c.halls.map(([u, t]) => `<a href="${esc(/^\.\.\/[a-z]/.test(u) ? u : "#")}">${esc(t)} →</a>`).join("")}</p></section>` : ""}
-      <section class="hunt2" id="archiveSearch"><span class="eyebrow">Найти больше</span><p>Поиск в открытых архивах (откроется у хранителя; права проверяйте в карточке):</p>
+      ${(c.halls || []).length ? `<section class="halls"><span class="eyebrow">Что ещё посмотреть об этом городе</span><p>${c.halls.map(([u, t]) => `<a href="${esc(/^\.\.\/[a-z]/.test(u) ? u : "#")}">${esc(t)} →</a>`).join("")}</p></section>` : ""}
+      <section class="hunt2" id="archiveSearch"><span class="eyebrow">Найти больше</span><p>Ищите другие виды на сайтах архивов. Условия использования смотрите там же.</p>
         <p>${search.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join(" · ")}</p></section>`;
     const hist = '<section class="cityhist" id="cityHistory" hidden></section>';
     if (append) app.querySelector(".view").insertAdjacentHTML("beforeend", `<hr class="sep">${hist}${body}`);

@@ -11,6 +11,8 @@
     "naples-san-francesco-di-paola",
     "giza-great-sphinx",
     "florence-ponte-vecchio-silvestre",
+    "rome-pantheon-vasi",
+    "paris-eiffel",
     "synthetic-near-identical",
     "synthetic-rotation-only",
     "synthetic-parallax"
@@ -26,14 +28,24 @@
     "rio-guanabara": "Рио-де-Жанейро · Бухта Гуанабара",
     "naples-san-francesco-di-paola": "Неаполь · Сан-Франческо-ди-Паола",
     "giza-great-sphinx": "Гиза · Большой сфинкс",
-    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра"
+    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра",
+    "paris-eiffel": "Париж · Эйфелева башня",
+    "rome-pantheon-vasi": "Рим · Пантеон глазами Вази"
   },
   "places": {
+    "paris-eiffel": {
+      "city": "Париж",
+      "name": "Эйфелева башня",
+      "mode": "Литография 1889 года и фото 2026 года",
+      "image": "paris-eiffel-1889.jpg"
+    },
     "madeleine-benoist-carnavalet": {
       "city": "Париж",
       "name": "Церковь Мадлен",
       "mode": "Совмещение портика · фото 2026",
-      "image": "madeleine-benoist-carnavalet-cargtop030438.jpg"
+      "image": "madeleine-benoist-carnavalet-cargtop030438.jpg",
+      "map_path": "paris/Q330564",
+      "map_label": "Мадлен и точки съёмки"
     },
     "new-york-statue-of-liberty": {
       "city": "Нью-Йорк",
@@ -51,7 +63,9 @@
       "city": "Флоренция",
       "name": "Понте-Веккьо",
       "mode": "Совмещение галереи · 1859–1866 и 2026",
-      "image": "florence-ponte-vecchio-historic.jpg"
+      "image": "florence-ponte-vecchio-historic.jpg",
+      "map_path": "florence/Q208633",
+      "map_label": "Понте-Веккьо на карте"
     },
     "rio-guanabara": {
       "city": "Рио-де-Жанейро",
@@ -63,7 +77,9 @@
       "city": "Неаполь",
       "name": "Сан-Франческо-ди-Паола",
       "mode": "Совмещение портика · 1847 и 2025",
-      "image": "naples-san-francesco-di-paola-historic.jpg"
+      "image": "naples-san-francesco-di-paola-historic.jpg",
+      "map_path": "naples/Q241410",
+      "map_label": "Площадь в Неаполе на карте"
     },
     "giza-great-sphinx": {
       "city": "Гиза",
@@ -75,10 +91,35 @@
       "city": "Флоренция",
       "name": "Понте-Веккьо глазами Сильвестра",
       "mode": "Совмещение арок · XVII век и 2026",
-      "image": "florence-ponte-vecchio-silvestre-historic.jpg"
+      "image": "florence-ponte-vecchio-silvestre-historic.jpg",
+      "map_path": "florence/Q208633",
+      "map_label": "Понте-Веккьо на карте"
+    },
+    "rome-pantheon-vasi": {
+      "city": "Рим",
+      "name": "Пантеон",
+      "mode": "Офорт 1752 года и фото 2025 года",
+      "image": "rome-pantheon-1752.jpg",
+      "map_path": "rim/Q99309",
+      "map_label": "Пантеон на карте",
+      "guide_view": "originals"
     }
   },
   "journey": [
+    {
+      "pair": "rome-pantheon-vasi",
+      "title": "С площади Ротонды",
+      "question": "Найдите круглую стену за колоннами. На каком из двух видов её видно лучше?",
+      "answer": "Вази показал площадь сверху. Посмотрите за колоннаду: на офорте за ней читаются круглая стена и купол. С другой точки, как на современном фото, главным становится портик.",
+      "next": "Увидеть, как зажгли Париж"
+    },
+    {
+      "pair": "paris-eiffel",
+      "title": "Башня, которую печатали на выставке",
+      "question": "Вглядитесь в огни вокруг башни. Где, по-вашему, напечатали этот лист — в дальнем издательстве или прямо на Всемирной выставке?",
+      "answer": "Прямо на выставке. Это можно прочитать внизу листа: мастерская Монрок печатала его в Галерее машин. Переключитесь на фото, чтобы увидеть башню при дневном свете.",
+      "next": "Проверить, что совпадает у Бенуа"
+    },
     {
       "pair": "madeleine-benoist-carnavalet",
       "title": "Что осталось на месте?",

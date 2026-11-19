@@ -19,7 +19,7 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
       assert.equal(await page.locator(".museum-frontdoor").count(),1);
       assert.equal(await page.locator(".wow-features>a").count(),5,"Five-step route visible in one section");
       assert(await page.locator(".wow-primary").isVisible(),"Primary direct demo CTA is visible");
-      assert(await page.locator(".wow-secondary").isVisible(),"Second atlas CTA visible");
+      assert(await page.locator(".wow-secondary").isVisible(),"Guidebook catalogue CTA visible");
       assert(await page.locator("#frontQuery").count()===1,"Preserve city search");
       const labels=await page.locator(".wow-features strong").allTextContents();
       for(const word of ["тогда и сейчас","историю","карте","город","фото"]){
@@ -36,12 +36,13 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
         "Both original artwork and modern documentary photo actually load");
       assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("с разных мест")),
         "No false viewpoint match on the first screen");
-      assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("CC BY-SA")),
+      assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("CC0")),
         "Modern photograph attribution is present");
-      assert((await page.locator(".wow-primary").getAttribute("href")).includes("poc/compare/"),
+      assert.equal(await page.locator(".opening-plates>a").count(),4,"Three archive scenes and a historical map are available directly");
+      assert((await page.locator(".wow-primary").getAttribute("href")).includes("#rome-pantheon-vasi"),
         "Hero points to real interactive compare");
-      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("cities/"),
-        "Hero points to the world cities catalogue");
+      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("guides/"),
+        "Hero points to the guidebook catalogue");
       const overflow=await page.evaluate(()=>({
         body:document.body.scrollWidth,
         html:document.documentElement.scrollWidth,

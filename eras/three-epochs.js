@@ -23,12 +23,8 @@
 
     host.hidden = false;
     host.innerHTML = `
-      <div class="cp3-title"><div><span class="eyebrow">Лента времени · эксперимент</span>
-        <h2>Три эпохи. Один ползунок.</h2></div>
-        <span class="cp3-mark">Без подмены оригиналов</span></div>
-      <p class="cp3-lead">От литографии через промежуточный снимок к современному виду.
-        Перемещайте ползунок: слева ранняя эпоха, посередине следующая, справа последняя.
-        Можно выбрать любые три доступных изображения.</p>
+      <div class="cp3-title"><h2>Три эпохи на одном ползунке</h2></div>
+      <p class="cp3-lead">Выберите три изображения. Двигайте ползунок, чтобы перейти от первого к последнему.</p>
       <div class="cp3-selects" role="group" aria-label="Три кадра для сравнения">
         <label>Старая эпоха <select data-role="first"></select></label>
         <label>Промежуточная <select data-role="middle"></select></label>
@@ -44,20 +40,17 @@
         <div class="cp3-layer" data-role="layer-middle"><img data-role="image-middle" alt="" draggable="false"></div>
         <div class="cp3-layer" data-role="layer-last"><img data-role="image-last" alt="" draggable="false"></div>
         <div class="cp3-guide" data-role="guide" aria-hidden="true"><span>◀ ▶</span></div>
-        <span class="cp3-corner">Исторические оригиналы не искажены</span>
       </div>
       <input data-role="position" type="range" min="0" max="100" step="1" value="50"
         aria-label="Положение ползунка времени от старого изображения к современному">
-      <div class="cp3-ends" aria-hidden="true">
+      <div class="cp3-ends">
         <button type="button" data-go="0">Сначала</button>
         <button type="button" data-go="50">Середина</button>
-        <button type="button" data-go="100">Сегодня</button>
+        <button type="button" data-go="100">Последний кадр</button>
       </div>
       <div data-role="phase" class="cp3-phase" role="status" aria-live="polite"></div>
       <div data-role="sources" class="cp3-sources"></div>
-      <p class="cp3-caution">Важно: на этих кадрах могут отличаться угол обзора, высота и положение камеры.
-        Плавный переход помогает увидеть перемены, но не доказывает совпадение ракурсов
-        или точность реконструкции. Годы и авторство указаны по сведениям источников.</p>`;
+      <p class="cp3-caution">Точки съёмки могут различаться. Изображения показаны без изменений.</p>`;
 
     const find = (role) => host.querySelector(`[data-role="${role}"]`);
     const selectors = ["first", "middle", "last"].map(find);

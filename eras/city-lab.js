@@ -63,16 +63,15 @@
           <input type="file" data-role="user-photo" accept="image/*"></label>
         <button type="button" data-role="remove-photo" hidden>Убрать мою фотографию</button>
         <span data-role="photo-status" role="status">Фотография останется только в браузере.
-        Она не отправляется в музей и не означает, что исторический ракурс совпадает.</span>
+        Мы не получаем этот снимок.</span>
       </div>
       <div class="citylab-results" data-role="results" aria-label="Каталог доступных изображений города"></div>
       <div class="citylab-more"><button type="button" data-role="more" hidden>Показать ещё произведения</button></div>
       <div class="citylab-selected" data-role="selected" role="status" aria-live="polite"></div>
       <div class="citylab-time" data-role="timeline"></div>
-      <p class="citylab-warning">Если для города есть только один лист, шторка недоступна,
-        зато можно увеличить изображение и проверить подписи и первоисточник.
-        Когда появятся исторические фотографии того же места и современные снимки с проверенным ракурсом,
-        они получат отдельную историю. Архивные карточки без точной датировки не считаются доказанной хронологией.</p>
+      <p class="citylab-warning">Если для города есть только один лист, ползунок недоступен,
+        зато можно увеличить его и прочитать подпись в архиве.
+        Если дату изображения установить не удалось, мы так и указываем.</p>
       <dialog class="citylab-dialog" data-role="viewer" aria-label="Просмотр произведения крупным планом">
         <div class="citylab-viewer-tools">
           <strong data-role="viewer-title"></strong>

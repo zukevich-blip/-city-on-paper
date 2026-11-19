@@ -11,7 +11,7 @@ from urllib.parse import unquote, urlsplit
 
 PAGES = (
     "index.html", "experience/index.html", "atlas/index.html",
-    "cities/index.html",
+    "cities/index.html", "guides/index.html",
     "stories/index.html",
     "stories/paris-on-paper/index.html",
     "salon/index.html", "closeup/index.html", "photography/index.html", "world/index.html",
@@ -32,6 +32,7 @@ DATA = (
     "data/curation/modern-city-photography-v1.json",
     "data/curation/world-cities-v1.json",
     "data/curation/benoist-paris-musees-v1.json",
+    "data/curation/historical-guidebooks-v1.json",
     "data/curation/world-graphic-archive-v1.json",
     "data/candidates/candidates-2026-11-01b.json",
     "data/coverage/world-coverage-20261110.json",
@@ -178,13 +179,30 @@ def main() -> None:
         by_technique[art["medium"]] = by_technique.get(art["medium"], 0) + 1
 
     benoist = json.loads((root / "data/curation/benoist-paris-musees-v1.json").read_text(encoding="utf-8"))["items"]
-    assert {a["id"] for a in benoist} == {"parismusees-320289563", "parismusees-320289583"}
+    benoist_ids = {art["id"] for art in benoist}
+    assert {"parismusees-320289563", "parismusees-320289583"} <= benoist_ids
+    assert len(benoist_ids) == len(benoist)
     for art in benoist:
         assert art["rights"] == "cc0" and art["verified"] == "official_iiif_manifest"
         assert art["license_url"] == "https://creativecommons.org/publicdomain/zero/1.0/"
         assert art["manifest_url"].startswith("https://apicollections.parismusees.paris.fr/iiif/")
-        assert art["image"].startswith("https://apicollections.parismusees.paris.fr/")
-        assert art["original_width"] >= 2000 and art["creator_roles"]
+        assert art["image_large"].startswith("https://apicollections.parismusees.paris.fr/")
+        assert max(art["original_width"], art["original_height"]) >= 2000 and art["creator_roles"]
+        local_image = resolve("salon/index.html", art["image"])
+        if local_image and not (root / local_image).is_file():
+            missing.append("Benoist image: " + art["id"] + " -> " + local_image)
+
+    guides = json.loads((root / "data/curation/historical-guidebooks-v1.json").read_text(encoding="utf-8"))["items"]
+    assert {"guidebook", "view-series"} == {book["kind"] for book in guides}
+    assert len({book["id"] for book in guides}) == len(guides)
+    for book in guides:
+        assert book["sourceUrl"].startswith("https://") and book["rights"]
+        for external in [book.get("readUrl"), *(volume["url"] for volume in book.get("volumes", []))]:
+            assert external is None or external.startswith("https://")
+        for relative in [book.get("image"), *book.get("related", {}).values()]:
+            target = resolve("index.html", relative or "")
+            if target and not (root / target).is_file():
+                missing.append("guide destination: " + book["id"] + " -> " + target)
     candidates = json.loads((root / "data/candidates/candidates-2026-11-01b.json").read_text(encoding="utf-8"))["items"]
     assert all(not x.get("published") for x in candidates), "unapproved research candidates must remain unpublished"
     assert all(not x.get("preview_url") for x in candidates if x["rights_category"] != "open")
@@ -210,6 +228,7 @@ def main() -> None:
         "world_regions_with_images": len({a["region"] for a in world}),
         "world_print_techniques": by_technique,
         "benoist_loc_not_cc0": len(loc),
+        "historical_editions": len(guides),
         "guided_lessons": len(study),
         "unapproved_candidates": len(candidates),
         "independently_verified_exact_then_now_pairs": 0,
