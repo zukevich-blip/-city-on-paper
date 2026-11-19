@@ -13,6 +13,130 @@ window.Epochs = (() => {
     return `${n} ${a > 10 && a < 20 ? many : b === 1 ? one : b > 1 && b < 5 ? few : many}`; };
   const KIND = { print: "Лист", photo: "Старое фото", today: "Сегодня", street: "Улица сегодня", mine: "Моё фото" };
 
+  // Explicit place joins. A similar title, nearby camera or newer image alone does not establish a fit.
+  const madeleine = ["madeleine-benoist-carnavalet", "madeleine-ph-benoist", "madeleine-barescut-carnavalet"];
+  const ponteVecchio = ["florence-ponte-vecchio-silvestre", "florence-ponte-vecchio"];
+  const sanFrancesco = ["naples-san-francesco-di-paola"];
+  const atlasPairs = new Map([
+    ["Q330564", madeleine], ["Q208633", ponteVecchio], ["Q241410", sanFrancesco],
+  ]);
+  const archivePairs = new Map([
+    ["loc-2016652452", madeleine], ["loc-2024722637", ponteVecchio], ["loc-2001700916", sanFrancesco],
+  ]);
+  const pairFolder = "../poc/compare/pairs/";
+  const pairCache = new Map();
+  const fileName = (name) => typeof name === "string" && /^[\w.-]+\.jpg$/i.test(name);
+  const coords = (value, count) => Array.isArray(value) && value.length === count && value.every(Number.isFinite);
+  function canOverlay(pair) {
+    const fit = pair?.alignment;
+    return pair?.status === "candidate_real_pair" && /^[\w-]+$/.test(pair.id) &&
+      [pair.historic, pair.photo].every((image) => fileName(image?.file) &&
+        coords(image.size, 2) && image.size.every((size) => size > 0)) &&
+      ["high", "medium", "low"].includes(fit?.confidence) &&
+      Array.isArray(fit.H) && fit.H.length === 3 && fit.H.every((row) => coords(row, 3)) &&
+      Array.isArray(fit.valid_region_historic) && fit.valid_region_historic.length >= 3 &&
+      fit.valid_region_historic.every((point) => coords(point, 2));
+  }
+  async function loadPair(id) {
+    if (!pairCache.has(id)) {
+      pairCache.set(id, fetch(pairFolder + id + ".json")
+        .then((response) => response.ok ? response.json() : null)
+        .then((pair) => canOverlay(pair) && pair.id === id ? pair : null)
+        .catch(() => null));
+    }
+    const pair = await pairCache.get(id);
+    if (!pair) pairCache.delete(id);
+    return pair;
+  }
+
+  async function mountVerified(host, ids) {
+    if (!host || !ids?.length) return;
+    const pairs = (await Promise.all(ids.map(loadPair))).filter(Boolean);
+    if (!host.isConnected || !pairs.length) return;
+    host.hidden = false;
+    host.classList.add("ep-verified");
+    host.innerHTML = `
+      <h2>Совместите старый и новый вид</h2>
+      ${pairs.length > 1 ? `<label class="ep-verified-choice">Какой вид сравнить
+        <select data-verified-pair>${pairs.map((pair) => {
+          const title = pair.id === "madeleine-ph-benoist" ? "Филипп Бенуа · Библиотека Конгресса"
+            : pair.id === "madeleine-benoist-carnavalet" ? "Филипп Бенуа · музей Карнавале"
+            : pair.id === "madeleine-barescut-carnavalet" ? "Эстель де Барескю · музей Карнавале" : pair.historic.title;
+          return `<option value="${esc(pair.id)}">${esc(title)}</option>`;
+        }).join("")}</select></label>` : ""}
+      <div class="ep-verified-modes" role="group" aria-label="Как показать место">
+        <button type="button" data-verified-mode="then" aria-pressed="true">Рисунок</button>
+        <button type="button" data-verified-mode="now" aria-pressed="false">Фото сегодня</button>
+        <button type="button" data-verified-mode="fit" aria-pressed="false">Совместить</button>
+      </div>
+      <div class="ep-verified-stage">
+        <img data-verified-old alt="" decoding="async">
+        <img data-verified-raw alt="" decoding="async" hidden>
+        <div class="ep-verified-mask" hidden><img data-verified-fit alt="" decoding="async"></div>
+        <svg class="ep-verified-outline" aria-hidden="true" hidden><polygon fill="none" stroke="#fff7dc" stroke-width="2" stroke-dasharray="5 3" vector-effect="non-scaling-stroke"/></svg>
+      </div>
+      <p class="ep-verified-caption" role="status"></p>
+      <div class="ep-verified-credits"></div>`;
+    const get = (selector) => host.querySelector(selector);
+    const picker = get("[data-verified-pair]");
+    const stage = get(".ep-verified-stage"), mask = get(".ep-verified-mask"), outline = get(".ep-verified-outline");
+    const old = get("[data-verified-old]"), raw = get("[data-verified-raw]"), fit = get("[data-verified-fit]");
+    let current = pairs[0], mode = "then";
+    function resize() {
+      const [[a, b, c], [d, e, f], [g, h, i]] = current.alignment.H;
+      fit.style.transform = `scale(${stage.clientWidth / current.historic.size[0]}) matrix3d(${a},${d},0,${g},${b},${e},0,${h},0,0,1,0,${c},${f},0,${i})`;
+    }
+    function show() {
+      old.hidden = mode === "now";
+      raw.hidden = mode !== "now";
+      mask.hidden = outline.hidden = mode !== "fit";
+      host.querySelectorAll("[data-verified-mode]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.verifiedMode === mode));
+      });
+      get(".ep-verified-caption").textContent = mode === "fit"
+        ? "Фото подогнано по контуру внутри пунктирной линии. За ней виден старый вид. Его геометрия сохранена."
+        : mode === "now" ? `Фото без подгонки · дата съёмки: ${current.photo.date || "не указана"}`
+          : `${current.historic.title} · ${current.historic.date || "дата не установлена"}`;
+      if (mode === "fit") resize();
+    }
+    function select(pair) {
+      current = pair;
+      const { historic, photo, alignment } = pair;
+      const [w, h] = historic.size;
+      const [pw, ph] = photo.size;
+      const points = alignment.valid_region_historic;
+      stage.style.setProperty("--ep-frame-ratio", String(w / h));
+      old.src = pairFolder + historic.file;
+      old.alt = historic.title;
+      raw.src = fit.src = pairFolder + photo.file;
+      raw.alt = photo.title;
+      fit.alt = "Фото подогнано по контуру: " + photo.title;
+      fit.style.width = pw + "px";
+      fit.style.height = ph + "px";
+      mask.style.clipPath = `polygon(${points.map(([x, y]) => `${100 * x / w}% ${100 * y / h}%`).join(", ")})`;
+      outline.setAttribute("viewBox", `0 0 ${w} ${h}`);
+      outline.querySelector("polygon").setAttribute("points", points.map((point) => point.join(",")).join(" "));
+      const link = (url, label) => /^https?:\/\//.test(url || "")
+        ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>` : "";
+      get(".ep-verified-credits").innerHTML = `<p>${esc(historic.credit || historic.holding || "")}
+        · ${link(historic.object_url, "Старый вид у хранителя")}</p><p>${esc(photo.credit || photo.author || "")}
+        · ${link(photo.license_url, photo.license || "Лицензия")} · ${link(photo.object_url, "Первоисточник фото")}
+        · <a href="${pairFolder + photo.file}" target="_blank" rel="noopener">Фото без подгонки</a></p>
+        <p><a href="../poc/compare/?view=fit#${pair.id}">Открыть это сравнение целиком →</a></p>`;
+      show();
+    }
+    if (picker) picker.onchange = () => select(pairs.find((pair) => pair.id === picker.value) || pairs[0]);
+    host.querySelectorAll("[data-verified-mode]").forEach((button) => {
+      button.onclick = () => { mode = button.dataset.verifiedMode; show(); };
+    });
+    const observer = new ResizeObserver(() => {
+      if (!stage.isConnected) observer.disconnect();
+      else if (mode === "fit") resize();
+    });
+    observer.observe(stage);
+    select(current);
+  }
+
   // ---------- private storage (IndexedDB), nothing leaves the device
   const DB = (() => {
     let p = null;
@@ -119,14 +243,14 @@ window.Epochs = (() => {
     const validIndex = (x, fallback) => Number.isInteger(x) && x >= 0 && x < fs.length ? x : fallback;
     let a = validIndex(session?.a, 0), b = validIndex(session?.b, fs.length - 1);
     if (fs.length < 2) b = 0;
-    host.innerHTML = `<div class="eptrack" role="group" aria-label="Кадры временной шкалы">${fs.map((f, i) => `<button type="button" class="epf ${f.kind}" data-f="${i}" aria-label="${esc(lab(f))}: ${esc(f.label)}">
+    host.innerHTML = `<div data-verified-view hidden></div><div class="eptrack" role="group" aria-label="Кадры временной шкалы">${fs.map((f, i) => `<button type="button" class="epf ${f.kind}" data-f="${i}" aria-label="${esc(lab(f))}: ${esc(f.label)}">
         ${f.kind === "mine" ? `<img src="${esc(f.img)}" alt="${esc(f.label)}">` : imgTag(f.img, f.label || g.name)}<b>${esc(f.year || "")}</b><small>${esc(KIND[f.kind])}</small></button>`).join("")}
         <button type="button" class="epf add" id="epAdd"><span>＋</span><b>Моё фото</b><small>и точка съёмки</small></button></div>
       <div class="epgrid"><div class="epcmp">
         <div class="ctrls"><label>Было <select id="epA">${fs.map((f, i) => `<option value="${i}">${esc(lab(f))} — ${esc((f.label || "").slice(0, 50))}</option>`).join("")}</select></label>
           <label>Стало <select id="epB">${fs.map((f, i) => `<option value="${i}">${esc(lab(f))} — ${esc((f.label || "").slice(0, 50))}</option>`).join("")}</select></label></div>
         <div class="ep-modes" role="group" aria-label="Способ сравнения">
-          <button type="button" data-compare-mode="slider" aria-pressed="true">Шторка</button>
+          <button type="button" data-compare-mode="slider" aria-pressed="true">Ползунок</button>
           <button type="button" data-compare-mode="side" aria-pressed="false">Рядом</button>
           <button type="button" data-compare-mode="opacity" aria-pressed="false">Прозрачность</button>
           <button type="button" data-compare-mode="flip" aria-pressed="false">A/B</button>
@@ -136,7 +260,7 @@ window.Epochs = (() => {
           <button type="button" id="epFlipBtn" hidden>Показать другой кадр</button>
           <button type="button" id="epExport">Сохранить сравнение (JSON)</button>
         </div>
-        <p class="ep-caution" id="epCaution" role="status">Пары относятся к одному месту; совпадение ракурса не доказано. Исторический оригинал не трансформируется.</p>
+        <p class="ep-caution" id="epCaution">Точки съёмки могут различаться. Изображения показаны без изменений.</p>
         <div class="epstage" id="epstage"><img id="epImB" alt=""><div class="epTop" id="epTop"><img id="epImA" alt=""></div>
           <div class="eph" id="epH2" role="slider" tabindex="0" aria-label="Граница сравнения: стрелки влево и вправо" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⇆</span></div>
           <span class="tag l" id="epTagA"></span><span class="tag r" id="epTagB"></span></div>
@@ -145,7 +269,7 @@ window.Epochs = (() => {
           <figure><img id="epSideB" alt=""><figcaption id="epSideCapB"></figcaption></figure>
         </div>
         <p class="mapnote" id="epCredit"></p></div>
-        <div class="epside"><p class="eyebrow">Ракурсы</p><div class="lmap angles" id="epMap" aria-label="Карта ракурсов: место и точки съёмки"></div>
+        <div class="epside"><p class="eyebrow">Откуда смотрели</p><div class="lmap angles" id="epMap" aria-label="Карта: место и точки съёмки"></div>
           <p class="mapnote">★ — изображённое место. Конусы — откуда и куда смотрит камера (уличные фото Panoramax и ваши). Для старых листов точка художника обычно неизвестна.</p>
           <div id="epMine"></div></div></div>
       <dialog id="epDlg" class="epdlg" aria-labelledby="epDlgT"><form method="dialog">
@@ -171,6 +295,7 @@ window.Epochs = (() => {
         <div class="fbrow"><button value="cancel" class="ghost">Отмена</button><button type="button" class="solid" id="epSave" disabled>Сохранить на устройстве</button></div>
         <p class="mapnote" id="epMsg" role="status"></p></form></dialog>`;
     const $ = (id) => host.querySelector("#" + id);
+    mountVerified(host.querySelector("[data-verified-view]"), atlasPairs.get(g.key));
     const selA = $("epA"), selB = $("epB"), st = $("epstage"), top = $("epTop"), h = $("epH2");
     selA.value = a; selB.value = b;
     let mode = ["slider", "side", "opacity", "flip"].includes(session?.mode) ? session.mode : "slider";
@@ -194,9 +319,6 @@ window.Epochs = (() => {
       $("epAmount").value = String(Math.round(ratio));
       host.querySelectorAll("[data-compare-mode]").forEach((btn) =>
         btn.setAttribute("aria-pressed", String(btn.dataset.compareMode === mode)));
-      $("epCaution").textContent = side
-        ? "Сравнение рядом: оба исторических оригинала и фото сохранены без изменений. Ракурсы могут различаться."
-        : "Ракурсы не подтверждены как идентичные. Шторка, прозрачность и A/B служат для наблюдения деталей, а не являются точной геометрической привязкой.";
     };
     const setPos = (p) => {
       ratio = Math.max(0, Math.min(100, p));
@@ -381,7 +503,7 @@ window.Epochs = (() => {
     if (!g) return false;
     app.innerHTML = `<div class="view"><nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <a href="#/epochs">Эпохи</a> › <a href="#/city/${esc(c.id)}">${esc(c.name)}</a> › <span aria-current="page">${esc(cap(g.name))}</span></nav>
       <span class="eyebrow">${esc(c.name)} · одно место — разные эпохи</span><h1>${esc(cap(g.name))}</h1>
-      <p class="lede">Листы и фотографии разных лет, снимки сегодня и ваши фото. Точки съёмки художников обычно не совпадают с современными — это сопоставление, а не наложение; изображения не искажаются.</p>
+      <p class="lede">Рассмотрите листы и фотографии разных лет. Выберите два кадра или добавьте свой снимок с этого места.</p>
       <div id="epview"></div></div>`;
     viewer(document.getElementById("epview"), c, g, thumb, imgTag);
     return true;
@@ -401,5 +523,7 @@ window.Epochs = (() => {
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify({ app: "city-on-paper", kind: "my-viewpoints", items: data }, null, 1)], { type: "application/json" }));
       a.download = "moi-rakursy.json"; a.click(); };
   }
-  return { viewer, gallery, placePage, minePage, framesOf };
+  const mountArchiveVerified = (host, pictures) =>
+    mountVerified(host, pictures?.map((image) => archivePairs.get(image.id)).find(Boolean));
+  return { viewer, gallery, placePage, minePage, framesOf, mountArchiveVerified };
 })();

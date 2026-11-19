@@ -131,6 +131,7 @@
     if (best) { defA = Math.min(idx(best.a), idx(best.b)); defB = Math.max(idx(best.a), idx(best.b)); }
     app.innerHTML = `<div class="view">${crumbs([["Атлас", "#/"], [c.name, `#/city/${c.id}`], [pl.title, ""]])}
       <span class="eyebrow">${esc(c.name)} · одно место — несколько эпох</span><h1>${esc(pl.title)}</h1><p class="lede">${esc(pl.summary)}</p>
+      <section id="verifiedPlace" aria-label="Старый вид, новое фото и совмещение" hidden></section>
       <div class="timeline" role="list" aria-label="Шкала эпох">${cards}</div>
       ${pl.plan_detail ? `<details class="credits" open><summary>Где стояли художник и фотографы — план 1878 года</summary>
         <figure class="plate" style="margin:8px 0"><div class="frame"><img src="${esc(pl.plan_detail.image)}" width="${pl.plan_detail.width}" height="${pl.plan_detail.height}" alt="${esc(pl.plan_detail.alt)}" loading="lazy"><div class="pins">${imgs.map((img) => camMarker(img, pl.plan_detail)).join("")}</div></div>
@@ -158,6 +159,7 @@
       <details class="credits"><summary>Источники и права (${imgs.length})</summary>${imgs.map((img) => `<h3 style="font-size:17px;margin:12px 0 2px">${esc(img.year_label)} · ${esc(KIND[img.kind] || img.kind)}</h3>${credits(img)}`).join("")}</details>
     </div>`;
     setupCompare(pl);
+    window.Epochs?.mountArchiveVerified(document.getElementById("verifiedPlace"), pl.images);
     if (window.CityOnPaperThreeEpochs) window.CityOnPaperThreeEpochs.mount(document.getElementById("threeEpochs"), pl.images);
     if (window.CityOnPaperChronoscope) window.CityOnPaperChronoscope.mount(document.getElementById("chronoscope"), pl.images);
     if (window.CityOnPaperCuratorialDesk) window.CityOnPaperCuratorialDesk.mount(document.getElementById("curatorialDesk"), pl.id);

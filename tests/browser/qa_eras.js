@@ -154,6 +154,26 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector("#stage");
     await p.waitForFunction(() => document.getElementById("imA").complete && document.getElementById("imB").complete);
     ok(`${vp.n} place: timeline cards`, (await p.locator(".era-card").count()) >= 8);
+    const verified = p.locator("#verifiedPlace");
+    await verified.waitFor({ state: "visible" });
+    const verifiedOld = verified.locator("[data-verified-old]");
+    const verifiedPhoto = verified.locator("[data-verified-raw]");
+    const originalSrc = await verifiedOld.getAttribute("src");
+    await verified.locator('[data-verified-mode="now"]').click();
+    ok(`${vp.n} place: recent photo is dated and unadjusted`, await verifiedPhoto.isVisible() &&
+      await verifiedOld.isHidden() && /2026-04-30/.test(await verified.locator(".ep-verified-caption").textContent()));
+    await verified.locator('[data-verified-mode="fit"]').click();
+    ok(`${vp.n} place: only photograph transformed inside validated region`, await verified.evaluate(section => {
+      const original = section.querySelector("[data-verified-old]");
+      const adjusted = section.querySelector("[data-verified-fit]");
+      return getComputedStyle(original).transform === "none" &&
+        getComputedStyle(adjusted).transform.startsWith("matrix3d(") &&
+        getComputedStyle(adjusted.parentElement).clipPath.startsWith("polygon(");
+    }) && await verifiedOld.getAttribute("src") === originalSrc && await verifiedPhoto.isHidden());
+    const verifiedPairs = verified.locator("[data-verified-pair]");
+    await verifiedPairs.selectOption("madeleine-barescut-carnavalet");
+    ok(`${vp.n} place: pair picker chooses a separate archive print`,
+      (await verifiedOld.getAttribute("src")).endsWith("/madeleine-barescut-carnavalet.jpg"));
     ok(`${vp.n} triple time slider available`, await p.locator("#threeEpochs").isVisible());
     ok(`${vp.n} triple timeline has 3 actual images`, await p.locator("#threeEpochs .cp3-stage img").count() === 3);
     ok(`${vp.n} triple timeline all source links`, (await p.locator("#threeEpochs .cp3-sources a").count()) === 3);
@@ -229,7 +249,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.selectOption("#selA", { label: "ок. 1890–1900 · Фотохром" }).catch(() => {});
     const opts = await p.$$eval("#selB option", os => os.map(o => o.textContent));
     const der = await p.$$eval("#selB option", os => os.findIndex(o => /2017/.test(o.textContent)));
-    if (der >= 0) { await p.selectOption("#selB", { index: der }); ok(`${vp.n} derived crop labelled in compare`, /производная/.test(await p.textContent("#tagB")), opts.join("/")); }
+    if (der >= 0) { await p.selectOption("#selB", { index: der }); ok(`${vp.n} derived crop labelled in compare`, /фрагмент уличной панорамы/.test(await p.textContent("#tagB")), opts.join("/")); }
     await p.click('[data-m="sbs"]');
     ok(`${vp.n} side-by-side exclusive`, await p.evaluate(() => document.getElementById("stage").hidden && !document.getElementById("sbs").hidden));
     await p.click('[data-m="slider"]');
