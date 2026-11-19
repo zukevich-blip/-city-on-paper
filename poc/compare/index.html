@@ -40,7 +40,8 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .journey-end{border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:12px 0;background:var(--panel)}
 .journey-actions{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:8px;align-items:center}
 .journey-actions a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:3px}
-.journey-actions a:first-child{background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:4px;text-decoration:none}
+.journey-next,.journey-actions a:first-child{background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:4px;text-decoration:none}
+.journey-next{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font:600 14px system-ui,sans-serif}
 .bar label{font:14px system-ui,sans-serif;color:var(--muted)}
 .verdict{font:14px/1.4 system-ui,sans-serif;border-left:4px solid var(--muted);background:var(--panel);padding:8px 12px;margin:8px 0}
 .verdict.high{border-color:var(--ok)} .verdict.medium{border-color:var(--warn)}
@@ -117,6 +118,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <span class="journey-step" id="journeyStep"></span>
     <h2 id="journeyTitle" tabindex="-1"></h2>
     <p id="journeyQuestion"></p>
+    <a id="journeyNextTop" class="journey-next"></a>
   </section>
   <a class="jumpcompare" href="#stage" data-i18n="jump">К изображениям ↓</a>
 </header>
@@ -568,6 +570,10 @@ function renderJourney(idx, id) {
   const linkTo = item => `?journey=1#${encodeURIComponent(item.pair)}`;
   $("journeyNext").textContent = scene.next + " →";
   $("journeyNext").href = route[at + 1] ? linkTo(route[at + 1]) : "../../world/#worldComparisons";
+  $("journeyNextTop").href = $("journeyNext").href;
+  $("journeyNextTop").textContent = route[at + 1]
+    ? `Следующая остановка: ${idx.places?.[route[at + 1].pair]?.name || route[at + 1].title} →`
+    : "Завершить маршрут · открыть атлас →";
   $("journeyBack").hidden = at === 0;
   if (at > 0) $("journeyBack").href = linkTo(route[at - 1]);
 }

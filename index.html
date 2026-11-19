@@ -302,6 +302,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .more-museum>summary::-webkit-details-marker{display:none}.more-museum>summary span{font:normal 24px Georgia,serif}.more-museum>summary small{font:13px system-ui,sans-serif;color:#6f6f63}
 .more-museum>summary::after{content:"+";margin-left:auto;font:26px Georgia,serif;color:#7a3f22}.more-museum[open]>summary::after{content:"−"}
 
+@media(max-width:700px){
+ #home .museum-wow .front-copy{display:contents}
+ #home .museum-wow .front-copy>.eyebrow{display:none}
+ #home .museum-wow .front-copy>h1{grid-row:1;margin:0;padding:16px 16px 9px}
+ #home .museum-wow .wow-visual{grid-row:2;padding:10px 13px}
+ #home .museum-wow .wow-visual-top{margin-bottom:4px}
+ #home .museum-wow .wow-duet img{max-height:34svh}
+ #home .museum-wow .wow-lead{grid-row:3;padding:10px 16px 0;margin:0}
+ #home .museum-wow .wow-actions{grid-row:4;margin:8px 16px 0}
+ #home .museum-wow .front-copy>.opening-more{grid-row:5;margin:0 16px 8px}
+}
 </style>
 <link rel="stylesheet" href="assets/hybrid/tokens.css">
 <link rel="stylesheet" href="assets/hybrid/museum.css">

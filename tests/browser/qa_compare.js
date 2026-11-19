@@ -278,6 +278,14 @@ async function editorChecks(browser, vp) {
   const small = await page.evaluate(() => [...document.querySelectorAll("header button, .pane button, main > .bar button, .filebtn, select")]
     .filter(b => b.offsetParent).map(b => b.getBoundingClientRect()).filter(r => r.height < 44).length);
   check(`${vp.name} editor: main controls ≥44 px tall`, small === 0, `${small} too small`);
+  if (vp.width <= 760) {
+    const previousHash = await page.evaluate(() => location.hash);
+    await page.locator('[data-jump="panePhoto"]').click();
+    check(`${vp.name} editor: jump to photo preserves pair id and places photo controls in view`,
+      await page.evaluate(() => location.hash) === previousHash &&
+      await page.locator("#panePhoto").evaluate(pane => pane.getBoundingClientRect().top < window.innerHeight / 2));
+    await page.locator('[data-jump="paneHist"]').click();
+  }
   await page.click('[data-fit="hist"]');
   await page.goto(`${base}editor.html#madeleine-ph-benoist`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.querySelectorAll("#ptTable tbody tr").length === 7);
@@ -325,6 +333,9 @@ async function journeyChecks(browser, vp) {
       await page.locator("#journeyQuestion").textContent() === scene.question &&
       !await page.locator("#journeyAnswer").isVisible() &&
       await page.locator("#credits").getAttribute("open") === null);
+    check(`${vp.name} ${scene.pair}: the next stop is offered before the images`,
+      await page.locator("#journeyNextTop").isVisible() &&
+      await page.locator("#journeyNextTop").getAttribute("href") === await page.locator("#journeyNext").evaluate(link => link.href));
     await page.locator("#journeyReveal summary").click();
     check(`${vp.name} ${scene.pair}: reveal opens without blocking continuation`,
       await page.locator("#journeyAnswer").isVisible() &&
