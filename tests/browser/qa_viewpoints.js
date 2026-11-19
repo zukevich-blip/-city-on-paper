@@ -37,7 +37,7 @@ const output=process.argv[3]||"/tmp/city-on-paper-screens";
       const selected=await page.locator("#vpaSelected").textContent();
       assert(selected && selected.length>3,"Selected artwork");
       const callout=(await page.locator("#vpaCompareTruth").textContent()).toLowerCase();
-      assert(/ракурс|перспектив|пара/.test(callout),"Scientific caution about angles");
+      assert(callout.includes("мы ещё не проверили, совпадают ли направления взгляда"),"Comparison discloses that viewing directions are unchecked");
       await page.locator("#vpaWipe").click();
       assert.equal(await page.locator("#vpaWipe").getAttribute("aria-pressed"),"true");
       assert(await page.locator("#vpaCompare.is-wipe").count(),"Wipe interaction");
