@@ -7657,7 +7657,9 @@
    "image": "https://images.metmuseum.org/CRDImages/as/web-large/DP120469.jpg",
    "rights": "cc0",
    "rights_label": "Общественное достояние",
-   "curated": true
+   "curated": true,
+   "preview": "../eras/thumbs/mus-ac6d53bddf97afa5.jpg",
+   "license_url": "https://www.metmuseum.org/policies/image-resources"
   },
   {
    "id": "loc-2006678342",
@@ -12368,7 +12370,8 @@
    "image": "https://digital.bbm.usp.br/bitstream/bbm/3286/1/006245-3_IMAGEM_095.jpg",
    "rights": "public_domain",
    "rights_label": "Общественное достояние",
-   "curated": true
+   "curated": true,
+   "preview": "../eras/thumbs/mus-693f1f321e6518f0.jpg"
   },
   {
    "id": "loc-2003688767",
@@ -14077,7 +14080,9 @@
    "image": "https://images.metmuseum.org/CRDImages/as/web-large/DP121552.jpg",
    "rights": "cc0",
    "rights_label": "Общественное достояние",
-   "curated": true
+   "curated": true,
+   "preview": "../eras/thumbs/mus-474c3f4495a87d7b.jpg",
+   "license_url": "https://www.metmuseum.org/policies/image-resources"
   },
   {
    "id": "loc-2016817059",
@@ -14114,7 +14119,9 @@
    "image": "https://images.metmuseum.org/CRDImages/as/web-large/DP123238.jpg",
    "rights": "cc0",
    "rights_label": "Общественное достояние",
-   "curated": true
+   "curated": true,
+   "preview": "../eras/thumbs/mus-ff39335c6d4d81b9.jpg",
+   "license_url": "https://www.metmuseum.org/policies/image-resources"
   },
   {
    "id": "loc-2001699372",
@@ -15405,7 +15412,9 @@
    "image": "https://images.metmuseum.org/CRDImages/ph/web-large/DP165656.jpg",
    "rights": "cc0",
    "rights_label": "Общественное достояние",
-   "curated": true
+   "curated": true,
+   "preview": "../eras/thumbs/mus-0126490455005dbd.jpg",
+   "license_url": "https://www.metmuseum.org/policies/image-resources"
   },
   {
    "id": "loc-2013645197",
