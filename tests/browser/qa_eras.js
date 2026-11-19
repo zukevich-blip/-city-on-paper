@@ -210,7 +210,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} historical fact distinguishes 1842 and 1845-1860`,
       /1842/.test(await p.locator("#curatorialDesk").textContent()) &&
       /1845/.test(await p.locator("#curatorialDesk").textContent()));
-    ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
+    ok(`${vp.n} place: verdict shown`, /совпадение|точки (съёмки|и направление)|точки могут|с разных точек/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
     const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
     ok(`${vp.n} historic images: no transform/filter`, untouched);

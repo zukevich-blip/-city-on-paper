@@ -27,7 +27,7 @@ def test_visitor_routes_are_shipped_in_public_bundle():
 def test_historical_routes_keep_originals_and_say_when_no_modern_pair():
     walk = read("walk/index.html")
     for text in ("../eras/data/eras.json", "object-fit:contain",
-                 "Другой исторический год", "точные точки съёмки",
+                 "Другой исторический год", "Точки съёмки могут различаться",
                  "selectedCity", "selectedPlace", "rights_class"):
         assert text in walk
     assert "document.getElementById" in walk
@@ -36,11 +36,11 @@ def test_historical_routes_keep_originals_and_say_when_no_modern_pair():
 
 def test_photo_submission_is_manual_and_license_checked():
     submit = read("submit/index.html")
-    assert "публичное обращение GitHub" in submit
+    assert "черновик публичного сообщения на GitHub" in submit
     assert "не отправляется" in submit
     assert "github.com/zukevich-blip/-city-on-paper/issues/new?" in submit
     assert "URL.createObjectURL" in submit
-    assert "Статус прав" in submit
+    assert "Можно ли публиковать?" in submit
 
 
 def test_mobile_image_and_book_are_not_hard_clipped():

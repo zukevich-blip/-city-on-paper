@@ -63,14 +63,14 @@
 <body>
 <header class="top">
   <div class="shell">
-    <div class="eyebrow">Город на бумаге / исследование мест</div>
+    <div class="eyebrow">Город на бумаге</div>
     <h1>Одно место.<br><em>Несколько времён.</em></h1>
     <p>Старинные литографии, офорты, первые фотографии, историческая карта и сегодняшний вид. Здесь можно пройти по одному месту через десятилетия, открыть архивный оригинал и понять, что действительно изменилось.</p>
     <nav class="crumbs" aria-label="Путь по музею"><a href="../cities/">Мир</a><span>›</span><a href="../eras/">Историческая карта</a><span>›</span><span>Маршрут по времени</span></nav>
   </div>
 </header>
 <main class="shell">
-  <div class="notice">Работы и даты берутся из музейного каталога. Две фотографии могут быть сделаны с разных точек. Это сравнительное чтение источников, не точное совмещение пикселей и не доказанная геопривязка каждого листа.</div>
+  <div class="notice">Работы и даты взяты из музейных каталогов.</div>
   <section class="picker" aria-labelledby="cityTitle">
     <span class="eyebrow">01 / Выберите направление</span>
     <h2 id="cityTitle">Сначала город, затем конкретное место</h2>
@@ -81,36 +81,36 @@
     </div>
     <div class="place-row"><span>Улица, памятник:</span><div class="pickers" id="placeButtons" role="group" aria-label="Выберите историческое место"></div></div>
   </section>
-  <section class="compare" aria-label="Два свидетельства из разных эпох">
+  <section class="compare" aria-label="Два вида из разных лет">
     <div class="section-title">
-      <div><span class="eyebrow">02 / Сопоставьте свидетельства</span><h2 id="placeHeading">История одного места</h2></div>
+      <div><span class="eyebrow">Сравните два вида</span><h2 id="placeHeading">История одного места</h2></div>
       <p id="placeMeta">Даты, авторы и права на оригиналы отмечены у изображений.</p>
     </div>
     <div class="evidence">
       <article class="witness"><div class="witness-head"><strong>Исторический лист</strong><span id="oldDate">XIX век</span></div>
         <figure><img id="oldImage" alt="" src="../eras/img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg" loading="eager"></figure>
-        <figcaption><b id="oldTitle">Филипп Бенуа. Мадлен</b><span id="oldRights">Музейный оригинал</span><a id="oldSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/2016652452/">Исходная архивная запись ↗</a></figcaption>
+        <figcaption><b id="oldTitle">Филипп Бенуа. Мадлен</b><span id="oldRights">Оригинал в архиве</span><a id="oldSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/2016652452/">Страница в архиве ↗</a></figcaption>
       </article>
       <article class="witness"><div class="witness-head"><strong id="newHeading">Современный вид</strong><span id="newDate">30 апреля 2026</span></div>
         <figure id="rightFigure"><img id="newImage" alt="Портик Мадлен в Париже" src="../eras/img/paris_madeleine_2026_panoramax_facade_38b6d262.jpg" loading="eager"></figure>
         <figcaption><b id="newTitle">Современная фотография</b><span id="newRights">jerome92370 / Panoramax · CC BY-SA 4.0</span><a id="newSource" target="_blank" rel="noopener noreferrer" href="https://api.panoramax.xyz/#focus=pic&amp;pic=38b6d262-648f-461e-b9a3-ab05eb22d92a">Открыть первоисточник ↗</a></figcaption>
       </article>
     </div>
-    <p class="notice" id="comparisonNote" role="status">Начните с Парижа. Слева оригинал XIX века, справа современный снимок. Ракурсы не подтверждены как совпадающие.</p>
+    <p class="notice" id="comparisonNote" role="status">Слева лист XIX века, справа фото сегодня. Они показывают место с разных точек.</p>
   </section>
   <section class="tour" aria-labelledby="timelineHeading">
-    <span class="eyebrow">03 / Лента свидетельств</span>
+    <span class="eyebrow">Все виды этого места</span>
     <h2 id="timelineHeading">Выберите другой год и другой взгляд</h2>
-    <p id="timelineIntro">Каждая миниатюра открывает другой исторический источник на левой странице. Современная фотография остаётся справа, если она существует в проверенном наборе.</p>
+    <p id="timelineIntro">Нажмите на маленькое изображение, чтобы сменить старый вид слева. Если у нас есть фото сегодня, оно останется справа.</p>
     <div class="track" id="timeTrack" role="group" aria-label="Датированные архивные листы"></div>
   </section>
   <section class="context" aria-labelledby="routeHeading">
-    <span class="eyebrow">04 / От свидетельства к месту</span><h2 id="routeHeading">История продолжается на карте</h2>
+    <span class="eyebrow">Где это было</span><h2 id="routeHeading">История продолжается на карте</h2>
     <p id="placeStory">После просмотра архивных листов откройте город на карте, найдите другие произведения и сравните их с сегодняшними фотографиями.</p>
     <div class="routebox">
       <div class="mapcard">
-        <img src="../eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Оригинальная карта Европы XVIII века из Library of Congress" loading="lazy">
-        <p>Историческая карта Европы, G. de L’Isle / Ph. Buache, 1769. Она показывает географию своей эпохи. Современные метки городов изучайте в интерактивном атласе, отдельно от исторического растра.</p>
+        <img src="../eras/img/loc-97683588-carte-d-europe-1769_w1000.jpg" alt="Оригинальная карта Европы XVIII века из Библиотеки Конгресса США" loading="lazy">
+        <p>Историческая карта Европы, G. de L’Isle / Ph. Buache, 1769. На карте видны границы своего времени. Чтобы найти город сегодня, откройте атлас.</p>
         <a id="mapRoute" href="../eras/#/city/paris">Открыть город на карте ↗</a>
       </div>
       <div class="nextsteps">
@@ -118,9 +118,9 @@
         <a id="atlasRoute" href="../atlas/?city=paris">Все эпохи и оригиналы <span aria-hidden="true">↗</span></a>
         <a id="worksRoute" href="../salon/?city=%D0%9F%D0%B0%D1%80%D0%B8%D0%B6">Все произведения города <span aria-hidden="true">↗</span></a>
         <a id="photoRoute" href="../photography/?city=%D0%9F%D0%B0%D1%80%D0%B8%D0%B6">Современные фотографии <span aria-hidden="true">↗</span></a>
-        <a id="pairRoute" href="../poc/compare/#madeleine-ph-benoist">Просмотрщик «Тогда / Сейчас» <span aria-hidden="true">↗</span></a>
-        <a href="../submit/">Предложить свою литографию или ракурс <span aria-hidden="true">↗</span></a>
-        <p class="route-note">География, авторство, датировки и изображения требуют отдельных подтверждений. Если парного современного вида нет, мы так и указываем.</p>
+        <a id="pairRoute" href="../poc/compare/#madeleine-ph-benoist">Просмотрщик «Тогда и сейчас» <span aria-hidden="true">↗</span></a>
+        <a href="../submit/">Предложить свою литографию или фото места <span aria-hidden="true">↗</span></a>
+        <p class="route-note">Даты, имена авторов и ссылки на архивы указаны рядом с изображениями.</p>
       </div>
     </div>
   </section>
@@ -155,7 +155,7 @@
     for(const b of $("placeButtons").querySelectorAll("button"))b.setAttribute("aria-pressed",String(Number(b.dataset.place)===index));
     const place=city.places[index],all=dated(place.images||[]),historical=all.filter(x=>x.era!=="today"),now=all.filter(x=>x.era==="today");
     $("placeHeading").textContent=place.title;
-    $("placeMeta").textContent=names[selectedCity]+" · "+historical.length+" исторических свидетельств"+(now.length?" · "+now.length+" современных снимков":" · современная пара не подтверждена");
+    $("placeMeta").textContent=names[selectedCity]+" · "+historical.length+" старых видов"+(now.length?" · "+now.length+" современных снимков":" · фото сегодня пока нет");
     $("placeStory").textContent=clean(place.summary||"Изучите разные изображения этого места. Сведения об их происхождении указаны в музейных источниках.");
     if(!historical.length){$("comparisonNote").textContent="Нет опубликованных изображений для этого места.";return}
     imageDetails("old",historical[0]);
@@ -164,8 +164,8 @@
     imageDetails("new",right);
     $("newHeading").textContent=now.length?"Современный вид":"Другой исторический год";
     $("comparisonNote").textContent=now.length
-      ?"Исторический лист и современный снимок относятся к одному месту. Их точные точки съёмки и перспективы не считаются совпадающими: это сопоставление источников без геометрического наложения."
-      :"Для этого места пока нет проверенного современного вида. Справа показано другое датированное историческое свидетельство; современное совпадение не выдумывается.";
+      ?"Слева старый вид, справа фото сегодня. Точки съёмки могут различаться, поэтому изображения показаны рядом."
+      :"Фото этого места сегодня пока нет. Справа показан вид из другого года.";
     const track=$("timeTrack");track.replaceChildren();
     historical.forEach((x,i)=>{
       const b=document.createElement("button");b.type="button";b.className="frame";b.dataset.index=i;b.setAttribute("aria-pressed",String(i===0));

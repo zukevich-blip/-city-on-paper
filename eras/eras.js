@@ -8,10 +8,10 @@
   const safeUrl = (u) => (/^https:\/\//.test(u || "") || /^img\//.test(u || "") ? u : "#");
   const KIND = { print: "Литография / гравюра", photo: "Фотография", photochrom: "Фотохром", today: "Сегодня", map: "Карта" };
   const VERDICT = {
-    close: "Ракурс близок: та же точка и направление в пределах указанной погрешности (оценено вручную).",
-    partial: "Ракурс частично совпадает: тот же объект, но точка или направление отличаются. Сравнивайте как свидетельства, а не как наложение.",
-    different_viewpoint: "Ракурсы разные: точное наложение невозможно. Показываем рядом и честно отмечаем расхождение.",
-    unknown: "Совпадение ракурса не оценивалось.",
+    close: "Точки и направление взгляда примерно совпадают.",
+    partial: "Место одно, но точки или направления взгляда отличаются.",
+    different_viewpoint: "Виды сделаны с разных точек, поэтому полностью не совпадут.",
+    unknown: "Мы ещё не проверили, совпадают ли точки.",
   };
   let D = null;
 
@@ -25,7 +25,7 @@
     <dt>Дата</dt><dd>${esc(img.date)}</dd>
     <dt>Хранитель</dt><dd>${esc(img.institution)}</dd>
     <dt>Права</dt><dd>${esc(img.rights)}${img.rights_checked ? ` (проверено ${esc(img.rights_checked)})` : ""}${img.license_url ? ` · <a href="${esc(safeUrl(img.license_url))}" target="_blank" rel="noopener">текст лицензии ↗</a>` : ""}</dd>
-    <dt>Карточка</dt><dd><a href="${esc(safeUrl(img.object_url))}" target="_blank" rel="noopener">открыть у хранителя ↗</a></dd>
+    <dt>Страница в архиве</dt><dd><a href="${esc(safeUrl(img.object_url))}" target="_blank" rel="noopener">открыть у хранителя ↗</a></dd>
     ${img.file ? `<dt>Файл</dt><dd><a href="${esc(safeUrl(img.file))}" target="_blank" rel="noopener">открыть без изменений</a>${img.note ? ` · ${esc(img.note)}` : ""}</dd>` : ""}
   </dl>`;
 
@@ -53,7 +53,7 @@
       <div class="eras" role="group" aria-label="Эпохи">${eras}</div>
       <figure class="plate"><div class="frame"><img src="${esc(P.image)}" ${P.image_small ? `srcset="${esc(P.image_small)} 1000w, ${esc(P.image)} 2000w" sizes="(max-width: 700px) 100vw, 1400px"` : ""} width="${P.width}" height="${P.height}" alt="${esc(P.alt)}" fetchpriority="high">
         <div class="pins">${pins}</div></div>
-        <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">карточка ↗</a>. Декоративная карта: расстояния и очертания не точны.</figcaption></figure>
+        <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>. Декоративная карта: расстояния и очертания не точны.</figcaption></figure>
       <p class="note" id="eraStatus" role="status" aria-live="polite">Выберите эпоху, чтобы увидеть города с подтверждёнными материалами.</p>
       <h2>Города</h2>
       <div class="cities">${D.cities.map((c) => `<a class="card" href="#/city/${esc(c.id)}"><span class="eyebrow">${esc(c.country)}</span><h3>${esc(c.name)}</h3><p>${esc(c.summary)}</p><small>${c.places.length} мест · ${c.places.reduce((n, p) => n + p.images.length, 0)} записей с источниками</small></a>`).join("")}</div>
@@ -97,18 +97,18 @@
       <span class="eyebrow">${esc(c.country)}</span><h1>${esc(c.name)}</h1><p class="lede">${esc(c.summary)}</p>
       <div class="twocol">
         <div>${P ? `<figure class="plate"><div class="frame"><img src="${esc(P.image)}" width="${P.width}" height="${P.height}" alt="${esc(P.alt)}"><div class="pins">${cams}</div></div>
-          <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">карточка ↗</a>.
-          ${P.georef ? `Геопривязка приблизительная: ${esc(P.georef)}.` : "План ещё не геопривязан: места на нём не отмечены."}</figcaption></figure>`
+          <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>.
+          ${P.georef ? `Положение на карте указано примерно: ${esc(P.georef)}.` : "Места на этом плане пока не отмечены."}</figcaption></figure>`
           : `<p class="note">Исторический план этого города ещё не подобран с подтверждёнными правами.</p>`}</div>
         <div><h2>Места</h2><div class="places">${c.places.map((pl) => `<a href="#/place/${esc(pl.id)}"><b>${esc(pl.title)}</b><small>${pl.images.map((i) => esc(i.year_label)).join(" → ")} · ${esc(VERDICT_SHORT(pl))}</small></a>`).join("") || '<p class="note">Места готовятся.</p>'}</div></div>
       </div></div>`;
   }
   const VERDICT_SHORT = (pl) => {
     const best = (pl.pairs || []).map((p) => p.rating);
-    if (best.includes("close")) return "есть близкий ракурс";
-    if (best.includes("partial")) return "ракурсы частично совпадают";
-    if (best.length) return "ракурсы разные";
-    return "ракурс не оценён";
+    if (best.includes("close")) return "есть вид с близкой точки";
+    if (best.includes("partial")) return "виды совпадают частично";
+    if (best.length) return "виды с разных точек";
+    return "точки не проверены";
   };
 
   // ---------------- place
@@ -118,7 +118,7 @@
     if (!pl) return notFound();
     const imgs = pl.images;
     const cards = imgs.map((img, i) => `<article class="era-card" role="listitem"><span class="yr">${esc(img.year_label)}</span><span class="kind">${esc(KIND[img.kind] || img.kind)}</span>
-      ${img.file ? `<img src="${esc(img.file)}" alt="${esc(img.alt || img.title)}" loading="lazy" decoding="async">` : `<p class="note">Изображение не встраивается (права): открыть у хранителя.</p>`}
+      ${img.file ? `<img src="${esc(img.file)}" alt="${esc(img.alt || img.title)}" loading="lazy" decoding="async">` : `<p class="note">Изображение доступно на странице в архиве.</p>`}
       <p>${esc(img.title)}</p><p>${esc(img.institution)} · ${rightsBadge(img)}</p>
       ${img.file ? `<button class="pick" data-i="${i}" aria-label="Сравнить: ${esc(img.year_label)}, ${esc(KIND[img.kind] || img.kind)}" style="min-height:44px;border:1px solid #b9ab94;background:#fffdf7">Сравнить</button>` : ""}</article>`).join("");
     const opts = (sel) => imgs.map((img, i) => img.file ? `<option value="${i}" ${i === sel ? "selected" : ""}>${esc(img.year_label)} · ${esc(KIND[img.kind] || img.kind)}</option>` : "").join("");
@@ -134,19 +134,19 @@
       <div class="timeline" role="list" aria-label="Шкала эпох">${cards}</div>
       ${pl.plan_detail ? `<details class="credits" open><summary>Где стояли художник и фотографы — план 1878 года</summary>
         <figure class="plate" style="margin:8px 0"><div class="frame"><img src="${esc(pl.plan_detail.image)}" width="${pl.plan_detail.width}" height="${pl.plan_detail.height}" alt="${esc(pl.plan_detail.alt)}" loading="lazy"><div class="pins">${imgs.map((img) => camMarker(img, pl.plan_detail)).join("")}</div></div>
-        <figcaption>${esc(pl.plan_detail.title)} — ${esc(pl.plan_detail.credit)}. ${rightsBadge(pl.plan_detail)} <a href="${esc(safeUrl(pl.plan_detail.object_url))}" target="_blank" rel="noopener">карточка ↗</a>. Точки — оценки по видимым ориентирам и GPS снимков; погрешность привязки плана 30–50 м.</figcaption></figure>
+        <figcaption>${esc(pl.plan_detail.title)} — ${esc(pl.plan_detail.credit)}. ${rightsBadge(pl.plan_detail)} <a href="${esc(safeUrl(pl.plan_detail.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>. Точки — оценки по видимым ориентирам и GPS снимков; погрешность привязки плана 30–50 м.</figcaption></figure>
         <div class="legend"><span><b style="background:#7a3f22"></b>литография</span><span><b style="background:#2c5d73"></b>фотография</span><span><b style="background:#5b6b2f"></b>сегодня</span><span>конус — направление взгляда</span></div>
         <div class="camlist" role="group" aria-label="Точки съёмки">${imgs.filter((im) => im.camera && im.camera.px != null).map((im) => `<button type="button" data-img="${esc(im.id)}" ${im.file ? "" : "disabled"}><b class="sw era-${esc(im.era)}"></b>${esc(im.year_label)} · ${esc(KIND[im.kind] || im.kind)} <small>±${esc(im.camera.radius_m)} м · ${Math.round(im.camera.azimuth_deg ?? 0)}°</small></button>`).join("")}</div></details>` : ""}
       <section class="compare" aria-label="Сравнение эпох">
         <div class="ctrls"><label>Тогда <select id="selA">${opts(defA)}</select></label><label>Сейчас <select id="selB">${opts(defB)}</select></label>
-          <span role="group" aria-label="Режим"><button data-m="slider" aria-pressed="true">Шторка</button> <button data-m="opacity" aria-pressed="false">Прозрачность</button> <button data-m="sbs" aria-pressed="false">Рядом</button></span>
+          <span role="group" aria-label="Режим"><button data-m="slider" aria-pressed="true">Ползунок</button> <button data-m="opacity" aria-pressed="false">Наложить с просвечиванием</button> <button data-m="sbs" aria-pressed="false">Рядом</button></span>
           <input id="op" type="range" min="0" max="100" value="50" aria-label="Прозрачность верхнего изображения" hidden></div>
         <div id="verdict" class="verdict" role="status"></div>
         <div class="stage" id="stage"><img id="imA" alt=""><div class="top" id="top"><img id="imB" alt=""></div>
           <div class="handle" id="handle" role="slider" tabindex="0" aria-label="Граница между эпохами" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
           <span class="tag l" id="tagA"></span><span class="tag r" id="tagB"></span></div>
         <div class="sbs" id="sbs" hidden><img id="sA" alt=""><img id="sB" alt=""></div>
-        <p class="note">Изображения не деформируются и не подгоняются друг под друга: шторка показывает два подлинных кадра в одной рамке. Если ракурсы разные, различие видно — это и есть свидетельство.</p>
+        <p class="note">Изображения не деформируются и не подгоняются друг под друга: шторка показывает два подлинных кадра в одной рамке. Если виды с разных точек, различие видно — это и есть свидетельство.</p>
       </section>
       <section id="threeEpochs" class="cp3" aria-label="Три эпохи одним ползунком"></section>
       <section id="chronoscope" class="chronoscope" aria-label="Любое число эпох и увеличение деталей"></section>
@@ -170,17 +170,17 @@
     function render() {
       const a = +$("selA").value, b = +$("selB").value, A = pl.images[a], B = pl.images[b];
       for (const [im, s] of [[$("imA"), A], [$("sA"), A], [$("imB"), B], [$("sB"), B]]) { im.src = s.file; im.alt = `${s.year_label}: ${s.alt || s.title}`; }
-      const tag = (x) => x.year_label + (x.id.startsWith("derived-") ? " · фрагмент 360°-панорамы (производная)" : "");
+      const tag = (x) => x.year_label + (x.id.startsWith("derived-") ? " · фрагмент уличной панорамы" : "");
       $("tagA").textContent = tag(A); $("tagB").textContent = tag(B);
       const p = pair(A.id, B.id);
       const r = p ? p.rating : "unknown";
       const opBtn = document.querySelector('.ctrls [data-m="opacity"]');
       opBtn.disabled = r !== "close";
-      opBtn.title = r === "close" ? "" : "Наложение с прозрачностью доступно только для близких ракурсов: иначе оно создаёт ложное впечатление совмещения";
+      opBtn.title = r === "close" ? "" : "Наложение доступно, когда точки и направления взгляда близки";
       if (mode === "opacity" && r !== "close") mode = "slider";
       const v = $("verdict");
       v.className = "verdict " + r;
-      v.innerHTML = `<strong>${esc({ close: "Близкий ракурс", partial: "Частичное совпадение", different_viewpoint: "Разные точки съёмки", unknown: "Не оценено" }[r])}</strong> — ${esc(VERDICT[r])}${p && p.reason ? `<br>${esc(p.reason)}` : ""}${p && p.by ? `<br><small>Оценил: ${esc(p.by)}. Ручная оценка, не автоматическое совмещение.</small>` : ""}`;
+      v.innerHTML = `<strong>${esc({ close: "Близкие точки", partial: "Частичное совпадение", different_viewpoint: "Разные точки съёмки", unknown: "Не оценено" }[r])}</strong> — ${esc(VERDICT[r])}${p && p.reason ? `<br>${esc(p.reason)}` : ""}${p && p.by ? `<br><small>Оценил: ${esc(p.by)}. Точки проверены вручную.</small>` : ""}`;
       $("stage").hidden = mode === "sbs"; $("sbs").hidden = mode !== "sbs"; $("op").hidden = mode !== "opacity"; $("handle").hidden = mode !== "slider";
       $("top").style.clipPath = mode === "slider" ? `inset(0 0 0 ${split}%)` : "none";
       $("top").style.opacity = mode === "opacity" ? $("op").value / 100 : 1;
