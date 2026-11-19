@@ -133,7 +133,7 @@
         const note=el("p","archive-notice","По ссылке откроется страница в архиве. Мы показываем изображение, когда можем подтвердить авторство и право на публикацию.");
         box.append(note);
         for(const source of sources){
-          const a=el("a",null,source.title||"Перейти к архивной записи");
+          const a=el("a",null,source.title||"Открыть в архиве");
           a.href=goodUrl(source.url);
           a.target="_blank";
           a.rel="noopener noreferrer";

@@ -49,7 +49,7 @@
     app.innerHTML = `<div class="view">
       <span class="eyebrow">Атлас эпох · вход через старую карту</span>
       <h1>Найдите город на старой карте<br>и пройдите сквозь время</h1>
-      <p class="lede">Подлинная карта — это портал, а не навигатор: её геометрия XVIII века неточна, поэтому точки городов поставлены по самой карте. Внутри города — геопривязанный план и точки, откуда смотрели художник, фотограф и наш современник.</p>
+      <p class="lede">Подлинная карта — это портал, а не навигатор: её геометрия XVIII века неточна, поэтому точки городов поставлены по самой карте. Внутри города — старый план и метки мест, которые рисовали и снимали.</p>
       <div class="eras" role="group" aria-label="Эпохи">${eras}</div>
       <figure class="plate"><div class="frame"><img src="${esc(P.image)}" ${P.image_small ? `srcset="${esc(P.image_small)} 1000w, ${esc(P.image)} 2000w" sizes="(max-width: 700px) 100vw, 1400px"` : ""} width="${P.width}" height="${P.height}" alt="${esc(P.alt)}" fetchpriority="high">
         <div class="pins">${pins}</div></div>
