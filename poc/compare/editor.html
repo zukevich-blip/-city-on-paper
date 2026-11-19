@@ -71,29 +71,27 @@ a{color:var(--accent)}
 </head>
 <body>
 <header>
-  <span class="poc">Прототип · инструмент эксперта</span>
-  <h1>Редактор контрольных точек <span lang="en" style="color:var(--muted)">· Control-point editor</span></h1>
-  <p class="sub">Всё считается в этом окне; ничего не отправляется в сеть (загружаются только локальные файлы пары).
-    Историческое изображение только показывается — масштаб меняется размером окна просмотра, без <code>transform</code> и фильтров.
-    Итоговое совмещение считает офлайн <code>python3 -m tools.align.homography файл.json</code> (OpenCV).
-    <span lang="en">Nothing is uploaded. The JS fit is a live preview; the authoritative result comes from the offline OpenCV tool.</span></p>
+  <span class="poc">Город на бумаге</span>
+  <h1>Настройте совмещение вручную</h1>
+  <p class="sub">Отметьте одни и те же детали на рисунке и фото. Снизу появится пробное наложение. Меняется только фото. Ваши файлы остаются на устройстве.</p>
+  <p><a id="backToPair" href="./">Вернуться к сравнению</a></p>
   <div class="bar">
-    <label for="pairSel">Пара / pair</label>
+    <label for="pairSel">Пара изображений</label>
     <select id="pairSel"></select>
     <label class="filebtn">Открыть JSON… <input id="jsonFile" type="file" accept=".json,application/json"></label>
-    <label class="filebtn">Своё историческое… <input id="histFile" type="file" accept="image/*"></label>
+    <label class="filebtn">Свой исторический лист… <input id="histFile" type="file" accept="image/*"></label>
     <label class="filebtn">Своё фото… <input id="photoFile" type="file" accept="image/*"></label>
   </div>
 </header>
 <main>
   <div id="status" class="status" role="status" aria-live="polite"></div>
   <details>
-    <summary>Как пользоваться / how to use</summary>
+    <summary>Как выбрать точки</summary>
     <ul>
       <li>Щёлкните точку на одном изображении, затем ту же деталь на другом — появится пара с номером. Начинать можно с любого окна; повторный щелчок в том же окне переставляет незавершённую точку.</li>
       <li>Перетаскивание метки двигает точку. Перетаскивание по пустому месту двигает вид. <kbd>Ctrl</kbd>+колесо или кнопки −/+ — масштаб.</li>
       <li>Клавиатура: в окне просмотра <kbd>←↑→↓</kbd> — сдвиг вида, <kbd>+</kbd>/<kbd>−</kbd> — масштаб, <kbd>Enter</kbd> — поставить точку в центр окна. На метке: стрелки — сдвиг на 1 px (с <kbd>Shift</kbd> — 10 px), <kbd>Delete</kbd> — удалить.</li>
-      <li>Выбирайте 6–12 точек <strong>на одной плоскости</strong> (один фасад): углы, карнизы, основания колонн. Точки на разной глубине дают параллакс — это честно покажет leave-one-out.</li>
+      <li>Выбирайте 6–12 точек <strong>на одной плоскости</strong> (один фасад): углы, карнизы, основания колонн. Углы боковой стены могут совпадать хуже, потому что она уходит в глубину.</li>
     </ul>
   </details>
   <div class="panes">
@@ -109,7 +107,7 @@ a{color:var(--accent)}
     </section>
   </div>
 
-  <h2>Точки <span lang="en" style="color:var(--muted);font-weight:normal">· points</span></h2>
+  <h2>Точки на изображениях</h2>
   <p class="metrics" id="metrics" aria-live="polite"></p>
   <div class="tablewrap"><table id="ptTable">
     <thead><tr><th>#</th><th>Подпись / label</th><th>тогда x</th><th>тогда y</th><th>фото x</th><th>фото y</th><th>остаток, px</th><th>LOO, px</th><th></th></tr></thead>
@@ -117,7 +115,7 @@ a{color:var(--accent)}
   </table></div>
   <div class="bar"><button id="clearBtn">Удалить все точки</button></div>
 
-  <h2>Предпросмотр совмещения (JS) <span lang="en" style="color:var(--muted);font-weight:normal">· live preview</span></h2>
+  <h2>Пробное наложение</h2>
   <div class="bar"><label for="prevOpacity">Фото, %</label><input id="prevOpacity" type="range" min="0" max="100" value="50"></div>
   <div class="stage" id="prevStage">
     <img class="hist" id="prevHist" alt="">
@@ -282,7 +280,7 @@ async function usePair(pair, fromIndex) {
   $("prevHist").src = hsrc; $("prevPhoto").src = psrc;
   const [okH, okP] = await Promise.all([loadImage("hist", hsrc), loadImage("photo", psrc)]);
   const warn = [];
-  if (!okH || !okP) warn.push("Изображение не загрузилось — выберите файлы кнопками «Своё историческое… / Своё фото…».");
+  if (!okH || !okP) warn.push("Изображение не загрузилось — выберите файлы кнопками «Свой исторический лист… / Своё фото…».");
   if (okH && pair.historic.size && (S.nat.hist[0] !== pair.historic.size[0] || S.nat.hist[1] !== pair.historic.size[1]))
     warn.push(`Размер исторического файла ${S.nat.hist.join("×")} не совпадает с size ${pair.historic.size.join("×")} в JSON.`);
   if (okP && pair.photo.size && (S.nat.photo[0] !== pair.photo.size[0] || S.nat.photo[1] !== pair.photo.size[1]))
@@ -434,7 +432,14 @@ async function ownImage(which) {
 }
 $("histFile").onchange = () => ownImage("hist");
 $("photoFile").onchange = () => ownImage("photo");
-$("pairSel").onchange = async () => { S.urls = { hist: null, photo: null }; await usePair(await (await fetch(`pairs/${encodeURIComponent($("pairSel").value)}.json`)).json(), true); history.replaceState(null, "", "#" + $("pairSel").value); };
+$("pairSel").onchange = async () => {
+  const id = encodeURIComponent($("pairSel").value);
+  S.urls = { hist: null, photo: null };
+  await usePair(await (await fetch(`pairs/${id}.json`)).json(), true);
+  history.replaceState(null, "", "#" + id);
+  const guided = new URLSearchParams(location.search).get("journey") === "1";
+  $("backToPair").href = "./" + (guided ? "?journey=1" : "") + "#" + id;
+};
 addEventListener("resize", renderPreview);
 
 (async function init() {

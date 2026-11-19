@@ -31,3 +31,6 @@
 
 - `paris-eiffel-1889.jpg` — Жорж-Феликс Гарен, «Эйфелева башня в огнях», 1889, Музей Карнавале, G.41013, CC0. https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/embrasement-de-la-tour-eiffel
 - `paris-eiffel-2026.jpg` — Aliva Sahoo, 24 июля 2026, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Eiffel_Tower_located_on_the_Champ_de_Mars_in_Paris,_France.jpg
+
+- `rome-pantheon-1752.jpg` — Джузеппе Вази, «Площадь Ротонды», 1752, лист 25 из «Великолепия древнего и современного Рима». [Викисклад](https://commons.wikimedia.org/wiki/File:Piazza_della_Rotonda_-_Plate_025_-_Giuseppe_Vasi.jpg), общественное достояние. Файл скопирован без изменений.
+- `rome-pantheon-2025.jpg` — Van Der Meulen Christofle, 3 марта 2025 года, [Викисклад](https://commons.wikimedia.org/wiki/File:Ext%C3%A9rieur_du_Panth%C3%A9on_%C3%A0_Rome.jpg), CC0. Копия уменьшена для экрана.

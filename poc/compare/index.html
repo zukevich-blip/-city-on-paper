@@ -68,7 +68,7 @@ header .jumpcompare{display:none!important}
 .vswitch button b{font:600 16px Georgia,serif}.vswitch button small{font:11px/1.2 system-ui,sans-serif;color:#6f6f63}
 .vswitch button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}.vswitch button[aria-pressed=true] small{color:#d9cfbb}
 .vswitch button:disabled{opacity:.45;cursor:not-allowed}
-@media(max-width:560px){.vswitch{grid-template-columns:repeat(4,1fr);gap:4px}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{display:none}.top .poc{display:none}}
+@media(max-width:560px){.vswitch{grid-template-columns:repeat(4,1fr);gap:4px}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}.top .poc{display:none}}
 .viewcap{font:14px/1.55 system-ui,sans-serif;color:#3b443d;margin:4px 0 10px;min-height:1.5em}
 #viewerModes::before{content:"Другие способы сравнить";flex-basis:100%;font:600 11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8c6e41;margin-top:6px}
 html[lang=en] #viewerModes::before{content:"Other ways to compare"}
@@ -93,6 +93,11 @@ table{border-collapse:collapse;font-size:13px} td,th{border:1px solid var(--line
 .jumpcompare{display:inline-flex;min-height:44px;align-items:center;margin:0 0 12px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;font:14px system-ui,sans-serif;text-decoration:none;background:var(--panel)}
 footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 .noscript{border:2px solid var(--bad);background:var(--panel);padding:12px;font:15px/1.5 system-ui,sans-serif;margin:12px 0}
+.pair-links{display:flex;flex-wrap:wrap;gap:6px 10px;margin:10px 0}
+.pair-links a{display:inline-flex;align-items:center;min-height:44px;padding:6px 12px;border:1px solid #b9ab94;background:#fffdf7;color:#284438;border-radius:4px;text-underline-offset:3px;font:600 13px system-ui}
+.pair-links a:hover{background:#f5e9d4}
+@media(prefers-reduced-motion:no-preference){.journey-prompt.scene-enter{animation:scene-enter 220ms ease-out both}}
+@keyframes scene-enter{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
 </head>
@@ -129,7 +134,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <button type="button" data-view="then" aria-pressed="false"><b data-i18n="v_then">Тогда</b><small data-i18n="v_then_h">рисунок эпохи</small></button>
     <button type="button" data-view="now" aria-pressed="false"><b data-i18n="v_now">Сейчас</b><small data-i18n="v_now_h">фото сегодня</small></button>
     <button type="button" data-view="fit" aria-pressed="false"><b data-i18n="v_fit">Совместить</b><small data-i18n="v_fit_h">по контуру здания</small></button>
-    <button type="button" data-view="slider" aria-pressed="true"><b data-i18n="v_slider">Шторка</b><small data-i18n="v_slider_h">двигайте границу</small></button>
+    <button type="button" data-view="originals" aria-pressed="false"><b data-i18n="v_originals">Шторка</b><small data-i18n="v_originals_h">без подгонки</small></button>
   </div>
   <p id="viewCaption" class="viewcap" role="status"></p>
   <div id="viewerModes" class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
@@ -151,6 +156,10 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     </div>
   </div>
   <p class="creditline" id="creditLine"></p>
+  <nav class="pair-links" aria-label="Карта и настройка сравнения" data-i18n-aria="pairLinks">
+    <a id="pairMap" hidden></a>
+    <a id="pairEditor" href="editor.html" data-i18n="editorLink">Настроить вручную</a>
+  </nav>
   <div class="sbs" id="sbs" hidden>
     <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
     <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
@@ -231,7 +240,7 @@ const T = {
     region: "Зона доверия", zoom: "Увеличить ×2.5", photoPct: "Фото, %", auto: "Авто", helpSum: "Как читать вердикт",
     then: "Тогда", now: "Сейчас", capHist: "Историческое изображение — без изменений", capPhoto: "Фото — оригинал, без коррекции",
     creditsSum: "Источники, права и параметры совмещения", footer: "Город на бумаге · Сравнения и первоисточники.",
-    editorLink: "Редактор контрольных точек", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
+    editorLink: "Настроить вручную", pairLinks: "Карта и настройка сравнения", v_originals: "Шторка", v_originals_h: "без подгонки", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
     alignTitle: "Переключить фото между оригиналом и совмещённым видом",
     badgeOn: "Геометрия фото скорректирована · обратимо", badgeOff: "Фото без коррекции",
     handle: "Граница между историческим изображением и фото",
@@ -263,7 +272,7 @@ const T = {
     region: "Trust zone", zoom: "Zoom ×2.5", photoPct: "Photo, %", auto: "Auto", helpSum: "How to read the verdict",
     then: "Then", now: "Now", capHist: "Historic image — unaltered", capPhoto: "Photo — original, uncorrected",
     creditsSum: "Sources, rights and alignment parameters", footer: "City on Paper · Comparisons and sources.",
-    editorLink: "Control-point editor", alignOn: "Photo: aligned", alignOff: "Photo: original",
+    editorLink: "Adjust manually", pairLinks: "Map and comparison settings", v_originals: "Slider", v_originals_h: "original views", alignOn: "Photo: aligned", alignOff: "Photo: original",
     alignTitle: "Toggle the photo between the original and the aligned view",
     badgeOn: "Photo geometry adjusted · reversible", badgeOff: "Photo not corrected",
     handle: "Boundary between the historic image and the photo",
@@ -345,11 +354,11 @@ function agentsLine(){
 function captionFor(v){
   const hy = yearsOf(pair.historic.date), py = String(pair.photo.date || "").slice(0, 4), who = agentsLine();
   if (lang === "en") return ({ then: `The print, ${hy}. ${who}`, now: `The same place today${py ? ", " + py : ""}. Photo: ${pair.photo.author || ""}`,
-    fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", slider: "Drag the border: left — the print, right — the photo.", adv: "" })[v] || "";
+    fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", slider: "Drag the border: left — the print, right — the photo.", originals: "Move the divider to compare both images as they are. The photo keeps its original perspective.", adv: "" })[v] || "";
   return ({ then: `Рисунок эпохи, ${hy}.${who ? " " + who + "." : ""}`,
     now: `То же место сегодня${py ? ", " + py : ""}. Фото: ${pair.photo.author || "—"}.`,
     fit: "Фото подогнано под рисунок и наложено поверх. Рисунок не меняется. Ползунок — прозрачность.",
-    slider: "Двигайте границу: слева — рисунок, справа — фото.", adv: "" })[v] || "";
+    slider: "Двигайте границу: слева рисунок, справа фото.", originals: "Двигайте границу между двумя изображениями. Перспектива фотографии сохранена.", adv: "" })[v] || "";
 }
 function syncView(){
   if (!pair) return;
@@ -360,10 +369,11 @@ function syncView(){
   if (["then", "now", "fit"].includes(view)) $("opacityCtl").hidden = view !== "fit";
 }
 function setView(v){
-  if (v === "fit" && !canAlign()) return;
+  if (!pair || (v === "fit" && !canAlign())) return;
   view = v; stopFlicker(); userMode = true;
   $("stage").classList.toggle("nowonly", v === "now");
-  if (v === "slider") { mode = "slider"; if (aligned === false && canAlign() && pair.alignment.confidence !== "low") aligned = true; }
+  if (v === "originals") { mode = "slider"; aligned = false; }
+  else if (v === "slider") { mode = "slider"; if (aligned === false && canAlign() && pair.alignment.confidence !== "low") aligned = true; }
   else { mode = "opacity"; $("opacity").value = v === "then" ? 0 : v === "now" ? 100 : 55; aligned = v === "fit"; }
   renderMeta(); layout(); syncView();
 }
@@ -513,7 +523,8 @@ async function loadPair(id){
     const xs = region.map(point => point[0]);
     split = 50 * (Math.min(...xs) + Math.max(...xs)) / pair.historic.size[0];
   }
-  if (!userMode) { mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider"; view = mode === "slider" ? "slider" : "adv"; }
+  if (!userMode && view === "originals") { mode = "slider"; view = "originals"; }
+  else if (!userMode) { mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider"; view = mode === "slider" ? "slider" : "adv"; }
   else if (view !== "adv" && view !== "slider") view = "slider";
   $("stage").classList.remove("nowonly");
   imgFailed.hist = imgFailed.photo = false; showImgError();
@@ -545,6 +556,10 @@ function renderJourney(idx, id) {
   if (!on) return;
 
   $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${idx.places?.[id]?.city || ""}`;
+  const prompt = $("journeyPrompt");
+  prompt.classList.remove("scene-enter");
+  void prompt.offsetWidth;
+  prompt.classList.add("scene-enter");
   $("journeyTitle").textContent = scene.title;
   $("journeyQuestion").textContent = scene.question;
   $("journeyAnswer").textContent = scene.answer;
@@ -568,7 +583,16 @@ async function init(){
   const q = new URLSearchParams(location.search);
   if (MODES.includes(q.get("mode"))) { mode = q.get("mode"); userMode = true; }
   const show = id => {
+    const place = idx.places?.[id];
+    const map = $("pairMap"), path = place?.map_path;
+    map.hidden = !/^[a-z0-9-]+\/Q[0-9]+$/.test(path || "");
+    if (!map.hidden) {
+      map.href = "../../eras/#/epoch/" + path;
+      map.textContent = place.map_label;
+    }
+    $("pairEditor").href = "editor.html" + (q.get("journey") === "1" ? "?journey=1" : "") + "#" + encodeURIComponent(id);
     renderJourney(idx, id);
+    if (!userMode) view = place?.guide_view === "originals" && document.body.classList.contains("guided") ? "originals" : "slider";
     return loadPair(id);
   };
   const onLoadError = err => { $("verdict").textContent = t("loadErr") + err; };
@@ -586,7 +610,7 @@ async function init(){
     }
   });
   await show(sel.value);
-  if (["then", "now", "fit", "slider"].includes(q.get("view"))) setView(q.get("view"));
+  if (["then", "now", "fit", "slider", "originals"].includes(q.get("view"))) setView(q.get("view"));
   if (q.get("aligned") === "0") { aligned = false; renderMeta(); layout(); }
   if (q.get("split") && isFinite(+q.get("split"))) { split = Math.max(0, Math.min(100, +q.get("split"))); applyMode(); }
   if (q.get("opacity") && isFinite(+q.get("opacity"))) { $("opacity").value = q.get("opacity"); applyMode(); }
@@ -595,7 +619,11 @@ async function init(){
 document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; userMode = true; stopFlicker(); view = mode === "slider" ? "slider" : "adv"; $("stage").classList.remove("nowonly"); layout(); syncView(); });
 document.querySelectorAll("[data-view]").forEach(b => b.onclick = () => setView(b.dataset.view));
 $("langBtn").onclick = () => { lang = lang === "en" ? "ru" : "en"; try { localStorage.setItem("cop-lang", lang); } catch { /* ignore */ } applyLang(); };
-$("alignBtn").onclick = () => { aligned = !aligned; renderMeta(); layout(); };
+$("alignBtn").onclick = () => {
+  if (view === "originals") view = "slider";
+  aligned = !aligned;
+  renderMeta(); layout(); syncView();
+};
 $("regionBtn").onclick = () => { showRegion = !showRegion; $("regionBtn").setAttribute("aria-pressed", showRegion); layout(); };
 $("zoomBtn").onclick = () => { const z = $("zoomwrap").classList.toggle("zoomed"); $("zoomBtn").setAttribute("aria-pressed", z); layout(); };
 $("opacity").oninput = applyMode;
