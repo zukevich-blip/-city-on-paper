@@ -125,8 +125,10 @@ async function viewerChecks(browser, vp) {
   // by a small landscape photograph in the middle of its tall sheet.
   await page.goto(`${base}?view=originals#paris-eiffel`, { waitUntil: "networkidle" });
   await page.waitForFunction(() =>
-    document.querySelector("#independentNow")?.complete &&
-    document.querySelector("#independentNow")?.naturalWidth > 0);
+    document.querySelector('[data-view="originals"]')?.getAttribute("aria-pressed") === "true" &&
+    document.querySelector("#independentNow")?.naturalWidth > 0 &&
+    document.querySelector("#independentOld")?.naturalWidth > 0 &&
+    document.querySelector("#stage")?.classList.contains("dual-originals"));
   const eiffel = await page.evaluate(() => {
     const stage = document.querySelector("#stage");
     const dual = document.querySelector("#independentFrames");
