@@ -1,12 +1,11 @@
 /* Книга видов — печатный альбом на телефоне. Один хребет: обложка → оглавление → страна → город → лист. */
 :root{
-  --paper:#f7f3ea;--page:#fffaf0;--ink:#272e28;--muted:#5d5a4d;--green:#23493d;--green-2:#2f5a4c;--rust:#8d4b36;
-  --sand:#e8dcc4;--line:#d3c4ad;--shadow:0 8px 24px #4535251f;
-  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  --paper:var(--lt-paper);--page:var(--lt-page);--ink:var(--lt-ink);--muted:var(--lt-ink-2);--green:var(--lt-green);--rust:var(--lt-brick);
+  --sand:var(--lt-wash);--line:var(--lt-rule);--shadow:0 8px 24px #4b36201f;--serif:var(--lt-serif);--sans:var(--lt-sans);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--sans);overflow-wrap:break-word}
+body{margin:0;background:var(--lt-paper) var(--lt-grain);color:var(--ink);font:16px/1.55 var(--sans);overflow-wrap:break-word}
 a{color:var(--green);text-underline-offset:3px}
 img{max-width:100%;height:auto}
 .skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:50}.skip:focus{left:8px}
@@ -32,8 +31,7 @@ h3{font-size:20px}
 .rule{height:1px;background:var(--line);border:0;margin:26px 0}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 18px;border:1px solid var(--green);background:var(--green);color:#fff9ed;font:700 15px var(--sans);text-decoration:none;border-radius:4px;cursor:pointer}
-.btn.ghost{background:transparent;color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 18px;border:1px solid var(--green);font:700 15px var(--sans);text-decoration:none;cursor:pointer}
 .btn.wide{width:100%}
 .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
 
@@ -145,3 +143,37 @@ h3{font-size:20px}
 .outro{font:italic 17px/1.5 var(--serif);margin:18px 0}
 .archive{margin:14px 0}.archive summary{list-style:none;cursor:pointer}.archive summary::-webkit-details-marker{display:none}.archive ul{padding-left:18px}.archive li{margin:6px 0}
 @media(min-width:700px){.view{grid-template-columns:1fr 1fr}.view .vimg img{height:100%;aspect-ratio:auto}}
+
+/* lithograph styling of the book */
+.bk-top{background:var(--lt-page) var(--lt-grain);border-bottom:1px double var(--lt-sepia)}
+.cover{position:relative;margin:18px 0 6px;padding:26px 20px 20px;text-align:center;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain);box-shadow:var(--shadow)}
+.cover::before{content:"";position:absolute;inset:5px;border:1px solid var(--lt-rule);pointer-events:none}
+.cover h1{font-weight:400;letter-spacing:.04em;text-transform:uppercase;font-size:clamp(28px,8vw,46px)}
+.cover .lede{margin-left:auto;margin-right:auto}.cover .stats{justify-content:center}.cover .btn-row{justify-content:center}
+.eyebrow{letter-spacing:.2em}
+h2{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(18px,5vw,24px)}
+h2::before,h2::after{content:"";flex:1;height:1px;background:var(--lt-rule);min-width:14px}
+h2::before{display:none}
+.preface,.feat,.view,.card,.pl,.fact,.ans{background:var(--lt-page) var(--lt-grain)}
+.preface{border-color:var(--lt-sepia);position:relative}.preface::before{content:"";position:absolute;inset:4px;border:1px solid var(--lt-rule);pointer-events:none}
+.feat img,.view .vimg img,.pl img,.card img{filter:sepia(.12) contrast(1.02)}
+.plate figure.lt-sheet{padding:18px 12px 12px}
+.plate .lt-print img{max-height:72vh;object-fit:contain;width:100%;background:var(--lt-wash)}
+.plate h1{font-weight:400;text-align:center;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(20px,5.6vw,30px);margin:18px 0 6px}
+.plate .eyebrow{text-align:center}
+.chead{position:relative;text-align:center;margin:18px 0 6px;padding:22px 16px 16px;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain)}
+.chead::before{content:"";position:absolute;inset:5px;border:1px solid var(--lt-rule);pointer-events:none}
+.chead h1{font-weight:400;letter-spacing:.06em;text-transform:uppercase}.chead .counts{justify-content:center}
+.dock{background:#f6eed9f2;border-top:1px double var(--lt-sepia)}
+.dock .btn:not(.ghost){background:linear-gradient(#456b52,#355a43)}
+.sr-title{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Benoist hub: the signature explainer */
+.theme{display:grid;gap:4px;margin:20px 0 4px;padding:16px 18px;text-decoration:none;color:inherit;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain);position:relative;box-shadow:var(--shadow)}
+.theme::before{content:"";position:absolute;inset:4px;border:1px solid var(--lt-rule);pointer-events:none}
+.theme b{font:400 26px var(--lt-serif);letter-spacing:.06em;text-transform:uppercase}.theme span:last-child{font-size:15px;color:var(--lt-ink-2)}
+.sign .lt-print{position:relative}
+.hot{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:2px solid var(--lt-brick);background:#fbf5e4ee;color:var(--lt-brick);font:700 13px var(--lt-sans);cursor:pointer;padding:0;box-shadow:0 0 0 3px #fbf5e4aa}
+.hot[aria-pressed=true]{background:var(--lt-brick);color:#fff}
+.hot:focus-visible{outline:3px solid var(--lt-gold);outline-offset:3px}
+@media(pointer:coarse){.hot{width:40px;height:40px;font-size:15px}}

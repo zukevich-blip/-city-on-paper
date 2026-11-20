@@ -55,6 +55,12 @@ const views = [
     await next.click();
     await page.waitForFunction(t => document.querySelector(".plate h1") && document.querySelector(".plate h1").innerText !== t, title);
     check(`${v.name}: next opens another plate`, true);
+    await page.goto(base + "#/benoist", { waitUntil: "networkidle" });
+    await page.waitForSelector(".hot");
+    check(`${v.name}: Benoist page explains the signature, lists cities and opens a note on tap`,
+      (await page.locator(".hot").count()) === 5 && (await page.locator(".toc li").count()) >= 5);
+    await page.locator(".hot").nth(3).click();
+    check(`${v.name}: tapping a number reads that inscription`, /Lemercier/.test(await page.locator("#signNote").innerText()) && noScroll && (await noScroll()));
     await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
     check(`${v.name}: no console/page errors`, errors.length === 0, errors.slice(0, 2).join(" | "));

@@ -30,3 +30,8 @@
 .mixctl label{display:flex;justify-content:space-between;gap:10px;font:600 14px system-ui,sans-serif}
 .mixctl input[type=range]{width:100%;min-height:44px;margin:4px 0}
 .mixends{display:flex;justify-content:space-between;font:12px system-ui,sans-serif;color:#5b5143}
+
+/* lithograph frame for the old-map overlay slider */
+.mixctl{position:relative;border:1px solid var(--lt-sepia,#7a5a36);background:var(--lt-page,#fbf5e4) var(--lt-grain,none);padding:12px 16px}
+.mixctl::before{content:"";position:absolute;inset:3px;border:1px solid var(--lt-rule,#b8a57f);pointer-events:none}
+.mixctl label{font:700 11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--lt-brick,#8d4b36)}

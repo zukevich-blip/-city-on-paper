@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тогда / Сейчас — прототип</title>
 <meta name="description" content="Сравните старинную литографию с современным снимком: режимы шторки и рядом, точное указание источников, проверка совпадения ракурсов.">
+<link rel="stylesheet" href="../../assets/litho/litho.css">
 <style>
 :root{
   --paper:#f4efe4; --ink:#2b241c; --muted:#6d6254; --line:#d8cdb8; --accent:#8a3b1e;
@@ -183,6 +184,20 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
 .stage.dual-originals .handle{width:48px;margin-left:-24px}
 }
 @media(max-width:700px){#stage,#zoomwrap{scroll-margin-top:64px}}
+
+/* lithograph styling of the comparison tools */
+.vswitch button{border:1px solid var(--lt-sepia);border-radius:2px;background:var(--lt-page) var(--lt-grain);position:relative;color:var(--lt-ink)}
+.vswitch button::after{content:"";position:absolute;inset:3px;border:1px solid #7a5a3638;pointer-events:none}
+.vswitch button[aria-pressed=true]{background:linear-gradient(#456b52,#355a43);border-color:#2a4636;color:#fbf5e4;box-shadow:0 2px 0 #1f3629}
+.vswitch button[aria-pressed=true] small{color:#e8dfc4}
+#opacityCtl{position:relative;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain);padding:4px 14px}
+#opacityCtl::before{content:"";position:absolute;inset:3px;border:1px solid var(--lt-rule);pointer-events:none}
+#opacityCtl label{font:700 11px var(--lt-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lt-brick);white-space:nowrap}
+.stage{border:1px solid var(--lt-sepia)!important;box-shadow:0 0 0 4px var(--lt-page),0 0 0 5px var(--lt-sepia),0 10px 24px #4b362026}
+.handle::before{background:#fbf5e4!important;box-shadow:0 0 0 1px #7a5a36,0 0 10px #0006!important}
+.handle span{background:radial-gradient(circle at 35% 30%,#fffaf0,#e8d9b0 62%,#c9b27a)!important;border:1px solid #7a5a36!important;color:#3b2f22!important;box-shadow:0 0 0 3px #fbf5e4,0 0 0 4px #7a5a36,0 3px 10px #0007!important}
+.journey-prompt{border-left-color:var(--lt-brick)!important;background:var(--lt-page) var(--lt-grain)!important}
+.journey-prompt h2{font-family:var(--lt-serif);font-weight:400;letter-spacing:.04em}
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
 <script src="homography.js"></script>
