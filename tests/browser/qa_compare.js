@@ -90,6 +90,36 @@ async function viewerChecks(browser, vp) {
     if (id === "madeleine-ph-benoist" || vp.name === "desktop-1440")
       await shot(page, `${vp.name}-${id}-slider.jpg`, { fullPage: vp.name === "iphone-390" || vp.name === "ipad-820" });
   }
+
+  // The new museum curtain must remain legible and truthful across aspect ratios.
+  await page.goto(`${base}?view=originals#rome-pantheon-vasi`, { waitUntil: "networkidle" });
+  await page.waitForFunction(() => document.querySelector("#photoLayer")?.style.transform !== "");
+  const visual = await page.evaluate(() => {
+    const h = document.querySelector("#histImg"), p = document.querySelector("#photoImg");
+    const stage = document.querySelector("#stage"), caption = document.querySelector("#splitReadout");
+    return { old: h.naturalWidth > 0, photo: p.naturalWidth > 0,
+      preserved: getComputedStyle(h).transform === "none" &&
+        getComputedStyle(h).objectFit !== "cover" && getComputedStyle(p).objectFit !== "cover",
+      caption: caption?.textContent || "", ratio: document.querySelector("#ratioHint")?.textContent || "",
+      scroll: document.documentElement.scrollWidth <= innerWidth,
+      frameWidth: stage.getBoundingClientRect().width, viewport: innerWidth };
+  });
+  check(`${vp.name}: paper-framed curtain preserves both originals and viewport`,
+    visual.old && visual.photo && visual.preserved && visual.scroll && visual.frameWidth <= visual.viewport,
+    JSON.stringify(visual));
+  check(`${vp.name}: curtain identifies historic left / photo right and explains formats`,
+    /Слева рисунок.*справа фото/.test(visual.caption) && visual.ratio.length > 35);
+  await page.locator("#showThen").click();
+  check(`${vp.name}: one tap reveals the whole historic print`,
+    await page.locator('[data-view="then"]').getAttribute("aria-pressed") === "true");
+  await page.locator("#showNow").click();
+  check(`${vp.name}: one tap reveals the entire photo`,
+    await page.locator('[data-view="now"]').getAttribute("aria-pressed") === "true");
+  await page.locator('[data-view="originals"]').click();
+  check(`${vp.name}: back to original curtain without historical distortion`,
+    await page.locator("#handle").isVisible() &&
+    await page.locator("#photoLayer").evaluate(el => el.style.transform.startsWith("translate")));
+
   // interactions on the real Madeleine pair (verdict low: local fit, opens unaligned)
   await page.goto(`${base}#madeleine-ph-benoist`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.getElementById("photoLayer").style.transform !== "");
