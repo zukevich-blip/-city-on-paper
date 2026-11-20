@@ -23,6 +23,7 @@ on:
       - 'atlas/**'
       - 'assets/hybrid/**'
       - 'assets/nav/**'
+      - 'assets/litho/**'
       - 'journeys/**'
       - 'detective/**'
       - 'studio/**'
@@ -191,6 +192,7 @@ jobs:
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp -R assets/hybrid /tmp/city-on-paper-package/assets/
+          cp -R assets/litho /tmp/city-on-paper-package/assets/
           cp -R assets/web /tmp/city-on-paper-package/assets/
           cp -R assets/story /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
