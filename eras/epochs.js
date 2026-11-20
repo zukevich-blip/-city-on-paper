@@ -81,6 +81,7 @@ window.Epochs = (() => {
         <img data-verified-raw alt="" decoding="async" hidden>
         <div class="ep-verified-mask" hidden><img data-verified-fit alt="" decoding="async"></div>
         <div class="ep-verified-curtain" hidden><img data-verified-curtain alt="" decoding="async"></div>
+        <div class="ep-verified-dual" hidden><div class="ep-verified-dual-old"><img data-verified-frame-old alt="" decoding="async"></div><div class="ep-verified-dual-new"><img data-verified-frame-now alt="" decoding="async"></div></div>
         <svg class="ep-verified-outline" aria-hidden="true" hidden><polygon fill="none" stroke="#fff7dc" stroke-width="2" stroke-dasharray="5 3" vector-effect="non-scaling-stroke"/></svg>
         <div class="ep-verified-handle" role="slider" tabindex="0" aria-label="Слева исторический вид, справа фотография" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">‹  ›</span></div>
       </div>
@@ -91,6 +92,7 @@ window.Epochs = (() => {
     const picker = get("[data-verified-pair]");
     const stage = get(".ep-verified-stage"), mask = get(".ep-verified-mask");
     const outline = get(".ep-verified-outline"), curtain = get(".ep-verified-curtain");
+    const dual = get(".ep-verified-dual"), dualOld = get("[data-verified-frame-old]"), dualNew = get("[data-verified-frame-now]");
     const handle = get(".ep-verified-handle");
     const old = get("[data-verified-old]"), raw = get("[data-verified-raw]");
     const fit = get("[data-verified-fit]"), curtainImage = get("[data-verified-curtain]");
@@ -104,10 +106,16 @@ window.Epochs = (() => {
     function show() {
       const fitAllowed = canOverlay(current);
       if (!fitAllowed && mode === "fit") mode = "curtain";
-      old.hidden = mode === "now";
+      old.hidden = mode === "now" || mode === "curtain";
       raw.hidden = mode !== "now";
+      stage.classList.toggle("independent-view", mode === "curtain");
+      dual.hidden = mode !== "curtain";
+      stage.style.setProperty("--verified-left", split + "%");
+      dual.querySelector(".ep-verified-dual-old").hidden = split <= 0;
+      dual.querySelector(".ep-verified-dual-new").hidden = split >= 100;
       mask.hidden = outline.hidden = mode !== "fit";
-      curtain.hidden = handle.hidden = mode !== "curtain";
+      curtain.hidden = true;
+      handle.hidden = mode !== "curtain";
       curtain.style.clipPath = `inset(0 0 0 ${split}%)`;
       handle.style.left = split + "%";
       handle.setAttribute("aria-valuenow", String(Math.round(split)));
@@ -131,9 +139,10 @@ window.Epochs = (() => {
       const [w, h] = historic.size;
       const [pw, ph] = photo.size;
       stage.style.setProperty("--ep-frame-ratio", String(w / h));
-      old.src = pairFolder + historic.file;
-      old.alt = historic.title;
-      raw.src = fit.src = curtainImage.src = pairFolder + photo.file;
+      old.src = dualOld.src = pairFolder + historic.file;
+      old.alt = dualOld.alt = historic.title;
+      raw.src = fit.src = curtainImage.src = dualNew.src = pairFolder + photo.file;
+      dualNew.alt = "Современное фото целиком: " + photo.title;
       raw.alt = photo.title;
       curtainImage.alt = "Фото без геометрической подгонки: " + photo.title;
       fit.alt = "Подогнанное по опорным точкам фото: " + photo.title;
@@ -319,6 +328,7 @@ window.Epochs = (() => {
         <p class="ep-caution" id="epCaution">Оба кадра без искажения. Положение шторки не означает точного совпадения ракурса.</p>
          <p class="ep-curtain-readout" id="epReadout" role="status">Слева исторический вид · справа новый вид</p>
         <div class="epstage" id="epstage"><img id="epImB" alt=""><div class="epTop" id="epTop"><img id="epImA" alt=""></div>
+          <div class="ep-independent" id="epIndependent" hidden><div class="ep-independent-old" id="epIndependentOld"><img id="epFullA" alt=""></div><div class="ep-independent-new" id="epIndependentNew"><img id="epFullB" alt=""></div></div>
           <div class="eph" id="epH2" role="slider" tabindex="0" aria-label="Граница сравнения: стрелки влево и вправо" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⇆</span></div>
           <span class="tag l" id="epTagA"></span><span class="tag r" id="epTagB"></span></div>
         <div class="ep-side" id="epSide" hidden>
@@ -365,6 +375,11 @@ window.Epochs = (() => {
     const showMode = () => {
       const side = mode === "side", op = mode === "opacity", flip = mode === "flip";
       st.hidden = side;
+      st.classList.toggle("independent-view", mode === "slider");
+      $("epIndependent").hidden = mode !== "slider";
+      st.style.setProperty("--ep-independent-left", ratio + "%");
+      $("epIndependentOld").hidden = ratio <= 0;
+      $("epIndependentNew").hidden = ratio >= 100;
       $("epSide").hidden = !side;
       $("epAmountWrap").hidden = side || flip;
       $("epFlipBtn").hidden = !flip;
@@ -411,7 +426,8 @@ window.Epochs = (() => {
     const upd = () => {
       const A = fs[a], B = fs[b];
       const ia = $("epImA"), ib = $("epImB");
-      ia.src = A.img; ia.alt = `Было: ${lab(A)} — ${A.label}`; ib.src = B.img; ib.alt = `Стало: ${lab(B)} — ${B.label}`;
+      ia.src = $("epFullA").src = A.img; ia.alt = $("epFullA").alt = `Было: ${lab(A)} — ${A.label}`;
+      ib.src = $("epFullB").src = B.img; ib.alt = $("epFullB").alt = `Стало: ${lab(B)} — ${B.label}`;
       $("epSideA").src = A.img; $("epSideA").alt = ia.alt;
       $("epSideB").src = B.img; $("epSideB").alt = ib.alt;
       $("epSideCapA").textContent = `${lab(A)} · ${A.label}`;
