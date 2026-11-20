@@ -39,6 +39,11 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    if(await p.locator("#regionButtons button").count()!==7)throw Error(label+": atlas lacks six world regions");
    if(await p.locator("#cityGrid .city").count()<10)throw Error(label+": city atlas has fewer than 10 real city cards");
    await p.waitForFunction(()=>[...document.querySelectorAll("#cityGrid .city img")].slice(0,12).some(i=>i.complete&&i.naturalWidth>80),null,{timeout:30000});
+   await p.waitForFunction(()=>document.querySelectorAll("#worldComparisonCards .comparison-card").length===13,null,{timeout:30000});
+   const comparisons=await p.locator("#worldComparisonCards .comparison-card").count();
+   if(comparisons!==13)throw Error(label+": expected 13 sourced historical/photo comparison pairs, got "+comparisons);
+   if((await p.locator('#worldComparisonCards a[href*="synthetic-"]').count())!==0)
+     throw Error(label+": synthetic QA scenes leaked into the public gallery");
    await p.locator("#journey").click();
    if(await p.locator("#route").isHidden()||await p.locator("#routeGrid a").count()<3)throw Error(label+": multi-region journey did not open");
    await p.screenshot({path:outDir+"/"+label+"-artifact-world-atlas.jpg",type:"jpeg",quality:70});
