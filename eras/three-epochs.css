@@ -42,3 +42,45 @@
 .ep-verified-caption,.ep-verified-credits{font:13px/1.55 system-ui;overflow-wrap:anywhere}
 .ep-verified-credits p{margin:3px 0}
 @media(max-width:750px){.cp3-selects{grid-template-columns:1fr;gap:8px}.cp3-sources{grid-template-columns:1fr}.cp3-stage{height:min(70vw,440px);min-height:210px}.cp3{margin-top:18px}.cp3-ends button{min-width:0;flex:1;padding:6px 2px;font-size:12px}.cp3-title h2{font-size:27px}}
+
+
+/* Shared museum language: three-image timelines and evidence-aware comparisons. */
+.cp3{padding:24px 0 28px;border-top:1px solid #cfc0a9}
+.cp3-title h2{font:normal clamp(26px,3.4vw,36px)/1.2 Georgia,serif;color:#293f33}
+.cp3-selects select{border-radius:9px;min-height:48px;background:#fffaf1;border-color:#cbbb9f}
+.cp3-stage{background:repeating-linear-gradient(135deg,#e3d7c5,#e3d7c5 12px,#ede4d7 12px,#ede4d7 24px);border:8px solid #fff8eb;outline:1px solid #c9baa3;border-radius:9px;box-shadow:0 15px 35px #1f2f2530;isolation:isolate}
+.cp3-guide{width:3px;background:#fff9eb;box-shadow:0 0 0 1px #243e32,0 0 14px #0009}
+.cp3-guide span{border:3px solid #fffaf0;box-shadow:0 4px 14px #0008;width:50px;height:50px}
+.cp3-ends{gap:10px}.cp3-ends button{border-radius:10px;background:#fff9ef;border-color:#c9b69a;font-weight:600}
+.cp3-ends button:hover{background:#e9e2d3}
+.cp3-phase{font:600 14px/1.5 system-ui,sans-serif;color:#294438;background:#e9eadf;border-radius:9px;padding:12px;margin:9px 0}
+.cp3-caution{border-radius:9px}
+.ep-verified{padding:clamp(14px,3vw,26px);border:1px solid #d0bea4;border-radius:16px;background:#f8f2e7;box-shadow:0 7px 30px #223c2811}
+.ep-verified h2{font:normal clamp(25px,3.3vw,38px)/1.15 Georgia,serif;color:#264334}
+.ep-verified-intro{font:14px/1.7 system-ui;color:#516455;margin:4px 0 15px;max-width:780px}
+.ep-verified-choice{max-width:620px}
+.ep-verified-choice select{border-radius:9px;min-height:48px}
+.ep-verified-modes{max-width:none;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:15px}
+.ep-verified-modes button{border-radius:10px;font:600 14px/1.3 system-ui;background:#fffcf7;border:1px solid #c7b49a;min-height:48px}
+.ep-verified-modes button[aria-pressed=true]{background:#244437;color:#fff9eb;box-shadow:0 4px 13px #233d3027}
+.ep-verified-modes button:disabled{opacity:.45;cursor:not-allowed}
+.ep-verified-stage{border:7px solid #fff9ed;outline:1px solid #cbbaa0;border-radius:8px;background:repeating-linear-gradient(135deg,#e2d8ca,#e2d8ca 11px,#f0e6d9 11px,#f0e6d9 22px);box-shadow:0 16px 35px #17291e34;isolation:isolate}
+.ep-verified-curtain{position:absolute;inset:0;overflow:hidden}
+.ep-verified-curtain>img{width:100%;height:100%;object-fit:contain;display:block}
+.ep-verified-handle{position:absolute;top:0;bottom:0;z-index:3;width:48px;margin-left:-24px;display:flex;justify-content:center;cursor:ew-resize;touch-action:none}
+.ep-verified-handle::before{content:"";display:block;width:3px;background:#fff8df;box-shadow:0 0 0 1px #294739,0 0 13px #001a}
+.ep-verified-handle span{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;border:3px solid #fffaf0;border-radius:50%;background:#fbf7ec;color:#25483b;width:47px;height:47px;box-shadow:0 3px 17px #0018;font:700 19px system-ui}
+.ep-verified-legend{display:flex;justify-content:space-between;gap:12px;max-width:min(100%,46rem);margin:12px auto 0;font:700 11px/1.4 system-ui;color:#405b4a;letter-spacing:.07em}
+.ep-verified-caption{max-width:min(100%,46rem);margin:8px auto 12px;color:#546050}
+.ep-verified-credits{max-width:46rem;margin:auto;padding-top:10px;border-top:1px solid #d4c6b2}
+.ep-verified-credits a{color:#7a482d;text-underline-offset:3px}
+@media(max-width:650px){
+ .cp3-stage{border-width:4px}
+ .cp3-ends button{font-size:11px;padding:6px 3px}
+ .ep-verified-modes{gap:5px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ep-verified-modes button{font-size:13px}
+ .ep-verified-stage{border-width:4px}
+ .ep-verified-handle span{width:43px;height:43px}
+ .ep-verified-intro{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.ep-verified-modes button{transition:none}}
