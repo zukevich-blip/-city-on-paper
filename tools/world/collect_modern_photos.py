@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Collect the newest openly licensed modern photographs around known places from Wikimedia Commons.
 
-For every target (a landmark with a search centre) it asks the Commons geosearch for files within a radius,
+For every target (a landmark with a search centre) it asks Commons search for the newest uploads within a radius,
 reads their EXIF date, camera direction (GPSImgDirection) and licence from the file record and keeps only
 files that are: JPEG, ≥ 1200 px wide, free licence (CC0 / public domain / CC BY / CC BY-SA), shot in or after 2012.
 Nothing is invented: date, author, licence and direction come from the Commons record of the file.
@@ -204,13 +204,30 @@ def rank_key(c: dict) -> tuple:
     return (c["taken"], 1 if err is not None and err <= 35 else 0, c["width"])
 
 
-def collect(target: dict, limit: int = 10) -> list[dict]:
-    data = get({"action": "query", "generator": "geosearch", "ggscoord": f"{target['lat']}|{target['lon']}",
-                "ggsradius": target["radius"], "ggsnamespace": 6, "ggslimit": 100,
-                "prop": "coordinates|imageinfo", "coprop": "type", "iiprop": "url|extmetadata|size|mime|metadata",
-                "iiurlwidth": 1280})
-    pages = (data.get("query") or {}).get("pages") or []
-    found = [c for c in (candidate_from_page(p, target) for p in pages) if c]
+def collect(target: dict, limit: int = 10, pages: int = 3) -> list[dict]:
+    """Newest uploads first: CirrusSearch ``nearcoord:`` filter + ``create_timestamp_desc`` sort.
+
+    (Plain geosearch returns the 100 files *closest* to the point, which are mostly old or unrelated.)
+    """
+    found: list[dict] = []
+    seen: set[str] = set()
+    cont: dict = {}
+    for _ in range(pages):
+        data = get({"action": "query", "generator": "search", "gsrnamespace": 6, "gsrlimit": 50,
+                    "gsrsearch": f"nearcoord:{target['radius']}m,{target['lat']},{target['lon']} filetype:bitmap",
+                    "gsrsort": "create_timestamp_desc",
+                    "prop": "coordinates|imageinfo", "coprop": "type", "iiprop": "url|extmetadata|size|mime|metadata",
+                    "iiurlwidth": 1280, **cont})
+        for page in (data.get("query") or {}).get("pages") or []:
+            if page.get("title") in seen:
+                continue
+            seen.add(page.get("title"))
+            cand = candidate_from_page(page, target)
+            if cand:
+                found.append(cand)
+        cont = data.get("continue") or {}
+        if not cont:
+            break
     found.sort(key=rank_key, reverse=True)
     return found[:limit]
 
