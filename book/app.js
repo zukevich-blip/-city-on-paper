@@ -228,6 +228,14 @@
       <div class="btn-row"><a class="btn ghost" href="${esc(safe(p.url))}" target="_blank" rel="noopener noreferrer">Оригинал у хранителя ↗</a></div>
       ${dock(next ? { href: plateLink(next), t: next.title, small: `Лист ${next.n} из ${p.total}` } : { href: cityLink(c), t: "К главе города", small: "Это последний лист" }, prev ? { href: plateLink(prev), t: "Назад" } : { href: cityLink(c), t: c.name })}</article>`;
     if (hasGeo) mountMap("lmap", [p], p);
+    // swipe left/right turns the page (not while dragging the map)
+    const art = $app.querySelector(".plate"); let sx = null, sy = 0;
+    art.addEventListener("touchstart", (e) => { sx = e.target.closest(".lmap") ? null : e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    art.addEventListener("touchend", (e) => {
+      if (sx === null) return;
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null;
+      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) { const to = dx < 0 ? next : prev; if (to) location.hash = plateLink(to); }
+    }, { passive: true });
   }
 
   function notFound() {

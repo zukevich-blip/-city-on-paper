@@ -127,3 +127,7 @@ h3{font-size:20px}
 .story{margin:12px 0}.story summary{list-style:none;cursor:pointer}.story summary::-webkit-details-marker{display:none}
 .story h3{margin:18px 0 4px}.story p{margin:0 0 10px}
 .feat.pairc{border-color:var(--green)}.feat.pairc .where{color:var(--green)}
+
+/* no photo yet: a calm hatch instead of an empty grey block */
+.ph{background:repeating-linear-gradient(135deg,#eadfca 0 8px,#e3d6bd 8px 16px);display:grid;place-items:center;color:#7a6c53;font:600 12px var(--sans);text-align:center}
+.ph::after{content:"изображение у хранителя";padding:6px}
