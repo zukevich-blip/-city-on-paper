@@ -168,6 +168,21 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     const verifiedOld = verified.locator("[data-verified-old]");
     const verifiedPhoto = verified.locator("[data-verified-raw]");
     const originalSrc = await verifiedOld.getAttribute("src");
+    ok(`${vp.n} place: evidence-aware curtain is the default`,
+      await verified.locator('[data-verified-mode="curtain"]').getAttribute("aria-pressed") === "true" &&
+      await verified.locator(".ep-verified-curtain").isVisible());
+    const verifiedHandle = verified.locator(".ep-verified-handle");
+    await verifiedHandle.focus();
+    await p.keyboard.press("Home");
+    await p.keyboard.press("ArrowRight");
+    ok(`${vp.n} place: curtain keyboard and visible left/right guide`,
+      (await verifiedHandle.getAttribute("aria-valuenow")) === "5" &&
+      /СЛЕВА/.test(await verified.locator(".ep-verified-legend").textContent()) &&
+      /СПРАВА/.test(await verified.locator(".ep-verified-legend").textContent()));
+    ok(`${vp.n} place: original image shapes are not cropped`,
+      await verified.locator("[data-verified-curtain]").evaluate(img =>
+        getComputedStyle(img).objectFit === "contain" && img.naturalWidth > 0));
+
     await verified.locator('[data-verified-mode="now"]').click();
     ok(`${vp.n} place: recent photo is dated and unadjusted`, await verifiedPhoto.isVisible() &&
       await verifiedOld.isHidden() && /2026-04-30/.test(await verified.locator(".ep-verified-caption").textContent()));
@@ -272,6 +287,13 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} epochs gallery`, (await p.locator(".epcard").count()) >= 50);
     await p.locator(".epcard").first().click(); await p.waitForSelector("#epstage"); await p.waitForTimeout(600);
     ok(`${vp.n} epoch place: frames + angle map`, (await p.locator(".epf[data-f]").count()) >= 2 && (await p.locator("#epMap .leaflet-tile").count()) >= 1);
+    ok(`${vp.n} epoch place: shutter has named left and right frames`,
+      /Слева/.test(await p.locator("#epReadout").textContent()) &&
+      /справа/.test(await p.locator("#epReadout").textContent()));
+    await p.locator('[data-compare-mode="side"]').click();
+    ok(`${vp.n} epoch place: different image formats available side by side`,
+      await p.locator("#epSide").isVisible() && /целиком/.test(await p.locator("#epReadout").textContent()));
+    await p.locator('[data-compare-mode="slider"]').click();
     await p.click("#epAdd");
     ok(`${vp.n} my photo dialog (local only)`, await p.$eval("#epDlg", (d) => d.open && /только на этом устройстве/.test(d.textContent)));
     await p.click('#epDlg button[value="cancel"]');
