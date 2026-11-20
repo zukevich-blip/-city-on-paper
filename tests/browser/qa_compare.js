@@ -120,6 +120,44 @@ async function viewerChecks(browser, vp) {
     await page.locator("#handle").isVisible() &&
     await page.locator("#photoLayer").evaluate(el => el.style.transform.startsWith("translate")));
 
+
+  // Regression for the real iPhone screenshot: the Eiffel print used to be covered
+  // by a small landscape photograph in the middle of its tall sheet.
+  await page.goto(`${base}?view=originals#paris-eiffel`, { waitUntil: "networkidle" });
+  await page.waitForFunction(() =>
+    document.querySelector("#independentNow")?.complete &&
+    document.querySelector("#independentNow")?.naturalWidth > 0);
+  const eiffel = await page.evaluate(() => {
+    const stage = document.querySelector("#stage");
+    const dual = document.querySelector("#independentFrames");
+    const old = document.querySelector("#independentOld");
+    const modern = document.querySelector("#independentNow");
+    return {
+      active: stage.classList.contains("dual-originals") && !dual.hidden,
+      bothWhole: [old, modern].every(i => i.naturalWidth > 0 && getComputedStyle(i).objectFit === "contain"),
+      overlaysHidden: getComputedStyle(document.querySelector("#overlay")).display === "none",
+      distinctPanels: Math.abs(document.querySelector("#independentHistoric").getBoundingClientRect().width -
+        document.querySelector("#independentModern").getBoundingClientRect().width) < 3,
+      withinViewport: stage.getBoundingClientRect().width <= innerWidth,
+      navigator: document.querySelector("#museumBar")?.getBoundingClientRect().height || 0,
+      navigationLinksVisible: getComputedStyle(document.querySelector("#museumBar .mbq")).display !== "none"
+    };
+  });
+  check(`${vp.name}: Eiffel comparison uses two full framed originals, not a floating photo`,
+    eiffel.active && eiffel.bothWhole && eiffel.overlaysHidden && eiffel.distinctPanels && eiffel.withinViewport,
+    JSON.stringify(eiffel));
+  if (vp.width <= 700) check(`${vp.name}: mobile museum bar takes a single compact row`,
+    eiffel.navigator >= 44 && eiffel.navigator <= 64 && !eiffel.navigationLinksVisible,
+    `bar-height=${eiffel.navigator}`);
+  await page.locator("#handle").focus(); await page.keyboard.press("Home");
+  check(`${vp.name}: Eiffel: slider can reveal the full modern photo`,
+    await page.locator("#independentModern").evaluate(x => x.getBoundingClientRect().width > 200) &&
+    await page.locator("#independentHistoric").evaluate(x => x.getBoundingClientRect().width < 1));
+  await page.keyboard.press("End");
+  check(`${vp.name}: Eiffel: slider can reveal the whole historical print`,
+    await page.locator("#independentHistoric").evaluate(x => x.getBoundingClientRect().width > 200) &&
+    await page.locator("#independentModern").evaluate(x => x.getBoundingClientRect().width < 1));
+
   // interactions on the real Madeleine pair (verdict low: local fit, opens unaligned)
   await page.goto(`${base}#madeleine-ph-benoist`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.getElementById("photoLayer").style.transform !== "");
