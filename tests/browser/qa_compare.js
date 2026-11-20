@@ -104,10 +104,10 @@ async function viewerChecks(browser, vp) {
   const small = await page.evaluate(() => [...document.querySelectorAll("button,select,[role=slider],summary")]
     .filter(b => b.offsetParent).map(b => b.getBoundingClientRect()).filter(r => r.height < 44 || r.width < 36).length);
   check(`${vp.name}: visible controls ≥44 px tall`, small === 0, `${small} too small`);
-  check(`${vp.name}: low-confidence pair starts uncorrected`, (await page.textContent("#badge")).includes("без коррекции"));
+  check(`${vp.name}: low-confidence pair starts uncorrected`, (await page.textContent("#badge")).includes("без правок"));
   await page.click("#alignBtn");
   check(`${vp.name}: toggle applies matrix3d + adjusted badge`, (await page.$eval("#photoLayer", e => e.style.transform)).includes("matrix3d")
-    && (await page.textContent("#badge")).includes("скорректирована"));
+    && (await page.textContent("#badge")).includes("растянуто по рисунку"));
   await shot(page, `${vp.name}-madeleine-aligned-attempt.jpg`);
   await page.click("#alignBtn");
   check(`${vp.name}: toggle back to original photo`, (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));

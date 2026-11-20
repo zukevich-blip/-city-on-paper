@@ -21,7 +21,7 @@ header,main,footer{max-width:1100px;margin:0 auto;padding:0 16px}
 header{padding-top:16px;position:relative}
 .top{position:absolute;right:16px;top:12px;z-index:2}
 header h1{padding-right:56px}
-#langBtn{min-height:36px;min-width:44px;font-size:13px}
+#langBtn{min-height:44px;min-width:44px;font-size:13px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 h1{font-size:1.4rem;margin:0 0 4px;font-weight:normal;letter-spacing:.02em}
 h2{font-size:1rem;margin:12px 0 4px}
@@ -72,6 +72,8 @@ header .jumpcompare{display:none!important}
 .vswitch button b{font:600 16px Georgia,serif}.vswitch button small{font:11px/1.2 system-ui,sans-serif;color:#6f6f63}
 .vswitch button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}.vswitch button[aria-pressed=true] small{color:#d9cfbb}
 .vswitch button.unavailable{opacity:.6}
+.userfit{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0;padding:10px 12px;border-left:4px solid #2e7d5b;background:var(--panel)}
+.userfit button{min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);cursor:pointer;font:600 14px system-ui}
 @media(max-width:560px){.vswitch{grid-template-columns:repeat(4,1fr);gap:4px}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}.top .poc{display:none}}
 .viewcap{font:14px/1.55 system-ui,sans-serif;color:#3b443d;margin:4px 0 10px;min-height:1.5em}
 #viewerModes::before{content:"Другие способы сравнить";flex-basis:100%;font:600 11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8c6e41;margin-top:6px}
@@ -104,6 +106,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 @keyframes scene-enter{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
+<script src="homography.js"></script>
 </head>
 <body>
 <header>
@@ -159,6 +162,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
       <span class="tag l" data-i18n="then">Тогда</span><span class="tag r" data-i18n="now">Сейчас</span>
     </div>
   </div>
+  <div id="userFit" class="userfit" hidden role="status"><span id="userFitText"></span> <button type="button" id="userFitReset">Вернуть как было</button></div>
   <p class="creditline" id="creditLine"></p>
   <nav class="pair-links" aria-label="Карта и настройка сравнения" data-i18n-aria="pairLinks">
     <a id="pairMap" hidden></a>
@@ -521,6 +525,7 @@ function showImgError(){
 }
 
 let requestedPair = 0;
+let userFit = null;
 async function loadPair(id){
   const request = ++requestedPair;
   const response = await fetch(`pairs/${encodeURIComponent(id)}.json`);
@@ -528,6 +533,21 @@ async function loadPair(id){
   const data = await response.json();
   if (request !== requestedPair) return;
   pair = data;
+  userFit = null;
+  try {
+    const raw = localStorage.getItem("cop-manual-" + id), st = raw ? JSON.parse(raw) : null;
+    if (Array.isArray(st) && st.length >= 4 && window.CoPHomography) {
+      const R = window.CoPHomography.evaluate(st.map(c => c.photo), st.map(c => c.historic), pair.historic.size, pair.photo.size);
+      if (R && R.H && R.confidence !== "viewpoint_mismatch") {
+        userFit = { n: st.length, orig: { alignment: pair.alignment, control_points: pair.control_points, local_overlay: pair.local_overlay } };
+        pair.alignment = { ...(pair.alignment || {}), H: R.H, confidence: R.confidence === "high" ? "medium" : R.confidence, valid_region_historic: undefined, scope: "user" };
+        pair.control_points = st.map(c => ({ label: c.label || "", historic: c.historic, photo: c.photo }));
+        pair.local_overlay = false;
+      }
+    }
+  } catch (e) { /* ignore broken saved points */ }
+  $("userFit").hidden = !userFit;
+  if (userFit) $("userFitText").textContent = `Показано ваше совмещение по ${userFit.n} точкам. Оно не проверено, это ваш пробный вариант.`;
   // Reviewed local fits start inside the measured region; other low-confidence fits are opt-in.
   aligned = canAlign() && (["high", "medium"].includes(pair.alignment.confidence) || pair.local_overlay === true);
   const region = pair.alignment?.valid_region_historic;
@@ -630,6 +650,8 @@ async function init(){
 
 document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; userMode = true; stopFlicker(); view = mode === "slider" ? "slider" : "adv"; $("stage").classList.remove("nowonly"); layout(); syncView(); });
 document.querySelectorAll("[data-view]").forEach(b => b.onclick = () => setView(b.dataset.view));
+$("userFitReset").onclick = () => { try { localStorage.removeItem("cop-manual-" + sel_id()); } catch (e) { /* ignore */ } loadPair(sel_id()).catch(() => {}); };
+function sel_id() { return $("pairSel").value; }
 $("langBtn").onclick = () => { lang = lang === "en" ? "ru" : "en"; try { localStorage.setItem("cop-lang", lang); } catch { /* ignore */ } applyLang(); };
 $("alignBtn").onclick = () => {
   if (view === "originals") view = "slider";

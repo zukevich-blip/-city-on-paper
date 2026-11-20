@@ -67,20 +67,46 @@ textarea{width:100%;min-height:10em;font:12px/1.4 ui-monospace,monospace;backgro
 kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-radius:3px;padding:0 4px;background:var(--panel)}
 footer{color:var(--muted);font-size:13px;padding:16px 16px 24px}
 a{color:var(--accent)}
+.steps{margin:6px 0 8px;padding-left:20px;font-size:15px;line-height:1.5}
+details.more{margin:0}details.more summary{min-height:40px;display:flex;align-items:center;cursor:pointer;font-weight:600}
+.paneTabs{display:none;gap:8px;margin:8px 0}
+.paneTabs button{flex:1;min-height:48px;font-size:16px;font-weight:600}
+.plainres{font-size:15px;margin:10px 0;padding:10px 12px;background:var(--panel);border-left:4px solid var(--accent)}
+.dock{display:none}
+@media (max-width:760px){
+  .paneTabs{display:flex;position:sticky;top:0;z-index:5;background:var(--paper);padding:6px 0}
+  body.hasTabs .pane[hidden]{display:none}
+  .view{height:min(58vh,520px)}
+  .mk circle{r:12px}
+  .dock{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
+  .dock button,.dock .primarybtn{flex:1;min-height:48px;font-size:14px;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none}
+  .dock .primarybtn{background:var(--ink);color:var(--paper);border-radius:6px;padding:4px 8px}
+  main{padding-bottom:88px}
+  header{padding-top:8px}h1{font-size:1.2rem}
+  .pane h2{font-size:.95rem;margin-bottom:2px}.status{margin:4px 0;padding:6px 10px;font-size:14px}
+  main>details:first-of-type summary{min-height:36px}
+}
 </style>
 </head>
 <body>
 <header>
   <span class="poc">Город на бумаге</span>
   <h1>Настройте совмещение вручную</h1>
-  <p class="sub">Отметьте одни и те же детали на рисунке и фото. Снизу появится пробное наложение. Меняется только фото. Ваши файлы остаются на устройстве.</p>
-  <p><a id="backToPair" href="./">Вернуться к сравнению</a></p>
-  <div class="bar">
-    <label for="pairSel">Пара изображений</label>
-    <select id="pairSel"></select>
-    <label class="filebtn">Открыть JSON… <input id="jsonFile" type="file" accept=".json,application/json"></label>
-    <label class="filebtn">Свой исторический лист… <input id="histFile" type="file" accept="image/*"></label>
-    <label class="filebtn">Своё фото… <input id="photoFile" type="file" accept="image/*"></label>
+  <p><a id="backToPair" href="./">← Вернуться к сравнению</a></p>
+  <details class="more"><summary>Как это работает: 3 шага</summary><ol class="steps"><li>Коснитесь детали на <b>рисунке</b> (угол, колонна).</li><li>Коснитесь <b>той же детали</b> на фото. Окно переключится само.</li><li>Повторите 4–8 раз и нажмите «Показать результат».</li></ol>
+  <p class="sub">Меняется только фото, рисунок остаётся как есть. Ваши файлы не покидают устройство.</p></details>
+  <details class="more"><summary>Другая пара или свои файлы</summary>
+    <div class="bar"><button type="button" id="resetBtn">Начать заново с исходных точек</button>
+      <label for="pairSel">Пара изображений</label>
+      <select id="pairSel"></select>
+      <label class="filebtn">Открыть JSON… <input id="jsonFile" type="file" accept=".json,application/json"></label>
+      <label class="filebtn">Свой исторический лист… <input id="histFile" type="file" accept="image/*"></label>
+      <label class="filebtn">Своё фото… <input id="photoFile" type="file" accept="image/*"></label>
+    </div>
+  </details>
+  <div class="paneTabs" id="paneTabs" role="group" aria-label="Какое изображение показать">
+    <button type="button" data-tab="hist" aria-pressed="true">Рисунок</button>
+    <button type="button" data-tab="photo" aria-pressed="false">Фото</button>
   </div>
 </header>
 <main>
@@ -107,6 +133,8 @@ a{color:var(--accent)}
     </section>
   </div>
 
+  <p class="plainres" id="plainRes" aria-live="polite"></p>
+  <details class="more tech"><summary>Для специалистов: таблица точек и экспорт</summary>
   <h2>Точки на изображениях</h2>
   <p class="metrics" id="metrics" aria-live="polite"></p>
   <div class="tablewrap"><table id="ptTable">
@@ -115,20 +143,22 @@ a{color:var(--accent)}
   </table></div>
   <div class="bar"><button id="clearBtn">Удалить все точки</button></div>
 
-  <h2>Пробное наложение</h2>
+  <h2 id="previewH">Пробное наложение</h2>
   <div class="bar"><label for="prevOpacity">Фото, %</label><input id="prevOpacity" type="range" min="0" max="100" value="50"></div>
   <div class="stage" id="prevStage">
     <img class="hist" id="prevHist" alt="">
     <div class="overlay"><div class="photoLayer" id="prevLayer"><img id="prevPhoto" alt=""></div></div>
-    <div class="badge" id="prevBadge">Геометрия фото скорректирована · предпросмотр</div>
+    <div class="badge" id="prevBadge">Фото растянуто по рисунку · предпросмотр</div>
   </div>
 
   <h2>Экспорт <span lang="en" style="color:var(--muted);font-weight:normal">· export</span></h2>
   <p class="sub">JSON пары с новыми <code>control_points</code>. Блок <code>alignment</code> удаляется: его пересчитывает офлайн-инструмент. Файл сохраняется на вашем устройстве.</p>
   <div class="bar"><button id="exportBtn">Скачать JSON</button><button id="copyBtn">Скопировать</button></div>
   <textarea id="exportText" readonly aria-label="Экспортируемый JSON"></textarea>
+  </details>
 </main>
-<footer>Прототип для Issue #6. <a href="./">← к просмотру пар</a>. Офлайн: <code>python3 -m tools.align.homography poc/compare/pairs/&lt;id&gt;.json</code>.</footer>
+<div class="dock" id="dock"><button type="button" id="undoBtn">Отменить точку</button><button type="button" id="showBtn">Показать результат</button><a id="saveBack" class="primarybtn" href="./">Сохранить и вернуться</a></div>
+<footer><a href="./">← к просмотру пар</a></footer>
 <script src="homography.js"></script>
 <script>
 "use strict";
@@ -212,7 +242,11 @@ function recompute() {
     m.innerHTML = `Точек: ${pts.length} · RMS ${f(R.rms_px)} px · LOO max ${f(R.loo_max_px)} px · покрытие ${R.control_point_coverage !== undefined ? Math.round(R.control_point_coverage * 100) : "—"} % · `
       + `предварительный вердикт <span class="verdict ${esc(R.confidence)}">${esc(R.confidence)}</span> <small>(${esc(R.reason || "")}; окончательный — офлайн)</small>`;
   }
-  renderTable(); drawMarkers(); renderPreview(); renderExport(); updateExpect();
+  renderTable(); drawMarkers(); renderPreview(); renderExport(); updateExpect(); saveManual();
+  const n = pts.length, pr = $("plainRes");
+  if (pr) pr.textContent = !S.result ? (n < 4 ? `Отмечено пар точек: ${n}. Нужно минимум 4.` : "Пробуем совместить…")
+    : S.result.confidence === "viewpoint_mismatch" ? `Отмечено ${n}. Рисунок и фото сняты с разных мест, ровно не совместятся.`
+    : `Отмечено ${n}. Фото подогнано, результат внизу. ${S.result.confidence === "high" ? "Совпадение хорошее." : S.result.confidence === "medium" ? "Совпадение среднее: проверьте глазами." : "Совпадение слабое: добавьте точки на одной плоскости."}`;
 }
 
 function renderTable() {
@@ -242,7 +276,7 @@ function renderPreview() {
   const ok = S.result && S.result.H && S.result.confidence !== "viewpoint_mismatch";
   L.style.transform = ok ? `scale(${s}) ${matrix3d(S.result.H)}` : "";
   L.hidden = !ok;
-  $("prevBadge").textContent = ok ? "Геометрия фото скорректирована · предпросмотр · обратимо" : "Нет совмещения (мало точек или ракурсы несовместимы)";
+  $("prevBadge").textContent = ok ? "Фото растянуто по рисунку · пробный просмотр" : "Пока нет совмещения: нужно минимум 4 пары точек";
 }
 
 function exportPair() {
@@ -273,7 +307,8 @@ function loadImage(which, src) {
 async function usePair(pair, fromIndex) {
   S.pair = pair;
   S.points = (pair.control_points || []).map(c => ({ label: c.label || "", historic: c.historic.slice(), photo: c.photo.slice() }));
-  S.sel = -1;
+  S.sel = -1; S.dirty = false;
+  try { const raw = localStorage.getItem("cop-manual-" + pair.id); if (raw && fromIndex) { const st = JSON.parse(raw); if (Array.isArray(st) && st.length) { S.points = st.map(c => ({ label: c.label || "", historic: c.historic.slice(), photo: c.photo.slice() })); S.dirty = true; } } } catch (e) { /* ignore */ }
   const hsrc = S.urls.hist || S.base + pair.historic.file, psrc = S.urls.photo || S.base + pair.photo.file;
   $("imgHist").alt = $("prevHist").alt = "Историческое изображение: " + (pair.historic.title || "");
   $("imgPhoto").alt = $("prevPhoto").alt = "Современное фото: " + (pair.photo.title || "");
@@ -285,7 +320,7 @@ async function usePair(pair, fromIndex) {
     warn.push(`Размер исторического файла ${S.nat.hist.join("×")} не совпадает с size ${pair.historic.size.join("×")} в JSON.`);
   if (okP && pair.photo.size && (S.nat.photo[0] !== pair.photo.size[0] || S.nat.photo[1] !== pair.photo.size[1]))
     warn.push(`Размер фото ${S.nat.photo.join("×")} не совпадает с size ${pair.photo.size.join("×")} в JSON.`);
-  say((fromIndex ? `Пара «${pair.id}» загружена` : `JSON «${pair.id || "без id"}» открыт`) + `: ${S.points.length} точек. ` + (warn.join(" ") || "Щёлкните деталь на любом изображении, чтобы добавить точку."));
+  say((warn.join(" ")) || (S.points.length ? `Уже отмечено пар точек: ${S.points.length}. Коснитесь детали на рисунке или фото, чтобы добавить ещё.` : "Коснитесь детали на рисунке, затем той же детали на фото."));
   recompute();
 }
 
@@ -301,7 +336,24 @@ function imgCoords(which, e) {
   return [Math.max(0, Math.min(nw, (e.clientX - r.left) / z)), Math.max(0, Math.min(nh, (e.clientY - r.top) / z))];
 }
 
+const MQ = window.matchMedia("(max-width:760px)");
+function showTab(which) {
+  document.body.classList.add("hasTabs");
+  $("paneHist").hidden = MQ.matches && which !== "hist";
+  $("panePhoto").hidden = MQ.matches && which !== "photo";
+  document.querySelectorAll("#paneTabs [data-tab]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.tab === which)));
+  if (MQ.matches) { fit(which); }
+}
+function storeKey() { return "cop-manual-" + (S.pair && S.pair.id || ""); }
+function saveManual() {
+  if (!S.dirty) return;
+  try {
+    const pts = complete().map(p => ({ label: p.label || "", historic: p.historic, photo: p.photo }));
+    if (pts.length) localStorage.setItem(storeKey(), JSON.stringify(pts)); else localStorage.removeItem(storeKey());
+  } catch (e) { /* private mode */ }
+}
 function placePoint(which, xy) {
+  S.dirty = true;
   const key = KEYS[which];
   let i = pendingIndex();
   if (i >= 0 && (!S.points[i][key] || !S.points[i][KEYS[which === "hist" ? "photo" : "hist"]])) {
@@ -313,11 +365,14 @@ function placePoint(which, xy) {
   }
   S.sel = i;
   const want = updateExpect();
+  if (want && MQ.matches) showTab(want);
   say(want ? `Точка ${i + 1}: теперь отметьте ту же деталь на ${want === "hist" ? "историческом изображении" : "фото"}.` : `Точка ${i + 1} добавлена.`);
   recompute();
 }
 
+function undoLast() { const i = S.points.length - 1; if (i >= 0) deletePoint(i); if (MQ.matches) showTab("hist"); }
 function deletePoint(i) {
+  S.dirty = true;
   S.points.splice(i, 1);
   S.sel = -1;
   say(`Точка ${i + 1} удалена.`);
@@ -438,7 +493,7 @@ $("pairSel").onchange = async () => {
   await usePair(await (await fetch(`pairs/${id}.json`)).json(), true);
   history.replaceState(null, "", "#" + id);
   const guided = new URLSearchParams(location.search).get("journey") === "1";
-  $("backToPair").href = "./" + (guided ? "?journey=1" : "") + "#" + id;
+  $("backToPair").href = $("saveBack").href = "./" + (guided ? "?journey=1" : "") + "#" + id;
 };
 addEventListener("resize", renderPreview);
 
@@ -446,12 +501,20 @@ addEventListener("resize", renderPreview);
   try {
     const idx = await (await fetch("pairs/index.json")).json();
     const ids = idx.pairs.filter(p => /^[\w-]+$/.test(p));
-    $("pairSel").innerHTML = ids.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+    $("pairSel").innerHTML = ids.map(p => `<option value="${esc(p)}">${esc((idx.labels && idx.labels[p]) || p)}</option>`).join("");
     const start = location.hash.slice(1);
     if (ids.includes(start)) $("pairSel").value = start;
     await $("pairSel").onchange();
   } catch (err) { say("Не удалось загрузить список пар: " + err.message + ". Можно открыть свой JSON и изображения."); }
 })();
+
+document.querySelectorAll("#paneTabs [data-tab]").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
+$("undoBtn").addEventListener("click", undoLast);
+$("showBtn").addEventListener("click", () => { $("previewH").scrollIntoView({ block: "start" }); $("previewH").tabIndex = -1; $("previewH").focus({ preventScroll: true }); });
+$("saveBack").addEventListener("click", () => { saveManual(); });
+$("resetBtn").addEventListener("click", () => { try { localStorage.removeItem(storeKey()); } catch (e) { /* ignore */ } $("pairSel").onchange(); });
+MQ.addEventListener("change", () => { if (!MQ.matches) { $("paneHist").hidden = $("panePhoto").hidden = false; } else showTab(pendingIndex() >= 0 && S.points[pendingIndex()].historic ? "photo" : "hist"); });
+if (MQ.matches) showTab("hist");
 </script>
 </body>
 </html>
