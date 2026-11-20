@@ -175,7 +175,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     const originalSrc = await verifiedOld.getAttribute("src");
     ok(`${vp.n} place: evidence-aware curtain is the default`,
       await verified.locator('[data-verified-mode="curtain"]').getAttribute("aria-pressed") === "true" &&
-      await verified.locator(".ep-verified-curtain").isVisible());
+      await verified.locator(".ep-verified-dual").isVisible());
     const verifiedHandle = verified.locator(".ep-verified-handle");
     await verifiedHandle.focus();
     await p.keyboard.press("Home");
