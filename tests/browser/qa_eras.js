@@ -212,6 +212,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} three-era curtain: later frame enters from the right`,
       await p.locator('#threeEpochs [data-role="layer-middle"]').evaluate(el =>
         el.style.clipPath === "inset(0 0 0 50%)") &&
+      await p.locator('#threeEpochs [data-role="guide"]').evaluate(el => el.style.left === "50%") &&
       /Слева/.test(await p.locator('#threeEpochs [data-role="phase"]').textContent()));
     await p.locator('#threeEpochs [data-go="100"]').click();
     ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
