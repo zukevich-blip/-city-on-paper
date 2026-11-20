@@ -52,3 +52,10 @@ footer a{color:inherit}
   .filters{grid-template-columns:repeat(2,minmax(0,1fr))}
   .filters label:first-child{grid-column:1/-1}
 }
+
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.chips a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border);border-radius:22px;background:var(--paper);text-decoration:none;font-weight:600}
+.plate-roles{font-size:.82rem;color:#4a4034;margin:0}.plate-note{font-size:.9rem;margin:0}
+.plate-links{display:flex;flex-direction:column;gap:2px;align-items:flex-start}
+.plate-feature{border-color:#8d4b36!important;box-shadow:0 0 0 2px #8d4b3633}
+@media(max-width:700px){.plate-feature{order:-1}}

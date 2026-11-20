@@ -38,14 +38,14 @@ const base = process.argv[2];
       await book.getByRole("link", {name: "Сравнить с фото"}).click();
       await page.locator('[data-view="originals"][aria-pressed="true"]').waitFor();
       assert(await page.locator("#handle").isVisible());
-      assert(await page.locator('[data-view="fit"]').isDisabled());
+      assert(await page.locator('[data-view="fit"]').getAttribute("aria-disabled") === "true");
       await page.locator("#pairMap").click();
       await page.getByRole("heading", {name: "Пантеон", exact: false}).first().waitFor();
       await page.goto(new URL("guides/#benoist", base).href);
       const samples = page.locator(".plate-grid img");
       assert(await samples.count() >= 3);
       assert(await samples.evaluateAll(async images => {
-        await Promise.all(images.map(image => image.decode()));
+        for (const image of images) { image.scrollIntoView({block: "center"}); await image.decode(); }
         return images.every(image => image.naturalWidth > 200);
       }));
       assert.deepEqual(errors, []);

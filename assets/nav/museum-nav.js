@@ -43,6 +43,7 @@
 #museumBar .mbp a{display:block;min-height:44px;padding:7px 0;border-bottom:1px solid #ffffff14}#museumBar .mbp a b{font:400 16px Georgia,serif;display:block}#museumBar .mbp a small{color:#b8ad98}
 #museumBar .mbp a[aria-current] b{color:#f0c987}
 @media(max-width:700px){
+ #museumBar{position:relative}
  #museumBar .mb{flex-wrap:nowrap;gap:7px}
  #museumBar .mbh{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis}
  #museumBar .mbback{padding:0 9px;font-size:12px}
@@ -56,7 +57,7 @@
 }`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   // One primary menu for the whole museum — the same five doors as on the home page.
-  const quick = [["stories/", "Истории"], ["cities/", "Города"], ["eras/", "Атлас"], ["eras/#/epochs", "Эпохи"], ["salon/", "Каталог"], ["experience/", "Книга"]];
+  const quick = [["guides/", "Путеводители"], ["stories/", "Истории"], ["cities/", "Города"], ["eras/", "Атлас"], ["eras/#/epochs", "Эпохи"], ["salon/", "Каталог"], ["experience/", "Книга"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>

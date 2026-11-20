@@ -218,6 +218,9 @@
   function route() {
     if (!D) return;
     const h = location.hash.replace(/^#\/?/, "").split("/");
+    const toMap = h[0] === "epoch" && h[h.length - 1] === "map";
+    if (toMap) h.pop();
+    if (toMap) { let tries = 0; const t = setInterval(() => { const m = document.getElementById("epMap"); if (m || ++tries > 40) { clearInterval(t); if (m) m.scrollIntoView({ block: "start" }); } }, 100); }
     if (h[0] === "country" && window.Atlas && Atlas.data) {
       let name = "";
       try { name = decodeURIComponent(h[1] || ""); } catch (_) { /* unknown code */ }

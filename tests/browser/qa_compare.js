@@ -306,7 +306,7 @@ async function originalWipeChecks(browser, vp) {
     await page.locator("#histImg").getAttribute("src") === historic &&
     await page.$eval("#histImg", el => getComputedStyle(el).transform) === "none");
   check(`${vp.name}: the map link opens the associated landmark`,
-    (await page.locator("#pairMap").getAttribute("href")).endsWith("/epoch/paris/Q330564"));
+    (await page.locator("#pairMap").getAttribute("href")).endsWith("/epoch/paris/Q330564/map"));
   await page.locator("#pairEditor").click();
   await page.waitForFunction(() => document.getElementById("backToPair").hash === "#madeleine-benoist-carnavalet");
   check(`${vp.name}: manual adjustment opens the chosen pair and keeps the way back`,

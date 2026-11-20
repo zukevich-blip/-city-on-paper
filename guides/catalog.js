@@ -116,6 +116,11 @@ async function start() {
       render(items);
     });
   }
+  document.querySelectorAll(".chips [data-city]").forEach(chip => {
+    const name = chip.dataset.city;
+    if (![...city.options].some(option => option.value === name)) { chip.hidden = true; return; }
+    chip.addEventListener("click", () => { city.value = name; city.dispatchEvent(new Event("change")); });
+  });
   render(items);
   const target = document.getElementById(location.hash.slice(1));
   if (target?.classList.contains("book")) target.scrollIntoView();
