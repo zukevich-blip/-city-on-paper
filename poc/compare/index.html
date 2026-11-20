@@ -99,6 +99,55 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 .pair-links a:hover{background:#f5e9d4}
 @media(prefers-reduced-motion:no-preference){.journey-prompt.scene-enter{animation:scene-enter 220ms ease-out both}}
 @keyframes scene-enter{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* Gallery-grade comparison controls. Geometry of artwork and historical metadata remain untouched. */
+:root{--paper:#f3ede3;--ink:#24362e;--muted:#5d6a60;--line:#cfc4b1;--accent:#855437;--panel:#fffaf1;--focus:#b57a37}
+body{background:radial-gradient(circle at 5% 0%,#fff9ef 0%,transparent 38%),var(--paper);color:var(--ink)}
+header,main,footer{max-width:1160px}
+header{padding-top:25px}
+header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.035em}
+.top{padding-bottom:8px;border-bottom:1px solid var(--line)}
+.poc{letter-spacing:.14em;color:#745037;border-color:#b9a27f;border-radius:50px;padding:4px 12px}
+.vswitch{gap:10px;margin-top:17px;margin-bottom:10px}
+.vswitch button{border-radius:12px;min-height:68px;background:linear-gradient(145deg,#fffdf8,#f6eee0);border:1px solid #d2c3aa;box-shadow:0 2px 8px #2e2a2210;transition:background .18s,transform .18s,border-color .18s}
+.vswitch button b{font:600 17px/1.2 Georgia,serif}
+.vswitch button small{font-size:11px}
+.vswitch button:hover:not(:disabled){transform:translateY(-1px);border-color:#a48356}
+.vswitch button[aria-pressed=true]{background:#213b31;color:#fff8ea;border-color:#213b31;box-shadow:0 5px 15px #173b2829}
+#viewerModes{gap:7px;background:#e8e0d3;padding:7px;border-radius:12px;border:1px solid #d8cbbb}
+#viewerModes::before{margin:3px 5px 0;font-size:10px}
+#viewerModes button{background:#fffaf3;border:1px solid #d6c7af;border-radius:8px;padding:8px 14px;min-height:44px}
+#viewerModes button[aria-pressed=true]{background:#29483b;color:white;border-color:#29483b}
+.viewcap{font-size:14px;color:#48594c;padding:4px 2px}
+.verdict{border-radius:9px;border-left-width:3px;padding:11px 15px;margin:10px 0 14px}
+.zoomwrap{width:100%;display:flex;justify-content:center}
+.stage{width:min(100%,calc(72vh * var(--historic-ratio,1.45)));max-width:100%;border:9px solid #f8f4e9;outline:1px solid #cbbda6;border-radius:7px;background:repeating-linear-gradient(135deg,#e0d6c7,#e0d6c7 12px,#e9e0d3 12px,#e9e0d3 24px);box-shadow:0 20px 45px #241b1530;isolation:isolate}
+.hist{width:100%;height:auto}
+.handle{width:52px;margin-left:-26px;z-index:3;touch-action:none}
+.handle::before{width:3px;background:#fff8eb;box-shadow:0 0 0 1px #26392b,0 0 12px #0008}
+.handle span{width:52px;height:52px;background:#fffaf0;color:#2a4739;border:3px solid #fef9f0;box-shadow:0 3px 16px #111b;letter-spacing:-.12em;font:700 23px/1 system-ui}
+.tag{top:12px;bottom:auto;padding:7px 10px;border-radius:7px;background:#163629dc;font-size:12px;font-weight:600;pointer-events:none}
+.badge{right:10px;top:auto;bottom:11px;background:#f7f0e6ed;color:#254237;border:1px solid #b9a990;border-radius:6px;font-size:11px;max-width:76%}
+.curtain-readout{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,1.5fr) minmax(0,1fr);align-items:center;gap:8px;margin:17px 0 0;padding:9px;background:#ebe3d6;border:1px solid #d3c5b0;border-radius:12px}
+.curtain-readout p{font:600 12px/1.45 system-ui,sans-serif;text-align:center;margin:0;color:#344e40}
+.curtain-readout button{background:#fffaf2;border-radius:9px;border-color:#d1bea3;font:600 12px/1.35 system-ui,sans-serif;padding:8px}
+.comparison-fit-note{font:12px/1.6 system-ui,sans-serif;color:#635f54;margin:9px 2px}
+.sbs{gap:18px;align-items:stretch}
+.sbs figure{background:#fffaf2;border:1px solid #d3c5b3;border-radius:10px;padding:10px;box-shadow:0 6px 18px #281c1512}
+.sbs img{display:block;width:100%;height:clamp(235px,45vh,490px);object-fit:contain;background:repeating-linear-gradient(135deg,#e4d8c7,#e4d8c7 8px,#ece2d5 8px,#ece2d5 16px);border:0;border-radius:5px}
+.sbs figcaption{padding:8px 4px 0;font-size:12px}
+.pair-links a{border-radius:9px;padding:8px 14px}
+.bar>button:not(#langBtn),.bar>span>button{border-radius:9px}
+@media(max-width:620px){
+  .stage{width:min(100%,calc(62vh * var(--historic-ratio,1.45)));border-width:5px}
+  .vswitch{gap:5px}.vswitch button{min-height:58px;border-radius:9px;padding:6px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}
+  #viewerModes{padding:6px;gap:5px}#viewerModes button{flex:1 1 43%;padding:6px 7px;font-size:13px}
+  .curtain-readout{grid-template-columns:1fr 1fr;gap:6px}.curtain-readout p{grid-column:1/-1;grid-row:1}.curtain-readout button{font-size:11px;min-height:44px}
+  .handle span{height:44px;width:44px;font-size:20px}
+  .tag{font-size:10px;top:7px;padding:5px 7px}
+  .badge{font-size:10px;max-width:85%}
+}
+@media(prefers-reduced-motion:reduce){.vswitch button{transition:none}}
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
 </head>
@@ -148,15 +197,17 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
   <div id="verdict" class="verdict" role="status"></div>
   <div id="imgError" class="imgerr" role="alert" hidden></div>
   <div class="zoomwrap" id="zoomwrap">
-    <div class="stage" id="stage">
+    <div class="stage" id="stage" aria-label="Сравнение изображений: слева исторический вид, справа фотография">
       <img class="hist" id="histImg" alt="">
       <div class="overlay" id="overlay"><div class="photoMask" id="photoMask"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div></div>
       <svg class="region" id="region" aria-hidden="true"></svg>
-      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
+      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Слева старый рисунок, справа фотография"><span aria-hidden="true">‹  ›</span></div>
       <div class="badge" id="badge"></div>
       <span class="tag l" data-i18n="then">Тогда</span><span class="tag r" data-i18n="now">Сейчас</span>
     </div>
   </div>
+  <div class="curtain-readout" aria-label="Ориентиры сравнения"><button type="button" id="showThen" aria-label="Показать исторический вид целиком">← Только рисунок</button><p id="splitReadout" role="status">Слева рисунок · справа фотография</p><button type="button" id="showNow" aria-label="Показать современное фото целиком">Только фото →</button></div>
+  <p class="comparison-fit-note" id="ratioHint" role="note"></p>
   <p class="creditline" id="creditLine"></p>
   <nav class="pair-links" aria-label="Карта и настройка сравнения" data-i18n-aria="pairLinks">
     <a id="pairMap" hidden></a>
@@ -359,8 +410,8 @@ function captionFor(v){
     fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", slider: "Drag the border: left — the print, right — the photo.", originals: "Move the divider to compare both images as they are. The photo keeps its original perspective.", adv: "" })[v] || "";
   return ({ then: `Рисунок эпохи, ${hy}.${who ? " " + who + "." : ""}`,
     now: `То же место сегодня${py ? ", " + py : ""}. Фото: ${pair.photo.author || "—"}.`,
-    fit: "Фото подогнано под рисунок и наложено поверх. Рисунок не меняется. Ползунок — прозрачность.",
-    slider: "Двигайте границу: слева рисунок, справа фото.", originals: "Двигайте границу между двумя изображениями. Перспектива фотографии сохранена.", adv: "" })[v] || "";
+    fit: "Фото совмещено по подтверждённым опорным точкам; геометрия старого рисунка не меняется. Ползунок регулирует прозрачность.",
+    slider: "Шторка: слева старый рисунок, справа фотография. Двигайте разделитель. Пропорции каждого кадра сохранены.", originals: "Шторка без геометрической подгонки. Кадры могут быть сняты с разных точек. Оба изображения сохраняют свои пропорции.", adv: "" })[v] || "";
 }
 function syncView(){
   if (!pair) return;
@@ -391,6 +442,7 @@ function layout(){
   if (!pair) return;
   applyMode(); // show/hide panels first: a hidden stage measures 0 px wide
   const stage = $("stage"), [hw, hh] = pair.historic.size.map(Number), [pw, ph] = pair.photo.size.map(Number);
+  stage.style.setProperty("--historic-ratio", String(hw / hh));
   const s = stage.clientWidth / hw;
   const L = $("photoLayer");
   L.style.width = pw + "px"; L.style.height = ph + "px";
@@ -424,6 +476,13 @@ function applyMode(){
   h.hidden = mode !== "slider";
   ov.style.clipPath = "none"; ov.style.opacity = 1; ov.style.visibility = "visible";
   if (mode === "slider") { ov.style.clipPath = `inset(0 0 0 ${split}%)`; h.style.left = split + "%"; h.setAttribute("aria-valuenow", Math.round(split)); }
+  const left = lang === "en" ? "historic print" : "исторический вид";
+  const right = lang === "en" ? "photo" : "фото сегодня";
+  h.setAttribute("aria-valuetext", `${Math.round(split)}% ${left}, ${Math.round(100 - split)}% ${right}`);
+  $("splitReadout").textContent = mode === "slider"
+    ? (lang === "en" ? `Left: print · right: photo · divider ${Math.round(split)}%` : `Слева рисунок · справа фото · граница ${Math.round(split)}%`)
+    : (lang === "en" ? "Original aspect ratios are preserved" : "Пропорции обоих изображений сохранены");
+  $("showThen").hidden = $("showNow").hidden = mode === "sbs";
   if (mode === "opacity") ov.style.opacity = $("opacity").value / 100;
   if (mode === "flicker") ov.style.visibility = flickA ? "hidden" : "visible";
   document.querySelectorAll("[data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
@@ -469,6 +528,10 @@ function renderMeta(){
   $("histImg").alt = t("histAlt") + (H.title || "");
   $("photoImg").alt = t("photoAlt") + (P.title || "");
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
+  const hr = H.size[0] / H.size[1], pr = P.size[0] / P.size[1];
+  $("ratioHint").textContent = Math.abs(Math.log(hr / pr)) > 0.18
+    ? (lang === "en" ? "Different print and photo proportions. The original photo is shown whole, with no cropping or stretching." : "Форматы отличаются: фото показано целиком, без обрезки и растяжения. Пустые поля сохраняют пропорции.")
+    : (lang === "en" ? "The original aspect ratios are preserved. A matching outline is not guaranteed." : "Пропорции сохранены. Общий вид здания ещё не означает совпадения точки съёмки.");
   const synthetic = pair.status === "synthetic_test";
   const changes = P.changes || "";
   $("creditLine").textContent = `${t("then")}: ${[H.date, H.credit].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, P.credit].filter(Boolean).join(" · ")}`
@@ -525,6 +588,7 @@ async function loadPair(id){
     const xs = region.map(point => point[0]);
     split = 50 * (Math.min(...xs) + Math.max(...xs)) / pair.historic.size[0];
   }
+  split = 50;
   if (!userMode && view === "originals") { mode = "slider"; view = "originals"; }
   else if (!userMode) { mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider"; view = mode === "slider" ? "slider" : "adv"; }
   else if (view !== "adv" && view !== "slider") view = "slider";
@@ -625,6 +689,8 @@ async function init(){
 document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; userMode = true; stopFlicker(); view = mode === "slider" ? "slider" : "adv"; $("stage").classList.remove("nowonly"); layout(); syncView(); });
 document.querySelectorAll("[data-view]").forEach(b => b.onclick = () => setView(b.dataset.view));
 $("langBtn").onclick = () => { lang = lang === "en" ? "ru" : "en"; try { localStorage.setItem("cop-lang", lang); } catch { /* ignore */ } applyLang(); };
+$("showThen").onclick = () => setView("then");
+$("showNow").onclick = () => setView("now");
 $("alignBtn").onclick = () => {
   if (view === "originals") view = "slider";
   aligned = !aligned;
