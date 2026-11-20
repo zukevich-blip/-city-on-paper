@@ -366,11 +366,12 @@ async function editorChecks(browser, vp) {
   check(`${vp.name} editor: main controls ≥44 px tall`, small === 0, `${small} too small`);
   if (vp.width <= 760) {
     const previousHash = await page.evaluate(() => location.hash);
-    await page.locator('[data-jump="panePhoto"]').click();
-    check(`${vp.name} editor: jump to photo preserves pair id and places photo controls in view`,
+    await page.locator('#paneTabs [data-tab="photo"]').click();
+    check(`${vp.name} editor: photo tab keeps the pair id and shows the photo pane near the top`,
       await page.evaluate(() => location.hash) === previousHash &&
+      await page.locator("#panePhoto").isVisible() && await page.locator("#paneHist").isHidden() &&
       await page.locator("#panePhoto").evaluate(pane => pane.getBoundingClientRect().top < window.innerHeight / 2));
-    await page.locator('[data-jump="paneHist"]').click();
+    await page.locator('#paneTabs [data-tab="hist"]').click();
   }
   await page.click('[data-fit="hist"]');
   await page.goto(`${base}editor.html#madeleine-ph-benoist`, { waitUntil: "networkidle" });

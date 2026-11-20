@@ -44,7 +44,6 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .journey-actions{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:8px;align-items:center}
 .journey-actions a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:3px}
 .journey-dock{display:none}
-@media(max-width:700px){body.guided #journeyNextTop{display:none}}
 @media(max-width:700px){body.guided .journey-dock{display:flex;flex-direction:column;position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:30;background:#23493d;color:#fff9ed;padding:9px 14px;border-radius:8px;text-decoration:none;box-shadow:0 6px 18px #0005;min-height:52px;justify-content:center}.journey-dock small{font:12px system-ui;opacity:.85}.journey-dock b{font:600 15px/1.25 system-ui}body.guided footer{padding-bottom:84px}}
 .journey-next,.journey-actions a:first-child{background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:4px;text-decoration:none}
 .journey-next{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font:600 14px system-ui,sans-serif}
@@ -725,7 +724,7 @@ function renderJourney(idx, id) {
     ? `Следующая остановка: ${scene.next} →`
     : "Завершить маршрут · открыть атлас →");
   $("journeyNext").href = nextHref;
-  $("journeyNextTop").href = nextHref;
+  $("journeyNextTop").href = $("journeyNext").href;
   $("journeyNextTop").textContent = nextText;
   $("journeyDock").href = nextHref;
   $("journeyDock").innerHTML = `<small>${esc(scene.next_small || `Дальше · сцена ${Math.min(at + 2, route.length)} из ${route.length}`)}</small><b>${esc(scene.next)} →</b>`;
