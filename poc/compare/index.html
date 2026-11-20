@@ -150,6 +150,27 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
   .badge{font-size:10px;max-width:85%}
 }
 @media(prefers-reduced-motion:reduce){.vswitch button{transition:none}}
+
+/* Incompatible viewpoints must NEVER be represented as a floating photo over the artwork. */
+.stage.dual-originals{width:100%;max-width:100%;aspect-ratio:auto;height:clamp(320px,68vh,640px);background:#e9e2d7}
+.stage.dual-originals>.hist,.stage.dual-originals>.overlay,.stage.dual-originals>.region{display:none}
+.stage.dual-originals .independent-frames{position:absolute;inset:0;display:flex;align-items:stretch;overflow:hidden;pointer-events:none}
+.stage.dual-originals .independent-half{height:100%;min-width:0;overflow:hidden;display:grid;place-items:center;padding:12px;background:#e6dbc8}
+.stage.dual-originals .independent-half.modern-half{background:#dce5e0;border-left:1px solid #c1c6b9}
+.stage.dual-originals .independent-half img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;max-width:100%;max-height:100%;filter:none;transform:none}
+.stage.dual-originals .handle{z-index:5}
+.stage.dual-originals .tag{z-index:4}
+.stage.dual-originals .badge{z-index:4}
+.stage.dual-originals .historic-half{width:var(--historic-share,50%)}
+.stage.dual-originals .modern-half{width:calc(100% - var(--historic-share,50%))}
+.stage.dual-originals .independent-half:has(img:not([src])){background:#ebe7dc}
+.stage.dual-originals .tag.l{left:12px}.stage.dual-originals .tag.r{right:12px}
+@media(max-width:620px){
+.stage.dual-originals{height:clamp(320px,57vh,510px);border-width:5px}
+.stage.dual-originals .independent-half{padding:5px}
+.stage.dual-originals .handle{width:48px;margin-left:-24px}
+}
+@media(max-width:700px){#stage,#zoomwrap{scroll-margin-top:64px}}
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
 </head>
@@ -202,6 +223,7 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
     <div class="stage" id="stage" aria-label="Сравнение изображений: слева исторический вид, справа фотография">
       <img class="hist" id="histImg" alt="">
       <div class="overlay" id="overlay"><div class="photoMask" id="photoMask"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div></div>
+      <div class="independent-frames" id="independentFrames" hidden aria-label="Два самостоятельных изображения без геометрического совмещения"><div class="independent-half historic-half" id="independentHistoric"><img id="independentOld" alt=""></div><div class="independent-half modern-half" id="independentModern"><img id="independentNow" alt=""></div></div>
       <svg class="region" id="region" aria-hidden="true"></svg>
       <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Слева старый рисунок, справа фотография"><span aria-hidden="true">‹  ›</span></div>
       <div class="badge" id="badge"></div>
@@ -447,6 +469,9 @@ function layout(){
   if (!pair) return;
   applyMode(); // show/hide panels first: a hidden stage measures 0 px wide
   const stage = $("stage"), [hw, hh] = pair.historic.size.map(Number), [pw, ph] = pair.photo.size.map(Number);
+  const independent = (mode === "slider" && !aligned) || view === "now";
+  stage.classList.toggle("dual-originals", independent);
+  stage.style.setProperty("--historic-share", (view === "now" ? 0 : split) + "%");
   stage.style.setProperty("--historic-max-width", `${(72 * hw / hh).toFixed(1)}vh`);
   stage.style.setProperty("--historic-mobile-max-width", `${(62 * hw / hh).toFixed(1)}vh`);
   const s = stage.clientWidth / hw;
@@ -475,7 +500,12 @@ function layout(){
 
 function applyMode(){
   const ov = $("overlay"), h = $("handle");
+  const independent = !!pair && ((mode === "slider" && !aligned) || view === "now");
+  $("stage").classList.toggle("dual-originals", independent);
+  $("independentFrames").hidden = !independent;
+  $("stage").style.setProperty("--historic-share", (view === "now" ? 0 : split) + "%");
   $("stage").hidden = $("zoomwrap").hidden = mode === "sbs";
+  $("independentFrames").style.visibility = independent ? "visible" : "hidden";
   $("sbs").hidden = mode !== "sbs";
   $("opacityCtl").hidden = mode !== "opacity";
   $("flickerCtl").hidden = mode !== "flicker";
@@ -534,8 +564,11 @@ function renderMeta(){
   $("histImg").alt = t("histAlt") + (H.title || "");
   $("photoImg").alt = t("photoAlt") + (P.title || "");
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
+  $("independentOld").alt = $("histImg").alt; $("independentNow").alt = $("photoImg").alt;
   const hr = H.size[0] / H.size[1], pr = P.size[0] / P.size[1];
-  $("ratioHint").textContent = aligned && canAlign()
+  $("ratioHint").textContent = !aligned && mode === "slider"
+    ? (lang === "en" ? "Two independent images. The divider changes the space for each, without overlaying or distorting the originals. Their viewpoints may differ." : "Два самостоятельных кадра. Шторка меняет размер полей, не накладывая фото поверх литографии. Каждый оригинал целиком, ракурсы могут различаться.")
+    : aligned && canAlign()
     ? (lang === "en" ? "Only the modern photograph is transformed within the measured region. The original is in the source panel." : "Подгоняется только фотография и только внутри отмеченной зоны. За её пределами совпадение не подтверждено. Исходный снимок сохранён.")
     : Math.abs(Math.log(hr / pr)) > 0.18
     ? (lang === "en" ? "Different print and photo proportions. The original photo is shown whole, with no cropping or stretching." : "Форматы отличаются: фото показано целиком, без обрезки и растяжения. Пустые поля сохраняют пропорции.")
@@ -597,7 +630,8 @@ async function loadPair(id){
     split = 50 * (Math.min(...xs) + Math.max(...xs)) / pair.historic.size[0];
   }
   split = 50;
-  if (!userMode && view === "originals") { mode = "slider"; view = "originals"; }
+  if (view === "originals" && userMode) { mode = "slider"; aligned = false; }
+  else if (!userMode && view === "originals") { mode = "slider"; view = "originals"; aligned = false; }
   else if (!userMode) { mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider"; view = mode === "slider" ? "slider" : "adv"; }
   else if (view !== "adv" && view !== "slider") view = "slider";
   $("stage").classList.remove("nowonly");
@@ -608,8 +642,8 @@ async function loadPair(id){
     im.addEventListener("load", () => r(), { once: true });
     im.addEventListener("error", () => { if (request === requestedPair) { imgFailed[key] = true; showImgError(); } r(); }, { once: true });
   });
-  hi.src = $("sbsHist").src = fileUrl(pair.historic.file);
-  pi.src = $("sbsPhoto").src = fileUrl(pair.photo.file);
+  hi.src = $("sbsHist").src = $("independentOld").src = fileUrl(pair.historic.file);
+  pi.src = $("sbsPhoto").src = $("independentNow").src = fileUrl(pair.photo.file);
   renderMeta();
   await Promise.all([settle(hi, "hist"), settle(pi, "photo")]);
   if (request !== requestedPair) return;
