@@ -11,3 +11,4 @@
 .pilot-zoom{position:relative;height:min(55dvh,500px);margin-top:8px;background:#ebe1cc}
 .pilot-zoom>img{width:100%;height:100%;object-fit:contain}
 @media(max-width:680px){.pilot-grid{grid-template-columns:1fr}}
+.pilot-map-image{position:absolute;inset:0 auto auto 0;width:2000px;height:1448px;max-width:none!important;transform-origin:0 0;pointer-events:none;opacity:.75}

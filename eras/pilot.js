@@ -135,6 +135,32 @@ window.AtlasPilot = (() => {
     }
   }
 
+  function localPlan(data) {
+    return new (L.Layer.extend({
+      onAdd(map) {
+        this.image = document.createElement("img");
+        this.image.src = "img/loc-2012586603-paris-1878.jpg";
+        this.image.alt = "";
+        this.image.className = "pilot-map-image";
+        this.image.style.clipPath = `polygon(${data.clip})`;
+        const update = () => {
+          const [tl, tr, , bl] = data.corners.map(coords => map.latLngToLayerPoint(coords));
+          const a = (tr.x - tl.x) / 2000, b = (tr.y - tl.y) / 2000;
+          const c = (bl.x - tl.x) / 1448, d = (bl.y - tl.y) / 1448;
+          this.image.style.transform = `matrix(${a},${b},${c},${d},${tl.x},${tl.y})`;
+        };
+        this.update = update;
+        map.getPane("overlayPane").append(this.image);
+        map.on("move zoom viewreset", update);
+        update();
+      },
+      onRemove(map) {
+        this.image.remove();
+        map.off("move zoom viewreset", this.update);
+      }
+    }))();
+  }
+
   function mapControls(host, map, city) {
     if (city.id !== "paris") return;
     host.hidden = false;
@@ -150,10 +176,13 @@ window.AtlasPilot = (() => {
     const details = add(host, "details");
     details.hidden = true;
     add(details, "summary", "Опорные точки и погрешность");
-    let layer, markers, data;
+    let layer, markers, data, backup;
+    let wanted = false, tilesReady = false;
     toggle.onclick = async () => {
-      if (layer && map.hasLayer(layer)) {
-        map.removeLayer(layer);
+      if (wanted) {
+        wanted = false;
+        if (layer) map.removeLayer(layer);
+        if (backup) map.removeLayer(backup);
         map.removeLayer(markers);
         toggle.setAttribute("aria-pressed", "false");
         status.textContent = "Показана современная карта.";
@@ -162,16 +191,10 @@ window.AtlasPilot = (() => {
       toggle.disabled = true;
       status.textContent = "Загружаем исторический план…";
       try {
-        if (!layer) {
-          const [response, {WarpedMapLayer}] = await Promise.all([
-            fetch("data/paris-1878-overlay.json"), import("./vendor/allmaps-leaflet-beta55/layer.js")
-          ]);
+        if (!data) {
+          const response = await fetch("data/paris-1878-overlay.json");
           if (!response.ok || !host.isConnected) throw new Error("overlay");
           data = await response.json();
-          layer = new WarpedMapLayer(undefined, {opacity: 0.75, zIndex: 300});
-          if (!layer.gl) throw new Error("WebGL2");
-          const results = layer.addGeoreferenceAnnotation(data.annotation);
-          if (!results.length || results.every(result => result instanceof Error)) throw new Error("annotation");
           markers = L.layerGroup(data.points.map(point => L.circleMarker(point.location, {
             radius: 5, color: point.confidence === "low" ? "#96351c" : "#294c5a", fillOpacity: 0.85
           }).bindTooltip(Object.assign(document.createElement("span"), {textContent: point.name}))));
@@ -184,12 +207,26 @@ window.AtlasPilot = (() => {
           details.hidden = false;
         }
         if (!host.isConnected) return;
-        layer.addTo(map);
+        backup ||= localPlan(data);
+        if (!tilesReady) backup.addTo(map);
         markers.addTo(map);
+        wanted = true;
         toggle.setAttribute("aria-pressed", "true");
-        status.textContent = "План 1878 года наложен приблизительно. Круги показывают опорные точки.";
+        status.textContent = "Показана приблизительная привязка в пределах опорных точек.";
+        if (layer) layer.addTo(map);
+        else import("./vendor/allmaps-leaflet-beta55/layer.js").then(({WarpedMapLayer}) => {
+          if (!wanted || !host.isConnected || layer) return;
+          const candidate = new WarpedMapLayer(undefined, {opacity: 0.75, zIndex: 300});
+          const results = candidate.addGeoreferenceAnnotation(data.annotation);
+          if (!results.length || results.every(result => result instanceof Error)) return;
+          layer = candidate;
+          map.once("tilefetched", () => {
+            tilesReady = true;
+            if (wanted) map.removeLayer(backup);
+          });
+          layer.addTo(map);
+        }).catch(() => { /* The local scan stays visible without WebGL or archive tiles. */ });
       } catch {
-        layer = null;
         status.textContent = "Наложение сейчас недоступно. Отдельный исторический план можно открыть во вкладке выше.";
       } finally {
         toggle.disabled = false;
