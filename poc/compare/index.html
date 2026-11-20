@@ -503,6 +503,8 @@ function applyMode(){
   const independent = !!pair && ((mode === "slider" && !aligned) || view === "now");
   $("stage").classList.toggle("dual-originals", independent);
   $("independentFrames").hidden = !independent;
+  $("independentHistoric").hidden = independent && (view === "now" || split <= 0);
+  $("independentModern").hidden = independent && view !== "now" && split >= 100;
   $("stage").style.setProperty("--historic-share", (view === "now" ? 0 : split) + "%");
   $("stage").hidden = $("zoomwrap").hidden = mode === "sbs";
   $("independentFrames").style.visibility = independent ? "visible" : "hidden";
