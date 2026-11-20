@@ -24,7 +24,7 @@
     host.hidden = false;
     host.innerHTML = `
       <div class="cp3-title"><h2>Три эпохи на одном ползунке</h2></div>
-      <p class="cp3-lead">Выберите три изображения. Двигайте ползунок, чтобы перейти от первого к последнему.</p>
+      <p class="cp3-lead">Выберите три изображения. Перемещайте разделитель вправо: слева всегда более ранний вид, справа следующий по времени. Все кадры сохраняют свои пропорции.</p>
       <div class="cp3-selects" role="group" aria-label="Три кадра для сравнения">
         <label>Старая эпоха <select data-role="first"></select></label>
         <label>Промежуточная <select data-role="middle"></select></label>
@@ -147,15 +147,19 @@
 
     function move() {
       const p = Math.max(0, Math.min(100, Number(slider.value) || 0));
-      // Middle becomes fully visible at exactly 50%; last becomes fully visible at 100%.
-      middle.style.clipPath = `inset(0 ${100 - Math.min(100, p * 2)}% 0 0)`;
-      last.style.clipPath = `inset(0 ${100 - Math.max(0, (p - 50) * 2)}% 0 0)`;
+      // Later images enter from the right, so the viewer always reads earlier on the left.
+      middle.style.clipPath = `inset(0 0 0 ${100 - Math.min(100, p * 2)}%)`;
+      last.style.clipPath = `inset(0 0 0 ${100 - Math.max(0, (p - 50) * 2)}%)`;
       guide.style.left = p + "%";
       const framesNow = chosen();
       const left = p <= 50 ? framesNow[0] : framesNow[1];
       const right = p <= 50 ? framesNow[1] : framesNow[2];
-      find("phase").textContent = `${p}% · ${left.year_label || "раньше"} → ${right.year_label || "позже"}`;
-      slider.setAttribute("aria-valuetext", `${p} процентов, ${left.year_label || "раньше"} к ${right.year_label || "позже"}`);
+      const state = p === 0 ? `Только ранний кадр: ${label(framesNow[0])}`
+        : p === 50 ? `Промежуточная эпоха: ${label(framesNow[1])}`
+        : p === 100 ? `Последний кадр: ${label(framesNow[2])}`
+        : `Слева ${label(left)} · справа ${label(right)}`;
+      find("phase").textContent = state;
+      slider.setAttribute("aria-valuetext", `${p} процентов. ${state}`);
     }
 
     const pointAt = (clientX) => {
