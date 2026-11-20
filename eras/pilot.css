@@ -1,0 +1,13 @@
+.pilot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pilot-grid article{min-width:0;border:1px solid #c6b89e;padding:12px;background:#fbf5e9}
+.pilot-grid img{display:block;width:100%;height:170px;object-fit:contain;margin:6px 0}
+.pilot-grid button,.pilot-controls button,.pilot-controls a{min-height:44px}
+.pilot-grid details a{display:block;padding:5px 0}
+.pilot-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pilot-controls a{display:inline-flex;align-items:center}
+.pilot-map-controls{padding:6px 0}
+.pilot-dialog{width:min(900px,calc(100vw - 24px));max-height:calc(100dvh - 20px);border:1px solid #8f7d60;background:#fff9ed;color:#29271d}
+.pilot-dialog::backdrop{background:#151812bb}
+.pilot-zoom{position:relative;height:min(55dvh,500px);margin-top:8px;background:#ebe1cc}
+.pilot-zoom>img{width:100%;height:100%;object-fit:contain}
+@media(max-width:680px){.pilot-grid{grid-template-columns:1fr}}

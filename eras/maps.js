@@ -315,6 +315,7 @@ window.Maps = (() => {
         <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
       ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
+      <div id="cOverlay" hidden></div>
       <div class="city-place-picker" aria-label="Выбор изображённого места на картах">
         <label for="cPlaceSelect">Найти объект на карте</label>
         <select id="cPlaceSelect"><option value="">Выберите здание, площадь или исторический вид</option>
@@ -417,6 +418,7 @@ window.Maps = (() => {
       const fit = () => (ms.length > 1 ? now.fitBounds(L.featureGroup(ms).getBounds(), { padding: [24, 24], maxZoom: 16 }) : now.setView(ms.length ? ms[0].getLatLng() : [c.lat, c.lon], 15));
       fit(); homeButton(now, fit);
       labelClass(now, document.getElementById("cnow"), now.getZoom());
+      window.AtlasPilot?.mapControls(host.querySelector("#cOverlay"), now, c);
     };
     if (plan) {
       const { map, at } = imageMap(document.getElementById("cplan"), plan);
@@ -429,6 +431,7 @@ window.Maps = (() => {
         document.getElementById("cNew").setAttribute("aria-selected", String(!old));
         document.getElementById("cplan").hidden = !old; document.getElementById("cnow").hidden = old;
         if (old) map.invalidateSize(); else if (!now) mkNow(); else now.invalidateSize();
+        host.querySelector("#cOverlay").hidden = old || c.id !== "paris";
       };
       showMap = show;
       document.getElementById("cOld").onclick = () => show(true);

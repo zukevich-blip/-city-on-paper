@@ -147,6 +147,15 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#wg .wcard").count()) === initialWorks);
 
     await p.locator("#cmaphost").scrollIntoViewIfNeeded(); await p.waitForTimeout(800);
+    const pilotCards = p.locator("#atlasPilot article");
+    await pilotCards.last().waitFor();
+    ok(`${vp.n} Paris pilot: three archive records`, await pilotCards.count() === 3);
+    await pilotCards.first().getByRole("button").click();
+    const pilotDialog = p.locator(".pilot-dialog");
+    await pilotDialog.getByRole("button", { name: "Увеличить", exact: true }).click();
+    ok(`${vp.n} Paris pilot: museum sheet opens in zoom viewer`, await pilotDialog.locator(".openseadragon-canvas canvas").count() === 1);
+    await p.keyboard.press("Escape");
+    await pilotDialog.waitFor({ state: "detached" });
     ok(`${vp.n} city: zoomable 1878 plan of Paris`, (await p.locator("#cplan .leaflet-tile-loaded").count()) >= 2);
     ok(`${vp.n} city: links to other museum halls`, (await p.locator(".halls a").count()) >= 3);
     await p.screenshot({ path: `${out}/${vp.n}-2-paris.jpg`, type: "jpeg", quality: 60 });
