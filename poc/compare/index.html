@@ -18,7 +18,10 @@
 [hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 Georgia,"Times New Roman",serif}
 header,main,footer{max-width:1100px;margin:0 auto;padding:0 16px}
-header{padding-top:16px}
+header{padding-top:16px;position:relative}
+.top{position:absolute;right:16px;top:12px;z-index:2}
+header h1{padding-right:56px}
+#langBtn{min-height:36px;min-width:44px;font-size:13px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 h1{font-size:1.4rem;margin:0 0 4px;font-weight:normal;letter-spacing:.02em}
 h2{font-size:1rem;margin:12px 0 4px}
@@ -58,6 +61,7 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .badge{position:absolute;right:8px;top:8px;background:#000b;color:#fff;font:12px/1.3 system-ui,sans-serif;padding:4px 8px;border-radius:4px;max-width:60%}
 .tag{position:absolute;bottom:8px;font:12px system-ui,sans-serif;background:#000a;color:#fff;padding:2px 6px;border-radius:3px}
 .tag.l{left:8px} .tag.r{right:8px}
+.stage[data-view=then] .tag.r,.stage.nowonly .tag.l{display:none}
 .creditline{font:12px/1.4 system-ui,sans-serif;color:var(--muted);margin:4px 0 0}
 .imgerr{font:14px/1.4 system-ui,sans-serif;border:1px dashed var(--bad);color:var(--bad);background:var(--panel);padding:10px 12px;margin:8px 0}
 .stage.broken{min-height:120px}
@@ -67,7 +71,7 @@ header .jumpcompare{display:none!important}
 .vswitch button{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px;border:1px solid #b9ab94;background:#fffdf7;border-radius:4px;font:inherit;cursor:pointer;color:#29342d}
 .vswitch button b{font:600 16px Georgia,serif}.vswitch button small{font:11px/1.2 system-ui,sans-serif;color:#6f6f63}
 .vswitch button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}.vswitch button[aria-pressed=true] small{color:#d9cfbb}
-.vswitch button:disabled{opacity:.45;cursor:not-allowed}
+.vswitch button.unavailable{opacity:.6}
 @media(max-width:560px){.vswitch{grid-template-columns:repeat(4,1fr);gap:4px}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}.top .poc{display:none}}
 .viewcap{font:14px/1.55 system-ui,sans-serif;color:#3b443d;margin:4px 0 10px;min-height:1.5em}
 #viewerModes::before{content:"Другие способы сравнить";flex-basis:100%;font:600 11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8c6e41;margin-top:6px}
@@ -165,7 +169,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
   </div>
   <section id="journeyEnd" class="journey-end" hidden aria-label="Продолжить маршрут">
-    <details id="journeyReveal"><summary>Что заметить</summary><p id="journeyAnswer"></p></details>
+    <details id="journeyReveal"><summary>Показать ответ</summary><p id="journeyAnswer"></p></details>
     <div class="journey-actions">
       <a id="journeyNext"></a>
       <a id="journeyBack" hidden>Предыдущая сцена</a>
@@ -224,7 +228,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 </main>
 <footer><span data-i18n="footer">Город на бумаге · Сравнения и первоисточники.</span>
   <a href="editor.html" data-i18n="editorLink">Редактор контрольных точек</a> ·
-  <code>pairs/*.json</code> · <code>tools/align/homography.py</code> (OpenCV)</footer>
+  Подробности: <a href="pairs/CREDITS.md">источники и права на изображения</a></footer>
 <script>
 "use strict";
 const $ = (id) => document.getElementById(id);
@@ -242,7 +246,7 @@ const T = {
     creditsSum: "Источники, права и параметры совмещения", footer: "Город на бумаге · Сравнения и первоисточники.",
     editorLink: "Настроить вручную", pairLinks: "Карта и настройка сравнения", v_originals: "Шторка", v_originals_h: "без подгонки", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
     alignTitle: "Переключить фото между оригиналом и совмещённым видом",
-    badgeOn: "Геометрия фото скорректирована · обратимо", badgeOff: "Фото без коррекции",
+    badgeOn: "Фото растянуто по рисунку", badgeOff: "Фото без правок",
     handle: "Граница между историческим изображением и фото",
     histAlt: "Историческое изображение: ", photoAlt: "Современное фото: ",
     scope: "Зона действия", synthetic: "Синтетические тестовые данные", expected: "Ожидалось",
@@ -351,6 +355,12 @@ function agentsLine(){
     return `${x.name}${k ? " (" + (lang === "en" ? k : ROLE_RU[k]) + ")" : ""}`; });
   return a.join(", ");
 }
+function ruText(x){
+  if (lang === "en") return String(x || "");
+  return String(x || "").replace(/^Photo:\s*/, "Фото: ")
+    .replace(/re-encoded once \(JPEG q92\) to strip EXIF\/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under (CC BY-SA 4\.0)/i, "файл перекодирован, метаданные (EXIF/GPS) удалены; подогнанный вид в просмотрщике — производная работа на условиях $1")
+    .replace(/Library of Congress/g, "Библиотека Конгресса США").replace(/Wikimedia Commons/g, "Викисклад").replace(/Paris Musées \/ Musée Carnavalet/g, "Paris Musées, музей Карнавале").replace(/Musée Carnavalet/g, "музей Карнавале");
+}
 function captionFor(v){
   const hy = yearsOf(pair.historic.date), py = String(pair.photo.date || "").slice(0, 4), who = agentsLine();
   if (lang === "en") return ({ then: `The print, ${hy}. ${who}`, now: `The same place today${py ? ", " + py : ""}. Photo: ${pair.photo.author || ""}`,
@@ -363,13 +373,14 @@ function captionFor(v){
 function syncView(){
   if (!pair) return;
   document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
-  const fitBtn = document.querySelector('[data-view="fit"]'); fitBtn.disabled = !canAlign();
+  const fitBtn = document.querySelector('[data-view="fit"]'); fitBtn.setAttribute("aria-disabled", String(!canAlign())); fitBtn.classList.toggle("unavailable", !canAlign());
   fitBtn.title = canAlign() ? "" : (lang === "en" ? "No honest fit for this pair: different viewpoints" : "Для этой пары совмещение невозможно: ракурсы разные");
   $("viewCaption").textContent = captionFor(view);
   if (["then", "now", "fit"].includes(view)) $("opacityCtl").hidden = view !== "fit";
 }
 function setView(v){
-  if (!pair || (v === "fit" && !canAlign())) return;
+  if (v === "fit" && pair && !canAlign()) { $("viewCaption").textContent = lang === "en" ? "The print and the photo are taken from different sides, so they cannot be laid over each other. Use the slider." : "Рисунок и фото сняты с разных сторон, поэтому наложить их нельзя. Используйте ползунок."; return; }
+  if (!pair) return;
   view = v; stopFlicker(); userMode = true;
   $("stage").classList.toggle("nowonly", v === "now");
   if (v === "originals") { mode = "slider"; aligned = false; }
@@ -447,7 +458,7 @@ function renderMeta(){
       + (pair.status === "synthetic_test" ? `<br><em>${esc(t("synthetic"))} (${esc(pair.condition)}). ${esc(t("expected"))}: ${esc(pair.expected_confidence)}.</em>` : `<br>${esc(pair.condition)}`);
   v.innerHTML = `<p class="plain">${esc(plain)}</p><details class="tech"><summary>${lang === "en" ? "Technical details" : "Технические подробности"}</summary>${tech}</details>`;
   const on = aligned && canAlign();
-  $("badge").textContent = on ? t("badgeOn") : t("badgeOff");
+  $("badge").textContent = on ? t("badgeOn") : t("badgeOff"); $("stage").dataset.view = view;
   $("alignBtn").textContent = on ? t("alignOn") : t("alignOff");
   $("alignBtn").setAttribute("aria-pressed", on);
   $("alignBtn").disabled = !canAlign();
@@ -469,8 +480,9 @@ function renderMeta(){
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
   const synthetic = pair.status === "synthetic_test";
   const changes = P.changes || "";
-  $("creditLine").textContent = `${t("then")}: ${[H.date, H.credit].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, P.credit].filter(Boolean).join(" · ")}`
-    + (!synthetic && changes ? ` · ${changes}` : "");
+  $("creditLine").textContent = `${t("then")}: ${[H.date, ruText(H.credit)].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, ruText(P.credit)].filter(Boolean).join(" · ")}`
+    + (!synthetic && changes ? ` · ${ruText(changes)}` : "");
+  { const ty = yearsOf(H.date), py = String(P.date || "").slice(0, 4); const l = document.querySelector(".tag.l"), r = document.querySelector(".tag.r"); if (l) l.textContent = t("then") + (ty ? " · " + ty : ""); if (r) r.textContent = t("now") + (py ? " · " + py : ""); }
   const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
   $("creditBody").innerHTML = `
    <h2>${esc(t("hThen"))}</h2><dl>
@@ -555,7 +567,7 @@ function renderJourney(idx, id) {
   else $("creditLine").after(...controls);
   if (!on) return;
 
-  $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${idx.places?.[id]?.city || ""}`;
+  $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${[idx.places?.[id]?.city, idx.places?.[id]?.name].filter(Boolean).join(", ")}`;
   const prompt = $("journeyPrompt");
   prompt.classList.remove("scene-enter");
   void prompt.offsetWidth;
