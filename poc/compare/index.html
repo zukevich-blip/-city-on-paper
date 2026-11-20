@@ -717,9 +717,16 @@ async function init(){
     const id = location.hash.slice(1);
     if (!ids.includes(id) || id === sel.value) return;
     sel.value = id;
-    userMode = false;
+    // Same-document hash navigation does not reload the page. Preserve the
+    // requested comparison mode instead of reverting to side-by-side.
+    const requested = new URLSearchParams(location.search).get("view");
+    const persistent = ["then", "now", "fit", "originals", "slider"].includes(requested) ? requested : null;
+    userMode = Boolean(persistent);
+    if (persistent === "originals") { view = "originals"; mode = "slider"; aligned = false; }
     stopFlicker();
-    show(id).catch(onLoadError);
+    show(id).then(() => {
+      if (persistent && persistent !== "originals") setView(persistent);
+    }).catch(onLoadError);
     if (!$("journeyPrompt").hidden) {
       window.scrollTo(0, 0);
       $("journeyTitle").focus({preventScroll:true});
