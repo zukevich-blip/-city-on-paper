@@ -32,7 +32,18 @@ const views = [
     check(`${v.name}: country page lists cities with counts`, (await page.locator(".card").count()) >= 2 && /вид/.test(await page.locator(".card .meta").first().innerText()));
     await page.goto(base + "#/city/rim", { waitUntil: "networkidle" });
     await page.waitForSelector(".pl");
-    check(`${v.name}: city chapter has stars, compare card and a grid`, (await page.locator(".strip .feat").count()) >= 3 && (await page.locator(".pl").count()) >= 6 && (await page.locator('a[href*="compare"]').count()) >= 1);
+    check(`${v.name}: edited chapter shows three views, each with a question and a hidden answer`,
+      (await page.locator(".view").count()) === 3 && (await page.locator(".view .q").count()) === 3 &&
+      (await page.locator(".view details.ans[open]").count()) === 0 && (await page.locator(".pl").count()) >= 6 && (await page.locator('a[href*="compare"]').count()) >= 1);
+    await page.locator(".ans summary").first().click();
+    check(`${v.name}: answer opens on tap`, await page.locator(".view details.ans[open]").count() === 1);
+    check(`${v.name}: chapter tells what changed and which old guidebooks exist`, (await page.locator(".tl li").count()) >= 4 && (await page.locator(".bl li").count()) >= 2);
+    check(`${v.name}: sheets kept by archives are counted and listed`, /у хранителей/.test(await page.locator(".counts").innerText()) && (await page.locator(".archive li").count()) >= 1);
+    await page.goto(base + "#/city/florence", { waitUntil: "networkidle" });
+    await page.waitForSelector(".pl");
+    check(`${v.name}: other cities still show stars and a grid`, (await page.locator(".strip .feat").count()) >= 3 && (await page.locator(".pl").count()) >= 6);
+    await page.goto(base + "#/city/rim", { waitUntil: "networkidle" });
+    await page.waitForSelector(".pl");
     check(`${v.name}: no horizontal scroll on city`, await noScroll());
     await page.locator(".pl").first().click();
     await page.waitForSelector(".plate h1");
