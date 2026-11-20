@@ -126,6 +126,9 @@ async function viewerChecks(browser, vp) {
   await page.goto(`${base}?view=originals#paris-eiffel`, { waitUntil: "networkidle" });
   await page.waitForFunction(() =>
     document.querySelector('[data-view="originals"]')?.getAttribute("aria-pressed") === "true" &&
+    document.querySelector("#pairSel")?.value === "paris-eiffel" &&
+    document.querySelector("#independentNow")?.src.endsWith("/paris-eiffel-2026.jpg") &&
+    document.querySelector("#independentOld")?.src.endsWith("/paris-eiffel-1889.jpg") &&
     document.querySelector("#independentNow")?.naturalWidth > 0 &&
     document.querySelector("#independentOld")?.naturalWidth > 0 &&
     document.querySelector("#stage")?.classList.contains("dual-originals"));
