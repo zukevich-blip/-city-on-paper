@@ -5,17 +5,10 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from tools.release.build_public_site import info_pages
+from tools.release.build_public_site import PAGES, info_pages
 
 ROOT = Path(__file__).resolve().parents[1]
-STATIC = (
-    "eras/index.html",
-    "exhibitions/city-as-evidence/index.html",
-    "photography/index.html",
-    "index.html",
-    "atlas/index.html",
-    "stories/paris-on-paper/index.html",
-)
+STATIC = PAGES
 
 
 def _description(content: str) -> str:
