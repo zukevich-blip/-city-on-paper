@@ -147,6 +147,7 @@ window.Maps = (() => {
         <div class="mtabs" role="tablist" aria-label="Выбор картографического слоя">
           <button type="button" role="tab" id="tOld" aria-selected="true">Старая карта · 1769</button>
           <button type="button" role="tab" id="tNew" aria-selected="false">Карта сегодня</button>
+          <button type="button" role="tab" id="tMix" aria-selected="false">Наложение</button>
         </div>
         <div class="map-actions" role="group" aria-label="Масштаб и область карты">
           <button type="button" id="mapFit">Показать выбранные города</button>
@@ -155,6 +156,12 @@ window.Maps = (() => {
           <button type="button" id="mapArchiveOpen">Листать архивные карты</button>
         </div>
         <p class="map-summary" role="status" aria-live="polite" id="mapSummary"></p>
+      </div>
+      <div class="mixctl" id="mixCtl" hidden>
+        <label for="mixRange">Старая карта поверх современной: <output id="mixOut" for="mixRange">60%</output></label>
+        <input type="range" id="mixRange" min="0" max="100" value="60" aria-describedby="mixNote">
+        <div class="mixends" aria-hidden="true"><span>← только современная</span><span>только старая →</span></div>
+        <p class="map-summary" id="mixNote"></p>
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
@@ -206,6 +213,7 @@ window.Maps = (() => {
         ? `На исторической карте ${inEurope} из ${total} выбранных городов. Остальные доступны на современной карте и в указателе.`
         : `Современная карта: ${nowCities ? nowCities.visibleCount() : total} городов с координатами. Выбирайте кластер, чтобы приблизить.`;
       document.getElementById("mapTruth").hidden = !oldSelected;
+      if (mixOn) document.getElementById("mapSummary").textContent = "Наложение: старая карта 1769 года поверх современной. Двигайте ползунок, чтобы сравнить.";
     };
     function makeModern() {
       if (modern) return;
@@ -224,7 +232,51 @@ window.Maps = (() => {
       labelClass(modern, document.getElementById("nmap"), modern.getZoom());
       modern.on("zoomend", note);
     }
+    let mixOn = false, mixLayer = null, mixInfo = null;
+    function mixFit() {
+      if (mixInfo) return mixInfo;
+      const pts = A.cities.filter((c) => Array.isArray(c.xy) && c.xy.length === 2 && Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon)))
+        .map((c) => ({ px: Number(c.xy[0]), py: Number(c.xy[1]), m: L.Projection.SphericalMercator.project(L.latLng(Number(c.lat), Number(c.lon))) }));
+      if (pts.length < 8) return null;
+      const ls = (get, val, list) => { const n = list.length; let sx = 0, sy = 0, sxx = 0, sxy = 0;
+        for (const q of list) { const x = get(q), y = val(q); sx += x; sy += y; sxx += x * x; sxy += x * y; }
+        const a = (n * sxy - sx * sy) / (n * sxx - sx * sx); return { a, b: (sy - a * sx) / n }; };
+      let use = pts, fx, fy;
+      for (let pass = 0; pass < 2; pass++) {
+        fx = ls((q) => q.m.x, (q) => q.px, use); fy = ls((q) => q.m.y, (q) => q.py, use);
+        const err = pts.map((q) => Math.hypot(fx.a * q.m.x + fx.b - q.px, fy.a * q.m.y + fy.b - q.py));
+        const sorted = [...err].sort((u, v) => u - v), med = sorted[Math.floor(sorted.length / 2)];
+        use = pts.filter((q, i) => err[i] < 3 * med);
+      }
+      const errs = use.map((q) => Math.hypot(fx.a * q.m.x + fx.b - q.px, fy.a * q.m.y + fy.b - q.py));
+      const meanPx = errs.reduce((u, v) => u + v, 0) / errs.length;
+      const km = Math.round(meanPx / Math.abs(fx.a) * Math.cos(48.5 * Math.PI / 180) / 1000 / 10) * 10;
+      const W = P.width, H = P.height, un = (mx, my) => L.Projection.SphericalMercator.unproject(L.point(mx, my));
+      const nw = un((0 - fx.b) / fx.a, (0 - fy.b) / fy.a), se = un((W - fx.b) / fx.a, (H - fy.b) / fy.a);
+      mixInfo = { bounds: L.latLngBounds([se.lat, nw.lng], [nw.lat, se.lng]), n: use.length, km };
+      return mixInfo;
+    }
+    function mixShow() {
+      const info = mixFit(); if (!info) return;
+      show(false); mixOn = true;
+      if (!mixLayer) mixLayer = L.imageOverlay(archiveRoot + P.image, info.bounds, { opacity: 0.6, interactive: false, className: "oldmap-overlay",
+        alt: "Историческая карта Европы 1769 года, наложенная на современную карту" });
+      mixLayer.addTo(modern); mixLayer.setOpacity(Number(document.getElementById("mixRange").value) / 100);
+      modern.fitBounds(info.bounds, { animate: false });
+      document.getElementById("mixCtl").hidden = false;
+      document.getElementById("tNew").setAttribute("aria-selected", "false");
+      document.getElementById("tMix").setAttribute("aria-selected", "true");
+      document.getElementById("mixNote").textContent = `Привязка приблизительная: старая карта подогнана по ${info.n} городам, средняя ошибка около ${info.km} км. Берега и города могут не совпасть. Двигайте ползунок, чтобы сравнить.`;
+      note();
+    }
+    function mixHide() {
+      if (!mixOn) return; mixOn = false;
+      if (mixLayer && modern) modern.removeLayer(mixLayer);
+      document.getElementById("mixCtl").hidden = true;
+      document.getElementById("tMix").setAttribute("aria-selected", "false");
+    }
     function show(old) {
+      mixHide();
       oldSelected = !!old;
       document.getElementById("tOld").setAttribute("aria-selected", String(oldSelected));
       document.getElementById("tNew").setAttribute("aria-selected", String(!oldSelected));
@@ -242,6 +294,8 @@ window.Maps = (() => {
     }
     document.getElementById("tOld").onclick = () => show(true);
     document.getElementById("tNew").onclick = () => show(false);
+    document.getElementById("tMix").onclick = () => mixShow();
+    document.getElementById("mixRange").addEventListener("input", (e) => { const v = Number(e.target.value); document.getElementById("mixOut").textContent = v + "%"; if (mixLayer) mixLayer.setOpacity(v / 100); });
     document.getElementById("mapWorld").onclick = () => {
       selectedIds = new Set(A.cities.map((c) => c.id));
       if (typeof window.cityAtlasReset === "function") window.cityAtlasReset();

@@ -69,14 +69,17 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .stage.broken{min-height:120px}
 header .jumpcompare{display:none!important}
 @media(max-width:560px){h1{font-size:26px!important;margin:6px 0!important}#titleAlt{display:none}.intro,header p{font-size:14px!important;margin:4px 0!important}}
-.vswitch{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 6px}
+.vswitch{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0 6px}
 .vswitch button{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px;border:1px solid #b9ab94;background:#fffdf7;border-radius:4px;font:inherit;cursor:pointer;color:#29342d}
 .vswitch button b{font:600 16px Georgia,serif}.vswitch button small{font:11px/1.2 system-ui,sans-serif;color:#6f6f63}
 .vswitch button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}.vswitch button[aria-pressed=true] small{color:#d9cfbb}
 .vswitch button.unavailable{opacity:.6}
+#opacityCtl{display:flex;align-items:center;gap:10px;margin:8px 0}
+#opacityCtl[hidden]{display:none}
+#opacityCtl input[type=range]{flex:1;min-height:44px}
 .userfit{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0;padding:10px 12px;border-left:4px solid #2e7d5b;background:var(--panel)}
 .userfit button{min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);cursor:pointer;font:600 14px system-ui}
-@media(max-width:560px){.vswitch{grid-template-columns:repeat(4,1fr);gap:4px}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}.top .poc{display:none}}
+@media(max-width:560px){.vswitch{grid-template-columns:repeat(6,1fr);gap:6px}.vswitch>button:nth-child(-n+3){grid-column:span 2}.vswitch>button:nth-child(n+4){grid-column:span 3}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:11px}.top .poc{display:none}}
 .viewcap{font:14px/1.55 system-ui,sans-serif;color:#3b443d;margin:4px 0 10px;min-height:1.5em}
 #viewerModes::before{content:"Другие способы сравнить";flex-basis:100%;font:600 11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8c6e41;margin-top:6px}
 html[lang=en] #viewerModes::before{content:"Other ways to compare"}
@@ -142,10 +145,12 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
   <div id="viewSwitch" class="vswitch" role="group" aria-label="Что показать" data-i18n-aria="vsLabel">
     <button type="button" data-view="then" aria-pressed="false"><b data-i18n="v_then">Тогда</b><small data-i18n="v_then_h">рисунок эпохи</small></button>
     <button type="button" data-view="now" aria-pressed="false"><b data-i18n="v_now">Сейчас</b><small data-i18n="v_now_h">фото сегодня</small></button>
+    <button type="button" data-view="blend" aria-pressed="false"><b data-i18n="v_blend">Переход</b><small data-i18n="v_blend_h">плавно, без подгонки</small></button>
     <button type="button" data-view="fit" aria-pressed="false"><b data-i18n="v_fit">Совместить</b><small data-i18n="v_fit_h">по контуру здания</small></button>
     <button type="button" data-view="originals" aria-pressed="false"><b data-i18n="v_originals">Шторка</b><small data-i18n="v_originals_h">без подгонки</small></button>
   </div>
   <p id="viewCaption" class="viewcap" role="status"></p>
+  <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
   <div id="viewerModes" class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
     <button data-mode="slider" aria-pressed="true" data-i18n="m_slider">Шторка</button>
     <button data-mode="opacity" aria-pressed="false" data-i18n="m_opacity">Прозрачность</button>
@@ -192,7 +197,6 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <button id="alignBtn" aria-pressed="true">Фото: совмещённое</button>
     <button id="regionBtn" aria-pressed="true" data-i18n="region">Зона доверия</button>
     <button id="zoomBtn" aria-pressed="false" data-i18n="zoom">Увеличить ×2.5</button>
-    <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
     <span id="flickerCtl" hidden><button id="flickBtn">A ⇄ B</button> <button id="flickPlay" aria-pressed="false" data-i18n="auto">Авто</button></span>
   </div>
   <details class="help" id="help">
@@ -246,7 +250,7 @@ const T = {
     poc: "Город на бумаге", title: "Тогда / Сейчас", alt: "· Then / Now",
     intro: "Старый рисунок и сегодняшнее фото одного места. Переключайте и ищите, что осталось на месте.",
     vsLabel: "Что показать", v_then: "Тогда", v_then_h: "рисунок эпохи", v_now: "Сейчас", v_now_h: "фото сегодня",
-    v_fit: "Совместить", v_fit_h: "по контуру здания", v_slider: "Шторка", v_slider_h: "двигайте границу", v_other: "Другие способы сравнить",
+    v_blend: "Переход", v_blend_h: "плавно, без подгонки", v_fit: "Совместить", v_fit_h: "по контуру здания", v_slider: "Шторка", v_slider_h: "двигайте границу", v_other: "Другие способы сравнить",
     pair: "Что сравниваем", jump: "К изображениям ↓", modes: "Режим сравнения", m_slider: "Шторка", m_opacity: "Прозрачность", m_flicker: "Мерцание A/B", m_sbs: "Рядом",
     region: "Зона доверия", zoom: "Увеличить ×2.5", photoPct: "Фото, %", auto: "Авто", helpSum: "Как читать вердикт",
     then: "Тогда", now: "Сейчас", capHist: "Историческое изображение — без изменений", capPhoto: "Фото — оригинал, без коррекции",
@@ -278,7 +282,7 @@ const T = {
     poc: "Prototype · not the exhibition", title: "Then / Now", alt: "· Тогда / Сейчас",
     intro: "The historic image is never altered. Only the modern photo may be reversibly re-projected, and that is always labelled.",
     vsLabel: "What to show", v_then: "Then", v_then_h: "the period print", v_now: "Now", v_now_h: "photo today",
-    v_fit: "Fit", v_fit_h: "to the building outline", v_slider: "Slider", v_slider_h: "drag the border", v_other: "Other ways to compare",
+    v_blend: "Fade", v_blend_h: "smooth, no fitting", v_fit: "Fit", v_fit_h: "to the building outline", v_slider: "Slider", v_slider_h: "drag the border", v_other: "Other ways to compare",
     pair: "Pair", jump: "Go to images ↓", modes: "Comparison mode", m_slider: "Slider", m_opacity: "Opacity", m_flicker: "Flicker A/B", m_sbs: "Side by side",
     region: "Trust zone", zoom: "Zoom ×2.5", photoPct: "Photo, %", auto: "Auto", helpSum: "How to read the verdict",
     then: "Then", now: "Now", capHist: "Historic image — unaltered", capPhoto: "Photo — original, uncorrected",
@@ -371,10 +375,11 @@ function ruText(x){
 function captionFor(v){
   const hy = yearsOf(pair.historic.date), py = String(pair.photo.date || "").slice(0, 4), who = agentsLine();
   if (lang === "en") return ({ then: `The print, ${hy}. ${who}`, now: `The same place today${py ? ", " + py : ""}. Photo: ${pair.photo.author || ""}`,
-    fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", slider: "Drag the border: left — the print, right — the photo.", originals: "Move the divider to compare both images as they are. The photo keeps its original perspective.", adv: "" })[v] || "";
+    fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", blend: "The slider fades the print into the photo. The photo is shown as taken, without fitting.", slider: "Drag the border: left — the print, right — the photo.", originals: "Move the divider to compare both images as they are. The photo keeps its original perspective.", adv: "" })[v] || "";
   return ({ then: `Рисунок эпохи, ${hy}.${who ? " " + who + "." : ""}`,
     now: `То же место сегодня${py ? ", " + py : ""}. Фото: ${pair.photo.author || "—"}.`,
     fit: "Фото подогнано под рисунок и наложено поверх. Рисунок не меняется. Ползунок — прозрачность.",
+    blend: "Ползунок плавно переводит рисунок в фото. Фото показано как снято, без подгонки: сравнивайте общие детали.",
     slider: "Двигайте границу: слева рисунок, справа фото.", originals: "Двигайте границу между двумя изображениями. Перспектива фотографии сохранена.", adv: "" })[v] || "";
 }
 function syncView(){
@@ -383,7 +388,7 @@ function syncView(){
   const fitBtn = document.querySelector('[data-view="fit"]'); fitBtn.setAttribute("aria-disabled", String(!canAlign())); fitBtn.classList.toggle("unavailable", !canAlign());
   fitBtn.title = canAlign() ? "" : (lang === "en" ? "No honest fit for this pair: different viewpoints" : "Для этой пары совмещение невозможно: ракурсы разные");
   $("viewCaption").textContent = captionFor(view);
-  if (["then", "now", "fit"].includes(view)) $("opacityCtl").hidden = view !== "fit";
+  if (["then", "now", "fit", "blend"].includes(view)) $("opacityCtl").hidden = !["fit", "blend"].includes(view);
 }
 function setView(v){
   if (v === "fit" && pair && !canAlign()) { $("viewCaption").textContent = lang === "en" ? "The print and the photo are taken from different sides, so they cannot be laid over each other. Use the slider." : "Рисунок и фото сняты с разных сторон, поэтому наложить их нельзя. Используйте ползунок."; return; }
@@ -392,7 +397,7 @@ function setView(v){
   $("stage").classList.toggle("nowonly", v === "now");
   if (v === "originals") { mode = "slider"; aligned = false; }
   else if (v === "slider") { mode = "slider"; if (aligned === false && canAlign() && pair.alignment.confidence !== "low") aligned = true; }
-  else { mode = "opacity"; $("opacity").value = v === "then" ? 0 : v === "now" ? 100 : 55; aligned = v === "fit"; }
+  else { mode = "opacity"; $("opacity").value = v === "then" ? 0 : v === "now" ? 100 : v === "blend" ? 50 : 55; aligned = v === "fit"; }
   renderMeta(); layout(); syncView();
 }
 
@@ -443,7 +448,7 @@ function applyMode(){
   if (mode === "opacity") ov.style.opacity = $("opacity").value / 100;
   if (mode === "flicker") ov.style.visibility = flickA ? "hidden" : "visible";
   document.querySelectorAll("[data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
-  if (["then", "now", "fit"].includes(view)) $("opacityCtl").hidden = view !== "fit";
+  if (["then", "now", "fit", "blend"].includes(view)) $("opacityCtl").hidden = !["fit", "blend"].includes(view);
 }
 
 function setSplit(clientX){
