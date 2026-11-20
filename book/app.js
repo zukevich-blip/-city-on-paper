@@ -60,10 +60,17 @@
   async function load() {
     if (D) return D;
     const j = (u, d) => fetch(u).then((r) => (r.ok ? r.json() : d)).catch(() => d);
-    const [atlas, thumbs, hist, pairs, ed] = await Promise.all([
+    const [atlas, thumbs, hist, pairs, ed, cc0, bnp] = await Promise.all([
       j(E + "data/atlas.json", null), j(E + "data/thumbs.json", {}), j(E + "data/history.json", { cities: [] }),
       j("../poc/compare/pairs/index.json", { places: {}, pairs: [] }), j("editorial.json", {}),
+      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }),
     ]);
+    // curated records know who made a sheet, who keeps it and on which terms: use them when the url matches
+    const known = new Map();
+    for (const it of [...(cc0.items || []), ...(bnp.items || [])]) if (it.url) known.set(it.url, it);
+    const maker = (m) => String(m || "").replace(/\s*\([^)]*\)\s*$/, "").trim();
+    const rightsOf = (it) => (it.license_label || (it.rights === "cc0" ? "CC0" : ""));
+    const roles = (it) => (Array.isArray(it.creator_roles) ? it.creator_roles.map((r) => `${r.name} (${r.role})`).join("; ") : "");
     if (!atlas) throw new Error("atlas");
     T = thumbs;
     const histBy = new Map((hist.cities || []).map((h) => [h.city, h]));
@@ -82,19 +89,28 @@
         if (!s.image || seenUrl.has(s.url) || modernPhoto(s.title)) continue; seenUrl.add(s.url);
         const w = worksByUrl.get(s.url) || {};
         list.push({ id: s.wid, city: c.id, kind: "site", title: cap(s.site_ru || cut(clean(s.title), 70)), orig: clean(s.title), image: s.image, url: s.url,
-          date: s.date || w.date || "", artist: w.artist || "", institution: w.institution || holder(s.title, s.url), rights: w.rights_label || "",
+          date: s.date || w.date || (known.get(s.url) || {}).date || "", artist: w.artist || roles(known.get(s.url) || {}) || maker((known.get(s.url) || {}).maker),
+          institution: w.institution || (known.get(s.url) || {}).source || holder(s.title, s.url), rights: w.rights_label || rightsOf(known.get(s.url) || {}),
           lat: Number(s.lat), lon: Number(s.lon), qid: s.qid, place: s.site_name || "", conf: s.confidence || "" });
       }
       for (const w of c.works || []) {
         if (!w.image || seenUrl.has(w.url) || modernPhoto(w.title)) continue; seenUrl.add(w.url);
         list.push({ id: "w" + hash(w.url), city: c.id, kind: "work", title: cap(cut(clean(w.title), 70)), orig: clean(w.title), image: w.image, url: w.url,
-          date: w.date || "", artist: w.artist || "", institution: w.institution || holder(w.title, w.url), rights: w.rights_label || "", lat: NaN, lon: NaN });
+          date: w.date || (known.get(w.url) || {}).date || "", artist: w.artist || roles(known.get(w.url) || {}) || maker((known.get(w.url) || {}).maker),
+          institution: w.institution || (known.get(w.url) || {}).source || holder(w.title, w.url), rights: w.rights_label || rightsOf(known.get(w.url) || {}), lat: NaN, lon: NaN });
+      }
+      const links = new Map();
+      for (const w of c.works || []) {
+        if (w.image || !/^https:\/\//.test(w.url || "")) continue;
+        const key = w.url + "|" + clean(w.title);
+        const e = links.get(key) || { title: cut(clean(w.title), 90), inst: (w.institution || "").split(" (")[0], url: w.url, n: 0 };
+        e.n++; links.set(key, e);
       }
       list.sort((a, b) => (String(a.date || "9999").localeCompare(String(b.date || "9999"))) || a.title.localeCompare(b.title, "ru"));
       list.forEach((p, i) => { p.n = i + 1; p.total = list.length; plates.set(p.id, p); });
       const h = histBy.get(c.name) || null;
       const city = { id: c.id, name: c.name, orig: c.name_orig, country: c.country, area: c.area, lat: c.lat, lon: c.lon, plates: list,
-        pairs: pairsByCity.get(c.name) || [], hist: h, kind: c.kind };
+        pairs: pairsByCity.get(c.name) || [], hist: h, kind: c.kind, links: [...links.values()], linkCount: [...links.values()].reduce((n, x) => n + x.n, 0) };
       cities.set(c.id, city);
       if (!countries.has(c.country)) countries.set(c.country, { name: c.country, cities: [] });
       countries.get(c.country).cities.push(city);
@@ -185,12 +201,28 @@
       : c.plates.filter((p) => p.kind === "site").sort((a, b) => (b.conf === "high") - (a.conf === "high") || (pairFor(b) ? 1 : 0) - (pairFor(a) ? 1 : 0)).slice(0, 5));
     const siblings = D.countries.get(c.country).cities, i = siblings.findIndex((x) => x.id === c.id), nextC = siblings[i + 1];
     const first = c.plates.find((p) => !seen.has(p.id)) || c.plates[0];
+    const chap = (D.ed.chapters || {})[c.id] || null;
+    const qa = (q, a) => `<p class="q">${esc(q)}</p><details class="ans"><summary>Показать ответ</summary><p>${esc(a)}</p></details>`;
+    const view = (v) => {
+      const pl = v.plate ? D.plates.get(v.plate) : null, pr = v.pair ? (D.pairs.places || {})[v.pair] : null;
+      const href = v.href || (pr ? `../poc/compare/?journey=1#${v.pair}` : pl ? plateLink(pl) : "#/");
+      const im = v.image ? `<img src="${esc(v.image)}" alt="" loading="lazy">` : pr ? `<img src="../poc/compare/pairs/${esc(pr.image)}" alt="" loading="lazy">` : pl ? img(pl.image, v.title, "", 700) : "";
+      return `<article class="view"><a class="vimg" href="${href}">${im}</a><div class="vbody"><h3>${esc(v.title)}</h3><p class="small">${esc(v.who || "")}</p>${qa(v.q, v.a)}<a class="btn ghost" href="${href}">${pr || v.href ? "Сравнить с фото →" : "Открыть лист →"}</a></div></article>`;
+    };
+    const chapterHtml = chap ? `<p class="lede">${esc(chap.lede)}</p><h2>Три главных вида</h2><div class="views">${chap.views.map(view).join("")}</div>` : "";
+    const chapterTail = chap ? `${chap.extra ? chap.extra.map((x) => `<div class="fact"><b>${esc(x.t)}</b>${qa(x.q, x.a)}</div>`).join("") : ""}
+      <h2>Что изменилось</h2><ol class="tl">${chap.timeline.map(([y, t]) => `<li><b>${esc(y)}</b><span>${esc(t)}</span></li>`).join("")}</ol>
+      <h2>Старые путеводители</h2><ul class="bl">${chap.books.map(([t, d]) => `<li><b>${esc(t)}</b><span>${esc(d)}</span></li>`).join("")}</ul>
+      <div class="fact"><b>Знаете ли вы</b>${esc(chap.fact)}</div>
+      <p class="outro">${esc(chap.outro)}</p>` : "";
+    const archive = c.linkCount ? `<details class="archive"><summary class="btn ghost wide">Ещё ${plural(c.linkCount, "лист", "листа", "листов")} у хранителей (откроются на их сайтах)</summary><ul>${c.links.map((l) => `<li><a href="${esc(safe(l.url))}" target="_blank" rel="noopener noreferrer">${esc(l.title)}${l.n > 1 ? " ×" + l.n : ""}</a><span class="small"> ${esc(l.inst)}</span></li>`).join("")}</ul><p class="small">Здесь показаны только листы, которые можно открыть свободно. Остальные защищены правом или хранятся на сайтах архивов.</p></details>` : "";
     let shown = 12;
     const grid = () => c.plates.slice(0, shown).map((p) => `<a class="pl${seen.has(p.id) ? " seen" : ""}" href="${plateLink(p)}">${pairFor(p) ? '<span class="pair">СРАВНИТЬ</span>' : ""}${img(p.image, p.title, "", 400)}<span class="t">${esc(p.title)}<span class="d">${esc(p.date || "дата у хранителя")}</span></span></a>`).join("");
     $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">${esc(c.country)}${c.area ? " · " + esc(c.area) : ""}</p><h1>${esc(c.name)}</h1>
       ${h ? `<p class="lede">${esc(h.tagline)}</p>` : ""}
-      <div class="counts"><span>${plural(c.plates.length, "вид", "вида", "видов")}</span>${c.pairs.length ? `<span>${plural(c.pairs.length, "сравнение", "сравнения", "сравнений")}</span>` : ""}<span>просмотрено ${read} из ${c.plates.length}</span></div></section>
-      ${stars.length ? `<h2>Главные виды города</h2><div class="strip" role="list">${stars.map((p) => `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(p.date || c.name)}</span><b>${esc(p.title)}</b></span></a>`).join("")}</div>` : ""}
+      <div class="counts"><span>${plural(c.plates.length, "лист здесь", "листа здесь", "листов здесь")}</span>${c.linkCount ? `<span>${plural(c.linkCount, "лист", "листа", "листов")} у хранителей</span>` : ""}${c.pairs.length ? `<span>${plural(c.pairs.length, "сравнение", "сравнения", "сравнений")}</span>` : ""}<span>просмотрено ${read} из ${c.plates.length}</span></div></section>
+      ${chapterHtml}
+      ${!chap && stars.length ? `<h2>Главные виды города</h2><div class="strip" role="list">${stars.map((p) => `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(p.date || c.name)}</span><b>${esc(p.title)}</b></span></a>`).join("")}</div>` : ""}
       ${h ? `<div class="intro"><p>${esc(h.intro.split(/(?<=[.!?])\s/).slice(0, 2).join(" "))}</p>
         <details class="story"><summary class="btn ghost wide">Читать историю города</summary><p>${esc(h.intro)}</p>${(h.chapters || []).map((ch) => `<h3>${esc(ch.title)}</h3><p>${esc(ch.text)}</p>`).join("")}</details>
         ${h.did_you_know && h.did_you_know[0] ? `<div class="fact"><b>Знаете ли вы</b>${esc(typeof h.did_you_know[0] === "string" ? h.did_you_know[0] : (h.did_you_know[0].text || ""))}</div>` : ""}</div>` : ""}
@@ -199,7 +231,9 @@
       <div class="plates" id="grid">${grid()}</div>
       <div class="btn-row"><button type="button" class="btn ghost wide" id="moreBtn" ${c.plates.length <= shown ? "hidden" : ""}>Показать ещё ${Math.min(12, c.plates.length - shown)}</button></div>
       ${c.plates.some((p) => Number.isFinite(p.lat)) ? `<h2>Где это в городе</h2><div class="lmap" id="lmap" role="region" aria-label="Карта: места листов"></div><p class="small">Нажмите метку, чтобы открыть лист.</p>` : ""}
-      ${dock(first ? { href: plateLink(first), t: first.title, small: read ? "Продолжить" : "Начать с первого листа" } : null, { href: countryLink({ name: c.country }), t: c.country })}</div>`;
+      ${archive}
+      ${chapterTail}
+      ${dock(chap && chap.next && !first ? null : first ? { href: plateLink(first), t: first.title, small: read ? "Продолжить" : "Начать с первого листа" } : null, { href: countryLink({ name: c.country }), t: c.country })}</div>`;
     const more = document.getElementById("moreBtn");
     more.onclick = () => { shown += 12; document.getElementById("grid").innerHTML = grid(); more.textContent = `Показать ещё ${Math.min(12, c.plates.length - shown)}`; more.hidden = shown >= c.plates.length; };
     mountMap("lmap", c.plates.filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon)), null);

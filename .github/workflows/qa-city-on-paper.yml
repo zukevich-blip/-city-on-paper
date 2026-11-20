@@ -186,6 +186,7 @@ jobs:
           cp -R cities /tmp/city-on-paper-package/
           cp -R walk /tmp/city-on-paper-package/
           cp -R guides /tmp/city-on-paper-package/
+          cp -R book /tmp/city-on-paper-package/
           cp -R submit /tmp/city-on-paper-package/
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
