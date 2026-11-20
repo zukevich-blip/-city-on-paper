@@ -84,3 +84,15 @@
  .ep-verified-intro{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.ep-verified-modes button{transition:none}}
+
+
+/* Show separate whole sheets when the historical and modern perspectives differ. */
+.ep-verified-stage.independent-view{width:min(100%,57rem);aspect-ratio:auto;height:clamp(320px,62vh,590px)}
+.ep-verified-stage.independent-view>.ep-verified-dual{position:absolute;inset:0;display:flex;align-items:stretch;pointer-events:none}
+.ep-verified-dual-old,.ep-verified-dual-new{box-sizing:border-box;height:100%;min-width:0;display:grid;place-items:center;overflow:hidden;padding:10px}
+.ep-verified-dual-old{width:var(--verified-left,50%);background:#e6d7c3}
+.ep-verified-dual-new{width:calc(100% - var(--verified-left,50%));background:#dbe4df;border-left:1px solid #c1c9c1}
+.ep-verified-dual img{width:100%;height:100%;object-fit:contain;object-position:center;max-width:100%;max-height:100%;filter:none;transform:none}
+.ep-verified-stage.independent-view .ep-verified-handle{z-index:4}
+.ep-verified-stage.independent-view .ep-verified-curtain{display:none}
+@media(max-width:650px){.ep-verified-stage.independent-view{height:clamp(310px,55vh,485px)}.ep-verified-dual-old,.ep-verified-dual-new{padding:5px}}
