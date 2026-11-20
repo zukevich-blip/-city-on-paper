@@ -306,7 +306,7 @@ window.Epochs = (() => {
         <div class="ctrls"><label>Было <select id="epA">${fs.map((f, i) => `<option value="${i}">${esc(lab(f))} — ${esc((f.label || "").slice(0, 50))}</option>`).join("")}</select></label>
           <label>Стало <select id="epB">${fs.map((f, i) => `<option value="${i}">${esc(lab(f))} — ${esc((f.label || "").slice(0, 50))}</option>`).join("")}</select></label></div>
         <div class="ep-modes" role="group" aria-label="Способ сравнения">
-          <button type="button" data-compare-mode="slider" aria-pressed="true">Ползунок</button>
+          <button type="button" data-compare-mode="slider" aria-pressed="true">Шторка</button>
           <button type="button" data-compare-mode="side" aria-pressed="false">Рядом</button>
           <button type="button" data-compare-mode="opacity" aria-pressed="false">Прозрачность</button>
           <button type="button" data-compare-mode="flip" aria-pressed="false">A/B</button>
@@ -316,7 +316,8 @@ window.Epochs = (() => {
           <button type="button" id="epFlipBtn" hidden>Показать другой кадр</button>
           <button type="button" id="epExport">Сохранить сравнение (JSON)</button>
         </div>
-        <p class="ep-caution" id="epCaution">Точки съёмки могут различаться. Изображения показаны без изменений.</p>
+        <p class="ep-caution" id="epCaution">Оба кадра без искажения. Положение шторки не означает точного совпадения ракурса.</p>
+         <p class="ep-curtain-readout" id="epReadout" role="status">Слева исторический вид · справа новый вид</p>
         <div class="epstage" id="epstage"><img id="epImB" alt=""><div class="epTop" id="epTop"><img id="epImA" alt=""></div>
           <div class="eph" id="epH2" role="slider" tabindex="0" aria-label="Граница сравнения: стрелки влево и вправо" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⇆</span></div>
           <span class="tag l" id="epTagA"></span><span class="tag r" id="epTagB"></span></div>
@@ -372,7 +373,16 @@ window.Epochs = (() => {
       top.style.opacity = op ? String(ratio / 100) : flip ? String(flipA ? 1 : 0) : "1";
       h.style.left = ratio + "%";
       h.setAttribute("aria-valuenow", String(Math.round(ratio)));
+      h.setAttribute("aria-valuetext", `${Math.round(ratio)}% первый кадр, ${Math.round(100 - ratio)}% второй кадр`);
       $("epAmount").value = String(Math.round(ratio));
+      const first = fs[a], last = fs[b];
+      $("epReadout").textContent = mode === "slider"
+        ? `Слева ${lab(first)} · справа ${lab(last)} · граница ${Math.round(ratio)}%`
+        : mode === "opacity" ? `Прозрачность ${Math.round(ratio)}% · кадры геометрически не подогнаны`
+        : mode === "flip" ? "Режим A/B: переключайте кадры без наложения" : "Оба кадра целиком, в оригинальных пропорциях";
+      $("epCaution").textContent = mode === "side"
+        ? "Каждый кадр целиком и в собственном формате. Можно сравнить композицию, даже если ракурсы отличаются."
+        : "Шторка показывает два самостоятельных изображения. Деформация не применяется; совпадение линии не доказывает одинаковый ракурс.";
       host.querySelectorAll("[data-compare-mode]").forEach((btn) =>
         btn.setAttribute("aria-pressed", String(btn.dataset.compareMode === mode)));
     };
@@ -436,7 +446,8 @@ window.Epochs = (() => {
     host.querySelectorAll(".epf[data-f]").forEach((x) => (x.onclick = () => { const i = +x.dataset.f; if (i === a || i === b) return; if (i < b) a = i; else b = i; selA.value = a; selB.value = b; upd(); st.scrollIntoView({ behavior: "smooth", block: "nearest" }); }));
     const move = (e) => { const r = st.getBoundingClientRect(); setPos((e.clientX - r.left) / r.width * 100); };
     st.addEventListener("pointerdown", (e) => { st.setPointerCapture(e.pointerId); move(e); st.onpointermove = move; });
-    st.addEventListener("pointerup", () => (st.onpointermove = null));
+    ["pointerup", "pointercancel", "lostpointercapture"].forEach(kind =>
+      st.addEventListener(kind, () => (st.onpointermove = null)));
     h.addEventListener("keydown", (e) => { const v = +h.getAttribute("aria-valuenow"); if (e.key === "ArrowLeft") setPos(v - 5); else if (e.key === "ArrowRight") setPos(v + 5); else if (e.key === "Home") setPos(0); else if (e.key === "End") setPos(100); else return; e.preventDefault(); });
     setPos(ratio); upd();
     // my photos list
