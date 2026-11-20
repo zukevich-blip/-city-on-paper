@@ -320,7 +320,7 @@ async function usePair(pair, fromIndex) {
     warn.push(`Размер исторического файла ${S.nat.hist.join("×")} не совпадает с size ${pair.historic.size.join("×")} в JSON.`);
   if (okP && pair.photo.size && (S.nat.photo[0] !== pair.photo.size[0] || S.nat.photo[1] !== pair.photo.size[1]))
     warn.push(`Размер фото ${S.nat.photo.join("×")} не совпадает с size ${pair.photo.size.join("×")} в JSON.`);
-  say((warn.join(" ")) || (S.points.length ? `Уже отмечено пар точек: ${S.points.length}. Коснитесь детали на рисунке или фото, чтобы добавить ещё.` : "Коснитесь детали на рисунке, затем той же детали на фото."));
+  say((warn.join(" ")) || (!fromIndex ? `JSON «${pair.id || "без id"}» открыт: ${S.points.length} точек. Коснитесь детали на рисунке или фото, чтобы добавить ещё.` : S.points.length ? `Уже отмечено пар точек: ${S.points.length}. Коснитесь детали на рисунке или фото, чтобы добавить ещё.` : "Коснитесь детали на рисунке, затем той же детали на фото."));
   recompute();
 }
 

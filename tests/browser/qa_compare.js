@@ -232,6 +232,7 @@ async function editorChecks(browser, vp) {
   const ex2 = await page.$eval("#exportText", t => t.value);
   check(`${vp.name} editor: export → import → export round-trips byte-identically`, ex1 === ex2);
   if (vp.name === "desktop-1440") {
+    await page.evaluate(() => { document.querySelector("details.tech").open = true; });
     const [dl] = await Promise.all([page.waitForEvent("download"), page.click("#exportBtn")]);
     const path = await dl.path();
     check(`${vp.name} editor: download is the same JSON (${dl.suggestedFilename()})`, fs.readFileSync(path, "utf8") === ex1);
@@ -239,14 +240,18 @@ async function editorChecks(browser, vp) {
   // 3. pointer: add a point (historic then photo), drag it, delete it
   const n0 = await page.$$eval("#ptTable tbody tr", r => r.length);
   const boxOf = async (sel) => { await page.locator(sel).scrollIntoViewIfNeeded(); return page.locator(sel).boundingBox(); };
+  const tab = async w => { if (vp.width <= 760) await page.evaluate(x => showTab(x), w); };
+  await tab("hist");
   const hv = await boxOf("#viewHist");
   await page.mouse.click(hv.x + hv.width * 0.1, hv.y + hv.height * 0.12);
   const expectPhoto = await page.evaluate(() => document.getElementById("panePhoto").classList.contains("expect"));
+  await tab("photo");
   const pv = await boxOf("#viewPhoto");
   await page.mouse.click(pv.x + pv.width * 0.1, pv.y + pv.height * 0.12);
   const n1 = await page.$$eval("#ptTable tbody tr", r => r.length);
   const added = JSON.parse(await page.$eval("#exportText", t => t.value)).control_points.slice(-1)[0];
   check(`${vp.name} editor: click historic → click photo adds one numbered pair`, expectPhoto && n1 === n0 + 1 && added && added.historic[0] > 0 && added.photo[0] > 0);
+  await tab("hist");
   const mk = page.locator(`#svgHist .mk[data-i="${n1 - 1}"] circle`);
   await page.locator("#viewHist").scrollIntoViewIfNeeded();
   const mb = await mk.boundingBox();
@@ -263,9 +268,11 @@ async function editorChecks(browser, vp) {
   await page.keyboard.press("Delete");
   check(`${vp.name} editor: Delete removes the focused point`, (await page.$$eval("#ptTable tbody tr", r => r.length)) === n0);
   // keyboard-only point: Enter in each pane
-  await page.focus("#viewHist"); await page.keyboard.press("Enter");
-  await page.focus("#viewPhoto"); await page.keyboard.press("Enter");
+  await tab("hist"); await page.focus("#viewHist"); await page.keyboard.press("Enter");
+  await tab("photo"); await page.focus("#viewPhoto"); await page.keyboard.press("Enter");
+  await tab("hist");
   check(`${vp.name} editor: keyboard Enter in both panes adds a point`, (await page.$$eval("#ptTable tbody tr", r => r.length)) === n0 + 1);
+  await page.evaluate(() => { document.querySelector("details.tech").open = true; });
   await page.fill(`#ptTable input[data-i="${n0}"]`, "test label");
   check(`${vp.name} editor: label edits reach the export`, JSON.parse(await page.$eval("#exportText", t => t.value)).control_points.slice(-1)[0].label === "test label");
   await page.click(`[data-del="${n0}"]`);
@@ -331,7 +338,12 @@ async function journeyChecks(browser, vp) {
       await page.locator("#journeyNext").textContent() === scene.next + " →");
     check(`${vp.name} ${scene.pair}: no horizontal scroll`,
       await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    if (i < JOURNEY.length - 1) await page.locator("#journeyNext").click();
+    if (scene.next_href) {
+      check(`${vp.name} ${scene.pair}: custom next step leads to ${scene.next_href}`,
+        await page.locator("#journeyNext").getAttribute("href") === scene.next_href &&
+        await page.locator("#journeyDock").getAttribute("href") === scene.next_href);
+      if (i < JOURNEY.length - 1) await page.goto(`${base}?journey=1#${JOURNEY[i + 1].pair}`);
+    } else if (i < JOURNEY.length - 1) await page.locator("#journeyNext").click();
   }
   check(`${vp.name}: ends at world atlas`, (await page.locator("#journeyNext").getAttribute("href")).endsWith("world/#worldComparisons"));
   await page.locator("#journeyBack").click();
