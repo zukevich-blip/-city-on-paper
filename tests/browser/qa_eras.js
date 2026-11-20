@@ -205,9 +205,17 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} triple stage: 0% shows first era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "0");
     await p.locator('#threeEpochs [data-go="50"]').click();
     ok(`${vp.n} triple stage: 50% shows middle era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "50");
+    await p.locator('#threeEpochs [data-role="position"]').evaluate(el => {
+      el.value = "25";
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    ok(`${vp.n} three-era curtain: later frame enters from the right`,
+      await p.locator('#threeEpochs [data-role="layer-middle"]').evaluate(el =>
+        el.style.clipPath === "inset(0 0 0 50%)") &&
+      /Слева/.test(await p.locator('#threeEpochs [data-role="phase"]').textContent()));
     await p.locator('#threeEpochs [data-go="100"]').click();
     ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
-    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
+    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? 0(?:px)? 0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
     const baselineFrames = await p.locator('#threeEpochs [data-role="last"] option').count();
     const localFixture = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
     await p.locator('#threeEpochs [data-role="upload-photo"]').setInputFiles({ name: "my-photo.png", mimeType: "image/png", buffer: localFixture });
