@@ -141,6 +141,12 @@ async function viewerChecks(browser, vp) {
       distinctPanels: Math.abs(document.querySelector("#independentHistoric").getBoundingClientRect().width -
         document.querySelector("#independentModern").getBoundingClientRect().width) < 3,
       withinViewport: stage.getBoundingClientRect().width <= innerWidth,
+      state: { classes: stage.className, frameHidden: dual.hidden, stageHidden: stage.hidden,
+        selected: document.querySelector("#pairSel")?.value,
+        view: document.querySelector('[data-view="originals"]')?.getAttribute("aria-pressed"),
+        selectedMode: [...document.querySelectorAll("[data-mode]")].filter(x => x.getAttribute("aria-pressed") === "true").map(x => x.dataset.mode),
+        oldWidth: old.naturalWidth, modernWidth: modern.naturalWidth, oldFit: getComputedStyle(old).objectFit,
+        modernFit: getComputedStyle(modern).objectFit },
       navigator: document.querySelector("#museumBar")?.getBoundingClientRect().height || 0,
       navigationLinksVisible: getComputedStyle(document.querySelector("#museumBar .mbq")).display !== "none"
     };
