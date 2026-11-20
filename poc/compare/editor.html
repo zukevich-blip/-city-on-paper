@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Редактор контрольных точек — прототип</title>
+<meta name="description" content="Редактор сравнения городских видов: настройте опорные точки исторической литографии и современного снимка, проверьте геометрию и сохраните результат.">
 <style>
 :root{
   --paper:#f4efe4; --ink:#2b241c; --muted:#6d6254; --line:#d8cdb8; --accent:#8a3b1e;
@@ -31,7 +32,7 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
 .status{border-left:4px solid var(--accent);background:var(--panel);padding:8px 12px;margin:8px 0}
 .panes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
-@media (max-width:760px){.panes{grid-template-columns:minmax(0,1fr)}}
+
 .pane{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px}
 .pane.expect{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .pane h2{margin:0 0 4px;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
@@ -71,6 +72,7 @@ a{color:var(--accent)}
 details.more{margin:0}details.more summary{min-height:40px;display:flex;align-items:center;cursor:pointer;font-weight:600}
 .paneTabs{display:none;gap:8px;margin:8px 0}
 .paneTabs button{flex:1;min-height:48px;font-size:16px;font-weight:600}
+.editor-jump{display:none}
 .plainres{font-size:15px;margin:10px 0;padding:10px 12px;background:var(--panel);border-left:4px solid var(--accent)}
 .dock{display:none}
 @media (max-width:760px){
@@ -123,12 +125,12 @@ details.more{margin:0}details.more summary{min-height:40px;display:flex;align-it
   <div class="panes">
     <section class="pane" id="paneHist" aria-labelledby="hHist">
       <h2 id="hHist"><span>Тогда — историческое (не меняется)</span>
-        <span class="bar" style="margin:0"><button data-zoom="hist" data-k="0.667" aria-label="Уменьшить историческое">−</button><button data-zoom="hist" data-k="1.5" aria-label="Увеличить историческое">+</button><button data-fit="hist">Вписать</button></span></h2>
+        <span class="bar" style="margin:0"><button data-zoom="hist" data-k="0.667" aria-label="Уменьшить историческое">−</button><button data-zoom="hist" data-k="1.5" aria-label="Увеличить историческое">+</button><button data-fit="hist">Вписать</button><a class="editor-jump" href="#panePhoto" data-jump="panePhoto">К фото ↓</a></span></h2>
       <div class="view" id="viewHist" tabindex="0" aria-label="Историческое изображение: щелчок или Enter ставит точку"><div class="wrap" id="wrapHist"><img id="imgHist" alt=""><svg id="svgHist" aria-label="Метки на историческом изображении"></svg></div></div>
     </section>
     <section class="pane" id="panePhoto" aria-labelledby="hPhoto">
       <h2 id="hPhoto"><span>Сейчас — фото (оригинал)</span>
-        <span class="bar" style="margin:0"><button data-zoom="photo" data-k="0.667" aria-label="Уменьшить фото">−</button><button data-zoom="photo" data-k="1.5" aria-label="Увеличить фото">+</button><button data-fit="photo">Вписать</button></span></h2>
+        <span class="bar" style="margin:0"><button data-zoom="photo" data-k="0.667" aria-label="Уменьшить фото">−</button><button data-zoom="photo" data-k="1.5" aria-label="Увеличить фото">+</button><button data-fit="photo">Вписать</button><a class="editor-jump" href="#paneHist" data-jump="paneHist">К листу ↑</a></span></h2>
       <div class="view" id="viewPhoto" tabindex="0" aria-label="Фото: щелчок или Enter ставит точку"><div class="wrap" id="wrapPhoto"><img id="imgPhoto" alt=""><svg id="svgPhoto" aria-label="Метки на фото"></svg></div></div>
     </section>
   </div>
@@ -495,6 +497,12 @@ $("pairSel").onchange = async () => {
   const guided = new URLSearchParams(location.search).get("journey") === "1";
   $("backToPair").href = $("saveBack").href = "./" + (guided ? "?journey=1" : "") + "#" + id;
 };
+for (const link of document.querySelectorAll("[data-jump]")) {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    $(link.dataset.jump).scrollIntoView({block: "start"});
+  });
+}
 addEventListener("resize", renderPreview);
 
 (async function init() {

@@ -198,6 +198,7 @@ window.Atlas = (() => {
       <h1>${esc(c.name)}${c.name_orig && c.name_orig !== c.name ? ` <small class="orig">${esc(c.name_orig)}</small>` : ""}</h1>`;
     const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">Город на современной карте ↗</a></p>
       <section class="cmap" aria-labelledby="cmapH"><h2 id="cmapH">Карта города${c.plan ? ": тогда и сейчас" : ""}</h2><div id="cmaphost"></div></section>
+      <section id="atlasPilot" hidden aria-label="Музейные листы"></section>
       <section id="historicCartography" class="historic-cartography" aria-label="Исторические карты и первоисточники города"></section>
       <section id="cityViewpoints" aria-labelledby="vpaTitle"><p class="note">Загружаем места съёмки…</p></section>
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
@@ -229,6 +230,7 @@ window.Atlas = (() => {
       const hosts=app.querySelectorAll(".museum-journey-host");
       MuseumJourney.mount(hosts[hosts.length - 1], c);
     }
+    window.AtlasPilot?.works(document.getElementById("atlasPilot"), c);
     if (window.CityHistoricCartography) {
       CityHistoricCartography.mount(document.getElementById("historicCartography"), c);
     }

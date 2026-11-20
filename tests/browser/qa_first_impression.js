@@ -27,6 +27,11 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
       }
       const images=page.locator(".wow-duet img");
       assert.equal(await images.count(),2,"Real pair is prominently presented");
+      if(width<=390){
+        const historic=await page.locator('.wow-duet [data-pane="then"] img').boundingBox();
+        assert(historic && historic.y+Math.min(100,historic.height)<720,
+          "At least the first 100 px of the engraving appear on a short phone without scrolling");
+      }
       await page.evaluate(async()=>{
         await Promise.all([...document.querySelectorAll(".wow-duet img")].map(async i=>{
           try{await i.decode();}catch{}

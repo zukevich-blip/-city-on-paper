@@ -21,7 +21,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    await p.goto(new URL("salon/",base).href,{waitUntil:"domcontentloaded"});
    try{await p.waitForFunction(()=>document.querySelectorAll("#gallery .art").length>=41,null,{timeout:15000})}catch(e){const debug=await p.evaluate(()=>({cards:document.querySelectorAll("#gallery .art").length,count:document.querySelector("#count")?.textContent,status:document.querySelector("#archiveStatus")?.textContent,empty:document.querySelector("#empty")?.textContent}));throw Error(label+": gallery initial load "+JSON.stringify({debug,errs,original:String(e)}))}
    await p.waitForFunction(()=>document.querySelector("#archiveStatus")?.textContent?.includes("Расширенный фонд:"),null,{timeout:25000});
-   const countLine=await p.locator("#count").textContent();const n=Number(countLine.split(" · ").find(x=>x.includes("архивных находок"))?.split(" ")[0]||0);if(n<60)throw Error(label+": expanded visible museum artworks only "+n);
+   const countLine=await p.locator("#count").textContent();const n=Number((countLine.match(/(\d+)\s+архивных находок/)||[])[1]||0);if(n<60)throw Error(label+": expanded visible museum artworks only "+n);
    await requireImage(p,"#gallery .art img");
    await p.locator("#gallery .art img").first().click();
    await p.locator("#zoomIn").click();
@@ -39,6 +39,11 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    if(await p.locator("#regionButtons button").count()!==7)throw Error(label+": atlas lacks six world regions");
    if(await p.locator("#cityGrid .city").count()<10)throw Error(label+": city atlas has fewer than 10 real city cards");
    await p.waitForFunction(()=>[...document.querySelectorAll("#cityGrid .city img")].slice(0,12).some(i=>i.complete&&i.naturalWidth>80),null,{timeout:30000});
+   await p.waitForFunction(()=>document.querySelectorAll("#worldComparisonCards .comparison-card").length===13,null,{timeout:30000});
+   const comparisons=await p.locator("#worldComparisonCards .comparison-card").count();
+   if(comparisons!==13)throw Error(label+": expected 13 sourced historical/photo comparison pairs, got "+comparisons);
+   if((await p.locator('#worldComparisonCards a[href*="synthetic-"]').count())!==0)
+     throw Error(label+": synthetic QA scenes leaked into the public gallery");
    await p.locator("#journey").click();
    if(await p.locator("#route").isHidden()||await p.locator("#routeGrid a").count()<3)throw Error(label+": multi-region journey did not open");
    await p.screenshot({path:outDir+"/"+label+"-artifact-world-atlas.jpg",type:"jpeg",quality:70});

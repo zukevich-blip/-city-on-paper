@@ -54,6 +54,13 @@
  #museumBar .mbp{max-height:75dvh;grid-template-columns:1fr!important;padding:8px 16px 18px}
  #museumBar .mbp a{min-height:44px}
  #museumBar button{padding:4px 9px;white-space:nowrap}
+/* Mobile: keep one compact toolbar; all sections remain available from the menu. */
+#museumBar .mb{flex-wrap:nowrap!important;padding:4px 12px;min-height:52px;gap:7px}
+#museumBar .mbq{display:none!important}
+#museumBar .mbh{min-width:0;flex:1 1 auto;font-size:14px}
+#museumBar .mbback{flex:0 0 auto;min-height:44px;border-radius:9px}
+#museumBar button{flex:0 0 auto;min-height:44px;border-radius:9px}
+#museumBar .mbp{top:100%;max-height:min(70dvh,640px);overflow-y:auto;overscroll-behavior:contain}
 }`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   // One primary menu for the whole museum — the same five doors as on the home page.

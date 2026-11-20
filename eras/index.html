@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#22362f">
-<meta name="description" content="Атлас эпох: историческая карта, города и одно место в разные времена — литография, фотохром, современный снимок. Экспериментальный прототип City on Paper.">
+<meta name="description" content="Атлас эпох: исторические карты Парижа и других городов, старые виды, фотографии и сравнение времени. Откройте планы и музейные первоисточники.">
 <title>Атлас эпох · Город на бумаге</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="city-lab.css">
 <link rel="stylesheet" href="journey.css">
 <link rel="stylesheet" href="cartography.css">
+<link rel="stylesheet" href="pilot.css">
 <link rel="stylesheet" href="viewpoint-atlas.css">
 <link rel="stylesheet" href="../assets/story/artwork-history.css">
 <link rel="stylesheet" href="../assets/nav/museum-polish.css">
@@ -33,7 +34,7 @@ a{color:inherit}button,select{font:inherit;cursor:pointer}
 header.top{background:var(--dark);color:#f1eadb;padding:14px clamp(16px,4vw,56px);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
 header.top strong{font:23px/1.2 Georgia,serif;margin-right:auto}header.top a{font-size:13px;color:#eadfc9;text-decoration:none}
 .proto{display:inline-block;font:11px/1.6 system-ui;letter-spacing:.12em;text-transform:uppercase;border:1px solid #dcb88c;color:#dcb88c;padding:0 7px;border-radius:2px}
-main{max-width:1500px;margin:0 auto;padding:18px clamp(16px,4vw,56px) 60px}
+main{max-width:1500px;margin:0 auto;padding:18px clamp(16px,4vw,56px) 60px}.atlas-static{max-width:850px;margin:20px auto;padding:20px 0 38px}.atlas-static h1{font:normal clamp(36px,6vw,60px)/1.1 Georgia,serif}.atlas-static p{line-height:1.7}.atlas-static nav{display:flex;gap:12px 22px;flex-wrap:wrap}.atlas-static nav a{color:#285c50;text-underline-offset:4px}
 .crumbs{font:13px system-ui;color:var(--muted);margin:4px 0 12px;display:flex;flex-wrap:wrap;gap:6px}
 .crumbs a{color:#6d5430}
 h1,h2,h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:-.02em}
@@ -334,6 +335,48 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 .hist-time{list-style:none;padding:0;margin:16px 0;display:grid;gap:6px}.hist-time li{display:grid;grid-template-columns:64px 1fr;gap:10px;font:14px/1.5 system-ui;border-left:2px solid #c59446;padding-left:10px}.hist-time b{font:400 20px Georgia,serif;color:#7a3f22}
 .hist-fact{background:#efe6d6;border:1px solid #d9cbb5;padding:10px 14px;font:14px/1.6 system-ui;max-width:760px}
 .masters{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0}.master{background:var(--paper2);border:1px solid var(--line);padding:16px}.master h2{font-size:26px;margin:0}.master .mrole{font:12px/1.5 system-ui;color:#8c6e41;letter-spacing:.04em;margin:4px 0 8px}.master p{font:15px/1.65 Georgia,serif;margin:6px 0}
+
+/* City-on-Paper v6.1: a common museum visual language for every epoch comparison. */
+.epcmp{background:#fbf8f1;border:1px solid #d2c4b0;border-radius:14px;padding:clamp(12px,2vw,22px);box-shadow:0 7px 27px #2436290b}
+.epcmp .ctrls{padding:7px 0 14px;border-bottom:1px solid #e4d9c8}
+.epcmp select{min-height:44px;background:#fffdf6;border:1px solid #bdac94;border-radius:8px;padding:7px 9px;color:#293b31}
+.ep-modes{gap:8px;margin:16px 0 10px}
+.ep-modes button{border:1px solid #c9b9a3;border-radius:10px;min-height:48px;background:linear-gradient(150deg,#fffdf7,#f1e8d9);font:600 14px/1.3 system-ui;color:#294438;box-shadow:0 2px 6px #263b2710}
+.ep-modes button:hover{border-color:#96734b}
+.ep-modes button[aria-pressed=true]{background:#244336;border-color:#244336;color:#fff8e9;box-shadow:0 4px 12px #29443826}
+.ep-mode-tools{background:#f2eadd;border-radius:10px;padding:9px 12px;margin:8px 0}
+.ep-mode-tools input[type="range"]{accent-color:#805c37;min-height:44px}
+.ep-mode-tools button{border-radius:9px}
+.ep-curtain-readout{padding:10px 13px;margin:8px 0 12px;border-radius:9px;background:#e7eadf;color:#28483b;font:600 12px/1.55 system-ui}
+.epstage{background:repeating-linear-gradient(135deg,#e4d9c7,#e4d9c7 12px,#eee6db 12px,#eee6db 24px);border:7px solid #fbf7ed;outline:1px solid #c9bba6;border-radius:8px;box-shadow:0 16px 30px #172b2033;isolation:isolate;height:min(66vh,590px)}
+.epstage .tag{font:600 11px/1.3 system-ui;border-radius:7px;background:#1d3b31e6;padding:6px 9px}
+.eph{width:54px;margin-left:-27px;z-index:2;touch-action:none}
+.eph:before{width:3px;background:#fff9e7;box-shadow:0 0 0 1px #1f4132,0 0 10px #0008}
+.eph span{height:50px;width:50px;border-radius:50%;border:3px solid #fffdf0;background:#fff9ec;color:#244638;box-shadow:0 4px 16px #0009;font:700 20px system-ui}
+.ep-side figure{background:#faf6eb;border:1px solid #d4c2ac;border-radius:10px;overflow:hidden}
+.ep-side img{background:repeating-linear-gradient(135deg,#e6dbca,#e6dbca 12px,#f0e7db 12px,#f0e7db 24px);height:clamp(240px,42vh,450px)}
+.ep-side figcaption{background:#fbf7ee;font-size:12px}
+.ep-caution{border-radius:8px;border-left:3px solid #a47a4a;background:#f4edde;padding:11px 13px}
+@media(max-width:650px){
+ .ep-modes{gap:5px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ep-modes button{min-height:47px;font-size:12px;border-radius:8px}
+ .epstage{height:min(64vh,520px);min-height:250px;border-width:4px}
+ .eph span{width:43px;height:43px}
+ .epcmp .ctrls label{width:100%}
+ .epcmp select{max-width:100%;width:100%}
+}
+
+/* Atlas time curtain: preserve complete artwork and photograph independently. */
+.epstage.independent-view>.epTop,.epstage.independent-view>img#epImB{display:none}
+.ep-independent[hidden]{display:none!important}
+.epstage.independent-view .ep-independent{position:absolute;inset:0;display:flex;align-items:stretch;pointer-events:none}
+.ep-independent-old,.ep-independent-new{box-sizing:border-box;display:grid;place-items:center;overflow:hidden;min-width:0;height:100%;padding:11px}
+.ep-independent-old{width:var(--ep-independent-left,50%);background:#e8dbc7}
+.ep-independent-new{width:calc(100% - var(--ep-independent-left,50%));background:#d9e3dd;border-left:1px solid #bdc6bd}
+.ep-independent img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;max-width:100%;max-height:100%;filter:none;transform:none}
+.epstage.independent-view .eph{z-index:4}
+.epstage.independent-view .tag{z-index:3}
+@media(max-width:650px){.ep-independent-old,.ep-independent-new{padding:5px}}
 </style>
 <script src="../assets/nav/museum-nav.js" defer></script>
 </head>
@@ -342,10 +385,11 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
 <header class="top"><strong>Город на бумаге · Атлас эпох</strong><button type="button" id="install" class="install">Установить на телефон</button>
 <nav class="anav" aria-label="Разделы атласа"><a href="#/">Карта</a><a href="#/epochs">Эпохи</a><a href="#/masters">Мастера</a><a href="#/mine">Мой ракурс</a></nav><button type="button" class="hbtn" id="shareBtn"><span class="lg">Поделиться</span><span class="sm">Ссылка</span></button><button type="button" class="hbtn" id="fbBtn"><span class="lg">Оставить отзыв</span><span class="sm">Отзыв</span></button></header>
 <dialog id="fb" aria-labelledby="fbTitle"><form method="dialog" id="fbForm"><h2 id="fbTitle" style="margin:0 0 6px;font-size:26px">Ваш отзыв об атласе</h2><p style="font:13px/1.5 system-ui;margin:0 0 10px;color:#6f6f63">Отзыв не сохраняется на сайте. Кнопка «Отправить» откроет меню «Поделиться» вашего телефона — выберите мессенджер или почту и отправьте автору. На компьютере текст скопируется.</p><fieldset style="border:0;padding:0;margin:0 0 8px"><legend style="font:13px system-ui">Оценка</legend><div class="stars"><label><input type="radio" name="r" value="1"> 1</label><label><input type="radio" name="r" value="2"> 2</label><label><input type="radio" name="r" value="3"> 3</label><label><input type="radio" name="r" value="4"> 4</label><label><input type="radio" name="r" value="5"> 5</label></div></fieldset><label for="fbText" style="font:13px system-ui">Что понравилось, что улучшить, какие города добавить</label><textarea id="fbText" rows="5" maxlength="2000"></textarea><div class="fbrow"><button type="submit" value="cancel" class="ghost">Закрыть</button><button type="button" id="fbSend" class="solid">Отправить автору</button></div><p id="fbStatus" role="status" style="font:13px system-ui;color:#2f6b3a;min-height:18px"></p></form></dialog>
-<main id="app" tabindex="-1" aria-live="polite"><p class="note">Загружаем атлас…</p></main>
+<main id="app" tabindex="-1" aria-live="polite"><section class="atlas-static" aria-labelledby="atlas-static-title"><h1 id="atlas-static-title">Атлас эпох</h1><p>Исследуйте старые планы городов, исторические литографии и фотографии. Здесь можно выбрать город, найти его на карте, открыть произведение из музейного собрания и сопоставить разные эпохи. Исторические карты не равны современным координатам: точность привязки и совпадение ракурсов указываются отдельно.</p><nav aria-label="Основные разделы музея"><a href="../">Главная музея</a><a href="../world/">Мировой атлас</a><a href="../cities/">Города</a><a href="../salon/">Каталог произведений</a><a href="../poc/compare/">Тогда и сейчас</a></nav><p class="note">Загружаем интерактивную карту…</p></section></main>
 <noscript><p class="note">Включите JavaScript, чтобы открыть атлас. <a href="data/eras.json">Список источников</a>.</p></noscript>
 <footer>«Атлас эпох» — часть музея «Город на бумаге». На iPhone: «Поделиться» → «На экран „Домой“»; на Android: меню браузера → «Установить приложение». Старые изображения показаны без изменений. Ссылки на архивы и сведения о правах есть у каждой работы.</footer>
 <script src="vendor/leaflet-1.9.4/leaflet.js"></script>
+<script src="pilot.js"></script>
 <script src="maps.js"></script>
 <script src="history.js"></script>
 <script src="epochs.js"></script>
