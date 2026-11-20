@@ -21,7 +21,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    await p.goto(new URL("salon/",base).href,{waitUntil:"domcontentloaded"});
    try{await p.waitForFunction(()=>document.querySelectorAll("#gallery .art").length>=41,null,{timeout:15000})}catch(e){const debug=await p.evaluate(()=>({cards:document.querySelectorAll("#gallery .art").length,count:document.querySelector("#count")?.textContent,status:document.querySelector("#archiveStatus")?.textContent,empty:document.querySelector("#empty")?.textContent}));throw Error(label+": gallery initial load "+JSON.stringify({debug,errs,original:String(e)}))}
    await p.waitForFunction(()=>document.querySelector("#archiveStatus")?.textContent?.includes("Расширенный фонд:"),null,{timeout:25000});
-   const countLine=await p.locator("#count").textContent();const n=Number((countLine.match(/найдено в музейных базах: (\d+)/)||[])[1]||0);if(n<60)throw Error(label+": expanded visible museum artworks only "+n);
+   const countLine=await p.locator("#count").textContent();const n=Number((countLine.match(/(\d+)\s+архивных находок/)||[])[1]||0);if(n<60)throw Error(label+": expanded visible museum artworks only "+n);
    await requireImage(p,"#gallery .art img");
    await p.locator("#gallery .art img").first().click();
    await p.locator("#zoomIn").click();
