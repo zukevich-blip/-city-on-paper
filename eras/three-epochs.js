@@ -24,7 +24,7 @@
     host.hidden = false;
     host.innerHTML = `
       <div class="cp3-title"><h2>Три эпохи на одном ползунке</h2></div>
-      <p class="cp3-lead">Выберите три изображения. Перемещайте разделитель вправо: слева всегда более ранний вид, справа следующий по времени. Все кадры сохраняют свои пропорции.</p>
+      <p class="cp3-lead">Выберите три изображения. Двигайте ползунок времени от раннего кадра к позднему. В каждой паре слева старый вид, справа новый. Чтобы двигать шторку по изображению, тяните линию влево.</p>
       <div class="cp3-selects" role="group" aria-label="Три кадра для сравнения">
         <label>Старая эпоха <select data-role="first"></select></label>
         <label>Промежуточная <select data-role="middle"></select></label>
@@ -150,7 +150,10 @@
       // Later images enter from the right, so the viewer always reads earlier on the left.
       middle.style.clipPath = `inset(0 0 0 ${100 - Math.min(100, p * 2)}%)`;
       last.style.clipPath = `inset(0 0 0 ${100 - Math.max(0, (p - 50) * 2)}%)`;
-      guide.style.left = p + "%";
+      // Two chronological transitions: the divider moves right-to-left in each.
+      const seam = p <= 50 ? 100 - p * 2 : 200 - p * 2;
+      guide.style.left = seam + "%";
+      guide.hidden = p === 0 || p === 50 || p === 100;
       const framesNow = chosen();
       const left = p <= 50 ? framesNow[0] : framesNow[1];
       const right = p <= 50 ? framesNow[1] : framesNow[2];
@@ -162,22 +165,28 @@
       slider.setAttribute("aria-valuetext", `${p} процентов. ${state}`);
     }
 
-    const pointAt = (clientX) => {
+    let dragSegment = null;
+    const pointAt = (clientX, segment) => {
       const rect = stage.getBoundingClientRect();
-      slider.value = String(Math.round(100 * (clientX - rect.left) / rect.width));
+      const x = Math.max(0, Math.min(100, 100 * (clientX - rect.left) / rect.width));
+      slider.value = String(Math.round(segment + (100 - x) / 2));
       move();
     };
     let activePointer = null;
     stage.addEventListener("pointerdown", (e) => {
       activePointer = e.pointerId;
+      const p = Number(slider.value);
+      const rect = stage.getBoundingClientRect();
+      dragSegment = p < 50 ? 0 : p > 50 ? 50
+        : e.clientX < rect.left + rect.width / 2 ? 0 : 50;
       stage.setPointerCapture(e.pointerId);
-      pointAt(e.clientX);
+      pointAt(e.clientX, dragSegment);
     });
     stage.addEventListener("pointermove", (e) => {
-      if (activePointer === e.pointerId) pointAt(e.clientX);
+      if (activePointer === e.pointerId) pointAt(e.clientX, dragSegment);
     });
     for (const kind of ["pointerup", "pointercancel", "lostpointercapture"])
-      stage.addEventListener(kind, () => { activePointer = null; });
+      stage.addEventListener(kind, () => { activePointer = null; dragSegment = null; });
     slider.addEventListener("input", move);
     selectors.forEach(select => select.addEventListener("change", updateFrames));
     host.querySelectorAll("[data-go]").forEach(button => {
