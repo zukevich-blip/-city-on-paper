@@ -1,6 +1,6 @@
 # City on Paper — instructions for Codex and cooperating coding agents
 
-This is the **same single project**, not a fork. Work on `release/city-on-paper-private-preview-20261104`, the branch of draft PR #31, unless another agent currently owns that file. The canonical brief is GitHub Issue #30. Read `CLAUDE.md`, both `docs/consilium/BEFORE_RELEASE.md` and `docs/consilium/AFTER_RELEASE.md`, plus `docs/consilium/CLOSE_READING_EDITORIAL_REVIEW_20261103.md`. Codex and Claude must use **one design, one dataset contract, one packaged release**; never generate a competing v2 site without a technical migration decision.
+This is the **same single project**, not a fork. As of 2026-11-20, the active integration line is draft PR #82 (`codex/consilium-mobile`), descended from PR #81. Before editing, verify the current PR head, recent changes and CI; use that integration line unless another agent owns the target file. The former `release/city-on-paper-private-preview-20261104` and PR #31 are historical baselines, not the latest preview. The canonical early brief remains GitHub Issue #30. Read `CLAUDE.md`, both `docs/consilium/BEFORE_RELEASE.md` and `docs/consilium/AFTER_RELEASE.md`, plus `docs/consilium/CLOSE_READING_EDITORIAL_REVIEW_20261103.md`. Codex and Claude must use **one design, one dataset contract, one packaged release**; never generate a competing v2 site without a technical migration decision.
 
 ## New priority: actual *visible* scale, not inflated records
 - Keep the 41 hand-curated CMA originals, 2 explicitly non-CC0 Philippe Benoist LoC works, the existing Then/Now slider, 11 close-reading lessons, and 7-view old Site v7 as an **unrecovered, separate historical source**.
@@ -12,9 +12,9 @@ This is the **same single project**, not a fork. Work on `release/city-on-paper-
 - The GitHub PR and the primary user-facing zip are the deliverable. No public deploy or premium paid infrastructure before the owner opts in.
 
 ## Working arrangement / one source of truth
-1. Before touching files, look at PR #31 HEAD SHA and Actions. If another agent modified the file, read latest before modifying.
+1. Before touching files, inspect draft PR #82 HEAD SHA and Actions, its ancestry to PR #81, and any newer release or corrective PR. If another agent modified the file, read latest before modifying. Do not confuse the pinned public version with the integration branch.
 2. Use `.claude/agents/` as distinct responsibility templates, not imaginary completed agents; use `.claude/skills/` checklists.
-3. Implement directly on the same release branch in bounded, reversible commits and review existing tests. Report errors and fix them; don't open 15 parallel speculative PRs.
+3. Implement directly on the current integration branch in bounded, reversible commits and review existing tests. Report errors and fix them; don't open parallel competing previews. Do not merge or publish without explicit owner approval.
 4. Quality gate: `ruff check tools tests`, `pytest -q tests`, source browser suites, **actual built ZIP** `tools/release/validate_bundle.py`, `tests/browser/qa_packaged.js`. Mobile 390, iPad-like 820, desktop 1440. Real Safari remains NOT TESTED unless genuinely tested.
 5. Don't silently modify old native Site v7 (https://city-on-paper-anatolii.tolyaz.chatgpt.site). Its original source/export remains missing from the repo. Do not lose its seven user-visible pairs or pretend exact alignment validation.
 6. Favorite next ideas: lost buildings (Les Halles/Tuileries), architectural detail detective, authentic city/restaurant market trails, owner photo fieldwork, original editions/artists' workshops; choose quality of educational encounters, not just a swollen grid.
