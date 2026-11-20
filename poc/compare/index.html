@@ -408,6 +408,9 @@ function agentsLine(){
 }
 function captionFor(v){
   const hy = yearsOf(pair.historic.date), py = String(pair.photo.date || "").slice(0, 4), who = agentsLine();
+  if (v === "slider" && aligned && canAlign()) return lang === "en"
+    ? "The photo is fitted only within the measured outline. The print stays unchanged. Choose Originals for an undistorted photo."
+    : "Фото приблизительно подогнано внутри измеренного контура. Литография не меняется. Режим «Шторка без подгонки» покажет исходный снимок.";
   if (lang === "en") return ({ then: `The print, ${hy}. ${who}`, now: `The same place today${py ? ", " + py : ""}. Photo: ${pair.photo.author || ""}`,
     fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", slider: "Drag the border: left — the print, right — the photo.", originals: "Move the divider to compare both images as they are. The photo keeps its original perspective.", adv: "" })[v] || "";
   return ({ then: `Рисунок эпохи, ${hy}.${who ? " " + who + "." : ""}`,
@@ -532,7 +535,9 @@ function renderMeta(){
   $("photoImg").alt = t("photoAlt") + (P.title || "");
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
   const hr = H.size[0] / H.size[1], pr = P.size[0] / P.size[1];
-  $("ratioHint").textContent = Math.abs(Math.log(hr / pr)) > 0.18
+  $("ratioHint").textContent = aligned && canAlign()
+    ? (lang === "en" ? "Only the modern photograph is transformed within the measured region. The original is in the source panel." : "Подгоняется только фотография и только внутри отмеченной зоны. За её пределами совпадение не подтверждено. Исходный снимок сохранён.")
+    : Math.abs(Math.log(hr / pr)) > 0.18
     ? (lang === "en" ? "Different print and photo proportions. The original photo is shown whole, with no cropping or stretching." : "Форматы отличаются: фото показано целиком, без обрезки и растяжения. Пустые поля сохраняют пропорции.")
     : (lang === "en" ? "The original aspect ratios are preserved. A matching outline is not guaranteed." : "Пропорции сохранены. Общий вид здания ещё не означает совпадения точки съёмки.");
   const synthetic = pair.status === "synthetic_test";
