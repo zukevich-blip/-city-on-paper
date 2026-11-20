@@ -238,10 +238,16 @@ window.Atlas = (() => {
     const sites = c.sites || [];
     const siteBy = new Map(sites.map((x) => [x.url, x]));
     if (window.Maps) try { Maps.city(document.getElementById("cmaphost"), c, sites, thumb); } catch (e) { /* map optional */ }
+    let revealWork = null; // set once the works list is drawn: shows a card hidden behind "Показать ещё" or a filter
     document.getElementById("cmaphost").addEventListener("click", (e) => {
       const a = e.target.closest("a[data-w]"); if (!a) return;
-      e.preventDefault(); const t = document.getElementById("w-" + a.dataset.w);
-      if (t) { t.scrollIntoView({ behavior: "smooth", block: "center" }); t.classList.add("flash"); setTimeout(() => t.classList.remove("flash"), 1600); }
+      e.preventDefault();
+      const find = () => document.getElementById("w-" + a.dataset.w);
+      let t = find();
+      if (!t && revealWork) { revealWork(a.dataset.w); t = find(); }
+      if (t) { t.scrollIntoView({ behavior: "smooth", block: "center" }); t.classList.add("flash"); setTimeout(() => t.classList.remove("flash"), 1600); return; }
+      const fb = document.getElementById("cPlaceFeedback");
+      if (fb) fb.textContent = "Эта работа пока открывается только у хранителя (ссылка «у хранителя»): нашей страницы для неё ещё нет.";
     });
     if ((c.epochs || []).length && window.Epochs) epochs(c);
     let n = 24;
@@ -277,6 +283,10 @@ window.Atlas = (() => {
         m.hidden = filtered.length <= n;
         m.textContent = `Показать ещё (${filtered.length - n})`;
         m.onclick = () => { n += 24; draw(); };
+      };
+      revealWork = (wid) => {
+        authorInput.value = ""; queryInput.value = ""; n = 24; draw();
+        for (let guard = 0; !document.getElementById("w-" + wid) && n < list.length && guard < 80; guard++) { n += 24; draw(); }
       };
       authorInput.addEventListener("input", () => { n = 24; draw(); });
       queryInput.addEventListener("input", () => { n = 24; draw(); });

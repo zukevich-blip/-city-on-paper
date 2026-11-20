@@ -46,8 +46,8 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
       assert.equal(await page.locator(".opening-plates>a").count(),4,"Three archive scenes and a historical map are available directly");
       assert((await page.locator(".wow-primary").getAttribute("href")).includes("#rome-pantheon-vasi"),
         "Hero points to real interactive compare");
-      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("guides/"),
-        "Hero points to the guidebook catalogue");
+      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("book/"),
+        "Hero points to the book of views (contents by country and city)");
       const overflow=await page.evaluate(()=>({
         body:document.body.scrollWidth,
         html:document.documentElement.scrollWidth,

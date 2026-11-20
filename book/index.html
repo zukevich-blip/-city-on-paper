@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#23493d">
+<title>Книга видов · Город на бумаге</title>
+<meta name="description" content="Книга старых видов городов: оглавление по странам и городам, главные листы, сравнение с фотографиями сегодня и карта. Листайте как печатный путеводитель.">
+<link rel="stylesheet" href="../eras/vendor/leaflet-1.9.4/leaflet.css">
+<link rel="stylesheet" href="book.css">
+<script src="../eras/vendor/leaflet-1.9.4/leaflet.js" defer></script>
+<script src="../assets/nav/museum-nav.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#book">Перейти к книге</a>
+<header class="bk-top">
+  <a class="bk-brand" href="#/">Город на бумаге <span>Книга видов</span></a>
+  <nav class="bk-crumbs" id="crumbs" aria-label="Где вы в книге"></nav>
+</header>
+<main id="book" tabindex="-1" aria-live="polite">
+  <section class="cover">
+    <p class="eyebrow">Книга видов · цифровое издание</p>
+    <h1>Города на бумаге</h1>
+    <p class="lede">Книга старых литографий и гравюр городов: главные виды, оглавление по странам и городам, у каждого листа автор, место на карте и, где нашли, фото сегодня.</p>
+    <p class="bk-loading">Открываем книгу…</p>
+  </section>
+</main>
+<noscript>
+  <div class="bk-nojs">
+    <p>Для листания книги нужен JavaScript. Без него можно открыть <a href="../guides/">путеводители</a>, <a href="../salon/">каталог видов</a> или <a href="../poc/compare/">сравнение «тогда и сейчас»</a>.</p>
+  </div>
+</noscript>
+<footer class="bk-foot">
+  <a href="../">Главная</a> · <a href="../guides/">Путеводители</a> · <a href="../poc/compare/?journey=1">Сравнение</a> · <a href="../eras/">Карта и эпохи</a> · <a href="../salon/">Каталог</a>
+</footer>
+</body>
+</html>

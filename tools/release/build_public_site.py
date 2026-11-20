@@ -24,7 +24,7 @@ PAGES = (
     "cities/index.html", "atlas/index.html",
     "stories/index.html", "stories/paris-on-paper/index.html",
     "experience/index.html",
-    "walk/index.html", "submit/index.html", "guides/index.html",
+    "walk/index.html", "submit/index.html", "guides/index.html", "book/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -49,7 +49,7 @@ DATA = (
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
     "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
-    "poc/compare", "guides", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
+    "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
              "PROJECT_HANDOFF.md", "serve_local.py")
