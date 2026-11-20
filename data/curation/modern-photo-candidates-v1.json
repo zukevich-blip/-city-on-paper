@@ -1,0 +1,899 @@
+{
+ "version": 1,
+ "source": "Wikimedia Commons geosearch",
+ "min_year": 2012,
+ "min_width": 1200,
+ "note": "Кандидаты, не подтверждённые сравнения. Дата, автор, лицензия и направление взяты из записи файла.",
+ "targets": {
+  "rome-pantheon-vasi": {
+   "name": "Пантеон, Рим",
+   "search_centre": [
+    41.89861,
+    12.47686
+   ],
+   "radius_m": 160,
+   "candidates": []
+  },
+  "madeleine-benoist-carnavalet": {
+   "name": "Церковь Мадлен, Париж",
+   "search_centre": [
+    48.87,
+    2.32472
+   ],
+   "radius_m": 160,
+   "candidates": []
+  },
+  "paris-eiffel": {
+   "name": "Эйфелева башня, Париж",
+   "search_centre": [
+    48.85837,
+    2.29448
+   ],
+   "radius_m": 400,
+   "candidates": [
+    {
+     "file": "File:L'ombre de la tour Eiffel (1).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:L%27ombre_de_la_tour_Eiffel_(1).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/L%27ombre_de_la_tour_Eiffel_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/L%27ombre_de_la_tour_Eiffel_%281%29.jpg/1280px-L%27ombre_de_la_tour_Eiffel_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3216,
+     "height": 4288,
+     "taken": "2014-06-22",
+     "author": "Gzen92",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 48.858386,
+      "lon": 2.294503,
+      "heading_deg": null,
+      "distance_to_target_m": 2,
+      "bearing_to_target_deg": 223,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:L'ombre de la tour Eiffel (2).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:L%27ombre_de_la_tour_Eiffel_(2).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/L%27ombre_de_la_tour_Eiffel_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/L%27ombre_de_la_tour_Eiffel_%282%29.jpg/1280px-L%27ombre_de_la_tour_Eiffel_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3216,
+     "height": 4288,
+     "taken": "2014-06-22",
+     "author": "Gzen92",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 48.858386,
+      "lon": 2.294503,
+      "heading_deg": null,
+      "distance_to_target_m": 2,
+      "bearing_to_target_deg": 223,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "florence-ponte-vecchio": {
+   "name": "Понте-Веккьо, Флоренция",
+   "search_centre": [
+    43.76798,
+    11.25317
+   ],
+   "radius_m": 200,
+   "candidates": [
+    {
+     "file": "File:Florence Corner's 05.JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Florence_Corner%27s_05.JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Florence_Corner%27s_05.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Florence_Corner%27s_05.JPG/1280px-Florence_Corner%27s_05.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3264,
+     "height": 2448,
+     "taken": "2012-08-06",
+     "author": "Nicholas Gemini",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 43.767917,
+      "lon": 11.253144,
+      "heading_deg": null,
+      "distance_to_target_m": 7,
+      "bearing_to_target_deg": 17,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "agra-taj-mahal": {
+   "name": "Тадж-Махал, Агра",
+   "search_centre": [
+    27.175,
+    78.0421
+   ],
+   "radius_m": 350,
+   "candidates": [
+    {
+     "file": "File:Flowers on a wall (Unsplash).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Flowers_on_a_wall_(Unsplash).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Flowers_on_a_wall_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Flowers_on_a_wall_%28Unsplash%29.jpg/1280px-Flowers_on_a_wall_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3456,
+     "height": 2304,
+     "taken": "2016-03-18",
+     "author": "Judson Moore judsonlmoore",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 27.175009,
+      "lon": 78.042091,
+      "heading_deg": null,
+      "distance_to_target_m": 1,
+      "bearing_to_target_deg": 137,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Approach to Taj Mahal (23214109725).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Approach_to_Taj_Mahal_(23214109725).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Approach_to_Taj_Mahal_%2823214109725%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Approach_to_Taj_Mahal_%2823214109725%29.jpg/1280px-Approach_to_Taj_Mahal_%2823214109725%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 5184,
+     "height": 3456,
+     "taken": "2015-11-14",
+     "author": "Gary Todd from Xinzheng, China",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 27.175048,
+      "lon": 78.042047,
+      "heading_deg": null,
+      "distance_to_target_m": 7,
+      "bearing_to_target_deg": 136,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Approach to Taj Mahal (23188050926).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Approach_to_Taj_Mahal_(23188050926).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Approach_to_Taj_Mahal_%2823188050926%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Approach_to_Taj_Mahal_%2823188050926%29.jpg/1280px-Approach_to_Taj_Mahal_%2823188050926%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 5184,
+     "height": 3456,
+     "taken": "2015-11-14",
+     "author": "Gary Todd from Xinzheng, China",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 27.175048,
+      "lon": 78.042047,
+      "heading_deg": null,
+      "distance_to_target_m": 7,
+      "bearing_to_target_deg": 136,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:India 2015-161 (17138997346).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:India_2015-161_(17138997346).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/India_2015-161_%2817138997346%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/India_2015-161_%2817138997346%29.jpg/1280px-India_2015-161_%2817138997346%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3916,
+     "height": 2928,
+     "taken": "2015-03-24",
+     "author": "Weldon Kennedy from London, UK",
+     "licence": "CC BY 2.0",
+     "licence_url": "https://creativecommons.org/licenses/by/2.0",
+     "camera": {
+      "lat": 27.175021,
+      "lon": 78.042164,
+      "heading_deg": null,
+      "distance_to_target_m": 7,
+      "bearing_to_target_deg": 250,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "new-york-statue-of-liberty": {
+   "name": "Статуя Свободы, Нью-Йорк",
+   "search_centre": [
+    40.68925,
+    -74.0445
+   ],
+   "radius_m": 300,
+   "candidates": []
+  },
+  "giza-great-sphinx": {
+   "name": "Большой сфинкс, Гиза",
+   "search_centre": [
+    29.9753,
+    31.13761
+   ],
+   "radius_m": 200,
+   "candidates": []
+  },
+  "naples-san-francesco-di-paola": {
+   "name": "Сан-Франческо-ди-Паола, Неаполь",
+   "search_centre": [
+    40.83658,
+    14.24886
+   ],
+   "radius_m": 160,
+   "candidates": []
+  },
+  "palais-royal-ph-benoist": {
+   "name": "Пале-Рояль, Париж",
+   "search_centre": [
+    48.864,
+    2.337
+   ],
+   "radius_m": 200,
+   "candidates": [
+    {
+     "file": "File:Le Théâtre éphémère de la Comédie française (Palais royal) (6691802889).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Le_Th%C3%A9%C3%A2tre_%C3%A9ph%C3%A9m%C3%A8re_de_la_Com%C3%A9die_fran%C3%A7aise_(Palais_royal)_(6691802889).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Le_Th%C3%A9%C3%A2tre_%C3%A9ph%C3%A9m%C3%A8re_de_la_Com%C3%A9die_fran%C3%A7aise_%28Palais_royal%29_%286691802889%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Le_Th%C3%A9%C3%A2tre_%C3%A9ph%C3%A9m%C3%A8re_de_la_Com%C3%A9die_fran%C3%A7aise_%28Palais_royal%29_%286691802889%29.jpg/1280px-Le_Th%C3%A9%C3%A2tre_%C3%A9ph%C3%A9m%C3%A8re_de_la_Com%C3%A9die_fran%C3%A7aise_%28Palais_royal%29_%286691802889%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 1536,
+     "height": 1024,
+     "taken": "2012-01-13",
+     "author": "Jean-Pierre Dalbéra from Paris, France",
+     "licence": "CC BY 2.0",
+     "licence_url": "https://creativecommons.org/licenses/by/2.0",
+     "camera": {
+      "lat": 48.863666,
+      "lon": 2.337,
+      "heading_deg": 346.54711246200606,
+      "distance_to_target_m": 37,
+      "bearing_to_target_deg": 0,
+      "heading_error_deg": 13
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "notre-dame-paris": {
+   "name": "Нотр-Дам, Париж",
+   "search_centre": [
+    48.85296,
+    2.34998
+   ],
+   "radius_m": 250,
+   "candidates": [
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012.JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012.JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3872,
+     "height": 2592,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior (8).JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior_(8).JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%288%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%288%29.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%288%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3872,
+     "height": 2592,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior (3).JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior_(3).JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%283%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%283%29.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%283%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2592,
+     "height": 3872,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior (2).JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior_(2).JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%282%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%282%29.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%282%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2592,
+     "height": 3872,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior.JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior.JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2592,
+     "height": 3872,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior (4).JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior_(4).JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%284%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%284%29.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%284%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2592,
+     "height": 3872,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior (6).JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior_(6).JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%286%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%286%29.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%286%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2592,
+     "height": 3872,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Paris, 2012, interior (9).JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_2012,_interior_(9).JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%289%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%289%29.JPG/1280px-Cath%C3%A9drale_Notre-Dame_de_Paris%2C_2012%2C_interior_%289%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2592,
+     "height": 3872,
+     "taken": "2012-07-21",
+     "author": "Elisa.rolle",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.852983,
+      "lon": 2.349969,
+      "heading_deg": null,
+      "distance_to_target_m": 3,
+      "bearing_to_target_deg": 163,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "louvre-colonnade": {
+   "name": "Колоннада Лувра, Париж",
+   "search_centre": [
+    48.86,
+    2.338
+   ],
+   "radius_m": 200,
+   "candidates": []
+  },
+  "arc-de-triomphe": {
+   "name": "Триумфальная арка, Париж",
+   "search_centre": [
+    48.8738,
+    2.295
+   ],
+   "radius_m": 250,
+   "candidates": []
+  },
+  "vendome-column": {
+   "name": "Вандомская колонна, Париж",
+   "search_centre": [
+    48.8675,
+    2.3294
+   ],
+   "radius_m": 150,
+   "candidates": []
+  },
+  "paris-pantheon": {
+   "name": "Парижский Пантеон",
+   "search_centre": [
+    48.8462,
+    2.3463
+   ],
+   "radius_m": 200,
+   "candidates": [
+    {
+     "file": "File:Aux grands hommes la patrie reconnaissante.JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Aux_grands_hommes_la_patrie_reconnaissante.JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Aux_grands_hommes_la_patrie_reconnaissante.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Aux_grands_hommes_la_patrie_reconnaissante.JPG/1280px-Aux_grands_hommes_la_patrie_reconnaissante.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 4608,
+     "height": 3072,
+     "taken": "2013-09-13",
+     "author": "Juliette.jacquemont",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.846194,
+      "lon": 2.346139,
+      "heading_deg": null,
+      "distance_to_target_m": 12,
+      "bearing_to_target_deg": 87,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Pantheon Paris-DSC 1974w.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Pantheon_Paris-DSC_1974w.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Pantheon_Paris-DSC_1974w.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Pantheon_Paris-DSC_1974w.jpg/1280px-Pantheon_Paris-DSC_1974w.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3842,
+     "height": 5763,
+     "taken": "2013-07-27",
+     "author": "Peter Haas",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.846194,
+      "lon": 2.346139,
+      "heading_deg": null,
+      "distance_to_target_m": 12,
+      "bearing_to_target_deg": 87,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Monument a Denis Diderot-DSC 1963w.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Monument_a_Denis_Diderot-DSC_1963w.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Monument_a_Denis_Diderot-DSC_1963w.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Monument_a_Denis_Diderot-DSC_1963w.jpg/1280px-Monument_a_Denis_Diderot-DSC_1963w.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3576,
+     "height": 3873,
+     "taken": "2013-07-27",
+     "author": "Peter Haas",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 48.846194,
+      "lon": 2.346139,
+      "heading_deg": null,
+      "distance_to_target_m": 12,
+      "bearing_to_target_deg": 87,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "rome-colosseum": {
+   "name": "Колизей, Рим",
+   "search_centre": [
+    41.89021,
+    12.49223
+   ],
+   "radius_m": 300,
+   "candidates": []
+  },
+  "venice-st-marks": {
+   "name": "Собор Святого Марка, Венеция",
+   "search_centre": [
+    45.43407,
+    12.3397
+   ],
+   "radius_m": 250,
+   "candidates": [
+    {
+     "file": "File:Doges Palace 6 (7242817326).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Doges_Palace_6_(7242817326).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Doges_Palace_6_%287242817326%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Doges_Palace_6_%287242817326%29.jpg/1280px-Doges_Palace_6_%287242817326%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3294,
+     "height": 4962,
+     "taken": "2012-05-15",
+     "author": "Tony Hisgett from Birmingham, UK",
+     "licence": "CC BY 2.0",
+     "licence_url": "https://creativecommons.org/licenses/by/2.0",
+     "camera": {
+      "lat": 45.434222,
+      "lon": 12.339727,
+      "heading_deg": null,
+      "distance_to_target_m": 17,
+      "bearing_to_target_deg": 187,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "florence-duomo": {
+   "name": "Дуомо, Флоренция",
+   "search_centre": [
+    43.7731,
+    11.2559
+   ],
+   "radius_m": 250,
+   "candidates": [
+    {
+     "file": "File:Basilica di Santa Maria del Fiore.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Basilica_di_Santa_Maria_del_Fiore.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Basilica_di_Santa_Maria_del_Fiore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Basilica_di_Santa_Maria_del_Fiore.jpg/1280px-Basilica_di_Santa_Maria_del_Fiore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 5104,
+     "height": 3403,
+     "taken": "2014-09-04",
+     "author": "Giovanni Volino",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 43.773232,
+      "lon": 11.255992,
+      "heading_deg": null,
+      "distance_to_target_m": 16,
+      "bearing_to_target_deg": 207,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "saint-petersburg-admiralty": {
+   "name": "Адмиралтейство, Санкт-Петербург",
+   "search_centre": [
+    59.9371,
+    30.3085
+   ],
+   "radius_m": 300,
+   "candidates": [
+    {
+     "file": "File:Buddy Bears in Saint Petersburg 1.JPG",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Buddy_Bears_in_Saint_Petersburg_1.JPG",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Buddy_Bears_in_Saint_Petersburg_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Buddy_Bears_in_Saint_Petersburg_1.JPG/1280px-Buddy_Bears_in_Saint_Petersburg_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3968,
+     "height": 2976,
+     "taken": "2012-07-08",
+     "author": "Veinarde",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "camera": {
+      "lat": 59.936944,
+      "lon": 30.309444,
+      "heading_deg": null,
+      "distance_to_target_m": 55,
+      "bearing_to_target_deg": 288,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "saint-petersburg-bronze-horseman": {
+   "name": "Медный всадник, Санкт-Петербург",
+   "search_centre": [
+    59.9364,
+    30.3022
+   ],
+   "radius_m": 200,
+   "candidates": []
+  },
+  "london-tower-bridge": {
+   "name": "Тауэрский мост, Лондон",
+   "search_centre": [
+    51.5055,
+    -0.0754
+   ],
+   "radius_m": 300,
+   "candidates": [
+    {
+     "file": "File:Tower Bridge, London a.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Tower_Bridge,_London_a.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Tower_Bridge%2C_London_a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Tower_Bridge%2C_London_a.jpg/1280px-Tower_Bridge%2C_London_a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 4349,
+     "height": 3003,
+     "taken": "2018-06-25",
+     "author": "MrsEllacott",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 51.5055,
+      "lon": -0.075406,
+      "heading_deg": null,
+      "distance_to_target_m": 0,
+      "bearing_to_target_deg": 90,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Tower Bridge, London b.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Tower_Bridge,_London_b.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Tower_Bridge%2C_London_b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Tower_Bridge%2C_London_b.jpg/1280px-Tower_Bridge%2C_London_b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2957,
+     "height": 4417,
+     "taken": "2018-06-25",
+     "author": "MrsEllacott",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 51.5055,
+      "lon": -0.075406,
+      "heading_deg": null,
+      "distance_to_target_m": 0,
+      "bearing_to_target_deg": 90,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Tower Bridge, London England United Kingdom.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Tower_Bridge,_London_England_United_Kingdom.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Tower_Bridge%2C_London_England_United_Kingdom.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Tower_Bridge%2C_London_England_United_Kingdom.jpg/1280px-Tower_Bridge%2C_London_England_United_Kingdom.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 5053,
+     "height": 3123,
+     "taken": "2017-01-21",
+     "author": "Daniel Seth Thomas",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 51.5055,
+      "lon": -0.0754,
+      "heading_deg": null,
+      "distance_to_target_m": 0,
+      "bearing_to_target_deg": 0,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Tower Bridge, London, England.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Tower_Bridge,_London,_England.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Tower_Bridge%2C_London%2C_England.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Tower_Bridge%2C_London%2C_England.jpg/1280px-Tower_Bridge%2C_London%2C_England.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 3000,
+     "height": 1993,
+     "taken": "2014-09-05",
+     "author": "Debbie Soden",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 51.5055,
+      "lon": -0.075406,
+      "heading_deg": null,
+      "distance_to_target_m": 0,
+      "bearing_to_target_deg": 90,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "london-st-pauls": {
+   "name": "Собор Святого Павла, Лондон",
+   "search_centre": [
+    51.5138,
+    -0.0984
+   ],
+   "radius_m": 250,
+   "candidates": [
+    {
+     "file": "File:St. Paul's Cathedral, London, United Kingdom (Unsplash).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:St._Paul%27s_Cathedral,_London,_United_Kingdom_(Unsplash).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash%29.jpg/1280px-St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 7000,
+     "height": 4687,
+     "taken": "2017-03-27",
+     "author": "Jacob Hilton jacob_hilton1",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 51.513845,
+      "lon": -0.098351,
+      "heading_deg": null,
+      "distance_to_target_m": 6,
+      "bearing_to_target_deg": 214,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:St. Paul's Cathedral, London, United Kingdom (Unsplash zlABb6Gke24).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:St._Paul%27s_Cathedral,_London,_United_Kingdom_(Unsplash_zlABb6Gke24).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_zlABb6Gke24%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_zlABb6Gke24%29.jpg/1280px-St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_zlABb6Gke24%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 5400,
+     "height": 3600,
+     "taken": "2016-12-15",
+     "author": "Clem Onojeghuo clemono2",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 51.513845,
+      "lon": -0.098351,
+      "heading_deg": null,
+      "distance_to_target_m": 6,
+      "bearing_to_target_deg": 214,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:St. Paul's Cathedral on a cloudy day (Unsplash).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:St._Paul%27s_Cathedral_on_a_cloudy_day_(Unsplash).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/St._Paul%27s_Cathedral_on_a_cloudy_day_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/St._Paul%27s_Cathedral_on_a_cloudy_day_%28Unsplash%29.jpg/1280px-St._Paul%27s_Cathedral_on_a_cloudy_day_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 4272,
+     "height": 2848,
+     "taken": "2016-09-21",
+     "author": "Eduard Militaru eduardmilitaru",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 51.513845,
+      "lon": -0.098351,
+      "heading_deg": null,
+      "distance_to_target_m": 6,
+      "bearing_to_target_deg": 214,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:St. Paul's Cathedral, London, United Kingdom (Unsplash ncyDc3sCR-s).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:St._Paul%27s_Cathedral,_London,_United_Kingdom_(Unsplash_ncyDc3sCR-s).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_ncyDc3sCR-s%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_ncyDc3sCR-s%29.jpg/1280px-St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_ncyDc3sCR-s%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 5556,
+     "height": 3704,
+     "taken": "2016-08-25",
+     "author": "Thomas Kelley thkelley",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 51.513845,
+      "lon": -0.098351,
+      "heading_deg": null,
+      "distance_to_target_m": 6,
+      "bearing_to_target_deg": 214,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:St. Paul's Cathedral, London, United Kingdom (Unsplash bHE7jjAmnzg).jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:St._Paul%27s_Cathedral,_London,_United_Kingdom_(Unsplash_bHE7jjAmnzg).jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_bHE7jjAmnzg%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_bHE7jjAmnzg%29.jpg/1280px-St._Paul%27s_Cathedral%2C_London%2C_United_Kingdom_%28Unsplash_bHE7jjAmnzg%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2797,
+     "height": 4195,
+     "taken": "2016-03-15",
+     "author": "Samuel Zeller samuelzeller",
+     "licence": "CC0",
+     "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "camera": {
+      "lat": 51.513845,
+      "lon": -0.098351,
+      "heading_deg": null,
+      "distance_to_target_m": 6,
+      "bearing_to_target_deg": 214,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    },
+    {
+     "file": "File:Catedral de San Pablo, Londres.jpg",
+     "page_url": "https://commons.wikimedia.org/wiki/File:Catedral_de_San_Pablo,_Londres.jpg",
+     "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Catedral_de_San_Pablo%2C_Londres.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Catedral_de_San_Pablo%2C_Londres.jpg/1280px-Catedral_de_San_Pablo%2C_Londres.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "width": 2056,
+     "height": 1536,
+     "taken": "2013-06-04",
+     "author": "EstefanyCv",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "camera": {
+      "lat": 51.513845,
+      "lon": -0.098351,
+      "heading_deg": null,
+      "distance_to_target_m": 6,
+      "bearing_to_target_deg": 214,
+      "heading_error_deg": null
+     },
+     "needs_review": true
+    }
+   ]
+  },
+  "moscow-st-basil": {
+   "name": "Храм Василия Блаженного, Москва",
+   "search_centre": [
+    55.7525,
+    37.6231
+   ],
+   "radius_m": 250,
+   "candidates": []
+  },
+  "naples-castel-nuovo": {
+   "name": "Кастель-Нуово, Неаполь",
+   "search_centre": [
+    40.8395,
+    14.2528
+   ],
+   "radius_m": 200,
+   "candidates": []
+  }
+ }
+}
