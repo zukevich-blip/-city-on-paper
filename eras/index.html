@@ -365,6 +365,18 @@ button.mhome{display:block;background:#fff;border:2px solid #0003;border-radius:
  .epcmp .ctrls label{width:100%}
  .epcmp select{max-width:100%;width:100%}
 }
+
+/* Atlas time curtain: preserve complete artwork and photograph independently. */
+.epstage.independent-view>.epTop,.epstage.independent-view>img#epImB{display:none}
+.ep-independent[hidden]{display:none!important}
+.epstage.independent-view .ep-independent{position:absolute;inset:0;display:flex;align-items:stretch;pointer-events:none}
+.ep-independent-old,.ep-independent-new{box-sizing:border-box;display:grid;place-items:center;overflow:hidden;min-width:0;height:100%;padding:11px}
+.ep-independent-old{width:var(--ep-independent-left,50%);background:#e8dbc7}
+.ep-independent-new{width:calc(100% - var(--ep-independent-left,50%));background:#d9e3dd;border-left:1px solid #bdc6bd}
+.ep-independent img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;max-width:100%;max-height:100%;filter:none;transform:none}
+.epstage.independent-view .eph{z-index:4}
+.epstage.independent-view .tag{z-index:3}
+@media(max-width:650px){.ep-independent-old,.ep-independent-new{padding:5px}}
 </style>
 <script src="../assets/nav/museum-nav.js" defer></script>
 </head>
