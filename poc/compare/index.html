@@ -60,6 +60,7 @@ a{color:var(--accent)}
 table{border-collapse:collapse;font-size:13px} td,th{border:1px solid var(--line);padding:2px 6px;text-align:right}
 .help table td,.help table th{text-align:left;vertical-align:top}
 .zoomwrap.zoomed{overflow:auto;max-height:80vh} .zoomwrap.zoomed .stage{width:250%}
+.handle{touch-action:none} .zoomwrap.zoomed .stage{touch-action:pan-x pan-y}
 footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 .noscript{border:2px solid var(--bad);background:var(--panel);padding:12px;font:15px/1.5 system-ui,sans-serif;margin:12px 0}
 </style>
@@ -407,7 +408,8 @@ document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode =
 $("langBtn").onclick = () => { lang = lang === "en" ? "ru" : "en"; try { localStorage.setItem("cop-lang", lang); } catch { /* ignore */ } applyLang(); };
 $("alignBtn").onclick = () => { aligned = !aligned; renderMeta(); layout(); };
 $("regionBtn").onclick = () => { showRegion = !showRegion; $("regionBtn").setAttribute("aria-pressed", showRegion); layout(); };
-$("zoomBtn").onclick = () => { const z = $("zoomwrap").classList.toggle("zoomed"); $("zoomBtn").setAttribute("aria-pressed", z); layout(); };
+$("zoomBtn").onclick = () => { const zw = $("zoomwrap"), z = zw.classList.toggle("zoomed"); $("zoomBtn").setAttribute("aria-pressed", z); layout();
+  if (z && mode === "slider") zw.scrollLeft = Math.max(0, zw.scrollWidth * split / 100 - zw.clientWidth / 2); };
 $("opacity").oninput = applyMode;
 $("flickBtn").onclick = () => { flickA = !flickA; applyMode(); };
 function stopFlicker(){ clearInterval(timer); timer = null; $("flickPlay").setAttribute("aria-pressed", false); }
@@ -418,8 +420,21 @@ $("flickPlay").onclick = () => {
   timer = setInterval(() => { flickA = !flickA; applyMode(); }, 800);
 };
 const stage = $("stage");
-stage.addEventListener("pointerdown", e => { if (mode !== "slider") return; stage.setPointerCapture(e.pointerId); setSplit(e.clientX); });
+// Touch: drag the curtain by its handle; a tap on the picture moves it there, but a scroll
+// (vertical, or horizontal panning while zoomed) never makes the curtain jump. Mouse/pen: drag anywhere.
+let tapStart = null;
+stage.addEventListener("pointerdown", e => {
+  if (mode !== "slider") return;
+  const onHandle = $("handle").contains(e.target);
+  if (e.pointerType === "touch" && !onHandle) { tapStart = { id: e.pointerId, x: e.clientX, y: e.clientY }; return; }
+  stage.setPointerCapture(e.pointerId); setSplit(e.clientX);
+});
 stage.addEventListener("pointermove", e => { if (mode === "slider" && stage.hasPointerCapture(e.pointerId)) setSplit(e.clientX); });
+stage.addEventListener("pointerup", e => {
+  if (tapStart && tapStart.id === e.pointerId && Math.hypot(e.clientX - tapStart.x, e.clientY - tapStart.y) < 10) setSplit(e.clientX);
+  tapStart = null;
+});
+stage.addEventListener("pointercancel", () => { tapStart = null; });
 $("handle").addEventListener("keydown", e => {
   const step = e.shiftKey ? 10 : 2;
   if (e.key === "ArrowLeft") split = Math.max(0, split - step);
