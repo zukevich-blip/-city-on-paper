@@ -165,6 +165,11 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} place: timeline cards`, (await p.locator(".era-card").count()) >= 8);
     const verified = p.locator("#verifiedPlace");
     await verified.waitFor({ state: "visible" });
+    ok(`${vp.n} place: verified curtain shows two independent unwarped art/photo frames`,
+      await verified.locator(".ep-verified-dual").isVisible() &&
+      await verified.locator(".ep-verified-stage").evaluate(s => s.classList.contains("independent-view")) &&
+      await verified.locator("[data-verified-frame-old]").evaluate(i => getComputedStyle(i).objectFit === "contain" && i.naturalWidth > 0) &&
+      await verified.locator("[data-verified-frame-now]").evaluate(i => getComputedStyle(i).objectFit === "contain" && i.naturalWidth > 0));
     const verifiedOld = verified.locator("[data-verified-old]");
     const verifiedPhoto = verified.locator("[data-verified-raw]");
     const originalSrc = await verifiedOld.getAttribute("src");
@@ -295,6 +300,10 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.goto(base + "eras/#/epochs", { waitUntil: "networkidle" });
     ok(`${vp.n} epochs gallery`, (await p.locator(".epcard").count()) >= 50);
     await p.locator(".epcard").first().click(); await p.waitForSelector("#epstage"); await p.waitForTimeout(600);
+    ok(`${vp.n} epoch: chronological curtain contains two independent framed images`,
+      await p.locator("#epIndependent").isVisible() &&
+      await p.locator("#epFullA").evaluate(i => i.naturalWidth > 0 && getComputedStyle(i).objectFit === "contain") &&
+      await p.locator("#epFullB").evaluate(i => i.naturalWidth > 0 && getComputedStyle(i).objectFit === "contain"));
     ok(`${vp.n} epoch place: frames + angle map`, (await p.locator(".epf[data-f]").count()) >= 2 && (await p.locator("#epMap .leaflet-tile").count()) >= 1);
     ok(`${vp.n} epoch place: shutter has named left and right frames`,
       /Слева/.test(await p.locator("#epReadout").textContent()) &&
