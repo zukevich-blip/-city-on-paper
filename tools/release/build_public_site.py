@@ -92,8 +92,8 @@ def optimize(page: Path, rel: str) -> None:
                          r'\1 hidden', content, count=1)
         # The cover reproduces Vasi’s print from Wikimedia Commons.
         metas += (
-            f'<meta property="og:image" content="{BASE}poc/compare/pairs/rome-pantheon-1752.jpg">\\n'
-            '<meta property="og:image:alt" content="Рим. Пантеон, офорт Джузеппе Вази">\\n'
+            f'<meta property="og:image" content="{BASE}poc/compare/pairs/rome-pantheon-1752.jpg">\n'
+            '<meta property="og:image:alt" content="Рим. Пантеон, офорт Джузеппе Вази">\n'
         )
         content = content.replace(
             "Частная исследовательская выставка.", "Открытая цифровая выставка."
