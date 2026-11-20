@@ -499,6 +499,8 @@ function layout(){
 }
 
 function applyMode(){
+  // The URL/user-selected unwarped curtain must win over legacy mode resets.
+  if (view === "originals") { mode = "slider"; aligned = false; }
   const ov = $("overlay"), h = $("handle");
   const independent = !!pair && ((mode === "slider" && !aligned) || view === "now");
   $("stage").classList.toggle("dual-originals", independent);
