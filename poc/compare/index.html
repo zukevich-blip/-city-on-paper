@@ -121,7 +121,7 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
 .viewcap{font-size:14px;color:#48594c;padding:4px 2px}
 .verdict{border-radius:9px;border-left-width:3px;padding:11px 15px;margin:10px 0 14px}
 .zoomwrap{width:100%;display:flex;justify-content:center}
-.stage{width:min(100%,calc(72vh * var(--historic-ratio,1.45)));max-width:100%;border:9px solid #f8f4e9;outline:1px solid #cbbda6;border-radius:7px;background:repeating-linear-gradient(135deg,#e0d6c7,#e0d6c7 12px,#e9e0d3 12px,#e9e0d3 24px);box-shadow:0 20px 45px #241b1530;isolation:isolate}
+.stage{width:100%;max-width:var(--historic-max-width,100%);border:9px solid #f8f4e9;outline:1px solid #cbbda6;border-radius:7px;background:repeating-linear-gradient(135deg,#e0d6c7,#e0d6c7 12px,#e9e0d3 12px,#e9e0d3 24px);box-shadow:0 20px 45px #241b1530;isolation:isolate}
 .hist{width:100%;height:auto}
 .handle{width:52px;margin-left:-26px;z-index:3;touch-action:none}
 .handle::before{width:3px;background:#fff8eb;box-shadow:0 0 0 1px #26392b,0 0 12px #0008}
@@ -132,6 +132,8 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
 .curtain-readout p{font:600 12px/1.45 system-ui,sans-serif;text-align:center;margin:0;color:#344e40}
 .curtain-readout button{background:#fffaf2;border-radius:9px;border-color:#d1bea3;font:600 12px/1.35 system-ui,sans-serif;padding:8px}
 .comparison-fit-note{font:12px/1.6 system-ui,sans-serif;color:#635f54;margin:9px 2px}
+.zoomwrap.zoomed{display:block}
+.zoomwrap.zoomed .stage{width:250%;max-width:none;min-width:250%}
 .sbs{gap:18px;align-items:stretch}
 .sbs figure{background:#fffaf2;border:1px solid #d3c5b3;border-radius:10px;padding:10px;box-shadow:0 6px 18px #281c1512}
 .sbs img{display:block;width:100%;height:clamp(235px,45vh,490px);object-fit:contain;background:repeating-linear-gradient(135deg,#e4d8c7,#e4d8c7 8px,#ece2d5 8px,#ece2d5 16px);border:0;border-radius:5px}
@@ -139,7 +141,7 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
 .pair-links a{border-radius:9px;padding:8px 14px}
 .bar>button:not(#langBtn),.bar>span>button{border-radius:9px}
 @media(max-width:620px){
-  .stage{width:min(100%,calc(62vh * var(--historic-ratio,1.45)));border-width:5px}
+  .stage{max-width:var(--historic-mobile-max-width,100%);border-width:5px}
   .vswitch{gap:5px}.vswitch button{min-height:58px;border-radius:9px;padding:6px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}
   #viewerModes{padding:6px;gap:5px}#viewerModes button{flex:1 1 43%;padding:6px 7px;font-size:13px}
   .curtain-readout{grid-template-columns:1fr 1fr;gap:6px}.curtain-readout p{grid-column:1/-1;grid-row:1}.curtain-readout button{font-size:11px;min-height:44px}
@@ -442,7 +444,8 @@ function layout(){
   if (!pair) return;
   applyMode(); // show/hide panels first: a hidden stage measures 0 px wide
   const stage = $("stage"), [hw, hh] = pair.historic.size.map(Number), [pw, ph] = pair.photo.size.map(Number);
-  stage.style.setProperty("--historic-ratio", String(hw / hh));
+  stage.style.setProperty("--historic-max-width", `${(72 * hw / hh).toFixed(1)}vh`);
+  stage.style.setProperty("--historic-mobile-max-width", `${(62 * hw / hh).toFixed(1)}vh`);
   const s = stage.clientWidth / hw;
   const L = $("photoLayer");
   L.style.width = pw + "px"; L.style.height = ph + "px";
