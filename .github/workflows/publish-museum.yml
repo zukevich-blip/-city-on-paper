@@ -103,7 +103,10 @@ jobs:
           test -s public/assets/story/artwork-history.css
           grep -q 'museum-frontdoor museum-wow' public/index.html
           grep -q 'class="wow-features"' public/index.html
-          grep -q 'madeleine-photo-panoramax-38b6d262.jpg' public/index.html
+          grep -q 'rome-pantheon-1752.jpg' public/index.html
+          grep -q 'rome-pantheon-2025.jpg' public/index.html
+          test -s public/poc/compare/pairs/rome-pantheon-1752.jpg
+          test -s public/poc/compare/pairs/rome-pantheon-2025.jpg
           test -s public/poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg
           test -s public/poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg
           grep -q "CityArtworkHistory" public/salon/index.html
