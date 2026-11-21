@@ -39,9 +39,11 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    if(await p.locator("#regionButtons button").count()!==7)throw Error(label+": atlas lacks six world regions");
    if(await p.locator("#cityGrid .city").count()<10)throw Error(label+": city atlas has fewer than 10 real city cards");
    await p.waitForFunction(()=>[...document.querySelectorAll("#cityGrid .city img")].slice(0,12).some(i=>i.complete&&i.naturalWidth>80),null,{timeout:30000});
-   await p.waitForFunction(()=>document.querySelectorAll("#worldComparisonCards .comparison-card").length===13,null,{timeout:30000});
+   // the gallery shows every sourced pair of the shipped index except synthetic QA scenes
+   const expected=await p.evaluate(async()=>{const d=await (await fetch("../poc/compare/pairs/index.json")).json();return d.pairs.filter(id=>!/^synthetic-/.test(id)).length;});
+   await p.waitForFunction(n=>document.querySelectorAll("#worldComparisonCards .comparison-card").length===n,expected,{timeout:30000});
    const comparisons=await p.locator("#worldComparisonCards .comparison-card").count();
-   if(comparisons!==13)throw Error(label+": expected 13 sourced historical/photo comparison pairs, got "+comparisons);
+   if(expected<13||comparisons!==expected)throw Error(label+": expected "+expected+" sourced historical/photo comparison pairs (at least 13), got "+comparisons);
    if((await p.locator('#worldComparisonCards a[href*="synthetic-"]').count())!==0)
      throw Error(label+": synthetic QA scenes leaked into the public gallery");
    await p.locator("#journey").click();
