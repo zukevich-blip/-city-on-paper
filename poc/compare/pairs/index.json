@@ -13,6 +13,10 @@
     "florence-ponte-vecchio-silvestre",
     "rome-pantheon-vasi",
     "paris-eiffel",
+    "notre-dame-benoist-carnavalet",
+    "louvre-colonnade-benoist-carnavalet",
+    "tuileries-benoist-rijksmuseum",
+    "palais-royal-jardin-benoist-rijksmuseum",
     "synthetic-near-identical",
     "synthetic-rotation-only",
     "synthetic-parallax"
@@ -30,7 +34,11 @@
     "giza-great-sphinx": "Гиза · Большой сфинкс",
     "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра",
     "paris-eiffel": "Париж · Эйфелева башня",
-    "rome-pantheon-vasi": "Рим · Пантеон глазами Вази"
+    "rome-pantheon-vasi": "Рим · Пантеон глазами Вази",
+    "notre-dame-benoist-carnavalet": "Нотр-Дам · Бенуа, музей Карнавале",
+    "louvre-colonnade-benoist-carnavalet": "Колоннада Лувра · Бенуа, музей Карнавале",
+    "tuileries-benoist-rijksmuseum": "Тюильри (утрачен) · Бенуа, Рейксмюзеум",
+    "palais-royal-jardin-benoist-rijksmuseum": "Сад Пале-Рояль · Бенуа, Рейксмюзеум"
   },
   "places": {
     "paris-eiffel": {
@@ -103,6 +111,30 @@
       "map_path": "rim/Q99309",
       "map_label": "Пантеон на карте и другие виды",
       "guide_view": "originals"
+    },
+    "notre-dame-benoist-carnavalet": {
+      "city": "Париж",
+      "name": "Собор Парижской Богоматери",
+      "mode": "Приблизительно · фасад, фото 2025",
+      "image": "notre-dame-benoist-carnavalet-cargtop029216.jpg"
+    },
+    "louvre-colonnade-benoist-carnavalet": {
+      "city": "Париж",
+      "name": "Колоннада Лувра",
+      "mode": "Приблизительно · ракурсы разные, фото 2025",
+      "image": "louvre-colonnade-benoist-carnavalet-cargtop028170.jpg"
+    },
+    "tuileries-benoist-rijksmuseum": {
+      "city": "Париж",
+      "name": "Дворец Тюильри (утрачен)",
+      "mode": "Два вида рядом · дворца больше нет",
+      "image": "tuileries-benoist-rijksmuseum-rp-p-1905-5501.jpg"
+    },
+    "palais-royal-jardin-benoist-rijksmuseum": {
+      "city": "Париж",
+      "name": "Сад Пале-Рояль",
+      "mode": "Два вида рядом · противоположные направления",
+      "image": "palais-royal-jardin-benoist-rijksmuseum-rp-p-1905-5499.jpg"
     }
   },
   "journey": [

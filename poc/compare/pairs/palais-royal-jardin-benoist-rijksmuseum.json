@@ -1,0 +1,98 @@
+{
+ "id": "palais-royal-jardin-benoist-rijksmuseum",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Сад Пале-Рояль (экземпляр Рейксмюзеума). Единственное найденное фото с открытой лицензией смотрит в противоположную сторону; показываются только два оригинала рядом.",
+ "expected_confidence": "viewpoint_mismatch",
+ "historic": {
+  "title": "Jardin du Palais Royal (plate 7 of the Paris series)",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "wikidata": "Q26309223",
+    "role": "printmaker (Rijksmuseum credit)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   },
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   }
+  ],
+  "date": "not stated in the Rijksmuseum record",
+  "medium": "Литография",
+  "holding": "Rijksmuseum, Amsterdam, RP-P-1905-5499",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5499--687fde102ea07695f16ba436d39a458b",
+  "accession": "RP-P-1905-5499",
+  "rights": "Public Domain Mark (Rijksmuseum)",
+  "file": "palais-royal-jardin-benoist-rijksmuseum-rp-p-1905-5499.jpg",
+  "file_source_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5499--687fde102ea07695f16ba436d39a458b",
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5499.jpg (whole sheet with margins), copied byte-for-byte. Same composition as the LoC sheet LC-DIG-pga-14314 used in palais-royal-ph-benoist.",
+  "sha256": "2e14e7e3b63fb8e676f3fbd83570b45ae1f61b8f45a0afa10f6921ac11cc65c4",
+  "size": [
+   900,
+   653
+  ],
+  "credit": "Philippe Benoist · imprimé par Auguste Bry · Gihaut frères · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Jardin du Palais-Royal from the south end, looking NNE, 19 Jul 2020",
+  "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
+  "panoramax_id": "200a3dee-8fbc-4429-ba62-45e963950ab1",
+  "object_url": "https://api.panoramax.xyz/api/collections/efd10d6e-7408-4f8f-a0a5-2cd464622541/items/200a3dee-8fbc-4429-ba62-45e963950ab1",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=200a3dee-8fbc-4429-ba62-45e963950ab1",
+  "author": "fgouget (Panoramax account)",
+  "date": "2020-07-19",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "azimuth_deg": 20,
+  "camera": "Samsung SM-G930F, 69° horizontal FOV (Panoramax metadata)",
+  "file": "palais-royal-photo-panoramax-200a3dee.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/20/0a/3d/ee/8fbc-4429-ba62-45e963950ab1/sd.jpg",
+  "source_sha256": "9f205c8a43948a987eb94766ed354c02eb21bf0c0767a1eea4abeb2c0ef81039",
+  "sha256": "f391b3b2dbcccb8e3051a6e4e988f24e2e7bfd8b1e66d64a29b4489d92f39027",
+  "file_note": "Panoramax 'sd' derivative (faces already blurred by Panoramax). Re-encoded once (JPEG q92) only to strip EXIF/GPS; no geometric or colour change.",
+  "size": [
+   2048,
+   1152
+  ],
+  "credit": "Photo: fgouget / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded once (JPEG q92) to strip EXIF/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "different",
+  "historic_camera_estimate": "elevated point at the north end of the garden, heading ~SSW towards the Galerie d'Orléans and the palace",
+  "photo_camera": "ground level at the south end, heading 20 deg (NNE): opposite direction",
+  "note": "Opposite viewing direction; the Galerie d'Orléans at the south end was largely demolished in 1934-35."
+ },
+ "control_points": [],
+ "control_points_note": "No control points: no common plane is visible in both images.",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch",
+  "observations": [
+   "Same garden, opposite viewing direction (SSW vs NNE) and different height.",
+   "No homography attempted; originals side by side only.",
+   "All other open-licence Panoramax pictures inside the garden are 360-degree images under etalab-2.0, which is outside the CC0/CC BY/CC BY-SA set required here."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-21"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   653
+  ],
+  "photo_size": [
+   2048,
+   1152
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

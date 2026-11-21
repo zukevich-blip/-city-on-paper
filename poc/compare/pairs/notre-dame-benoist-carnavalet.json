@@ -1,0 +1,321 @@
+{
+ "id": "notre-dame-benoist-carnavalet",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Фасад Нотр-Дам, вид с паперти с северо-запада. Фото ближе к фронтальному, литография сильнее повёрнута: совмещена только плоскость западного фасада, это локальная подгонка.",
+ "expected_confidence": "low (local, single facade plane)",
+ "historic": {
+  "title": "Vues de Paris (26). Notre-Dame. Cathédrale de Paris",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "wikidata": "Q26309223",
+    "role": "draughtsman and lithographer (inscription: dessiné d'après nature et lith. par Ph. Benoist)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (inscription: imprimé par Auguste Bry, rue Fessart 5)"
+   },
+   {
+    "name": "Gihaut frères",
+    "role": "publisher (editeurs)"
+   }
+  ],
+  "date": "not stated in the museum record",
+  "medium": "Литография",
+  "holding": "Musée Carnavalet, Histoire de Paris (Paris Musées)",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
+  "accession": "CARGTOP029216 (shelfmark visible on the sheet); Paris Musées node 320291945",
+  "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+  "file": "notre-dame-benoist-carnavalet-cargtop029216.jpg",
+  "file_source_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=1rLC2LPq",
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320291945.jpg (926 x 1280, whole sheet with margins), copied byte-for-byte; no crop, no geometry change. Not re-downloaded from the 4k URL in this audit.",
+  "sha256": "c88b3d25b62581669b2d5a06b8bf27be43105440784954456857be080621a03b",
+  "size": [
+   926,
+   1280
+  ],
+  "credit": "Philippe Benoist (draughtsman/lithographer) · imprimé par Auguste Bry · Gihaut frères · Paris Musées / Musée Carnavalet · CC0"
+ },
+ "photo": {
+  "title": "Notre-Dame de Paris, west facade from the parvis, 4 Apr 2025",
+  "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
+  "panoramax_id": "8cf17a79-cec7-48e3-9200-8da7c37efcf5",
+  "object_url": "https://api.panoramax.xyz/api/collections/3eec576c-f1c9-4968-8b0c-81581cb175c0/items/8cf17a79-cec7-48e3-9200-8da7c37efcf5",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=8cf17a79-cec7-48e3-9200-8da7c37efcf5",
+  "author": "JLZIMMERMANN (Panoramax account)",
+  "date": "2025-04-04",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.8534299,
+   "lon": 2.3479294,
+   "heading_deg": 98,
+   "source": "Panoramax item metadata (EXIF GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 98,
+  "distance_to_building_m_approx": 90,
+  "file": "notre-dame-photo-panoramax-8cf17a79.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/8c/f1/7a/79/cec7-48e3-9200-8da7c37efcf5/sd.jpg",
+  "source_sha256": "ee73c77c9afb2290d9cac98238fe3a20c0cc105cafda83fdaec2b2fc624dda45",
+  "sha256": "7601647900f878ba8a5375eb3bd459c8eeedf79c3e4cfd89a7b69b88ad4c1c0e",
+  "size": [
+   2048,
+   2730
+  ],
+  "file_note": "Panoramax 'sd' derivative (faces already blurred by Panoramax). Re-encoded once (JPEG q92) only to strip EXIF/GPS; no geometric or colour change. A construction crane of the post-fire restoration is visible.",
+  "credit": "Photo: JLZIMMERMANN / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded once (JPEG q92) to strip EXIF/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "historic_camera_estimate": "north-west of the parvis, about 35-45 deg off the facade normal, ground level, heading roughly ESE (estimate from the drawing, not measured)",
+  "photo_camera": "about 90 m west-north-west of the facade, roughly 10-20 deg off the facade normal, ground level",
+  "note": "Same (west) side of the building; the lithograph is a stronger three-quarter view and the towers/buttresses have depth, so only the facade plane is comparable."
+ },
+ "control_points_note": "Picked by Claude on gridded zooms (1 px = 1 image px); expected picking error 2-5 px in the lithograph. Ten points on the west-facade plane: rose-window centre, three portal gable apexes, two trefoil roundels, four belfry-opening apexes. Not a human-reviewed result.",
+ "control_points": [
+  {
+   "label": "rose window centre",
+   "historic": [
+    498.0,
+    715.9
+   ],
+   "photo": [
+    862.0,
+    1317.9
+   ]
+  },
+  {
+   "label": "central portal gable apex",
+   "historic": [
+    509.3,
+    801.6
+   ],
+   "photo": [
+    817.1,
+    1546.4
+   ]
+  },
+  {
+   "label": "left portal gable apex",
+   "historic": [
+    420.8,
+    794.5
+   ],
+   "photo": [
+    547.9,
+    1557.1
+   ]
+  },
+  {
+   "label": "right portal gable apex",
+   "historic": [
+    584.8,
+    811.0
+   ],
+   "photo": [
+    1105.0,
+    1571.4
+   ]
+  },
+  {
+   "label": "left trefoil roundel centre",
+   "historic": [
+    413.8,
+    675.4
+   ],
+   "photo": [
+    600.0,
+    1262.9
+   ]
+  },
+  {
+   "label": "right trefoil roundel centre",
+   "historic": [
+    570.6,
+    707.2
+   ],
+   "photo": [
+    1115.7,
+    1258.6
+   ]
+  },
+  {
+   "label": "north tower, left belfry opening apex",
+   "historic": [
+    385.5,
+    440.1
+   ],
+   "photo": [
+    611.4,
+    757.8
+   ]
+  },
+  {
+   "label": "north tower, right belfry opening apex",
+   "historic": [
+    417.3,
+    451.9
+   ],
+   "photo": [
+    688.6,
+    754.5
+   ]
+  },
+  {
+   "label": "south tower, left belfry opening apex",
+   "historic": [
+    552.9,
+    508.5
+   ],
+   "photo": [
+    1084.8,
+    737.7
+   ]
+  },
+  {
+   "label": "south tower, right belfry opening apex",
+   "historic": [
+    573.0,
+    519.1
+   ],
+   "photo": [
+    1165.5,
+    733.0
+   ]
+  }
+ ],
+ "viewpoint_review": {
+  "status": "uncertain",
+  "observations": [
+   "Same facade, same side (west); portal, rose and belfry layout agree.",
+   "Fit on one plane is consistent (rms 0.3 % of the diagonal) but covers only ~5 % of the sheet, so the verdict is capped at low (local).",
+   "Camera positions differ; this is NOT an exact viewpoint match."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-21"
+ },
+ "alignment": {
+  "n_points": 10,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   926,
+   1280
+  ],
+  "photo_size": [
+   2048,
+   2730
+  ],
+  "method": "cv2.findHomography RANSAC 15.8px",
+  "H": [
+   [
+    1.0950289662,
+    0.2794208872,
+    -189.7426485633
+   ],
+   [
+    0.7359123817,
+    1.0889511374,
+    -486.4628588258
+   ],
+   [
+    0.0008540418,
+    0.0003597709,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    1.2808690033,
+    -0.3523342683,
+    71.6379417202
+   ],
+   [
+    -1.1667689592,
+    1.2738876562,
+    398.3131984802
+   ],
+   [
+    -0.0006741461,
+    -0.0001573996,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   9.81,
+   6.06,
+   4.04,
+   3.39,
+   3.36,
+   4.84,
+   0.71,
+   0.97,
+   3.48,
+   2.0
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 4.62,
+  "rms_all_points_px": 4.62,
+  "rms_rel_diag": 0.00292,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   11.52,
+   8.25,
+   11.04,
+   5.68,
+   5.07,
+   6.44,
+   1.85,
+   1.54,
+   5.45,
+   3.65
+  ],
+  "loo_max_px": 11.52,
+  "loo_max_rel_diag": 0.00729,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.0472,
+  "valid_region_historic": [
+   [
+    584.7999877929688,
+    811.0
+   ],
+   [
+    420.79998779296875,
+    794.5
+   ],
+   [
+    385.5,
+    440.1000061035156
+   ],
+   [
+    417.29998779296875,
+    451.8999938964844
+   ],
+   [
+    552.9000244140625,
+    508.5
+   ],
+   [
+    573.0,
+    519.0999755859375
+   ]
+  ],
+  "scope": "local: control points span 5% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 5% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

@@ -1,0 +1,306 @@
+{
+ "id": "louvre-colonnade-benoist-carnavalet",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Колоннада Лувра с востока. Литография почти фронтальна, фото снято с юго-востока в упор под острым углом: сходится только плоскость фасада на малой площади, перспектива сильно различается.",
+ "expected_confidence": "low (local, strong obliquity)",
+ "historic": {
+  "title": "Vues de Paris (21). Colonnade du Louvre",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "wikidata": "Q26309223",
+    "role": "draughtsman and lithographer (dessiné d'après nature et lith. par Ph. Benoist)"
+   },
+   {
+    "name": "A. Bayot",
+    "role": "figures (figures par A. Bayot)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (imprimé par Auguste Bry)"
+   },
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   }
+  ],
+  "date": "not stated in the museum record",
+  "medium": "Цветная литография",
+  "holding": "Musée Carnavalet, Histoire de Paris (Paris Musées)",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
+  "accession": "CARGTOP028170 (shelfmark visible on the sheet); Paris Musées node 320291352",
+  "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+  "file": "louvre-colonnade-benoist-carnavalet-cargtop028170.jpg",
+  "file_source_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=VsrQ0ubi",
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320291352.jpg (1280 x 952, whole sheet with margins), copied byte-for-byte; no crop, no geometry change.",
+  "sha256": "9e0622847b96ac11ed893638fc931abb8129debc637d2bbaf1211fc58680f84d",
+  "size": [
+   1280,
+   952
+  ],
+  "credit": "Philippe Benoist · figures A. Bayot · imprimé par Auguste Bry · Gihaut frères · Paris Musées / Musée Carnavalet · CC0"
+ },
+ "photo": {
+  "title": "Colonnade du Louvre from Place du Louvre, 21 Jun 2025 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax (instance panoramax.openstreetmap.fr)",
+  "panoramax_id": "54109eef-61b6-4d6d-8f1f-2256d27c8e24",
+  "object_url": "https://api.panoramax.xyz/api/collections/fd6a8507-4dae-4900-85ab-001b99375b5d/items/54109eef-61b6-4d6d-8f1f-2256d27c8e24",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=54109eef-61b6-4d6d-8f1f-2256d27c8e24",
+  "author": "benoitdd (Panoramax account)",
+  "date": "2025-06-21",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.86031326,
+   "lon": 2.340837499,
+   "heading_deg": 262,
+   "source": "Panoramax item metadata; heading = chosen crop centre (panorama heading 285)"
+  },
+  "azimuth_deg": 262,
+  "distance_to_building_m_approx": 45,
+  "file": "louvre-colonnade-photo-panoramax-54109eef-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/54/10/9e/ef/61b6-4d6d-8f1f-2256d27c8e24.jpg",
+  "source_sha256": "851583c86adcc609ba5733e02d2e1a6df5c952f7b833b518b009d650ac356712",
+  "sha256": "cfd4220f42de9222180ac50cbc6584474edd98a9af241ccaf90d67a8d1ba9ffa",
+  "size": [
+   1800,
+   1000
+  ],
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 285,
+   "yaw_deg": 262,
+   "horizontal_fov_deg": 92,
+   "pitch_deg": 0,
+   "output_px": [
+    1800,
+    1000
+   ],
+   "jpeg_quality": 92
+  },
+  "file_note": "Source: Panoramax HD 360-degree image (5760 x 2880). Only a perspective crop is shown; faces were blurred by Panoramax, EXIF/GPS not carried over. Vehicles and a delivery cart are in the foreground.",
+  "credit": "Photo: benoitdd / Panoramax, CC BY-SA 4.0 (rectilinear crop by this project)",
+  "changes": "cropped and reprojected from a 360-degree panorama (parameters above), JPEG q92, EXIF/GPS stripped; shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "different",
+  "historic_camera_estimate": "frontal, on the facade axis, roughly 150-200 m east, ground level, heading ~W (estimate from the drawing)",
+  "photo_camera": "about 45 m ESE of the facade, ~55-60 deg off the facade normal, heading WNW",
+  "note": "Same (east) side of the building but very different distance and angle; pavilions project forward of the colonnade, so points on different planes disagree."
+ },
+ "control_points_note": "Eight points picked by Claude on gridded zooms: pediment apex and base corners, central arch apex, cornice corners of the end pavilion/colonnade junctions, right-pavilion window apex. Points lie on several depth planes (pavilions project), which is why leave-one-out error is large.",
+ "control_points": [
+  {
+   "label": "pediment apex",
+   "historic": [
+    690.8,
+    499.0
+   ],
+   "photo": [
+    629.7,
+    158.5
+   ]
+  },
+  {
+   "label": "pediment left base corner",
+   "historic": [
+    640.0,
+    518.8
+   ],
+   "photo": [
+    522.2,
+    240.8
+   ]
+  },
+  {
+   "label": "pediment right base corner",
+   "historic": [
+    740.1,
+    519.5
+   ],
+   "photo": [
+    771.0,
+    184.3
+   ]
+  },
+  {
+   "label": "central arch apex",
+   "historic": [
+    688.4,
+    570.2
+   ],
+   "photo": [
+    669.6,
+    351.3
+   ]
+  },
+  {
+   "label": "left pavilion cornice, outer corner",
+   "historic": [
+    380.6,
+    513.6
+   ],
+   "photo": [
+    61.5,
+    339.1
+   ]
+  },
+  {
+   "label": "left pavilion/colonnade cornice junction",
+   "historic": [
+    471.4,
+    513.6
+   ],
+   "photo": [
+    216.9,
+    301.0
+   ]
+  },
+  {
+   "label": "colonnade/right pavilion cornice junction",
+   "historic": [
+    901.7,
+    513.6
+   ],
+   "photo": [
+    1326.8,
+    49.3
+   ]
+  },
+  {
+   "label": "right pavilion arched window apex",
+   "historic": [
+    946.5,
+    542.4
+   ],
+   "photo": [
+    1516.0,
+    110.4
+   ]
+  }
+ ],
+ "viewpoint_review": {
+  "status": "uncertain",
+  "observations": [
+   "Same east facade; pediment, central arch and end pavilions identified in both images.",
+   "Control points cover ~2 % of the sheet and are nearly collinear; the fit is only trustworthy as a small local patch.",
+   "Not an exact viewpoint match: do not present the warped photo as an overlay of the whole sheet."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-21"
+ },
+ "alignment": {
+  "n_points": 8,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   952
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "method": "cv2.findHomography RANSAC 16.0px",
+  "H": [
+   [
+    0.7515258858,
+    -0.372857334,
+    415.7448013207
+   ],
+   [
+    0.3139136691,
+    0.2082976066,
+    369.1350337072
+   ],
+   [
+    0.0004244391,
+    -0.000396413,
+    1.0
+   ]
+  ],
+  "H_inverse": [
+   [
+    1.2962192672,
+    0.7604580015,
+    -819.6081117368
+   ],
+   [
+    -0.5747307329,
+    2.1019620976,
+    -536.9665353865
+   ],
+   [
+    -0.0007779969,
+    0.0005104769,
+    1.0
+   ]
+  ],
+  "residuals_px": [
+   2.04,
+   2.29,
+   2.13,
+   0.34,
+   4.49,
+   8.2,
+   2.64,
+   0.26
+  ],
+  "inliers": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "rms_px": 3.68,
+  "rms_all_points_px": 3.68,
+  "rms_rel_diag": 0.00231,
+  "outlier_fraction": 0.0,
+  "loo_px": [
+   4.07,
+   3.01,
+   2.66,
+   2.33,
+   22.31,
+   12.03,
+   16.15,
+   6.22
+  ],
+  "loo_max_px": 22.31,
+  "loo_max_rel_diag": 0.01398,
+  "roundtrip_max_px": 0.0,
+  "control_point_coverage": 0.0188,
+  "valid_region_historic": [
+   [
+    946.5,
+    542.4000244140625
+   ],
+   [
+    688.4000244140625,
+    570.2000122070312
+   ],
+   [
+    380.6000061035156,
+    513.5999755859375
+   ],
+   [
+    690.7999877929688,
+    499.0
+   ],
+   [
+    901.7000122070312,
+    513.5999755859375
+   ]
+  ],
+  "scope": "local: control points span 2% of the historic image; trust only the outlined region",
+  "confidence": "low",
+  "reason": "local fit only (high inside the outlined region): control points cover 2% < 15% of the historic image",
+  "cv2_version": "4.10.0",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}
