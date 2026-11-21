@@ -22,11 +22,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CATALOGS = sorted((ROOT / "research" / "collections").glob("*.json"))
 OUT = ROOT / "data" / "curation" / "benoist-parismusees-batch-v1.json"
+SEARCH = ROOT / "data" / "research" / "benoist" / "parismusees-search-v1.json"
 KNOWN = ROOT / "data" / "curation" / "benoist-paris-musees-v1.json"
 IMG_DIR = ROOT / "book" / "img" / "benoist"
 UA = "CityOnPaperResearch/0.9 (non-commercial museum atlas; github.com/zukevich-blip/-city-on-paper)"
 CC0 = "https://creativecommons.org/publicdomain/zero/1.0/"
 # Same composition printed twice (two museum impressions): the second one is recorded, not shown as a separate work.
+DELAY = 1.1
 IMPRESSION_OF = {"320288773": "320288755", "320291365": "320291352"}
 
 
@@ -34,7 +36,7 @@ def get(url: str, binary: bool = False):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=60) as resp:
         body = resp.read()
-    time.sleep(1.1)
+    time.sleep(DELAY)
     return body if binary else json.loads(body)
 
 
@@ -64,7 +66,9 @@ def canvas_facts(manifest: dict) -> dict | None:
     return None
 
 
-def parse(manifest: dict, nid: str, record_url: str) -> dict | None:
+def parse(
+    manifest: dict, nid: str, record_url: str, roles: list | None = None, title: str | None = None
+) -> dict | None:
     facts = canvas_facts(manifest)
     if not facts or facts["licence_url"].rstrip("/") != CC0.rstrip("/") or "CC0" not in facts["rights"]:
         return None
@@ -101,27 +105,62 @@ def save_image(nid: str, url: str) -> None:
     im.save(dest, "JPEG", quality=84, optimize=True)
 
 
+def search_records() -> list[dict]:
+    """Records the search found with a manifest; each manifest is re-checked for CC0 before anything is taken."""
+    if not SEARCH.exists():
+        return []
+    out = []
+    for rec in json.loads(SEARCH.read_text(encoding="utf-8")).get("records", []):
+        if rec.get("rights_status") == "open_confirmed" and rec.get("iiif_manifest"):
+            roles = [
+                {"name": p["name"], "role": p.get("role_as_stated")}
+                for p in rec.get("participants", [])
+                if p.get("name")
+            ]
+            out.append(
+                {
+                    "iiif_manifest": rec["iiif_manifest"],
+                    "source_url": rec["record_url"],
+                    "_roles": roles,
+                    "_title": (rec.get("original_title") or "").strip().rstrip("."),
+                }
+            )
+    return out
+
+
 def main(argv: list[str]) -> int:
+    """Resumable: records already in the batch file are kept, the site's 503/short reads only add to ``failures``."""
+    global DELAY
+    if "--delay" in argv:
+        DELAY = float(argv[argv.index("--delay") + 1])
     known = {i["source_id"] for i in json.loads(KNOWN.read_text(encoding="utf-8"))["items"]}
-    seen, records, failures = set(), [], []
-    for cat in CATALOGS:
-        for rec in json.loads(cat.read_text(encoding="utf-8")).get("records", []):
+    have = {r["node"]: r for r in json.loads(OUT.read_text(encoding="utf-8"))["records"]} if OUT.exists() else {}
+    failures: list[dict] = []
+    batches = [json.loads(c.read_text(encoding="utf-8")).get("records", []) for c in CATALOGS] + [search_records()]
+    seen: set[str] = set()
+    for records_in in batches:
+        for rec in records_in:
             url = rec.get("iiif_manifest")
             if not url or node_id(url) in seen:
                 continue
             nid = node_id(url)
             seen.add(nid)
+            if nid in have and (IMG_DIR / f"pm-{nid}.jpg").exists():
+                if rec.get("_roles") and not have[nid].get("roles"):
+                    have[nid]["roles"] = rec["_roles"]
+                continue
             try:
-                parsed = parse(get(url), nid, rec["source_url"])
+                parsed = parse(get(url), nid, rec["source_url"], rec.get("_roles"), rec.get("_title"))
                 if not parsed:
                     failures.append({"node": nid, "why": "manifest does not state CC0 for the file"})
                     continue
                 if "--no-images" not in argv:
                     save_image(nid, parsed["image_source"])
                 parsed["known_before"] = nid in known
-                records.append(parsed)
+                have[nid] = parsed
             except Exception as exc:  # noqa: BLE001 - recorded, never hidden
                 failures.append({"node": nid, "why": str(exc)[:160]})
+    records = list(have.values())
     OUT.write_text(
         json.dumps(
             {"version": 1, "source": "Paris Musées IIIF manifests", "records": records, "failures": failures},

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "Paris Musées collections (parismuseescollections.paris.fr + apicollections.parismusees.paris.fr IIIF)",
-  "fetched_at": "2026-11-21T11:38:41Z",
+  "fetched_at": "2026-11-21T12:43:37Z",
   "coverage": {
     "queries": [
       {
@@ -148,18 +148,49 @@
     "pages_walked": 17,
     "hits_total_reported_by_source": 77,
     "hits_total_note": "Sum over the two author queries; the same notice can match both when Philippe and Félix are co-named. Series/text queries are reported separately and are not added.",
-    "records_kept": 24,
+    "records_kept": 76,
     "records_by_artist_id": {
-      "philippe-benoist": 24,
-      "other": 52
+      "philippe-benoist": 67,
+      "felix-benoist": 9
     },
-    "records_not_benoist_dropped": 52,
-    "unique_compositions": 20,
-    "impressions": 24,
-    "known_before_count": 2,
+    "records_not_benoist_dropped": 0,
+    "unique_compositions": 64,
+    "impressions": 76,
+    "known_before_count": 18,
     "open_confirmed_with_image_size": 24,
-    "http_requests": 66,
-    "blocked": [],
+    "http_requests": 15,
+    "blocked": [
+      {
+        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-1",
+        "http": null,
+        "why": "failed after 3 attempts: short/empty body (0 bytes)"
+      },
+      {
+        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-prise-au-dessus-du-rond-point-des-champs-elysees",
+        "http": null,
+        "why": "failed after 3 attempts: short/empty body (0 bytes)"
+      },
+      {
+        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
+        "http": null,
+        "why": "failed after 3 attempts: short/empty body (0 bytes)"
+      },
+      {
+        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli-0",
+        "http": null,
+        "why": "failed after 3 attempts: short/empty body (0 bytes)"
+      },
+      {
+        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-et-fontaine-du-chatelet-pont-au-change-theatre-du-chatelet-et-theatre",
+        "http": null,
+        "why": "failed after 3 attempts: short/empty body (0 bytes)"
+      },
+      {
+        "url": "https://www.parismuseescollections.paris.fr",
+        "http": null,
+        "why": "4 consecutive record pages came back empty/failed (throttling); remaining records kept as search_hit_only from the result cards, no further hammering"
+      }
+    ],
     "notes": [
       "No images downloaded. image_width/height are canvas values from the IIIF manifest; the image resource is the '4k' derivative (height capped near 2160 px), so they are NOT the pixel size of the museum's master scan.",
       "rights_status open_confirmed only when every canvas states CC0 in Droits/Copyright of the manifest.",
@@ -169,10 +200,65 @@
   },
   "duplicate_groups": [
     {
+      "duplicate_hint": "bibliotheque du conservatoire des arts et metiers ancien couvent de l abbaye saint martin des champs|paris dans sa splendeur|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:723606"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
       "duplicate_hint": "chateau des tuileries cote du carrousel||",
       "impressions": 1,
       "record_ids": [
         "parismusees:645353"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "chateau des tuileries||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:644456"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "chateau du pailly d apres une esquisse d emile sagot iff79 n||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:685633"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "cirque de l imperatrice aux champs elysees||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:651221"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "colonne de juillet sur la place de la bastille n|vues de paris|19",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:635951"
       ],
       "artist_ids": [
         "philippe-benoist"
@@ -235,10 +321,76 @@
       "any_known_before": false
     },
     {
+      "duplicate_hint": "ecole militaire facade sur la place de fontenoy|paris dans sa splendeur|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:725112"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "eglise notre dame de lorette|vues de paris|8",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:650072"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "eglise saint laurent avec sa nouvelle facade et la gare du chemin de fer de l est||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:636326"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "eglise st sulpice eglise st etienne du mont|vues de paris|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:646859"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
       "duplicate_hint": "eglise st sulpice et fontaine de la place st sulpice|paris dans sa splendeur|",
       "impressions": 1,
       "record_ids": [
         "parismusees:123268"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "exposition universelle de 1867 vue generale du champs de mars prise a vol d oiseau du cote de la porte rapp||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:101869"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "fontaine du chatelet fontaine richelieu||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:643679"
       ],
       "artist_ids": [
         "philippe-benoist"
@@ -269,11 +421,45 @@
       "any_known_before": false
     },
     {
+      "duplicate_hint": "hotel des invalides||",
+      "impressions": 2,
+      "record_ids": [
+        "parismusees:651527",
+        "parismusees:651530"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "interieur de l eglise de st etienne du mont||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:646889"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
       "duplicate_hint": "interieur de la madeleine interior of the church of he madeleine views of paris|vues de paris|42",
       "impressions": 2,
       "record_ids": [
         "parismusees:639863",
         "parismusees:639872"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "la halle et la fontaine des innocens sic|vues de paris|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:644183"
       ],
       "artist_ids": [
         "philippe-benoist"
@@ -293,9 +479,10 @@
     },
     {
       "duplicate_hint": "la madeleine the madeleine church views of paris|vues de paris|6",
-      "impressions": 1,
+      "impressions": 2,
       "record_ids": [
-        "parismusees:639857"
+        "parismusees:639857",
+        "parismusees:639227"
       ],
       "artist_ids": [
         "philippe-benoist"
@@ -304,15 +491,61 @@
     },
     {
       "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
-      "impressions": 2,
+      "impressions": 3,
       "record_ids": [
         "parismusees:645167",
-        "parismusees:645179"
+        "parismusees:645179",
+        "parismusees:645188"
       ],
       "artist_ids": [
         "philippe-benoist"
       ],
       "any_known_before": true
+    },
+    {
+      "duplicate_hint": "le chateau d eau marche aux fleurs|vues de paris|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:637571"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "le louvre acheve et la nouvelle rue de rivoli|vues de paris|",
+      "impressions": 2,
+      "record_ids": [
+        "parismusees:643148",
+        "parismusees:643166"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "les boulevards saint denis et saint martin|vues de paris|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:635744"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "les buttes chaumont vue generale a vol d oiseau du nouveau square prise du dessus du lac||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:640088"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
     },
     {
       "duplicate_hint": "les grands aspects du nouveau paris hotel de ville prefecture de la seine vue prise de la rue de rivoli||",
@@ -322,6 +555,50 @@
       ],
       "artist_ids": [
         "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "les grands aspects du nouveau paris nouvel opera facade principale sur le boulevard des capucines||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:651578"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "les grands aspects du nouveau paris nouvelle eglise de la trinite chaussee d antin||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:649829"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "les grands aspects du nouveau paris nouvelle eglise st augustin boulevard malesherbes||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:637886"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "les grands aspects du nouveau paris parc de monceaux vue generale a vol d oiseau prise du cote du boulevard malesherbes||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:636953"
+      ],
+      "artist_ids": [
+        "felix-benoist"
       ],
       "any_known_before": false
     },
@@ -348,6 +625,106 @@
       "any_known_before": false
     },
     {
+      "duplicate_hint": "palais de l industrie aux champs elysees||",
+      "impressions": 2,
+      "record_ids": [
+        "parismusees:635738",
+        "parismusees:635753"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "palais de l industrie||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:296536"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "palais du luxembourg cote du jardin||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:647390"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "palais du luxembourg cote jardin||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:647240"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "parc de monceaux la naumachie|paris dans sa splendeur|51",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:637811"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "paris boulevart des italiens||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:644306"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "paris dans sa grandeur histoire distribuition des aigles au champ de mars decembre 1804||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:725364"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "paris en 1860 vue prise a vol d oiseau au dessus du rond point des ch elysees||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:295600"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "paris et ses ruines square des buttes chaumont vue du lac des grottes et du grand rocher avec le temple de la sibylle||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:523457"
+      ],
+      "artist_ids": [
+        "felix-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
       "duplicate_hint": "paris pris du pont royal views of paris paris from the royal bridge|vues de paris|",
       "impressions": 1,
       "record_ids": [
@@ -357,6 +734,39 @@
         "philippe-benoist"
       ],
       "any_known_before": false
+    },
+    {
+      "duplicate_hint": "place de la concorde||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:649769"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "place et fontaine du chatelet pont au change theatre du chatelet et theatre lyrique||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:643646"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "rue de rivoli ministeres des finances et de la marine|vues de paris|",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:647273"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
     },
     {
       "duplicate_hint": "square du temple 1881||",
@@ -370,6 +780,73 @@
       "any_known_before": false
     },
     {
+      "duplicate_hint": "views of paris arc de triomphe de l etoile cote de paris arc of triumph de l etoile side of paris|vues de paris|5",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:651308"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "views of paris bourse et tribunal de commerce the bourse and tribunal of commerce|vues de paris|9",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:647366"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "views of paris colonnade du louvre colonnade of the louvre|vues de paris|21",
+      "impressions": 2,
+      "record_ids": [
+        "parismusees:647567",
+        "parismusees:647591"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "views of paris colonne de la place vendome colomn of the place vendome|vues de paris|7",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:649058"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "views of paris le boulevart des italiens the boulevart des italiens|vues de paris|11",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:644345"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
+      "duplicate_hint": "views of paris notre dame cathedrale de paris notre dame paris cathedral|vues de paris|26",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:648620"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
+    },
+    {
       "duplicate_hint": "vue de la halle centrale de paris projet presente a s m l empeureur napoleon iii par charles duval architecte||",
       "impressions": 1,
       "record_ids": [
@@ -379,6 +856,19 @@
         "philippe-benoist"
       ],
       "any_known_before": false
+    },
+    {
+      "duplicate_hint": "vue generale des expositions prise du cote de l annexe||",
+      "impressions": 2,
+      "record_ids": [
+        "parismusees:651074",
+        "parismusees:296527"
+      ],
+      "artist_ids": [
+        "felix-benoist",
+        "philippe-benoist"
+      ],
+      "any_known_before": true
     },
     {
       "duplicate_hint": "vue officielle a vol d oiseau de l exposition universelle de 1867||",
@@ -391,6 +881,40 @@
         "philippe-benoist"
       ],
       "any_known_before": false
+    },
+    {
+      "duplicate_hint": "vue prise au dessus du rond point des champs elysees||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:643076"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "vues des palais d orcay et de la legion d honneur||",
+      "impressions": 2,
+      "record_ids": [
+        "parismusees:649838",
+        "parismusees:649850"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": false
+    },
+    {
+      "duplicate_hint": "vues du pantheon||",
+      "impressions": 1,
+      "record_ids": [
+        "parismusees:649433"
+      ],
+      "artist_ids": [
+        "philippe-benoist"
+      ],
+      "any_known_before": true
     }
   ],
   "records": [
@@ -1433,7 +1957,7 @@
       "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "la madeleine the madeleine church views of paris|vues de paris|6",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
@@ -1823,7 +2347,7 @@
       "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
-      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
+      "impression_note": "3 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
@@ -1895,7 +2419,7 @@
       "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
-      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
+      "impression_note": "3 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
@@ -1903,6 +2427,51 @@
         "author:Benoist, Philippe"
       ],
       "known_before": true
+    },
+    {
+      "record_id": "parismusees:645188",
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
+      "original_title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+      "translated_title_ru": null,
+      "series": null,
+      "series_title_on_sheet": null,
+      "plate_number": null,
+      "volume": null,
+      "city": "Paris",
+      "place": null,
+      "country": null,
+      "geo_confidence": "city",
+      "date_as_stated": null,
+      "technique_as_stated": null,
+      "object_type": null,
+      "dimensions_as_stated": null,
+      "institution": "Musée Carnavalet, Histoire de Paris",
+      "accession": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-1",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "canvas_count": null,
+      "rights_statement": null,
+      "rights_status": "unknown",
+      "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
+      "impression_note": "3 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
+      "verification_status": "search_hit_only",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
+      "found_by": [
+        "author:Benoist, Philippe"
+      ],
+      "known_before": false
     },
     {
       "record_id": "parismusees:645260",
@@ -2027,47 +2596,16 @@
       "known_before": false
     },
     {
-      "record_id": "parismusees:645188",
-      "artist_id": "other",
-      "participants": [],
-      "original_title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
-      "translated_title_ru": null,
-      "series": null,
-      "series_title_on_sheet": null,
-      "plate_number": null,
-      "volume": null,
-      "city": "Paris",
-      "place": null,
-      "country": null,
-      "geo_confidence": "city",
-      "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
-      "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
-      "record_url": null,
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
-      "impression_note": null,
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
-      "found_by": [
-        "author:Benoist, Philippe"
-      ],
-      "known_before": false
-    },
-    {
       "record_id": "parismusees:643076",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vue prise au-dessus du Rond-Point des Champs-Elysées",
       "translated_title_ru": null,
       "series": null,
@@ -2084,7 +2622,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-prise-au-dessus-du-rond-point-des-champs-elysees",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2095,8 +2633,8 @@
       "duplicate_hint": "vue prise au dessus du rond point des champs elysees||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2104,8 +2642,15 @@
     },
     {
       "record_id": "parismusees:643148",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2122,7 +2667,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2131,19 +2676,26 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "le louvre acheve et la nouvelle rue de rivoli|vues de paris|",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:643166",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2160,7 +2712,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli-0",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2169,10 +2721,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "le louvre acheve et la nouvelle rue de rivoli|vues de paris|",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2180,8 +2732,15 @@
     },
     {
       "record_id": "parismusees:643646",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Place et Fontaine du Châtelet / Pont au Change. Théâtre du Châtelet et Théâtre Lyrique.",
       "translated_title_ru": null,
       "series": null,
@@ -2198,7 +2757,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-et-fontaine-du-chatelet-pont-au-change-theatre-du-chatelet-et-theatre",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2209,8 +2768,8 @@
       "duplicate_hint": "place et fontaine du chatelet pont au change theatre du chatelet et theatre lyrique||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2218,8 +2777,15 @@
     },
     {
       "record_id": "parismusees:643679",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Fontaine du Châtelet / Fontaine Richelieu.",
       "translated_title_ru": null,
       "series": null,
@@ -2236,7 +2802,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/fontaine-du-chatelet-fontaine-richelieu",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2247,8 +2813,8 @@
       "duplicate_hint": "fontaine du chatelet fontaine richelieu||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2256,8 +2822,15 @@
     },
     {
       "record_id": "parismusees:639227",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2274,7 +2847,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-madeleine-the-madeleine-church-vues-de-paris-6-views-of-paris",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2283,10 +2856,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "la madeleine the madeleine church views of paris|vues de paris|6",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2294,8 +2867,15 @@
     },
     {
       "record_id": "parismusees:651074",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vue générale des expositions / Prise du côté de l'annexe.",
       "translated_title_ru": null,
       "series": null,
@@ -2312,7 +2892,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe-0",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2321,10 +2901,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "vue generale des expositions prise du cote de l annexe||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2332,8 +2912,15 @@
     },
     {
       "record_id": "parismusees:651221",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Cirque de l'Impératrice / aux Champs-Elysées.",
       "translated_title_ru": null,
       "series": null,
@@ -2350,7 +2937,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/cirque-de-l-imperatrice-aux-champs-elysees",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2361,8 +2948,8 @@
       "duplicate_hint": "cirque de l imperatrice aux champs elysees||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2370,8 +2957,15 @@
     },
     {
       "record_id": "parismusees:651527",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Jacottet, Louis-Julien",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "dit Jean-Louis François) (1806 - 1880"
+        }
+      ],
       "original_title": "Hôtel des Invalides.",
       "translated_title_ru": null,
       "series": null,
@@ -2388,7 +2982,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2397,10 +2991,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "hotel des invalides||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Jacottet, Louis-Julien (dit Jean-Louis François) (1806 - 1880)",
+      "attribution_confidence": "medium",
+      "attribution_note": "Assigned from the author-query hit (author:Benoist, Philippe); the search card shows other authors only and the record page was not read.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2408,8 +3002,15 @@
     },
     {
       "record_id": "parismusees:651530",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Jacottet, Louis-Julien",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "dit Jean-Louis François) (1806 - 1880"
+        }
+      ],
       "original_title": "Hôtel des Invalides.",
       "translated_title_ru": null,
       "series": null,
@@ -2426,7 +3027,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides-0",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2435,10 +3036,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "hotel des invalides||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Jacottet, Louis-Julien (dit Jean-Louis François) (1806 - 1880)",
+      "attribution_confidence": "medium",
+      "attribution_note": "Assigned from the author-query hit (author:Benoist, Philippe); the search card shows other authors only and the record page was not read.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2446,8 +3047,15 @@
     },
     {
       "record_id": "parismusees:651578",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Les grands aspects du nouveau Paris / Nouvel Opéra. / Façade principale sur le Boulevard des Capucines.",
       "translated_title_ru": null,
       "series": null,
@@ -2464,7 +3072,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvel-opera-facade-principale-sur-le",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2475,8 +3083,8 @@
       "duplicate_hint": "les grands aspects du nouveau paris nouvel opera facade principale sur le boulevard des capucines||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2484,8 +3092,15 @@
     },
     {
       "record_id": "parismusees:651308",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2502,7 +3117,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-5-views-of-paris-arc-de-triomphe-de-l-etoile-cote-de-paris",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2513,17 +3128,24 @@
       "duplicate_hint": "views of paris arc de triomphe de l etoile cote de paris arc of triumph de l etoile side of paris|vues de paris|5",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:635951",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Colonne de Juillet sur la place de la Bastille / Vues de Paris N° 19",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2540,7 +3162,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille-vues-de-paris-ndeg-19",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2551,8 +3173,8 @@
       "duplicate_hint": "colonne de juillet sur la place de la bastille n|vues de paris|19",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2560,8 +3182,15 @@
     },
     {
       "record_id": "parismusees:636326",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Eglise Saint-Laurent / avec sa nouvelle façade et la Gare du Chemin de fer de l'Est",
       "translated_title_ru": null,
       "series": null,
@@ -2578,7 +3207,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/eglise-saint-laurent-avec-sa-nouvelle-facade-et-la-gare-du-chemin-de-fer-de",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2589,8 +3218,8 @@
       "duplicate_hint": "eglise saint laurent avec sa nouvelle facade et la gare du chemin de fer de l est||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2598,8 +3227,15 @@
     },
     {
       "record_id": "parismusees:635738",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Palais de l'Industrie aux Champs Elysées.",
       "translated_title_ru": null,
       "series": null,
@@ -2616,7 +3252,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2625,10 +3261,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "palais de l industrie aux champs elysees||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2636,8 +3272,15 @@
     },
     {
       "record_id": "parismusees:635744",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris // Les Boulevards Saint-Denis et Saint-Martin",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2654,7 +3297,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-les-boulevards-saint-denis-et-saint-martin",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2665,8 +3308,8 @@
       "duplicate_hint": "les boulevards saint denis et saint martin|vues de paris|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2674,8 +3317,15 @@
     },
     {
       "record_id": "parismusees:635753",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Palais de l'Industrie aux Champs-Elysées.",
       "translated_title_ru": null,
       "series": null,
@@ -2692,7 +3342,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees-0",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2701,10 +3351,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "palais de l industrie aux champs elysees||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2712,8 +3362,15 @@
     },
     {
       "record_id": "parismusees:648620",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2730,7 +3387,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2741,17 +3398,24 @@
       "duplicate_hint": "views of paris notre dame cathedrale de paris notre dame paris cathedral|vues de paris|26",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:649058",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2768,7 +3432,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2779,17 +3443,24 @@
       "duplicate_hint": "views of paris colonne de la place vendome colomn of the place vendome|vues de paris|7",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:644183",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris. // La halle et la fontaine des Innocens. [sic]",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2806,7 +3477,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-la-halle-et-la-fontaine-des-innocens-sic",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2817,8 +3488,8 @@
       "duplicate_hint": "la halle et la fontaine des innocens sic|vues de paris|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2826,8 +3497,15 @@
     },
     {
       "record_id": "parismusees:644456",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Château des Tuileries.",
       "translated_title_ru": null,
       "series": null,
@@ -2844,7 +3522,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/chateau-des-tuileries-2",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2855,8 +3533,8 @@
       "duplicate_hint": "chateau des tuileries||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -2864,8 +3542,15 @@
     },
     {
       "record_id": "parismusees:644306",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Paris / Boulevart des Italiens",
       "translated_title_ru": null,
       "series": null,
@@ -2882,7 +3567,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-boulevart-des-italiens",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2893,17 +3578,24 @@
       "duplicate_hint": "paris boulevart des italiens||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:644345",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris. / (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -2920,7 +3612,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-11-views-of-paris-le-boulevart-des-italiens-the-boulevart-des",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2931,17 +3623,24 @@
       "duplicate_hint": "views of paris le boulevart des italiens the boulevart des italiens|vues de paris|11",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:649433",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues du Panthéon.",
       "translated_title_ru": null,
       "series": null,
@@ -2958,7 +3657,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-du-pantheon",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -2969,17 +3668,24 @@
       "duplicate_hint": "vues du pantheon||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:649829",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Les grands aspects du nouveau Paris / Nouvelle église de la Trinité / Chaussée d'Antin.",
       "translated_title_ru": null,
       "series": null,
@@ -2996,7 +3702,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-de-la-trinite-chaussee",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3007,8 +3713,8 @@
       "duplicate_hint": "les grands aspects du nouveau paris nouvelle eglise de la trinite chaussee d antin||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3016,8 +3722,15 @@
     },
     {
       "record_id": "parismusees:649838",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
       "translated_title_ru": null,
       "series": null,
@@ -3034,7 +3747,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3043,10 +3756,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "vues des palais d orcay et de la legion d honneur||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3054,8 +3767,15 @@
     },
     {
       "record_id": "parismusees:649850",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
       "translated_title_ru": null,
       "series": null,
@@ -3072,7 +3792,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur-0",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3081,10 +3801,10 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "vues des palais d orcay et de la legion d honneur||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3092,8 +3812,15 @@
     },
     {
       "record_id": "parismusees:650072",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris / 8 / Eglise Notre Dame de Lorette.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3110,7 +3837,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-8-eglise-notre-dame-de-lorette",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3121,8 +3848,8 @@
       "duplicate_hint": "eglise notre dame de lorette|vues de paris|8",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3130,8 +3857,15 @@
     },
     {
       "record_id": "parismusees:649769",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Place de la Concorde.",
       "translated_title_ru": null,
       "series": null,
@@ -3148,7 +3882,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-de-la-concorde-28",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3159,8 +3893,8 @@
       "duplicate_hint": "place de la concorde||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3168,8 +3902,15 @@
     },
     {
       "record_id": "parismusees:637886",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Les Grands Aspects du Nouveau Paris/ Nouvelle Eglise St. Augustin./ Boulevard Malesherbes.",
       "translated_title_ru": null,
       "series": null,
@@ -3186,7 +3927,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-st-augustin-boulevard",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3197,8 +3938,8 @@
       "duplicate_hint": "les grands aspects du nouveau paris nouvelle eglise st augustin boulevard malesherbes||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3206,8 +3947,15 @@
     },
     {
       "record_id": "parismusees:637571",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3224,7 +3972,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-chateau-d-eau-marche-aux-fleurs",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3235,8 +3983,8 @@
       "duplicate_hint": "le chateau d eau marche aux fleurs|vues de paris|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3244,8 +3992,15 @@
     },
     {
       "record_id": "parismusees:647567",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3262,7 +4017,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3271,19 +4026,26 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "views of paris colonnade du louvre colonnade of the louvre|vues de paris|21",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:647591",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3300,7 +4062,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-0",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3309,19 +4071,26 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "views of paris colonnade du louvre colonnade of the louvre|vues de paris|21",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:646859",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3338,7 +4107,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3349,17 +4118,24 @@
       "duplicate_hint": "eglise st sulpice eglise st etienne du mont|vues de paris|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:646889",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Intérieur de l' Eglise de St Etienne du Mont",
       "translated_title_ru": null,
       "series": null,
@@ -3376,7 +4152,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-l-eglise-de-st-etienne-du-mont",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3387,8 +4163,8 @@
       "duplicate_hint": "interieur de l eglise de st etienne du mont||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3396,8 +4172,15 @@
     },
     {
       "record_id": "parismusees:647390",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Palais du Luxembourg. / Côté du jardin.",
       "translated_title_ru": null,
       "series": null,
@@ -3414,7 +4197,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-du-jardin",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3425,8 +4208,8 @@
       "duplicate_hint": "palais du luxembourg cote du jardin||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3434,8 +4217,15 @@
     },
     {
       "record_id": "parismusees:647240",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Palais du Luxembourg. / Côté jardin.",
       "translated_title_ru": null,
       "series": null,
@@ -3452,7 +4242,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-jardin",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3463,17 +4253,24 @@
       "duplicate_hint": "palais du luxembourg cote jardin||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:647273",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris / Rue de Rivoli / Ministères des Finances et de la Marine.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3490,7 +4287,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-rue-de-rivoli-ministeres-des-finances-et-de-la-marine",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3501,17 +4298,24 @@
       "duplicate_hint": "rue de rivoli ministeres des finances et de la marine|vues de paris|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:647366",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
@@ -3528,7 +4332,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-9-views-of-paris-bourse-et-tribunal-de-commerce-the-bourse",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3539,8 +4343,8 @@
       "duplicate_hint": "views of paris bourse et tribunal de commerce the bourse and tribunal of commerce|vues de paris|9",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3548,8 +4352,15 @@
     },
     {
       "record_id": "parismusees:523457",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1818 - 1896"
+        }
+      ],
       "original_title": "Paris et ses ruines. / Square des Buttes Chaumont. / Vue du lac, des grottes et du grand rocher avec le Temple de la Sibylle.",
       "translated_title_ru": null,
       "series": null,
@@ -3566,7 +4377,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-et-ses-ruines-square-des-buttes-chaumont-vue-du-lac-des-grottes-et-du",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3577,8 +4388,8 @@
       "duplicate_hint": "paris et ses ruines square des buttes chaumont vue du lac des grottes et du grand rocher avec le temple de la sibylle||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Félix (1818 - 1896)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix",
         "author:Benoist, Philippe"
@@ -3587,8 +4398,15 @@
     },
     {
       "record_id": "parismusees:685633",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1890"
+        }
+      ],
       "original_title": "Château du Pailly d'après une esquisse d'Emile Sagot (IFF79, n° 366)",
       "translated_title_ru": null,
       "series": null,
@@ -3605,7 +4423,7 @@
       "dimensions_as_stated": null,
       "institution": "Petit Palais, musée des Beaux-arts de la Ville de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/chateau-du-pailly-d-apres-une-esquisse-d-emile-sagot-iff79-ndeg-366",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3616,8 +4434,8 @@
       "duplicate_hint": "chateau du pailly d apres une esquisse d emile sagot iff79 n||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Ciceri, Eugène (1813 - 1890)",
+      "attribution_confidence": "medium",
+      "attribution_note": "Assigned from the author-query hit (author:Benoist, Philippe); the search card shows other authors only and the record page was not read.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3625,8 +4443,15 @@
     },
     {
       "record_id": "parismusees:725112",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Paris dans sa splendeur / Ecole Militaire / Façade sur la Place de Fontenoy",
       "translated_title_ru": null,
       "series": "Paris dans sa splendeur",
@@ -3643,7 +4468,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-ecole-militaire-facade-sur-la-place-de-fontenoy",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3654,8 +4479,8 @@
       "duplicate_hint": "ecole militaire facade sur la place de fontenoy|paris dans sa splendeur|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3663,8 +4488,15 @@
     },
     {
       "record_id": "parismusees:725364",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "philippe-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1905"
+        }
+      ],
       "original_title": "Paris dans sa grandeur - Histoire. /Distribuition des aigles au Champ de Mars / (5 décembre 1804) / 84",
       "translated_title_ru": null,
       "series": null,
@@ -3681,7 +4513,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-grandeur-histoire-distribuition-des-aigles-au-champ-de-mars-5",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3692,8 +4524,8 @@
       "duplicate_hint": "paris dans sa grandeur histoire distribuition des aigles au champ de mars decembre 1804||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Philippe (1813 - 1905)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3701,8 +4533,15 @@
     },
     {
       "record_id": "parismusees:101869",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1818 - 1896"
+        }
+      ],
       "original_title": "Exposition universelle de 1867. Vue générale du Champs de Mars, prise à vol d'oiseau du côté de la porte Rapp.",
       "translated_title_ru": null,
       "series": null,
@@ -3719,7 +4558,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/exposition-universelle-de-1867-vue-generale-du-champs-de-mars-prise-a-vol-d",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3730,8 +4569,8 @@
       "duplicate_hint": "exposition universelle de 1867 vue generale du champs de mars prise a vol d oiseau du cote de la porte rapp||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Félix (1818 - 1896)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -3739,8 +4578,15 @@
     },
     {
       "record_id": "parismusees:295600",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Arnout, Jules",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1814 - 1868"
+        }
+      ],
       "original_title": "Paris en 1860. Vue prise à vol d'oiseau au dessus du Rond-point des Ch. Elysées.",
       "translated_title_ru": null,
       "series": null,
@@ -3757,7 +4603,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-en-1860-vue-prise-a-vol-d-oiseau-au-dessus-du-rond-point-des-ch",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3768,8 +4614,8 @@
       "duplicate_hint": "paris en 1860 vue prise a vol d oiseau au dessus du rond point des ch elysees||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Arnout, Jules (1814 - 1868)",
+      "attribution_confidence": "medium",
+      "attribution_note": "Assigned from the author-query hit (author:Benoist, Félix); the search card shows other authors only and the record page was not read.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -3777,8 +4623,15 @@
     },
     {
       "record_id": "parismusees:296527",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1818 - 1896"
+        }
+      ],
       "original_title": "Vue générale des Expositions, prise du côté de l'annexe.",
       "translated_title_ru": null,
       "series": null,
@@ -3795,7 +4648,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3804,19 +4657,26 @@
       "rights_statement": null,
       "rights_status": "unknown",
       "duplicate_hint": "vue generale des expositions prise du cote de l annexe||",
-      "impression_note": null,
+      "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Félix (1818 - 1896)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:296536",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1818 - 1896"
+        }
+      ],
       "original_title": "Palais de l'Industrie.",
       "translated_title_ru": null,
       "series": null,
@@ -3833,7 +4693,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-4",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3844,8 +4704,8 @@
       "duplicate_hint": "palais de l industrie||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Félix (1818 - 1896)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -3853,8 +4713,15 @@
     },
     {
       "record_id": "parismusees:640088",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Sabatier, Léon Jean-Baptiste",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1887"
+        }
+      ],
       "original_title": "Les Buttes Chaumont / Vue générale à vol d'oiseau, du nouveau square, prise du dessus du lac.",
       "translated_title_ru": null,
       "series": null,
@@ -3871,7 +4738,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-buttes-chaumont-vue-generale-a-vol-d-oiseau-du-nouveau-square-prise-du",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3882,8 +4749,8 @@
       "duplicate_hint": "les buttes chaumont vue generale a vol d oiseau du nouveau square prise du dessus du lac||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Sabatier, Léon Jean-Baptiste (1887)",
+      "attribution_confidence": "medium",
+      "attribution_note": "Assigned from the author-query hit (author:Benoist, Félix); the search card shows other authors only and the record page was not read.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -3891,8 +4758,15 @@
     },
     {
       "record_id": "parismusees:636953",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1818 - 1896"
+        }
+      ],
       "original_title": "Les Grands Aspects du Nouveau Paris./ Parc de Monceaux/ Vue générale, à vol d'oiseau, prise du côté du Boulevard Malesherbes.",
       "translated_title_ru": null,
       "series": null,
@@ -3909,7 +4783,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-parc-de-monceaux-vue-generale-a-vol-d",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3920,8 +4794,8 @@
       "duplicate_hint": "les grands aspects du nouveau paris parc de monceaux vue generale a vol d oiseau prise du cote du boulevard malesherbes||",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Félix (1818 - 1896)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -3929,8 +4803,15 @@
     },
     {
       "record_id": "parismusees:637811",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1813 - 1890"
+        }
+      ],
       "original_title": "Paris dans sa splendeur./ 51./ Parc de Monceaux./ (La Naumachie)",
       "translated_title_ru": null,
       "series": "Paris dans sa splendeur",
@@ -3947,7 +4828,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-51-parc-de-monceaux-la-naumachie",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3958,8 +4839,8 @@
       "duplicate_hint": "parc de monceaux la naumachie|paris dans sa splendeur|51",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Ciceri, Eugène (1813 - 1890)",
+      "attribution_confidence": "medium",
+      "attribution_note": "Assigned from the author-query hit (author:Benoist, Félix); the search card shows other authors only and the record page was not read.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -3967,8 +4848,15 @@
     },
     {
       "record_id": "parismusees:723606",
-      "artist_id": "other",
-      "participants": [],
+      "artist_id": "felix-benoist",
+      "participants": [
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": null,
+          "role_normalized": "unspecified",
+          "life_data_as_stated": "1818 - 1896"
+        }
+      ],
       "original_title": "Paris dans sa splendeur / Bibliothèque du Conservatoire des arts et métiers./ (Ancien couvent de l'Abbaye Saint Martin des Champs).",
       "translated_title_ru": null,
       "series": "Paris dans sa splendeur",
@@ -3985,7 +4873,7 @@
       "dimensions_as_stated": null,
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
-      "record_url": null,
+      "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-bibliotheque-du-conservatoire-des-arts-et-metiers",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
@@ -3996,8 +4884,8 @@
       "duplicate_hint": "bibliotheque du conservatoire des arts et metiers ancien couvent de l abbaye saint martin des champs|paris dans sa splendeur|",
       "impression_note": null,
       "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "No Philippe or Félix Benoist among the named participants. Search-card authors only: Benoist, Félix (1818 - 1896)",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],

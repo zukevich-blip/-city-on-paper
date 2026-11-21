@@ -47,6 +47,7 @@ KNOWN_FILES = (
 UA = "CityOnPaperResearch/0.9 (non-commercial museum atlas; github.com/zukevich-blip/-city-on-paper)"
 SITE = "https://www.parismuseescollections.paris.fr"
 SOURCE = "parismusees"
+BREAKER = 4  # consecutive failed record pages before falling back to card-only records
 MIN_DELAY = 1.2
 TIMEOUT = 150
 
@@ -395,6 +396,19 @@ def is_known(rec: dict, known: dict[str, set[str]]) -> bool:
     )
 
 
+def card_only_page(card: dict) -> dict:
+    """Minimal page dict from a search-result card when the record page could not be read."""
+    authors = [dict(split_author_line(a), role_as_stated=None) for a in card.get("authors") or []]
+    return {
+        "record_url": SITE + card["path"],
+        "node": card.get("node"),
+        "title": card.get("title"),
+        "authors": authors,
+        "_card_only": True,
+        "institution": card.get("museum"),
+    }
+
+
 def build_record(
     card: dict, page: dict, manifest: dict | None, found_by: list[str], known: dict[str, set[str]]
 ) -> dict:
@@ -451,7 +465,7 @@ def build_record(
         "rights_status": status,
         "duplicate_hint": make_duplicate_hint(title, series, plate),
         "impression_note": None,
-        "verification_status": "source_record_read" if page.get("record_url") else "search_hit_only",
+        "verification_status": "search_hit_only" if page.get("_card_only") else "source_record_read",
         "attribution_confidence": conf,
         "attribution_note": note,
         "found_by": sorted(set(found_by)),
@@ -460,6 +474,17 @@ def build_record(
     }
     if card.get("authors") and not page.get("authors"):
         rec["attribution_note"] += " Search-card authors only: " + "; ".join(card["authors"])
+    if page.get("_card_only") and artist == "other" and any(q.startswith("author:") for q in found_by):
+        # The result card lists only the first authors; the author query itself matched the authority record.
+        hit = {q for q in found_by if q.startswith("author:")}
+        phil, fel = any("Philippe" in q for q in hit), any("Félix" in q for q in hit)
+        rec["artist_id"] = "uncertain-benoist" if phil == fel else ("philippe-benoist" if phil else "felix-benoist")
+        rec["attribution_confidence"] = "medium"
+        rec["attribution_note"] = (
+            "Assigned from the author-query hit ("
+            + "; ".join(sorted(hit))
+            + "); the search card shows other authors only and the record page was not read."
+        )
     rec["known_before"] = is_known(rec, known)
     del rec["_node"]
     return rec
@@ -597,20 +622,25 @@ def run(args) -> dict:
             seen.setdefault(c["node"], c)
             found_by.setdefault(c["node"], []).append(label)
     records = []
+    consecutive_fail = 0
     for node, card in seen.items():
-        html = fetch.get(SITE + card["path"])
-        if html is None:
+        html = None if consecutive_fail >= BREAKER else fetch.get(SITE + card["path"])
+        page = parse_record_page(html) if html else None
+        if page is None or not page["node"] or not page["authors"]:
+            consecutive_fail += 1
+            if consecutive_fail == BREAKER:
+                fetch.blocked.append(
+                    {
+                        "url": SITE,
+                        "http": None,
+                        "why": f"{BREAKER} consecutive record pages came back empty/failed (throttling); "
+                        "remaining records kept as search_hit_only from the result cards, no further hammering",
+                    }
+                )
+            records.append(build_record(card, card_only_page(card), None, found_by[node], known))
+            print(f"card-only {records[-1]['record_id']} {records[-1]['artist_id']}", file=sys.stderr)
             continue
-        page = parse_record_page(html)
-        if not page["node"] or not page["authors"]:
-            fetch.blocked.append(
-                {
-                    "url": SITE + card["path"],
-                    "http": 200,
-                    "why": "record page did not parse (no node/authors); record skipped",
-                }
-            )
-            continue
+        consecutive_fail = 0
         manifest = None
         if page["manifest"]:
             raw = fetch.get(page["manifest"])
