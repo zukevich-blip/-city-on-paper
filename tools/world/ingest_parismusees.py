@@ -37,7 +37,21 @@ def get(url: str, binary: bool = False):
     last = ""
     for attempt in range(3):
         res = subprocess.run(
-            ["curl", "-sS", "-L", "-m", "90", "-A", UA, "-H", "Accept: application/json", "-w", "\n%{http_code}", url],
+            [
+                "curl",
+                "-sS",
+                "-L",
+                "--http1.1",
+                "-m",
+                "90",
+                "-A",
+                UA,
+                "-H",
+                "Accept: application/json",
+                "-w",
+                "\n%{http_code}",
+                url,
+            ],
             capture_output=True,
         )
         body, _, code = res.stdout.rpartition(b"\n")
