@@ -356,7 +356,7 @@
   }
 
   // ---------- the collection register: author -> series -> country -> city -> work, with honest counters
-  const catState = { series: "", country: "", city: "", take: 40 };
+  const catState = { artist: "", series: "", country: "", city: "", take: 40 };
   function viewCatalog(artist) {
     setTitle("Собрание"); crumbs([{ t: "Книга", href: "#/" }, { t: "Собрание" }]);
     const R = D.reg || { works: [], summary: null }, sum = R.summary;
@@ -364,9 +364,13 @@
     const byImg = new Map(D.sheets.map((x) => [x.image, x]));
     const artists = Object.entries(sum.by_artist).sort((a, b) => b[1] - a[1]);
     const cur = artist && sum.by_artist[artist] ? artist : "";
+    if (catState.artist !== cur) { catState.artist = cur; catState.take = 40; }
     const pool = R.works.filter((w) => !cur || w.artist === cur);
     const uniq = (k) => [...new Set(pool.map((w) => w[k]).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ru"));
+    const facets = { series: uniq("series"), country: uniq("country"), city: uniq("city") };
+    for (const k of ["series", "country", "city"]) if (catState[k] && !facets[k].includes(catState[k])) catState[k] = "";
     const list = pool.filter((w) => (!catState.series || w.series === catState.series) && (!catState.country || w.country === catState.country) && (!catState.city || w.city === catState.city));
+    const hasFilter = Boolean(catState.series || catState.country || catState.city);
     const chips = (k, vals, label) => vals.length ? `<div class="chips" role="group" aria-label="${label}"><button type="button" data-k="${k}" data-v="" aria-pressed="${!catState[k]}">Все</button>${vals.map((v) => `<button type="button" data-k="${k}" data-v="${esc(v)}" aria-pressed="${catState[k] === v}">${esc(cut(v, 28))}</button>`).join("")}</div>` : "";
     const row = (w) => { const sh = w.image && byImg.get(w.image);
       return `<li class="cw">${sh ? `<a class="th" href="#/sheet/${esc(sh.id)}"><img src="${esc(sh.image)}" alt="" loading="lazy" width="96"></a>` : `<span class="th none" aria-hidden="true">нет файла</span>`}
@@ -377,14 +381,16 @@
       <section class="chead"><p class="eyebrow">Реестр произведений</p><h1>Собрание</h1>
         <p class="lede">Сколько листов найдено и сколько из них можно показать. Записи без права показа остаются ссылками на хранителя: мы не копируем то, что копировать нельзя.</p></section>
       <dl class="stats"><div><dt>Записей найдено</dt><dd>${sum.discovered_records}</dd></div><div><dt>Разных листов</dt><dd>${sum.unique_works}</dd></div><div><dt>Записи прочитаны</dt><dd>${sum.reviewed}</dd></div><div><dt>Открытые файлы</dt><dd>${sum.open_file}</dd></div><div><dt>Показано в книге</dt><dd>${sum.shipped_with_image}</dd></div></dl>
-      <div class="chips" role="group" aria-label="Автор"><a class="chip" href="#/catalog" aria-pressed="${!cur}">Все</a>${artists.map(([a, n]) => `<a class="chip" href="#/catalog/${a}" aria-pressed="${cur === a}">${esc(ARTIST[a] || a)} · ${n}</a>`).join("")}</div>
-      ${chips("series", uniq("series"), "Серия")}${chips("country", uniq("country"), "Страна")}${chips("city", uniq("city"), "Город")}
+      <div class="chips" role="group" aria-label="Автор"><a class="chip" href="#/catalog"${!cur ? ' aria-current="page"' : ""}>Все</a>${artists.map(([a, n]) => `<a class="chip" href="#/catalog/${a}"${cur === a ? ' aria-current="page"' : ""}>${esc(ARTIST[a] || a)} · ${n}</a>`).join("")}</div>
+      ${chips("series", facets.series, "Серия")}${chips("country", facets.country, "Страна")}${chips("city", facets.city, "Город")}
       <p class="small" role="status">Показано ${Math.min(catState.take, list.length)} из ${plural(list.length, "листа", "листов", "листов")}.</p>
       <ul class="cwlist">${list.slice(0, catState.take).map(row).join("")}</ul>
+      ${!list.length && hasFilter ? `<p class="btn-row"><button type="button" class="btn ghost" id="catReset">Сбросить фильтры</button></p>` : ""}
       ${list.length > catState.take ? `<p class="btn-row"><button type="button" class="btn ghost" id="catMore">Показать ещё</button></p>` : ""}
       ${dock({ href: "#/benoist", t: "Листы Бенуа" }, { href: "#/", t: "Оглавление" })}</div>`;
     document.querySelectorAll(".chips button").forEach((b) => b.addEventListener("click", () => { catState[b.dataset.k] = b.dataset.v; catState.take = 40; viewCatalog(artist); }));
     const more = document.getElementById("catMore"); if (more) more.addEventListener("click", () => { catState.take += 40; viewCatalog(artist); });
+    const reset = document.getElementById("catReset"); if (reset) reset.addEventListener("click", () => { catState.series = ""; catState.country = ""; catState.city = ""; catState.take = 40; viewCatalog(artist); });
   }
 
 
