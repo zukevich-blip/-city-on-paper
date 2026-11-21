@@ -293,40 +293,44 @@ def _la_text(block: list | None) -> list[str]:
     return [b.get("content", "") for b in block or [] if isinstance(b, dict)]
 
 
+def _dicts(seq) -> list[dict]:
+    return [x for x in seq or [] if isinstance(x, dict)]
+
+
 def parse_rijks_object(obj: dict, people: dict[str, str]) -> dict | None:
     """Rijksmuseum Linked Art object; ``people`` maps person URIs to resolved names."""
     prod = obj.get("produced_by") or {}
-    parts = prod.get("part") or [prod]
+    parts = _dicts(prod.get("part")) or [prod]
     creators = []
     for p in parts:
         role = None
-        for t in p.get("technique") or []:
+        for t in _dicts(p.get("technique")):
             for n in t.get("notation") or []:
                 if isinstance(n, dict) and n.get("@language") == "en":
                     role = n.get("@value")
-        for a in p.get("assigned_by") or []:
-            for who in a.get("assigned") or []:
+        for a in _dicts(p.get("assigned_by")):
+            for who in _dicts(a.get("assigned")):
                 nm = people.get(who.get("id"), "")
                 if nm:
                     creators.append({"name": nm, "role_as_stated": role, "as_written": nm})
     if not any(is_philippe_benoist(c["name"]) or re.match(r"^philippe benoist$", c["name"], re.I) for c in creators):
         return None
-    ident = obj.get("identified_by") or []
+    ident = _dicts(obj.get("identified_by"))
     def is_objnr(i):
-        notes = [n for c in i.get("classified_as", []) for n in c.get("notation", [])]
+        notes = [n for c in _dicts(i.get("classified_as")) for n in c.get("notation", [])]
         return any(isinstance(n, dict) and n.get("@value") == "object number" for n in notes)
 
     acc = next((i.get("content") for i in ident if i.get("type") == "Identifier" and is_objnr(i)), None)
     titles = [i.get("content") for i in ident if i.get("type") == "Name"]
     html = img = lic = None
-    for s in obj.get("subject_of") or []:
-        for d in s.get("digitally_carried_by") or []:
-            ap = (d.get("access_point") or [{}])[0].get("id")
+    for s in _dicts(obj.get("subject_of")):
+        for d in _dicts(s.get("digitally_carried_by")):
+            ap = (_dicts(d.get("access_point")) or [{}])[0].get("id")
             if d.get("format") == "text/html":
                 html = ap
             elif ap and "iiif" in ap:
                 img = ap
-                lic = next((_c for r in d.get("referred_to_by") or [] for _c in [r.get("content")] if _c), None)
+                lic = next((r.get("content") for r in _dicts(d.get("referred_to_by")) if r.get("content")), None)
     return make_record(
         source="rijks", id=f"rijks-{acc}",
         title_original=titles[1] if len(titles) > 1 else (titles[0] if titles else None),
@@ -512,6 +516,8 @@ def run_loc(c: Client) -> list[dict]:
         rec = parse_loc_item(d)
         if rec:
             out.append(rec)
+    if not out and c.dead.get("www.loc.gov"):
+        raise Blocked(f"www.loc.gov: {c.dead['www.loc.gov']}")
     return out
 
 
@@ -573,13 +579,13 @@ def run_rijks(c: Client) -> list[dict]:
     out, people = [], {}
     for it in d.get("orderedItems", []):
         obj = c.get(it["id"], accept="application/ld+json")
-        for part in (obj.get("produced_by") or {}).get("part") or []:
-            for a in part.get("assigned_by") or []:
-                for who in a.get("assigned") or []:
+        for part in _dicts((obj.get("produced_by") or {}).get("part")):
+            for a in _dicts(part.get("assigned_by")):
+                for who in _dicts(a.get("assigned")):
                     pid = who.get("id")
                     if pid and pid not in people:
                         pd = c.get(pid, accept="application/ld+json")
-                        names = [i.get("content") for i in pd.get("identified_by", []) if i.get("type") == "Name"]
+                        names = [i.get("content") for i in _dicts(pd.get("identified_by")) if i.get("type") == "Name"]
                         people[pid] = names[0] if names else ""
         rec = parse_rijks_object(obj, people)
         if rec:
