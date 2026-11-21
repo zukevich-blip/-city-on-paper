@@ -292,7 +292,21 @@
    "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/BAL/lpdp_77114-14.jpg?itok=PQ08nK_1",
    "image": "img/benoist/pm-200009791.jpg",
    "impression_of": null,
-   "known_before": false
+   "known_before": false,
+   "roles": [
+    {
+     "name": "Benoist, Philippe",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Bayot, A.",
+     "role": "dessinateur"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur"
+    }
+   ]
   },
   {
    "id": "parismusees-320175609",
@@ -312,7 +326,21 @@
    "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg043027_001.jpg?itok=UNVqNnCK",
    "image": "img/benoist/pm-320175609.jpg",
    "impression_of": null,
-   "known_before": false
+   "known_before": false,
+   "roles": [
+    {
+     "name": "Benoist, Philippe",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Bayot, A.",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Charpentier",
+     "role": "editeur"
+    }
+   ]
   },
   {
    "id": "parismusees-320262846",
@@ -332,21 +360,35 @@
    "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052999_001.jpg?itok=r-HYqs1R",
    "image": "img/benoist/pm-320262846.jpg",
    "impression_of": null,
-   "known_before": false
+   "known_before": false,
+   "roles": [
+    {
+     "name": "Benoist, Philippe",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Bry, Auguste",
+     "role": "imprimeur-lithographe"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur"
+    }
+   ]
   }
  ],
  "failures": [
   {
    "node": "320050912",
-   "why": "image file is truncated (22 bytes not processed)"
+   "why": "image file is truncated (26 bytes not processed)"
   },
   {
    "node": "320074413",
-   "why": "image file is truncated (122 bytes not processed)"
+   "why": "image file is truncated (4 bytes not processed)"
   },
   {
    "node": "320175628",
-   "why": "image file is truncated (16 bytes not processed)"
+   "why": "image file is truncated (45 bytes not processed)"
   },
   {
    "node": "320150835",
@@ -354,15 +396,15 @@
   },
   {
    "node": "320209544",
-   "why": "image file is truncated (4 bytes not processed)"
+   "why": "image file is truncated (49 bytes not processed)"
   },
   {
    "node": "320210218",
-   "why": "image file is truncated (30 bytes not processed)"
+   "why": "image file is truncated (45 bytes not processed)"
   },
   {
    "node": "320286237",
-   "why": "HTTP 200 curl: (18) transfer closed with 517711 bytes remaining to read\n"
+   "why": "image file is truncated (0 bytes not processed)"
   },
   {
    "node": "320298071",
@@ -370,47 +412,47 @@
   },
   {
    "node": "320298080",
-   "why": "image file is truncated (37 bytes not processed)"
+   "why": "image file is truncated (5 bytes not processed)"
   },
   {
    "node": "320298085",
-   "why": "image file is truncated (20 bytes not processed)"
+   "why": "image file is truncated (0 bytes not processed)"
   },
   {
    "node": "320299869",
-   "why": "image file is truncated (11 bytes not processed)"
+   "why": "image file is truncated (44 bytes not processed)"
   },
   {
    "node": "320295651",
-   "why": "image file is truncated (11 bytes not processed)"
+   "why": "image file is truncated (7 bytes not processed)"
   },
   {
    "node": "320295653",
-   "why": "image file is truncated (97 bytes not processed)"
+   "why": "image file is truncated (20 bytes not processed)"
   },
   {
    "node": "320295656",
-   "why": "image file is truncated (35 bytes not processed)"
+   "why": "image file is truncated (9 bytes not processed)"
   },
   {
    "node": "320290166",
-   "why": "HTTP 200 curl: (18) transfer closed with 933180 bytes remaining to read\n"
+   "why": "image file is truncated (29 bytes not processed)"
   },
   {
    "node": "320290537",
-   "why": "image file is truncated (22 bytes not processed)"
+   "why": "image file is truncated (2 bytes not processed)"
   },
   {
    "node": "320290060",
-   "why": "image file is truncated (36 bytes not processed)"
+   "why": "image file is truncated (54 bytes not processed)"
   },
   {
    "node": "320290108",
-   "why": "HTTP 200 curl: (18) transfer closed with 924077 bytes remaining to read\n"
+   "why": "image file is truncated (10 bytes not processed)"
   },
   {
    "node": "320288930",
-   "why": "image file is truncated (27 bytes not processed)"
+   "why": "image file is truncated (2 bytes not processed)"
   }
  ]
 }
