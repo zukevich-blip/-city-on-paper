@@ -1,0 +1,3023 @@
+{
+ "version": 1,
+ "summary": {
+  "discovered_records": 174,
+  "unique_works": 122,
+  "extra_impressions": 52,
+  "reviewed": 122,
+  "open_file": 35,
+  "shipped_with_image": 19,
+  "external_only": 87,
+  "no_image_at_all": 87,
+  "by_artist": {
+   "philippe-benoist": 91,
+   "uncertain-benoist": 31
+  },
+  "by_source": {
+   "legacy-harvest-v1": 174
+  }
+ },
+ "sources": {
+  "legacy-harvest-v1": {
+   "records": 174
+  }
+ },
+ "works": [
+  {
+   "id": "w0001",
+   "artist": "philippe-benoist",
+   "title": "Album scenografico, Trovatore : atto 2.°, scena 2.a. : [estampe] / P. Magnani ; F. Lasagne ; Ph. Benoist Lito.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1854",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b531181841",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b531181841",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0002",
+   "artist": "philippe-benoist",
+   "title": "Amalfi Cathedral",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Art Museum of Estonia",
+     "accession": "/401/item_MSMJAXRUAH6MAK5MQMESZLQ5BP3D23IE",
+     "url": "https://www.muis.ee/museaalView/100147",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0003",
+   "artist": "philippe-benoist",
+   "title": "Angulemo kunigaikščio, didžiojo Prancūzijos admirolo Luji Antuano portretas",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "The Lithuanian National Museum of Art",
+     "accession": "/2021802/LIMIS_20000006191911",
+     "url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/20000006191911",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0004",
+   "artist": "philippe-benoist",
+   "title": "ANTIGUA AL LADO DE LA DE VISAGRA [Material gráfico] : en Toledo = ANCIENNE PORTE PRES CELLE DE VISAGRA : à Tolède",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130646",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130646&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0005",
+   "artist": "philippe-benoist",
+   "title": "Ballo la fata delle acque : atto 3.",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1854",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Catalogo Collettivo digitale IMAGO",
+     "accession": "/1542/IMA00149968",
+     "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00149968",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0006",
+   "artist": "philippe-benoist",
+   "title": "Bataille de l'Alma 20 7.bre 1854 : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53020552p",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53020552p",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0007",
+   "artist": "philippe-benoist",
+   "title": "Bathseba im Bade",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "The Albertina Museum",
+     "accession": "/15508/https___id_kulturpool_at_06e269a1_fd2c_420d_8d97_6e91e7ab30fd_cho",
+     "url": "https://sammlungenonline.albertina.at/objects/577922",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0008",
+   "artist": "philippe-benoist",
+   "title": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1908-259.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1908-259",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-259--70d1c97b8a1228203a2e33d4a222f4a1",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0009",
+   "artist": "philippe-benoist",
+   "title": "Caen. [Vue de la tour des Gens-d'Armes] : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7740819j",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7740819j",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0010",
+   "artist": "philippe-benoist",
+   "title": "CAPILLA DE LA PRESENTACION : Catedral de Burgos = CHAPELLE DE LA PRÉSENTATION : Cathédrale de Burgos [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130812",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130812&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0011",
+   "artist": "philippe-benoist",
+   "title": "Cathédrale de Bayeux. Motifs en bas-reliefs qui séparent les plein-cintres de la nef. Clef de voute d'une porte située dans la partie septentrionale appelée porte d'Artenay : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b77407782",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b77407782",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0012",
+   "artist": "philippe-benoist",
+   "title": "Cathédrale de Bayeux. [Vue intérieure de la cathédrale] : [dessin] / [Philippe Benoist ?]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b77407767",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b77407767",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0013",
+   "artist": "philippe-benoist",
+   "title": "Chapelle du Saint Esprit à Rue près Abbeville : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7741146b",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7741146b",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0014",
+   "artist": "philippe-benoist",
+   "title": "Château des Tuileries",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5501.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5501",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5501--34851268cd64da0283c30f9af40ede7e",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0015",
+   "artist": "philippe-benoist",
+   "title": "CLAUSTRILLA DE LAS HUELGAS : en Burgos = CLOTTRE APPELÉ LA CLAUSTRILLA : dans l'interieur du Monastere de las Huelgas à Burgos [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130784",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130784&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0016",
+   "artist": "philippe-benoist",
+   "title": "CLAUSTRO DEL COLEGIO DE S. GREGORIO : en Valladolid = CLOÎTRE DU COLLEGE DE S.T GREGOIRE : à Valladolid [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130848",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130848&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0017",
+   "artist": "philippe-benoist",
+   "title": "CLAUSTRO DEL MONASTERIO DE HUERTA = CLOITRE DU MONASTERE DE HUERTA [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130651",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130651&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0018",
+   "artist": "philippe-benoist",
+   "title": "Clôture de l'exposition universelle : distribution des récompenses aux exposants, au palais de l'industrie, (15 novembre 1855) / dess. et grav. par Ph. Benoist et A. Bayot",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1855",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b105250045",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b105250045",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0019",
+   "artist": "philippe-benoist",
+   "title": "Colonnade du Louvre",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5505.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5505",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5505--8d5532db57ad2b34205aec20a47ca896",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0020",
+   "artist": "philippe-benoist",
+   "title": "Colonne de Juillet",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5496.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5496",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5496--55e352fc06193998052872578bfec6f3",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0021",
+   "artist": "philippe-benoist",
+   "title": "Colonne de la Grande Armée Place Vendôme et rue de Castiglione : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53006006z",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53006006z",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0022",
+   "artist": "philippe-benoist",
+   "title": "Cour d'Honneur",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5497.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5497",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5497--7929b38560a78b9873285996e13224c7",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0023",
+   "artist": "philippe-benoist",
+   "title": "Décorations de théâtre. N°7, La Juive (1er acte) : [estampe] / composé par Feuchère, Séchan, Diéterle et Despléchin ; lith. par Eug. Cicéri, Ph. Benoist et Gaildrau",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1858",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b8438128s",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b8438128s",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0024",
+   "artist": "philippe-benoist",
+   "title": "Décorations de théâtre, Robert le diable, 3e acte : [estampe] / composé par Cicéri ; lith. par Eug. Cicéri, Ph. Benoist et Bayot",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1831",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b531177449",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b531177449",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0025",
+   "artist": "philippe-benoist",
+   "title": "Départ de S. M. la reine d'Angleterre de Paris le 27 Août 1855 : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b530248437",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b530248437",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0026",
+   "artist": "philippe-benoist",
+   "title": "Détail du tombeau des Cardinaux d'Amboise. C.le de rouen. [Statue de la Justice] : [dessin] / [Philippe Benoist ?]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7740727r",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7740727r",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0027",
+   "artist": "philippe-benoist",
+   "title": "DETALLES DEL CLAUSTRO DEL COLEGIO DE S GREGORIO : en Valladolid = DÉTAILS DU CLOÍTRE DU COLLEGE DE ST GREGOIRE [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130853",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130853&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0028",
+   "artist": "philippe-benoist",
+   "title": "Eglise de l'abbaye de St Riquier, près Abbeville : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b77410764",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b77410764",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0029",
+   "artist": "philippe-benoist",
+   "title": "Eglise de St Quentin XV S. [Couronnement du Maître autel des fonts baptismaux de la Cathédrale de Saint-Quentin] : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7741226x",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7741226x",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0030",
+   "artist": "philippe-benoist",
+   "title": "Église St. Étienne-du-Mont",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5502.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5502",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5502--439d317099250bfe9c06af874e60234a",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0031",
+   "artist": "philippe-benoist",
+   "title": "ESCALERA DEL HOSPITAL DE STA. CRUZ en Toledo = ESCALIER DE L'HOPITAL DIT DE STE. CROIX à Tolède / G. Pérez de Villa-Amil dibujó ; Lit. par Benoist.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000064942_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000064942",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065715_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065715",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0032",
+   "artist": "philippe-benoist",
+   "title": "ESCALERA DEL HOSPITAL DE STA CRUZ = ESCALIER DE L'HOPITAL DIT DE STE CROIX à Tolède [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130654",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130654&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0033",
+   "artist": "philippe-benoist",
+   "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 3,
+   "image": "img/benoist/rijks-RP-P-1904-3864.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1904-3864",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1904-3864--d6f06ffd3b4205c491b1c6193ddd620d",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Rijksmuseum",
+     "accession": "KOG-AA-1-2-19",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-1-2-19--35206282c07914d136210d58364c2e4d",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Rijksmuseum",
+     "accession": "KOG-AA-8-71",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-8-71--4dcdaa1713531fffd6d73e0128ad19f3",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0034",
+   "artist": "philippe-benoist",
+   "title": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 2,
+   "image": "img/benoist/rijks-RP-P-1904-3866.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1904-3866",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1904-3866--f3a162a4ef9cc4968d8bd1e17ffc8f4f",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Rijksmuseum",
+     "accession": "KOG-AA-1-2-20",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-1-2-20--89134cd4e2834198a9c4a05b98089777",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0035",
+   "artist": "philippe-benoist",
+   "title": "Grande Salle des Antiques Musée du Louvre : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53024808t",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53024808t",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0036",
+   "artist": "philippe-benoist",
+   "title": "Hôtel de Ville",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5498.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5498",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5498--38c11b05c521c05cdf6e22fc83e31e85",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0037",
+   "artist": "philippe-benoist",
+   "title": "Hôtel de ville de Bruxelles",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1908-1979.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1908-1979",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-1979--f2c43f90fd39f046219eebf33ddd362c",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0038",
+   "artist": "philippe-benoist",
+   "title": "IGLESIA COLEGIAL DE TORO = ÉGLISE COLLEGIALE A TORO [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130620",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130620&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0039",
+   "artist": "philippe-benoist",
+   "title": "INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 3,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000064933_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000064933",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065571_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065571",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065722_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065722",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0040",
+   "artist": "philippe-benoist",
+   "title": "INTERIOR DE SAN JUAN DE LOS REYES : en Toledo = VUE INTÉRIEURE DE SAINT JEAN DES ROIS : à Tolède [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130670",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130670&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0041",
+   "artist": "philippe-benoist",
+   "title": "Jardin du Palais Royal",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5499.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5499",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5499--687fde102ea07695f16ba436d39a458b",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0042",
+   "artist": "philippe-benoist",
+   "title": "L'Italie monumentale & artistique vues et monuments",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1860",
+   "kind": "book",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Württemberg State Library",
+     "accession": "/1584/item_4AOBT63OXQKBEVQK3SAQTTQOL4EHUN2C",
+     "url": "http://digital.wlb-stuttgart.de/purl/kxp1688772286",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0043",
+   "artist": "philippe-benoist",
+   "title": "La Madeleine",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5495.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5495",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5495--b52166ac4a3a77933c1a9808cec1f07f",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0044",
+   "artist": "philippe-benoist",
+   "title": "La Madeleine. Intérieur : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53026653k",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53026653k",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0045",
+   "artist": "philippe-benoist",
+   "title": "La sainte Chapelle de Paris, Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849) : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1850",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b530188043",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b530188043",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0046",
+   "artist": "philippe-benoist",
+   "title": "Le caïd (1er acte) : [estampe] / composé par Nolan [sic] et Rubé ; Lith. par Eug. Cicéri, Ph. Benoist et Bayot",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1849",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b84368119",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b84368119",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0047",
+   "artist": "philippe-benoist",
+   "title": "Le Panthéon",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5506.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5506",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5506--7aeaf1ee21c6355ff8322df9b5d8e574",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0048",
+   "artist": "philippe-benoist",
+   "title": "Livourne : Place d'Armes",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1800",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "University Library of Genova",
+     "accession": "/446/GE38002314",
+     "url": "https://www.internetculturale.it/jmms/iccuviewer/iccu.jsp?id=oai%3Awww.internetculturale.sbn.it%2FTeca%3A20%3ANT0000%3AGE38002314",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0049",
+   "artist": "philippe-benoist",
+   "title": "Micaela : atto 1.",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1855",
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Catalogo Collettivo digitale IMAGO",
+     "accession": "/1542/IMA00149967",
+     "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00149967",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Catalogo Collettivo digitale IMAGO",
+     "accession": "/1542/IMA00150038",
+     "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00150038",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0050",
+   "artist": "philippe-benoist",
+   "title": "Naples. Palais du roi",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1908-258.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1908-258",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-258--8c08b213286084e412cb01dc8f6f2cbc",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0051",
+   "artist": "philippe-benoist",
+   "title": "Napoli : Teatro San Carlo",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1800",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Catalogo Collettivo digitale IMAGO",
+     "accession": "/1542/IMA00150243",
+     "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00150243",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0052",
+   "artist": "philippe-benoist",
+   "title": "Notre-Dame, Cathédrale de Paris",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5500.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5500",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5500--5d8c494cfd6c6ad22ae964ed2224afd6",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0053",
+   "artist": "philippe-benoist",
+   "title": "\"Nouveau pavillon de Flore et Nouvelle Galerie du Bord de l'eau avant l'incendie\".. Fig. par le Ph. Benoist : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b530248526",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b530248526",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0054",
+   "artist": "philippe-benoist",
+   "title": "Nouvelles vues de Paris / par Ph. Benoist et J. Jacottet",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1843",
+   "kind": "book",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200517/ark__12148_btv1b53088077g",
+     "url": "https://gallica.bnf.fr/ark:/12148/btv1b53088077g",
+     "rights": "link_only"
+    },
+    {
+     "institution": "The Metropolitan Museum of Art",
+     "accession": "50.576.1",
+     "url": "https://www.metmuseum.org/art/collection/search/345889",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0055",
+   "artist": "philippe-benoist",
+   "title": "PALACIO DE LOS DUQUES DEL INFANTADO [Material gráfico] : en Guadalajara = PALAIS DES DUCS DEL INFANTADO : à Guadalajara",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130630",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130630&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0056",
+   "artist": "philippe-benoist",
+   "title": "Palais du Luxembourg : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53020149w",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53020149w",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0057",
+   "artist": "philippe-benoist",
+   "title": "Paris dans sa Splendeur (volume I)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "published 1863",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Gallery of Art, Washington",
+     "accession": "1981.69.5",
+     "url": "https://www.nga.gov/artworks/60903",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0058",
+   "artist": "philippe-benoist",
+   "title": "Paris dans sa Splendeur (volume II)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "published 1863",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Gallery of Art, Washington",
+     "accession": "1981.69.6",
+     "url": "https://www.nga.gov/artworks/60904",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0059",
+   "artist": "philippe-benoist",
+   "title": "Partie supérieure du clocher de Ste Marie du Mont près Carentan : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b77409120",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b77409120",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0060",
+   "artist": "philippe-benoist",
+   "title": "\"Pavillon du Louvre - Place Napoléon III\". Le pavillon Denon, Première pl. et page de titre de l'album Paris dans sa splendeur (voir le n° De Vinck 16.355) : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53024785d",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53024785d",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0061",
+   "artist": "philippe-benoist",
+   "title": "Place de la Concorde",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5494.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5494",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5494--3f42a222e9027e27050340724596eba3",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0062",
+   "artist": "philippe-benoist",
+   "title": "Plaza de San Francisco - Estampa",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Museum of Fine Arts of Seville",
+     "accession": "/2022703/pages_Main_idt_125000_inventary_DJ0177G_table_FMUS_museum_MBASE",
+     "url": "http://ceres.mcu.es/pages/Main?idt=125000&inventary=DJ0177G&table=FMUS&museum=MBASE",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0063",
+   "artist": "philippe-benoist",
+   "title": "Portail de la Cathédrale de Senlis : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7741059m",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7741059m",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0064",
+   "artist": "philippe-benoist",
+   "title": "Porte St. Denis",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5503.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5503",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5503--56ce768410d2f88e13fce8f50143f900",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0065",
+   "artist": "philippe-benoist",
+   "title": "PUERTA DEL CLAUSTRO DE LA CATEDRAL : de Burgos = PORTE DU CLOITRE DE LA CATHÉDRALE : de Burgos [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130672",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130672&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0066",
+   "artist": "philippe-benoist",
+   "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ en Toledo = PORTE DE L'HOPITAL DE STE. CROIX à Tolède / G. P. Villa Amil dibujó ; Benoist Lith.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1844",
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000064952_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000064952",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065712_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065712",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0067",
+   "artist": "philippe-benoist",
+   "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ : en Toledo = PORTE DE L'HOPITAL DE STE CROIX : à Tolède [Material gráfico]",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130623",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130623&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0068",
+   "artist": "philippe-benoist",
+   "title": "Reims. [Bases, chapiteaux et détails d'ornements relevés dans la cathédrale] : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7742972w",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7742972w",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0069",
+   "artist": "philippe-benoist",
+   "title": "Reims. [Bases et chapiteaux des colonnes de la cathédrale] : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7742971g",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7742971g",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0070",
+   "artist": "philippe-benoist",
+   "title": "Reims. Détails pris intérieurement près la porte d'entrée : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b77429739",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b77429739",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0071",
+   "artist": "philippe-benoist",
+   "title": "Reims. [Statue de la Sainte Vierge et détails du grand portail de la cathédrale] : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b77429702",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b77429702",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0072",
+   "artist": "philippe-benoist",
+   "title": "Retable de l'église de Brou : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7742647s",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7742647s",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0073",
+   "artist": "philippe-benoist",
+   "title": "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Civitavecchia",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 40,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_V2JPDOJU7TVSP2AKW6YXGDWLVTIAK6NG",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_CZKBLOLFCAIBELBFVYWHWSYALDFPWRZW",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_TTWZUHBIXUNO3FESHL5VZ26UDZB7LOFO",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_377S46H2K3K64CTDXT2BZDYRFG3FIY7Z",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_QNVCMF5VANI4AUXEGDG7NOGNFCGC6PGQ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_3QIQMYKY5IAZ4OM76RM7ZZY5L25PHIFT",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_F5YAOEZHX6LGFR6MRRTBUIE5X6PGWL4Z",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_FQQEIKRIHYOUWTQJ3NODFYHCURJ6JUHJ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_IVEN5VPAGGWSNQT4IA5MKH6PJIZFX745",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_KOTM2DRDUC3NTT3DUUIKWUYNQR73WEYN",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_QQOKCMGCBRWVWVPWLFUU4VKUYN6FNLSJ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_NLQ77I2BAJ4Y3UJNAYZQIDNGELTJ3LPS",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_3WTKG4PXLZNLFS3F5XBVC5JEJQEFFZGN",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_DPOMSADH2AKHS32YXMQ2BUIND6JSQLDQ",
+     "url": "http://foto.biblhertz.it/obj08003573",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_RFFIK3U6OTK6NCK6JPYNQAPHHPREV6PG",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_BGQVDNLXPZMBSZQUTPXE4ZGB4AUDBIXZ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_DFSUHDGGKNRRXDGYFIZVN5UT3R4ZZNXZ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_F7PQ4QTQBATTPQPABXMDDZDL6ZUOCK3J",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_45UX6OWMGPDVNEGEXYHGVUZFVFW7XE47",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_EGPJ2WANUA2MYEU4M3C6W4I3ASDQZISY",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_ZLLTM7MWVD7SYZBIWZ4KJZVZVX55ZS7N",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_BGU7FFI6POYT3V7FP3XO5T3XRGMQTOKY",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_DPYEURCLT7KNYNBBMLH65MWVEU7KU3RC",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_TEFS72KQX36VXZWY6F6EVX7GDH4GQTCI",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_XJLU2R36OUTI32BOBWICLZPJYOHE7XVK",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_QF7MIRG67NZVS4FZYRE7G4VT232QPTPJ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_H2HJQOELOK6N2F46WU24AJGFLTFRYTKQ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_A2V3OTNC2ERN6QU6UERYUJ7CC7OB6HXZ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_PEHQQ346IQ54F3J7VYZG7BMQYX2NYWF7",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_QC52AI2QYU4JKF62A5H6RMHN75LXRQDN",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_YYCMCWOEDJLAHQ2QZNG5ZKXL7XSID5VJ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_HMUGQIDQQSYOJTOGFQACZY4BWPCFA6LF",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_3I45JPCHWCCVNPBD6ODVWMX6L6Z7QICU",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_SYK6ZWIFQNRDB7NQCSPLWZZU7NQX7R4E",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_7HHVSB3PRL4XPOTXDATTU67GPDMETRJZ",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_CX4UVUP2YHMHJUYAPEMPKY67PV3PDYO2",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_SRS35HMDH3XDIPMCW2VDDBJSVTISMCTS",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_QFSGLHE22UR2Z7EL3VJNBNRMHSKSS72O",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_JW67HNB5NCXIMKS2HSGGKIFZDPHA5H62",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection",
+     "accession": "/366/item_FYDVSZW5TXNNBGXKOJZEVLFRBN2RLNQP",
+     "url": "http://foto.biblhertz.it/obj08003574",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0074",
+   "artist": "philippe-benoist",
+   "title": "Rome Vestibule de la Basilique de St. Pierre / Roma Vestibulo della Basilica di San Pietro",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1944-1699.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1944-1699",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1944-1699--4fd06dd5a935605a9512a406a7d311f5",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0075",
+   "artist": "philippe-benoist",
+   "title": "Rouen. Portail gauche de la façade de la cathédrale de Rouen ... : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1845",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7740725x",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7740725x",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0076",
+   "artist": "philippe-benoist",
+   "title": "Sébastopol : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1855",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53020637g",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53020637g",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0077",
+   "artist": "philippe-benoist",
+   "title": "Senlis. Détails [de balustrades] pris dans la cathédrale : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7741061p",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7741061p",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0078",
+   "artist": "philippe-benoist",
+   "title": "SEPULCRO DEL INFANTE D. ALONSO [Material gráfico] : en la Cartuja de Miraflores = TOMBEAU DE L'INFANT D. ALONSO : a la Chartreuse de Miraflores",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1842",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of Spain",
+     "accession": "/2022717/bnesearch_detalle_bdh0000130635",
+     "url": "http://bdh-rd.bne.es/viewer.vm?id=0000130635&page=1",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0079",
+   "artist": "philippe-benoist",
+   "title": "Souvenir de Fontainebleau, Cour des Adieux, autre-fois cour du cheval blanc (Souvenir of Fontainebleau: Court of Farewells, or, Court of the White Horse)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "19th century",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "The Metropolitan Museum of Art",
+     "accession": "24.63.955",
+     "url": "https://www.metmuseum.org/art/collection/search/656125",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0080",
+   "artist": "philippe-benoist",
+   "title": "St Quentin. XVe S. Extrémité méridionale du grand croisillon [de la collégiale] (prise intérieurement) : [dessin] / [Philippe Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1842",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7741225h",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7741225h",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0081",
+   "artist": "philippe-benoist",
+   "title": "temple ruins",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Art Museum of Estonia",
+     "accession": "/401/item_PH6L2ZH66RF5NKPCAFYVIB5LVL5GSSVV",
+     "url": "https://www.muis.ee/museaalView/100146",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0082",
+   "artist": "philippe-benoist",
+   "title": "Théâtre royal italien, château dans l'opéra Le fantôme de Mr. Persiani / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1843",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b8438820w",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b8438820w",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0083",
+   "artist": "philippe-benoist",
+   "title": "Théatre Royal Italien. Chateau dans l'opéra Le Fantôme de Mr Persiani : [estampe] / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1844",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b531168986",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b531168986",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0084",
+   "artist": "philippe-benoist",
+   "title": "Tour de St Ouen à Rouen : [dessin] / [Philippe Benoist ?]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b7740733g",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b7740733g",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0085",
+   "artist": "philippe-benoist",
+   "title": "Trovatore : atto 2., scena 2.",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": "1854",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Catalogo Collettivo digitale IMAGO",
+     "accession": "/1542/IMA00148973",
+     "url": "https://imago.regione.emilia-romagna.it/opac/resource/IMA00148973",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0086",
+   "artist": "philippe-benoist",
+   "title": "Vaade Salernole",
+   "series": null,
+   "city": "Frankreich",
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Art Museum of Estonia",
+     "accession": "/401/item_5K3LW3OVRSRUREBLF5BG7HM5MRW56KIV",
+     "url": "https://www.muis.ee/museaalView/100148",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0087",
+   "artist": "philippe-benoist",
+   "title": "Versailles, Vue prise au dessus du Grand Trianon : [estampe, vue] / Dess. par Ph. Chaperon, Lith. par Ph. Benoist",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1852",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b531283487",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b531283487",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0088",
+   "artist": "philippe-benoist",
+   "title": "Villa Rossini : [estampe]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b53026657c",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b53026657c",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0089",
+   "artist": "philippe-benoist",
+   "title": "VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1844",
+   "kind": "print",
+   "impressions": 3,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000064948_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000064948",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065604_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065604",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065737_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065737",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0090",
+   "artist": "philippe-benoist",
+   "title": "Vues des Palais d'Orçay et de la Légion d'honneur",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/rijks-RP-P-1905-5504.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Rijksmuseum",
+     "accession": "RP-P-1905-5504",
+     "url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5504--77f9522f83a9f73ccdf342b60f2a98aa",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0091",
+   "artist": "philippe-benoist",
+   "title": "Widoki Warszawy : wnętrze pałacu zwanego Łazienki = Vues de Warsovie : l'intérieur du palais nommé Lazienki",
+   "series": null,
+   "city": "Polen",
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "The National Library of Poland",
+     "accession": "/9200479/item_9970685_",
+     "url": "http://polona.pl/item/9970685/",
+     "rights": "link_only"
+    },
+    {
+     "institution": "The National Library of Poland",
+     "accession": "/9200479/item_9970636_",
+     "url": "http://polona.pl/item/9970636/",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0092",
+   "artist": "uncertain-benoist",
+   "title": "Band 1: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1861",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Heidelberg University Library",
+     "accession": "/206/item_K67RJ2DE7SOPOWYJLKJN7TSG3IEXYXH4",
+     "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd1",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0093",
+   "artist": "uncertain-benoist",
+   "title": "Band 2: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1861",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Heidelberg University Library",
+     "accession": "/206/item_HTTZEYGO5BKNI7SYYRARDF5LC6OQHTC6",
+     "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861bd2",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0094",
+   "artist": "uncertain-benoist",
+   "title": "Cadix: Almada de Cadix, prise dès la rue du Quartier de la Marine / Juan B. Coli dibujo en Cadiz ; imprimé par Auguste Bry ; Ph. Benoist lith.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1840",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Cartographic and Geological Institute of Catalonia",
+     "accession": "/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____1845_ent0",
+     "url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/1845",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0095",
+   "artist": "uncertain-benoist",
+   "title": "Cadix: vue de l'Observatoire et de la Tour haute de la ville de St. Ferdinand / Juan B. Coli dibujo en Sn. Fernando ; imprimé par Auguste Bry ; Ph. Benoist lith",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1840",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Cartographic and Geological Institute of Catalonia",
+     "accession": "/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____1847_ent0",
+     "url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/1847",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0096",
+   "artist": "uncertain-benoist",
+   "title": "Cadix : vue du salon de Christine à Cadix pris des son entrée par la Alameda = Cádiz : vista del salón de Cristina de Cadiz tomado desde su entrada por la Alameda",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1800",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Cartographic and Geological Institute of Catalonia",
+     "accession": "/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____679_ent0",
+     "url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/679",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0097",
+   "artist": "uncertain-benoist",
+   "title": "Carol de Secondat Baro de Montesquieu",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Catholic University of Leuven",
+     "accession": "/2024903/photography_ProvidedCHO_KU_Leuven_9983291560101488",
+     "url": null,
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0098",
+   "artist": "uncertain-benoist",
+   "title": "Carol. de Secondat baron de Montesquieu. // Nat. 18° die Januar. an. 1689. obiit 10° die Febr. an. 1755. : [estampe] ([État décrit dans l'Inventaire du fonds français, graveurs du XVIIIe siècle]) / Dessiné et Gravé sur la Médaille de Dassier Par G. Ph. Benoist.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1770",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/9200518/ark__12148_btv1b8409260t",
+     "url": "http://gallica.bnf.fr/ark:/12148/btv1b8409260t",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0099",
+   "artist": "uncertain-benoist",
+   "title": "Das Münster zu Freiburg, Südliche Seiten-Ansicht - Cathédrale de Fribourg (Coté latéral Méridional)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "State Archives of Baden-Württemberg",
+     "accession": "/542/item_B5OHYCJFHXY5EUVULKZP2COBNYZYGXBW",
+     "url": "https://www.landesarchiv-bw.de/plink/?f=4-1473015",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0100",
+   "artist": "uncertain-benoist",
+   "title": "España Artística y Monumental",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1865",
+   "kind": "book",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Autonomous University of Barcelona",
+     "accession": "/164/https___catalonica_bnc_cat_catalonicahub_lod_oai_ddd_uab_cat_59987_ent1",
+     "url": "https://ddd.uab.cat/record/59987",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0101",
+   "artist": "uncertain-benoist",
+   "title": "Innere Ansicht des Münsters zu Freiburg (Seiteneingang) - Intérieur de la Cathédrale de Fribourg (bas cotés)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "State Archives of Baden-Württemberg",
+     "accession": "/542/item_NOHVZIMUAQBNAFFOXHV2Z6MEAWARL2D3",
+     "url": "https://www.landesarchiv-bw.de/plink/?f=4-1473006",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0102",
+   "artist": "uncertain-benoist",
+   "title": "Jean Philippe Rameau. Lichtdruck nach einem seitenverkehrten Kupferstich (unter Verwendung des Medaillons aus einem Kupferstiches von Guillaume Ph. Benoist nach Jean Restout d. J.)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Deutsche Fotothek",
+     "accession": "/188/item_77UISVSUJADTEQU5Q7QUMBYPQ5FMSHIH",
+     "url": "http://www.deutschefotothek.de/documents/obj/81426650",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0103",
+   "artist": "uncertain-benoist",
+   "title": "La Crimée a vol d'oiseau / dessinée et lithogr. par Ph. Benoist et Eug. Cicéri.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1855",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Warsaw University Library",
+     "accession": "/850/_nhvd2xd",
+     "url": "http://fbc.pionier.net.pl/id/oai:crispa.uw.edu.pl:698352",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0104",
+   "artist": "uncertain-benoist",
+   "title": "Les comètes",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": "1875",
+   "kind": "book",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Bodleian Libraries, University of Oxford",
+     "accession": "/9200143/BibliographicResource_2000069322387",
+     "url": "http://solo.bodleian.ox.ac.uk/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=oxfaleph012853414&indx=1&recIds=oxfaleph012853414",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0105",
+   "artist": "uncertain-benoist",
+   "title": "Nouvelles vues de Paris. par Ph. Benoist et J. Jacottet",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "book",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Austrian National Library",
+     "accession": "/1321/https___id_kulturpool_at_fcb45bb1_8c33_438d_aa85_3f55ed3977ca_cho",
+     "url": "http://data.onb.ac.at/ABO/%2BZ260070009",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0106",
+   "artist": "uncertain-benoist",
+   "title": "Paris dans sa splendeur : monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1861",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Heidelberg University Library",
+     "accession": "/206/item_RJV3L4HZOSUBCDQTDK5L3Z6TQB4OYBCO",
+     "url": "https://digi.ub.uni-heidelberg.de/diglit/audiganne1861ga",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0107",
+   "artist": "uncertain-benoist",
+   "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Partie 1,Volume 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1861",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k5695365v",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5695365v",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0108",
+   "artist": "uncertain-benoist",
+   "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1861",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k6118590b",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k6118590b",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0109",
+   "artist": "uncertain-benoist",
+   "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 3,Partie 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1861",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k5695332g",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5695332g",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0110",
+   "artist": "uncertain-benoist",
+   "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 1,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1862",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k5606668z",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5606668z",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0111",
+   "artist": "uncertain-benoist",
+   "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 2,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1862",
+   "kind": "drawing",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k5606784d",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5606784d",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0112",
+   "artist": "uncertain-benoist",
+   "title": "Paris in its splendor under Napoleon III: monuments, views, historical scenes, descriptions and history. Volume 3, Part 2/Text by Messrs. Audiganne, P. Bailly, Eugène Carissan, etc; Drawings and lithographs by... Philippe Benoist for the greatest number and with the help of photography... Vignettes of Felix Benoist and Catenacci... [Introduction of Eugène de La Gournerie]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1862",
+   "kind": "book",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k5698105t",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k5698105t",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0113",
+   "artist": "uncertain-benoist",
+   "title": "Procès du coup de pistolet, publié par deux sectionnaires [Louis Bergeron et Philippe-François-Hippolyte Benoist]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1833",
+   "kind": "book",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Library of France",
+     "accession": "/794/ark__12148_bpt6k55507304",
+     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k55507304",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0114",
+   "artist": "uncertain-benoist",
+   "title": "Starożytny kościół Sy Anny w Wilnie",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Šiauliai Aušros Museum",
+     "accession": "/2021802/LIMIS_349391706",
+     "url": "https://www.limis.lt/valuables/e/805391/349391706",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0115",
+   "artist": "uncertain-benoist",
+   "title": "[The Indeitsev Panorama of Moscow]",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1848-01-01T00:00:00Z",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Internet Archive (uploader's holding; see item)",
+     "accession": "dr_the-indeitsev-panorama-of-moscow-10967000",
+     "url": "https://archive.org/details/dr_the-indeitsev-panorama-of-moscow-10967000",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0116",
+   "artist": "uncertain-benoist",
+   "title": "TOLÈDE [Vista panorámica de la ciudad realizada desde el Oeste] / Dessin de Ph. Benoist, d'après une photographie de J. Laurent ; C. Laplante.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1876",
+   "kind": "drawing",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065229_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065229",
+     "rights": "link_only"
+    },
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065507_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065507",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0117",
+   "artist": "uncertain-benoist",
+   "title": "Toledo [Vista panorámica de Toledo desde el Oeste].",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1884",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Toledo Municipal Archives",
+     "accession": "/110/https___hispana_mcu_es_lod_oai_descargasarchivo_toledo_es_pandora_0000065365_ent0",
+     "url": "https://descargasarchivo.toledo.es/viewer.vm?id=0000065365",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0118",
+   "artist": "uncertain-benoist",
+   "title": "Two sleeping cowherds on the Mont-sous-les-Baisses just before an appearance of the Virgin of the Salette. Lithograph by E. Ciceri and Ph. Benoist after F. Benoist.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Wellcome Collection",
+     "accession": "/9200579/vrts8n69",
+     "url": "https://wellcomecollection.org/works/vrts8n69",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0119",
+   "artist": "uncertain-benoist",
+   "title": "Vilnius",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": "1921",
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Library of the Wroclaw University",
+     "accession": "/0940429/_nnwp3bt",
+     "url": "http://fbc.pionier.net.pl/id/oai:www.bibliotekacyfrowa.pl:42916",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0120",
+   "artist": "uncertain-benoist",
+   "title": "Vista del patio del Colegio de San Gregorio de Valladolid - Estampa",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "National Sculpture Museum",
+     "accession": "/2022703/pages_Main_idt_3144_inventary_CE2617_table_FMUS_museum_MNEV",
+     "url": "http://ceres.mcu.es/pages/Main?idt=3144&inventary=CE2617&table=FMUS&museum=MNEV",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0121",
+   "artist": "uncertain-benoist",
+   "title": "Widoki Warszawy. Wnętrze pałacu Zwanego Łazienki",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Šiauliai Aušros Museum",
+     "accession": "/2021802/LIMIS_371948682",
+     "url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/371948682",
+     "rights": "link_only"
+    }
+   ]
+  },
+  {
+   "id": "w0122",
+   "artist": "uncertain-benoist",
+   "title": "Widoki Wilna. Byłi uniwersytet Wileński",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Šiauliai Aušros Museum",
+     "accession": "/2021802/LIMIS_349256439",
+     "url": "http://www.limis.lt/limisk-portlet/external/preview/exhibit/349256439",
+     "rights": "link_only"
+    }
+   ]
+  }
+ ]
+}
