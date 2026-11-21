@@ -38,3 +38,36 @@ The public `main` branch may contain **release tooling and metadata** rather tha
 Provide (a) a confirmed source path, (b) a minimal diff or documented blocker, (c) exact validation steps and results, (d) screenshots only if actually captured, (e) remaining risks and (f) proposed PR link if a PR is created.
 
 **Note:** This public file is a working brief, not permission to access other repositories.
+
+
+## Verified source branches and no-browser handoff (2026-11-21)
+
+The published deployment on `main` uses a pinned artifact and is not the full editable source.
+
+GitHub branch inspection confirms that **`claude/consilium-wander`** contains the editable museum (including `index.html`, `atlas/`, `cities/`, `salon/`, `eras/`, `poc/`, `tests/` and `pyproject.toml`). Its observed HEAD was `d99e11a382ce569e16cc031e9a1f53c708a6b13e` when this note was prepared. Another relevant integration branch is **`codex/consilium-mobile`** (observed HEAD `61d0da3c0775cf5d4a68de8bdf6507edec040892`), which AGENTS.md names as a working integration line. Before editing either branch, verify current PR heads and newer changes: do not assume this information remains current.
+
+**No GitHub/network tool in Gemini Chat?** The owner can download the complete public source ZIP from GitHub using the branch selector on the repository and `Code > Download ZIP`. Direct source-branch page:
+
+https://github.com/zukevich-blip/-city-on-paper/tree/claude/consilium-wander
+
+Related integration line:
+
+https://github.com/zukevich-blip/-city-on-paper/tree/codex/consilium-mobile
+
+Public product brief: https://github.com/zukevich-blip/-city-on-paper/issues/39
+
+Public design review: https://github.com/zukevich-blip/-city-on-paper/issues/40
+
+No remote access is required to inspect an owner-uploaded ZIP. Do not request passwords, OTPs or private access tokens.
+
+On a machine or an execution-capable hosted environment, in the unpacked public source:
+
+```sh
+python -m pip install -e '.[dev]'
+ruff check tools tests
+pytest -q tests
+```
+
+For browser testing, inspect `tests/browser/` and `.github/workflows/qa-city-on-paper.yml` for actual dependencies and commands; do not invent test invocations. When the system cannot execute these commands, supply the patch and explicitly mark the tests NOT RUN.
+
+There is no permission to merge or publish, alter repository permissions, or touch private repositories. A ZIP file can be inspected without connecting the entire GitHub account.
