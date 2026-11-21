@@ -85,6 +85,24 @@ const views = [
     const before = await page.locator(".cw").count();
     await page.locator(".chips").nth(1).locator("button").nth(1).click();
     check(`${v.name}: register filters narrow the list`, (await page.locator(".cw").count()) <= before);
+    // Regression: switching author drops stale filters absent from the new author's pool instead of leaving 0 works
+    await page.locator('a.chip[href="#/catalog/felix-benoist"]').click();
+    await page.locator('a.chip[href="#/catalog/felix-benoist"][aria-current="page"]').waitFor();
+    await page.locator('.chips button[data-k="country"][data-v="Россия"]').click();
+    await page.locator('a.chip[href="#/catalog/philippe-benoist"]').click();
+    await page.locator('a.chip[href="#/catalog/philippe-benoist"][aria-current="page"]').waitFor();
+    const afterSwitch = await page.locator(".cw").count();
+    const countryAllPressed = await page.locator('.chips[aria-label="Страна"] button[data-v=""]').getAttribute("aria-pressed");
+    const authorCurrent = await page.locator('a.chip[href="#/catalog/philippe-benoist"]').getAttribute("aria-current");
+    check(`${v.name}: switching author clears stale unavailable filters`, afterSwitch >= 30 && countryAllPressed === "true" && authorCurrent === "page", `rows=${afterSwitch}, all=${countryAllPressed}, current=${authorCurrent}`);
+    // Regression: conflicting visible filters can be cleared via #catReset
+    await page.locator('a.chip[href="#/catalog"]').click();
+    await page.locator('a.chip[href="#/catalog"][aria-current="page"]').waitFor();
+    await page.locator('.chips button[data-k="series"][data-v="Paris dans sa splendeur"]').click();
+    await page.locator('.chips button[data-k="country"][data-v="Россия"]').click();
+    const hasReset = (await page.locator("#catReset").count()) === 1;
+    if (hasReset) await page.locator("#catReset").click();
+    check(`${v.name}: empty filter combination offers working reset button`, hasReset && (await page.locator(".cw").count()) >= 30);
     check(`${v.name}: register has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/places", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".toc li");
