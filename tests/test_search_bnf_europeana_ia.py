@@ -363,3 +363,11 @@ def test_bnf_text_only_matches_are_filtered_to_nineteenth_century_or_graphic():
     assert why is None and old["artist_id"] == "philippe-benoist" and old["attribution_confidence"] == "medium"
     surname, why = s.parse_bnf_record(_bnf_rec("Dico", "scénario, Benoist Simmat", "2010"))
     assert surname is None
+
+
+def test_europeana_surname_only_is_dropped_unless_known_series():
+    plain = {"id": "/x/9", "title": ["Traité des arbres"], "dcCreator": ["Benoist"], "type": "IMAGE"}
+    assert s.parse_europeana_item(plain) == (None, "surname_only_no_series")
+    rome = {"id": "/x/10", "title": ["Rome dans sa grandeur : vue"], "dcCreator": ["Benoist"], "type": "IMAGE"}
+    rec, _ = s.parse_europeana_item(rome)
+    assert rec["artist_id"] == "uncertain-benoist" and rec["series"] == "Rome dans sa grandeur"

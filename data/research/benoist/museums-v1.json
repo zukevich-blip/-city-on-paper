@@ -1,9 +1,21 @@
 {
   "version": 1,
   "source": "museums-multi",
-  "fetched_at": "2026-11-21T06:39:35Z",
+  "fetched_at": "2026-11-21T11:31:44Z",
   "coverage": {
     "queries": {
+      "loc": [
+        "item 2016652451",
+        "item 2016652452",
+        "item 2013650023",
+        "item 00652015",
+        "pictures/search q='Benoist, Philippe'",
+        "pictures/search q='Benoist, Felix'",
+        "pictures/search q='Philippe Benoist'",
+        "pictures/search q='Ph. Benoist del.'",
+        "pictures/search q='Felix Benoist'",
+        "pictures/search q='Benoist lithograph Lemercier'"
+      ],
       "nga": [
         "constituents.csv: preferreddisplayname contains 'Benoist'",
         "objects_constituents.csv",
@@ -92,6 +104,7 @@
       ]
     },
     "pages_walked": {
+      "loc": 11,
       "nga": 4,
       "met": 116,
       "morgan": 2,
@@ -111,6 +124,7 @@
       "antiquarian": 0
     },
     "hits_total_reported_by_source": {
+      "loc": 5,
       "nga": 8,
       "met": 177,
       "morgan": 0,
@@ -130,12 +144,13 @@
       "antiquarian": 0
     },
     "records_kept": {
+      "loc": 5,
       "nga": 3,
-      "met": 8,
+      "met": 5,
       "morgan": 0,
       "rijks": 25,
       "getty": 0,
-      "vam": 34,
+      "vam": 18,
       "british_museum": 0,
       "aic": 0,
       "cleveland": 0,
@@ -144,9 +159,9 @@
       "harvard": 0,
       "nypl": 0,
       "bne": 0,
-      "europeana": 189,
+      "europeana": 188,
       "hertziana": 0,
-      "antiquarian": 0
+      "antiquarian": 5
     },
     "blocked": {
       "morgan": [
@@ -217,6 +232,7 @@
         "no records produced"
       ],
       "europeana": [
+        "Europeana open images: pixel sizes read from the holder's IIIF info.json where the image URL is a IIIF URL, otherwise null",
         "Europeana = aggregator (BnF/Gallica, BNE/Hispana, others); hits are summed over queries and overlap; records are search hits, their holder pages were not opened"
       ],
       "hertziana": [
@@ -228,6 +244,25 @@
       ]
     },
     "per_source": {
+      "loc": {
+        "hits_reported_by_source": 5,
+        "kept": 5,
+        "philippe_named": 4,
+        "felix_named": 0,
+        "philippe_only": 4,
+        "felix_only": 0,
+        "both_named_or_unclear": 1,
+        "known": 0,
+        "new": 5,
+        "open_confirmed": 0,
+        "open_confirmed_with_pixels": 0,
+        "rights_pending": 5,
+        "link_only": 0,
+        "unknown_rights": 0,
+        "new_unique_compositions": 5,
+        "examined_records": 0,
+        "dropped_not_philippe_or_felix": 0
+      },
       "nga": {
         "hits_reported_by_source": 8,
         "kept": 3,
@@ -249,22 +284,22 @@
       },
       "met": {
         "hits_reported_by_source": 177,
-        "kept": 8,
+        "kept": 5,
         "philippe_named": 3,
         "felix_named": 0,
         "philippe_only": 3,
         "felix_only": 0,
-        "both_named_or_unclear": 5,
+        "both_named_or_unclear": 2,
         "known": 2,
-        "new": 6,
-        "open_confirmed": 5,
+        "new": 3,
+        "open_confirmed": 2,
         "open_confirmed_with_pixels": 0,
         "rights_pending": 0,
         "link_only": 0,
         "unknown_rights": 3,
-        "new_unique_compositions": 5,
+        "new_unique_compositions": 3,
         "examined_records": 0,
-        "dropped_not_philippe_or_felix": 11
+        "dropped_not_philippe_or_felix": 14
       },
       "morgan": {
         "hits_reported_by_source": 0,
@@ -325,22 +360,22 @@
       },
       "vam": {
         "hits_reported_by_source": 54,
-        "kept": 34,
+        "kept": 18,
         "philippe_named": 9,
         "felix_named": 0,
         "philippe_only": 9,
         "felix_only": 0,
-        "both_named_or_unclear": 25,
+        "both_named_or_unclear": 9,
         "known": 0,
-        "new": 34,
+        "new": 18,
         "open_confirmed": 0,
         "open_confirmed_with_pixels": 0,
         "rights_pending": 0,
         "link_only": 0,
-        "unknown_rights": 34,
-        "new_unique_compositions": 6,
+        "unknown_rights": 18,
+        "new_unique_compositions": 2,
         "examined_records": 0,
-        "dropped_not_philippe_or_felix": 20
+        "dropped_not_philippe_or_felix": 36
       },
       "british_museum": {
         "hits_reported_by_source": 0,
@@ -496,22 +531,22 @@
       },
       "europeana": {
         "hits_reported_by_source": 695,
-        "kept": 189,
+        "kept": 188,
         "philippe_named": 146,
         "felix_named": 77,
         "philippe_only": 102,
         "felix_only": 33,
-        "both_named_or_unclear": 54,
+        "both_named_or_unclear": 53,
         "known": 140,
-        "new": 49,
+        "new": 48,
         "open_confirmed": 22,
-        "open_confirmed_with_pixels": 0,
+        "open_confirmed_with_pixels": 4,
         "rights_pending": 0,
-        "link_only": 167,
+        "link_only": 166,
         "unknown_rights": 0,
-        "new_unique_compositions": 49,
+        "new_unique_compositions": 48,
         "examined_records": 0,
-        "dropped_not_philippe_or_felix": 17
+        "dropped_not_philippe_or_felix": 18
       },
       "hertziana": {
         "hits_reported_by_source": 0,
@@ -534,39 +569,39 @@
       },
       "antiquarian": {
         "hits_reported_by_source": 0,
-        "kept": 0,
-        "philippe_named": 0,
-        "felix_named": 0,
-        "philippe_only": 0,
-        "felix_only": 0,
+        "kept": 5,
+        "philippe_named": 4,
+        "felix_named": 1,
+        "philippe_only": 4,
+        "felix_only": 1,
         "both_named_or_unclear": 0,
         "known": 0,
-        "new": 0,
+        "new": 5,
         "open_confirmed": 0,
         "open_confirmed_with_pixels": 0,
         "rights_pending": 0,
         "link_only": 0,
-        "unknown_rights": 0,
-        "new_unique_compositions": 0,
+        "unknown_rights": 5,
+        "new_unique_compositions": 5,
         "examined_records": 0,
         "dropped_not_philippe_or_felix": 0
       }
     },
     "totals": {
-      "kept": 271,
-      "philippe_named": 193,
-      "felix_named": 81,
-      "philippe_only": 147,
-      "felix_only": 35,
-      "both_named_or_unclear": 89,
+      "kept": 261,
+      "philippe_named": 201,
+      "felix_named": 82,
+      "philippe_only": 155,
+      "felix_only": 36,
+      "both_named_or_unclear": 70,
       "known": 166,
-      "new": 105,
-      "open_confirmed": 52,
-      "open_confirmed_with_pixels": 25,
-      "rights_pending": 11,
-      "link_only": 167,
-      "unknown_rights": 41,
-      "new_unique_compositions": 76
+      "new": 95,
+      "open_confirmed": 49,
+      "open_confirmed_with_pixels": 29,
+      "rights_pending": 16,
+      "link_only": 166,
+      "unknown_rights": 30,
+      "new_unique_compositions": 79
     },
     "authorities": [
       {
@@ -602,7 +637,7 @@
       {
         "ulan_uri": "http://vocab.getty.edu/ulan/500082030",
         "label": "Benoist, J. L.",
-        "artist_id": "uncertain-benoist"
+        "artist_id": "other"
       },
       {
         "ulan_uri": "http://vocab.getty.edu/ulan/500553206",
@@ -632,7 +667,7 @@
       {
         "ulan_uri": "http://vocab.getty.edu/ulan/500453643",
         "label": "Benoist, M. A.",
-        "artist_id": "uncertain-benoist"
+        "artist_id": "other"
       },
       {
         "ulan_uri": "http://vocab.getty.edu/ulan/500702426",
@@ -701,6 +736,276 @@
     ]
   },
   "records": [
+    {
+      "record_id": "loc:2016652451",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Benoist, Philippe, 1813-approximately 1905",
+          "role_as_stated": "artist / sheet reads: Ph. Benoist del.",
+          "role_normalized": "designer"
+        },
+        {
+          "name": "Imp. Lemercier, R de Seine 57, Paris.",
+          "role_as_stated": "Imp. Lemercier, R de Seine 57, Paris.",
+          "role_normalized": "printer"
+        }
+      ],
+      "original_title": "Paris. Jardin du Palais Royal",
+      "translated_title_ru": null,
+      "series": null,
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "[between 1845 and 1860]",
+      "technique_as_stated": "1 print : hand-colored lithograph ; sheet 22.4 x 30.7 cm, on mount 28 x 35.6 cm.",
+      "object_type": "print",
+      "institution": "Library of Congress, Prints & Photographs Division",
+      "accession": "LC-DIG-pga-14314 (digital file from original print)",
+      "record_url": "2016652451",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": "No known restrictions on publication.",
+      "rights_status": "rights_pending",
+      "duplicate_hint": "paris jardin du palais royal||",
+      "impression_note": "Ph. Benoist del. ; Imp. Lemercier, R de Seine 57, Paris.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "loc.gov 'no known restrictions' is an advisory, not CC0",
+      "source_type": "museum",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "loc:2016652452",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Benoist, Philippe, 1813-approximately 1905",
+          "role_as_stated": "artist / sheet reads: Ph. Benoist del.",
+          "role_normalized": "designer"
+        },
+        {
+          "name": "Imp. Lemercier, Paris.",
+          "role_as_stated": "Imp. Lemercier, Paris.",
+          "role_normalized": "printer"
+        }
+      ],
+      "original_title": "Paris. La Madeleine",
+      "translated_title_ru": null,
+      "series": null,
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "[between 1845 and 1860]",
+      "technique_as_stated": "1 print : hand-colored lithograph ; sheet 23.5 x 32.4 cm, on mount 27.9 x 35 cm.",
+      "object_type": "print",
+      "institution": "Library of Congress, Prints & Photographs Division",
+      "accession": "LC-DIG-pga-14315 (digital file from original print)",
+      "record_url": "2016652452",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": "No known restrictions on publication.",
+      "rights_status": "rights_pending",
+      "duplicate_hint": "paris la madeleine||",
+      "impression_note": "Ph. Benoist del. ; Imp. Lemercier, Paris.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "loc.gov 'no known restrictions' is an advisory, not CC0",
+      "source_type": "museum",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "loc:2013650023",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Benoist, Philippe, 1813-approximately 1905",
+          "role_as_stated": "artist / sheet reads: dessiné d'apre nature et lith: par Ph. Benoist",
+          "role_normalized": "designer"
+        },
+        {
+          "name": "Bayot, Adolphe Jean Baptiste, 1810-1871",
+          "role_as_stated": "artist",
+          "role_normalized": "unspecified"
+        },
+        {
+          "name": "lith. de Gihaut frères Editeurs, Boulevart des Italiens, 5.",
+          "role_as_stated": "lith. de Gihaut frères Editeurs, Boulevart des Italiens, 5.",
+          "role_normalized": "lithographer"
+        }
+      ],
+      "original_title": "Chateau des Tuileries, côté du carrousel Palace of the Tuileries, side of the carrousel /",
+      "translated_title_ru": null,
+      "series": null,
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "[between 1833 and 1839]",
+      "technique_as_stated": "1 print : lithograph ; 40.4 x 55.8 cm (sheet)",
+      "object_type": "print",
+      "institution": "Library of Congress, Prints & Photographs Division",
+      "accession": "LC-DIG-pga-05798 (digital file from original print)",
+      "record_url": "2013650023",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": "No known restrictions on publication.",
+      "rights_status": "rights_pending",
+      "duplicate_hint": "chateau des tuileries cote du carrousel palace of the tuileries side of the carrousel||",
+      "impression_note": "dessiné d'apre nature et lith: par Ph. Benoist ; figures par A. Bayot ; lith. de Gihaut frères Editeurs, Boulevart des Italiens, 5.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "loc.gov 'no known restrictions' is an advisory, not CC0",
+      "source_type": "museum",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "loc:00652015",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Benoist, Philippe, 1813-approximately 1905",
+          "role_as_stated": "artist / sheet reads: Eug. Cicéri et Ph. Benoist del & lith.",
+          "role_normalized": "lithographer"
+        },
+        {
+          "name": "imp. Lemercier & Cie., Paris.",
+          "role_as_stated": "imp. Lemercier & Cie., Paris.",
+          "role_normalized": "printer"
+        }
+      ],
+      "original_title": "Vue officielle a vol d'oiseau de l'exposition universelle de 1867",
+      "translated_title_ru": null,
+      "series": null,
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "1867.",
+      "technique_as_stated": "1 print : lithograph, hand-colored ; (sheet) 68 x 98.5 cm.",
+      "object_type": "print",
+      "institution": "Library of Congress, Prints & Photographs Division",
+      "accession": "LC-DIG-pga-00497 (digital file from original print)\nLC-USZC4-7735 (color film copy transparency)\nLC-USZ62-126323 (b&w film copy neg.)",
+      "record_url": "00652015",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": "No known restrictions on publication.",
+      "rights_status": "rights_pending",
+      "duplicate_hint": "vue officielle a vol d oiseau de l exposition universelle de 1867||",
+      "impression_note": "Eug. Cicéri et Ph. Benoist del & lith. ; imp. Lemercier & Cie., Paris.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "loc.gov 'no known restrictions' is an advisory, not CC0",
+      "source_type": "museum",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "loc:2006680113",
+      "artist_id": "uncertain-benoist",
+      "artist_ids_named": [
+        "uncertain-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Indeĭt︠s︡ev, Dmitri Stepanovich, 1813-",
+          "role_as_stated": "artist",
+          "role_normalized": "unspecified"
+        },
+        {
+          "name": "Daziaro, Giuseppe, 1806-1865",
+          "role_as_stated": "publisher",
+          "role_normalized": "publisher"
+        },
+        {
+          "name": "Russian Imperial Collection (Library of Congress).",
+          "role_as_stated": "",
+          "role_normalized": "unspecified"
+        },
+        {
+          "name": "dess. d'après nat. par Indeisseff ; imp. par Lemercier, à Paris ; lith par Benoist et Aubrun.",
+          "role_as_stated": null,
+          "role_normalized": "unspecified"
+        },
+        {
+          "name": "imp. par Lemercier, à Paris",
+          "role_as_stated": "imp. par Lemercier, à Paris",
+          "role_normalized": "printer"
+        }
+      ],
+      "original_title": "Moscou",
+      "translated_title_ru": null,
+      "series": null,
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "[ca. 1848]",
+      "technique_as_stated": "10 prints : lithograph, hand-colored ; 40.5 x 458.2 cm (sheets combined)",
+      "object_type": "print",
+      "institution": "Library of Congress, Prints & Photographs Division",
+      "accession": "LC-DIG-pga-00211 (digital file from original print, part 1)\nLC-DIG-pga-03475 (digital file from original print, part 2)\nLC-DIG-pga-03476 (digital file from original print, part 3)\nLC-DIG-pga-03477 (digital file from original print, part 4)\nLC-DIG-pga-03478 (digital file from original print, part 5)\nLC-DIG-pga-03479 (digital file from original print, part 6)\nLC-DIG-pga-03480 (digital file from original print, part 7)\nLC-DIG-pga-03481 (digital file from original print, part 8)\nLC-DIG-pga-03482 (digital file from original print, part 9)\nLC-DIG-pga-03483 (digital file from original print, part 10)",
+      "record_url": "2006680113",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": "No known restrictions on publication in the U.S. Use elsewhere may be restricted by other countries' laws. For general information see \"Copyright and Other Restrictions ...,\" http://www.loc.gov/rr/print/195_copr.html",
+      "rights_status": "rights_pending",
+      "duplicate_hint": "moscou||",
+      "impression_note": "dess. d'après nat. par Indeisseff ; imp. par Lemercier, à Paris ; lith par Benoist et Aubrun.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "low",
+      "attribution_note": "dess. d'après nat. par Indeisseff ; imp. par Lemercier, à Paris ; lith par Benoist et Aubrun.: surname Benoist without forename",
+      "source_type": "museum",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
     {
       "record_id": "nga:60903",
       "artist_id": "uncertain-benoist",
@@ -782,16 +1087,16 @@
       ],
       "original_title": "Paris dans sa Splendeur (volume I)",
       "translated_title_ru": null,
-      "series": "(1 of 3 volumes, 1981.69.5-7)",
+      "series": "Paris dans sa splendeur",
       "plate_number": null,
-      "volume": null,
+      "volume": "(1 of 3 volumes, 1981.69.5-7)",
       "city": null,
       "place": null,
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": "published 1863",
       "technique_as_stated": "1 vol: ill: lithographs",
-      "object_type": null,
+      "object_type": "volume",
       "institution": "National Gallery of Art, Washington",
       "accession": "1981.69.5",
       "record_url": "https://www.nga.gov/artworks/60903",
@@ -801,7 +1106,7 @@
       "image_height": null,
       "rights_statement": null,
       "rights_status": "unknown",
-      "duplicate_hint": "paris dans sa splendeur volume i|(1 of 3 volumes, 1981.69.5-7)|",
+      "duplicate_hint": "paris dans sa splendeur volume i|paris dans sa splendeur|",
       "impression_note": "Gift of Robert H. Thayer",
       "verification_status": "source_record_read",
       "attribution_confidence": "low",
@@ -893,16 +1198,16 @@
       ],
       "original_title": "Paris dans sa Splendeur (volume II)",
       "translated_title_ru": null,
-      "series": "(1 of 3 volumes, 1981.69.5-7)",
+      "series": "Paris dans sa splendeur",
       "plate_number": null,
-      "volume": null,
+      "volume": "(1 of 3 volumes, 1981.69.5-7)",
       "city": null,
       "place": null,
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": "published 1863",
       "technique_as_stated": "1 vol: ill: lithographs",
-      "object_type": null,
+      "object_type": "volume",
       "institution": "National Gallery of Art, Washington",
       "accession": "1981.69.6",
       "record_url": "https://www.nga.gov/artworks/60904",
@@ -912,7 +1217,7 @@
       "image_height": null,
       "rights_statement": null,
       "rights_status": "unknown",
-      "duplicate_hint": "paris dans sa splendeur volume ii|(1 of 3 volumes, 1981.69.5-7)|",
+      "duplicate_hint": "paris dans sa splendeur volume ii|paris dans sa splendeur|",
       "impression_note": "Gift of Robert H. Thayer",
       "verification_status": "source_record_read",
       "attribution_confidence": "low",
@@ -1013,16 +1318,16 @@
       ],
       "original_title": "Paris dans sa Splendeur (volume III)",
       "translated_title_ru": null,
-      "series": "(1 of 3 volumes, 1981.69.5-7)",
+      "series": "Paris dans sa splendeur",
       "plate_number": null,
-      "volume": null,
+      "volume": "(1 of 3 volumes, 1981.69.5-7)",
       "city": null,
       "place": null,
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": "published 1863",
       "technique_as_stated": "1 vol: ill: lithographs",
-      "object_type": null,
+      "object_type": "volume",
       "institution": "National Gallery of Art, Washington",
       "accession": "1981.69.7",
       "record_url": "https://www.nga.gov/artworks/60905",
@@ -1032,7 +1337,7 @@
       "image_height": null,
       "rights_statement": null,
       "rights_status": "unknown",
-      "duplicate_hint": "paris dans sa splendeur volume iii|(1 of 3 volumes, 1981.69.5-7)|",
+      "duplicate_hint": "paris dans sa splendeur volume iii|paris dans sa splendeur|",
       "impression_note": "Gift of Robert H. Thayer",
       "verification_status": "source_record_read",
       "attribution_confidence": "high",
@@ -1242,176 +1547,6 @@
       "verification_status": "source_record_read",
       "attribution_confidence": "low",
       "attribution_note": "P. Benoist: initial 'p.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "met:694500",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "J. L. Benoist",
-          "role_as_stated": "Artist",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "After Elisabeth Louise Vigée Le Brun",
-          "role_as_stated": "Artist",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Marie Antoinette, Queen of France",
-          "role_as_stated": "Sitter",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": "Marie Antoinette of Austria, Queen of France",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "1800–1840",
-      "technique_as_stated": "Colored stipple engraving and etching; second state of two",
-      "object_type": "print",
-      "institution": "The Metropolitan Museum of Art",
-      "accession": "24.80.10",
-      "record_url": "https://www.metmuseum.org/art/collection/search/694500",
-      "iiif_manifest": null,
-      "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP874410.jpg",
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": "Met Open Access: isPublicDomain=true (CC0)",
-      "rights_status": "open_confirmed",
-      "duplicate_hint": "marie antoinette of austria queen of france||",
-      "impression_note": "Anonymous Gift, 1924",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "J. L. Benoist: initial 'l.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "met:694571",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "J. L. Benoist",
-          "role_as_stated": "Artist",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "After Elisabeth Louise Vigée Le Brun",
-          "role_as_stated": "Artist",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Marie Antoinette, Queen of France",
-          "role_as_stated": "Sitter",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": "Marie Antoinette of Austria, Queen of France",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "1800–1840",
-      "technique_as_stated": "Stipple engraving and etching",
-      "object_type": "print",
-      "institution": "The Metropolitan Museum of Art",
-      "accession": "24.80.11(1)",
-      "record_url": "https://www.metmuseum.org/art/collection/search/694571",
-      "iiif_manifest": null,
-      "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP874411.jpg",
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": "Met Open Access: isPublicDomain=true (CC0)",
-      "rights_status": "open_confirmed",
-      "duplicate_hint": "marie antoinette of austria queen of france||",
-      "impression_note": "Anonymous Gift, 1924",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "J. L. Benoist: initial 'l.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "met:371462",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "After Alexandre Evariste Fragonard",
-          "role_as_stated": "Artist",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "J. L. Benoist",
-          "role_as_stated": "Engraver",
-          "role_normalized": "engraver"
-        },
-        {
-          "name": "Marcelle",
-          "role_as_stated": "Publisher",
-          "role_normalized": "publisher"
-        },
-        {
-          "name": "Alexandre Evariste Fragonard",
-          "role_as_stated": "Artist",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": "Marie Louise, Empress of the French",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "1811",
-      "technique_as_stated": "Etching and engraving on laid paper",
-      "object_type": "print",
-      "institution": "The Metropolitan Museum of Art",
-      "accession": "2006.150.2",
-      "record_url": "https://www.metmuseum.org/art/collection/search/371462",
-      "iiif_manifest": null,
-      "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP820814.jpg",
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": "Met Open Access: isPublicDomain=true (CC0)",
-      "rights_status": "open_confirmed",
-      "duplicate_hint": "marie louise empress of the french||",
-      "impression_note": "Gift of James David Draper, in memory of Kathleen Howard, 2006",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "J. L. Benoist: initial 'l.' only; Felix and Philippe both possible",
       "source_type": "museum",
       "other_benoist_names_on_record": null,
       "known": false,
@@ -3534,276 +3669,6 @@
       "known_match": null
     },
     {
-      "record_id": "vam:O827085",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "made",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": null,
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "01/07/1762",
-      "technique_as_stated": "Engravings of illustrations from a play.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.2036-1919",
-      "record_url": "https://collections.vam.ac.uk/item/O827085/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": null,
-      "impression_note": "Antoine Benoist. Nos. 3, 4, 5, 6, 9, and 12 of a set of 12 illustrations to Samuel Richardson's Pamela. Engravings.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O827084",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "made",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": null,
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "01/07/1762",
-      "technique_as_stated": "Engravings of illustrations from a play.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.2037-1919",
-      "record_url": "https://collections.vam.ac.uk/item/O827084/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": null,
-      "impression_note": "Antoine Benoist. Nos. 3, 4, 5, 6, 9, and 12 of a set of 12 illustrations to Samuel Richardson's Pamela. Engravings.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O827083",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "made",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": null,
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "01/07/1762",
-      "technique_as_stated": "Engravings of illustrations from a play.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.2038-1919",
-      "record_url": "https://collections.vam.ac.uk/item/O827083/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": null,
-      "impression_note": "Antoine Benoist. Nos. 3, 4, 5, 6, 9, and 12 of a set of 12 illustrations to Samuel Richardson's Pamela. Engravings.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O827082",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "made",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": null,
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "01/07/1762",
-      "technique_as_stated": "Engravings of illustrations from a play.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.2039-1919",
-      "record_url": "https://collections.vam.ac.uk/item/O827082/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": null,
-      "impression_note": "Antoine Benoist. Nos. 3, 4, 5, 6, 9, and 12 of a set of 12 illustrations to Samuel Richardson's Pamela. Engravings.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O827079",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "made",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": null,
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "01/07/1762",
-      "technique_as_stated": "Engravings of illustrations from a play.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.2042-1919",
-      "record_url": "https://collections.vam.ac.uk/item/O827079/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": null,
-      "impression_note": "Antoine Benoist. Nos. 3, 4, 5, 6, 9, and 12 of a set of 12 illustrations to Samuel Richardson's Pamela. Engravings.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O827076",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "made",
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": null,
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": "01/07/1762",
-      "technique_as_stated": "Engravings of illustrations from a play.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.2045-1919",
-      "record_url": "https://collections.vam.ac.uk/item/O827076/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": null,
-      "impression_note": "Antoine Benoist. Nos. 3, 4, 5, 6, 9, and 12 of a set of 12 illustrations to Samuel Richardson's Pamela. Engravings.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
       "record_id": "vam:O759749",
       "artist_id": "uncertain-benoist",
       "artist_ids_named": [
@@ -4109,256 +3974,6 @@
       "known_match": null
     },
     {
-      "record_id": "vam:O698739",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Réville, Jean-Baptiste",
-          "role_as_stated": "aquatinter",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Benoist, M. A.",
-          "role_as_stated": "engraver",
-          "role_normalized": "engraver"
-        }
-      ],
-      "original_title": "Chapter-House of the Monastery of Poblet",
-      "translated_title_ru": null,
-      "series": "Voyage pittoresque",
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "Paris",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1806",
-      "technique_as_stated": "Plate depicting the chapter-house of the Monastery of Poblet.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.739-1963",
-      "record_url": "https://collections.vam.ac.uk/item/O698739/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "chapter house of the monastery of poblet|voyage pittoresque|",
-      "impression_note": "Print depicting the chapter-House of the monastery of Poblet.  Plate 48 in volume I of 'Voyage Pittoresque et Historique De L'Espagne'.  Engraving by J. B. Reville and M. A. Benoist(?), 1806.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "Benoist, M. A.: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O567575",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Jones, Inigo",
-          "role_as_stated": "designer (after)",
-          "role_normalized": "designer"
-        }
-      ],
-      "original_title": "The Palace of Whitehall",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1748-9",
-      "technique_as_stated": "Print depicting a design for Whitehall Palace.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.1533-1959",
-      "record_url": "https://collections.vam.ac.uk/item/O567575/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the palace of whitehall||",
-      "impression_note": "Inigo Jones (after), one of four plates illustrating the Palace of Whitehall, London, 1748 or 1749.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O567574",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Jones, Inigo",
-          "role_as_stated": "designer (after)",
-          "role_normalized": "designer"
-        }
-      ],
-      "original_title": "The Palace of Whitehall",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1748-9",
-      "technique_as_stated": "Print depicting a design for Whitehall Palace.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.1534-1959",
-      "record_url": "https://collections.vam.ac.uk/item/O567574/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the palace of whitehall||",
-      "impression_note": "Inigo Jones (after), one of four plates illustrating the Palace of Whitehall, London, 1748 or 1749.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O567573",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Jones, Inigo",
-          "role_as_stated": "designer (after)",
-          "role_normalized": "designer"
-        }
-      ],
-      "original_title": "The Palace of Whitehall",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1748-9",
-      "technique_as_stated": "Print depicting a design for Whitehall Palace.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.1535-1959",
-      "record_url": "https://collections.vam.ac.uk/item/O567573/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the palace of whitehall||",
-      "impression_note": "Inigo Jones (after), one of four plates illustrating the Palace of Whitehall, London, 1748 or 1749.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O567572",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Jones, Inigo",
-          "role_as_stated": "designer (after)",
-          "role_normalized": "designer"
-        }
-      ],
-      "original_title": "The Palace of Whitehall",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1748-9",
-      "technique_as_stated": "Print depicting a design for Whitehall Palace.",
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.1536-1959",
-      "record_url": "https://collections.vam.ac.uk/item/O567572/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the palace of whitehall||",
-      "impression_note": "Inigo Jones (after), one of four plates illustrating the Palace of Whitehall, London, 1748 or 1749.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
       "record_id": "vam:O1152993",
       "artist_id": "uncertain-benoist",
       "artist_ids_named": [
@@ -4402,301 +4017,6 @@
       "verification_status": "source_record_read",
       "attribution_confidence": "low",
       "attribution_note": "Benoist: surname Benoist without forename",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O621412",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Daniel Dodd",
-          "role_as_stated": "designer",
-          "role_normalized": "designer"
-        },
-        {
-          "name": "Mason, James",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Vivarès, François",
-          "role_as_stated": "publisher",
-          "role_normalized": "publisher"
-        }
-      ],
-      "original_title": "The Four Elements",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1769",
-      "technique_as_stated": null,
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "28085:1",
-      "record_url": "https://collections.vam.ac.uk/item/O621412/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the four elements||",
-      "impression_note": "Daniel Dodd (after), Earth, 1 of 4 plates from The Four Elements, engraved by I. Mason and A. Benoist, London, 1769.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O621411",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Daniel Dodd",
-          "role_as_stated": "designer",
-          "role_normalized": "designer"
-        },
-        {
-          "name": "Mason, James",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Vivarès, François",
-          "role_as_stated": "publisher",
-          "role_normalized": "publisher"
-        }
-      ],
-      "original_title": "The Four Elements",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1769",
-      "technique_as_stated": null,
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "28085:2",
-      "record_url": "https://collections.vam.ac.uk/item/O621411/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the four elements||",
-      "impression_note": "Daniel Dodd (after), Fire, 1 of 4 plates from The Four Elements, engraved by I. Mason and A. Benoist, London, 1769.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O621410",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Daniel Dodd",
-          "role_as_stated": "designer",
-          "role_normalized": "designer"
-        },
-        {
-          "name": "Mason, James",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Vivarès, François",
-          "role_as_stated": "publisher",
-          "role_normalized": "publisher"
-        }
-      ],
-      "original_title": "The Four Elements",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1769",
-      "technique_as_stated": null,
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "28085:3",
-      "record_url": "https://collections.vam.ac.uk/item/O621410/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the four elements||",
-      "impression_note": "Daniel Dodd (after), Water, 1 of 4 plates from The Four Elements, engraved by I. Mason and A. Benoist, London, 1769.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O621409",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Daniel Dodd",
-          "role_as_stated": "designer",
-          "role_normalized": "designer"
-        },
-        {
-          "name": "Mason, James",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "A. Benoist",
-          "role_as_stated": "printmaker",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Vivarès, François",
-          "role_as_stated": "publisher",
-          "role_normalized": "publisher"
-        }
-      ],
-      "original_title": "The Four Elements",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "London",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1769",
-      "technique_as_stated": null,
-      "object_type": "print",
-      "institution": "Victoria and Albert Museum",
-      "accession": "28085:4",
-      "record_url": "https://collections.vam.ac.uk/item/O621409/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "the four elements||",
-      "impression_note": "Daniel Dodd (after), Air, 1 of 4 plates from The Four Elements, engraved by I. Mason and A. Benoist, London, 1769.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "A. Benoist: initial 'a.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": null,
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
-      "record_id": "vam:O735437",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Ambroise Louis Garneray",
-          "role_as_stated": "artist",
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "J. L. Benoist",
-          "role_as_stated": "engraver (Erroneously attributed to the painter Marie-Guillemine Benoist at time of acquisition.)",
-          "role_normalized": "engraver"
-        },
-        {
-          "name": "Charles Bance",
-          "role_as_stated": "publisher",
-          "role_normalized": "publisher"
-        }
-      ],
-      "original_title": "Le Don de Plaire",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": null,
-      "country": "Paris",
-      "geo_confidence": "unknown",
-      "date_as_stated": "1818",
-      "technique_as_stated": "Head of a girl with curly hair dressed with roses, wearing a pearl ferronniére and veil tied under her chin.",
-      "object_type": null,
-      "institution": "Victoria and Albert Museum",
-      "accession": "E.1226-1936",
-      "record_url": "https://collections.vam.ac.uk/item/O735437/",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
-      "duplicate_hint": "le don de plaire||",
-      "impression_note": "Ambroise Garneray, engraved by J. L. Benoist. Le Don de Plaire. Study of a headdress. Published by Charles Bance. 1818.",
-      "verification_status": "source_record_read",
-      "attribution_confidence": "low",
-      "attribution_note": "J. L. Benoist: initial 'l.' only; Felix and Philippe both possible",
       "source_type": "museum",
       "other_benoist_names_on_record": null,
       "known": false,
@@ -8677,63 +7997,6 @@
       "known_match": null
     },
     {
-      "record_id": "europeana:/799/item_45D7ZRUKFUQOQFCFAA5L4US2E3Q4GZPG",
-      "artist_id": "uncertain-benoist",
-      "artist_ids_named": [
-        "uncertain-benoist"
-      ],
-      "participants": [
-        {
-          "name": "Benoist, J. L. (Production), 1801-1815 (ungesichert) (Stecher)",
-          "role_as_stated": null,
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Guillaume Philippe Benoist",
-          "role_as_stated": null,
-          "role_normalized": "unspecified"
-        },
-        {
-          "name": "Benoist, J. L. (Production), 1801-1815 (Unsecured) (Stecher)",
-          "role_as_stated": null,
-          "role_normalized": "unspecified"
-        }
-      ],
-      "original_title": "Bildnis des Eyre Coote",
-      "translated_title_ru": null,
-      "series": null,
-      "plate_number": null,
-      "volume": null,
-      "city": null,
-      "place": "Münster",
-      "country": null,
-      "geo_confidence": "unknown",
-      "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": "print",
-      "institution": "LWL - Museum for Art and Culture - Westphalian State Museum of Art & Cultural History",
-      "accession": "/799/item_45D7ZRUKFUQOQFCFAA5L4US2E3Q4GZPG",
-      "record_url": "http://www.portraitindex.de/documents/obj/33407282",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "rights_statement": "http://rightsstatements.org/vocab/InC/1.0/",
-      "rights_status": "link_only",
-      "duplicate_hint": "bildnis des eyre coote||",
-      "impression_note": "Europeana aggregated metadata; holder record page not opened in this run",
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "low",
-      "attribution_note": "Benoist, J. L. (Production), 1801-1815 (ungesichert) (Stecher): initial 'l.' only; Felix and Philippe both possible; Guillaume Philippe Benoist: Guillaume-Philippe Benoist (1725-1800) or other non-1813 Philippe; Benoist, J. L. (Production), 1801-1815 (Unsecured) (Stecher): initial 'l.' only; Felix and Philippe both possible",
-      "source_type": "museum",
-      "other_benoist_names_on_record": [
-        "Guillaume Philippe Benoist"
-      ],
-      "known": false,
-      "known_in": null,
-      "known_match": null
-    },
-    {
       "record_id": "europeana:/2024903/photography_ProvidedCHO_KU_Leuven_9983291560101488",
       "artist_id": "philippe-benoist",
       "artist_ids_named": [
@@ -11906,8 +11169,8 @@
       "record_url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/1845",
       "iiif_manifest": null,
       "image_url": "https://cartotecadigital.icgc.cat/iiif/2/vistes:1845/full/730,/0/default.jpg",
-      "image_width": null,
-      "image_height": null,
+      "image_width": 6658,
+      "image_height": 4735,
       "rights_statement": "http://creativecommons.org/publicdomain/mark/1.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "cadix almada de cadix prise des la rue du quartier de la marine||",
@@ -11957,8 +11220,8 @@
       "record_url": "https://wellcomecollection.org/works/vrts8n69",
       "iiif_manifest": null,
       "image_url": "https://iiif.wellcomecollection.org/image/V0035497.jpg/full/512,/0/default.jpg",
-      "image_width": null,
-      "image_height": null,
+      "image_width": 3240,
+      "image_height": 2412,
       "rights_statement": "http://creativecommons.org/licenses/by/4.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "two sleeping cowherds on the mont sous les baisses just before an appearance of the virgin of the salette lithograph by e ciceri and ph benoist after f benoist||",
@@ -12002,8 +11265,8 @@
       "record_url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/1847",
       "iiif_manifest": null,
       "image_url": "https://cartotecadigital.icgc.cat/iiif/2/vistes:1847/full/730,/0/default.jpg",
-      "image_width": null,
-      "image_height": null,
+      "image_width": 6684,
+      "image_height": 4755,
       "rights_statement": "http://creativecommons.org/publicdomain/mark/1.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "cadix vue de l observatoire et de la tour haute de la ville de st ferdinand||",
@@ -12189,8 +11452,8 @@
       "record_url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/679",
       "iiif_manifest": null,
       "image_url": "https://cartotecadigital.icgc.cat/iiif/2/vistes:679/full/730,/0/default.jpg",
-      "image_width": null,
-      "image_height": null,
+      "image_width": 5716,
+      "image_height": 4422,
       "rights_statement": "http://creativecommons.org/publicdomain/mark/1.0/",
       "rights_status": "open_confirmed",
       "duplicate_hint": "cadix vue du salon de christine a cadix pris des son entree par la alameda cadiz vista del salon de cristina de cadiz tomado desde su entrada por la alameda||",
@@ -14257,6 +13520,231 @@
       "attribution_confidence": "high",
       "attribution_note": null,
       "source_type": "museum",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "antiquarian:1stdibs-a_8706732",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "lithographer",
+          "role_normalized": "lithographer"
+        }
+      ],
+      "original_title": "Piazza di Monte Cavallo, Rome, Italy. Tinted lithograph by Philippe Benoist",
+      "translated_title_ru": null,
+      "series": "Rome dans sa grandeur",
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": null,
+      "technique_as_stated": null,
+      "object_type": null,
+      "institution": "1stdibs (dealer listing)",
+      "accession": null,
+      "record_url": "https://www.1stdibs.com/art/prints-works-on-paper/landscape-prints-works-on-paper/philippe-benoist-piazza-di-monte-cavallo-rome-italy-tinted-lithograph-philippe-benoist/id-a_8706732",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": null,
+      "rights_status": "unknown",
+      "duplicate_hint": "piazza di monte cavallo rome italy tinted lithograph by philippe benoist|rome dans sa grandeur|",
+      "impression_note": null,
+      "verification_status": "search_hit_only",
+      "attribution_confidence": "high",
+      "attribution_note": "Antiquarian/auction listing: discovery of a title/series only, never an image source",
+      "source_type": "antiquarian",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "antiquarian:1stdibs-a_8706812",
+      "artist_id": "felix-benoist",
+      "artist_ids_named": [
+        "felix-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Felix Benoist",
+          "role_as_stated": "lithographer",
+          "role_normalized": "lithographer"
+        }
+      ],
+      "original_title": "Palazzo e Giardini del Vaticano, Rome Italy. Tinted lithograph, Felix Benoist",
+      "translated_title_ru": null,
+      "series": "Rome dans sa grandeur",
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": null,
+      "technique_as_stated": null,
+      "object_type": null,
+      "institution": "1stdibs (dealer listing)",
+      "accession": null,
+      "record_url": "https://www.1stdibs.com/art/prints-works-on-paper/landscape-prints-works-on-paper/felix-benoist-palazzo-e-giardini-del-vaticano-rome-italy-tinted-lithograph-felix-benoist/id-a_8706812",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": null,
+      "rights_status": "unknown",
+      "duplicate_hint": "palazzo e giardini del vaticano rome italy tinted lithograph felix benoist|rome dans sa grandeur|",
+      "impression_note": null,
+      "verification_status": "search_hit_only",
+      "attribution_confidence": "high",
+      "attribution_note": "Antiquarian/auction listing: discovery of a title/series only, never an image source",
+      "source_type": "antiquarian",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "antiquarian:1stdibs-a_6360442",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": null,
+          "role_normalized": "unspecified"
+        }
+      ],
+      "original_title": "Paris - Parc de Monceaux, French lithograph, 1861",
+      "translated_title_ru": null,
+      "series": "Paris dans sa splendeur",
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "1861",
+      "technique_as_stated": null,
+      "object_type": null,
+      "institution": "1stdibs (dealer listing)",
+      "accession": null,
+      "record_url": "https://www.1stdibs.com/art/prints-works-on-paper/landscape-prints-works-on-paper/philippe-benoist-paris-parc-de-monceaux-french-lithograph-1861/id-a_6360442",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": null,
+      "rights_status": "unknown",
+      "duplicate_hint": "paris parc de monceaux french lithograph 1861|paris dans sa splendeur|",
+      "impression_note": null,
+      "verification_status": "search_hit_only",
+      "attribution_confidence": "high",
+      "attribution_note": "Antiquarian/auction listing: discovery of a title/series only, never an image source",
+      "source_type": "antiquarian",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "antiquarian:1stdibs-a_6360462",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": null,
+          "role_normalized": "unspecified"
+        }
+      ],
+      "original_title": "Paris - Fontaine de la Place du Chatelet, French lithograph, 1861",
+      "translated_title_ru": null,
+      "series": "Paris dans sa splendeur",
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "1861",
+      "technique_as_stated": null,
+      "object_type": null,
+      "institution": "1stdibs (dealer listing)",
+      "accession": null,
+      "record_url": "https://www.1stdibs.com/art/prints-works-on-paper/landscape-prints-works-on-paper/philippe-benoist-paris-fontaine-de-la-place-du-chatelet-french-lithograph-1861/id-a_6360462",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": null,
+      "rights_status": "unknown",
+      "duplicate_hint": "paris fontaine de la place du chatelet french lithograph 1861|paris dans sa splendeur|",
+      "impression_note": null,
+      "verification_status": "search_hit_only",
+      "attribution_confidence": "high",
+      "attribution_note": "Antiquarian/auction listing: discovery of a title/series only, never an image source",
+      "source_type": "antiquarian",
+      "other_benoist_names_on_record": null,
+      "known": false,
+      "known_in": null,
+      "known_match": null
+    },
+    {
+      "record_id": "antiquarian:1stdibs-a_6360392",
+      "artist_id": "philippe-benoist",
+      "artist_ids_named": [
+        "philippe-benoist"
+      ],
+      "participants": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": null,
+          "role_normalized": "unspecified"
+        }
+      ],
+      "original_title": "Paris - Eglise Saint Genevieve (Ancien Pantheon), French lithograph, 1861",
+      "translated_title_ru": null,
+      "series": "Paris dans sa splendeur",
+      "plate_number": null,
+      "volume": null,
+      "city": null,
+      "place": null,
+      "country": null,
+      "geo_confidence": "unknown",
+      "date_as_stated": "1861",
+      "technique_as_stated": null,
+      "object_type": null,
+      "institution": "1stdibs (dealer listing)",
+      "accession": null,
+      "record_url": "https://www.1stdibs.com/art/prints-works-on-paper/landscape-prints-works-on-paper/philippe-benoist-paris-eglise-saint-genevieve-ancien-pantheon-french-lithograph-1861/id-a_6360392",
+      "iiif_manifest": null,
+      "image_url": null,
+      "image_width": null,
+      "image_height": null,
+      "rights_statement": null,
+      "rights_status": "unknown",
+      "duplicate_hint": "paris eglise saint genevieve ancien pantheon french lithograph 1861|paris dans sa splendeur|",
+      "impression_note": null,
+      "verification_status": "search_hit_only",
+      "attribution_confidence": "high",
+      "attribution_note": "Antiquarian/auction listing: discovery of a title/series only, never an image source",
+      "source_type": "antiquarian",
       "other_benoist_names_on_record": null,
       "known": false,
       "known_in": null,

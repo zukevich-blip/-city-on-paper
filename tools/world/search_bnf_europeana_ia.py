@@ -453,6 +453,8 @@ def parse_europeana_item(item: dict, query: str | None = None) -> tuple[dict | N
             return None, "no_benoist"
     if artist == "other":
         return None, "other_benoist"
+    if artist == "uncertain-benoist" and note.startswith("Surname") and not series_of(title, desc):
+        return None, "surname_only_no_series"
     structured = [c for c in creators + contribs if re.search(r"benoi", c, re.I)]
     parts, seen = [], set()
     for c in structured or []:
@@ -1159,6 +1161,8 @@ def build_known(root: Path = ROOT, branches: bool = True) -> tuple[set[str], dic
                     timeout=30,
                 ).stdout.splitlines()
                 for n in names:
+                    if n == str(OUT.relative_to(root)):
+                        continue  # never treat our own earlier output as prior knowledge
                     if re.search(r"benoist|ledger", n, re.I) and n.endswith((".json", ".md", ".csv")):
                         blob = subprocess.run(
                             ["git", "-C", str(root), "show", f"{ref}:{n}"], capture_output=True, text=True, timeout=30

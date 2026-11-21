@@ -87,8 +87,11 @@ def classify_artist(name: str | None, bio: str | None = None) -> tuple[str | Non
     forename_like = r"\bbenoist\s+(?!del\b|lith|imp\b|dess|and\b|et\b|after|pinx|fecit|sc\b|ph\b)[a-z]{4,}"
     if re.search(forename_like, n) and "," not in n:
         return "other", "Benoist is a forename here (e.g. 'Benoist Boullay')"
-    if last and re.fullmatch(r"[a-z]\.?", last):
-        return "uncertain-benoist", f"initial {last!r} only; Felix and Philippe both possible"
+    toks = fore.split()
+    if toks and all(re.fullmatch(r"[a-z]\.?", t) for t in toks):
+        if toks[0][0] in ("f", "p"):
+            return "uncertain-benoist", f"initial {fore!r} only; Felix and Philippe both possible"
+        return "other", f"initial {fore!r} matches neither Felix nor Philippe"
     if last and last not in ("by", "par", "de", "von", "van", "after", "d'apres", "mr", "m."):
         return "other", f"forename {fore!r} is not Philippe or Felix"
     return "uncertain-benoist", "surname Benoist without forename"
@@ -836,6 +839,8 @@ def iiif_dims(c: Client, base: str | None) -> tuple[int | None, int | None]:
 LOC_START_IDS = ("2016652451", "2016652452", "2013650023", "00652015")
 
 
+LOC_QUERIES = ("Benoist, Philippe", "Benoist, Felix", "Philippe Benoist", "Ph. Benoist del.", "Felix Benoist",
+               "Benoist lithograph Lemercier")
 LOC_MAX_FETCH = 120  # item fetches per run (3.2 s apart); further hits are listed, not fetched
 
 
@@ -843,8 +848,8 @@ def run_loc(c: Client):
     cov, recs = new_cov(), []
     fetched = 0
     pending: list[str] = []
-    cov["queries"] = [f"item {i}" for i in LOC_START_IDS] + [
-        "pictures/search q='Benoist, Philippe' (name authority heading)", "pictures/search q='Benoist, Felix'"]
+    hit_ids: set[str] = set(LOC_START_IDS)
+    cov["queries"] = [f"item {i}" for i in LOC_START_IDS] + [f"pictures/search q={w!r}" for w in LOC_QUERIES]
     try:
         for i in LOC_START_IDS:
             d = c.json(f"https://www.loc.gov/pictures/item/{i}/?fo=json")
@@ -855,18 +860,19 @@ def run_loc(c: Client):
             if rec:
                 recs.append(rec)
         have = {r["record_id"].split(":")[1] for r in recs} | set(LOC_START_IDS)
-        for who in ("Benoist, Philippe", "Benoist, Felix"):
+        for who in LOC_QUERIES:
             sp = 1
             while sp < 40:
                 d = c.json("https://www.loc.gov/pictures/search/?" + q(q=who, fo="json", c=100, sp=sp))
                 cov["pages_walked"] += 1
                 res = d.get("results") or []
-                if sp == 1:
-                    cov["hits"] += int((d.get("pages") or {}).get("total") or len(res))
                 for r in res:
                     link = (r.get("links") or {}).get("item") or r.get("url")
                     pk = (link or "").rstrip("/").split("/")[-1]
-                    if not link or pk in have:
+                    if not link:
+                        continue
+                    hit_ids.add(pk)
+                    if pk in have:
                         continue
                     have.add(pk)
                     pending.append(link)
@@ -884,6 +890,7 @@ def run_loc(c: Client):
                 recs.append(rec)
             else:
                 cov["dropped"] += 1
+        cov["hits"] = len(hit_ids)
         if len(pending) + len(LOC_START_IDS) > fetched:
             cov["notes"].append(f"loc: {len(pending) + len(LOC_START_IDS) - fetched} search hits NOT fetched "
                                 f"(cap {LOC_MAX_FETCH} item reads per run); re-run to continue")
@@ -1169,6 +1176,12 @@ def run_europeana(c: Client):
                 if len(items) < 100:
                     break
                 start += 100
+        for r in recs:
+            m = re.match(r"^(.*?)/full/[^/]+/\d+/default\.jpg$", r["image_url"] or "")
+            if r["rights_status"] == "open_confirmed" and m and "iiif" in m.group(1):
+                r["image_width"], r["image_height"] = iiif_dims(c, m.group(1))
+        cov["notes"].append("Europeana open images: pixel sizes read from the holder's IIIF info.json where the "
+                            "image URL is a IIIF URL, otherwise null")
         cov["notes"].append("Europeana = aggregator (BnF/Gallica, BNE/Hispana, others); hits are summed over queries "
                             "and overlap; records are search hits, their holder pages were not opened")
     except Blocked as e:
@@ -1388,6 +1401,8 @@ def main(argv: list[str] | None = None) -> int:
             cov["notes"] = prev["coverage"]["notes"].get(name, [])
             cov["dropped"] = prev["coverage"]["per_source"].get(name, {}).get("dropped_not_philippe_or_felix", 0)
             cov["examined"] = prev["coverage"]["per_source"].get(name, {}).get("examined_records", 0)
+            if name == "getty":
+                cov["authorities"] = prev["coverage"].get("authorities", [])
             per[name] = (by_src.get(name, []), cov)
     for name, fn in RUNNERS:
         if (only and name not in only) or name in skip:
