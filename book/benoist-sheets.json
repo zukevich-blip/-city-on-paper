@@ -256,7 +256,23 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "A. Bayot",
+     "role": "dessinateur",
+     "role_ru": "рисовал"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320175609",
@@ -276,7 +292,23 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "A. Bayot",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Charpentier",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320262846",
@@ -296,7 +328,23 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "rijks-RP-P-1904-3864",
