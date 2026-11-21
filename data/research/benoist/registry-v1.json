@@ -1,23 +1,25 @@
 {
  "version": 1,
  "summary": {
-  "discovered_records": 851,
-  "unique_works": 608,
-  "extra_impressions": 243,
-  "reviewed": 418,
-  "open_file": 171,
-  "shipped_with_image": 38,
-  "external_only": 437,
-  "no_image_at_all": 437,
+  "discovered_records": 927,
+  "unique_works": 673,
+  "extra_impressions": 254,
+  "reviewed": 437,
+  "open_file": 191,
+  "shipped_with_image": 39,
+  "external_only": 482,
+  "no_image_at_all": 482,
   "by_artist": {
    "felix-benoist": 108,
-   "philippe-benoist": 366,
+   "other": 46,
+   "philippe-benoist": 385,
    "uncertain-benoist": 134
   },
   "by_source": {
    "legacy-harvest-v1": 174,
    "bnf-europeana-heidelberg-ia-v1.json": 416,
-   "museums-v1.json": 261
+   "museums-v1.json": 261,
+   "parismusees-search-v1.json": 76
   }
  },
  "sources": {
@@ -1284,6 +1286,174 @@
     "cross_checked_against": [
      "data/curation/benoist-harvest-v1.json",
      "book/benoist-sheets.json"
+    ]
+   }
+  },
+  "parismusees-search-v1.json": {
+   "records": 76,
+   "coverage": {
+    "queries": [
+     {
+      "query": "author:Benoist, Philippe",
+      "url": "https://www.parismuseescollections.paris.fr/fr/recherche/AND/auteur/Benoist%2C%20Philippe",
+      "hits_reported_by_source": 68,
+      "pages": [
+       {
+        "page": 1,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/AND/auteur/Benoist%2C%20Philippe",
+        "cards": 50,
+        "hits_reported_by_source": 68
+       },
+       {
+        "page": 2,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/AND/auteur/Benoist%2C%20Philippe?page=2",
+        "cards": 18,
+        "hits_reported_by_source": 68
+       }
+      ]
+     },
+     {
+      "query": "author:Benoist, Félix",
+      "url": "https://www.parismuseescollections.paris.fr/fr/recherche/AND/auteur/Benoist%2C%20F%C3%A9lix",
+      "hits_reported_by_source": 9,
+      "pages": [
+       {
+        "page": 1,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/AND/auteur/Benoist%2C%20F%C3%A9lix",
+        "cards": 9,
+        "hits_reported_by_source": 9
+       }
+      ]
+     },
+     {
+      "query": "text:Paris dans sa splendeur",
+      "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur",
+      "hits_reported_by_source": 454055,
+      "pages": [
+       {
+        "page": 1,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 2,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur?page=2",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 3,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur?page=3",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 4,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur?page=4",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 5,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur?page=5",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 6,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Paris%20dans%20sa%20splendeur?page=6",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       }
+      ],
+      "cards_not_benoist_on_card": 336
+     },
+     {
+      "query": "text:Vues de Paris",
+      "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris",
+      "hits_reported_by_source": 454055,
+      "pages": [
+       {
+        "page": 1,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 2,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris?page=2",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 3,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris?page=3",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 4,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris?page=4",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 5,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris?page=5",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 6,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Vues%20de%20Paris?page=6",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       }
+      ],
+      "cards_not_benoist_on_card": 336
+     },
+     {
+      "query": "text:Promenade dans Paris et ses environs",
+      "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs",
+      "hits_reported_by_source": 454055,
+      "pages": [
+       {
+        "page": 1,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs",
+        "cards": 56,
+        "hits_reported_by_source": 454055
+       },
+       {
+        "page": 2,
+        "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs?page=2",
+        "cards": 0,
+        "hits_reported_by_source": null
+       }
+      ],
+      "cards_not_benoist_on_card": 56
+     }
+    ],
+    "pages_walked": 17,
+    "hits_total_reported_by_source": 77,
+    "hits_total_note": "Sum over the two author queries; the same notice can match both when Philippe and Félix are co-named. Series/text queries are reported separately and are not added.",
+    "records_kept": 24,
+    "records_by_artist_id": {
+     "philippe-benoist": 24,
+     "other": 52
+    },
+    "records_not_benoist_dropped": 52,
+    "unique_compositions": 20,
+    "impressions": 24,
+    "known_before_count": 2,
+    "open_confirmed_with_image_size": 24,
+    "http_requests": 66,
+    "blocked": [],
+    "notes": [
+     "No images downloaded. image_width/height are canvas values from the IIIF manifest; the image resource is the '4k' derivative (height capped near 2160 px), so they are NOT the pixel size of the museum's master scan.",
+     "rights_status open_confirmed only when every canvas states CC0 in Droits/Copyright of the manifest.",
+     "Accession (inventory number) is not published on the public notice or manifest unless a label containing 'inventaire' exists; null otherwise.",
+     "Search pages list authors by exact authority form; Philippe and Félix are matched by exact name, never by surname alone."
     ]
    }
   },
@@ -3785,6 +3955,1054 @@
   },
   {
    "id": "w0109",
+   "artist": "other",
+   "title": "Paris dans sa splendeur / Bibliothèque du Conservatoire des arts et métiers./ (Ancien couvent de l'Abbaye Saint Martin des Champs).",
+   "series": "Paris dans sa splendeur",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0110",
+   "artist": "other",
+   "title": "Château des Tuileries.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0111",
+   "artist": "other",
+   "title": "Château du Pailly d'après une esquisse d'Emile Sagot (IFF79, n° 366)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Petit Palais, musée des Beaux-arts de la Ville de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0112",
+   "artist": "other",
+   "title": "Cirque de l'Impératrice / aux Champs-Elysées.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0113",
+   "artist": "other",
+   "title": "Colonne de Juillet sur la place de la Bastille / Vues de Paris N° 19",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0114",
+   "artist": "other",
+   "title": "Paris dans sa splendeur / Ecole Militaire / Façade sur la Place de Fontenoy",
+   "series": "Paris dans sa splendeur",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0115",
+   "artist": "other",
+   "title": "Vues de Paris / 8 / Eglise Notre Dame de Lorette.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0116",
+   "artist": "other",
+   "title": "Eglise Saint-Laurent / avec sa nouvelle façade et la Gare du Chemin de fer de l'Est",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0117",
+   "artist": "other",
+   "title": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0118",
+   "artist": "other",
+   "title": "Exposition universelle de 1867. Vue générale du Champs de Mars, prise à vol d'oiseau du côté de la porte Rapp.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0119",
+   "artist": "other",
+   "title": "Fontaine du Châtelet / Fontaine Richelieu.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0120",
+   "artist": "other",
+   "title": "Hôtel des Invalides.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 2,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0121",
+   "artist": "other",
+   "title": "Intérieur de l' Eglise de St Etienne du Mont",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0122",
+   "artist": "other",
+   "title": "Vues de Paris. // La halle et la fontaine des Innocens. [sic]",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0123",
+   "artist": "other",
+   "title": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0124",
+   "artist": "other",
+   "title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0125",
+   "artist": "other",
+   "title": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0126",
+   "artist": "other",
+   "title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 2,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0127",
+   "artist": "other",
+   "title": "Vues de Paris // Les Boulevards Saint-Denis et Saint-Martin",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0128",
+   "artist": "other",
+   "title": "Les Buttes Chaumont / Vue générale à vol d'oiseau, du nouveau square, prise du dessus du lac.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0129",
+   "artist": "other",
+   "title": "Les grands aspects du nouveau Paris / Nouvel Opéra. / Façade principale sur le Boulevard des Capucines.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0130",
+   "artist": "other",
+   "title": "Les grands aspects du nouveau Paris / Nouvelle église de la Trinité / Chaussée d'Antin.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0131",
+   "artist": "other",
+   "title": "Les Grands Aspects du Nouveau Paris/ Nouvelle Eglise St. Augustin./ Boulevard Malesherbes.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0132",
+   "artist": "other",
+   "title": "Les Grands Aspects du Nouveau Paris./ Parc de Monceaux/ Vue générale, à vol d'oiseau, prise du côté du Boulevard Malesherbes.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0133",
+   "artist": "other",
+   "title": "Palais de l'Industrie aux Champs Elysées.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 2,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0134",
+   "artist": "other",
+   "title": "Palais de l'Industrie.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0135",
+   "artist": "other",
+   "title": "Palais du Luxembourg. / Côté du jardin.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0136",
+   "artist": "other",
+   "title": "Palais du Luxembourg. / Côté jardin.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0137",
+   "artist": "other",
+   "title": "Paris dans sa splendeur./ 51./ Parc de Monceaux./ (La Naumachie)",
+   "series": "Paris dans sa splendeur",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0138",
+   "artist": "other",
+   "title": "Paris / Boulevart des Italiens",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0139",
+   "artist": "other",
+   "title": "Paris dans sa grandeur - Histoire. /Distribuition des aigles au Champ de Mars / (5 décembre 1804) / 84",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0140",
+   "artist": "other",
+   "title": "Paris en 1860. Vue prise à vol d'oiseau au dessus du Rond-point des Ch. Elysées.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0141",
+   "artist": "other",
+   "title": "Paris et ses ruines. / Square des Buttes Chaumont. / Vue du lac, des grottes et du grand rocher avec le Temple de la Sibylle.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0142",
+   "artist": "other",
+   "title": "Place de la Concorde.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0143",
+   "artist": "other",
+   "title": "Place et Fontaine du Châtelet / Pont au Change. Théâtre du Châtelet et Théâtre Lyrique.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0144",
+   "artist": "other",
+   "title": "Vues de Paris / Rue de Rivoli / Ministères des Finances et de la Marine.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0145",
+   "artist": "other",
+   "title": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0146",
+   "artist": "other",
+   "title": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0147",
+   "artist": "other",
+   "title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 2,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0148",
+   "artist": "other",
+   "title": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0149",
+   "artist": "other",
+   "title": "Vues de Paris. / (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0150",
+   "artist": "other",
+   "title": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0151",
+   "artist": "other",
+   "title": "Vue générale des expositions / Prise du côté de l'annexe.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 2,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0152",
+   "artist": "other",
+   "title": "Vue prise au-dessus du Rond-Point des Champs-Elysées",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0153",
+   "artist": "other",
+   "title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 2,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0154",
+   "artist": "other",
+   "title": "Vues du Panthéon.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": null,
+   "impressions": 1,
+   "image": null,
+   "reviewed": false,
+   "open_file": false,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": null,
+     "rights": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "w0155",
    "artist": "philippe-benoist",
    "title": "3ième volume: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire: Histoire de Paris - environs de Paris",
    "series": "Paris dans sa splendeur",
@@ -3806,7 +5024,7 @@
    ]
   },
   {
-   "id": "w0110",
+   "id": "w0156",
    "artist": "philippe-benoist",
    "title": "3ième volume: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire: Histoire de Paris - environs de Paris",
    "series": "Paris dans sa splendeur",
@@ -3828,7 +5046,7 @@
    ]
   },
   {
-   "id": "w0111",
+   "id": "w0157",
    "artist": "philippe-benoist",
    "title": "Album de Dornach (Alsace), 1872",
    "series": null,
@@ -3850,7 +5068,7 @@
    ]
   },
   {
-   "id": "w0112",
+   "id": "w0158",
    "artist": "philippe-benoist",
    "title": "Album de Dornach",
    "series": null,
@@ -3872,7 +5090,7 @@
    ]
   },
   {
-   "id": "w0113",
+   "id": "w0159",
    "artist": "philippe-benoist",
    "title": "Album scenografico, Trovatore : atto 2.°, scena 2.a. : [estampe] / P. Magnani ; F. Lasagne ; Ph. Benoist Lito.",
    "series": null,
@@ -3894,7 +5112,7 @@
    ]
   },
   {
-   "id": "w0114",
+   "id": "w0160",
    "artist": "philippe-benoist",
    "title": "Album scenografico, Trovatore atto 2.°, scena 2.a. [estampe]",
    "series": null,
@@ -3922,7 +5140,7 @@
    ]
   },
   {
-   "id": "w0115",
+   "id": "w0161",
    "artist": "philippe-benoist",
    "title": "Amalfi Cathedral",
    "series": null,
@@ -3950,7 +5168,7 @@
    ]
   },
   {
-   "id": "w0116",
+   "id": "w0162",
    "artist": "philippe-benoist",
    "title": "Ancien Palais de la Cuba, près de Palerme [estampe]",
    "series": "\"Essai sur l'architecture des Arabes et des Mores en Espagne, en Sicile et en Barbarie\"",
@@ -3972,7 +5190,7 @@
    ]
   },
   {
-   "id": "w0117",
+   "id": "w0163",
    "artist": "philippe-benoist",
    "title": "Angulemo kunigaikščio, didžiojo Prancūzijos admirolo Luji Antuano portretas",
    "series": null,
@@ -4000,7 +5218,7 @@
    ]
   },
   {
-   "id": "w0118",
+   "id": "w0164",
    "artist": "philippe-benoist",
    "title": "ANTIGUA AL LADO DE LA DE VISAGRA [Material gráfico] : en Toledo = ANCIENNE PORTE PRES CELLE DE VISAGRA : à Tolède",
    "series": null,
@@ -4022,7 +5240,7 @@
    ]
   },
   {
-   "id": "w0119",
+   "id": "w0165",
    "artist": "philippe-benoist",
    "title": "ANTIGUA AL LADO DE LA DE VISAGRA [Material gráfico] : en Toledo = ANCIENNE PORTE PRES CELLE DE VISAGRA : à Tolède",
    "series": null,
@@ -4044,7 +5262,7 @@
    ]
   },
   {
-   "id": "w0120",
+   "id": "w0166",
    "artist": "philippe-benoist",
    "title": "Arc de Triomphe de l'Étoile : [estampe]",
    "series": null,
@@ -4066,7 +5284,7 @@
    ]
   },
   {
-   "id": "w0121",
+   "id": "w0167",
    "artist": "philippe-benoist",
    "title": "Avenue de platanes, vers la ville",
    "series": null,
@@ -4088,7 +5306,7 @@
    ]
   },
   {
-   "id": "w0122",
+   "id": "w0168",
    "artist": "philippe-benoist",
    "title": "Ballo la fata delle acque : atto 3.",
    "series": null,
@@ -4110,7 +5328,7 @@
    ]
   },
   {
-   "id": "w0123",
+   "id": "w0169",
    "artist": "philippe-benoist",
    "title": "Ballo la fata delle acque : atto 3.",
    "series": null,
@@ -4132,7 +5350,7 @@
    ]
   },
   {
-   "id": "w0124",
+   "id": "w0170",
    "artist": "philippe-benoist",
    "title": "Band 1: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
    "series": "Paris dans sa splendeur",
@@ -4154,7 +5372,7 @@
    ]
   },
   {
-   "id": "w0125",
+   "id": "w0171",
    "artist": "philippe-benoist",
    "title": "Band 1: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
    "series": "Paris dans sa splendeur",
@@ -4176,7 +5394,7 @@
    ]
   },
   {
-   "id": "w0126",
+   "id": "w0172",
    "artist": "philippe-benoist",
    "title": "Band 2: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
    "series": "Paris dans sa splendeur",
@@ -4198,7 +5416,7 @@
    ]
   },
   {
-   "id": "w0127",
+   "id": "w0173",
    "artist": "philippe-benoist",
    "title": "Band 2: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
    "series": "Paris dans sa splendeur",
@@ -4220,7 +5438,7 @@
    ]
   },
   {
-   "id": "w0128",
+   "id": "w0174",
    "artist": "philippe-benoist",
    "title": "Bataille de l'Alma 20 7.bre 1854 [estampe]",
    "series": "[Recueil. Collection de Vinck. Un siècle d'histoire de France par l'estampe, 1770-1870. Vol. 141 (pièces 16940-17016), Second Empire]",
@@ -4242,7 +5460,7 @@
    ]
   },
   {
-   "id": "w0129",
+   "id": "w0175",
    "artist": "philippe-benoist",
    "title": "Bataille de l'Alma 20 7.bre 1854 : [estampe]",
    "series": null,
@@ -4264,7 +5482,7 @@
    ]
   },
   {
-   "id": "w0130",
+   "id": "w0176",
    "artist": "philippe-benoist",
    "title": "Bataille de l'Alma 20 7.bre 1854 : [estampe]",
    "series": null,
@@ -4286,7 +5504,7 @@
    ]
   },
   {
-   "id": "w0131",
+   "id": "w0177",
    "artist": "philippe-benoist",
    "title": "Bathseba im Bade",
    "series": null,
@@ -4308,7 +5526,7 @@
    ]
   },
   {
-   "id": "w0132",
+   "id": "w0178",
    "artist": "philippe-benoist",
    "title": "Bénédiction de l'armée française par S. S. le Pape Pie IX Rome, 18 avril 1850 [estampe]",
    "series": null,
@@ -4330,7 +5548,7 @@
    ]
   },
   {
-   "id": "w0133",
+   "id": "w0179",
    "artist": "philippe-benoist",
    "title": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda",
    "series": null,
@@ -4352,7 +5570,7 @@
    ]
   },
   {
-   "id": "w0134",
+   "id": "w0180",
    "artist": "philippe-benoist",
    "title": "La Bourse : [estampe]",
    "series": null,
@@ -4374,7 +5592,7 @@
    ]
   },
   {
-   "id": "w0135",
+   "id": "w0181",
    "artist": "philippe-benoist",
    "title": "Cadix: Almada de Cadix, prise dès la rue du Quartier de la Marine / Juan B. Coli dibujo en Cadiz ; imprimé par Auguste Bry ; Ph. Benoist lith.",
    "series": null,
@@ -4396,7 +5614,7 @@
    ]
   },
   {
-   "id": "w0136",
+   "id": "w0182",
    "artist": "philippe-benoist",
    "title": "Cadix: Almada de Cadix, prise dès la rue du Quartier de la Marine / Juan B. Coli dibujo en Cadiz ; imprimé par Auguste Bry ; Ph. Benoist lith.",
    "series": null,
@@ -4418,7 +5636,7 @@
    ]
   },
   {
-   "id": "w0137",
+   "id": "w0183",
    "artist": "philippe-benoist",
    "title": "Cadix: vue de l'Observatoire et de la Tour haute de la ville de St. Ferdinand / Juan B. Coli dibujo en Sn. Fernando ; imprimé par Auguste Bry ; Ph. Benoist lith",
    "series": null,
@@ -4440,7 +5658,7 @@
    ]
   },
   {
-   "id": "w0138",
+   "id": "w0184",
    "artist": "philippe-benoist",
    "title": "Cadix : vue du salon de Christine à Cadix pris des son entrée par la Alameda = Cádiz : vista del salón de Cristina de Cadiz tomado desde su entrada por la Alameda",
    "series": null,
@@ -4462,7 +5680,7 @@
    ]
   },
   {
-   "id": "w0139",
+   "id": "w0185",
    "artist": "philippe-benoist",
    "title": "Cadix: vue de l'Observatoire et de la Tour haute de la ville de St. Ferdinand / Juan B. Coli dibujo en Sn. Fernando ; imprimé par Auguste Bry ; Ph. Benoist lith",
    "series": null,
@@ -4484,7 +5702,7 @@
    ]
   },
   {
-   "id": "w0140",
+   "id": "w0186",
    "artist": "philippe-benoist",
    "title": "Cadix : vue du salon de Christine à Cadix pris des son entrée par la Alameda = Cádiz : vista del salón de Cristina de Cadiz tomado desde su entrada por la Alameda",
    "series": null,
@@ -4506,7 +5724,7 @@
    ]
   },
   {
-   "id": "w0141",
+   "id": "w0187",
    "artist": "philippe-benoist",
    "title": "Caen. [Vue de la tour des Gens-d'Armes] [dessin]",
    "series": null,
@@ -4540,7 +5758,7 @@
    ]
   },
   {
-   "id": "w0142",
+   "id": "w0188",
    "artist": "philippe-benoist",
    "title": "Le caïd (1er acte) [estampe]",
    "series": null,
@@ -4568,7 +5786,7 @@
    ]
   },
   {
-   "id": "w0143",
+   "id": "w0189",
    "artist": "philippe-benoist",
    "title": "CAPILLA DE LA PRESENTACION : Catedral de Burgos = CHAPELLE DE LA PRÉSENTATION : Cathédrale de Burgos [Material gráfico]",
    "series": null,
@@ -4590,7 +5808,7 @@
    ]
   },
   {
-   "id": "w0144",
+   "id": "w0190",
    "artist": "philippe-benoist",
    "title": "CAPILLA DE LA PRESENTACION : Catedral de Burgos = CHAPELLE DE LA PRÉSENTATION : Cathédrale de Burgos [Material gráfico]",
    "series": null,
@@ -4612,7 +5830,7 @@
    ]
   },
   {
-   "id": "w0145",
+   "id": "w0191",
    "artist": "philippe-benoist",
    "title": "Carol de Secondat Baro de Montesquieu",
    "series": null,
@@ -4634,7 +5852,7 @@
    ]
   },
   {
-   "id": "w0146",
+   "id": "w0192",
    "artist": "philippe-benoist",
    "title": "Carol. de Secondat baron de Montesquieu. // Nat. 18° die Januar. an. 1689. obiit 10° die Febr. an. 1755. : [estampe] ([État décrit dans l'Inventaire du fonds français, graveurs du XVIIIe siècle]) / Dessiné et Gravé sur la Médaille de Dassier Par G. Ph. Benoist.",
    "series": null,
@@ -4656,7 +5874,7 @@
    ]
   },
   {
-   "id": "w0147",
+   "id": "w0193",
    "artist": "philippe-benoist",
    "title": "Carol. de Secondat baron de Montesquieu. // Nat. 18° die Januar. an. 1689. obiit 10° die Febr. an. 1755. : [estampe] ([État décrit dans l'Inventaire du fonds français, graveurs du XVIIIe siècle]) / Dessiné et Gravé sur la Médaille de Dassier Par G. Ph. Benoist.",
    "series": null,
@@ -4678,7 +5896,7 @@
    ]
   },
   {
-   "id": "w0148",
+   "id": "w0194",
    "artist": "philippe-benoist",
    "title": "Cathédrale de Bayeux. Motifs en bas-reliefs qui séparent les plein-cintres de la nef. Clef de voute d'une porte située dans la partie septentrionale appelée porte d'Artenay [dessin]",
    "series": null,
@@ -4706,7 +5924,7 @@
    ]
   },
   {
-   "id": "w0149",
+   "id": "w0195",
    "artist": "philippe-benoist",
    "title": "Cathédrale de Bayeux. [Vue intérieure de la cathédrale] [dessin]",
    "series": null,
@@ -4734,7 +5952,7 @@
    ]
   },
   {
-   "id": "w0150",
+   "id": "w0196",
    "artist": "philippe-benoist",
    "title": "Cathédrale de Bayeux. Motifs en bas-reliefs qui séparent les plein-cintres de la nef. Clef de voute d'une porte située dans la partie septentrionale appelée porte d'Artenay : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -4756,7 +5974,7 @@
    ]
   },
   {
-   "id": "w0151",
+   "id": "w0197",
    "artist": "philippe-benoist",
    "title": "Cathédrale de Bayeux. [Vue intérieure de la cathédrale] : [dessin] / [Philippe Benoist ?]",
    "series": null,
@@ -4778,7 +5996,7 @@
    ]
   },
   {
-   "id": "w0152",
+   "id": "w0198",
    "artist": "philippe-benoist",
    "title": "Chambre des députés Vue prise de la Place de la Concorde : [estampe]",
    "series": null,
@@ -4800,7 +6018,7 @@
    ]
   },
   {
-   "id": "w0153",
+   "id": "w0199",
    "artist": "philippe-benoist",
    "title": "Champ de bataille de l'Alma après la Victoire (20 sept. 1854) : [estampe]",
    "series": null,
@@ -4822,7 +6040,7 @@
    ]
   },
   {
-   "id": "w0154",
+   "id": "w0200",
    "artist": "philippe-benoist",
    "title": "Chapelle du Saint Esprit à Rue près Abbeville : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -4844,7 +6062,7 @@
    ]
   },
   {
-   "id": "w0155",
+   "id": "w0201",
    "artist": "philippe-benoist",
    "title": "Chapelle du Saint Esprit à Rue près Abbeville [dessin]",
    "series": null,
@@ -4872,7 +6090,7 @@
    ]
   },
   {
-   "id": "w0156",
+   "id": "w0202",
    "artist": "philippe-benoist",
    "title": "Chateau des Tuileries, côté du carrousel Palace of the Tuileries, side of the carrousel /",
    "series": null,
@@ -4894,7 +6112,29 @@
    ]
   },
   {
-   "id": "w0157",
+   "id": "w0203",
+   "artist": "philippe-benoist",
+   "title": "Chateau des Tuileries / Côté du Carrousel",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/chateau-des-tuileries-cote-du-carrousel",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0204",
    "artist": "philippe-benoist",
    "title": "Château des Tuileries",
    "series": null,
@@ -4916,7 +6156,7 @@
    ]
   },
   {
-   "id": "w0158",
+   "id": "w0205",
    "artist": "philippe-benoist",
    "title": "Le Château d'Eau : Marché aux Fleurs [estampe]",
    "series": "[Topographie de Paris. 10ème arrondissement. 39ème quartier]. Rues",
@@ -4938,7 +6178,7 @@
    ]
   },
   {
-   "id": "w0159",
+   "id": "w0206",
    "artist": "philippe-benoist",
    "title": "Château de Fontainebleau. Cour de la Fontaine et Étang aux Carpes : [estampe]",
    "series": null,
@@ -4960,7 +6200,7 @@
    ]
   },
   {
-   "id": "w0160",
+   "id": "w0207",
    "artist": "philippe-benoist",
    "title": "Château de Fontainebleau Cour principale ou Cour des Adieux : [estampe]",
    "series": null,
@@ -4982,7 +6222,7 @@
    ]
   },
   {
-   "id": "w0161",
+   "id": "w0208",
    "artist": "philippe-benoist",
    "title": "Château des Tuileries, Côté du Carrousel : [estampe]",
    "series": null,
@@ -5004,7 +6244,7 @@
    ]
   },
   {
-   "id": "w0162",
+   "id": "w0209",
    "artist": "philippe-benoist",
    "title": "Château de Versailles Façade sur le parc : [estampe]",
    "series": null,
@@ -5026,7 +6266,7 @@
    ]
   },
   {
-   "id": "w0163",
+   "id": "w0210",
    "artist": "philippe-benoist",
    "title": "Château de Versailles : [estampe]",
    "series": null,
@@ -5048,7 +6288,7 @@
    ]
   },
   {
-   "id": "w0164",
+   "id": "w0211",
    "artist": "philippe-benoist",
    "title": "Le ciel notions élémentaires d'astronomie physique",
    "series": null,
@@ -5070,7 +6310,7 @@
    ]
   },
   {
-   "id": "w0165",
+   "id": "w0212",
    "artist": "philippe-benoist",
    "title": "Cirque de l'Impératrice aux Champs Élysées : [estampe]",
    "series": null,
@@ -5092,7 +6332,7 @@
    ]
   },
   {
-   "id": "w0166",
+   "id": "w0213",
    "artist": "philippe-benoist",
    "title": "CLAUSTRILLA DE LAS HUELGAS : en Burgos = CLOTTRE APPELÉ LA CLAUSTRILLA : dans l'interieur du Monastere de las Huelgas à Burgos [Material gráfico]",
    "series": null,
@@ -5114,7 +6354,7 @@
    ]
   },
   {
-   "id": "w0167",
+   "id": "w0214",
    "artist": "philippe-benoist",
    "title": "CLAUSTRILLA DE LAS HUELGAS : en Burgos = CLOTTRE APPELÉ LA CLAUSTRILLA : dans l'interieur du Monastere de las Huelgas à Burgos [Material gráfico]",
    "series": null,
@@ -5136,7 +6376,7 @@
    ]
   },
   {
-   "id": "w0168",
+   "id": "w0215",
    "artist": "philippe-benoist",
    "title": "CLAUSTRO DEL COLEGIO DE S. GREGORIO : en Valladolid = CLOÎTRE DU COLLEGE DE S.T GREGOIRE : à Valladolid [Material gráfico]",
    "series": null,
@@ -5158,7 +6398,7 @@
    ]
   },
   {
-   "id": "w0169",
+   "id": "w0216",
    "artist": "philippe-benoist",
    "title": "CLAUSTRO DEL COLEGIO DE S. GREGORIO : en Valladolid = CLOÎTRE DU COLLEGE DE S.T GREGOIRE : à Valladolid [Material gráfico]",
    "series": null,
@@ -5180,7 +6420,7 @@
    ]
   },
   {
-   "id": "w0170",
+   "id": "w0217",
    "artist": "philippe-benoist",
    "title": "CLAUSTRO DEL MONASTERIO DE HUERTA = CLOITRE DU MONASTERE DE HUERTA [Material gráfico]",
    "series": null,
@@ -5202,7 +6442,7 @@
    ]
   },
   {
-   "id": "w0171",
+   "id": "w0218",
    "artist": "philippe-benoist",
    "title": "CLAUSTRO DEL MONASTERIO DE HUERTA = CLOITRE DU MONASTERE DE HUERTA [Material gráfico]",
    "series": null,
@@ -5224,7 +6464,7 @@
    ]
   },
   {
-   "id": "w0172",
+   "id": "w0219",
    "artist": "philippe-benoist",
    "title": "Clôture de l'exposition universelle : distribution des récompenses aux exposants, au palais de l'industrie, (15 novembre 1855) / dess. et grav. par Ph. Benoist et A. Bayot",
    "series": null,
@@ -5246,7 +6486,7 @@
    ]
   },
   {
-   "id": "w0173",
+   "id": "w0220",
    "artist": "philippe-benoist",
    "title": "Clôture de l'exposition universelle distribution des récompenses aux exposants, au palais de l'industrie, (15 novembre 1855)",
    "series": null,
@@ -5274,7 +6514,7 @@
    ]
   },
   {
-   "id": "w0174",
+   "id": "w0221",
    "artist": "philippe-benoist",
    "title": "Clôture de l'exposition universelle Distribution des récompenses au Palais de l'Industrie (15 novembre 1855) : [estampe]",
    "series": null,
@@ -5296,7 +6536,7 @@
    ]
   },
   {
-   "id": "w0175",
+   "id": "w0222",
    "artist": "philippe-benoist",
    "title": "Colonnade du Louvre",
    "series": null,
@@ -5318,7 +6558,29 @@
    ]
   },
   {
-   "id": "w0176",
+   "id": "w0223",
+   "artist": "philippe-benoist",
+   "title": "Colonne de Juillet. / sur la place de la Bastille.",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": "G.52999",
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0224",
    "artist": "philippe-benoist",
    "title": "Colonne de Juillet",
    "series": null,
@@ -5340,7 +6602,7 @@
    ]
   },
   {
-   "id": "w0177",
+   "id": "w0225",
    "artist": "philippe-benoist",
    "title": "Colonne de la Grande Armée Place Vendôme et rue de Castiglione : [estampe]",
    "series": null,
@@ -5362,7 +6624,7 @@
    ]
   },
   {
-   "id": "w0178",
+   "id": "w0226",
    "artist": "philippe-benoist",
    "title": "Colonne de Juillet, sur la Place de la Bastille : [estampe]",
    "series": null,
@@ -5384,7 +6646,7 @@
    ]
   },
   {
-   "id": "w0179",
+   "id": "w0227",
    "artist": "philippe-benoist",
    "title": "Colonne de la Place Vendôme... Colomn [sic] of the Place Vendôme : [estampe]",
    "series": null,
@@ -5406,7 +6668,7 @@
    ]
   },
   {
-   "id": "w0180",
+   "id": "w0228",
    "artist": "philippe-benoist",
    "title": "Colonne de la place Vendôme : [estampe]",
    "series": null,
@@ -5428,7 +6690,7 @@
    ]
   },
   {
-   "id": "w0181",
+   "id": "w0229",
    "artist": "philippe-benoist",
    "title": "Les comètes",
    "series": null,
@@ -5450,7 +6712,7 @@
    ]
   },
   {
-   "id": "w0182",
+   "id": "w0230",
    "artist": "philippe-benoist",
    "title": "Cour d'Honneur",
    "series": null,
@@ -5472,7 +6734,29 @@
    ]
   },
   {
-   "id": "w0183",
+   "id": "w0231",
+   "artist": "philippe-benoist",
+   "title": "Paris dans sa splendeur. // Cour du Louvre.",
+   "series": "Paris dans sa splendeur",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-cour-du-louvre",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0232",
    "artist": "philippe-benoist",
    "title": "La Crimée a vol d'oiseau / dessinée et lithogr. par Ph. Benoist et Eug. Cicéri.",
    "series": null,
@@ -5494,7 +6778,7 @@
    ]
   },
   {
-   "id": "w0184",
+   "id": "w0233",
    "artist": "philippe-benoist",
    "title": "Das Münster zu Freiburg, Südliche Seiten-Ansicht - Cathédrale de Fribourg (Coté latéral Méridional)",
    "series": null,
@@ -5516,7 +6800,7 @@
    ]
   },
   {
-   "id": "w0185",
+   "id": "w0234",
    "artist": "philippe-benoist",
    "title": "Das Münster zu Freiburg, Südliche Seiten-Ansicht - Cathédrale de Fribourg (Coté latéral Méridional)",
    "series": null,
@@ -5538,7 +6822,7 @@
    ]
   },
   {
-   "id": "w0186",
+   "id": "w0235",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre. N°7, La Juive (1er acte) : [estampe] / composé par Feuchère, Séchan, Diéterle et Despléchin ; lith. par Eug. Cicéri, Ph. Benoist et Gaildrau",
    "series": null,
@@ -5560,7 +6844,7 @@
    ]
   },
   {
-   "id": "w0187",
+   "id": "w0236",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre, Robert le diable, 3e acte : [estampe] / composé par Cicéri ; lith. par Eug. Cicéri, Ph. Benoist et Bayot",
    "series": null,
@@ -5582,7 +6866,7 @@
    ]
   },
   {
-   "id": "w0188",
+   "id": "w0237",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre : La Juive (1er acte) [estampe]",
    "series": null,
@@ -5604,7 +6888,7 @@
    ]
   },
   {
-   "id": "w0189",
+   "id": "w0238",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre. N°7, La Juive (1er acte) : [estampe] / composé par Feuchère, Séchan, Diéterle et Despléchin ; lith. par Eug. Cicéri, Ph. Benoist et Gaildrau",
    "series": null,
@@ -5626,7 +6910,7 @@
    ]
   },
   {
-   "id": "w0190",
+   "id": "w0239",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre, Robert le diable, 3e acte [estampe]",
    "series": null,
@@ -5654,7 +6938,29 @@
    ]
   },
   {
-   "id": "w0191",
+   "id": "w0240",
+   "artist": "philippe-benoist",
+   "title": "Départ de S.A. la Reine d'Angleterre de Paris le 27 août 1855.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/depart-de-sa-la-reine-d-angleterre-de-paris-le-27-aout-1855",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0241",
    "artist": "philippe-benoist",
    "title": "Départ de S. M. la reine d'Angleterre de Paris le 27 Août 1855 : [estampe]",
    "series": null,
@@ -5676,7 +6982,7 @@
    ]
   },
   {
-   "id": "w0192",
+   "id": "w0242",
    "artist": "philippe-benoist",
    "title": "Départ de S. M. la reine d'Angleterre de Paris le 27 Août 1855 [estampe]",
    "series": "[Recueil. Collection de Vinck. Un siècle d'histoire de France par l'estampe, 1770-1870. Vol. 158 (pièces 18946-19052), Second Empire]",
@@ -5698,7 +7004,7 @@
    ]
   },
   {
-   "id": "w0193",
+   "id": "w0243",
    "artist": "philippe-benoist",
    "title": "Départ de S. M. la reine d'Angleterre de Paris le 27 Août 1855 : [estampe]",
    "series": null,
@@ -5720,7 +7026,29 @@
    ]
   },
   {
-   "id": "w0194",
+   "id": "w0244",
+   "artist": "philippe-benoist",
+   "title": "Promenade dans Paris et ses environs / dessinée d'après nature et lithographiée par Jacottet et Benoist",
+   "series": "Promenade dans Paris et ses environs",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/promenade-dans-paris-et-ses-environs-dessinee-d-apres-nature-et",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0245",
    "artist": "philippe-benoist",
    "title": "Détail du tombeau des Cardinaux d'Amboise. C.le de rouen. [Statue de la Justice] : [dessin] / [Philippe Benoist ?]",
    "series": null,
@@ -5742,7 +7070,7 @@
    ]
   },
   {
-   "id": "w0195",
+   "id": "w0246",
    "artist": "philippe-benoist",
    "title": "Détail du tombeau des Cardinaux d'Amboise. C.le de rouen. [Statue de la Justice] [dessin]",
    "series": null,
@@ -5770,7 +7098,7 @@
    ]
   },
   {
-   "id": "w0196",
+   "id": "w0247",
    "artist": "philippe-benoist",
    "title": "DETALLES DEL CLAUSTRO DEL COLEGIO DE S GREGORIO : en Valladolid = DÉTAILS DU CLOÍTRE DU COLLEGE DE ST GREGOIRE [Material gráfico]",
    "series": null,
@@ -5792,7 +7120,7 @@
    ]
   },
   {
-   "id": "w0197",
+   "id": "w0248",
    "artist": "philippe-benoist",
    "title": "DETALLES DEL CLAUSTRO DEL COLEGIO DE S GREGORIO : en Valladolid = DÉTAILS DU CLOÍTRE DU COLLEGE DE ST GREGOIRE [Material gráfico]",
    "series": null,
@@ -5814,7 +7142,29 @@
    ]
   },
   {
-   "id": "w0198",
+   "id": "w0249",
+   "artist": "philippe-benoist",
+   "title": "Distribution des récompenses aux Exposants au Palais de l'Industrie (15 Novembre 1855).",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": "QB.800",
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/distribution-des-recompenses-aux-exposants-au-palais-de-l-industrie-15",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0250",
    "artist": "philippe-benoist",
    "title": "Ecole militaire. Façade sur la Place de Fontenoy.",
    "series": "Paris dans sa splendeur",
@@ -5836,7 +7186,7 @@
    ]
   },
   {
-   "id": "w0199",
+   "id": "w0251",
    "artist": "philippe-benoist",
    "title": "École militaire Façade sur la Place de Fontenoy : [estampe]",
    "series": null,
@@ -5858,7 +7208,7 @@
    ]
   },
   {
-   "id": "w0200",
+   "id": "w0252",
    "artist": "philippe-benoist",
    "title": "Ecole normale de gymnastique, Ile de Billancourt [estampe]",
    "series": null,
@@ -5880,7 +7230,7 @@
    ]
   },
   {
-   "id": "w0201",
+   "id": "w0253",
    "artist": "philippe-benoist",
    "title": "Eglise de l'abbaye de St Riquier, près Abbeville [dessin]",
    "series": null,
@@ -5908,7 +7258,7 @@
    ]
   },
   {
-   "id": "w0202",
+   "id": "w0254",
    "artist": "philippe-benoist",
    "title": "Eglise de l'abbaye de St Riquier, près Abbeville : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -5930,7 +7280,7 @@
    ]
   },
   {
-   "id": "w0203",
+   "id": "w0255",
    "artist": "philippe-benoist",
    "title": "Eglise de St Quentin XV S. [Couronnement du Maître autel des fonts baptismaux de la Cathédrale de Saint-Quentin] : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -5952,7 +7302,7 @@
    ]
   },
   {
-   "id": "w0204",
+   "id": "w0256",
    "artist": "philippe-benoist",
    "title": "Église de la Madeleine : [estampe]",
    "series": null,
@@ -5974,7 +7324,7 @@
    ]
   },
   {
-   "id": "w0205",
+   "id": "w0257",
    "artist": "philippe-benoist",
    "title": "Eglise St. Etienne à Elbeuf",
    "series": null,
@@ -5996,7 +7346,7 @@
    ]
   },
   {
-   "id": "w0206",
+   "id": "w0258",
    "artist": "philippe-benoist",
    "title": "Église St. Étienne-du-Mont",
    "series": null,
@@ -6018,7 +7368,7 @@
    ]
   },
   {
-   "id": "w0207",
+   "id": "w0259",
    "artist": "philippe-benoist",
    "title": "Eglise St. Etienne à Elbeuf",
    "series": null,
@@ -6040,7 +7390,7 @@
    ]
   },
   {
-   "id": "w0208",
+   "id": "w0260",
    "artist": "philippe-benoist",
    "title": "Eglise St. Pierre et St. Paul, à Neuviller (Sépulcre transféré de l'é glise St. Adolphe)",
    "series": null,
@@ -6062,7 +7412,7 @@
    ]
   },
   {
-   "id": "w0209",
+   "id": "w0261",
    "artist": "philippe-benoist",
    "title": "Eglise de St Quentin XV S. [Couronnement du Maître autel des fonts baptismaux de la Cathédrale de Saint-Quentin] [dessin]",
    "series": null,
@@ -6090,7 +7440,29 @@
    ]
   },
   {
-   "id": "w0210",
+   "id": "w0262",
+   "artist": "philippe-benoist",
+   "title": "Paris dans sa splendeur// Eglise St Sulpice et fontaine de la place St Sulpice",
+   "series": "Paris dans sa splendeur",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": "G.38596",
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-eglise-st-sulpice-et-fontaine-de-la-place-st",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0263",
    "artist": "philippe-benoist",
    "title": "ESCALERA DEL HOSPITAL DE STA. CRUZ en Toledo = ESCALIER DE L'HOPITAL DIT DE STE. CROIX à Tolède / G. Pérez de Villa-Amil dibujó ; Lit. par Benoist.",
    "series": "Espana artistica y monumental",
@@ -6118,7 +7490,7 @@
    ]
   },
   {
-   "id": "w0211",
+   "id": "w0264",
    "artist": "philippe-benoist",
    "title": "ESCALERA DEL HOSPITAL DE STA CRUZ = ESCALIER DE L'HOPITAL DIT DE STE CROIX à Tolède [Material gráfico]",
    "series": null,
@@ -6140,7 +7512,7 @@
    ]
   },
   {
-   "id": "w0212",
+   "id": "w0265",
    "artist": "philippe-benoist",
    "title": "ESCALERA DEL HOSPITAL DE STA CRUZ = ESCALIER DE L'HOPITAL DIT DE STE CROIX à Tolède [Material gráfico]",
    "series": null,
@@ -6162,7 +7534,7 @@
    ]
   },
   {
-   "id": "w0213",
+   "id": "w0266",
    "artist": "philippe-benoist",
    "title": "ESCALERA DEL HOSPITAL DE STA. CRUZ en Toledo = ESCALIER DE L'HOPITAL DIT DE STE. CROIX à Tolède / G. Pérez de Villa-Amil dibujó ; Lit. par Benoist.",
    "series": "España artística y monumental",
@@ -6190,7 +7562,7 @@
    ]
   },
   {
-   "id": "w0214",
+   "id": "w0267",
    "artist": "philippe-benoist",
    "title": "España Artística y Monumental",
    "series": "Espana artistica y monumental",
@@ -6212,7 +7584,7 @@
    ]
   },
   {
-   "id": "w0215",
+   "id": "w0268",
    "artist": "philippe-benoist",
    "title": "[Recueil. Cirque de l'Impératrice aux Champs-Elysées. Paris] estampes",
    "series": null,
@@ -6234,7 +7606,29 @@
    ]
   },
   {
-   "id": "w0216",
+   "id": "w0269",
+   "artist": "philippe-benoist",
+   "title": "Vues de Paris / Galerie d'Orléans, au Palais Royal.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": "img/benoist/pm-320290399.jpg",
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-galerie-d-orleans-au-palais-royal",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0270",
    "artist": "philippe-benoist",
    "title": "Gezicht op de Église Saint-Étienne te Elbeuf",
    "series": null,
@@ -6256,7 +7650,7 @@
    ]
   },
   {
-   "id": "w0217",
+   "id": "w0271",
    "artist": "philippe-benoist",
    "title": "Gezicht op de Église Saint-Étienne te Elbeuf",
    "series": null,
@@ -6278,7 +7672,7 @@
    ]
   },
   {
-   "id": "w0218",
+   "id": "w0272",
    "artist": "philippe-benoist",
    "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
    "series": null,
@@ -6312,7 +7706,7 @@
    ]
   },
   {
-   "id": "w0219",
+   "id": "w0273",
    "artist": "philippe-benoist",
    "title": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
    "series": null,
@@ -6340,7 +7734,7 @@
    ]
   },
   {
-   "id": "w0220",
+   "id": "w0274",
    "artist": "philippe-benoist",
    "title": "Grande Salle des Antiques Musée du Louvre : [estampe]",
    "series": null,
@@ -6362,7 +7756,7 @@
    ]
   },
   {
-   "id": "w0221",
+   "id": "w0275",
    "artist": "philippe-benoist",
    "title": "Grande salle du Palais de la Ziza près de Palerme [estampe]",
    "series": "\"Essai sur l'architecture des Arabes et des Mores en Espagne, en Sicile et en Barbarie\"",
@@ -6384,7 +7778,35 @@
    ]
   },
   {
-   "id": "w0222",
+   "id": "w0276",
+   "artist": "philippe-benoist",
+   "title": "Paris dans sa splendeur. - Histoire. / Grand carrousel sous Louis XIV, (5 et 6 juin 1662) / d'après une gravure de cette époque",
+   "series": "Paris dans sa splendeur",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": "G.43027",
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-histoire-grand-carrousel-sous-louis-xiv-5-et-6-juin",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": "G.43028",
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-histoire-grand-carrousel-sous-louis-xiv-5-et-6-0",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0277",
    "artist": "philippe-benoist",
    "title": "Hôtel de ville de Bruxelles",
    "series": null,
@@ -6406,7 +7828,7 @@
    ]
   },
   {
-   "id": "w0223",
+   "id": "w0278",
    "artist": "philippe-benoist",
    "title": "Hôtel de Ville",
    "series": null,
@@ -6428,7 +7850,7 @@
    ]
   },
   {
-   "id": "w0224",
+   "id": "w0279",
    "artist": "philippe-benoist",
    "title": "\"Hôtel de Ville Église Saint-Gervais et Pont d'Arcole\"., 55. - : [estampe]",
    "series": null,
@@ -6450,7 +7872,7 @@
    ]
   },
   {
-   "id": "w0225",
+   "id": "w0280",
    "artist": "philippe-benoist",
    "title": "IGLESIA COLEGIAL DE TORO = ÉGLISE COLLEGIALE A TORO [Material gráfico]",
    "series": null,
@@ -6472,7 +7894,7 @@
    ]
   },
   {
-   "id": "w0226",
+   "id": "w0281",
    "artist": "philippe-benoist",
    "title": "IGLESIA COLEGIAL DE TORO = ÉGLISE COLLEGIALE A TORO [Material gráfico]",
    "series": null,
@@ -6494,7 +7916,7 @@
    ]
   },
   {
-   "id": "w0227",
+   "id": "w0282",
    "artist": "philippe-benoist",
    "title": "Innere Ansicht des Münsters zu Freiburg (Seiteneingang) - Intérieur de la Cathédrale de Fribourg (bas cotés)",
    "series": null,
@@ -6516,7 +7938,7 @@
    ]
   },
   {
-   "id": "w0228",
+   "id": "w0283",
    "artist": "philippe-benoist",
    "title": "Innere Ansicht des Münsters zu Freiburg (Seiteneingang) - Intérieur de la Cathédrale de Fribourg (bas cotés)",
    "series": null,
@@ -6538,7 +7960,35 @@
    ]
   },
   {
-   "id": "w0229",
+   "id": "w0284",
+   "artist": "philippe-benoist",
+   "title": "Intérieur de La Madeleine. / Interior of the Church of he Madeleine // Vues de Paris. / (42.) / Views of Paris.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-la-madeleine-interior-of-the-church-of-he-madeleine-vues-de",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-la-madeleine-interior-of-the-church-of-he-madeleine-vues-de-0",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0285",
    "artist": "philippe-benoist",
    "title": "INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
    "series": "Espana artistica y monumental",
@@ -6572,7 +8022,7 @@
    ]
   },
   {
-   "id": "w0230",
+   "id": "w0286",
    "artist": "philippe-benoist",
    "title": "INTERIOR DE SAN JUAN DE LOS REYES : en Toledo = VUE INTÉRIEURE DE SAINT JEAN DES ROIS : à Tolède [Material gráfico]",
    "series": null,
@@ -6594,7 +8044,7 @@
    ]
   },
   {
-   "id": "w0231",
+   "id": "w0287",
    "artist": "philippe-benoist",
    "title": "INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
    "series": "España artística y monumental",
@@ -6628,7 +8078,7 @@
    ]
   },
   {
-   "id": "w0232",
+   "id": "w0288",
    "artist": "philippe-benoist",
    "title": "INTERIOR DE SAN JUAN DE LOS REYES : en Toledo = VUE INTÉRIEURE DE SAINT JEAN DES ROIS : à Tolède [Material gráfico]",
    "series": null,
@@ -6650,7 +8100,7 @@
    ]
   },
   {
-   "id": "w0233",
+   "id": "w0289",
    "artist": "philippe-benoist",
    "title": "Les Invalides Façade principale du côté de l'Esplanade : [estampe]",
    "series": null,
@@ -6672,7 +8122,7 @@
    ]
   },
   {
-   "id": "w0234",
+   "id": "w0290",
    "artist": "philippe-benoist",
    "title": "Les Invalides Intérieur du Dôme - Tombeau de Napoléon 1.er : [estampe]",
    "series": null,
@@ -6694,7 +8144,7 @@
    ]
   },
   {
-   "id": "w0235",
+   "id": "w0291",
    "artist": "philippe-benoist",
    "title": "Les Invalides Vue prise de la place Vauban : [estampe]",
    "series": null,
@@ -6716,7 +8166,7 @@
    ]
   },
   {
-   "id": "w0236",
+   "id": "w0292",
    "artist": "philippe-benoist",
    "title": "L'Italie monumentale & artistique vues et monuments",
    "series": null,
@@ -6738,7 +8188,7 @@
    ]
   },
   {
-   "id": "w0237",
+   "id": "w0293",
    "artist": "philippe-benoist",
    "title": "Jardin du Palais Royal",
    "series": null,
@@ -6760,7 +8210,7 @@
    ]
   },
   {
-   "id": "w0238",
+   "id": "w0294",
    "artist": "philippe-benoist",
    "title": "Jean Philippe Rameau. Lichtdruck nach einem seitenverkehrten Kupferstich (unter Verwendung des Medaillons aus einem Kupferstiches von Guillaume Ph. Benoist nach Jean Restout d. J.)",
    "series": null,
@@ -6782,7 +8232,7 @@
    ]
   },
   {
-   "id": "w0239",
+   "id": "w0295",
    "artist": "philippe-benoist",
    "title": "Jean Philippe Rameau. Lichtdruck nach einem seitenverkehrten Kupferstich (unter Verwendung des Medaillons aus einem Kupferstiches von Guillaume Ph. Benoist nach Jean Restout d. J.)",
    "series": null,
@@ -6804,7 +8254,7 @@
    ]
   },
   {
-   "id": "w0240",
+   "id": "w0296",
    "artist": "philippe-benoist",
    "title": "L'art arabe d'après les monuments du Kaire depuis le VIIe siècle jusqu'la fin du XVIIIe, premier volume",
    "series": null,
@@ -6826,7 +8276,7 @@
    ]
   },
   {
-   "id": "w0241",
+   "id": "w0297",
    "artist": "philippe-benoist",
    "title": "L'Italie monumentale & artistique vues et monuments",
    "series": null,
@@ -6848,7 +8298,7 @@
    ]
   },
   {
-   "id": "w0242",
+   "id": "w0298",
    "artist": "philippe-benoist",
    "title": "La Crimée a vol d'oiseau / dessinée et lithogr. par Ph. Benoist et Eug. Cicéri.",
    "series": null,
@@ -6870,7 +8320,51 @@
    ]
   },
   {
-   "id": "w0243",
+   "id": "w0299",
+   "artist": "philippe-benoist",
+   "title": "La Halle et la fontaine des innocents.",
+   "series": "Vues de Paris",
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Maison de Balzac",
+     "accession": "BAL 478",
+     "url": "https://www.parismuseescollections.paris.fr/fr/maison-de-balzac/oeuvres/la-halle-et-la-fontaine-des-innocents",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0300",
+   "artist": "philippe-benoist",
+   "title": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-madeleine-the-madeleine-church-vues-de-paris-6-views-of-paris-0",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0301",
    "artist": "philippe-benoist",
    "title": "La Madeleine",
    "series": null,
@@ -6892,7 +8386,7 @@
    ]
   },
   {
-   "id": "w0244",
+   "id": "w0302",
    "artist": "philippe-benoist",
    "title": "La sainte Chapelle de Paris, Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849) : [estampe]",
    "series": null,
@@ -6914,7 +8408,35 @@
    ]
   },
   {
-   "id": "w0245",
+   "id": "w0303",
+   "artist": "philippe-benoist",
+   "title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 2,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-de",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-0",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0304",
    "artist": "philippe-benoist",
    "title": "Le caïd (1er acte) : [estampe] / composé par Nolan [sic] et Rubé ; Lith. par Eug. Cicéri, Ph. Benoist et Bayot",
    "series": null,
@@ -6936,7 +8458,7 @@
    ]
   },
   {
-   "id": "w0246",
+   "id": "w0305",
    "artist": "philippe-benoist",
    "title": "Le Panthéon",
    "series": null,
@@ -6958,7 +8480,7 @@
    ]
   },
   {
-   "id": "w0247",
+   "id": "w0306",
    "artist": "philippe-benoist",
    "title": "Le Val-de-Grâce",
    "series": null,
@@ -6980,7 +8502,7 @@
    ]
   },
   {
-   "id": "w0248",
+   "id": "w0307",
    "artist": "philippe-benoist",
    "title": "Les comètes",
    "series": null,
@@ -7002,7 +8524,51 @@
    ]
   },
   {
-   "id": "w0249",
+   "id": "w0308",
+   "artist": "philippe-benoist",
+   "title": "Les grands aspects du nouveau Paris. // Hôtel-de-Ville / Préfecture de la Seine - Vue prise de la rue de Rivoli.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-hotel-de-ville-prefecture-de-la-seine",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0309",
+   "artist": "philippe-benoist",
+   "title": "Les ruines de Paris 1871.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-ruines-de-paris-1871",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0310",
    "artist": "philippe-benoist",
    "title": "Livourne : Place d'Armes",
    "series": null,
@@ -7024,7 +8590,7 @@
    ]
   },
   {
-   "id": "w0250",
+   "id": "w0311",
    "artist": "philippe-benoist",
    "title": "Livourne : Place d'Armes",
    "series": null,
@@ -7046,7 +8612,7 @@
    ]
   },
   {
-   "id": "w0251",
+   "id": "w0312",
    "artist": "philippe-benoist",
    "title": "Le Louvre Nouvelle Façade sur la rue de Rivoli : [estampe]",
    "series": null,
@@ -7068,7 +8634,7 @@
    ]
   },
   {
-   "id": "w0252",
+   "id": "w0313",
    "artist": "philippe-benoist",
    "title": "Le Louvre et la Seine Vue prise du Pont-Neuf : [estampe]",
    "series": null,
@@ -7090,7 +8656,7 @@
    ]
   },
   {
-   "id": "w0253",
+   "id": "w0314",
    "artist": "philippe-benoist",
    "title": "La Madeleine. Intérieur : [estampe]",
    "series": null,
@@ -7112,7 +8678,7 @@
    ]
   },
   {
-   "id": "w0254",
+   "id": "w0315",
    "artist": "philippe-benoist",
    "title": "Maison d'habitation",
    "series": null,
@@ -7134,7 +8700,7 @@
    ]
   },
   {
-   "id": "w0255",
+   "id": "w0316",
    "artist": "philippe-benoist",
    "title": "Les maisons sculptées a Saverne",
    "series": null,
@@ -7156,7 +8722,7 @@
    ]
   },
   {
-   "id": "w0256",
+   "id": "w0317",
    "artist": "philippe-benoist",
    "title": "Marché du temple (1840)",
    "series": "Paris à travers les âges",
@@ -7178,7 +8744,7 @@
    ]
   },
   {
-   "id": "w0257",
+   "id": "w0318",
    "artist": "philippe-benoist",
    "title": "Micaela : atto 1.",
    "series": null,
@@ -7218,7 +8784,7 @@
    ]
   },
   {
-   "id": "w0258",
+   "id": "w0319",
    "artist": "philippe-benoist",
    "title": "Mosquées et minarets a [sic] Tunis, Alger, et, Bone [estampe]",
    "series": "\"Essai sur l'architecture des Arabes et des Mores en Espagne, en Sicile et en Barbarie\"",
@@ -7240,7 +8806,7 @@
    ]
   },
   {
-   "id": "w0259",
+   "id": "w0320",
    "artist": "philippe-benoist",
    "title": "Naples. Palais du roi",
    "series": null,
@@ -7262,7 +8828,7 @@
    ]
   },
   {
-   "id": "w0260",
+   "id": "w0321",
    "artist": "philippe-benoist",
    "title": "Napoli : Teatro San Carlo",
    "series": null,
@@ -7290,7 +8856,7 @@
    ]
   },
   {
-   "id": "w0261",
+   "id": "w0322",
    "artist": "philippe-benoist",
    "title": "Notre-Dame (1881)",
    "series": "Paris à travers les âges",
@@ -7312,7 +8878,7 @@
    ]
   },
   {
-   "id": "w0262",
+   "id": "w0323",
    "artist": "philippe-benoist",
    "title": "Notre-Dame, Cathédrale de Paris",
    "series": null,
@@ -7334,7 +8900,7 @@
    ]
   },
   {
-   "id": "w0263",
+   "id": "w0324",
    "artist": "philippe-benoist",
    "title": "Le nouveau Louvre. Vue prise du Palais des Tuileries : [estampe]",
    "series": null,
@@ -7356,7 +8922,7 @@
    ]
   },
   {
-   "id": "w0264",
+   "id": "w0325",
    "artist": "philippe-benoist",
    "title": "\"Nouveau pavillon de Flore et Nouvelle Galerie du Bord de l'eau avant l'incendie\".. Fig. par le Ph. Benoist : [estampe]",
    "series": null,
@@ -7378,7 +8944,7 @@
    ]
   },
   {
-   "id": "w0265",
+   "id": "w0326",
    "artist": "philippe-benoist",
    "title": "\"Nouveau pavillon de Flore et Nouvelle Galerie du Bord de l'eau avant l'incendie\".. Fig. par le Ph. Benoist : [estampe]",
    "series": null,
@@ -7400,7 +8966,7 @@
    ]
   },
   {
-   "id": "w0266",
+   "id": "w0327",
    "artist": "philippe-benoist",
    "title": "Nouvelles vues de Paris. par Ph. Benoist et J. Jacottet",
    "series": null,
@@ -7422,7 +8988,7 @@
    ]
   },
   {
-   "id": "w0267",
+   "id": "w0328",
    "artist": "philippe-benoist",
    "title": "Nouvelles Vues de Paris",
    "series": null,
@@ -7450,7 +9016,7 @@
    ]
   },
   {
-   "id": "w0268",
+   "id": "w0329",
    "artist": "philippe-benoist",
    "title": "Nouvelles vues de Paris. par Ph. Benoist et J. Jacottet",
    "series": "Vues de Paris",
@@ -7472,7 +9038,7 @@
    ]
   },
   {
-   "id": "w0269",
+   "id": "w0330",
    "artist": "philippe-benoist",
    "title": "Nouvelles vues de Paris",
    "series": "Vues de Paris",
@@ -7500,7 +9066,7 @@
    ]
   },
   {
-   "id": "w0270",
+   "id": "w0331",
    "artist": "philippe-benoist",
    "title": "PALACIO DE LOS DUQUES DEL INFANTADO [Material gráfico] : en Guadalajara = PALAIS DES DUCS DEL INFANTADO : à Guadalajara",
    "series": null,
@@ -7522,7 +9088,7 @@
    ]
   },
   {
-   "id": "w0271",
+   "id": "w0332",
    "artist": "philippe-benoist",
    "title": "PALACIO DE LOS DUQUES DEL INFANTADO [Material gráfico] : en Guadalajara = PALAIS DES DUCS DEL INFANTADO : à Guadalajara",
    "series": null,
@@ -7544,7 +9110,29 @@
    ]
   },
   {
-   "id": "w0272",
+   "id": "w0333",
+   "artist": "philippe-benoist",
+   "title": "Palais de l'Industrie aux Champs Élysées à Paris / Construit, conformément au decret du 8 mars 1853 par M. Viel arch. d'après les plans et dessins de MM. Cendrier arch. Lorentz et Barrault, ingén.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees-a-paris-construit-conformement-au",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0334",
    "artist": "philippe-benoist",
    "title": "Palais de l'Industrie Entrée principale : [estampe]",
    "series": null,
@@ -7566,7 +9154,7 @@
    ]
   },
   {
-   "id": "w0273",
+   "id": "w0335",
    "artist": "philippe-benoist",
    "title": "Palais du Luxembourg : [estampe]",
    "series": null,
@@ -7588,7 +9176,7 @@
    ]
   },
   {
-   "id": "w0274",
+   "id": "w0336",
    "artist": "philippe-benoist",
    "title": "Palais-Royal. Façade du coté [sic] de la Place : [estampe]",
    "series": null,
@@ -7610,7 +9198,7 @@
    ]
   },
   {
-   "id": "w0275",
+   "id": "w0337",
    "artist": "philippe-benoist",
    "title": "Palais des Tuileries façade sur le jardin : [estampe]",
    "series": null,
@@ -7632,7 +9220,7 @@
    ]
   },
   {
-   "id": "w0276",
+   "id": "w0338",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur Band 1",
    "series": "Paris dans sa splendeur",
@@ -7654,7 +9242,7 @@
    ]
   },
   {
-   "id": "w0277",
+   "id": "w0339",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur Band 2",
    "series": "Paris dans sa splendeur",
@@ -7676,7 +9264,7 @@
    ]
   },
   {
-   "id": "w0278",
+   "id": "w0340",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]",
    "series": "Paris dans sa splendeur",
@@ -7698,7 +9286,7 @@
    ]
   },
   {
-   "id": "w0279",
+   "id": "w0341",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Partie 1,Volume 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": "Paris dans sa splendeur",
@@ -7720,7 +9308,7 @@
    ]
   },
   {
-   "id": "w0280",
+   "id": "w0342",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": "Paris dans sa splendeur",
@@ -7742,7 +9330,7 @@
    ]
   },
   {
-   "id": "w0281",
+   "id": "w0343",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 3,Partie 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": "Paris dans sa splendeur",
@@ -7764,7 +9352,7 @@
    ]
   },
   {
-   "id": "w0282",
+   "id": "w0344",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]",
    "series": "Paris dans sa splendeur",
@@ -7786,7 +9374,7 @@
    ]
   },
   {
-   "id": "w0283",
+   "id": "w0345",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Partie 1,Volume 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": "Paris dans sa splendeur",
@@ -7808,7 +9396,7 @@
    ]
   },
   {
-   "id": "w0284",
+   "id": "w0346",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": "Paris dans sa splendeur",
@@ -7830,7 +9418,7 @@
    ]
   },
   {
-   "id": "w0285",
+   "id": "w0347",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 3,Partie 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": "Paris dans sa splendeur",
@@ -7852,7 +9440,7 @@
    ]
   },
   {
-   "id": "w0286",
+   "id": "w0348",
    "artist": "philippe-benoist",
    "title": "Paris dans sa splendeur Monuments, vues, scènes historiques, descriptions et histoire",
    "series": "Paris dans sa splendeur",
@@ -7874,7 +9462,7 @@
    ]
   },
   {
-   "id": "w0287",
+   "id": "w0349",
    "artist": "philippe-benoist",
    "title": "Paris - Eglise Saint Genevieve (Ancien Pantheon), French lithograph, 1861",
    "series": "Paris dans sa splendeur",
@@ -7896,7 +9484,7 @@
    ]
   },
   {
-   "id": "w0288",
+   "id": "w0350",
    "artist": "philippe-benoist",
    "title": "Paris - Fontaine de la Place du Chatelet, French lithograph, 1861",
    "series": "Paris dans sa splendeur",
@@ -7918,7 +9506,7 @@
    ]
   },
   {
-   "id": "w0289",
+   "id": "w0351",
    "artist": "philippe-benoist",
    "title": "Paris. Jardin du Palais Royal",
    "series": null,
@@ -7940,7 +9528,7 @@
    ]
   },
   {
-   "id": "w0290",
+   "id": "w0352",
    "artist": "philippe-benoist",
    "title": "Paris. La Madeleine",
    "series": null,
@@ -7962,7 +9550,7 @@
    ]
   },
   {
-   "id": "w0291",
+   "id": "w0353",
    "artist": "philippe-benoist",
    "title": "Paris - Parc de Monceaux, French lithograph, 1861",
    "series": "Paris dans sa splendeur",
@@ -7984,7 +9572,29 @@
    ]
   },
   {
-   "id": "w0292",
+   "id": "w0354",
+   "artist": "philippe-benoist",
+   "title": "Vues de Paris. / Paris, pris du pont Royal. / Views of Paris. / Paris, from the Royal bridge.",
+   "series": "Vues de Paris",
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-paris-pris-du-pont-royal-views-of-paris-paris-from-the-royal",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0355",
    "artist": "philippe-benoist",
    "title": "Partie supérieure du clocher de Ste Marie du Mont près Carentan [dessin]",
    "series": null,
@@ -8012,7 +9622,7 @@
    ]
   },
   {
-   "id": "w0293",
+   "id": "w0356",
    "artist": "philippe-benoist",
    "title": "Partie supérieure du clocher de Ste Marie du Mont près Carentan : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -8034,7 +9644,7 @@
    ]
   },
   {
-   "id": "w0294",
+   "id": "w0357",
    "artist": "philippe-benoist",
    "title": "\"Pavillon du Louvre - Place Napoléon III\". Le pavillon Denon, Première pl. et page de titre de l'album Paris dans sa splendeur (voir le n° De Vinck 16.355) : [estampe]",
    "series": "Paris dans sa splendeur",
@@ -8056,7 +9666,7 @@
    ]
   },
   {
-   "id": "w0295",
+   "id": "w0358",
    "artist": "philippe-benoist",
    "title": "Petit-pont et la Place du Petit-pont (1830)",
    "series": "Paris à travers les âges",
@@ -8078,7 +9688,7 @@
    ]
   },
   {
-   "id": "w0296",
+   "id": "w0359",
    "artist": "philippe-benoist",
    "title": "Petit salon",
    "series": null,
@@ -8100,7 +9710,7 @@
    ]
   },
   {
-   "id": "w0297",
+   "id": "w0360",
    "artist": "philippe-benoist",
    "title": "Piazza di Monte Cavallo, Rome, Italy. Tinted lithograph by Philippe Benoist",
    "series": "Rome dans sa grandeur",
@@ -8122,7 +9732,7 @@
    ]
   },
   {
-   "id": "w0298",
+   "id": "w0361",
    "artist": "philippe-benoist",
    "title": "Place de la Bastille. Monument de Juillet : [estampe]",
    "series": null,
@@ -8144,7 +9754,7 @@
    ]
   },
   {
-   "id": "w0299",
+   "id": "w0362",
    "artist": "philippe-benoist",
    "title": "Place du Châtelet et Pont au Change. 1876 [estampe]",
    "series": null,
@@ -8166,7 +9776,7 @@
    ]
   },
   {
-   "id": "w0300",
+   "id": "w0363",
    "artist": "philippe-benoist",
    "title": "Place de la Concorde - Place of Concord : [estampe]",
    "series": null,
@@ -8188,7 +9798,7 @@
    ]
   },
   {
-   "id": "w0301",
+   "id": "w0364",
    "artist": "philippe-benoist",
    "title": "Place de la Concorde : [estampe]",
    "series": null,
@@ -8210,7 +9820,7 @@
    ]
   },
   {
-   "id": "w0302",
+   "id": "w0365",
    "artist": "philippe-benoist",
    "title": "Place de la Bastille (1841)",
    "series": "Paris à travers les âges",
@@ -8232,7 +9842,7 @@
    ]
   },
   {
-   "id": "w0303",
+   "id": "w0366",
    "artist": "philippe-benoist",
    "title": "Place de la Bastille (1878)",
    "series": "Paris à travers les âges",
@@ -8254,7 +9864,7 @@
    ]
   },
   {
-   "id": "w0304",
+   "id": "w0367",
    "artist": "philippe-benoist",
    "title": "Place de la Concorde",
    "series": null,
@@ -8276,7 +9886,7 @@
    ]
   },
   {
-   "id": "w0305",
+   "id": "w0368",
    "artist": "philippe-benoist",
    "title": "Place du Châtelet et Pont au Change (1830)",
    "series": "Paris à travers les âges",
@@ -8298,7 +9908,7 @@
    ]
   },
   {
-   "id": "w0306",
+   "id": "w0369",
    "artist": "philippe-benoist",
    "title": "Place du Châtelet et Pont au Change (1876)",
    "series": "Paris à travers les âges",
@@ -8320,7 +9930,7 @@
    ]
   },
   {
-   "id": "w0307",
+   "id": "w0370",
    "artist": "philippe-benoist",
    "title": "Plaza de San Francisco - Estampa",
    "series": null,
@@ -8342,7 +9952,7 @@
    ]
   },
   {
-   "id": "w0308",
+   "id": "w0371",
    "artist": "philippe-benoist",
    "title": "Plaza de San Francisco - Estampa",
    "series": null,
@@ -8364,7 +9974,7 @@
    ]
   },
   {
-   "id": "w0309",
+   "id": "w0372",
    "artist": "philippe-benoist",
    "title": "Portail de la Cathédrale de Senlis [dessin]",
    "series": null,
@@ -8392,7 +10002,7 @@
    ]
   },
   {
-   "id": "w0310",
+   "id": "w0373",
    "artist": "philippe-benoist",
    "title": "Portail de la Cathédrale de Senlis : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -8414,7 +10024,7 @@
    ]
   },
   {
-   "id": "w0311",
+   "id": "w0374",
    "artist": "philippe-benoist",
    "title": "Portail occidental de la Cathédrale Notre-Dame de Paris [estampe]",
    "series": "Le Moyen Age monumental et archéologique",
@@ -8436,7 +10046,7 @@
    ]
   },
   {
-   "id": "w0312",
+   "id": "w0375",
    "artist": "philippe-benoist",
    "title": "Porte et Boulevard Saint Denis : [estampe]",
    "series": null,
@@ -8458,7 +10068,7 @@
    ]
   },
   {
-   "id": "w0313",
+   "id": "w0376",
    "artist": "philippe-benoist",
    "title": "Porte St. Denis",
    "series": null,
@@ -8480,7 +10090,7 @@
    ]
   },
   {
-   "id": "w0314",
+   "id": "w0377",
    "artist": "philippe-benoist",
    "title": "Porträt Jean-Philippe Rameau (1683-1764)",
    "series": null,
@@ -8502,7 +10112,7 @@
    ]
   },
   {
-   "id": "w0315",
+   "id": "w0378",
    "artist": "philippe-benoist",
    "title": "Porträt von Nils Rosen von Rosenstein, mit lateinischsprachiger Titulatur",
    "series": null,
@@ -8524,7 +10134,7 @@
    ]
   },
   {
-   "id": "w0316",
+   "id": "w0379",
    "artist": "philippe-benoist",
    "title": "Procès du coup de pistolet, publié par deux sectionnaires [Louis Bergeron et Philippe-François-Hippolyte Benoist]",
    "series": null,
@@ -8546,7 +10156,7 @@
    ]
   },
   {
-   "id": "w0317",
+   "id": "w0380",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL CLAUSTRO DE LA CATEDRAL : de Burgos = PORTE DU CLOITRE DE LA CATHÉDRALE : de Burgos [Material gráfico]",
    "series": null,
@@ -8568,7 +10178,7 @@
    ]
   },
   {
-   "id": "w0318",
+   "id": "w0381",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL CLAUSTRO DE LA CATEDRAL : de Burgos = PORTE DU CLOITRE DE LA CATHÉDRALE : de Burgos [Material gráfico]",
    "series": null,
@@ -8590,7 +10200,7 @@
    ]
   },
   {
-   "id": "w0319",
+   "id": "w0382",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ en Toledo = PORTE DE L'HOPITAL DE STE. CROIX à Tolède / G. P. Villa Amil dibujó ; Benoist Lith.",
    "series": "Espana artistica y monumental",
@@ -8618,7 +10228,7 @@
    ]
   },
   {
-   "id": "w0320",
+   "id": "w0383",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ : en Toledo = PORTE DE L'HOPITAL DE STE CROIX : à Tolède [Material gráfico]",
    "series": null,
@@ -8640,7 +10250,7 @@
    ]
   },
   {
-   "id": "w0321",
+   "id": "w0384",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ en Toledo = PORTE DE L'HOPITAL DE STE. CROIX à Tolède / G. P. Villa Amil dibujó ; Benoist Lith.",
    "series": "España artística y monumental",
@@ -8668,7 +10278,7 @@
    ]
   },
   {
-   "id": "w0322",
+   "id": "w0385",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ : en Toledo = PORTE DE L'HOPITAL DE STE CROIX : à Tolède [Material gráfico]",
    "series": null,
@@ -8690,7 +10300,7 @@
    ]
   },
   {
-   "id": "w0323",
+   "id": "w0386",
    "artist": "philippe-benoist",
    "title": "Quai aux fleurs (1855)",
    "series": "Paris à travers les âges",
@@ -8712,7 +10322,7 @@
    ]
   },
   {
-   "id": "w0324",
+   "id": "w0387",
    "artist": "philippe-benoist",
    "title": "Quai de la Cité et Marché aux Fleurs (1876)",
    "series": "Paris à travers les âges",
@@ -8734,7 +10344,7 @@
    ]
   },
   {
-   "id": "w0325",
+   "id": "w0388",
    "artist": "philippe-benoist",
    "title": "Reims. Détails pris intérieurement près la porte d'entrée : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -8756,7 +10366,7 @@
    ]
   },
   {
-   "id": "w0326",
+   "id": "w0389",
    "artist": "philippe-benoist",
    "title": "Reims. Détails pris intérieurement près la porte d'entrée [dessin]",
    "series": null,
@@ -8784,7 +10394,7 @@
    ]
   },
   {
-   "id": "w0327",
+   "id": "w0390",
    "artist": "philippe-benoist",
    "title": "Reims. [Bases et chapiteaux des colonnes de la cathédrale] [dessin]",
    "series": null,
@@ -8854,7 +10464,7 @@
    ]
   },
   {
-   "id": "w0328",
+   "id": "w0391",
    "artist": "philippe-benoist",
    "title": "Retable de l'église de Brou : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -8876,7 +10486,7 @@
    ]
   },
   {
-   "id": "w0329",
+   "id": "w0392",
    "artist": "philippe-benoist",
    "title": "Retable de l'église de Brou [dessin]",
    "series": null,
@@ -8904,7 +10514,7 @@
    ]
   },
   {
-   "id": "w0330",
+   "id": "w0393",
    "artist": "philippe-benoist",
    "title": "Rome Vestibule de la Basilique de St. Pierre / Roma Vestibulo della Basilica di San Pietro",
    "series": null,
@@ -8926,7 +10536,7 @@
    ]
   },
   {
-   "id": "w0331",
+   "id": "w0394",
    "artist": "philippe-benoist",
    "title": "Rouen. Portail gauche de la façade de la cathédrale de Rouen ... : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -8948,7 +10558,7 @@
    ]
   },
   {
-   "id": "w0332",
+   "id": "w0395",
    "artist": "philippe-benoist",
    "title": "Rouen. Portail gauche de la façade de la cathédrale de Rouen ... [dessin]",
    "series": null,
@@ -8976,7 +10586,7 @@
    ]
   },
   {
-   "id": "w0333",
+   "id": "w0396",
    "artist": "philippe-benoist",
    "title": "La sainte Chapelle de Paris, Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849) [estampe]",
    "series": "[Recueil. Collection de Vinck. Un siècle d'histoire de France par l'estampe, 1770-1870. Vol. 126 (pièces 15534-15648), République de 1848]",
@@ -8998,7 +10608,7 @@
    ]
   },
   {
-   "id": "w0334",
+   "id": "w0397",
    "artist": "philippe-benoist",
    "title": "La sainte Chapelle de Paris, Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849) : [estampe]",
    "series": null,
@@ -9020,7 +10630,7 @@
    ]
   },
   {
-   "id": "w0335",
+   "id": "w0398",
    "artist": "philippe-benoist",
    "title": "Salle à manger",
    "series": null,
@@ -9042,7 +10652,7 @@
    ]
   },
   {
-   "id": "w0336",
+   "id": "w0399",
    "artist": "philippe-benoist",
    "title": "Salle de réunion. Le musée archéologique",
    "series": null,
@@ -9064,7 +10674,7 @@
    ]
   },
   {
-   "id": "w0337",
+   "id": "w0400",
    "artist": "philippe-benoist",
    "title": "Salle de réunion. La salle de conférences",
    "series": null,
@@ -9086,7 +10696,7 @@
    ]
   },
   {
-   "id": "w0338",
+   "id": "w0401",
    "artist": "philippe-benoist",
    "title": "Salle de réunion",
    "series": null,
@@ -9108,7 +10718,7 @@
    ]
   },
   {
-   "id": "w0339",
+   "id": "w0402",
    "artist": "philippe-benoist",
    "title": "Sébastopol [estampe]",
    "series": "[Recueil. Collection de Vinck. Un siècle d'histoire de France par l'estampe, 1770-1870. Vol. 142 (pièces 17017-17111), Second Empire]",
@@ -9130,7 +10740,7 @@
    ]
   },
   {
-   "id": "w0340",
+   "id": "w0403",
    "artist": "philippe-benoist",
    "title": "Sébastopol : [estampe]",
    "series": null,
@@ -9158,7 +10768,7 @@
    ]
   },
   {
-   "id": "w0341",
+   "id": "w0404",
    "artist": "philippe-benoist",
    "title": "Senlis. Détails [de balustrades] pris dans la cathédrale [dessin]",
    "series": null,
@@ -9186,7 +10796,7 @@
    ]
   },
   {
-   "id": "w0342",
+   "id": "w0405",
    "artist": "philippe-benoist",
    "title": "Senlis. Détails [de balustrades] pris dans la cathédrale : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -9208,7 +10818,7 @@
    ]
   },
   {
-   "id": "w0343",
+   "id": "w0406",
    "artist": "philippe-benoist",
    "title": "SEPULCRO DEL INFANTE D. ALONSO [Material gráfico] : en la Cartuja de Miraflores = TOMBEAU DE L'INFANT D. ALONSO : a la Chartreuse de Miraflores",
    "series": null,
@@ -9230,7 +10840,7 @@
    ]
   },
   {
-   "id": "w0344",
+   "id": "w0407",
    "artist": "philippe-benoist",
    "title": "SEPULCRO DEL INFANTE D. ALONSO [Material gráfico] : en la Cartuja de Miraflores = TOMBEAU DE L'INFANT D. ALONSO : a la Chartreuse de Miraflores",
    "series": null,
@@ -9252,7 +10862,7 @@
    ]
   },
   {
-   "id": "w0345",
+   "id": "w0408",
    "artist": "philippe-benoist",
    "title": "Souvenir de Fontainebleau, Cour des Adieux, autre-fois cour du cheval blanc (Souvenir of Fontainebleau: Court of Farewells, or, Court of the White Horse)",
    "series": null,
@@ -9274,7 +10884,7 @@
    ]
   },
   {
-   "id": "w0346",
+   "id": "w0409",
    "artist": "philippe-benoist",
    "title": "Square du Temple (1881)",
    "series": "Paris à travers les âges",
@@ -9296,7 +10906,29 @@
    ]
   },
   {
-   "id": "w0347",
+   "id": "w0410",
+   "artist": "philippe-benoist",
+   "title": "Square du Temple (1881)",
+   "series": null,
+   "city": null,
+   "country": null,
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": "G.39195",
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/square-du-temple-1881",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0411",
    "artist": "philippe-benoist",
    "title": "St Quentin. XVe S. Extrémité méridionale du grand croisillon [de la collégiale] (prise intérieurement) : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -9318,7 +10950,7 @@
    ]
   },
   {
-   "id": "w0348",
+   "id": "w0412",
    "artist": "philippe-benoist",
    "title": "St Quentin. XVe S. Extrémité méridionale du grand croisillon [de la collégiale] (prise intérieurement) [dessin]",
    "series": null,
@@ -9346,7 +10978,7 @@
    ]
   },
   {
-   "id": "w0349",
+   "id": "w0413",
    "artist": "philippe-benoist",
    "title": "Starożytny kościół Sy Anny w Wilnie",
    "series": null,
@@ -9374,7 +11006,7 @@
    ]
   },
   {
-   "id": "w0350",
+   "id": "w0414",
    "artist": "philippe-benoist",
    "title": "temple ruins",
    "series": null,
@@ -9402,7 +11034,7 @@
    ]
   },
   {
-   "id": "w0351",
+   "id": "w0415",
    "artist": "philippe-benoist",
    "title": "Théâtre royal italien, château dans l'opéra Le fantôme de Mr. Persiani / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
    "series": null,
@@ -9430,7 +11062,7 @@
    ]
   },
   {
-   "id": "w0352",
+   "id": "w0416",
    "artist": "philippe-benoist",
    "title": "Théâtre royal italien, château dans l'opéra Le fantôme de Mr. Persiani",
    "series": null,
@@ -9470,7 +11102,7 @@
    ]
   },
   {
-   "id": "w0353",
+   "id": "w0417",
    "artist": "philippe-benoist",
    "title": "TOLÈDE [Vista panorámica de la ciudad realizada desde el Oeste] / Dessin de Ph. Benoist, d'après une photographie de J. Laurent ; C. Laplante.",
    "series": null,
@@ -9510,7 +11142,7 @@
    ]
   },
   {
-   "id": "w0354",
+   "id": "w0418",
    "artist": "philippe-benoist",
    "title": "Toledo [Vista panorámica de Toledo desde el Oeste].",
    "series": null,
@@ -9538,7 +11170,7 @@
    ]
   },
   {
-   "id": "w0355",
+   "id": "w0419",
    "artist": "philippe-benoist",
    "title": "Tour de St Ouen à Rouen : [dessin] / [Philippe Benoist ?]",
    "series": null,
@@ -9560,7 +11192,7 @@
    ]
   },
   {
-   "id": "w0356",
+   "id": "w0420",
    "artist": "philippe-benoist",
    "title": "Tour de St Ouen à Rouen [dessin]",
    "series": null,
@@ -9588,7 +11220,7 @@
    ]
   },
   {
-   "id": "w0357",
+   "id": "w0421",
    "artist": "philippe-benoist",
    "title": "Tous les peuples sont frères. Paroles et musique de Ph Em Benoist",
    "series": null,
@@ -9610,7 +11242,7 @@
    ]
   },
   {
-   "id": "w0358",
+   "id": "w0422",
    "artist": "philippe-benoist",
    "title": "Trovatore : atto 2., scena 2.",
    "series": null,
@@ -9638,7 +11270,7 @@
    ]
   },
   {
-   "id": "w0359",
+   "id": "w0423",
    "artist": "philippe-benoist",
    "title": "Vaade Salernole",
    "series": null,
@@ -9666,7 +11298,7 @@
    ]
   },
   {
-   "id": "w0360",
+   "id": "w0424",
    "artist": "philippe-benoist",
    "title": "Le Val-de-Grâce",
    "series": null,
@@ -9688,7 +11320,7 @@
    ]
   },
   {
-   "id": "w0361",
+   "id": "w0425",
    "artist": "philippe-benoist",
    "title": "Versailles, Vue prise au dessus du Grand Trianon : [estampe, vue] / Dess. par Ph. Chaperon, Lith. par Ph. Benoist",
    "series": null,
@@ -9710,7 +11342,7 @@
    ]
   },
   {
-   "id": "w0362",
+   "id": "w0426",
    "artist": "philippe-benoist",
    "title": "Versailles, Vue prise au dessus du Grand Trianon [estampe, vue]",
    "series": "[Recueil. Topographie de la France. Yvelines. Versailles, Marly]",
@@ -9732,7 +11364,7 @@
    ]
   },
   {
-   "id": "w0363",
+   "id": "w0427",
    "artist": "philippe-benoist",
    "title": "Versailles, Vue prise au dessus du Grand Trianon : [estampe, vue] / Dess. par Ph. Chaperon, Lith. par Ph. Benoist",
    "series": null,
@@ -9754,7 +11386,7 @@
    ]
   },
   {
-   "id": "w0364",
+   "id": "w0428",
    "artist": "philippe-benoist",
    "title": "Vidy siela Vlakhernskago",
    "series": null,
@@ -9776,7 +11408,7 @@
    ]
   },
   {
-   "id": "w0365",
+   "id": "w0429",
    "artist": "philippe-benoist",
    "title": "Villa Rossini : [estampe]",
    "series": null,
@@ -9798,7 +11430,7 @@
    ]
   },
   {
-   "id": "w0366",
+   "id": "w0430",
    "artist": "philippe-benoist",
    "title": "Ville et port de Balaklava : [estampe]",
    "series": null,
@@ -9820,7 +11452,7 @@
    ]
   },
   {
-   "id": "w0367",
+   "id": "w0431",
    "artist": "philippe-benoist",
    "title": "Vilnius",
    "series": "Album de Varsovie / Wilna",
@@ -9842,7 +11474,7 @@
    ]
   },
   {
-   "id": "w0368",
+   "id": "w0432",
    "artist": "philippe-benoist",
    "title": "Vilnius",
    "series": null,
@@ -9864,7 +11496,7 @@
    ]
   },
   {
-   "id": "w0369",
+   "id": "w0433",
    "artist": "philippe-benoist",
    "title": "Vista del patio del Colegio de San Gregorio de Valladolid - Estampa",
    "series": null,
@@ -9886,7 +11518,7 @@
    ]
   },
   {
-   "id": "w0370",
+   "id": "w0434",
    "artist": "philippe-benoist",
    "title": "Vista del patio del Colegio de San Gregorio de Valladolid - Estampa",
    "series": null,
@@ -9908,7 +11540,7 @@
    ]
   },
   {
-   "id": "w0371",
+   "id": "w0435",
    "artist": "philippe-benoist",
    "title": "VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
    "series": "Espana artistica y monumental",
@@ -9942,7 +11574,7 @@
    ]
   },
   {
-   "id": "w0372",
+   "id": "w0436",
    "artist": "philippe-benoist",
    "title": "VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
    "series": "España artística y monumental",
@@ -9976,7 +11608,29 @@
    ]
   },
   {
-   "id": "w0373",
+   "id": "w0437",
+   "artist": "philippe-benoist",
+   "title": "Vue de la halle centrale de Paris. // Projet présenté à S.M. L'empeureur Napoléon III, / Par Charles Duval, architecte.",
+   "series": null,
+   "city": "Paris",
+   "country": "Франция",
+   "date": null,
+   "kind": "print",
+   "impressions": 1,
+   "image": null,
+   "reviewed": true,
+   "open_file": true,
+   "holders": [
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-de-la-halle-centrale-de-paris-projet-presente-a-sm-l-empeureur-napoleon",
+     "rights": "open_confirmed"
+    }
+   ]
+  },
+  {
+   "id": "w0438",
    "artist": "philippe-benoist",
    "title": "Vue générale de la bataille de l'Alma Gagnée sur les Russes par les Armées alliées le 20 7.bre 1854 : [estampe]",
    "series": null,
@@ -9998,7 +11652,7 @@
    ]
   },
   {
-   "id": "w0374",
+   "id": "w0439",
    "artist": "philippe-benoist",
    "title": "Vue officielle a vol d'oiseau de l'exposition universelle de 1867",
    "series": null,
@@ -10006,21 +11660,33 @@
    "country": null,
    "date": "1867.",
    "kind": "print",
-   "impressions": 1,
+   "impressions": 3,
    "image": null,
    "reviewed": true,
-   "open_file": false,
+   "open_file": true,
    "holders": [
     {
      "institution": "Library of Congress, Prints & Photographs Division",
      "accession": "LC-DIG-pga-00497 (digital file from original print)\nLC-USZC4-7735 (color film copy transparency)\nLC-USZ62-126323 (b&w film copy neg.)",
      "url": "00652015",
      "rights": "rights_pending"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-officielle-a-vol-d-oiseau-de-l-exposition-universelle-de-1867",
+     "rights": "open_confirmed"
+    },
+    {
+     "institution": "Musée Carnavalet, Histoire de Paris",
+     "accession": null,
+     "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-officielle-a-vol-d-oiseau-de-l-exposition-universelle-de-1867-0",
+     "rights": "open_confirmed"
     }
    ]
   },
   {
-   "id": "w0375",
+   "id": "w0440",
    "artist": "philippe-benoist",
    "title": "Vue de la Seine, prise du Louvre La Cité et le Pont-Neuf : [estampe]",
    "series": null,
@@ -10042,7 +11708,7 @@
    ]
   },
   {
-   "id": "w0376",
+   "id": "w0441",
    "artist": "philippe-benoist",
    "title": "Vue de la Seine prise du Pont de la Concorde : [estampe]",
    "series": null,
@@ -10064,7 +11730,7 @@
    ]
   },
   {
-   "id": "w0377",
+   "id": "w0442",
    "artist": "philippe-benoist",
    "title": "Vues des Palais d'Orçay et de la Légion d'honneur",
    "series": null,
@@ -10086,7 +11752,7 @@
    ]
   },
   {
-   "id": "w0378",
+   "id": "w0443",
    "artist": "philippe-benoist",
    "title": "Widoki Warszawy : wnętrze pałacu zwanego Łazienki = Vues de Warsovie : l'intérieur du palais nommé Lazienki",
    "series": null,
@@ -10114,7 +11780,7 @@
    ]
   },
   {
-   "id": "w0379",
+   "id": "w0444",
    "artist": "philippe-benoist",
    "title": "Widoki Warszawy : wnętrze pałacu zwanego Łazienki = Vues de Warsovie : l'intérieur du palais nommé Lazienki",
    "series": "Album de Varsovie / Wilna",
@@ -10142,7 +11808,7 @@
    ]
   },
   {
-   "id": "w0380",
+   "id": "w0445",
    "artist": "philippe-benoist",
    "title": "Widoki Warszawy. Wnętrze pałacu Zwanego Łazienki",
    "series": null,
@@ -10170,7 +11836,7 @@
    ]
   },
   {
-   "id": "w0381",
+   "id": "w0446",
    "artist": "philippe-benoist",
    "title": "Widoki Wilna. Byłi uniwersytet Wileński",
    "series": "Album de Varsovie / Wilna",
@@ -10192,7 +11858,7 @@
    ]
   },
   {
-   "id": "w0382",
+   "id": "w0447",
    "artist": "philippe-benoist",
    "title": "Widoki Wilna. Byłi uniwersytet Wileński",
    "series": null,
@@ -10214,7 +11880,7 @@
    ]
   },
   {
-   "id": "w0383",
+   "id": "w0448",
    "artist": "philippe-benoist",
    "title": "[Recueil. Oeuvre de Ph. Benoist, dessinateur lithographe]",
    "series": null,
@@ -10332,7 +11998,7 @@
    ]
   },
   {
-   "id": "w0384",
+   "id": "w0449",
    "artist": "philippe-benoist",
    "title": "Album scenografico, Trovatore : atto 2.°, scena 2.a. : [estampe] / P. Magnani ; F. Lasagne ; Ph. Benoist Lito.",
    "series": null,
@@ -10354,7 +12020,7 @@
    ]
   },
   {
-   "id": "w0385",
+   "id": "w0450",
    "artist": "philippe-benoist",
    "title": "Amalfi Cathedral",
    "series": null,
@@ -10376,7 +12042,7 @@
    ]
   },
   {
-   "id": "w0386",
+   "id": "w0451",
    "artist": "philippe-benoist",
    "title": "Angulemo kunigaikščio, didžiojo Prancūzijos admirolo Luji Antuano portretas",
    "series": null,
@@ -10398,7 +12064,7 @@
    ]
   },
   {
-   "id": "w0387",
+   "id": "w0452",
    "artist": "philippe-benoist",
    "title": "ANTIGUA AL LADO DE LA DE VISAGRA [Material gráfico] : en Toledo = ANCIENNE PORTE PRES CELLE DE VISAGRA : à Tolède",
    "series": null,
@@ -10420,7 +12086,7 @@
    ]
   },
   {
-   "id": "w0388",
+   "id": "w0453",
    "artist": "philippe-benoist",
    "title": "Ballo la fata delle acque : atto 3.",
    "series": null,
@@ -10442,7 +12108,7 @@
    ]
   },
   {
-   "id": "w0389",
+   "id": "w0454",
    "artist": "philippe-benoist",
    "title": "Bataille de l'Alma 20 7.bre 1854 : [estampe]",
    "series": null,
@@ -10464,7 +12130,7 @@
    ]
   },
   {
-   "id": "w0390",
+   "id": "w0455",
    "artist": "philippe-benoist",
    "title": "Bathseba im Bade",
    "series": null,
@@ -10486,7 +12152,7 @@
    ]
   },
   {
-   "id": "w0391",
+   "id": "w0456",
    "artist": "philippe-benoist",
    "title": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda",
    "series": null,
@@ -10508,7 +12174,7 @@
    ]
   },
   {
-   "id": "w0392",
+   "id": "w0457",
    "artist": "philippe-benoist",
    "title": "Caen. [Vue de la tour des Gens-d'Armes] : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -10530,7 +12196,7 @@
    ]
   },
   {
-   "id": "w0393",
+   "id": "w0458",
    "artist": "philippe-benoist",
    "title": "CAPILLA DE LA PRESENTACION : Catedral de Burgos = CHAPELLE DE LA PRÉSENTATION : Cathédrale de Burgos [Material gráfico]",
    "series": null,
@@ -10552,7 +12218,7 @@
    ]
   },
   {
-   "id": "w0394",
+   "id": "w0459",
    "artist": "philippe-benoist",
    "title": "Cathédrale de Bayeux. Motifs en bas-reliefs qui séparent les plein-cintres de la nef. Clef de voute d'une porte située dans la partie septentrionale appelée porte d'Artenay : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -10574,7 +12240,7 @@
    ]
   },
   {
-   "id": "w0395",
+   "id": "w0460",
    "artist": "philippe-benoist",
    "title": "Cathédrale de Bayeux. [Vue intérieure de la cathédrale] : [dessin] / [Philippe Benoist ?]",
    "series": null,
@@ -10596,7 +12262,7 @@
    ]
   },
   {
-   "id": "w0396",
+   "id": "w0461",
    "artist": "philippe-benoist",
    "title": "Chapelle du Saint Esprit à Rue près Abbeville : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -10618,7 +12284,7 @@
    ]
   },
   {
-   "id": "w0397",
+   "id": "w0462",
    "artist": "philippe-benoist",
    "title": "Château des Tuileries",
    "series": null,
@@ -10640,7 +12306,7 @@
    ]
   },
   {
-   "id": "w0398",
+   "id": "w0463",
    "artist": "philippe-benoist",
    "title": "CLAUSTRILLA DE LAS HUELGAS : en Burgos = CLOTTRE APPELÉ LA CLAUSTRILLA : dans l'interieur du Monastere de las Huelgas à Burgos [Material gráfico]",
    "series": null,
@@ -10662,7 +12328,7 @@
    ]
   },
   {
-   "id": "w0399",
+   "id": "w0464",
    "artist": "philippe-benoist",
    "title": "CLAUSTRO DEL COLEGIO DE S. GREGORIO : en Valladolid = CLOÎTRE DU COLLEGE DE S.T GREGOIRE : à Valladolid [Material gráfico]",
    "series": null,
@@ -10684,7 +12350,7 @@
    ]
   },
   {
-   "id": "w0400",
+   "id": "w0465",
    "artist": "philippe-benoist",
    "title": "CLAUSTRO DEL MONASTERIO DE HUERTA = CLOITRE DU MONASTERE DE HUERTA [Material gráfico]",
    "series": null,
@@ -10706,7 +12372,7 @@
    ]
   },
   {
-   "id": "w0401",
+   "id": "w0466",
    "artist": "philippe-benoist",
    "title": "Clôture de l'exposition universelle : distribution des récompenses aux exposants, au palais de l'industrie, (15 novembre 1855) / dess. et grav. par Ph. Benoist et A. Bayot",
    "series": null,
@@ -10728,7 +12394,7 @@
    ]
   },
   {
-   "id": "w0402",
+   "id": "w0467",
    "artist": "philippe-benoist",
    "title": "Colonnade du Louvre",
    "series": null,
@@ -10750,7 +12416,7 @@
    ]
   },
   {
-   "id": "w0403",
+   "id": "w0468",
    "artist": "philippe-benoist",
    "title": "Colonne de Juillet",
    "series": null,
@@ -10772,7 +12438,7 @@
    ]
   },
   {
-   "id": "w0404",
+   "id": "w0469",
    "artist": "philippe-benoist",
    "title": "Colonne de la Grande Armée Place Vendôme et rue de Castiglione : [estampe]",
    "series": null,
@@ -10794,7 +12460,7 @@
    ]
   },
   {
-   "id": "w0405",
+   "id": "w0470",
    "artist": "philippe-benoist",
    "title": "Cour d'Honneur",
    "series": null,
@@ -10816,7 +12482,7 @@
    ]
   },
   {
-   "id": "w0406",
+   "id": "w0471",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre. N°7, La Juive (1er acte) : [estampe] / composé par Feuchère, Séchan, Diéterle et Despléchin ; lith. par Eug. Cicéri, Ph. Benoist et Gaildrau",
    "series": null,
@@ -10838,7 +12504,7 @@
    ]
   },
   {
-   "id": "w0407",
+   "id": "w0472",
    "artist": "philippe-benoist",
    "title": "Décorations de théâtre, Robert le diable, 3e acte : [estampe] / composé par Cicéri ; lith. par Eug. Cicéri, Ph. Benoist et Bayot",
    "series": null,
@@ -10860,7 +12526,7 @@
    ]
   },
   {
-   "id": "w0408",
+   "id": "w0473",
    "artist": "philippe-benoist",
    "title": "Départ de S. M. la reine d'Angleterre de Paris le 27 Août 1855 : [estampe]",
    "series": null,
@@ -10882,7 +12548,7 @@
    ]
   },
   {
-   "id": "w0409",
+   "id": "w0474",
    "artist": "philippe-benoist",
    "title": "Détail du tombeau des Cardinaux d'Amboise. C.le de rouen. [Statue de la Justice] : [dessin] / [Philippe Benoist ?]",
    "series": null,
@@ -10904,7 +12570,7 @@
    ]
   },
   {
-   "id": "w0410",
+   "id": "w0475",
    "artist": "philippe-benoist",
    "title": "DETALLES DEL CLAUSTRO DEL COLEGIO DE S GREGORIO : en Valladolid = DÉTAILS DU CLOÍTRE DU COLLEGE DE ST GREGOIRE [Material gráfico]",
    "series": null,
@@ -10926,7 +12592,7 @@
    ]
   },
   {
-   "id": "w0411",
+   "id": "w0476",
    "artist": "philippe-benoist",
    "title": "Eglise de l'abbaye de St Riquier, près Abbeville : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -10948,7 +12614,7 @@
    ]
   },
   {
-   "id": "w0412",
+   "id": "w0477",
    "artist": "philippe-benoist",
    "title": "Eglise de St Quentin XV S. [Couronnement du Maître autel des fonts baptismaux de la Cathédrale de Saint-Quentin] : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -10970,7 +12636,7 @@
    ]
   },
   {
-   "id": "w0413",
+   "id": "w0478",
    "artist": "philippe-benoist",
    "title": "Église St. Étienne-du-Mont",
    "series": null,
@@ -10992,7 +12658,7 @@
    ]
   },
   {
-   "id": "w0414",
+   "id": "w0479",
    "artist": "philippe-benoist",
    "title": "ESCALERA DEL HOSPITAL DE STA. CRUZ en Toledo = ESCALIER DE L'HOPITAL DIT DE STE. CROIX à Tolède / G. Pérez de Villa-Amil dibujó ; Lit. par Benoist.",
    "series": null,
@@ -11020,7 +12686,7 @@
    ]
   },
   {
-   "id": "w0415",
+   "id": "w0480",
    "artist": "philippe-benoist",
    "title": "ESCALERA DEL HOSPITAL DE STA CRUZ = ESCALIER DE L'HOPITAL DIT DE STE CROIX à Tolède [Material gráfico]",
    "series": null,
@@ -11042,7 +12708,7 @@
    ]
   },
   {
-   "id": "w0416",
+   "id": "w0481",
    "artist": "philippe-benoist",
    "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
    "series": null,
@@ -11076,7 +12742,7 @@
    ]
   },
   {
-   "id": "w0417",
+   "id": "w0482",
    "artist": "philippe-benoist",
    "title": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
    "series": null,
@@ -11104,7 +12770,7 @@
    ]
   },
   {
-   "id": "w0418",
+   "id": "w0483",
    "artist": "philippe-benoist",
    "title": "Grande Salle des Antiques Musée du Louvre : [estampe]",
    "series": null,
@@ -11126,7 +12792,7 @@
    ]
   },
   {
-   "id": "w0419",
+   "id": "w0484",
    "artist": "philippe-benoist",
    "title": "Hôtel de Ville",
    "series": null,
@@ -11148,7 +12814,7 @@
    ]
   },
   {
-   "id": "w0420",
+   "id": "w0485",
    "artist": "philippe-benoist",
    "title": "Hôtel de ville de Bruxelles",
    "series": null,
@@ -11170,7 +12836,7 @@
    ]
   },
   {
-   "id": "w0421",
+   "id": "w0486",
    "artist": "philippe-benoist",
    "title": "IGLESIA COLEGIAL DE TORO = ÉGLISE COLLEGIALE A TORO [Material gráfico]",
    "series": null,
@@ -11192,7 +12858,7 @@
    ]
   },
   {
-   "id": "w0422",
+   "id": "w0487",
    "artist": "philippe-benoist",
    "title": "INTERIOR DE SAN JUAN DE LOS REYES en Toledo = VUE INTERIEURE DE SAINT JEAN DES ROIS à Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
    "series": null,
@@ -11226,7 +12892,7 @@
    ]
   },
   {
-   "id": "w0423",
+   "id": "w0488",
    "artist": "philippe-benoist",
    "title": "INTERIOR DE SAN JUAN DE LOS REYES : en Toledo = VUE INTÉRIEURE DE SAINT JEAN DES ROIS : à Tolède [Material gráfico]",
    "series": null,
@@ -11248,7 +12914,7 @@
    ]
   },
   {
-   "id": "w0424",
+   "id": "w0489",
    "artist": "philippe-benoist",
    "title": "Jardin du Palais Royal",
    "series": null,
@@ -11270,7 +12936,7 @@
    ]
   },
   {
-   "id": "w0425",
+   "id": "w0490",
    "artist": "philippe-benoist",
    "title": "L'Italie monumentale & artistique vues et monuments",
    "series": null,
@@ -11292,7 +12958,7 @@
    ]
   },
   {
-   "id": "w0426",
+   "id": "w0491",
    "artist": "philippe-benoist",
    "title": "La Madeleine",
    "series": null,
@@ -11314,7 +12980,7 @@
    ]
   },
   {
-   "id": "w0427",
+   "id": "w0492",
    "artist": "philippe-benoist",
    "title": "La Madeleine. Intérieur : [estampe]",
    "series": null,
@@ -11336,7 +13002,7 @@
    ]
   },
   {
-   "id": "w0428",
+   "id": "w0493",
    "artist": "philippe-benoist",
    "title": "La sainte Chapelle de Paris, Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849) : [estampe]",
    "series": null,
@@ -11358,7 +13024,7 @@
    ]
   },
   {
-   "id": "w0429",
+   "id": "w0494",
    "artist": "philippe-benoist",
    "title": "Le caïd (1er acte) : [estampe] / composé par Nolan [sic] et Rubé ; Lith. par Eug. Cicéri, Ph. Benoist et Bayot",
    "series": null,
@@ -11380,7 +13046,7 @@
    ]
   },
   {
-   "id": "w0430",
+   "id": "w0495",
    "artist": "philippe-benoist",
    "title": "Le Panthéon",
    "series": null,
@@ -11402,7 +13068,7 @@
    ]
   },
   {
-   "id": "w0431",
+   "id": "w0496",
    "artist": "philippe-benoist",
    "title": "Livourne : Place d'Armes",
    "series": null,
@@ -11424,7 +13090,7 @@
    ]
   },
   {
-   "id": "w0432",
+   "id": "w0497",
    "artist": "philippe-benoist",
    "title": "Micaela : atto 1.",
    "series": null,
@@ -11452,7 +13118,7 @@
    ]
   },
   {
-   "id": "w0433",
+   "id": "w0498",
    "artist": "philippe-benoist",
    "title": "Naples. Palais du roi",
    "series": null,
@@ -11474,7 +13140,7 @@
    ]
   },
   {
-   "id": "w0434",
+   "id": "w0499",
    "artist": "philippe-benoist",
    "title": "Napoli : Teatro San Carlo",
    "series": null,
@@ -11496,7 +13162,7 @@
    ]
   },
   {
-   "id": "w0435",
+   "id": "w0500",
    "artist": "philippe-benoist",
    "title": "Notre-Dame, Cathédrale de Paris",
    "series": null,
@@ -11518,7 +13184,7 @@
    ]
   },
   {
-   "id": "w0436",
+   "id": "w0501",
    "artist": "philippe-benoist",
    "title": "\"Nouveau pavillon de Flore et Nouvelle Galerie du Bord de l'eau avant l'incendie\".. Fig. par le Ph. Benoist : [estampe]",
    "series": null,
@@ -11540,7 +13206,7 @@
    ]
   },
   {
-   "id": "w0437",
+   "id": "w0502",
    "artist": "philippe-benoist",
    "title": "Nouvelles vues de Paris / par Ph. Benoist et J. Jacottet",
    "series": null,
@@ -11568,7 +13234,7 @@
    ]
   },
   {
-   "id": "w0438",
+   "id": "w0503",
    "artist": "philippe-benoist",
    "title": "PALACIO DE LOS DUQUES DEL INFANTADO [Material gráfico] : en Guadalajara = PALAIS DES DUCS DEL INFANTADO : à Guadalajara",
    "series": null,
@@ -11590,7 +13256,7 @@
    ]
   },
   {
-   "id": "w0439",
+   "id": "w0504",
    "artist": "philippe-benoist",
    "title": "Palais du Luxembourg : [estampe]",
    "series": null,
@@ -11612,7 +13278,7 @@
    ]
   },
   {
-   "id": "w0440",
+   "id": "w0505",
    "artist": "philippe-benoist",
    "title": "Paris dans sa Splendeur (volume I)",
    "series": null,
@@ -11634,7 +13300,7 @@
    ]
   },
   {
-   "id": "w0441",
+   "id": "w0506",
    "artist": "philippe-benoist",
    "title": "Paris dans sa Splendeur (volume II)",
    "series": null,
@@ -11656,7 +13322,7 @@
    ]
   },
   {
-   "id": "w0442",
+   "id": "w0507",
    "artist": "philippe-benoist",
    "title": "Partie supérieure du clocher de Ste Marie du Mont près Carentan : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11678,7 +13344,7 @@
    ]
   },
   {
-   "id": "w0443",
+   "id": "w0508",
    "artist": "philippe-benoist",
    "title": "\"Pavillon du Louvre - Place Napoléon III\". Le pavillon Denon, Première pl. et page de titre de l'album Paris dans sa splendeur (voir le n° De Vinck 16.355) : [estampe]",
    "series": null,
@@ -11700,7 +13366,7 @@
    ]
   },
   {
-   "id": "w0444",
+   "id": "w0509",
    "artist": "philippe-benoist",
    "title": "Place de la Concorde",
    "series": null,
@@ -11722,7 +13388,7 @@
    ]
   },
   {
-   "id": "w0445",
+   "id": "w0510",
    "artist": "philippe-benoist",
    "title": "Plaza de San Francisco - Estampa",
    "series": null,
@@ -11744,7 +13410,7 @@
    ]
   },
   {
-   "id": "w0446",
+   "id": "w0511",
    "artist": "philippe-benoist",
    "title": "Portail de la Cathédrale de Senlis : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11766,7 +13432,7 @@
    ]
   },
   {
-   "id": "w0447",
+   "id": "w0512",
    "artist": "philippe-benoist",
    "title": "Porte St. Denis",
    "series": null,
@@ -11788,7 +13454,7 @@
    ]
   },
   {
-   "id": "w0448",
+   "id": "w0513",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL CLAUSTRO DE LA CATEDRAL : de Burgos = PORTE DU CLOITRE DE LA CATHÉDRALE : de Burgos [Material gráfico]",
    "series": null,
@@ -11810,7 +13476,7 @@
    ]
   },
   {
-   "id": "w0449",
+   "id": "w0514",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ en Toledo = PORTE DE L'HOPITAL DE STE. CROIX à Tolède / G. P. Villa Amil dibujó ; Benoist Lith.",
    "series": null,
@@ -11838,7 +13504,7 @@
    ]
   },
   {
-   "id": "w0450",
+   "id": "w0515",
    "artist": "philippe-benoist",
    "title": "PUERTA DEL HOSPITAL DE SANTA CRUZ : en Toledo = PORTE DE L'HOPITAL DE STE CROIX : à Tolède [Material gráfico]",
    "series": null,
@@ -11860,7 +13526,7 @@
    ]
   },
   {
-   "id": "w0451",
+   "id": "w0516",
    "artist": "philippe-benoist",
    "title": "Reims. [Bases, chapiteaux et détails d'ornements relevés dans la cathédrale] : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11882,7 +13548,7 @@
    ]
   },
   {
-   "id": "w0452",
+   "id": "w0517",
    "artist": "philippe-benoist",
    "title": "Reims. [Bases et chapiteaux des colonnes de la cathédrale] : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11904,7 +13570,7 @@
    ]
   },
   {
-   "id": "w0453",
+   "id": "w0518",
    "artist": "philippe-benoist",
    "title": "Reims. Détails pris intérieurement près la porte d'entrée : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11926,7 +13592,7 @@
    ]
   },
   {
-   "id": "w0454",
+   "id": "w0519",
    "artist": "philippe-benoist",
    "title": "Reims. [Statue de la Sainte Vierge et détails du grand portail de la cathédrale] : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11948,7 +13614,7 @@
    ]
   },
   {
-   "id": "w0455",
+   "id": "w0520",
    "artist": "philippe-benoist",
    "title": "Retable de l'église de Brou : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -11970,7 +13636,7 @@
    ]
   },
   {
-   "id": "w0456",
+   "id": "w0521",
    "artist": "philippe-benoist",
    "title": "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Civitavecchia",
    "series": null,
@@ -12226,7 +13892,7 @@
    ]
   },
   {
-   "id": "w0457",
+   "id": "w0522",
    "artist": "philippe-benoist",
    "title": "Rome Vestibule de la Basilique de St. Pierre / Roma Vestibulo della Basilica di San Pietro",
    "series": null,
@@ -12248,7 +13914,7 @@
    ]
   },
   {
-   "id": "w0458",
+   "id": "w0523",
    "artist": "philippe-benoist",
    "title": "Rouen. Portail gauche de la façade de la cathédrale de Rouen ... : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -12270,7 +13936,7 @@
    ]
   },
   {
-   "id": "w0459",
+   "id": "w0524",
    "artist": "philippe-benoist",
    "title": "Sébastopol : [estampe]",
    "series": null,
@@ -12292,7 +13958,7 @@
    ]
   },
   {
-   "id": "w0460",
+   "id": "w0525",
    "artist": "philippe-benoist",
    "title": "Senlis. Détails [de balustrades] pris dans la cathédrale : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -12314,7 +13980,7 @@
    ]
   },
   {
-   "id": "w0461",
+   "id": "w0526",
    "artist": "philippe-benoist",
    "title": "SEPULCRO DEL INFANTE D. ALONSO [Material gráfico] : en la Cartuja de Miraflores = TOMBEAU DE L'INFANT D. ALONSO : a la Chartreuse de Miraflores",
    "series": null,
@@ -12336,7 +14002,7 @@
    ]
   },
   {
-   "id": "w0462",
+   "id": "w0527",
    "artist": "philippe-benoist",
    "title": "Souvenir de Fontainebleau, Cour des Adieux, autre-fois cour du cheval blanc (Souvenir of Fontainebleau: Court of Farewells, or, Court of the White Horse)",
    "series": null,
@@ -12358,7 +14024,7 @@
    ]
   },
   {
-   "id": "w0463",
+   "id": "w0528",
    "artist": "philippe-benoist",
    "title": "St Quentin. XVe S. Extrémité méridionale du grand croisillon [de la collégiale] (prise intérieurement) : [dessin] / [Philippe Benoist]",
    "series": null,
@@ -12380,7 +14046,7 @@
    ]
   },
   {
-   "id": "w0464",
+   "id": "w0529",
    "artist": "philippe-benoist",
    "title": "temple ruins",
    "series": null,
@@ -12402,7 +14068,7 @@
    ]
   },
   {
-   "id": "w0465",
+   "id": "w0530",
    "artist": "philippe-benoist",
    "title": "Théâtre royal italien, château dans l'opéra Le fantôme de Mr. Persiani / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
    "series": null,
@@ -12424,7 +14090,7 @@
    ]
   },
   {
-   "id": "w0466",
+   "id": "w0531",
    "artist": "philippe-benoist",
    "title": "Théatre Royal Italien. Chateau dans l'opéra Le Fantôme de Mr Persiani : [estampe] / D. Ferri et Verardi pinx.t ; Ph. Benoist lith.",
    "series": null,
@@ -12446,7 +14112,7 @@
    ]
   },
   {
-   "id": "w0467",
+   "id": "w0532",
    "artist": "philippe-benoist",
    "title": "Tour de St Ouen à Rouen : [dessin] / [Philippe Benoist ?]",
    "series": null,
@@ -12468,7 +14134,7 @@
    ]
   },
   {
-   "id": "w0468",
+   "id": "w0533",
    "artist": "philippe-benoist",
    "title": "Trovatore : atto 2., scena 2.",
    "series": null,
@@ -12490,7 +14156,7 @@
    ]
   },
   {
-   "id": "w0469",
+   "id": "w0534",
    "artist": "philippe-benoist",
    "title": "Vaade Salernole",
    "series": null,
@@ -12512,7 +14178,7 @@
    ]
   },
   {
-   "id": "w0470",
+   "id": "w0535",
    "artist": "philippe-benoist",
    "title": "Versailles, Vue prise au dessus du Grand Trianon : [estampe, vue] / Dess. par Ph. Chaperon, Lith. par Ph. Benoist",
    "series": null,
@@ -12534,7 +14200,7 @@
    ]
   },
   {
-   "id": "w0471",
+   "id": "w0536",
    "artist": "philippe-benoist",
    "title": "Villa Rossini : [estampe]",
    "series": null,
@@ -12556,7 +14222,7 @@
    ]
   },
   {
-   "id": "w0472",
+   "id": "w0537",
    "artist": "philippe-benoist",
    "title": "VISTA INTERIOR DE LA PUERTA DE STA. CATALINA en la Catedral de Toledo = VUE INTERIURE DE LA PORTE DE STE. CATHERINA dans la Cathédrale de Tolède / G. P. de Villa-Amil dibujó ; Ph. Benoist lith.",
    "series": null,
@@ -12590,7 +14256,7 @@
    ]
   },
   {
-   "id": "w0473",
+   "id": "w0538",
    "artist": "philippe-benoist",
    "title": "Vues des Palais d'Orçay et de la Légion d'honneur",
    "series": null,
@@ -12612,7 +14278,7 @@
    ]
   },
   {
-   "id": "w0474",
+   "id": "w0539",
    "artist": "philippe-benoist",
    "title": "Widoki Warszawy : wnętrze pałacu zwanego Łazienki = Vues de Warsovie : l'intérieur du palais nommé Lazienki",
    "series": null,
@@ -12640,7 +14306,7 @@
    ]
   },
   {
-   "id": "w0475",
+   "id": "w0540",
    "artist": "uncertain-benoist",
    "title": "A son altesse royale Madame la duchesse d'Orléans / par F. Benoist",
    "series": null,
@@ -12662,7 +14328,7 @@
    ]
   },
   {
-   "id": "w0476",
+   "id": "w0541",
    "artist": "uncertain-benoist",
    "title": "ANTIGUA AL LADO DE LA DE VISAGRA en Toledo = ANCIENNE PORTE PRÉS CELLE DE VISAGRA à Tolède / G. P.de Villa - Amil dibujó ; Bichebois lith. ; Fig par Benoist.",
    "series": "España artística y monumental",
@@ -12690,7 +14356,7 @@
    ]
   },
   {
-   "id": "w0477",
+   "id": "w0542",
    "artist": "uncertain-benoist",
    "title": "Discours du jubilé, tiré du thresor spirituel de l'Eglise. Ensemble de la grande joye spirituelle qu'en doivent recevoir les bons chrestiens fideles & catholiques . Par F. Benoist du Buisson, docteur en theologie, de l'ordre de S. François, & predicateur ordinaire en l'eglise tres-devote de la Magdaleine de Troyes.",
    "series": null,
@@ -12712,7 +14378,7 @@
    ]
   },
   {
-   "id": "w0478",
+   "id": "w0543",
    "artist": "uncertain-benoist",
    "title": "Dix pièces pour orgue ou pour piano à pédale, 1er. volume [Música notada]",
    "series": null,
@@ -12734,7 +14400,7 @@
    ]
   },
   {
-   "id": "w0479",
+   "id": "w0544",
    "artist": "uncertain-benoist",
    "title": "Essai sur le principe de la démocratie par C.-F. Benoist",
    "series": null,
@@ -12756,7 +14422,7 @@
    ]
   },
   {
-   "id": "w0480",
+   "id": "w0545",
    "artist": "uncertain-benoist",
    "title": "Essay on the principle of democracy/by C.-F. Benoist",
    "series": null,
@@ -12778,7 +14444,7 @@
    ]
   },
   {
-   "id": "w0481",
+   "id": "w0546",
    "artist": "uncertain-benoist",
    "title": "GEORGE ANNE BELLAMY",
    "series": null,
@@ -12800,7 +14466,7 @@
    ]
   },
   {
-   "id": "w0482",
+   "id": "w0547",
    "artist": "uncertain-benoist",
    "title": "H Beard Print Collection",
    "series": null,
@@ -12864,7 +14530,7 @@
    ]
   },
   {
-   "id": "w0483",
+   "id": "w0548",
    "artist": "uncertain-benoist",
    "title": "Madame Dabadie as Pamyra in \"Le Siège de Corinthe\"",
    "series": null,
@@ -12886,7 +14552,7 @@
    ]
   },
   {
-   "id": "w0484",
+   "id": "w0549",
    "artist": "uncertain-benoist",
    "title": "\"Messe à quatre voix et à grand orchestre par F. Benoist Pensionnaire de l'Académie de France à Rome. 1ere partie\"",
    "series": null,
@@ -12908,7 +14574,7 @@
    ]
   },
   {
-   "id": "w0485",
+   "id": "w0550",
    "artist": "uncertain-benoist",
    "title": "Moscou",
    "series": null,
@@ -12930,7 +14596,7 @@
    ]
   },
   {
-   "id": "w0486",
+   "id": "w0551",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 1,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
    "series": "Paris dans sa splendeur",
@@ -12952,7 +14618,7 @@
    ]
   },
   {
-   "id": "w0487",
+   "id": "w0552",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 2,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
    "series": "Paris dans sa splendeur",
@@ -12974,7 +14640,7 @@
    ]
   },
   {
-   "id": "w0488",
+   "id": "w0553",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 1,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
    "series": "Paris dans sa splendeur",
@@ -12996,7 +14662,7 @@
    ]
   },
   {
-   "id": "w0489",
+   "id": "w0554",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 2,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
    "series": "Paris dans sa splendeur",
@@ -13018,7 +14684,7 @@
    ]
   },
   {
-   "id": "w0490",
+   "id": "w0555",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III monuments, vues, scènes historiques, descriptions et histoire",
    "series": "Paris dans sa splendeur",
@@ -13040,7 +14706,7 @@
    ]
   },
   {
-   "id": "w0491",
+   "id": "w0556",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa Splendeur (volume II)",
    "series": "Paris dans sa splendeur",
@@ -13062,7 +14728,7 @@
    ]
   },
   {
-   "id": "w0492",
+   "id": "w0557",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa Splendeur (volume I)",
    "series": "Paris dans sa splendeur",
@@ -13084,7 +14750,7 @@
    ]
   },
   {
-   "id": "w0493",
+   "id": "w0558",
    "artist": "uncertain-benoist",
    "title": "Paris in its splendor under Napoleon III: monuments, views, historical scenes, descriptions and history. Volume 3, Part 2/Text by Messrs. Audiganne, P. Bailly, Eugène Carissan, etc; Drawings and lithographs by... Philippe Benoist for the greatest number and with the help of photography... Vignettes of Felix Benoist and Catenacci... [Introduction of Eugène de La Gournerie]",
    "series": null,
@@ -13112,7 +14778,7 @@
    ]
   },
   {
-   "id": "w0494",
+   "id": "w0559",
    "artist": "uncertain-benoist",
    "title": "Plan de Bruxelles et de ses monuments principaux (...)",
    "series": null,
@@ -13134,7 +14800,7 @@
    ]
   },
   {
-   "id": "w0495",
+   "id": "w0560",
    "artist": "uncertain-benoist",
    "title": "Planche 1 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13156,7 +14822,7 @@
    ]
   },
   {
-   "id": "w0496",
+   "id": "w0561",
    "artist": "uncertain-benoist",
    "title": "Planche 10 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13178,7 +14844,7 @@
    ]
   },
   {
-   "id": "w0497",
+   "id": "w0562",
    "artist": "uncertain-benoist",
    "title": "Planche 11 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13200,7 +14866,7 @@
    ]
   },
   {
-   "id": "w0498",
+   "id": "w0563",
    "artist": "uncertain-benoist",
    "title": "Planche 12 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13222,7 +14888,7 @@
    ]
   },
   {
-   "id": "w0499",
+   "id": "w0564",
    "artist": "uncertain-benoist",
    "title": "Planche 13 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13244,7 +14910,7 @@
    ]
   },
   {
-   "id": "w0500",
+   "id": "w0565",
    "artist": "uncertain-benoist",
    "title": "Planche 14 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13266,7 +14932,7 @@
    ]
   },
   {
-   "id": "w0501",
+   "id": "w0566",
    "artist": "uncertain-benoist",
    "title": "Planche 15 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13288,7 +14954,7 @@
    ]
   },
   {
-   "id": "w0502",
+   "id": "w0567",
    "artist": "uncertain-benoist",
    "title": "Planche 16 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13310,7 +14976,7 @@
    ]
   },
   {
-   "id": "w0503",
+   "id": "w0568",
    "artist": "uncertain-benoist",
    "title": "Planche 17 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13332,7 +14998,7 @@
    ]
   },
   {
-   "id": "w0504",
+   "id": "w0569",
    "artist": "uncertain-benoist",
    "title": "Planche 19 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13354,7 +15020,7 @@
    ]
   },
   {
-   "id": "w0505",
+   "id": "w0570",
    "artist": "uncertain-benoist",
    "title": "Planche 2 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13376,7 +15042,7 @@
    ]
   },
   {
-   "id": "w0506",
+   "id": "w0571",
    "artist": "uncertain-benoist",
    "title": "Planche 20 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13398,7 +15064,7 @@
    ]
   },
   {
-   "id": "w0507",
+   "id": "w0572",
    "artist": "uncertain-benoist",
    "title": "Planche 21 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13420,7 +15086,7 @@
    ]
   },
   {
-   "id": "w0508",
+   "id": "w0573",
    "artist": "uncertain-benoist",
    "title": "Planche 22 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13442,7 +15108,7 @@
    ]
   },
   {
-   "id": "w0509",
+   "id": "w0574",
    "artist": "uncertain-benoist",
    "title": "Planche 23 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13464,7 +15130,7 @@
    ]
   },
   {
-   "id": "w0510",
+   "id": "w0575",
    "artist": "uncertain-benoist",
    "title": "Planche 24 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13486,7 +15152,7 @@
    ]
   },
   {
-   "id": "w0511",
+   "id": "w0576",
    "artist": "uncertain-benoist",
    "title": "Planche 25 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13508,7 +15174,7 @@
    ]
   },
   {
-   "id": "w0512",
+   "id": "w0577",
    "artist": "uncertain-benoist",
    "title": "Planche 26 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13530,7 +15196,7 @@
    ]
   },
   {
-   "id": "w0513",
+   "id": "w0578",
    "artist": "uncertain-benoist",
    "title": "Planche 27 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13552,7 +15218,7 @@
    ]
   },
   {
-   "id": "w0514",
+   "id": "w0579",
    "artist": "uncertain-benoist",
    "title": "Planche 28 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13574,7 +15240,7 @@
    ]
   },
   {
-   "id": "w0515",
+   "id": "w0580",
    "artist": "uncertain-benoist",
    "title": "Planche 29 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13596,7 +15262,7 @@
    ]
   },
   {
-   "id": "w0516",
+   "id": "w0581",
    "artist": "uncertain-benoist",
    "title": "Planche 30 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13618,7 +15284,7 @@
    ]
   },
   {
-   "id": "w0517",
+   "id": "w0582",
    "artist": "uncertain-benoist",
    "title": "Planche 31 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13640,7 +15306,7 @@
    ]
   },
   {
-   "id": "w0518",
+   "id": "w0583",
    "artist": "uncertain-benoist",
    "title": "Planche 32 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13662,7 +15328,7 @@
    ]
   },
   {
-   "id": "w0519",
+   "id": "w0584",
    "artist": "uncertain-benoist",
    "title": "Planche 33 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13684,7 +15350,7 @@
    ]
   },
   {
-   "id": "w0520",
+   "id": "w0585",
    "artist": "uncertain-benoist",
    "title": "Planche 34 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13706,7 +15372,7 @@
    ]
   },
   {
-   "id": "w0521",
+   "id": "w0586",
    "artist": "uncertain-benoist",
    "title": "Planche 35 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13728,7 +15394,7 @@
    ]
   },
   {
-   "id": "w0522",
+   "id": "w0587",
    "artist": "uncertain-benoist",
    "title": "Planche 36 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13750,7 +15416,7 @@
    ]
   },
   {
-   "id": "w0523",
+   "id": "w0588",
    "artist": "uncertain-benoist",
    "title": "Planche 37 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13772,7 +15438,7 @@
    ]
   },
   {
-   "id": "w0524",
+   "id": "w0589",
    "artist": "uncertain-benoist",
    "title": "Planche 38 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13794,7 +15460,7 @@
    ]
   },
   {
-   "id": "w0525",
+   "id": "w0590",
    "artist": "uncertain-benoist",
    "title": "Planche 39 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13816,7 +15482,7 @@
    ]
   },
   {
-   "id": "w0526",
+   "id": "w0591",
    "artist": "uncertain-benoist",
    "title": "Planche 4 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13838,7 +15504,7 @@
    ]
   },
   {
-   "id": "w0527",
+   "id": "w0592",
    "artist": "uncertain-benoist",
    "title": "Planche 40 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13860,7 +15526,7 @@
    ]
   },
   {
-   "id": "w0528",
+   "id": "w0593",
    "artist": "uncertain-benoist",
    "title": "Planche 41 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13882,7 +15548,7 @@
    ]
   },
   {
-   "id": "w0529",
+   "id": "w0594",
    "artist": "uncertain-benoist",
    "title": "Planche 42 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13904,7 +15570,7 @@
    ]
   },
   {
-   "id": "w0530",
+   "id": "w0595",
    "artist": "uncertain-benoist",
    "title": "Planche 43 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13926,7 +15592,7 @@
    ]
   },
   {
-   "id": "w0531",
+   "id": "w0596",
    "artist": "uncertain-benoist",
    "title": "Planche 44 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13948,7 +15614,7 @@
    ]
   },
   {
-   "id": "w0532",
+   "id": "w0597",
    "artist": "uncertain-benoist",
    "title": "Planche 45 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13970,7 +15636,7 @@
    ]
   },
   {
-   "id": "w0533",
+   "id": "w0598",
    "artist": "uncertain-benoist",
    "title": "Planche 46 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -13992,7 +15658,7 @@
    ]
   },
   {
-   "id": "w0534",
+   "id": "w0599",
    "artist": "uncertain-benoist",
    "title": "Planche 47 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14014,7 +15680,7 @@
    ]
   },
   {
-   "id": "w0535",
+   "id": "w0600",
    "artist": "uncertain-benoist",
    "title": "Planche 48 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14036,7 +15702,7 @@
    ]
   },
   {
-   "id": "w0536",
+   "id": "w0601",
    "artist": "uncertain-benoist",
    "title": "Planche 49 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14058,7 +15724,7 @@
    ]
   },
   {
-   "id": "w0537",
+   "id": "w0602",
    "artist": "uncertain-benoist",
    "title": "Planche 5 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14080,7 +15746,7 @@
    ]
   },
   {
-   "id": "w0538",
+   "id": "w0603",
    "artist": "uncertain-benoist",
    "title": "Planche 50 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14102,7 +15768,7 @@
    ]
   },
   {
-   "id": "w0539",
+   "id": "w0604",
    "artist": "uncertain-benoist",
    "title": "Planche 51 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14124,7 +15790,7 @@
    ]
   },
   {
-   "id": "w0540",
+   "id": "w0605",
    "artist": "uncertain-benoist",
    "title": "Planche 52 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14146,7 +15812,7 @@
    ]
   },
   {
-   "id": "w0541",
+   "id": "w0606",
    "artist": "uncertain-benoist",
    "title": "Planche 53 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14168,7 +15834,7 @@
    ]
   },
   {
-   "id": "w0542",
+   "id": "w0607",
    "artist": "uncertain-benoist",
    "title": "Planche 54 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14190,7 +15856,7 @@
    ]
   },
   {
-   "id": "w0543",
+   "id": "w0608",
    "artist": "uncertain-benoist",
    "title": "Planche 55 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14212,7 +15878,7 @@
    ]
   },
   {
-   "id": "w0544",
+   "id": "w0609",
    "artist": "uncertain-benoist",
    "title": "Planche 56 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14234,7 +15900,7 @@
    ]
   },
   {
-   "id": "w0545",
+   "id": "w0610",
    "artist": "uncertain-benoist",
    "title": "Planche 57 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14256,7 +15922,7 @@
    ]
   },
   {
-   "id": "w0546",
+   "id": "w0611",
    "artist": "uncertain-benoist",
    "title": "Planche 58 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14278,7 +15944,7 @@
    ]
   },
   {
-   "id": "w0547",
+   "id": "w0612",
    "artist": "uncertain-benoist",
    "title": "Planche 59 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14300,7 +15966,7 @@
    ]
   },
   {
-   "id": "w0548",
+   "id": "w0613",
    "artist": "uncertain-benoist",
    "title": "Planche 6 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14322,7 +15988,7 @@
    ]
   },
   {
-   "id": "w0549",
+   "id": "w0614",
    "artist": "uncertain-benoist",
    "title": "Planche 60 bis (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14344,7 +16010,7 @@
    ]
   },
   {
-   "id": "w0550",
+   "id": "w0615",
    "artist": "uncertain-benoist",
    "title": "Planche 60 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14366,7 +16032,7 @@
    ]
   },
   {
-   "id": "w0551",
+   "id": "w0616",
    "artist": "uncertain-benoist",
    "title": "Planche 61 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14388,7 +16054,7 @@
    ]
   },
   {
-   "id": "w0552",
+   "id": "w0617",
    "artist": "uncertain-benoist",
    "title": "Planche 62 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14410,7 +16076,7 @@
    ]
   },
   {
-   "id": "w0553",
+   "id": "w0618",
    "artist": "uncertain-benoist",
    "title": "Planche 63 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14432,7 +16098,7 @@
    ]
   },
   {
-   "id": "w0554",
+   "id": "w0619",
    "artist": "uncertain-benoist",
    "title": "Planche 64 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14454,7 +16120,7 @@
    ]
   },
   {
-   "id": "w0555",
+   "id": "w0620",
    "artist": "uncertain-benoist",
    "title": "Planche 65 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14476,7 +16142,7 @@
    ]
   },
   {
-   "id": "w0556",
+   "id": "w0621",
    "artist": "uncertain-benoist",
    "title": "Planche 66 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14498,7 +16164,7 @@
    ]
   },
   {
-   "id": "w0557",
+   "id": "w0622",
    "artist": "uncertain-benoist",
    "title": "Planche 67 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14520,7 +16186,7 @@
    ]
   },
   {
-   "id": "w0558",
+   "id": "w0623",
    "artist": "uncertain-benoist",
    "title": "Planche 68 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14542,7 +16208,7 @@
    ]
   },
   {
-   "id": "w0559",
+   "id": "w0624",
    "artist": "uncertain-benoist",
    "title": "Planche 69 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14564,7 +16230,7 @@
    ]
   },
   {
-   "id": "w0560",
+   "id": "w0625",
    "artist": "uncertain-benoist",
    "title": "Planche 7 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14586,7 +16252,7 @@
    ]
   },
   {
-   "id": "w0561",
+   "id": "w0626",
    "artist": "uncertain-benoist",
    "title": "Planche 70 (plate in Paris dans sa splendeur, Band 2)",
    "series": "Paris dans sa splendeur",
@@ -14608,7 +16274,7 @@
    ]
   },
   {
-   "id": "w0562",
+   "id": "w0627",
    "artist": "uncertain-benoist",
    "title": "Planche 8 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14630,7 +16296,7 @@
    ]
   },
   {
-   "id": "w0563",
+   "id": "w0628",
    "artist": "uncertain-benoist",
    "title": "Planche 9 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14652,7 +16318,7 @@
    ]
   },
   {
-   "id": "w0564",
+   "id": "w0629",
    "artist": "uncertain-benoist",
    "title": "Planche18 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14674,7 +16340,7 @@
    ]
   },
   {
-   "id": "w0565",
+   "id": "w0630",
    "artist": "uncertain-benoist",
    "title": "Planches 3 (plate in Paris dans sa splendeur, Band 1)",
    "series": "Paris dans sa splendeur",
@@ -14696,7 +16362,7 @@
    ]
   },
   {
-   "id": "w0566",
+   "id": "w0631",
    "artist": "uncertain-benoist",
    "title": "Portret van Frederik, prins der Nederlanden",
    "series": null,
@@ -14718,7 +16384,7 @@
    ]
   },
   {
-   "id": "w0567",
+   "id": "w0632",
    "artist": "uncertain-benoist",
    "title": "Portret van Willem II, koning der Nederlanden",
    "series": null,
@@ -14740,7 +16406,7 @@
    ]
   },
   {
-   "id": "w0568",
+   "id": "w0633",
    "artist": "uncertain-benoist",
    "title": "Reigle de perfection, contenant un bref et lucide abrégé de toute la vie spirituelle réduite à ce seul point de la volonté de Dieu... par F. Benoist... de Canfeld...",
    "series": null,
@@ -14762,7 +16428,7 @@
    ]
   },
   {
-   "id": "w0569",
+   "id": "w0634",
    "artist": "uncertain-benoist",
    "title": "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Civitavecchia",
    "series": "Rome dans sa grandeur",
@@ -15018,7 +16684,7 @@
    ]
   },
   {
-   "id": "w0570",
+   "id": "w0635",
    "artist": "uncertain-benoist",
    "title": "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Subiaco, Benediktinerkloster",
    "series": "Rome dans sa grandeur",
@@ -15274,7 +16940,7 @@
    ]
   },
   {
-   "id": "w0571",
+   "id": "w0636",
    "artist": "uncertain-benoist",
    "title": "SINAGOGA MAYOR DE TOLEDO, Hoy Iglesia de Sn. Benito Abad, Vulgo N. S. del Tránsito = GRANDE SYNAGOGUE DE TOLÈDE, Aujourd'hui de St. Benoist dite N. D. del Tránsito / G. P. Villa Amil Dibujó ; Lith. par Asselineau et Bayot.",
    "series": "España artística y monumental",
@@ -15308,7 +16974,7 @@
    ]
   },
   {
-   "id": "w0572",
+   "id": "w0637",
    "artist": "uncertain-benoist",
    "title": "Toscane",
    "series": null,
@@ -15330,7 +16996,7 @@
    ]
   },
   {
-   "id": "w0573",
+   "id": "w0638",
    "artist": "uncertain-benoist",
    "title": "Trois volumes préparés pour recueillir tous les souvenirs personnels de Léon Kreutzer, compositeur français, et offerts après sa mort, à Madame Kreutzer, sa veuve (née Clémence Kautz) par leurs amis, Paul Gasnault, Paul Chardin, Arthur Rhoné. 1868. Souvenirs, photos, dessins, programmes, coupures de presse, copies d'articles de H. Berlioz pour le Journal des Débats, catalogue des oeuvres de L. Kreutzer. 1 ms musical de la mère de L. Kreutzer. L.a.s. de Mélesville, Adolphe Sax, Charles Gounod, J. d'Ortigue, Spontini, Marmontel, Halévy, F. Benoist, Alphonse Royer, Vaucorbeil, Pauline Viardot, Meyerbeer, F. Liszt, Dancla, Stephen Heller",
    "series": null,
@@ -15352,7 +17018,7 @@
    ]
   },
   {
-   "id": "w0574",
+   "id": "w0639",
    "artist": "uncertain-benoist",
    "title": "Two sleeping cowherds on the Mont-sous-les-Baisses just before an appearance of the Virgin of the Salette. Lithograph by E. Ciceri and Ph. Benoist after F. Benoist.",
    "series": null,
@@ -15374,7 +17040,7 @@
    ]
   },
   {
-   "id": "w0575",
+   "id": "w0640",
    "artist": "uncertain-benoist",
    "title": "Two sleeping cowherds on the Mont-sous-les-Baisses just before an appearance of the Virgin of the Salette. Lithograph by E. Ciceri and Ph. Benoist after F. Benoist.",
    "series": null,
@@ -15396,7 +17062,7 @@
    ]
   },
   {
-   "id": "w0576",
+   "id": "w0641",
    "artist": "uncertain-benoist",
    "title": "View of a town with man and dog",
    "series": null,
@@ -15418,7 +17084,7 @@
    ]
   },
   {
-   "id": "w0577",
+   "id": "w0642",
    "artist": "uncertain-benoist",
    "title": "View of a Windmill",
    "series": null,
@@ -15440,7 +17106,7 @@
    ]
   },
   {
-   "id": "w0578",
+   "id": "w0643",
    "artist": "uncertain-benoist",
    "title": "Band 1: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
    "series": null,
@@ -15462,7 +17128,7 @@
    ]
   },
   {
-   "id": "w0579",
+   "id": "w0644",
    "artist": "uncertain-benoist",
    "title": "Band 2: Paris dans sa splendeur: monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]: Paris dans sa splendeur",
    "series": null,
@@ -15484,7 +17150,7 @@
    ]
   },
   {
-   "id": "w0580",
+   "id": "w0645",
    "artist": "uncertain-benoist",
    "title": "Cadix: Almada de Cadix, prise dès la rue du Quartier de la Marine / Juan B. Coli dibujo en Cadiz ; imprimé par Auguste Bry ; Ph. Benoist lith.",
    "series": null,
@@ -15506,7 +17172,7 @@
    ]
   },
   {
-   "id": "w0581",
+   "id": "w0646",
    "artist": "uncertain-benoist",
    "title": "Cadix: vue de l'Observatoire et de la Tour haute de la ville de St. Ferdinand / Juan B. Coli dibujo en Sn. Fernando ; imprimé par Auguste Bry ; Ph. Benoist lith",
    "series": null,
@@ -15528,7 +17194,7 @@
    ]
   },
   {
-   "id": "w0582",
+   "id": "w0647",
    "artist": "uncertain-benoist",
    "title": "Cadix : vue du salon de Christine à Cadix pris des son entrée par la Alameda = Cádiz : vista del salón de Cristina de Cadiz tomado desde su entrada por la Alameda",
    "series": null,
@@ -15550,7 +17216,7 @@
    ]
   },
   {
-   "id": "w0583",
+   "id": "w0648",
    "artist": "uncertain-benoist",
    "title": "Carol de Secondat Baro de Montesquieu",
    "series": null,
@@ -15572,7 +17238,7 @@
    ]
   },
   {
-   "id": "w0584",
+   "id": "w0649",
    "artist": "uncertain-benoist",
    "title": "Carol. de Secondat baron de Montesquieu. // Nat. 18° die Januar. an. 1689. obiit 10° die Febr. an. 1755. : [estampe] ([État décrit dans l'Inventaire du fonds français, graveurs du XVIIIe siècle]) / Dessiné et Gravé sur la Médaille de Dassier Par G. Ph. Benoist.",
    "series": null,
@@ -15594,7 +17260,7 @@
    ]
   },
   {
-   "id": "w0585",
+   "id": "w0650",
    "artist": "uncertain-benoist",
    "title": "Das Münster zu Freiburg, Südliche Seiten-Ansicht - Cathédrale de Fribourg (Coté latéral Méridional)",
    "series": null,
@@ -15616,7 +17282,7 @@
    ]
   },
   {
-   "id": "w0586",
+   "id": "w0651",
    "artist": "uncertain-benoist",
    "title": "España Artística y Monumental",
    "series": null,
@@ -15638,7 +17304,7 @@
    ]
   },
   {
-   "id": "w0587",
+   "id": "w0652",
    "artist": "uncertain-benoist",
    "title": "Innere Ansicht des Münsters zu Freiburg (Seiteneingang) - Intérieur de la Cathédrale de Fribourg (bas cotés)",
    "series": null,
@@ -15660,7 +17326,7 @@
    ]
   },
   {
-   "id": "w0588",
+   "id": "w0653",
    "artist": "uncertain-benoist",
    "title": "Jean Philippe Rameau. Lichtdruck nach einem seitenverkehrten Kupferstich (unter Verwendung des Medaillons aus einem Kupferstiches von Guillaume Ph. Benoist nach Jean Restout d. J.)",
    "series": null,
@@ -15682,7 +17348,7 @@
    ]
   },
   {
-   "id": "w0589",
+   "id": "w0654",
    "artist": "uncertain-benoist",
    "title": "La Crimée a vol d'oiseau / dessinée et lithogr. par Ph. Benoist et Eug. Cicéri.",
    "series": null,
@@ -15704,7 +17370,7 @@
    ]
   },
   {
-   "id": "w0590",
+   "id": "w0655",
    "artist": "uncertain-benoist",
    "title": "Les comètes",
    "series": null,
@@ -15726,7 +17392,7 @@
    ]
   },
   {
-   "id": "w0591",
+   "id": "w0656",
    "artist": "uncertain-benoist",
    "title": "Nouvelles vues de Paris. par Ph. Benoist et J. Jacottet",
    "series": null,
@@ -15748,7 +17414,7 @@
    ]
   },
   {
-   "id": "w0592",
+   "id": "w0657",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur : monuments, vues, scènes historiques, descriptions et histoire$ddessins et lithographies par MM. Philippe Benoist [und 17 weitere] ; texte par MM. Audiganne [und 23 weitere]",
    "series": null,
@@ -15770,7 +17436,7 @@
    ]
   },
   {
-   "id": "w0593",
+   "id": "w0658",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Partie 1,Volume 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": null,
@@ -15792,7 +17458,7 @@
    ]
   },
   {
-   "id": "w0594",
+   "id": "w0659",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": null,
@@ -15814,7 +17480,7 @@
    ]
   },
   {
-   "id": "w0595",
+   "id": "w0660",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur : Monuments, vues, scènes historiques, descriptions et histoire. Volume 3,Partie 2 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc. ; Dessins et lithographies par MM. Philippe Benoist,... Jules Arnout,...",
    "series": null,
@@ -15836,7 +17502,7 @@
    ]
   },
   {
-   "id": "w0596",
+   "id": "w0661",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 1,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
    "series": null,
@@ -15858,7 +17524,7 @@
    ]
   },
   {
-   "id": "w0597",
+   "id": "w0662",
    "artist": "uncertain-benoist",
    "title": "Paris dans sa splendeur sous Napoléon III : monuments, vues, scènes historiques, descriptions et histoire. Volume 2,Partie 1 / Texte par MM. Audiganne, P. Bailly, Eugène Carissan, etc ; Dessins et lithographies par... Philippe Benoist pour le plus grand nombre et avec l'aide de la photographie... ; Vignettes de Félix Benoist et Catenacci... ; [Introduction de Eugène de La Gournerie.]",
    "series": null,
@@ -15880,7 +17546,7 @@
    ]
   },
   {
-   "id": "w0598",
+   "id": "w0663",
    "artist": "uncertain-benoist",
    "title": "Paris in its splendor under Napoleon III: monuments, views, historical scenes, descriptions and history. Volume 3, Part 2/Text by Messrs. Audiganne, P. Bailly, Eugène Carissan, etc; Drawings and lithographs by... Philippe Benoist for the greatest number and with the help of photography... Vignettes of Felix Benoist and Catenacci... [Introduction of Eugène de La Gournerie]",
    "series": null,
@@ -15902,7 +17568,7 @@
    ]
   },
   {
-   "id": "w0599",
+   "id": "w0664",
    "artist": "uncertain-benoist",
    "title": "Procès du coup de pistolet, publié par deux sectionnaires [Louis Bergeron et Philippe-François-Hippolyte Benoist]",
    "series": null,
@@ -15924,7 +17590,7 @@
    ]
   },
   {
-   "id": "w0600",
+   "id": "w0665",
    "artist": "uncertain-benoist",
    "title": "Starożytny kościół Sy Anny w Wilnie",
    "series": null,
@@ -15946,7 +17612,7 @@
    ]
   },
   {
-   "id": "w0601",
+   "id": "w0666",
    "artist": "uncertain-benoist",
    "title": "[The Indeitsev Panorama of Moscow]",
    "series": null,
@@ -15968,7 +17634,7 @@
    ]
   },
   {
-   "id": "w0602",
+   "id": "w0667",
    "artist": "uncertain-benoist",
    "title": "TOLÈDE [Vista panorámica de la ciudad realizada desde el Oeste] / Dessin de Ph. Benoist, d'après une photographie de J. Laurent ; C. Laplante.",
    "series": null,
@@ -15996,7 +17662,7 @@
    ]
   },
   {
-   "id": "w0603",
+   "id": "w0668",
    "artist": "uncertain-benoist",
    "title": "Toledo [Vista panorámica de Toledo desde el Oeste].",
    "series": null,
@@ -16018,7 +17684,7 @@
    ]
   },
   {
-   "id": "w0604",
+   "id": "w0669",
    "artist": "uncertain-benoist",
    "title": "Two sleeping cowherds on the Mont-sous-les-Baisses just before an appearance of the Virgin of the Salette. Lithograph by E. Ciceri and Ph. Benoist after F. Benoist.",
    "series": null,
@@ -16040,7 +17706,7 @@
    ]
   },
   {
-   "id": "w0605",
+   "id": "w0670",
    "artist": "uncertain-benoist",
    "title": "Vilnius",
    "series": null,
@@ -16062,7 +17728,7 @@
    ]
   },
   {
-   "id": "w0606",
+   "id": "w0671",
    "artist": "uncertain-benoist",
    "title": "Vista del patio del Colegio de San Gregorio de Valladolid - Estampa",
    "series": null,
@@ -16084,7 +17750,7 @@
    ]
   },
   {
-   "id": "w0607",
+   "id": "w0672",
    "artist": "uncertain-benoist",
    "title": "Widoki Warszawy. Wnętrze pałacu Zwanego Łazienki",
    "series": null,
@@ -16106,7 +17772,7 @@
    ]
   },
   {
-   "id": "w0608",
+   "id": "w0673",
    "artist": "uncertain-benoist",
    "title": "Widoki Wilna. Byłi uniwersytet Wileński",
    "series": null,

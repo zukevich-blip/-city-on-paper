@@ -531,6 +531,11 @@ class Fetcher:
             except (urllib.error.URLError, TimeoutError, OSError) as exc:
                 err = f"{type(exc).__name__}: {exc}"
             else:
+                if len(text) < 500:
+                    err = f"short/empty body ({len(text)} bytes)"
+                    print(f"  retry {attempt}/{attempts} {url}: {err}", file=sys.stderr)
+                    time.sleep(10 * attempt)
+                    continue
                 if re.search(r"captcha|are you a robot|access denied", text[:4000], re.I):
                     self.blocked.append({"url": url, "http": 200, "why": "CAPTCHA / challenge page; not bypassed"})
                     return None
@@ -597,6 +602,15 @@ def run(args) -> dict:
         if html is None:
             continue
         page = parse_record_page(html)
+        if not page["node"] or not page["authors"]:
+            fetch.blocked.append(
+                {
+                    "url": SITE + card["path"],
+                    "http": 200,
+                    "why": "record page did not parse (no node/authors); record skipped",
+                }
+            )
+            continue
         manifest = None
         if page["manifest"]:
             raw = fetch.get(page["manifest"])
