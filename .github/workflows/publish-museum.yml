@@ -101,10 +101,17 @@ jobs:
           test -s public/eras/viewpoint-atlas.css
           test -s public/assets/story/artwork-history.js
           test -s public/assets/story/artwork-history.css
-          grep -q 'museum-frontdoor museum-wow' public/index.html
-          grep -q 'class="wow-features"' public/index.html
-          grep -q 'rome-pantheon-1752.jpg' public/index.html
-          grep -q 'rome-pantheon-2025.jpg' public/index.html
+          grep -q 'class="lt-home"' public/index.html
+          grep -q 'class="lh-plaque"' public/index.html
+          grep -q 'madeleine-benoist-carnavalet-cargtop030438.jpg' public/index.html
+          grep -q 'madeleine-photo-panoramax-38b6d262.jpg' public/index.html
+          test -s public/assets/litho/litho.css
+          test -s public/book/index.html
+          test -s public/book/app.js
+          test -s public/book/benoist-sheets.json
+          test -s public/book/benoist-registry.json
+          test ! -e public/private-archive
+          test ! -e public/data/private
           test -s public/poc/compare/pairs/rome-pantheon-1752.jpg
           test -s public/poc/compare/pairs/rome-pantheon-2025.jpg
           test -s public/poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg
@@ -131,8 +138,7 @@ jobs:
           test -s public/data/curation/world-open-views-v2.json
           test -s public/assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg
           test -s public/submit/index.html
-          grep -q 'museum-frontdoor' public/index.html
-          grep -q 'class="signature"' public/index.html
+          grep -q 'id="lhRange"' public/index.html
           grep -q 'id="placeButtons"' public/walk/index.html
           grep -q 'id="suggestion"' public/submit/index.html
           test -s public/data/coverage/world-coverage-20261110.json
