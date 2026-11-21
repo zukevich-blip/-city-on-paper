@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "research-only",
+  "artist": "Philippe Benoist",
+  "museum": "Musée Carnavalet / Paris Musées",
+  "records": [
+    {
+      "id": "benoist-rue-rivoli-ministeres",
+      "title": "Rue de Rivoli, Ministères des Finances et de la Marine",
+      "source_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-rue-de-rivoli-ministeres-des-finances-et-de-la-marine",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291211/manifest",
+      "landmark": "Rue de Rivoli",
+      "rights_label": "CC0 on catalog",
+      "image_downloaded": false,
+      "viewpoint_verified": false,
+      "review_status": "candidate"
+    },
+    {
+      "id": "benoist-bourse-tribunal",
+      "title": "Bourse et Tribunal de Commerce",
+      "source_url": "https://parismuseescollections.paris.fr/ru/node/647366",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291262/manifest",
+      "landmark": "Palais Brongniart / Bourse",
+      "rights_label": "CC0 on catalog",
+      "image_downloaded": false,
+      "viewpoint_verified": false,
+      "review_status": "candidate"
+    },
+    {
+      "id": "benoist-colonnade-louvre-second-impression",
+      "title": "Colonnade du Louvre, second museum impression",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291352/manifest",
+      "landmark": "Colonnade du Louvre",
+      "rights_label": "CC0 on catalog",
+      "image_downloaded": false,
+      "viewpoint_verified": false,
+      "review_status": "candidate"
+    }
+  ]
+}
