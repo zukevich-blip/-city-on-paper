@@ -678,10 +678,19 @@ PROBES = [
 ]
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    """``--only loc,met`` re-runs just those sources and merges them into the existing output file."""
+    argv = sys.argv[1:] if argv is None else argv
+    only = set(argv[argv.index("--only") + 1].split(",")) if "--only" in argv else set()
     c = Client()
     sources, records = {}, []
+    if only and OUT.exists():
+        prev = json.loads(OUT.read_text("utf-8"))
+        sources = dict(prev.get("sources_tried", {}))
+        records = [r for r in prev.get("records", []) if r["source"] not in only]
     for name, fn in RUNNERS:
+        if only and name not in only:
+            continue
         t0 = time.time()
         try:
             recs = fn(c)
@@ -692,6 +701,8 @@ def main() -> int:
             sources[name] = {"status": "failed", "records": 0, "error": f"{type(e).__name__}: {e}"[:200]}
             print(f"{name}: FAILED {e}", file=sys.stderr)
     for name, url, note in PROBES:
+        if only:
+            break
         res = probe(c, url)
         res["note"] = res.get("note") or note
         if res["status"] == "failed":

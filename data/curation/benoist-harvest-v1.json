@@ -1,13 +1,13 @@
 {
   "version": "2026-11-21",
-  "fetched_at": "2026-11-21T02:16:25Z",
+  "fetched_at": "2026-11-21T02:32:22Z",
   "scope": "Prints and drawings attributed to Philippe Benoist (1813-1905) in open catalogue APIs.",
   "policy": "Fields copied from source records; image_url only where the source states an open licence for the image; rights_class open|link.",
   "sources_tried": {
     "loc": {
-      "status": "ok",
+      "status": "failed",
       "records": 0,
-      "seconds": 136
+      "error": "Blocked: www.loc.gov: HTTP 429 repeated"
     },
     "europeana": {
       "status": "ok",
@@ -15,9 +15,9 @@
       "seconds": 14
     },
     "met": {
-      "status": "failed",
-      "records": 0,
-      "error": "Blocked: collectionapi.metmuseum.org: HTTP 403"
+      "status": "ok",
+      "records": 2,
+      "seconds": 18
     },
     "aic": {
       "status": "ok",
@@ -30,9 +30,9 @@
       "seconds": 0
     },
     "rijks": {
-      "status": "failed",
-      "records": 0,
-      "error": "AttributeError: 'str' object has no attribute 'get'"
+      "status": "ok",
+      "records": 22,
+      "seconds": 110
     },
     "internet_archive": {
       "status": "ok",
@@ -63,10 +63,10 @@
     }
   },
   "summary": {
-    "records": 150,
-    "known": 114,
-    "new": 36,
-    "open_image_rights": 16
+    "records": 174,
+    "known": 116,
+    "new": 58,
+    "open_image_rights": 38
   },
   "records": [
     {
@@ -4094,6 +4094,934 @@
       "image_rights_statement": null,
       "attribution_confidence": "high",
       "confidence_note": "NGA constituent 3497 'Benoist, Philippe'; medium: 1 vol: ill: lithographs; classification: Volume; series/volume: (1 of 3 volumes, 1981.69.5-7) / -.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "met",
+      "id": "met-345889",
+      "title_original": "Nouvelles Vues de Paris",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": "ca. 1850",
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "Artist",
+          "as_written": "Philippe Benoist"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "The Metropolitan Museum of Art",
+      "accession_id": "50.576.1",
+      "record_url": "https://www.metmuseum.org/art/collection/search/345889",
+      "image_url": null,
+      "rights_statement": null,
+      "rights_class": "link",
+      "image_rights_statement": null,
+      "attribution_confidence": "high",
+      "confidence_note": "Medium: Lithographs; credit line: Gift of Joseph Verner Reed, 1950.",
+      "known": true,
+      "known_match": "record_url"
+    },
+    {
+      "source": "met",
+      "id": "met-656125",
+      "title_original": "Souvenir de Fontainebleau, Cour des Adieux, autre-fois cour du cheval blanc (Souvenir of Fontainebleau: Court of Farewells, or, Court of the White Horse)",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": "19th century",
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "Artist",
+          "as_written": "Philippe Benoist"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "The Metropolitan Museum of Art",
+      "accession_id": "24.63.955",
+      "record_url": "https://www.metmuseum.org/art/collection/search/656125",
+      "image_url": null,
+      "rights_statement": null,
+      "rights_class": "link",
+      "image_rights_statement": null,
+      "attribution_confidence": "high",
+      "confidence_note": "Medium: Lithograph with tint stone; credit line: Gift of Georgiana W. Sargent, in memory of John Osborne Sargent, 1924.",
+      "known": true,
+      "known_match": "record_url"
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1904-3864",
+      "title_original": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Buffa & Fils, Francois",
+          "role_as_stated": "publisher",
+          "as_written": "Buffa & Fils, Francois"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1904-3864",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1904-3864--d6f06ffd3b4205c491b1c6193ddd620d",
+      "image_url": "https://iiif.micr.io/IGUMM/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1904-3866",
+      "title_original": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Buffa & Fils, Francois",
+          "role_as_stated": "publisher",
+          "as_written": "Buffa & Fils, Francois"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1904-3866",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1904-3866--f3a162a4ef9cc4968d8bd1e17ffc8f4f",
+      "image_url": "https://iiif.micr.io/eSgwI/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1908-1979",
+      "title_original": "Hôtel de ville de Bruxelles",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after drawing by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after drawing by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Veith & Hauser",
+          "role_as_stated": "publisher",
+          "as_written": "Veith & Hauser"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1908-1979",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-1979--f2c43f90fd39f046219eebf33ddd362c",
+      "image_url": "https://iiif.micr.io/vMQEa/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1908-259",
+      "title_original": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Bulla & Delarue",
+          "role_as_stated": "publisher",
+          "as_written": "Bulla & Delarue"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "after drawing by",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "after drawing by",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Joseph Rose Lemercier",
+          "role_as_stated": "printer (person)",
+          "as_written": "Joseph Rose Lemercier"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1908-259",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-259--70d1c97b8a1228203a2e33d4a222f4a1",
+      "image_url": "https://iiif.micr.io/MzQHV/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1908-258",
+      "title_original": "Naples. Palais du roi",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Bulla & Delarue",
+          "role_as_stated": "publisher",
+          "as_written": "Bulla & Delarue"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "after drawing by",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "after drawing by",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1908-258",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-258--8c08b213286084e412cb01dc8f6f2cbc",
+      "image_url": "https://iiif.micr.io/BBQQC/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5494",
+      "title_original": "Place de la Concorde",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5494",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5494--3f42a222e9027e27050340724596eba3",
+      "image_url": "https://iiif.micr.io/AneCg/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5495",
+      "title_original": "La Madeleine",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5495",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5495--b52166ac4a3a77933c1a9808cec1f07f",
+      "image_url": "https://iiif.micr.io/Rfkwv/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5496",
+      "title_original": "Colonne de Juillet",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5496",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5496--55e352fc06193998052872578bfec6f3",
+      "image_url": "https://iiif.micr.io/BFncn/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5497",
+      "title_original": "Cour d'Honneur",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5497",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5497--7929b38560a78b9873285996e13224c7",
+      "image_url": "https://iiif.micr.io/gFFFE/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5498",
+      "title_original": "Hôtel de Ville",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5498",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5498--38c11b05c521c05cdf6e22fc83e31e85",
+      "image_url": "https://iiif.micr.io/ROjmK/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5499",
+      "title_original": "Jardin du Palais Royal",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5499",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5499--687fde102ea07695f16ba436d39a458b",
+      "image_url": "https://iiif.micr.io/byuGC/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5500",
+      "title_original": "Notre-Dame, Cathédrale de Paris",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5500",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5500--5d8c494cfd6c6ad22ae964ed2224afd6",
+      "image_url": "https://iiif.micr.io/xPrHJ/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5501",
+      "title_original": "Château des Tuileries",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5501",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5501--34851268cd64da0283c30f9af40ede7e",
+      "image_url": "https://iiif.micr.io/pxUts/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5502",
+      "title_original": "Église St. Étienne-du-Mont",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5502",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5502--439d317099250bfe9c06af874e60234a",
+      "image_url": "https://iiif.micr.io/Rjfgi/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5503",
+      "title_original": "Porte St. Denis",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5503",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5503--56ce768410d2f88e13fce8f50143f900",
+      "image_url": "https://iiif.micr.io/XaJiB/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5504",
+      "title_original": "Vues des Palais d'Orçay et de la Légion d'honneur",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5504",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5504--77f9522f83a9f73ccdf342b60f2a98aa",
+      "image_url": "https://iiif.micr.io/UDTWt/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5505",
+      "title_original": "Colonnade du Louvre",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5505",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5505--8d5532db57ad2b34205aec20a47ca896",
+      "image_url": "https://iiif.micr.io/NrIsC/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1905-5506",
+      "title_original": "Le Panthéon",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Gihaut frères",
+          "role_as_stated": "publisher",
+          "as_written": "Gihaut frères"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Auguste Bry",
+          "role_as_stated": "printer (person)",
+          "as_written": "Auguste Bry"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1905-5506",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5506--7aeaf1ee21c6355ff8322df9b5d8e574",
+      "image_url": "https://iiif.micr.io/Mtqdg/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-RP-P-1944-1699",
+      "title_original": "Rome Vestibule de la Basilique de St. Pierre / Roma Vestibulo della Basilica di San Pietro",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "after own design by",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "after own design by",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Bulla & Jouy",
+          "role_as_stated": "publisher",
+          "as_written": "Bulla & Jouy"
+        },
+        {
+          "name": "Lemercier et Cie.",
+          "role_as_stated": "printer (person)",
+          "as_written": "Lemercier et Cie."
+        },
+        {
+          "name": "François Delarue",
+          "role_as_stated": "publisher",
+          "as_written": "François Delarue"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "RP-P-1944-1699",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1944-1699--4fd06dd5a935605a9512a406a7d311f5",
+      "image_url": "https://iiif.micr.io/LbaSB/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-KOG-AA-1-2-19",
+      "title_original": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Buffa & Fils, Francois",
+          "role_as_stated": "publisher",
+          "as_written": "Buffa & Fils, Francois"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "KOG-AA-1-2-19",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-1-2-19--35206282c07914d136210d58364c2e4d",
+      "image_url": "https://iiif.micr.io/xLOpD/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-KOG-AA-1-2-20",
+      "title_original": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Buffa & Fils, Francois",
+          "role_as_stated": "publisher",
+          "as_written": "Buffa & Fils, Francois"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after design by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "KOG-AA-1-2-20",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-1-2-20--89134cd4e2834198a9c4a05b98089777",
+      "image_url": "https://iiif.micr.io/xFYSV/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
+      "known": false,
+      "known_match": null
+    },
+    {
+      "source": "rijks",
+      "id": "rijks-KOG-AA-8-71",
+      "title_original": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+      "kind": "print",
+      "place_depicted": null,
+      "date_as_stated": null,
+      "creators": [
+        {
+          "name": "Philippe Benoist",
+          "role_as_stated": "printmaker",
+          "as_written": "Philippe Benoist"
+        },
+        {
+          "name": "Buffa & Fils, Francois",
+          "role_as_stated": "publisher",
+          "as_written": "Buffa & Fils, Francois"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after drawing by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        },
+        {
+          "name": "Nicolas Marie Joseph Chapuy",
+          "role_as_stated": "after drawing by",
+          "as_written": "Nicolas Marie Joseph Chapuy"
+        }
+      ],
+      "statement_of_responsibility": null,
+      "holder": "Rijksmuseum",
+      "accession_id": "KOG-AA-8-71",
+      "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-8-71--4dcdaa1713531fffd6d73e0128ad19f3",
+      "image_url": "https://iiif.micr.io/Xfups/full/max/0/default.jpg",
+      "rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rights_class": "open",
+      "image_rights_statement": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_confidence": "high",
+      "confidence_note": "Creator resolved from Rijksmuseum person record.",
       "known": false,
       "known_match": null
     }
