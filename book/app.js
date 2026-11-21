@@ -66,10 +66,10 @@
   async function load() {
     if (D) return D;
     const j = (u, d) => fetch(u).then((r) => (r.ok ? r.json() : d)).catch(() => d);
-    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh] = await Promise.all([
+    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh, reg] = await Promise.all([
       j(E + "data/atlas.json", null), j(E + "data/thumbs.json", {}), j(E + "data/history.json", { cities: [] }),
       j("../poc/compare/pairs/index.json", { places: {}, pairs: [] }), j("editorial.json", {}),
-      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }),
+      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }), j("benoist-registry.json", { summary: null, works: [] }),
     ]);
     // curated records know who made a sheet, who keeps it and on which terms: use them when the url matches
     const known = new Map();
@@ -127,7 +127,7 @@
       k.cities = k.cities.filter((c) => c.plates.length || c.pairs.length).sort((a, b) => b.plates.length - a.plates.length || a.name.localeCompare(b.name, "ru"));
     }
     for (const [name, k] of [...countries]) if (!k.plates) countries.delete(name);
-    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], total: [...plates.values()].length };
+    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], reg, total: [...plates.values()].length };
     return D;
   };
   const sortedCountries = () => [...D.countries.values()].sort((a, b) => b.plates - a.plates || a.name.localeCompare(b.name, "ru"));
@@ -182,6 +182,7 @@
         ? `<a class="feat pairc" role="listitem" href="../poc/compare/?journey=1#${esc(pair.id)}"><img src="../poc/compare/pairs/${esc(pair.image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(pair.city)} · тогда и сейчас</span><b>${esc(pair.name)}</b><span class="hook">${esc(hook || "")}</span></span></a>`
         : `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(D.cities.get(p.city).name)}${p.date ? " · " + esc(p.date) : ""}</span><b>${esc(p.title)}</b><span class="hook">${esc(hook || "")}</span></span></a>`).join("")}</div>` : '<span id="main"></span>'}
       <a class="theme" href="#/benoist"><span class="lt-small">Тема издания</span><b>Листы Бенуа</b><span>Как читать подпись литографии, где есть листы Филиппа и Феликса Бенуа и как сравнить их с фото сегодня.</span></a>
+      <a class="theme" href="#/catalog"><span class="lt-small">Реестр</span><b>Собрание</b><span>Все найденные листы Бенуа по авторам, сериям, странам и городам: сколько найдено, сколько проверено и сколько можно показать.</span></a>
       <h2 id="toc">Оглавление</h2>
       <ol class="toc">${top.map(tocItem).join("")}</ol>
       ${rest.length ? `<details class="more-toc"><summary class="btn ghost wide">Ещё ${plural(rest.length, "страна", "страны", "стран")}</summary><ol class="toc">${rest.map(tocItem).join("")}</ol></details>` : ""}
@@ -309,8 +310,8 @@
       ${pairs.length ? `<h2>Сравнить Бенуа с фото</h2><div class="cards">${pairs.map((x) => `<a class="card" href="../poc/compare/?journey=1#${esc(x.id)}">${x.pl ? `<img src="../poc/compare/pairs/${esc(x.pl.image)}" alt="" loading="lazy">` : '<span class="ph"></span>'}<span class="body"><b>${esc(x.label)}</b><span class="meta">Тогда и сейчас</span></span></a>`).join("")}</div>` : ""}
       ${open.length ? `<h2>Листы, которые можно открыть здесь</h2><div class="plates">${open.map((p) => `<a class="pl" href="${plateLink(p)}">${img(p.image, p.title, "", 400)}<span class="t">${esc(p.title)}<span class="d">${esc(D.cities.get(p.city).name)}</span></span></a>`).join("")}</div>` : ""}
       ${D.sheets.length ? `<div class="lt-divider" aria-hidden="true"></div><h2>Листы из открытых музеев</h2>
-        <p class="small">${plural(D.sheets.length, "лист", "листа", "листов")} с открытой лицензией на файл: Paris Musées (CC0) и Rijksmuseum (Public Domain Mark). Участников и роли мы пишем так, как их называет музей, без своих догадок.</p>
-        <div class="bsheets">${D.sheets.map((s) => `<figure class="lt-sheet bsheet"><div class="lt-print"><img src="${esc(s.image)}" alt="${esc(s.title)}" loading="lazy" width="900"></div>
+        <p class="small">${plural(D.sheets.length, "лист", "листа", "листов")} с открытой лицензией на файл: Paris Musées (CC0) и Rijksmuseum (Public Domain Mark). Участников и роли мы пишем так, как их называет музей, без своих догадок. <a href="#/catalog">Весь реестр найденных листов →</a></p>
+        <div class="bsheets">${D.sheets.map((s) => `<figure class="lt-sheet bsheet"><a class="lt-print zoomlink" href="#/sheet/${esc(s.id)}" aria-label="Открыть лист крупно: ${esc(s.title)}"><img src="${esc(s.image)}" alt="${esc(s.title)}" loading="lazy" width="900"></a>
           <figcaption class="lt-caption">${esc(s.title.split(" / ")[0])}<small>${s.creators && s.creators.length ? s.creators.map((c) => esc(c.role_ru) + ": " + esc(c.name)).join(" · ") : "По записи музея: " + s.participants.map(esc).join(" · ") + " (роли в записи не указаны)"}</small></figcaption>
           <p class="bs-meta">${esc(s.holder)} · ${esc(s.accession)} · <a href="${esc(safe(s.rights_url))}" target="_blank" rel="noopener">${esc(s.rights)}</a> · <a href="${esc(safe(s.record_url))}" target="_blank" rel="noopener">карточка музея</a>${s.extra_impressions ? " · в музее есть ещё " + plural(s.extra_impressions, "экземпляр", "экземпляра", "экземпляров") + " этого листа" : ""}</p></figure>`).join("")}</div>` : ""}
       ${dock({ href: cityLink(D.cities.get("paris")), t: "Париж с Бенуа", small: "Дальше" }, { href: "#/", t: "Оглавление" })}</div>`;
@@ -320,6 +321,63 @@
       document.querySelectorAll("#sign .hot").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
       note.innerHTML = `<span class="lt-legend">Надпись ${Number(b.dataset.i) + 1}</span><p><b>${esc(h.t)}</b>. ${esc(h.d)}</p>`;
     }));
+  }
+
+
+  // ---------- one sheet, large, with a zoom slider and neighbours
+  const ARTIST = { "philippe-benoist": "Филипп Бенуа", "felix-benoist": "Феликс Бенуа", "uncertain-benoist": "Бенуа, имя не уточнено", other: "Другие авторы" };
+  function viewSheet(id) {
+    const i = D.sheets.findIndex((x) => x.id === id), sh = D.sheets[i];
+    if (!sh) return notFound();
+    const prev = D.sheets[i - 1], next = D.sheets[i + 1];
+    const title = sh.title.split(" / ")[0];
+    setTitle(title); crumbs([{ t: "Книга", href: "#/" }, { t: "Листы Бенуа", href: "#/benoist" }, { t: cut(title, 28) }]);
+    const who = sh.creators && sh.creators.length ? sh.creators.map((c) => `<li><b>${esc(c.role_ru)}</b> ${esc(c.name)}</li>`).join("")
+      : (sh.participants || []).map((n) => `<li>${esc(n)}</li>`).join("") + `<li class="small">Роли в записи музея не указаны.</li>`;
+    const more = (sh.impressions || []).map((m) => `<a href="${esc(safe(m.record_url))}" target="_blank" rel="noopener">${esc(m.accession)}</a>`).join(", ");
+    $app.innerHTML = `<div class="page-enter plate">
+      <section class="chead"><p class="eyebrow">Лист ${i + 1} из ${D.sheets.length} · ${esc(sh.holder)}</p><h1>${esc(title)}</h1></section>
+      <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Лист крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(sh.image)}" alt="${esc(sh.title)}" width="1280"></div>
+        <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        <figcaption class="lt-imprint"><span class="l">${esc(sh.holder)}</span><span class="c">${esc(sh.rights)}</span><span class="r">${esc(sh.accession)}</span></figcaption></figure>
+      <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
+      <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
+        <dt>Оригинал</dt><dd><a href="${esc(safe(sh.record_url))}" target="_blank" rel="noopener">карточка в собрании ↗</a></dd>${more ? `<dt>Другие экземпляры</dt><dd>${more}</dd>` : ""}</dl>
+      ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
+    const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
+    range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+  }
+
+  // ---------- the collection register: author -> series -> country -> city -> work, with honest counters
+  const catState = { series: "", country: "", city: "", take: 40 };
+  function viewCatalog(artist) {
+    setTitle("Собрание"); crumbs([{ t: "Книга", href: "#/" }, { t: "Собрание" }]);
+    const R = D.reg || { works: [], summary: null }, sum = R.summary;
+    if (!sum) return notFound();
+    const byImg = new Map(D.sheets.map((x) => [x.image, x]));
+    const artists = Object.entries(sum.by_artist).sort((a, b) => b[1] - a[1]);
+    const cur = artist && sum.by_artist[artist] ? artist : "";
+    const pool = R.works.filter((w) => !cur || w.artist === cur);
+    const uniq = (k) => [...new Set(pool.map((w) => w[k]).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ru"));
+    const list = pool.filter((w) => (!catState.series || w.series === catState.series) && (!catState.country || w.country === catState.country) && (!catState.city || w.city === catState.city));
+    const chips = (k, vals, label) => vals.length ? `<div class="chips" role="group" aria-label="${label}"><button type="button" data-k="${k}" data-v="" aria-pressed="${!catState[k]}">Все</button>${vals.map((v) => `<button type="button" data-k="${k}" data-v="${esc(v)}" aria-pressed="${catState[k] === v}">${esc(cut(v, 28))}</button>`).join("")}</div>` : "";
+    const row = (w) => { const sh = w.image && byImg.get(w.image);
+      return `<li class="cw">${sh ? `<a class="th" href="#/sheet/${esc(sh.id)}"><img src="${esc(sh.image)}" alt="" loading="lazy" width="96"></a>` : `<span class="th none" aria-hidden="true">нет файла</span>`}
+        <div><b>${esc(cut(String(w.title || "Без названия").split(" / ")[0], 70))}</b>
+        <span class="sub">${[ARTIST[w.artist], w.series, w.city, w.date].filter(Boolean).map(esc).join(" · ")}</span>
+        <span class="sub">${w.impressions > 1 ? plural(w.impressions, "экземпляр", "экземпляра", "экземпляров") + " · " : ""}${w.open_file ? "изображение открыто" : "только ссылка на хранителя"}${sh ? ` · <a href="#/sheet/${esc(sh.id)}">лист в книге</a>` : ""}${(w.links || [])[0] ? ` · <a href="${esc(safe(w.links[0].u))}" target="_blank" rel="noopener">${esc(w.links[0].i || "в собрании")} ↗</a>` : ""}</span></div></li>`; };
+    $app.innerHTML = `<div class="page-enter">
+      <section class="chead"><p class="eyebrow">Реестр произведений</p><h1>Собрание</h1>
+        <p class="lede">Сколько листов найдено и сколько из них можно показать. Записи без права показа остаются ссылками на хранителя: мы не копируем то, что копировать нельзя.</p></section>
+      <dl class="stats"><div><dt>Записей найдено</dt><dd>${sum.discovered_records}</dd></div><div><dt>Разных листов</dt><dd>${sum.unique_works}</dd></div><div><dt>Записи прочитаны</dt><dd>${sum.reviewed}</dd></div><div><dt>Открытые файлы</dt><dd>${sum.open_file}</dd></div><div><dt>Показано в книге</dt><dd>${sum.shipped_with_image}</dd></div></dl>
+      <div class="chips" role="group" aria-label="Автор"><a class="chip" href="#/catalog" aria-pressed="${!cur}">Все</a>${artists.map(([a, n]) => `<a class="chip" href="#/catalog/${a}" aria-pressed="${cur === a}">${esc(ARTIST[a] || a)} · ${n}</a>`).join("")}</div>
+      ${chips("series", uniq("series"), "Серия")}${chips("country", uniq("country"), "Страна")}${chips("city", uniq("city"), "Город")}
+      <p class="small" role="status">Показано ${Math.min(catState.take, list.length)} из ${plural(list.length, "листа", "листов", "листов")}.</p>
+      <ul class="cwlist">${list.slice(0, catState.take).map(row).join("")}</ul>
+      ${list.length > catState.take ? `<p class="btn-row"><button type="button" class="btn ghost" id="catMore">Показать ещё</button></p>` : ""}
+      ${dock({ href: "#/benoist", t: "Листы Бенуа" }, { href: "#/", t: "Оглавление" })}</div>`;
+    document.querySelectorAll(".chips button").forEach((b) => b.addEventListener("click", () => { catState[b.dataset.k] = b.dataset.v; catState.take = 40; viewCatalog(artist); }));
+    const more = document.getElementById("catMore"); if (more) more.addEventListener("click", () => { catState.take += 40; viewCatalog(artist); });
   }
 
   function notFound() {
@@ -350,6 +408,8 @@
     else if (h[0] === "city") viewCity(arg);
     else if (h[0] === "plate") viewPlate(arg);
     else if (h[0] === "benoist") viewBenoist();
+    else if (h[0] === "sheet") viewSheet(arg);
+    else if (h[0] === "catalog") viewCatalog(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else notFound();
     if (h[0] !== "main" && h[0] !== "toc") window.scrollTo(0, 0);
