@@ -97,10 +97,12 @@ def pm_sheets() -> list[dict]:
     if not PM.exists():
         return []
     records = json.loads(PM.read_text(encoding="utf-8"))["records"]
-    extra: dict[str, list[str]] = {}
+    extra: dict[str, list[dict]] = {}
     for r in records:
         if r.get("impression_of"):
-            extra.setdefault(r["impression_of"], []).append(r["node"])
+            extra.setdefault(r["impression_of"], []).append(
+                {"accession": "node " + r["node"], "record_url": r["record_url"], "image": r["image"]}
+            )
     out = []
     for r in records:
         if r.get("impression_of"):
@@ -124,6 +126,7 @@ def pm_sheets() -> list[dict]:
                 "technique": r["technique"] if isinstance(r["technique"], str) else ", ".join(r["technique"]),
                 "participants": names,
                 "extra_impressions": len(extra.get(r["node"], [])),
+                "impressions": extra.get(r["node"], []),
                 "creators": [],
             }
         )

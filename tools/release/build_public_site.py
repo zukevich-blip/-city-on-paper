@@ -52,6 +52,7 @@ ASSETS = (
     "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/litho", "assets/story",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
+             "private-archive", "data/private", "data/research/benoist", "research",
              "PROJECT_HANDOFF.md", "serve_local.py")
 
 

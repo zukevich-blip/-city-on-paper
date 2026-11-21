@@ -25,6 +25,7 @@
     "L. Chapon"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -44,6 +45,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -63,6 +65,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -82,6 +85,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -100,6 +104,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -119,6 +124,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -136,6 +142,13 @@
     "Philippe Benoist"
    ],
    "extra_impressions": 1,
+   "impressions": [
+    {
+     "accession": "node 320288773",
+     "record_url": "https://www.parismuseescollections.paris.fr/de/node/643166",
+     "image": "img/benoist/pm-320288773.jpg"
+    }
+   ],
    "creators": []
   },
   {
@@ -155,6 +168,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -174,6 +188,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -193,6 +208,7 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 0,
+   "impressions": [],
    "creators": []
   },
   {
@@ -213,6 +229,13 @@
     "Gihaut Frères"
    ],
    "extra_impressions": 1,
+   "impressions": [
+    {
+     "accession": "node 320291365",
+     "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-0",
+     "image": "img/benoist/pm-320291365.jpg"
+    }
+   ],
    "creators": []
   },
   {
