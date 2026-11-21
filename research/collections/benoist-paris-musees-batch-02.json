@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "status": "research-only",
+  "source": "Paris Musées / Musée Carnavalet",
+  "artist": "Philippe Benoist",
+  "city": "Paris",
+  "license_label": "CC0 on source catalog; verify actual digital file before ingestion",
+  "records": [
+    {
+      "id": "benoist-paris-notre-dame",
+      "title": "Vues de Paris (26): Notre-Dame",
+      "source_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291945/manifest",
+      "landmark": "Cathédrale Notre-Dame",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-palais-royal",
+      "title": "Galerie d'Orléans au Palais Royal",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-galerie-d-orleans-au-palais-royal",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320290399/manifest",
+      "landmark": "Palais Royal",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-vendome",
+      "title": "Colonne de la place Vendôme",
+      "source_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292157/manifest",
+      "landmark": "Place Vendôme",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-louvre-colonnade",
+      "title": "Colonnade du Louvre",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-0",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291365/manifest",
+      "landmark": "Colonnade du Louvre",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-louvre-rivoli-alt",
+      "title": "Le Louvre achevé et la Nouvelle rue de Rivoli (other impression)",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320288755/manifest",
+      "landmark": "Louvre / Rue de Rivoli",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-saint-sulpice",
+      "title": "Église St Sulpice / Église St Étienne du Mont",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320290954/manifest",
+      "landmark": "Saint-Sulpice / Saint-Étienne-du-Mont",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-pont-royal",
+      "title": "Paris pris du pont Royal",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-paris-pris-du-pont-royal-views-of-paris-paris-from-the-royal",
+      "iiif_manifest": null,
+      "landmark": "Pont Royal",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    },
+    {
+      "id": "benoist-paris-boulevards",
+      "title": "Les Boulevards Saint-Denis et Saint-Martin",
+      "source_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-les-boulevards-saint-denis-et-saint-martin",
+      "iiif_manifest": null,
+      "landmark": "Boulevard Saint-Denis",
+      "review_status": "candidate",
+      "image_downloaded": false,
+      "modern_photo_verified": false
+    }
+  ]
+}
