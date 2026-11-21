@@ -220,3 +220,5 @@ h2::before{display:none}
 /* reserve the picture's room so the grid does not jump while lazy images arrive */
 .bsheet .lt-print{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--lt-wash)}
 .bsheet .lt-print img{max-height:100%;width:auto;max-width:100%;height:auto;object-fit:contain}
+.plan-box{margin:12px 0}.plan-box summary{list-style:none;cursor:pointer}.plan-box summary::-webkit-details-marker{display:none}
+.plan-box .lt-sheet{margin-top:10px}.plan-box img{display:block;width:100%;height:auto;background:var(--lt-wash)}
