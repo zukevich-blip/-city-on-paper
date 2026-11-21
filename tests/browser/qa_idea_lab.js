@@ -76,7 +76,7 @@ for(const [label,w,h] of [["phone-390",390,844],["ipad-820",820,1180],["desktop-
  await ctx.close();
 }
 const home=await browser.newPage();await go(home,"");
-check("home links all three new rooms",(await home.locator('a[href="ideas/"]').count())>0&&(await home.locator('a[href="printlab/"]').count())>0&&(await home.locator('a[href="fieldwork/"]').count())>0);
+check("home links the public rooms (the internal plan page is not on the visitor path)",(await home.locator('a[href="printlab/"]').count())>0&&(await home.locator('a[href="fieldwork/"]').count())>0);
 await home.close();
 }finally{await browser.close()}
 fs.writeFileSync(outDir+"/qa_idea_lab.json",JSON.stringify(results,null,2));console.log(results.length+" checks, "+results.filter(x=>!x[1]).length+" failures");if(results.some(x=>!x[1]))process.exitCode=1;

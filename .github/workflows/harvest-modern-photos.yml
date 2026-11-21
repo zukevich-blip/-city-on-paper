@@ -1,0 +1,58 @@
+name: Harvest modern photos (Commons)
+
+# Runs only on the dedicated harvest branch. Wikimedia Commons answers 429 to some cloud sandboxes,
+# so the collection runs here. Output is a candidate list that needs a visual review before any use.
+on:
+  push:
+    branches:
+      - claude/photo-harvest
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: harvest-modern-photos
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect candidates from Commons geosearch
+        run: python tools/world/collect_modern_photos.py
+      - name: Summarise
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("data/curation/modern-photo-candidates-v1.json")
+          if not p.exists():
+              print("no output file")
+          else:
+              d = json.loads(p.read_text(encoding="utf-8"))
+              for k, v in d["targets"].items():
+                  c = v["candidates"]
+                  print(f"{k}: {len(c)} candidates; newest {c[0]['taken'] if c else '-'}; with direction {sum(1 for x in c if x['camera']['heading_deg'] is not None)}")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modern-photo-candidates
+          path: data/curation/modern-photo-candidates-v1.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Commit result to the harvest branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/curation/modern-photo-candidates-v1.json
+          if git diff --cached --quiet; then echo "nothing to commit"; else
+            git commit -m "Кандидаты современных фото из Викисклада (автосбор)"
+            git push origin HEAD:claude/photo-harvest
+          fi

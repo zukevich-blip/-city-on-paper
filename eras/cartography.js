@@ -33,13 +33,13 @@ window.CityHistoricCartography = (() => {
     const sourceChain = (item) => {
       const stages = [
         ["Архив", item.status === "catalogue_source_checked"
-          ? "Карточка найдена" : "Проверить"],
-        ["Оригинал HD", item.image_api_status === "working_IIIF_Image_API_for_this_item"
-          ? "IIIF подтверждён" : "Доступность уточнить"],
-        ["Геопривязка", item.georeferencing_status ===
+          ? "Страница найдена" : "Проверить"],
+        ["Изображение крупным планом", item.image_api_status === "working_IIIF_Image_API_for_this_item"
+          ? "Можно увеличить" : "Доступность уточнить"],
+        ["Положение на карте", item.georeferencing_status ===
           "research_affine_not_independently_verified"
-          ? "Черновая модель" : "Не выполнена"],
-        ["Экспертиза", "Независимая проверка нужна"],
+          ? "Отмечено примерно" : "Пока не определили"],
+        ["Проверка", "Нужна ещё одна проверка"],
       ];
       return '<ol class="map-source-chain" aria-label="Этапы проверки архивной карты">' +
         stages.map(([name, status], index) =>
@@ -51,23 +51,23 @@ window.CityHistoricCartography = (() => {
       const verified = item.status === "catalogue_source_checked";
       return '<li class="historic-map-source"><strong>' + esc(item.title) + '</strong>' +
         (item.date_as_reported ? ' <span>' + esc(item.date_as_reported) + '</span>' : '') +
-        '<small>' + (verified ? "Архивная карточка установлена, геопривязка ещё не проверена" :
-          "Поисковая находка, требует проверки") + '</small>' +
+        '<small>' + (verified ? "Старый план найден. Его положение на современной карте ещё проверяем." :
+          "Находку ещё проверяем") + '</small>' +
         sourceChain(item) +
         '<a href="' + esc(link(item.object_url)) +
-        '" target="_blank" rel="noopener">Открыть в Library of Congress</a></li>';
+        '" target="_blank" rel="noopener">Смотреть в Библиотеке Конгресса США</a></li>';
     }).join("");
-    host.innerHTML = '<h3>Историческая картография</h3>' +
+    host.innerHTML = '<h3>Старые карты города</h3>' +
       (data.load_error ?
-        '<p class="note" role="status">Сейчас не удалось загрузить реестр исторических карт. ' +
-        'Это техническая ошибка, а не доказательство отсутствия карт города.</p>'
+        '<p class="note" role="status">Старые карты не загрузились. ' +
+        'Попробуйте обновить страницу.</p>'
         : cards ? '<ul class="historic-map-list">' + cards + '</ul>' :
         '<p class="note">Проверенных исторических планов в этом каталоге пока нет. ' +
         'Город остаётся доступен на современной карте.</p>') +
       '<p class="historic-map-search"><a href="' + esc(officialSearch) +
-      '" target="_blank" rel="noopener">Искать карты города в Library of Congress</a></p>' +
-      '<p class="historic-map-caution">Находка в архиве не означает точную геопривязку. ' +
-      'Совмещение карт требует независимых опорных точек и проверки прав.</p>';
+      '" target="_blank" rel="noopener">Найти карты города в Библиотеке Конгресса США</a></p>' +
+      '<p class="historic-map-caution">Положение старого плана уточняем по знакомым местам. ' +
+      'Условия использования указаны на странице в архиве.</p>';
   }
   return { mount };
 })();

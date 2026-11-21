@@ -75,7 +75,7 @@ def test_hybrid_home_and_shared_navigation_expose_world_city_directory():
     for text in (home, nav):
         assert "cities/" in text
     assert "../cities/" in atlas
-    assert "История продолжается за пределами Европы" in home
+    assert 'href="cities/"' in home  # world cities stay one tap away in the album home
 
 
 def test_city_index_is_responsive_and_has_accessible_filter_labels():

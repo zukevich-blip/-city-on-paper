@@ -147,6 +147,7 @@ window.Maps = (() => {
         <div class="mtabs" role="tablist" aria-label="Выбор картографического слоя">
           <button type="button" role="tab" id="tOld" aria-selected="true">Старая карта · 1769</button>
           <button type="button" role="tab" id="tNew" aria-selected="false">Карта сегодня</button>
+          <button type="button" role="tab" id="tMix" aria-selected="false">Наложение</button>
         </div>
         <div class="map-actions" role="group" aria-label="Масштаб и область карты">
           <button type="button" id="mapFit">Показать выбранные города</button>
@@ -156,9 +157,15 @@ window.Maps = (() => {
         </div>
         <p class="map-summary" role="status" aria-live="polite" id="mapSummary"></p>
       </div>
+      <div class="mixctl" id="mixCtl" hidden>
+        <label for="mixRange">Старая карта поверх современной: <output id="mixOut" for="mixRange">60%</output></label>
+        <input type="range" id="mixRange" min="0" max="100" value="60" aria-describedby="mixNote">
+        <div class="mixends" aria-hidden="true"><span>← только современная</span><span>только старая →</span></div>
+        <p class="map-summary" id="mixNote"></p>
+      </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">Историческая карта охватывает Европу. Метки здесь указывают города, а не точки художников. На современной карте при увеличении до уровня улиц отображаются подтверждённые и исследовательские позиции камер. Карточка города раскрывает фото, источник и неопределённость. <a href="../cities/">Полный мировой указатель, включая города без геопривязки ↗</a></p>
+      <p class="map-summary" id="mapTruth">На старой карте отмечены города. Приблизьте современную карту, чтобы увидеть, откуда смотрели художники и фотографы. <a href="../cities/">Все города, включая те, которых ещё нет на карте ↗︎</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
@@ -167,18 +174,18 @@ window.Maps = (() => {
         </div>
         <figure><img id="mapSheetImage" src="${archiveRoot}img/loc-97683588-carte-d-europe-1769_w1000.jpg"
           alt="Историческая карта Европы, 1769 год" loading="lazy" decoding="async">
-          <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Library of Congress, 1769.
-            <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
+          <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Библиотеки Конгресса США, 1769.
+            <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗︎</a></figcaption>
         </figure>
-        <p class="map-summary">Другие карты можно листать как отдельные документы. Пока на них нет независимо проверенной геопривязки, маркеры автоматически не накладываются.</p>
+        <p class="map-summary">На этих старых планах отметки мест появятся после проверки.</p>
       </details>
-      <p class="map-summary"><a href="../cities/">Полный мировой указатель: города с материалами, кандидаты и города без координат ↗</a></p>`;
+      <p class="map-summary"><a href="../cities/">Все города и находки в архивах ↗︎</a></p>`;
     const sheets = {
       europe: { file: "img/loc-97683588-carte-d-europe-1769_w1000.jpg",
-        name: "Карта Европы de L’Isle / Buache, 1769. Library of Congress.",
+        name: "Карта Европы de L’Isle / Buache, 1769. Библиотеки Конгресса США.",
         src: "https://www.loc.gov/item/97683588/" },
       paris: { file: "img/loc-2012586603-paris-1878.jpg",
-        name: "План Парижа и окрестностей, 1878. Library of Congress. Привязка контрольных точек остаётся исследовательской.",
+        name: "План Парижа и окрестностей, 1878. Библиотеки Конгресса США. Привязка контрольных точек остаётся исследовательской.",
         src: "https://www.loc.gov/item/2012586603/" }
     };
     host.querySelectorAll("[data-sheet]").forEach((button) => button.addEventListener("click", () => {
@@ -191,7 +198,7 @@ window.Maps = (() => {
       host.querySelectorAll("[data-sheet]").forEach((b) =>
         b.setAttribute("aria-pressed", String(b === button)));
     }));
-    const t = { ...P.tiles, credit: "Исторический оригинал: Library of Congress, G5700 1724 .L5 TIL" };
+    const t = { ...P.tiles, credit: "Исторический оригинал: Библиотеки Конгресса США, G5700 1724 .L5 TIL" };
     const { map, at } = imageMap(document.getElementById("pmap"), t);
     const k = P.tiles.width / P.width;
     const oldCities = clusterCityMarkers(map, A.cities.filter((c) => Array.isArray(c.xy) && c.xy.length === 2), (c) => at(c.xy[0] * k, c.xy[1] * k));
@@ -206,6 +213,7 @@ window.Maps = (() => {
         ? `На исторической карте ${inEurope} из ${total} выбранных городов. Остальные доступны на современной карте и в указателе.`
         : `Современная карта: ${nowCities ? nowCities.visibleCount() : total} городов с координатами. Выбирайте кластер, чтобы приблизить.`;
       document.getElementById("mapTruth").hidden = !oldSelected;
+      if (mixOn) document.getElementById("mapSummary").textContent = "Наложение: старая карта 1769 года поверх современной. Двигайте ползунок, чтобы сравнить.";
     };
     function makeModern() {
       if (modern) return;
@@ -224,7 +232,51 @@ window.Maps = (() => {
       labelClass(modern, document.getElementById("nmap"), modern.getZoom());
       modern.on("zoomend", note);
     }
+    let mixOn = false, mixLayer = null, mixInfo = null;
+    function mixFit() {
+      if (mixInfo) return mixInfo;
+      const pts = A.cities.filter((c) => Array.isArray(c.xy) && c.xy.length === 2 && Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon)))
+        .map((c) => ({ px: Number(c.xy[0]), py: Number(c.xy[1]), m: L.Projection.SphericalMercator.project(L.latLng(Number(c.lat), Number(c.lon))) }));
+      if (pts.length < 8) return null;
+      const ls = (get, val, list) => { const n = list.length; let sx = 0, sy = 0, sxx = 0, sxy = 0;
+        for (const q of list) { const x = get(q), y = val(q); sx += x; sy += y; sxx += x * x; sxy += x * y; }
+        const a = (n * sxy - sx * sy) / (n * sxx - sx * sx); return { a, b: (sy - a * sx) / n }; };
+      let use = pts, fx, fy;
+      for (let pass = 0; pass < 2; pass++) {
+        fx = ls((q) => q.m.x, (q) => q.px, use); fy = ls((q) => q.m.y, (q) => q.py, use);
+        const err = pts.map((q) => Math.hypot(fx.a * q.m.x + fx.b - q.px, fy.a * q.m.y + fy.b - q.py));
+        const sorted = [...err].sort((u, v) => u - v), med = sorted[Math.floor(sorted.length / 2)];
+        use = pts.filter((q, i) => err[i] < 3 * med);
+      }
+      const errs = use.map((q) => Math.hypot(fx.a * q.m.x + fx.b - q.px, fy.a * q.m.y + fy.b - q.py));
+      const meanPx = errs.reduce((u, v) => u + v, 0) / errs.length;
+      const km = Math.round(meanPx / Math.abs(fx.a) * Math.cos(48.5 * Math.PI / 180) / 1000 / 10) * 10;
+      const W = P.width, H = P.height, un = (mx, my) => L.Projection.SphericalMercator.unproject(L.point(mx, my));
+      const nw = un((0 - fx.b) / fx.a, (0 - fy.b) / fy.a), se = un((W - fx.b) / fx.a, (H - fy.b) / fy.a);
+      mixInfo = { bounds: L.latLngBounds([se.lat, nw.lng], [nw.lat, se.lng]), n: use.length, km };
+      return mixInfo;
+    }
+    function mixShow() {
+      const info = mixFit(); if (!info) return;
+      show(false); mixOn = true;
+      if (!mixLayer) mixLayer = L.imageOverlay(archiveRoot + P.image, info.bounds, { opacity: 0.6, interactive: false, className: "oldmap-overlay",
+        alt: "Историческая карта Европы 1769 года, наложенная на современную карту" });
+      mixLayer.addTo(modern); mixLayer.setOpacity(Number(document.getElementById("mixRange").value) / 100);
+      modern.fitBounds(info.bounds, { animate: false });
+      document.getElementById("mixCtl").hidden = false;
+      document.getElementById("tNew").setAttribute("aria-selected", "false");
+      document.getElementById("tMix").setAttribute("aria-selected", "true");
+      document.getElementById("mixNote").textContent = `Привязка приблизительная: старая карта подогнана по ${info.n} городам, средняя ошибка около ${info.km} км. Берега и города могут не совпасть. Двигайте ползунок, чтобы сравнить.`;
+      note();
+    }
+    function mixHide() {
+      if (!mixOn) return; mixOn = false;
+      if (mixLayer && modern) modern.removeLayer(mixLayer);
+      document.getElementById("mixCtl").hidden = true;
+      document.getElementById("tMix").setAttribute("aria-selected", "false");
+    }
     function show(old) {
+      mixHide();
       oldSelected = !!old;
       document.getElementById("tOld").setAttribute("aria-selected", String(oldSelected));
       document.getElementById("tNew").setAttribute("aria-selected", String(!oldSelected));
@@ -242,6 +294,8 @@ window.Maps = (() => {
     }
     document.getElementById("tOld").onclick = () => show(true);
     document.getElementById("tNew").onclick = () => show(false);
+    document.getElementById("tMix").onclick = () => mixShow();
+    document.getElementById("mixRange").addEventListener("input", (e) => { const v = Number(e.target.value); document.getElementById("mixOut").textContent = v + "%"; if (mixLayer) mixLayer.setOpacity(v / 100); });
     document.getElementById("mapWorld").onclick = () => {
       selectedIds = new Set(A.cities.map((c) => c.id));
       if (typeof window.cityAtlasReset === "function") window.cityAtlasReset();
@@ -315,6 +369,7 @@ window.Maps = (() => {
         <button type="button" role="tab" id="cNew" aria-selected="${plan ? "false" : "true"}">Город сегодня</button></div>
       ${plan ? `<div class="lmap" id="cplan" aria-label="${esc(plan.title)}"></div>` : ""}
       <div class="lmap" id="cnow" ${plan ? "hidden" : ""} aria-label="Современная карта: ${esc(c.name)}"></div>
+      <div id="cOverlay" hidden></div>
       <div class="city-place-picker" aria-label="Выбор изображённого места на картах">
         <label for="cPlaceSelect">Найти объект на карте</label>
         <select id="cPlaceSelect"><option value="">Выберите здание, площадь или исторический вид</option>
@@ -326,8 +381,8 @@ window.Maps = (() => {
         </div>
         <p id="cPlaceFeedback" role="status" aria-live="polite">Сначала выберите место. Координата объекта не означает точку художника.</p>
       </div>
-      <div class="city-compare-jump"><button id="cViewpoints" type="button">Где стоял автор · ракурсы и фотографии ↓</button></div>
-      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены изображённые места (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Это пока не позиции художников. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">карточка ↗</a>` : ""}</p>`;
+      <div class="city-compare-jump"><button id="cViewpoints" type="button">Откуда смотрел художник ↓</button></div>
+      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены места с изображений (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Метки показывают сами места. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">Смотреть в архиве ↗︎</a>` : ""}</p>`;
     host.querySelector("#cViewpoints")?.addEventListener("click", () =>
       document.getElementById("cityViewpoints")?.scrollIntoView({ behavior:"smooth", block:"start" }));
     const historicalStatus=(item)=>{
@@ -345,8 +400,8 @@ window.Maps = (() => {
     };
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
-      ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗</a></small>':""}
-      <span class="mlinks"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
+      ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗︎</a></small>':""}
+      <span class="mlinks"><a class="mbook" href="../book/#/plate/${esc(s.wid)}">лист в книге →</a><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗︎</a></span></div>`;
     let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
     const picker=host.querySelector("#cPlaceSelect");
     const btnNow=host.querySelector("#cPlaceNow");
@@ -417,6 +472,7 @@ window.Maps = (() => {
       const fit = () => (ms.length > 1 ? now.fitBounds(L.featureGroup(ms).getBounds(), { padding: [24, 24], maxZoom: 16 }) : now.setView(ms.length ? ms[0].getLatLng() : [c.lat, c.lon], 15));
       fit(); homeButton(now, fit);
       labelClass(now, document.getElementById("cnow"), now.getZoom());
+      window.AtlasPilot?.mapControls(host.querySelector("#cOverlay"), now, c);
     };
     if (plan) {
       const { map, at } = imageMap(document.getElementById("cplan"), plan);
@@ -429,6 +485,7 @@ window.Maps = (() => {
         document.getElementById("cNew").setAttribute("aria-selected", String(!old));
         document.getElementById("cplan").hidden = !old; document.getElementById("cnow").hidden = old;
         if (old) map.invalidateSize(); else if (!now) mkNow(); else now.invalidateSize();
+        host.querySelector("#cOverlay").hidden = old || c.id !== "paris";
       };
       showMap = show;
       document.getElementById("cOld").onclick = () => show(true);

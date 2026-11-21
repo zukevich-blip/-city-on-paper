@@ -23,12 +23,8 @@
 
     host.hidden = false;
     host.innerHTML = `
-      <div class="cp3-title"><div><span class="eyebrow">Лента времени · эксперимент</span>
-        <h2>Три эпохи. Один ползунок.</h2></div>
-        <span class="cp3-mark">Без подмены оригиналов</span></div>
-      <p class="cp3-lead">От литографии через промежуточный снимок к современному виду.
-        Перемещайте ползунок: слева ранняя эпоха, посередине следующая, справа последняя.
-        Можно выбрать любые три доступных изображения.</p>
+      <div class="cp3-title"><h2>Три эпохи на одном ползунке</h2></div>
+      <p class="cp3-lead">Выберите три изображения. Двигайте ползунок времени от раннего кадра к позднему. В каждой паре слева старый вид, справа новый. Чтобы двигать шторку по изображению, тяните линию влево.</p>
       <div class="cp3-selects" role="group" aria-label="Три кадра для сравнения">
         <label>Старая эпоха <select data-role="first"></select></label>
         <label>Промежуточная <select data-role="middle"></select></label>
@@ -44,20 +40,17 @@
         <div class="cp3-layer" data-role="layer-middle"><img data-role="image-middle" alt="" draggable="false"></div>
         <div class="cp3-layer" data-role="layer-last"><img data-role="image-last" alt="" draggable="false"></div>
         <div class="cp3-guide" data-role="guide" aria-hidden="true"><span>◀ ▶</span></div>
-        <span class="cp3-corner">Исторические оригиналы не искажены</span>
       </div>
       <input data-role="position" type="range" min="0" max="100" step="1" value="50"
         aria-label="Положение ползунка времени от старого изображения к современному">
-      <div class="cp3-ends" aria-hidden="true">
+      <div class="cp3-ends">
         <button type="button" data-go="0">Сначала</button>
         <button type="button" data-go="50">Середина</button>
-        <button type="button" data-go="100">Сегодня</button>
+        <button type="button" data-go="100">Последний кадр</button>
       </div>
       <div data-role="phase" class="cp3-phase" role="status" aria-live="polite"></div>
       <div data-role="sources" class="cp3-sources"></div>
-      <p class="cp3-caution">Важно: на этих кадрах могут отличаться угол обзора, высота и положение камеры.
-        Плавный переход помогает увидеть перемены, но не доказывает совпадение ракурсов
-        или точность реконструкции. Годы и авторство указаны по сведениям источников.</p>`;
+      <p class="cp3-caution">Точки съёмки могут различаться. Изображения показаны без изменений.</p>`;
 
     const find = (role) => host.querySelector(`[data-role="${role}"]`);
     const selectors = ["first", "middle", "last"].map(find);
@@ -154,33 +147,46 @@
 
     function move() {
       const p = Math.max(0, Math.min(100, Number(slider.value) || 0));
-      // Middle becomes fully visible at exactly 50%; last becomes fully visible at 100%.
-      middle.style.clipPath = `inset(0 ${100 - Math.min(100, p * 2)}% 0 0)`;
-      last.style.clipPath = `inset(0 ${100 - Math.max(0, (p - 50) * 2)}% 0 0)`;
-      guide.style.left = p + "%";
+      // Later images enter from the right, so the viewer always reads earlier on the left.
+      middle.style.clipPath = `inset(0 0 0 ${100 - Math.min(100, p * 2)}%)`;
+      last.style.clipPath = `inset(0 0 0 ${100 - Math.max(0, (p - 50) * 2)}%)`;
+      // Two chronological transitions: the divider moves right-to-left in each.
+      const seam = p <= 50 ? 100 - p * 2 : 200 - p * 2;
+      guide.style.left = seam + "%";
+      guide.hidden = p === 0 || p === 50 || p === 100;
       const framesNow = chosen();
       const left = p <= 50 ? framesNow[0] : framesNow[1];
       const right = p <= 50 ? framesNow[1] : framesNow[2];
-      find("phase").textContent = `${p}% · ${left.year_label || "раньше"} → ${right.year_label || "позже"}`;
-      slider.setAttribute("aria-valuetext", `${p} процентов, ${left.year_label || "раньше"} к ${right.year_label || "позже"}`);
+      const state = p === 0 ? `Только ранний кадр: ${label(framesNow[0])}`
+        : p === 50 ? `Промежуточная эпоха: ${label(framesNow[1])}`
+        : p === 100 ? `Последний кадр: ${label(framesNow[2])}`
+        : `Слева ${label(left)} · справа ${label(right)}`;
+      find("phase").textContent = state;
+      slider.setAttribute("aria-valuetext", `${p} процентов. ${state}`);
     }
 
-    const pointAt = (clientX) => {
+    let dragSegment = null;
+    const pointAt = (clientX, segment) => {
       const rect = stage.getBoundingClientRect();
-      slider.value = String(Math.round(100 * (clientX - rect.left) / rect.width));
+      const x = Math.max(0, Math.min(100, 100 * (clientX - rect.left) / rect.width));
+      slider.value = String(Math.round(segment + (100 - x) / 2));
       move();
     };
     let activePointer = null;
     stage.addEventListener("pointerdown", (e) => {
       activePointer = e.pointerId;
+      const p = Number(slider.value);
+      const rect = stage.getBoundingClientRect();
+      dragSegment = p < 50 ? 0 : p > 50 ? 50
+        : e.clientX < rect.left + rect.width / 2 ? 0 : 50;
       stage.setPointerCapture(e.pointerId);
-      pointAt(e.clientX);
+      pointAt(e.clientX, dragSegment);
     });
     stage.addEventListener("pointermove", (e) => {
-      if (activePointer === e.pointerId) pointAt(e.clientX);
+      if (activePointer === e.pointerId) pointAt(e.clientX, dragSegment);
     });
     for (const kind of ["pointerup", "pointercancel", "lostpointercapture"])
-      stage.addEventListener(kind, () => { activePointer = null; });
+      stage.addEventListener(kind, () => { activePointer = null; dragSegment = null; });
     slider.addEventListener("input", move);
     selectors.forEach(select => select.addEventListener("change", updateFrames));
     host.querySelectorAll("[data-go]").forEach(button => {

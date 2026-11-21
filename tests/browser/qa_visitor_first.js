@@ -18,11 +18,10 @@ function check(name,v){if(!v)throw Error(name);}
      check(width+" "+slug+" responds 200",response?.status()===200);
    };
    await go("");
-   check(width+" front door",await page.locator(".museum-frontdoor").count()===1);
-   check(width+" global search",await page.locator("#frontQuery").count()===1);
-   check(width+" visual time layers",await page.locator(".wow-duet img").count()===2);
-   check(width+" editorial journal",await page.locator(".article-grid a").count()===3);
-   check(width+" community invitation",await page.locator('.participate-home a[href="submit/"]').count()===1);
+   check(width+" welcome",await page.locator(".lh-welcome").count()===1);
+   check(width+" four doors",await page.locator(".lh-plaque").count()===4);
+   check(width+" visual time layers",await page.locator(".lh-stage img").count()===2);
+   check(width+" community invitation",await page.locator('.lh-more a[href="submit/"]').count()===1);
    check(width+" homepage no horizontal scrolling",await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4));
    await go("walk/?city=paris");
    await page.waitForFunction(()=>document.querySelectorAll("#timeTrack .frame").length>2,null,{timeout:15000});

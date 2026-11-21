@@ -1,0 +1,458 @@
+{
+ "version": 1,
+ "source": "Paris Musées IIIF manifests",
+ "records": [
+  {
+   "id": "parismusees-320290066",
+   "node": "320290066",
+   "title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+   "record_url": "https://www.parismuseescollections.paris.fr/en/node/645179",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320290066/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bayot, A.",
+    "Thierry Frères",
+    "Chapon, L."
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028376_001.jpg?itok=mPji68aW",
+   "image": "img/benoist/pm-320290066.jpg",
+   "impression_of": null,
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320291197",
+   "node": "320291197",
+   "title": "Palais du Luxembourg. / Côté jardin.",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-jardin",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320291197/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029820_001.jpg?itok=Xpe_-m4N",
+   "image": "img/benoist/pm-320291197.jpg",
+   "impression_of": null,
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320288773",
+   "node": "320288773",
+   "title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
+   "record_url": "https://www.parismuseescollections.paris.fr/de/node/643166",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320288773/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe"
+   ],
+   "technique": [
+    "Lithographie",
+    "Rehauts de couleur"
+   ],
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027911_001.jpg?itok=gYVeMyhm",
+   "image": "img/benoist/pm-320288773.jpg",
+   "impression_of": "320288755",
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320294285",
+   "node": "320294285",
+   "title": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
+   "record_url": "https://www.parismuseescollections.paris.fr/zh-hans/node/637571",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320294285/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030925_001.jpg?itok=e6oqqARB",
+   "image": "img/benoist/pm-320294285.jpg",
+   "impression_of": null,
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320291945",
+   "node": "320291945",
+   "title": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320291945/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=1rLC2LPq",
+   "image": "img/benoist/pm-320291945.jpg",
+   "impression_of": null,
+   "known_before": true
+  },
+  {
+   "id": "parismusees-320290399",
+   "node": "320290399",
+   "title": "Vues de Paris / Galerie d'Orléans, au Palais Royal.",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-galerie-d-orleans-au-palais-royal",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320290399/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Benoist, Philippe",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028614_001.jpg?itok=WcXwDfXh",
+   "image": "img/benoist/pm-320290399.jpg",
+   "impression_of": null,
+   "known_before": true
+  },
+  {
+   "id": "parismusees-320292157",
+   "node": "320292157",
+   "title": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320292157/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Benoist, Philippe",
+    "Bayot, A.",
+    "Gihaut Frères",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028680_001.jpg?itok=P_qD6q63",
+   "image": "img/benoist/pm-320292157.jpg",
+   "impression_of": null,
+   "known_before": true
+  },
+  {
+   "id": "parismusees-320291365",
+   "node": "320291365",
+   "title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-0",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320291365/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bayot, A.",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028171_001.jpg?itok=xSKtRllf",
+   "image": "img/benoist/pm-320291365.jpg",
+   "impression_of": "320291352",
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320288755",
+   "node": "320288755",
+   "title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320288755/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe"
+   ],
+   "technique": [
+    "Lithographie",
+    "Rehauts de couleur"
+   ],
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027910_001.jpg?itok=VS-Km8PV",
+   "image": "img/benoist/pm-320288755.jpg",
+   "impression_of": null,
+   "known_before": true
+  },
+  {
+   "id": "parismusees-320290954",
+   "node": "320290954",
+   "title": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320290954/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Benoist, Philippe",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029652_001.jpg?itok=b3bsHNqd",
+   "image": "img/benoist/pm-320290954.jpg",
+   "impression_of": null,
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320291211",
+   "node": "320291211",
+   "title": "Vues de Paris / Rue de Rivoli / Ministères des Finances et de la Marine.",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-rue-de-rivoli-ministeres-des-finances-et-de-la-marine",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320291211/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Benoist, Philippe",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028655_001.jpg?itok=-B7pJKKK",
+   "image": "img/benoist/pm-320291211.jpg",
+   "impression_of": null,
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320291262",
+   "node": "320291262",
+   "title": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
+   "record_url": "https://parismuseescollections.paris.fr/ru/node/647366",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320291262/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bayot, Adolphe Jean Baptiste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028813_001.jpg?itok=QG5eUjwQ",
+   "image": "img/benoist/pm-320291262.jpg",
+   "impression_of": null,
+   "known_before": false
+  },
+  {
+   "id": "parismusees-320291352",
+   "node": "320291352",
+   "title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320291352/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bayot, A.",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=VsrQ0ubi",
+   "image": "img/benoist/pm-320291352.jpg",
+   "impression_of": null,
+   "known_before": true
+  },
+  {
+   "id": "parismusees-200009791",
+   "node": "200009791",
+   "title": "La Halle et la fontaine des innocents.",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/maison-de-balzac/oeuvres/la-halle-et-la-fontaine-des-innocents",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/200009791/manifest",
+   "holder": "Maison de Balzac",
+   "participants": [
+    "Benoist, Philippe",
+    "Bayot, A.",
+    "Gihaut Frères"
+   ],
+   "technique": [
+    "Lithographie",
+    "Papier vélin"
+   ],
+   "rights": "CC0 Paris Musées / Maison de Balzac",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/BAL/lpdp_77114-14.jpg?itok=PQ08nK_1",
+   "image": "img/benoist/pm-200009791.jpg",
+   "impression_of": null,
+   "known_before": false,
+   "roles": [
+    {
+     "name": "Benoist, Philippe",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Bayot, A.",
+     "role": "dessinateur"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur"
+    }
+   ]
+  },
+  {
+   "id": "parismusees-320175609",
+   "node": "320175609",
+   "title": "Paris dans sa splendeur. - Histoire. / Grand carrousel sous Louis XIV, (5 et 6 juin 1662) / d'après une gravure de cette époque",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-histoire-grand-carrousel-sous-louis-xiv-5-et-6-juin",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320175609/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bayot, A.",
+    "Charpentier (imprimeurs, éditeurs,  Nantes et Paris)"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg043027_001.jpg?itok=UNVqNnCK",
+   "image": "img/benoist/pm-320175609.jpg",
+   "impression_of": null,
+   "known_before": false,
+   "roles": [
+    {
+     "name": "Benoist, Philippe",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Bayot, A.",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Charpentier",
+     "role": "editeur"
+    }
+   ]
+  },
+  {
+   "id": "parismusees-320262846",
+   "node": "320262846",
+   "title": "Colonne de Juillet. / sur la place de la Bastille.",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille",
+   "manifest": "https://apicollections.parismusees.paris.fr/iiif/320262846/manifest",
+   "holder": "Musée Carnavalet, Histoire de Paris",
+   "participants": [
+    "Benoist, Philippe",
+    "Bry, Auguste",
+    "Gihaut Frères"
+   ],
+   "technique": "Lithographie",
+   "rights": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "image_source": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052999_001.jpg?itok=r-HYqs1R",
+   "image": "img/benoist/pm-320262846.jpg",
+   "impression_of": null,
+   "known_before": false,
+   "roles": [
+    {
+     "name": "Benoist, Philippe",
+     "role": "dessinateur-lithographe"
+    },
+    {
+     "name": "Bry, Auguste",
+     "role": "imprimeur-lithographe"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur"
+    }
+   ]
+  }
+ ],
+ "failures": [
+  {
+   "node": "320050912",
+   "why": "image file is truncated (26 bytes not processed)"
+  },
+  {
+   "node": "320074413",
+   "why": "image file is truncated (4 bytes not processed)"
+  },
+  {
+   "node": "320175628",
+   "why": "image file is truncated (45 bytes not processed)"
+  },
+  {
+   "node": "320150835",
+   "why": "image file is truncated (5 bytes not processed)"
+  },
+  {
+   "node": "320209544",
+   "why": "image file is truncated (49 bytes not processed)"
+  },
+  {
+   "node": "320210218",
+   "why": "image file is truncated (45 bytes not processed)"
+  },
+  {
+   "node": "320286237",
+   "why": "image file is truncated (0 bytes not processed)"
+  },
+  {
+   "node": "320298071",
+   "why": "image file is truncated (14 bytes not processed)"
+  },
+  {
+   "node": "320298080",
+   "why": "image file is truncated (5 bytes not processed)"
+  },
+  {
+   "node": "320298085",
+   "why": "image file is truncated (0 bytes not processed)"
+  },
+  {
+   "node": "320299869",
+   "why": "image file is truncated (44 bytes not processed)"
+  },
+  {
+   "node": "320295651",
+   "why": "image file is truncated (7 bytes not processed)"
+  },
+  {
+   "node": "320295653",
+   "why": "image file is truncated (20 bytes not processed)"
+  },
+  {
+   "node": "320295656",
+   "why": "image file is truncated (9 bytes not processed)"
+  },
+  {
+   "node": "320290166",
+   "why": "image file is truncated (29 bytes not processed)"
+  },
+  {
+   "node": "320290537",
+   "why": "image file is truncated (2 bytes not processed)"
+  },
+  {
+   "node": "320290060",
+   "why": "image file is truncated (54 bytes not processed)"
+  },
+  {
+   "node": "320290108",
+   "why": "image file is truncated (10 bytes not processed)"
+  },
+  {
+   "node": "320288930",
+   "why": "image file is truncated (2 bytes not processed)"
+  }
+ ]
+}

@@ -90,6 +90,85 @@ async function viewerChecks(browser, vp) {
     if (id === "madeleine-ph-benoist" || vp.name === "desktop-1440")
       await shot(page, `${vp.name}-${id}-slider.jpg`, { fullPage: vp.name === "iphone-390" || vp.name === "ipad-820" });
   }
+
+  // The new museum curtain must remain legible and truthful across aspect ratios.
+  await page.goto(`${base}?view=originals#rome-pantheon-vasi`, { waitUntil: "networkidle" });
+  await page.waitForFunction(() => document.querySelector("#photoLayer")?.style.transform !== "");
+  const visual = await page.evaluate(() => {
+    const h = document.querySelector("#histImg"), p = document.querySelector("#photoImg");
+    const stage = document.querySelector("#stage"), caption = document.querySelector("#splitReadout");
+    return { old: h.naturalWidth > 0, photo: p.naturalWidth > 0,
+      preserved: getComputedStyle(h).transform === "none" &&
+        getComputedStyle(h).objectFit !== "cover" && getComputedStyle(p).objectFit !== "cover",
+      caption: caption?.textContent || "", ratio: document.querySelector("#ratioHint")?.textContent || "",
+      scroll: document.documentElement.scrollWidth <= innerWidth,
+      frameWidth: stage.getBoundingClientRect().width, viewport: innerWidth };
+  });
+  check(`${vp.name}: paper-framed curtain preserves both originals and viewport`,
+    visual.old && visual.photo && visual.preserved && visual.scroll && visual.frameWidth <= visual.viewport,
+    JSON.stringify(visual));
+  check(`${vp.name}: curtain identifies historic left / photo right and explains formats`,
+    /Слева рисунок.*справа фото/.test(visual.caption) && visual.ratio.length > 35);
+  await page.locator("#showThen").click();
+  check(`${vp.name}: one tap reveals the whole historic print`,
+    await page.locator('[data-view="then"]').getAttribute("aria-pressed") === "true");
+  await page.locator("#showNow").click();
+  check(`${vp.name}: one tap reveals the entire photo`,
+    await page.locator('[data-view="now"]').getAttribute("aria-pressed") === "true");
+  await page.locator('[data-view="originals"]').click();
+  check(`${vp.name}: back to original curtain without historical distortion`,
+    await page.locator("#handle").isVisible() &&
+    await page.locator("#photoLayer").evaluate(el => el.style.transform.startsWith("translate")));
+
+
+  // Regression for the real iPhone screenshot: the Eiffel print used to be covered
+  // by a small landscape photograph in the middle of its tall sheet.
+  await page.goto(`${base}?view=originals#paris-eiffel`, { waitUntil: "networkidle" });
+  await page.waitForFunction(() =>
+    document.querySelector('[data-view="originals"]')?.getAttribute("aria-pressed") === "true" &&
+    document.querySelector("#pairSel")?.value === "paris-eiffel" &&
+    document.querySelector("#independentNow")?.src.endsWith("/paris-eiffel-2026.jpg") &&
+    document.querySelector("#independentOld")?.src.endsWith("/paris-eiffel-1889.jpg") &&
+    document.querySelector("#independentNow")?.naturalWidth > 0 &&
+    document.querySelector("#independentOld")?.naturalWidth > 0 &&
+    document.querySelector("#stage")?.classList.contains("dual-originals"));
+  const eiffel = await page.evaluate(() => {
+    const stage = document.querySelector("#stage");
+    const dual = document.querySelector("#independentFrames");
+    const old = document.querySelector("#independentOld");
+    const modern = document.querySelector("#independentNow");
+    return {
+      active: stage.classList.contains("dual-originals") && !dual.hidden,
+      bothWhole: [old, modern].every(i => i.naturalWidth > 0 && getComputedStyle(i).objectFit === "contain"),
+      overlaysHidden: getComputedStyle(document.querySelector("#overlay")).display === "none",
+      distinctPanels: Math.abs(document.querySelector("#independentHistoric").getBoundingClientRect().width -
+        document.querySelector("#independentModern").getBoundingClientRect().width) < 3,
+      withinViewport: stage.getBoundingClientRect().width <= innerWidth,
+      state: { classes: stage.className, frameHidden: dual.hidden, stageHidden: stage.hidden,
+        selected: document.querySelector("#pairSel")?.value,
+        view: document.querySelector('[data-view="originals"]')?.getAttribute("aria-pressed"),
+        selectedMode: [...document.querySelectorAll("[data-mode]")].filter(x => x.getAttribute("aria-pressed") === "true").map(x => x.dataset.mode),
+        oldWidth: old.naturalWidth, modernWidth: modern.naturalWidth, oldFit: getComputedStyle(old).objectFit,
+        modernFit: getComputedStyle(modern).objectFit },
+      navigator: document.querySelector("#museumBar")?.getBoundingClientRect().height || 0,
+      navigationLinksVisible: getComputedStyle(document.querySelector("#museumBar .mbq")).display !== "none"
+    };
+  });
+  check(`${vp.name}: Eiffel comparison uses two full framed originals, not a floating photo`,
+    eiffel.active && eiffel.bothWhole && eiffel.overlaysHidden && eiffel.distinctPanels && eiffel.withinViewport,
+    JSON.stringify(eiffel));
+  if (vp.width <= 700) check(`${vp.name}: mobile museum bar takes a single compact row`,
+    eiffel.navigator >= 44 && eiffel.navigator <= 64 && !eiffel.navigationLinksVisible,
+    `bar-height=${eiffel.navigator}`);
+  await page.locator("#handle").focus(); await page.keyboard.press("Home");
+  check(`${vp.name}: Eiffel: slider can reveal the full modern photo`,
+    await page.locator("#independentModern").evaluate(x => x.getBoundingClientRect().width > 200) &&
+    await page.locator("#independentHistoric").evaluate(x => x.getBoundingClientRect().width < 1));
+  await page.keyboard.press("End");
+  check(`${vp.name}: Eiffel: slider can reveal the whole historical print`,
+    await page.locator("#independentHistoric").evaluate(x => x.getBoundingClientRect().width > 200) &&
+    await page.locator("#independentModern").evaluate(x => x.getBoundingClientRect().width < 1));
+
   // interactions on the real Madeleine pair (verdict low: local fit, opens unaligned)
   await page.goto(`${base}#madeleine-ph-benoist`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.getElementById("photoLayer").style.transform !== "");
@@ -104,10 +183,10 @@ async function viewerChecks(browser, vp) {
   const small = await page.evaluate(() => [...document.querySelectorAll("button,select,[role=slider],summary")]
     .filter(b => b.offsetParent).map(b => b.getBoundingClientRect()).filter(r => r.height < 44 || r.width < 36).length);
   check(`${vp.name}: visible controls ≥44 px tall`, small === 0, `${small} too small`);
-  check(`${vp.name}: low-confidence pair starts uncorrected`, (await page.textContent("#badge")).includes("без коррекции"));
+  check(`${vp.name}: low-confidence pair starts uncorrected`, (await page.textContent("#badge")).includes("без правок"));
   await page.click("#alignBtn");
   check(`${vp.name}: toggle applies matrix3d + adjusted badge`, (await page.$eval("#photoLayer", e => e.style.transform)).includes("matrix3d")
-    && (await page.textContent("#badge")).includes("скорректирована"));
+    && (await page.textContent("#badge")).includes("растянуто по рисунку"));
   await shot(page, `${vp.name}-madeleine-aligned-attempt.jpg`);
   await page.click("#alignBtn");
   check(`${vp.name}: toggle back to original photo`, (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
@@ -232,6 +311,7 @@ async function editorChecks(browser, vp) {
   const ex2 = await page.$eval("#exportText", t => t.value);
   check(`${vp.name} editor: export → import → export round-trips byte-identically`, ex1 === ex2);
   if (vp.name === "desktop-1440") {
+    await page.evaluate(() => { document.querySelector("details.tech").open = true; });
     const [dl] = await Promise.all([page.waitForEvent("download"), page.click("#exportBtn")]);
     const path = await dl.path();
     check(`${vp.name} editor: download is the same JSON (${dl.suggestedFilename()})`, fs.readFileSync(path, "utf8") === ex1);
@@ -239,14 +319,18 @@ async function editorChecks(browser, vp) {
   // 3. pointer: add a point (historic then photo), drag it, delete it
   const n0 = await page.$$eval("#ptTable tbody tr", r => r.length);
   const boxOf = async (sel) => { await page.locator(sel).scrollIntoViewIfNeeded(); return page.locator(sel).boundingBox(); };
+  const tab = async w => { if (vp.width <= 760) await page.evaluate(x => showTab(x), w); };
+  await tab("hist");
   const hv = await boxOf("#viewHist");
   await page.mouse.click(hv.x + hv.width * 0.1, hv.y + hv.height * 0.12);
   const expectPhoto = await page.evaluate(() => document.getElementById("panePhoto").classList.contains("expect"));
+  await tab("photo");
   const pv = await boxOf("#viewPhoto");
   await page.mouse.click(pv.x + pv.width * 0.1, pv.y + pv.height * 0.12);
   const n1 = await page.$$eval("#ptTable tbody tr", r => r.length);
   const added = JSON.parse(await page.$eval("#exportText", t => t.value)).control_points.slice(-1)[0];
   check(`${vp.name} editor: click historic → click photo adds one numbered pair`, expectPhoto && n1 === n0 + 1 && added && added.historic[0] > 0 && added.photo[0] > 0);
+  await tab("hist");
   const mk = page.locator(`#svgHist .mk[data-i="${n1 - 1}"] circle`);
   await page.locator("#viewHist").scrollIntoViewIfNeeded();
   const mb = await mk.boundingBox();
@@ -263,9 +347,11 @@ async function editorChecks(browser, vp) {
   await page.keyboard.press("Delete");
   check(`${vp.name} editor: Delete removes the focused point`, (await page.$$eval("#ptTable tbody tr", r => r.length)) === n0);
   // keyboard-only point: Enter in each pane
-  await page.focus("#viewHist"); await page.keyboard.press("Enter");
-  await page.focus("#viewPhoto"); await page.keyboard.press("Enter");
+  await tab("hist"); await page.focus("#viewHist"); await page.keyboard.press("Enter");
+  await tab("photo"); await page.focus("#viewPhoto"); await page.keyboard.press("Enter");
+  await tab("hist");
   check(`${vp.name} editor: keyboard Enter in both panes adds a point`, (await page.$$eval("#ptTable tbody tr", r => r.length)) === n0 + 1);
+  await page.evaluate(() => { document.querySelector("details.tech").open = true; });
   await page.fill(`#ptTable input[data-i="${n0}"]`, "test label");
   check(`${vp.name} editor: label edits reach the export`, JSON.parse(await page.$eval("#exportText", t => t.value)).control_points.slice(-1)[0].label === "test label");
   await page.click(`[data-del="${n0}"]`);
@@ -278,6 +364,15 @@ async function editorChecks(browser, vp) {
   const small = await page.evaluate(() => [...document.querySelectorAll("header button, .pane button, main > .bar button, .filebtn, select")]
     .filter(b => b.offsetParent).map(b => b.getBoundingClientRect()).filter(r => r.height < 44).length);
   check(`${vp.name} editor: main controls ≥44 px tall`, small === 0, `${small} too small`);
+  if (vp.width <= 760) {
+    const previousHash = await page.evaluate(() => location.hash);
+    await page.locator('#paneTabs [data-tab="photo"]').click();
+    check(`${vp.name} editor: photo tab keeps the pair id and shows the photo pane near the top`,
+      await page.evaluate(() => location.hash) === previousHash &&
+      await page.locator("#panePhoto").isVisible() && await page.locator("#paneHist").isHidden() &&
+      await page.locator("#panePhoto").evaluate(pane => pane.getBoundingClientRect().top < window.innerHeight / 2));
+    await page.locator('#paneTabs [data-tab="hist"]').click();
+  }
   await page.click('[data-fit="hist"]');
   await page.goto(`${base}editor.html#madeleine-ph-benoist`, { waitUntil: "networkidle" });
   await page.waitForFunction(() => document.querySelectorAll("#ptTable tbody tr").length === 7);
@@ -286,6 +381,32 @@ async function editorChecks(browser, vp) {
   check(`${vp.name} editor: no console/page errors`, w.errors.length === 0, w.errors.join(" | "));
   check(`${vp.name} editor: nothing requested outside the local server`, w.offsite.length === 0, w.offsite.join(" "));
   await ctx.close();
+}
+
+async function originalWipeChecks(browser, vp) {
+  const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
+  await page.goto(`${base}?journey=1#madeleine-benoist-carnavalet`);
+  await page.waitForFunction(() => document.getElementById("histImg").naturalWidth > 0);
+  await page.locator('[data-view="fit"]').click();
+  check(`${vp.name}: alignment blends the photo with the historic print`,
+    (await page.$eval("#photoLayer", el => el.style.transform)).includes("matrix3d") &&
+    await page.locator("#opacity").isVisible());
+  const historic = await page.locator("#histImg").getAttribute("src");
+  await page.locator('[data-view="originals"]').click();
+  await page.locator("#handle").focus();
+  await page.keyboard.press("Home");
+  check(`${vp.name}: original wipe keeps the photo perspective and supports the keyboard`,
+    (await page.$eval("#photoLayer", el => el.style.transform)).startsWith("translate") &&
+    await page.locator("#handle").getAttribute("aria-valuenow") === "0" &&
+    await page.locator("#histImg").getAttribute("src") === historic &&
+    await page.$eval("#histImg", el => getComputedStyle(el).transform) === "none");
+  check(`${vp.name}: the map link opens the associated landmark`,
+    (await page.locator("#pairMap").getAttribute("href")).endsWith("/epoch/paris/Q330564/map"));
+  await page.locator("#pairEditor").click();
+  await page.waitForFunction(() => document.getElementById("backToPair").hash === "#madeleine-benoist-carnavalet");
+  check(`${vp.name}: manual adjustment opens the chosen pair and keeps the way back`,
+    (await page.locator("#backToPair").getAttribute("href")).endsWith("?journey=1#madeleine-benoist-carnavalet"));
+  await page.close();
 }
 
 async function journeyChecks(browser, vp) {
@@ -299,13 +420,21 @@ async function journeyChecks(browser, vp) {
       await page.locator("#journeyQuestion").textContent() === scene.question &&
       !await page.locator("#journeyAnswer").isVisible() &&
       await page.locator("#credits").getAttribute("open") === null);
+    check(`${vp.name} ${scene.pair}: the next stop is offered before the images`,
+      await page.locator("#journeyNextTop").isVisible() &&
+      await page.locator("#journeyNextTop").getAttribute("href") === await page.locator("#journeyNext").evaluate(link => link.href));
     await page.locator("#journeyReveal summary").click();
     check(`${vp.name} ${scene.pair}: reveal opens without blocking continuation`,
       await page.locator("#journeyAnswer").isVisible() &&
       await page.locator("#journeyNext").textContent() === scene.next + " →");
     check(`${vp.name} ${scene.pair}: no horizontal scroll`,
       await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    if (i < JOURNEY.length - 1) await page.locator("#journeyNext").click();
+    if (scene.next_href) {
+      check(`${vp.name} ${scene.pair}: custom next step leads to ${scene.next_href}`,
+        await page.locator("#journeyNext").getAttribute("href") === scene.next_href &&
+        await page.locator("#journeyDock").getAttribute("href") === scene.next_href);
+      if (i < JOURNEY.length - 1) await page.goto(`${base}?journey=1#${JOURNEY[i + 1].pair}`);
+    } else if (i < JOURNEY.length - 1) await page.locator("#journeyNext").click();
   }
   check(`${vp.name}: ends at world atlas`, (await page.locator("#journeyNext").getAttribute("href")).endsWith("world/#worldComparisons"));
   await page.locator("#journeyBack").click();
@@ -319,7 +448,10 @@ async function journeyChecks(browser, vp) {
   const browser = await chromium.launch();
   for (const vp of viewports) await viewerChecks(browser, vp);
   await robustnessChecks(browser);
-  for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) await journeyChecks(browser, vp);
+  for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) {
+    await journeyChecks(browser, vp);
+    await originalWipeChecks(browser, vp);
+  }
   for (const vp of viewports.filter(v => v.name === "iphone-390" || v.name === "desktop-1440")) await editorChecks(browser, vp);
   await browser.close();
   const failed = results.filter(r => !r.ok).length;

@@ -69,10 +69,10 @@
     const area=$("coverageStats");
     area.replaceChildren();
     const arr=[
-      [records.length,state.source==="registry"?"Географических названий в сводном указателе":"Городов в стартовом списке"],
+      [records.length,state.source==="registry"?"Городов и мест в списке":"Городов в списке"],
       [detailed,"С подробными материалами"],
-      [candidates,"С исследовательскими кандидатами"],
-      [blank,"Ожидают наполнения"]
+      [candidates,"С находками, которые мы ещё проверяем"],
+      [blank,"Изображений пока нет"]
     ];
     for(const [number,label] of arr){
       const stat=el("div","stat");
@@ -80,8 +80,8 @@
       area.append(stat);
     }
     $("sourceNote").textContent = state.source==="registry" ?
-      "Сводный указатель включает отдельные памятники и местности, не только города. Слияние названий сейчас предварительное, совпадающие имена в разных странах необходимо проверять отдельно. Кандидат — ещё не подтверждённая музейная работа." :
-      "Показан исходный список из 150 географических направлений. Полный исследовательский реестр из собранной версии недоступен, поэтому неподтверждённые находки здесь не показаны. Для полного охвата откройте проверяемую сборку музея.";
+      "В списке есть города, памятники и другие места. Одинаковые названия в разных странах иногда требуют уточнения." :
+      "Сейчас доступен список из 150 городов и мест. Полный список с архивными находками не загрузился.";
   }
   function renderRegions(){
     const region=$("region");
@@ -117,8 +117,8 @@
     let hint=row.status==="detailed" ?
       (details?plural(details,"изображение","изображения","изображений")+" с источниками в детальном атласе":"Есть подробная музейная история") :
       row.status==="candidate" ?
-      (plural(candidates,"архивная запись","архивные записи","архивных записей")+" для исследовательской проверки. Изображения могут быть недоступны для публикации.") :
-      "Пока нет предметных карточек в исследовательском реестре";
+      (plural(candidates,"архивная запись","архивные записи","архивных записей")+" ещё предстоит проверить. Некоторые изображения доступны только в архиве.") :
+      "Мы пока не подобрали изображения для этого места";
     item.append(el("p","info",hint));
     const city=known.get(compact(row.name));
     if(row.status==="detailed" && city){
@@ -130,43 +130,43 @@
       if(sources.length){
         const box=el("details");
         box.append(el("summary",null,"Архивные первоисточники ("+sources.length+")"));
-        const note=el("p","archive-notice","Предпросмотр не публикуется, если права или атрибуция ещё не подтверждены. Ссылка ведёт к записи хранителя.");
+        const note=el("p","archive-notice","По ссылке откроется страница в архиве. Мы показываем изображение, когда можем подтвердить авторство и право на публикацию.");
         box.append(note);
         for(const source of sources){
-          const a=el("a",null,source.title||"Перейти к архивной записи");
+          const a=el("a",null,source.title||"Открыть в архиве");
           a.href=goodUrl(source.url);
           a.target="_blank";
           a.rel="noopener noreferrer";
           box.append(a);
         }
         item.append(box);
-      } else item.append(el("span","status-note","Результаты поиска требуют каталогизации"));
+      } else item.append(el("span","status-note","Находки ещё нужно сверить с архивом"));
     } else {
-      item.append(el("span","status-note","Редакционная страница ещё не подготовлена"));
+      item.append(el("span","status-note","Страницу места ещё готовим"));
     }
     if(row.status==="detailed"){
       const journey=el("nav","city-journey");
       journey.setAttribute("aria-label","Исследование города "+row.name);
-      const art=el("a",null,"Произведения ↗");
+      const art=el("a",null,"Произведения ↗︎");
       art.href="../salon/?city="+encodeURIComponent(row.name);
-      const modern=el("a",null,"Сегодня ↗");
+      const modern=el("a",null,"Сегодня ↗︎");
       modern.href="../photography/?city="+encodeURIComponent(row.name);
       journey.append(art,modern);
       if(city==="paris"){
-        const comparison=el("a",null,"Тогда / Сейчас ↗");
+        const comparison=el("a",null,"Тогда и сейчас ↗︎");
         comparison.href="../poc/compare/#madeleine-ph-benoist";
         journey.append(comparison);
       }
-      const regionMap=el("a",null,"Карта ракурсов и эпох ↗");
+      const regionMap=el("a",null,"Где стояли художники и фотографы ↗︎");
       regionMap.href=city?"../eras/#/city/"+encodeURIComponent(city):"../eras/";
       journey.append(regionMap);
       item.append(journey);
     } else if(row.status==="candidate"){
-      const openArchive=el("a","action","Проверить открытую графику ↗");
+      const openArchive=el("a","action","Проверить открытую графику ↗︎");
       openArchive.href="../world/?query="+encodeURIComponent(row.name);
       item.append(openArchive);
     }
-    if(row.country_conflict)item.append(el("small","status-note","Название или страна требуют проверки при объединении"));
+    if(row.country_conflict)item.append(el("small","status-note","Уточняем название или страну"));
     return item;
   }
   function render(){

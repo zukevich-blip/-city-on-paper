@@ -7,3 +7,7 @@ __pycache__/
 # resumable collector state (rebuilt by tools/world/*)
 data/world/_state.json
 data/world/_loc_state.json
+
+# PRIVATE_RESEARCH tier: images with unconfirmed rights live only on the owner's machine, never in git or Pages
+private-archive/
+data/private/

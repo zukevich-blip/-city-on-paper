@@ -6,7 +6,7 @@
   if (!me || document.getElementById("museumBar")) return;
   const base = me.src.replace(/assets\/nav\/museum-nav\.js.*$/, "");
   const HALLS = [
-    ["Главный вход", [["", "Живой музей", "Истории, коллекция, мастерская и все разделы"], ["walk/", "Маршрут по времени", "Карта, исторические листы и современный вид в одном путешествии"], ["stories/", "Истории", "Документированные рассказы по произведениям и городам"], ["atlas/", "Научный атлас · исследования", "Каталог мест, источников и географических доказательств"], ["experience/", "Книга городов", "Необязательное путешествие с раскрывающейся книгой"], ["eras/", "Карты и сравнение эпох", "Интерактивные карты, разные годы, шторка и свои изображения"]]],
+    ["Главный вход", [["", "Живой музей", "Истории, коллекция, мастерская и все разделы"], ["book/", "Книга видов", "Оглавление по странам и городам: листайте по порядку"], ["guides/", "Путеводители", "Оцифрованные книги, альбомы и связанные городские виды"], ["walk/", "Маршрут по времени", "Карта, исторические листы и современный вид в одном путешествии"], ["stories/", "Истории", "Документированные рассказы по произведениям и городам"], ["atlas/", "Научный атлас · исследования", "Каталог мест, источников и географических доказательств"], ["experience/", "Книга городов", "Необязательное путешествие с раскрывающейся книгой"], ["eras/", "Карты и сравнение эпох", "Интерактивные карты, разные годы, шторка и свои изображения"]]],
     ["Смотреть", [["salon/", "Салон открытий", "Литографии и картины из открытых музеев"], ["closeup/", "Кабинет деталей", "Рассматривать лист в подробностях"],
       ["exhibitions/city-as-evidence/", "Город как свидетельство", "Выставка: что рассказывает гравюра"], ["exhibitions/lost-florence/", "Исчезнувшая Флоренция", "Выставка о старом центре"],
       ["photography/", "Современный город", "Фотографии тех же мест сегодня"]]],
@@ -15,7 +15,7 @@
     ["Расследовать", [["discover/", "Первое расследование", "Начать знакомство"], ["detective/", "Дело № 01 · Мадлен", "Литография под лупой"],
       ["fieldwork/", "Городская фотоохота", "Найти ракурс художника самому"], ["submit/", "Предложить находку", "Представить свою литографию, фотографию или исторический материал"], ["studio/", "Кабинет коллекционера", "Происхождение листов, блокнот"]]],
     ["Как это сделано", [["printlab/", "Камень и бумага", "Как печатали литографию"], ["atelier/bargue/", "Школа рисунка", "Учиться рисовать по-старому"],
-      ["ornaments/", "Мастерская орнамента", "Узоры и декор"], ["ideas/", "Лаборатория идей", "Куда растёт музей"]]],
+      ["ornaments/", "Мастерская орнамента", "Узоры и декор"]]],
   ];
   const here = location.pathname.replace(/index\.html$/, "");
   // The curated homepage owns its primary navigation. Keep the global bar in inner rooms.
@@ -43,6 +43,7 @@
 #museumBar .mbp a{display:block;min-height:44px;padding:7px 0;border-bottom:1px solid #ffffff14}#museumBar .mbp a b{font:400 16px Georgia,serif;display:block}#museumBar .mbp a small{color:#b8ad98}
 #museumBar .mbp a[aria-current] b{color:#f0c987}
 @media(max-width:700px){
+ #museumBar{position:relative}
  #museumBar .mb{flex-wrap:nowrap;gap:7px}
  #museumBar .mbh{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis}
  #museumBar .mbback{padding:0 9px;font-size:12px}
@@ -53,10 +54,17 @@
  #museumBar .mbp{max-height:75dvh;grid-template-columns:1fr!important;padding:8px 16px 18px}
  #museumBar .mbp a{min-height:44px}
  #museumBar button{padding:4px 9px;white-space:nowrap}
+/* Mobile: keep one compact toolbar; all sections remain available from the menu. */
+#museumBar .mb{flex-wrap:nowrap!important;padding:4px 12px;min-height:52px;gap:7px}
+#museumBar .mbq{display:none!important}
+#museumBar .mbh{min-width:0;flex:1 1 auto;font-size:14px}
+#museumBar .mbback{flex:0 0 auto;min-height:44px;border-radius:9px}
+#museumBar button{flex:0 0 auto;min-height:44px;border-radius:9px}
+#museumBar .mbp{top:100%;max-height:min(70dvh,640px);overflow-y:auto;overscroll-behavior:contain}
 }`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  // One primary menu for the whole museum — the same five doors as on the home page.
-  const quick = [["stories/", "Истории"], ["cities/", "Города"], ["eras/", "Атлас"], ["eras/#/epochs", "Эпохи"], ["salon/", "Каталог"], ["experience/", "Книга"]];
+  // One primary menu for the whole museum: the same four doors as on the home page.
+  const quick = [["book/", "Книга"], ["poc/compare/", "Тогда и сейчас"], ["eras/", "Карта"], ["book/#/benoist", "Бенуа"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>

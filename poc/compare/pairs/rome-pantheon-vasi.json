@@ -1,0 +1,63 @@
+{
+ "id": "rome-pantheon-vasi",
+ "status": "candidate_real_pair",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch"
+ },
+ "control_points": [],
+ "condition": "На офорте видны крыша Пантеона и площадь сверху. Фото сделано с другой точки. Точные места, откуда смотрели художник и фотограф, не установлены.",
+ "historic": {
+  "title": "Площадь Ротонды",
+  "date": "1752",
+  "medium": "Офорт",
+  "holding": "Репродукция на Викискладе",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Piazza_della_Rotonda_-_Plate_025_-_Giuseppe_Vasi.jpg",
+  "rights": "Общественное достояние",
+  "credit": "Джузеппе Вази · «Великолепие древнего и современного Рима», лист 25",
+  "file_note": "Репродукция взята с Викисклада без изменений.",
+  "file": "rome-pantheon-1752.jpg",
+  "size": [
+   733,
+   522
+  ],
+  "sha256": "50c2898248b2e5cc6000c3abd8137cdfbc4a32d819b2dc10b70e32a56f9c2655"
+ },
+ "photo": {
+  "title": "Пантеон в Риме",
+  "date": "2025-03-03",
+  "author": "Van Der Meulen Christofle",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Ext%C3%A9rieur_du_Panth%C3%A9on_%C3%A0_Rome.jpg",
+  "credit": "Van Der Meulen Christofle · Викисклад · CC0",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "changes": "Копия уменьшена для экрана. Кадр и перспектива сохранены.",
+  "file": "rome-pantheon-2025.jpg",
+  "size": [
+   1440,
+   1080
+  ],
+  "sha256": "271a7e31f887352dbdf62670b99eb3ab8b14a27c69c9f48cd1db67ddb7d171bc"
+ },
+ "story": {
+  "title": "Рим на восемь дней",
+  "text": "В 1763 году Джузеппе Вази предложил путешественникам восемь дневных прогулок по Риму. Этому путеводителю предшествовала его серия видов Рима. Офорт площади Ротонды 1752 года взят из этой серии.",
+  "source": "https://rarebooks.biblhertz.it/it/roma-in-tasca/5-01-vasi-1763/",
+  "source_label": "Открыть историю издания в Библиотеке Герциана"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   733,
+   522
+  ],
+  "photo_size": [
+   1440,
+   1080
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

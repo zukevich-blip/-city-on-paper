@@ -1,0 +1,65 @@
+/* Литографический стиль: тонированная бумага, двойная рамка листа, подпись печатника,
+   гравёрные линейки и вензели. По образцу листов Филиппа Бенуа (Lemercier, Париж): печатные подписи
+   «рисовал / печатал» под оттиском, название заглавными с разрядкой, номер листа. Подключается к книге,
+   сравнению и картам, чтобы все инструменты выглядели как части одного альбома. */
+:root{
+  --lt-paper:#efe4c9;--lt-paper-2:#f6eed9;--lt-page:#fbf5e4;--lt-ink:#2f2619;--lt-ink-2:#5a4a33;
+  --lt-sepia:#7a5a36;--lt-brick:#8d4b36;--lt-green:#3d5a45;--lt-wash:#cfd3b0;--lt-rule:#b8a57f;--lt-gold:#b08d3c;
+  --lt-serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --lt-sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  /* paper grain + foxing, very quiet */
+  --lt-grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .27  0 0 0 0 .15  0 0 0 .09 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  /* flourishes as data-URI SVG so they work without JS and in any CSS context */
+  --lt-divider:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 20' fill='none' stroke='%23b8a57f' stroke-width='1.1' stroke-linecap='round'><path d='M4 10h88'/><path d='M148 10h88'/><path d='M92 10c8-8 14-8 18 0s10 8 18 0'/><path d='M110 10l10-6 10 6-10 6z' fill='%23b8a57f' stroke='none'/><circle cx='4' cy='10' r='1.6' fill='%23b8a57f'/><circle cx='236' cy='10' r='1.6' fill='%23b8a57f'/></svg>");
+  --lt-corner:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%237a5a36' stroke-width='1.2' stroke-linecap='round'><path d='M2 38V12c0-6 4-10 10-10h26'/><path d='M7 33V14c0-4 3-7 7-7h19'/><path d='M12 12c4 0 6 2 6 6s-2 6-6 6' stroke-width='1'/><circle cx='12' cy='12' r='1.6' fill='%237a5a36'/></svg>");
+}
+.lt-paper{background:var(--lt-paper) var(--lt-grain);color:var(--lt-ink)}
+.lt-small{font:600 11px/1.3 var(--lt-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--lt-brick)}
+.lt-title{font:400 clamp(26px,7vw,42px)/1.08 var(--lt-serif);letter-spacing:.02em;margin:0}
+
+/* ornamental divider (the little fleuron rule between chapters) */
+.lt-divider{height:20px;margin:26px auto;max-width:240px;background:var(--lt-divider) center/contain no-repeat}
+
+/* A printed sheet: toned margin, double-ruled image area, printer's line beneath */
+.lt-sheet{position:relative;margin:0;padding:18px 14px 12px;background:var(--lt-paper-2) var(--lt-grain);border:1px solid var(--lt-rule);
+  box-shadow:0 1px 0 #fff8 inset,0 10px 26px #4b36201f,0 2px 4px #4b362014}
+.lt-sheet::before,.lt-sheet::after{content:"";position:absolute;width:34px;height:34px;background:var(--lt-corner) center/contain no-repeat;opacity:.75;pointer-events:none}
+.lt-sheet::before{left:3px;top:3px}.lt-sheet::after{right:3px;top:3px;transform:scaleX(-1)}
+.lt-print{position:relative;padding:5px;border:1px solid var(--lt-sepia);background:var(--lt-page)}
+.lt-print::before{content:"";position:absolute;inset:2px;border:1px solid #7a5a3680;pointer-events:none}
+.lt-print>img,.lt-print>.ph{display:block;width:100%;height:auto;background:var(--lt-wash)}
+.lt-imprint{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end;margin:9px 2px 2px;font:italic 11px/1.25 var(--lt-serif);color:var(--lt-ink-2)}
+.lt-imprint .l{text-align:left}.lt-imprint .r{text-align:right}
+.lt-imprint .c{font:600 11px var(--lt-sans);letter-spacing:.14em;color:var(--lt-brick);text-transform:uppercase;white-space:nowrap}
+.lt-caption{margin:10px 0 0;text-align:center;font:400 15px/1.3 var(--lt-serif);letter-spacing:.16em;text-transform:uppercase;color:var(--lt-ink)}
+.lt-caption small{display:block;margin-top:3px;font:italic 12px var(--lt-serif);letter-spacing:.04em;text-transform:none;color:var(--lt-ink-2)}
+
+/* cartouche around chapter and page titles */
+.lt-cartouche{position:relative;padding:18px 18px 16px;margin:6px 0 4px;text-align:center;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain)}
+.lt-cartouche::before{content:"";position:absolute;inset:4px;border:1px solid var(--lt-rule);pointer-events:none}
+
+/* Buttons: small brass-edged plaques */
+.lt-btn,.btn{border-radius:2px;font-family:var(--lt-sans);letter-spacing:.04em;position:relative}
+.btn:not(.ghost){background:linear-gradient(#456b52,#355a43);border-color:#2a4636;color:#fbf5e4;box-shadow:0 1px 0 #ffffff30 inset,0 2px 0 #1f3629,0 4px 8px #2a463633}
+.btn.ghost{background:var(--lt-page);border-color:var(--lt-sepia);color:var(--lt-ink)}
+.btn.ghost::after{content:"";position:absolute;inset:3px;border:1px solid #7a5a3638;pointer-events:none;border-radius:1px}
+.btn:active{transform:translateY(1px)}
+
+/* Sliders: an engraved scale with an ivory medallion */
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:10px;border:1px solid var(--lt-sepia);border-radius:1px;
+  background:repeating-linear-gradient(90deg,transparent 0 9px,#7a5a3655 9px 10px),linear-gradient(#e9dcbc,#f6eed9)}
+input[type=range]::-moz-range-track{height:10px;border:1px solid var(--lt-sepia);border-radius:1px;
+  background:repeating-linear-gradient(90deg,transparent 0 9px,#7a5a3655 9px 10px),linear-gradient(#e9dcbc,#f6eed9)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-11px;border-radius:50%;
+  border:1px solid var(--lt-sepia);background:radial-gradient(circle at 35% 30%,#fffaf0,#e8d9b0 62%,#c9b27a);
+  box-shadow:0 0 0 3px #fbf5e4,0 0 0 4px #7a5a36,0 3px 6px #4b362040}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;border:1px solid var(--lt-sepia);
+  background:radial-gradient(circle at 35% 30%,#fffaf0,#e8d9b0 62%,#c9b27a);box-shadow:0 0 0 3px #fbf5e4,0 0 0 4px #7a5a36,0 3px 6px #4b362040}
+input[type=range]:focus-visible{outline:3px solid #b08d3c;outline-offset:4px}
+
+/* Tool frame: any control group can sit on a small plate with a printed legend */
+.lt-tool{position:relative;padding:14px 14px 12px;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain);margin:12px 0}
+.lt-tool::before{content:"";position:absolute;inset:3px;border:1px solid var(--lt-rule);pointer-events:none}
+.lt-tool>legend,.lt-tool .lt-legend{font:700 11px var(--lt-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--lt-brick)}
+@media(prefers-reduced-motion:reduce){.btn,.lt-btn{transition:none}}

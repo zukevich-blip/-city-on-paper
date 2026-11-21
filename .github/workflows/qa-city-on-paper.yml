@@ -17,10 +17,13 @@ on:
       - 'stories/**'
       - 'experience/**'
       - 'walk/**'
+      - 'guides/**'
+      - 'book/**'
       - 'submit/**'
       - 'atlas/**'
       - 'assets/hybrid/**'
       - 'assets/nav/**'
+      - 'assets/litho/**'
       - 'journeys/**'
       - 'detective/**'
       - 'studio/**'
@@ -116,6 +119,8 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8765/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8765/
+          node tests/browser/qa_guides.js http://127.0.0.1:8765/
+          node tests/browser/qa_book.js http://127.0.0.1:8765/book/
           node --check tests/browser/qa_first_impression.js
           node tests/browser/qa_first_impression.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
           node --check eras/viewpoint-atlas.js
@@ -181,10 +186,13 @@ jobs:
           cp -R atlas /tmp/city-on-paper-package/
           cp -R cities /tmp/city-on-paper-package/
           cp -R walk /tmp/city-on-paper-package/
+          cp -R guides /tmp/city-on-paper-package/
+          cp -R book /tmp/city-on-paper-package/
           cp -R submit /tmp/city-on-paper-package/
           cp -R desk /tmp/city-on-paper-package/
           mkdir -p /tmp/city-on-paper-package/assets && cp -R assets/nav /tmp/city-on-paper-package/assets/
           cp -R assets/hybrid /tmp/city-on-paper-package/assets/
+          cp -R assets/litho /tmp/city-on-paper-package/assets/
           cp -R assets/web /tmp/city-on-paper-package/assets/
           cp -R assets/story /tmp/city-on-paper-package/assets/
           cp journeys/index.html /tmp/city-on-paper-package/journeys/
@@ -201,6 +209,7 @@ jobs:
           cp data/curation/world-cities-v1.json /tmp/city-on-paper-package/data/curation/
           cp data/curation/benoist-paris-musees-v1.json /tmp/city-on-paper-package/data/curation/
           cp data/curation/world-open-views-v2.json /tmp/city-on-paper-package/data/curation/
+          cp data/curation/historical-guidebooks-v1.json /tmp/city-on-paper-package/data/curation/
           python tools/curation/build_open_art_cache.py --out /tmp/city-on-paper-package --workers 8
           python -m pip install Pillow==12.3.0
           python tools/curation/expand_open_archives.py --out /tmp/city-on-paper-package --cma 220 --aic 110 --met 60 --cache 180
@@ -286,6 +295,8 @@ jobs:
           node tests/browser/qa_cities.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8766/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8766/
+          node tests/browser/qa_guides.js http://127.0.0.1:8766/
+          node tests/browser/qa_book.js http://127.0.0.1:8766/book/
           node tests/browser/qa_first_impression.js http://127.0.0.1:8766/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8766/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8766/
@@ -301,6 +312,8 @@ jobs:
           curl -fsS http://127.0.0.1:8767/cities/ -o /dev/null
           node tests/browser/qa_unified_journey.js http://127.0.0.1:8767/
           node tests/browser/qa_visitor_first.js http://127.0.0.1:8767/
+          node tests/browser/qa_guides.js http://127.0.0.1:8767/
+          node tests/browser/qa_book.js http://127.0.0.1:8767/book/
           node tests/browser/qa_first_impression.js http://127.0.0.1:8767/ /tmp/city-on-paper-screens
           node tests/browser/qa_atlas_studio.js http://127.0.0.1:8767/
           node tests/browser/qa_navigation_consilium.js http://127.0.0.1:8767/

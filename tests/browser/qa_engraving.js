@@ -54,23 +54,16 @@ async function originalIntegrity(page,selector,device){
       let response=await open("./");
       assert(device+" homepage HTTP",response&&response.status()===200);
       await styleCheck(page,device,"home");
-      const stamp=page.locator(".hybrid-story-copy .cop-signet");
+      const stamp=page.locator("footer .cop-signet");
       assert(device+" own publisher mark",await stamp.textContent()==="ГБ");
       assert(device+" no institutional forgery",((await page.locator(".cop-imprint").getAttribute("aria-label"))||"").includes("цифрового музея"));
-      const display=await page.locator(".hybrid-story-hero .storytitle").evaluate(node=>getComputedStyle(node).fontFamily);
-      assert(device+" engraved title type",/Bodoni|Didot|Iowan|Georgia/i.test(display));
-      await originalIntegrity(page,".hybrid-hero-picture img",device+" home");
-      if(width<=720){
-        const order=await page.evaluate(()=>{
-          const rect=q=>document.querySelector(q).getBoundingClientRect();
-          return {print:rect(".hybrid-story-hero .hybrid-hero-picture").top,
-                  prose:rect(".hybrid-story-hero .lead").top};
-        });
-        assert(device+" original above essay in reading order",order.print<order.prose);
-        assert(device+" visitor mission starts within first fold",await page.locator(".front-copy h1").evaluate(node=>node.getBoundingClientRect().top<innerHeight));
-      }
-      assert(device+" source archive link",await page.locator('.hybrid-hero-picture figcaption a[href="https://www.loc.gov/item/2016652452/"]').count()===1);
-      assert(device+" engraving rule",await page.locator(".hybrid-story-copy .cop-engraved-line").count()===1);
+      const display=await page.locator(".lh-welcome .lt-title").evaluate(node=>getComputedStyle(node).fontFamily);
+      assert(device+" engraved title type",/Bodoni|Didot|Iowan|Palatino|Georgia/i.test(display));
+      await page.locator(".lh-then").scrollIntoViewIfNeeded();
+      await originalIntegrity(page,".lh-then",device+" home");
+      assert(device+" visitor mission starts within first fold",await page.locator(".lh-welcome h1").evaluate(node=>node.getBoundingClientRect().top<innerHeight));
+      assert(device+" source credit present",(await page.locator("#lhNote").innerText()).includes("Paris Musées"));
+      assert(device+" engraving rule",await page.locator("footer .cop-engraved-line").count()===1);
       await paint(page,device,"home");
 
       response=await open("cities/");

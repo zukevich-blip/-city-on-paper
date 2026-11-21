@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тогда / Сейчас — прототип</title>
 <meta name="description" content="Сравните старинную литографию с современным снимком: режимы шторки и рядом, точное указание источников, проверка совпадения ракурсов.">
+<link rel="stylesheet" href="../../assets/litho/litho.css">
 <style>
 :root{
   --paper:#f4efe4; --ink:#2b241c; --muted:#6d6254; --line:#d8cdb8; --accent:#8a3b1e;
@@ -18,7 +19,10 @@
 [hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 Georgia,"Times New Roman",serif}
 header,main,footer{max-width:1100px;margin:0 auto;padding:0 16px}
-header{padding-top:16px}
+header{padding-top:16px;position:relative}
+.top{position:absolute;right:16px;top:12px;z-index:2}
+header h1{padding-right:56px}
+#langBtn{min-height:44px;min-width:44px;font-size:13px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 h1{font-size:1.4rem;margin:0 0 4px;font-weight:normal;letter-spacing:.02em}
 h2{font-size:1rem;margin:12px 0 4px}
@@ -40,7 +44,11 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .journey-end{border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:12px 0;background:var(--panel)}
 .journey-actions{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:8px;align-items:center}
 .journey-actions a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:3px}
-.journey-actions a:first-child{background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:4px;text-decoration:none}
+.journey-dock{display:none}
+@media(max-width:700px){body.guided .journey-dock.is-covered{display:none}}
+@media(max-width:700px){body.guided .journey-dock{display:flex;flex-direction:column;position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:30;background:#23493d;color:#fff9ed;padding:9px 14px;border-radius:8px;text-decoration:none;box-shadow:0 6px 18px #0005;min-height:52px;justify-content:center}.journey-dock small{font:12px system-ui;opacity:.85}.journey-dock b{font:600 15px/1.25 system-ui}body.guided footer{padding-bottom:84px}}
+.journey-next,.journey-actions a:first-child{background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:4px;text-decoration:none}
+.journey-next{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font:600 14px system-ui,sans-serif}
 .bar label{font:14px system-ui,sans-serif;color:var(--muted)}
 .verdict{font:14px/1.4 system-ui,sans-serif;border-left:4px solid var(--muted);background:var(--panel);padding:8px 12px;margin:8px 0}
 .verdict.high{border-color:var(--ok)} .verdict.medium{border-color:var(--warn)}
@@ -58,17 +66,23 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .badge{position:absolute;right:8px;top:8px;background:#000b;color:#fff;font:12px/1.3 system-ui,sans-serif;padding:4px 8px;border-radius:4px;max-width:60%}
 .tag{position:absolute;bottom:8px;font:12px system-ui,sans-serif;background:#000a;color:#fff;padding:2px 6px;border-radius:3px}
 .tag.l{left:8px} .tag.r{right:8px}
+.stage[data-shown=then] .tag.r,.stage.nowonly .tag.l{display:none}
 .creditline{font:12px/1.4 system-ui,sans-serif;color:var(--muted);margin:4px 0 0}
 .imgerr{font:14px/1.4 system-ui,sans-serif;border:1px dashed var(--bad);color:var(--bad);background:var(--panel);padding:10px 12px;margin:8px 0}
 .stage.broken{min-height:120px}
 header .jumpcompare{display:none!important}
 @media(max-width:560px){h1{font-size:26px!important;margin:6px 0!important}#titleAlt{display:none}.intro,header p{font-size:14px!important;margin:4px 0!important}}
-.vswitch{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 6px}
+.vswitch{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0 6px}
 .vswitch button{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px;border:1px solid #b9ab94;background:#fffdf7;border-radius:4px;font:inherit;cursor:pointer;color:#29342d}
 .vswitch button b{font:600 16px Georgia,serif}.vswitch button small{font:11px/1.2 system-ui,sans-serif;color:#6f6f63}
 .vswitch button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}.vswitch button[aria-pressed=true] small{color:#d9cfbb}
-.vswitch button:disabled{opacity:.45;cursor:not-allowed}
-@media(max-width:560px){.vswitch{grid-template-columns:repeat(4,1fr);gap:4px}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{display:none}.top .poc{display:none}}
+.vswitch button.unavailable{opacity:.6}
+#opacityCtl{display:flex;align-items:center;gap:10px;margin:8px 0}
+#opacityCtl[hidden]{display:none}
+#opacityCtl input[type=range]{flex:1;min-height:44px}
+.userfit{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0;padding:10px 12px;border-left:4px solid #2e7d5b;background:var(--panel)}
+.userfit button{min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);cursor:pointer;font:600 14px system-ui}
+@media(max-width:560px){.vswitch{grid-template-columns:repeat(6,1fr);gap:6px}.vswitch>button:nth-child(-n+3){grid-column:span 2}.vswitch>button:nth-child(n+4){grid-column:span 3}.vswitch button{min-height:48px;padding:4px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:11px}.top .poc{display:none}}
 .viewcap{font:14px/1.55 system-ui,sans-serif;color:#3b443d;margin:4px 0 10px;min-height:1.5em}
 #viewerModes::before{content:"Другие способы сравнить";flex-basis:100%;font:600 11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8c6e41;margin-top:6px}
 html[lang=en] #viewerModes::before{content:"Other ways to compare"}
@@ -93,8 +107,100 @@ table{border-collapse:collapse;font-size:13px} td,th{border:1px solid var(--line
 .jumpcompare{display:inline-flex;min-height:44px;align-items:center;margin:0 0 12px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;font:14px system-ui,sans-serif;text-decoration:none;background:var(--panel)}
 footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 .noscript{border:2px solid var(--bad);background:var(--panel);padding:12px;font:15px/1.5 system-ui,sans-serif;margin:12px 0}
+.pair-links{display:flex;flex-wrap:wrap;gap:6px 10px;margin:10px 0}
+.pair-links a{display:inline-flex;align-items:center;min-height:44px;padding:6px 12px;border:1px solid #b9ab94;background:#fffdf7;color:#284438;border-radius:4px;text-underline-offset:3px;font:600 13px system-ui}
+.pair-links a:hover{background:#f5e9d4}
+@media(prefers-reduced-motion:no-preference){.journey-prompt.scene-enter{animation:scene-enter 220ms ease-out both}}
+@keyframes scene-enter{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* Gallery-grade comparison controls. Geometry of artwork and historical metadata remain untouched. */
+:root{--paper:#f3ede3;--ink:#24362e;--muted:#5d6a60;--line:#cfc4b1;--accent:#855437;--panel:#fffaf1;--focus:#b57a37}
+body{background:radial-gradient(circle at 5% 0%,#fff9ef 0%,transparent 38%),var(--paper);color:var(--ink)}
+header,main,footer{max-width:1160px}
+header{padding-top:25px}
+header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.035em}
+.top{padding-bottom:8px;border-bottom:1px solid var(--line)}
+.poc{letter-spacing:.14em;color:#745037;border-color:#b9a27f;border-radius:50px;padding:4px 12px}
+.vswitch{gap:10px;margin-top:17px;margin-bottom:10px}
+.vswitch button{border-radius:12px;min-height:68px;background:linear-gradient(145deg,#fffdf8,#f6eee0);border:1px solid #d2c3aa;box-shadow:0 2px 8px #2e2a2210;transition:background .18s,transform .18s,border-color .18s}
+.vswitch button b{font:600 17px/1.2 Georgia,serif}
+.vswitch button small{font-size:11px}
+.vswitch button:hover:not(:disabled){transform:translateY(-1px);border-color:#a48356}
+.vswitch button[aria-pressed=true]{background:#213b31;color:#fff8ea;border-color:#213b31;box-shadow:0 5px 15px #173b2829}
+#viewerModes{gap:7px;background:#e8e0d3;padding:7px;border-radius:12px;border:1px solid #d8cbbb}
+#viewerModes::before{margin:3px 5px 0;font-size:10px}
+#viewerModes button{background:#fffaf3;border:1px solid #d6c7af;border-radius:8px;padding:8px 14px;min-height:44px}
+#viewerModes button[aria-pressed=true]{background:#29483b;color:white;border-color:#29483b}
+.viewcap{font-size:14px;color:#48594c;padding:4px 2px}
+.verdict{border-radius:9px;border-left-width:3px;padding:11px 15px;margin:10px 0 14px}
+.zoomwrap{width:100%;display:flex;justify-content:center}
+.stage{width:100%;max-width:var(--historic-max-width,100%);border:9px solid #f8f4e9;outline:1px solid #cbbda6;border-radius:7px;background:repeating-linear-gradient(135deg,#e0d6c7,#e0d6c7 12px,#e9e0d3 12px,#e9e0d3 24px);box-shadow:0 20px 45px #241b1530;isolation:isolate}
+.hist{width:100%;height:auto}
+.handle{width:52px;margin-left:-26px;z-index:3;touch-action:none}
+.handle::before{width:3px;background:#fff8eb;box-shadow:0 0 0 1px #26392b,0 0 12px #0008}
+.handle span{width:52px;height:52px;background:#fffaf0;color:#2a4739;border:3px solid #fef9f0;box-shadow:0 3px 16px #111b;letter-spacing:-.12em;font:700 23px/1 system-ui}
+.tag{top:12px;bottom:auto;padding:7px 10px;border-radius:7px;background:#163629dc;font-size:12px;font-weight:600;pointer-events:none}
+.badge{right:10px;top:auto;bottom:11px;background:#f7f0e6ed;color:#254237;border:1px solid #b9a990;border-radius:6px;font-size:11px;max-width:76%}
+.curtain-readout{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,1.5fr) minmax(0,1fr);align-items:center;gap:8px;margin:17px 0 0;padding:9px;background:#ebe3d6;border:1px solid #d3c5b0;border-radius:12px}
+.curtain-readout p{font:600 12px/1.45 system-ui,sans-serif;text-align:center;margin:0;color:#344e40}
+.curtain-readout button{background:#fffaf2;border-radius:9px;border-color:#d1bea3;font:600 12px/1.35 system-ui,sans-serif;padding:8px}
+.comparison-fit-note{font:12px/1.6 system-ui,sans-serif;color:#635f54;margin:9px 2px}
+.zoomwrap.zoomed{display:block}
+.zoomwrap.zoomed .stage{width:250%;max-width:none;min-width:250%}
+.sbs{gap:18px;align-items:stretch}
+.sbs figure{background:#fffaf2;border:1px solid #d3c5b3;border-radius:10px;padding:10px;box-shadow:0 6px 18px #281c1512}
+.sbs img{display:block;width:100%;height:clamp(235px,45vh,490px);object-fit:contain;background:repeating-linear-gradient(135deg,#e4d8c7,#e4d8c7 8px,#ece2d5 8px,#ece2d5 16px);border:0;border-radius:5px}
+.sbs figcaption{padding:8px 4px 0;font-size:12px}
+.pair-links a{border-radius:9px;padding:8px 14px}
+.bar>button:not(#langBtn),.bar>span>button{border-radius:9px}
+@media(max-width:620px){
+  .stage{max-width:var(--historic-mobile-max-width,100%);border-width:5px}
+  .vswitch{gap:5px}.vswitch button{min-height:58px;border-radius:9px;padding:6px 2px}.vswitch button b{font-size:14px}.vswitch button small{font-size:10px}
+  #viewerModes{padding:6px;gap:5px}#viewerModes button{flex:1 1 43%;padding:6px 7px;font-size:13px}
+  .curtain-readout{grid-template-columns:1fr 1fr;gap:6px}.curtain-readout p{grid-column:1/-1;grid-row:1}.curtain-readout button{font-size:11px;min-height:44px}
+  .handle span{height:44px;width:44px;font-size:20px}
+  .tag{font-size:10px;top:7px;padding:5px 7px}
+  .badge{font-size:10px;max-width:85%}
+}
+@media(prefers-reduced-motion:reduce){.vswitch button{transition:none}}
+
+/* Incompatible viewpoints must NEVER be represented as a floating photo over the artwork. */
+.stage.dual-originals{width:100%;max-width:100%;aspect-ratio:auto;height:clamp(320px,68vh,640px);background:#e9e2d7}
+.stage.dual-originals>.hist,.stage.dual-originals>.overlay,.stage.dual-originals>.region{display:none}
+.stage.dual-originals .independent-frames{position:absolute;inset:0;display:flex;align-items:stretch;overflow:hidden;pointer-events:none}
+.stage.dual-originals .independent-half{height:100%;min-width:0;overflow:hidden;display:grid;place-items:center;padding:12px;background:#e6dbc8}
+.stage.dual-originals .independent-half.modern-half{background:#dce5e0;border-left:1px solid #c1c6b9}
+.stage.dual-originals .independent-half img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;max-width:100%;max-height:100%;filter:none;transform:none}
+.stage.dual-originals .handle{z-index:5}
+.stage.dual-originals .tag{z-index:4}
+.stage.dual-originals .badge{z-index:4}
+.stage.dual-originals .historic-half{width:var(--historic-share,50%)}
+.stage.dual-originals .modern-half{width:calc(100% - var(--historic-share,50%))}
+.stage.dual-originals .independent-half:has(img:not([src])){background:#ebe7dc}
+.stage.dual-originals .tag.l{left:12px}.stage.dual-originals .tag.r{right:12px}
+@media(max-width:620px){
+.stage.dual-originals{height:clamp(320px,57vh,510px);border-width:5px}
+.stage.dual-originals .independent-half{padding:5px}
+.stage.dual-originals .handle{width:48px;margin-left:-24px}
+}
+@media(max-width:700px){#stage,#zoomwrap{scroll-margin-top:64px}}
+
+/* lithograph styling of the comparison tools */
+.vswitch button{border:1px solid var(--lt-sepia);border-radius:2px;background:var(--lt-page) var(--lt-grain);position:relative;color:var(--lt-ink)}
+.vswitch button::after{content:"";position:absolute;inset:3px;border:1px solid #7a5a3638;pointer-events:none}
+.vswitch button[aria-pressed=true]{background:linear-gradient(#456b52,#355a43);border-color:#2a4636;color:#fbf5e4;box-shadow:0 2px 0 #1f3629}
+.vswitch button[aria-pressed=true] small{color:#e8dfc4}
+#opacityCtl{position:relative;border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain);padding:4px 14px}
+#opacityCtl::before{content:"";position:absolute;inset:3px;border:1px solid var(--lt-rule);pointer-events:none}
+#opacityCtl label{font:700 11px var(--lt-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lt-brick);white-space:nowrap}
+.stage{border:1px solid var(--lt-sepia)!important;box-shadow:0 0 0 4px var(--lt-page),0 0 0 5px var(--lt-sepia),0 10px 24px #4b362026}
+.handle::before{background:#fbf5e4!important;box-shadow:0 0 0 1px #7a5a36,0 0 10px #0006!important}
+.handle span{background:radial-gradient(circle at 35% 30%,#fffaf0,#e8d9b0 62%,#c9b27a)!important;border:1px solid #7a5a36!important;color:#3b2f22!important;box-shadow:0 0 0 3px #fbf5e4,0 0 0 4px #7a5a36,0 3px 10px #0007!important}
+.journey-prompt{border-left-color:var(--lt-brick)!important;background:var(--lt-page) var(--lt-grain)!important}
+.journey-prompt h2{font-family:var(--lt-serif);font-weight:400;letter-spacing:.04em}
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
+<script src="homography.js"></script>
 </head>
 <body>
 <header>
@@ -112,6 +218,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <span class="journey-step" id="journeyStep"></span>
     <h2 id="journeyTitle" tabindex="-1"></h2>
     <p id="journeyQuestion"></p>
+    <a id="journeyNextTop" class="journey-next"></a>
   </section>
   <a class="jumpcompare" href="#stage" data-i18n="jump">К изображениям ↓</a>
 </header>
@@ -128,10 +235,12 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
   <div id="viewSwitch" class="vswitch" role="group" aria-label="Что показать" data-i18n-aria="vsLabel">
     <button type="button" data-view="then" aria-pressed="false"><b data-i18n="v_then">Тогда</b><small data-i18n="v_then_h">рисунок эпохи</small></button>
     <button type="button" data-view="now" aria-pressed="false"><b data-i18n="v_now">Сейчас</b><small data-i18n="v_now_h">фото сегодня</small></button>
+    <button type="button" data-view="blend" aria-pressed="false"><b data-i18n="v_blend">Переход</b><small data-i18n="v_blend_h">плавно, без подгонки</small></button>
     <button type="button" data-view="fit" aria-pressed="false"><b data-i18n="v_fit">Совместить</b><small data-i18n="v_fit_h">по контуру здания</small></button>
-    <button type="button" data-view="slider" aria-pressed="true"><b data-i18n="v_slider">Шторка</b><small data-i18n="v_slider_h">двигайте границу</small></button>
+    <button type="button" data-view="originals" aria-pressed="false"><b data-i18n="v_originals">Шторка</b><small data-i18n="v_originals_h">без подгонки</small></button>
   </div>
   <p id="viewCaption" class="viewcap" role="status"></p>
+  <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
   <div id="viewerModes" class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
     <button data-mode="slider" aria-pressed="true" data-i18n="m_slider">Шторка</button>
     <button data-mode="opacity" aria-pressed="false" data-i18n="m_opacity">Прозрачность</button>
@@ -141,24 +250,33 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
   <div id="verdict" class="verdict" role="status"></div>
   <div id="imgError" class="imgerr" role="alert" hidden></div>
   <div class="zoomwrap" id="zoomwrap">
-    <div class="stage" id="stage">
+    <div class="stage" id="stage" aria-label="Сравнение изображений: слева исторический вид, справа фотография">
       <img class="hist" id="histImg" alt="">
       <div class="overlay" id="overlay"><div class="photoMask" id="photoMask"><div class="photoLayer" id="photoLayer"><img id="photoImg" alt=""></div></div></div>
+      <div class="independent-frames" id="independentFrames" hidden aria-label="Два самостоятельных изображения без геометрического совмещения"><div class="independent-half historic-half" id="independentHistoric"><img id="independentOld" alt=""></div><div class="independent-half modern-half" id="independentModern"><img id="independentNow" alt=""></div></div>
       <svg class="region" id="region" aria-hidden="true"></svg>
-      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span aria-hidden="true">⇆</span></div>
+      <div class="handle" id="handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Слева старый рисунок, справа фотография"><span aria-hidden="true">‹  ›</span></div>
       <div class="badge" id="badge"></div>
       <span class="tag l" data-i18n="then">Тогда</span><span class="tag r" data-i18n="now">Сейчас</span>
     </div>
   </div>
+  <div id="userFit" class="userfit" hidden role="status"><span id="userFitText"></span> <button type="button" id="userFitReset">Вернуть как было</button></div>
+  <div class="curtain-readout" aria-label="Ориентиры сравнения"><button type="button" id="showThen" aria-label="Показать исторический вид целиком">← Только рисунок</button><p id="splitReadout" role="status">Слева рисунок · справа фотография</p><button type="button" id="showNow" aria-label="Показать современное фото целиком">Только фото →</button></div>
+  <p class="comparison-fit-note" id="ratioHint" role="note"></p>
   <p class="creditline" id="creditLine"></p>
+  <nav class="pair-links" aria-label="Карта и настройка сравнения" data-i18n-aria="pairLinks">
+    <a id="pairMap" hidden></a>
+    <a id="pairEditor" href="editor.html" data-i18n="editorLink">Настроить вручную</a>
+  </nav>
   <div class="sbs" id="sbs" hidden>
     <figure><img id="sbsHist" alt=""><figcaption data-i18n="capHist">Историческое изображение — без изменений</figcaption></figure>
     <figure><img id="sbsPhoto" alt=""><figcaption data-i18n="capPhoto">Фото — оригинал, без коррекции</figcaption></figure>
   </div>
   <section id="journeyEnd" class="journey-end" hidden aria-label="Продолжить маршрут">
-    <details id="journeyReveal"><summary>Что заметить</summary><p id="journeyAnswer"></p></details>
+    <details id="journeyReveal"><summary>Показать ответ</summary><p id="journeyAnswer"></p></details>
     <div class="journey-actions">
       <a id="journeyNext"></a>
+      <a id="journeyDock" class="journey-dock"></a>
       <a id="journeyBack" hidden>Предыдущая сцена</a>
       <a href="../../world/#worldComparisons">Атлас сравнений</a>
     </div>
@@ -172,7 +290,6 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
     <button id="alignBtn" aria-pressed="true">Фото: совмещённое</button>
     <button id="regionBtn" aria-pressed="true" data-i18n="region">Зона доверия</button>
     <button id="zoomBtn" aria-pressed="false" data-i18n="zoom">Увеличить ×2.5</button>
-    <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
     <span id="flickerCtl" hidden><button id="flickBtn">A ⇄ B</button> <button id="flickPlay" aria-pressed="false" data-i18n="auto">Авто</button></span>
   </div>
   <details class="help" id="help">
@@ -215,7 +332,7 @@ footer{color:var(--muted);font:13px system-ui,sans-serif;padding-bottom:24px}
 </main>
 <footer><span data-i18n="footer">Город на бумаге · Сравнения и первоисточники.</span>
   <a href="editor.html" data-i18n="editorLink">Редактор контрольных точек</a> ·
-  <code>pairs/*.json</code> · <code>tools/align/homography.py</code> (OpenCV)</footer>
+  Подробности: <a href="pairs/CREDITS.md">источники и права на изображения</a></footer>
 <script>
 "use strict";
 const $ = (id) => document.getElementById(id);
@@ -226,14 +343,14 @@ const T = {
     poc: "Город на бумаге", title: "Тогда / Сейчас", alt: "· Then / Now",
     intro: "Старый рисунок и сегодняшнее фото одного места. Переключайте и ищите, что осталось на месте.",
     vsLabel: "Что показать", v_then: "Тогда", v_then_h: "рисунок эпохи", v_now: "Сейчас", v_now_h: "фото сегодня",
-    v_fit: "Совместить", v_fit_h: "по контуру здания", v_slider: "Шторка", v_slider_h: "двигайте границу", v_other: "Другие способы сравнить",
+    v_blend: "Переход", v_blend_h: "плавно, без подгонки", v_fit: "Совместить", v_fit_h: "по контуру здания", v_slider: "Шторка", v_slider_h: "двигайте границу", v_other: "Другие способы сравнить",
     pair: "Что сравниваем", jump: "К изображениям ↓", modes: "Режим сравнения", m_slider: "Шторка", m_opacity: "Прозрачность", m_flicker: "Мерцание A/B", m_sbs: "Рядом",
     region: "Зона доверия", zoom: "Увеличить ×2.5", photoPct: "Фото, %", auto: "Авто", helpSum: "Как читать вердикт",
     then: "Тогда", now: "Сейчас", capHist: "Историческое изображение — без изменений", capPhoto: "Фото — оригинал, без коррекции",
     creditsSum: "Источники, права и параметры совмещения", footer: "Город на бумаге · Сравнения и первоисточники.",
-    editorLink: "Редактор контрольных точек", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
+    editorLink: "Настроить вручную", pairLinks: "Карта и настройка сравнения", v_originals: "Шторка", v_originals_h: "без подгонки", alignOn: "Фото: совмещённое", alignOff: "Фото: оригинал",
     alignTitle: "Переключить фото между оригиналом и совмещённым видом",
-    badgeOn: "Геометрия фото скорректирована · обратимо", badgeOff: "Фото без коррекции",
+    badgeOn: "Фото растянуто по рисунку", badgeOff: "Фото без правок",
     handle: "Граница между историческим изображением и фото",
     histAlt: "Историческое изображение: ", photoAlt: "Современное фото: ",
     scope: "Зона действия", synthetic: "Синтетические тестовые данные", expected: "Ожидалось",
@@ -258,12 +375,12 @@ const T = {
     poc: "Prototype · not the exhibition", title: "Then / Now", alt: "· Тогда / Сейчас",
     intro: "The historic image is never altered. Only the modern photo may be reversibly re-projected, and that is always labelled.",
     vsLabel: "What to show", v_then: "Then", v_then_h: "the period print", v_now: "Now", v_now_h: "photo today",
-    v_fit: "Fit", v_fit_h: "to the building outline", v_slider: "Slider", v_slider_h: "drag the border", v_other: "Other ways to compare",
+    v_blend: "Fade", v_blend_h: "smooth, no fitting", v_fit: "Fit", v_fit_h: "to the building outline", v_slider: "Slider", v_slider_h: "drag the border", v_other: "Other ways to compare",
     pair: "Pair", jump: "Go to images ↓", modes: "Comparison mode", m_slider: "Slider", m_opacity: "Opacity", m_flicker: "Flicker A/B", m_sbs: "Side by side",
     region: "Trust zone", zoom: "Zoom ×2.5", photoPct: "Photo, %", auto: "Auto", helpSum: "How to read the verdict",
     then: "Then", now: "Now", capHist: "Historic image — unaltered", capPhoto: "Photo — original, uncorrected",
     creditsSum: "Sources, rights and alignment parameters", footer: "City on Paper · Comparisons and sources.",
-    editorLink: "Control-point editor", alignOn: "Photo: aligned", alignOff: "Photo: original",
+    editorLink: "Adjust manually", pairLinks: "Map and comparison settings", v_originals: "Slider", v_originals_h: "original views", alignOn: "Photo: aligned", alignOff: "Photo: original",
     alignTitle: "Toggle the photo between the original and the aligned view",
     badgeOn: "Photo geometry adjusted · reversible", badgeOff: "Photo not corrected",
     handle: "Boundary between the historic image and the photo",
@@ -342,29 +459,41 @@ function agentsLine(){
     return `${x.name}${k ? " (" + (lang === "en" ? k : ROLE_RU[k]) + ")" : ""}`; });
   return a.join(", ");
 }
+function ruText(x){
+  if (lang === "en") return String(x || "");
+  return String(x || "").replace(/^Photo:\s*/, "Фото: ")
+    .replace(/re-encoded once \(JPEG q92\) to strip EXIF\/GPS metadata; any aligned view shown in the viewer is a derivative work, shared under (CC BY-SA 4\.0)/i, "файл перекодирован, метаданные (EXIF/GPS) удалены; подогнанный вид в просмотрщике — производная работа на условиях $1")
+    .replace(/Library of Congress/g, "Библиотека Конгресса США").replace(/Wikimedia Commons/g, "Викисклад").replace(/Paris Musées \/ Musée Carnavalet/g, "Paris Musées, музей Карнавале").replace(/Musée Carnavalet/g, "музей Карнавале");
+}
 function captionFor(v){
   const hy = yearsOf(pair.historic.date), py = String(pair.photo.date || "").slice(0, 4), who = agentsLine();
+  if (v === "slider" && aligned && canAlign()) return lang === "en"
+    ? "The photo is fitted only within the measured outline. The print stays unchanged. Choose Originals for an undistorted photo."
+    : "Фото приблизительно подогнано внутри измеренного контура. Литография не меняется. Режим «Шторка без подгонки» покажет исходный снимок.";
   if (lang === "en") return ({ then: `The print, ${hy}. ${who}`, now: `The same place today${py ? ", " + py : ""}. Photo: ${pair.photo.author || ""}`,
-    fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", slider: "Drag the border: left — the print, right — the photo.", adv: "" })[v] || "";
+    fit: "The photo is stretched to the print's viewpoint and laid over it. The print itself never changes.", blend: "The slider fades the print into the photo. The photo is shown as taken, without fitting.", slider: "Drag the border: left — the print, right — the photo.", originals: "Move the divider to compare both images as they are. The photo keeps its original perspective.", adv: "" })[v] || "";
   return ({ then: `Рисунок эпохи, ${hy}.${who ? " " + who + "." : ""}`,
     now: `То же место сегодня${py ? ", " + py : ""}. Фото: ${pair.photo.author || "—"}.`,
     fit: "Фото подогнано под рисунок и наложено поверх. Рисунок не меняется. Ползунок — прозрачность.",
-    slider: "Двигайте границу: слева — рисунок, справа — фото.", adv: "" })[v] || "";
+    blend: "Ползунок плавно переводит рисунок в фото. Фото показано как снято, без подгонки: сравнивайте общие детали.",
+    slider: "Двигайте границу: слева рисунок, справа фото.", originals: "Шторка без геометрической подгонки. Кадры могут быть сняты с разных точек. Оба изображения сохраняют свои пропорции.", adv: "" })[v] || "";
 }
 function syncView(){
   if (!pair) return;
   document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
-  const fitBtn = document.querySelector('[data-view="fit"]'); fitBtn.disabled = !canAlign();
+  const fitBtn = document.querySelector('[data-view="fit"]'); fitBtn.setAttribute("aria-disabled", String(!canAlign())); fitBtn.classList.toggle("unavailable", !canAlign());
   fitBtn.title = canAlign() ? "" : (lang === "en" ? "No honest fit for this pair: different viewpoints" : "Для этой пары совмещение невозможно: ракурсы разные");
   $("viewCaption").textContent = captionFor(view);
-  if (["then", "now", "fit"].includes(view)) $("opacityCtl").hidden = view !== "fit";
+  if (["then", "now", "fit", "blend"].includes(view)) $("opacityCtl").hidden = !["fit", "blend"].includes(view);
 }
 function setView(v){
-  if (v === "fit" && !canAlign()) return;
+  if (v === "fit" && pair && !canAlign()) { $("viewCaption").textContent = lang === "en" ? "The print and the photo are taken from different sides, so they cannot be laid over each other. Use the slider." : "Рисунок и фото сняты с разных сторон, поэтому наложить их нельзя. Используйте ползунок."; return; }
+  if (!pair) return;
   view = v; stopFlicker(); userMode = true;
   $("stage").classList.toggle("nowonly", v === "now");
-  if (v === "slider") { mode = "slider"; if (aligned === false && canAlign() && pair.alignment.confidence !== "low") aligned = true; }
-  else { mode = "opacity"; $("opacity").value = v === "then" ? 0 : v === "now" ? 100 : 55; aligned = v === "fit"; }
+  if (v === "originals") { mode = "slider"; aligned = false; }
+  else if (v === "slider") { mode = "slider"; if (aligned === false && canAlign() && pair.alignment.confidence !== "low") aligned = true; }
+  else { mode = "opacity"; $("opacity").value = v === "then" ? 0 : v === "now" ? 100 : v === "blend" ? 50 : 55; aligned = v === "fit"; }
   renderMeta(); layout(); syncView();
 }
 
@@ -379,6 +508,11 @@ function layout(){
   if (!pair) return;
   applyMode(); // show/hide panels first: a hidden stage measures 0 px wide
   const stage = $("stage"), [hw, hh] = pair.historic.size.map(Number), [pw, ph] = pair.photo.size.map(Number);
+  const independent = (mode === "slider" && !aligned) || view === "now";
+  stage.classList.toggle("dual-originals", independent);
+  stage.style.setProperty("--historic-share", (view === "now" ? 0 : split) + "%");
+  stage.style.setProperty("--historic-max-width", `${(72 * hw / hh).toFixed(1)}vh`);
+  stage.style.setProperty("--historic-mobile-max-width", `${(62 * hw / hh).toFixed(1)}vh`);
   const s = stage.clientWidth / hw;
   const L = $("photoLayer");
   L.style.width = pw + "px"; L.style.height = ph + "px";
@@ -404,18 +538,34 @@ function layout(){
 }
 
 function applyMode(){
+  // The URL/user-selected unwarped curtain must win over legacy mode resets.
+  if (view === "originals") { mode = "slider"; aligned = false; }
   const ov = $("overlay"), h = $("handle");
+  const independent = !!pair && ((mode === "slider" && !aligned) || view === "now");
+  $("stage").classList.toggle("dual-originals", independent);
+  $("independentFrames").hidden = !independent;
+  $("independentHistoric").hidden = independent && (view === "now" || split <= 0);
+  $("independentModern").hidden = independent && view !== "now" && split >= 100;
+  $("stage").style.setProperty("--historic-share", (view === "now" ? 0 : split) + "%");
   $("stage").hidden = $("zoomwrap").hidden = mode === "sbs";
+  $("independentFrames").style.visibility = independent ? "visible" : "hidden";
   $("sbs").hidden = mode !== "sbs";
   $("opacityCtl").hidden = mode !== "opacity";
   $("flickerCtl").hidden = mode !== "flicker";
   h.hidden = mode !== "slider";
   ov.style.clipPath = "none"; ov.style.opacity = 1; ov.style.visibility = "visible";
   if (mode === "slider") { ov.style.clipPath = `inset(0 0 0 ${split}%)`; h.style.left = split + "%"; h.setAttribute("aria-valuenow", Math.round(split)); }
+  const left = lang === "en" ? "historic print" : "исторический вид";
+  const right = lang === "en" ? "photo" : "фото сегодня";
+  h.setAttribute("aria-valuetext", `${Math.round(split)}% ${left}, ${Math.round(100 - split)}% ${right}`);
+  $("splitReadout").textContent = mode === "slider"
+    ? (lang === "en" ? `Left: print · right: photo · divider ${Math.round(split)}%` : `Слева рисунок · справа фото · граница ${Math.round(split)}%`)
+    : (lang === "en" ? "Original aspect ratios are preserved" : "Пропорции обоих изображений сохранены");
+  $("showThen").hidden = $("showNow").hidden = mode === "sbs";
   if (mode === "opacity") ov.style.opacity = $("opacity").value / 100;
   if (mode === "flicker") ov.style.visibility = flickA ? "hidden" : "visible";
   document.querySelectorAll("[data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
-  if (["then", "now", "fit"].includes(view)) $("opacityCtl").hidden = view !== "fit";
+  if (["then", "now", "fit", "blend"].includes(view)) $("opacityCtl").hidden = !["fit", "blend"].includes(view);
 }
 
 function setSplit(clientX){
@@ -437,7 +587,7 @@ function renderMeta(){
       + (pair.status === "synthetic_test" ? `<br><em>${esc(t("synthetic"))} (${esc(pair.condition)}). ${esc(t("expected"))}: ${esc(pair.expected_confidence)}.</em>` : `<br>${esc(pair.condition)}`);
   v.innerHTML = `<p class="plain">${esc(plain)}</p><details class="tech"><summary>${lang === "en" ? "Technical details" : "Технические подробности"}</summary>${tech}</details>`;
   const on = aligned && canAlign();
-  $("badge").textContent = on ? t("badgeOn") : t("badgeOff");
+  $("badge").textContent = on ? t("badgeOn") : t("badgeOff"); $("stage").dataset.shown = view;
   $("alignBtn").textContent = on ? t("alignOn") : t("alignOff");
   $("alignBtn").setAttribute("aria-pressed", on);
   $("alignBtn").disabled = !canAlign();
@@ -457,10 +607,20 @@ function renderMeta(){
   $("histImg").alt = t("histAlt") + (H.title || "");
   $("photoImg").alt = t("photoAlt") + (P.title || "");
   $("sbsHist").alt = $("histImg").alt; $("sbsPhoto").alt = $("photoImg").alt;
+  $("independentOld").alt = $("histImg").alt; $("independentNow").alt = $("photoImg").alt;
+  const hr = H.size[0] / H.size[1], pr = P.size[0] / P.size[1];
+  $("ratioHint").textContent = !aligned && mode === "slider"
+    ? (lang === "en" ? "Two independent images. The divider changes the space for each, without overlaying or distorting the originals. Their viewpoints may differ." : "Два самостоятельных кадра. Шторка меняет размер полей, не накладывая фото поверх литографии. Каждый оригинал целиком, ракурсы могут различаться.")
+    : aligned && canAlign()
+    ? (lang === "en" ? "Only the modern photograph is transformed within the measured region. The original is in the source panel." : "Подгоняется только фотография и только внутри отмеченной зоны. За её пределами совпадение не подтверждено. Исходный снимок сохранён.")
+    : Math.abs(Math.log(hr / pr)) > 0.18
+    ? (lang === "en" ? "Different print and photo proportions. The original photo is shown whole, with no cropping or stretching." : "Форматы отличаются: фото показано целиком, без обрезки и растяжения. Пустые поля сохраняют пропорции.")
+    : (lang === "en" ? "The original aspect ratios are preserved. A matching outline is not guaranteed." : "Пропорции сохранены. Общий вид здания ещё не означает совпадения точки съёмки.");
   const synthetic = pair.status === "synthetic_test";
   const changes = P.changes || "";
-  $("creditLine").textContent = `${t("then")}: ${[H.date, H.credit].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, P.credit].filter(Boolean).join(" · ")}`
-    + (!synthetic && changes ? ` · ${changes}` : "");
+  $("creditLine").textContent = `${t("then")}: ${[H.date, ruText(H.credit)].filter(Boolean).join(" · ")} · ${t("now")}: ${[P.date, ruText(P.credit)].filter(Boolean).join(" · ")}`
+    + (!synthetic && changes ? ` · ${ruText(changes)}` : "");
+  { const ty = yearsOf(H.date), py = String(P.date || "").slice(0, 4); const l = document.querySelector(".tag.l"), r = document.querySelector(".tag.r"); if (l) l.textContent = t("then") + (ty ? " · " + ty : ""); if (r) r.textContent = t("now") + (py ? " · " + py : ""); }
   const res = (a.residuals_px || []).map((r, i) => `<tr><td style="text-align:left">${esc(pair.control_points[i].label)}</td><td>${num(r)}</td><td>${a.loo_px ? num(a.loo_px[i]) : ""}</td></tr>`).join("");
   $("creditBody").innerHTML = `
    <h2>${esc(t("hThen"))}</h2><dl>
@@ -499,6 +659,7 @@ function showImgError(){
 }
 
 let requestedPair = 0;
+let userFit = null;
 async function loadPair(id){
   const request = ++requestedPair;
   const response = await fetch(`pairs/${encodeURIComponent(id)}.json`);
@@ -506,6 +667,21 @@ async function loadPair(id){
   const data = await response.json();
   if (request !== requestedPair) return;
   pair = data;
+  userFit = null;
+  try {
+    const raw = localStorage.getItem("cop-manual-" + id), st = raw ? JSON.parse(raw) : null;
+    if (Array.isArray(st) && st.length >= 4 && window.CoPHomography) {
+      const R = window.CoPHomography.evaluate(st.map(c => c.photo), st.map(c => c.historic), pair.historic.size, pair.photo.size);
+      if (R && R.H && R.confidence !== "viewpoint_mismatch") {
+        userFit = { n: st.length, orig: { alignment: pair.alignment, control_points: pair.control_points, local_overlay: pair.local_overlay } };
+        pair.alignment = { ...(pair.alignment || {}), H: R.H, confidence: R.confidence === "high" ? "medium" : R.confidence, valid_region_historic: undefined, scope: "user" };
+        pair.control_points = st.map(c => ({ label: c.label || "", historic: c.historic, photo: c.photo }));
+        pair.local_overlay = false;
+      }
+    }
+  } catch (e) { /* ignore broken saved points */ }
+  $("userFit").hidden = !userFit;
+  if (userFit) $("userFitText").textContent = `Показано ваше совмещение по ${userFit.n} точкам. Оно не проверено, это ваш пробный вариант.`;
   // Reviewed local fits start inside the measured region; other low-confidence fits are opt-in.
   aligned = canAlign() && (["high", "medium"].includes(pair.alignment.confidence) || pair.local_overlay === true);
   const region = pair.alignment?.valid_region_historic;
@@ -513,7 +689,10 @@ async function loadPair(id){
     const xs = region.map(point => point[0]);
     split = 50 * (Math.min(...xs) + Math.max(...xs)) / pair.historic.size[0];
   }
-  if (!userMode) { mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider"; view = mode === "slider" ? "slider" : "adv"; }
+  split = 50;
+  if (view === "originals" && userMode) { mode = "slider"; aligned = false; }
+  else if (!userMode && view === "originals") { mode = "slider"; view = "originals"; aligned = false; }
+  else if (!userMode) { mode = pair.alignment && pair.alignment.confidence === "viewpoint_mismatch" ? "sbs" : "slider"; view = mode === "slider" ? "slider" : "adv"; }
   else if (view !== "adv" && view !== "slider") view = "slider";
   $("stage").classList.remove("nowonly");
   imgFailed.hist = imgFailed.photo = false; showImgError();
@@ -523,8 +702,8 @@ async function loadPair(id){
     im.addEventListener("load", () => r(), { once: true });
     im.addEventListener("error", () => { if (request === requestedPair) { imgFailed[key] = true; showImgError(); } r(); }, { once: true });
   });
-  hi.src = $("sbsHist").src = fileUrl(pair.historic.file);
-  pi.src = $("sbsPhoto").src = fileUrl(pair.photo.file);
+  hi.src = $("sbsHist").src = $("independentOld").src = fileUrl(pair.historic.file);
+  pi.src = $("sbsPhoto").src = $("independentNow").src = fileUrl(pair.photo.file);
   renderMeta();
   await Promise.all([settle(hi, "hist"), settle(pi, "photo")]);
   if (request !== requestedPair) return;
@@ -544,20 +723,39 @@ function renderJourney(idx, id) {
   else $("creditLine").after(...controls);
   if (!on) return;
 
-  $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${idx.places?.[id]?.city || ""}`;
+  $("journeyStep").textContent = `Сцена ${at + 1} из ${route.length} · ${[idx.places?.[id]?.city, idx.places?.[id]?.name].filter(Boolean).join(", ")}`;
+  const prompt = $("journeyPrompt");
+  prompt.classList.remove("scene-enter");
+  void prompt.offsetWidth;
+  prompt.classList.add("scene-enter");
   $("journeyTitle").textContent = scene.title;
   $("journeyQuestion").textContent = scene.question;
   $("journeyAnswer").textContent = scene.answer;
   $("journeyReveal").open = false;
   $("credits").open = false;
   const linkTo = item => `?journey=1#${encodeURIComponent(item.pair)}`;
+  const nextHref = scene.next_href || (route[at + 1] ? linkTo(route[at + 1]) : "../../world/#worldComparisons");
   $("journeyNext").textContent = scene.next + " →";
-  $("journeyNext").href = route[at + 1] ? linkTo(route[at + 1]) : "../../world/#worldComparisons";
+  const nextText = scene.next_top || (route[at + 1]
+    ? `Следующая остановка: ${scene.next} →`
+    : "Завершить маршрут · открыть атлас →");
+  $("journeyNext").href = nextHref;
+  $("journeyNextTop").href = $("journeyNext").href;
+  $("journeyNextTop").textContent = nextText;
+  $("journeyDock").href = nextHref;
+  $("journeyDock").innerHTML = `<small>${esc(scene.next_small || `Дальше · сцена ${Math.min(at + 2, route.length)} из ${route.length}`)}</small><b>${esc(scene.next)} →</b>`;
+  $("journeyDock").title = scene.next_hint || "";
   $("journeyBack").hidden = at === 0;
   if (at > 0) $("journeyBack").href = linkTo(route[at - 1]);
 }
 
+function watchDock() {
+  const top = $("journeyNextTop"), dock = $("journeyDock");
+  if (!top || !dock || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(entries => dock.classList.toggle("is-covered", entries.some(e => e.isIntersecting)), { threshold: 0.6 }).observe(top);
+}
 async function init(){
+  watchDock();
   applyLang();
   const idx = await (await fetch("pairs/index.json")).json();
   const ids = (idx.pairs || []).filter(p => /^[\w-]+$/.test(p));
@@ -568,7 +766,16 @@ async function init(){
   const q = new URLSearchParams(location.search);
   if (MODES.includes(q.get("mode"))) { mode = q.get("mode"); userMode = true; }
   const show = id => {
+    const place = idx.places?.[id];
+    const map = $("pairMap"), path = place?.map_path;
+    map.hidden = !/^[a-z0-9-]+\/Q[0-9]+$/.test(path || "");
+    if (!map.hidden) {
+      map.href = "../../eras/#/epoch/" + path + "/map";
+      map.textContent = place.map_label;
+    }
+    $("pairEditor").href = "editor.html" + (q.get("journey") === "1" ? "?journey=1" : "") + "#" + encodeURIComponent(id);
     renderJourney(idx, id);
+    if (!userMode) view = place?.guide_view === "originals" && document.body.classList.contains("guided") ? "originals" : "slider";
     return loadPair(id);
   };
   const onLoadError = err => { $("verdict").textContent = t("loadErr") + err; };
@@ -577,16 +784,23 @@ async function init(){
     const id = location.hash.slice(1);
     if (!ids.includes(id) || id === sel.value) return;
     sel.value = id;
-    userMode = false;
+    // Same-document hash navigation does not reload the page. Preserve the
+    // requested comparison mode instead of reverting to side-by-side.
+    const requested = new URLSearchParams(location.search).get("view");
+    const persistent = ["then", "now", "fit", "originals", "slider"].includes(requested) ? requested : null;
+    userMode = Boolean(persistent);
+    if (persistent === "originals") { view = "originals"; mode = "slider"; aligned = false; }
     stopFlicker();
-    show(id).catch(onLoadError);
+    show(id).then(() => {
+      if (persistent && persistent !== "originals") setView(persistent);
+    }).catch(onLoadError);
     if (!$("journeyPrompt").hidden) {
       window.scrollTo(0, 0);
       $("journeyTitle").focus({preventScroll:true});
     }
   });
   await show(sel.value);
-  if (["then", "now", "fit", "slider"].includes(q.get("view"))) setView(q.get("view"));
+  if (["then", "now", "fit", "slider", "originals"].includes(q.get("view"))) setView(q.get("view"));
   if (q.get("aligned") === "0") { aligned = false; renderMeta(); layout(); }
   if (q.get("split") && isFinite(+q.get("split"))) { split = Math.max(0, Math.min(100, +q.get("split"))); applyMode(); }
   if (q.get("opacity") && isFinite(+q.get("opacity"))) { $("opacity").value = q.get("opacity"); applyMode(); }
@@ -594,8 +808,16 @@ async function init(){
 
 document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; userMode = true; stopFlicker(); view = mode === "slider" ? "slider" : "adv"; $("stage").classList.remove("nowonly"); layout(); syncView(); });
 document.querySelectorAll("[data-view]").forEach(b => b.onclick = () => setView(b.dataset.view));
+$("userFitReset").onclick = () => { try { localStorage.removeItem("cop-manual-" + sel_id()); } catch (e) { /* ignore */ } loadPair(sel_id()).catch(() => {}); };
+function sel_id() { return $("pairSel").value; }
 $("langBtn").onclick = () => { lang = lang === "en" ? "ru" : "en"; try { localStorage.setItem("cop-lang", lang); } catch { /* ignore */ } applyLang(); };
-$("alignBtn").onclick = () => { aligned = !aligned; renderMeta(); layout(); };
+$("showThen").onclick = () => setView("then");
+$("showNow").onclick = () => setView("now");
+$("alignBtn").onclick = () => {
+  if (view === "originals") view = "slider";
+  aligned = !aligned;
+  renderMeta(); layout(); syncView();
+};
 $("regionBtn").onclick = () => { showRegion = !showRegion; $("regionBtn").setAttribute("aria-pressed", showRegion); layout(); };
 $("zoomBtn").onclick = () => { const z = $("zoomwrap").classList.toggle("zoomed"); $("zoomBtn").setAttribute("aria-pressed", z); layout(); };
 $("opacity").oninput = applyMode;
