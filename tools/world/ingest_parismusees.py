@@ -14,9 +14,9 @@ from __future__ import annotations
 import io
 import json
 import re
+import subprocess
 import sys
 import time
-import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,11 +33,19 @@ IMPRESSION_OF = {"320288773": "320288755", "320291365": "320291352"}
 
 
 def get(url: str, binary: bool = False):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        body = resp.read()
-    time.sleep(DELAY)
-    return body if binary else json.loads(body)
+    """Polite GET through curl: urllib gets truncated bodies (IncompleteRead) from this museum's CDN, curl does not."""
+    last = ""
+    for attempt in range(3):
+        res = subprocess.run(
+            ["curl", "-sS", "-L", "-m", "90", "-A", UA, "-H", "Accept: application/json", "-w", "\n%{http_code}", url],
+            capture_output=True,
+        )
+        body, _, code = res.stdout.rpartition(b"\n")
+        time.sleep(DELAY * (attempt + 1))
+        if code == b"200" and body:
+            return body if binary else json.loads(body)
+        last = f"HTTP {code.decode(errors='replace')} {res.stderr.decode(errors='replace')[:80]}"
+    raise RuntimeError(last)
 
 
 def node_id(manifest_url: str) -> str:
