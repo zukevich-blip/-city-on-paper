@@ -208,3 +208,11 @@ h2::before{display:none}
 .plate figure .zoomwrap{padding:0}
 .plate .lt-imprint{grid-template-columns:1fr;gap:4px;text-align:center}.plate .lt-imprint .l,.plate .lt-imprint .r{text-align:center}.plate .lt-imprint .c{order:-1}
 @media(min-width:700px){.plate .lt-imprint{grid-template-columns:1fr auto 1fr}.plate .lt-imprint .l{text-align:left}.plate .lt-imprint .r{text-align:right}.plate .lt-imprint .c{order:0}}
+
+/* истории мест */
+.story{list-style:none;margin:8px 0;padding:0;display:grid;gap:10px}
+.story li{border-left:3px solid var(--lt-rule);padding:2px 0 2px 12px}
+.story .when{display:block;font:600 11px var(--lt-sans);letter-spacing:.14em;color:var(--lt-brick)}
+.story p{margin:2px 0 4px;font:16px/1.5 var(--lt-serif)}
+.story .src{font:13px var(--lt-sans);color:var(--lt-brick)}
+.facts-list.unk li{color:var(--lt-ink-2);font-style:italic}

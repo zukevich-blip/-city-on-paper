@@ -66,10 +66,10 @@
   async function load() {
     if (D) return D;
     const j = (u, d) => fetch(u).then((r) => (r.ok ? r.json() : d)).catch(() => d);
-    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh, reg] = await Promise.all([
+    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh, reg, plc] = await Promise.all([
       j(E + "data/atlas.json", null), j(E + "data/thumbs.json", {}), j(E + "data/history.json", { cities: [] }),
       j("../poc/compare/pairs/index.json", { places: {}, pairs: [] }), j("editorial.json", {}),
-      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }), j("benoist-registry.json", { summary: null, works: [] }),
+      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }), j("benoist-registry.json", { summary: null, works: [] }), j("places.json", { places: [] }),
     ]);
     // curated records know who made a sheet, who keeps it and on which terms: use them when the url matches
     const known = new Map();
@@ -127,7 +127,7 @@
       k.cities = k.cities.filter((c) => c.plates.length || c.pairs.length).sort((a, b) => b.plates.length - a.plates.length || a.name.localeCompare(b.name, "ru"));
     }
     for (const [name, k] of [...countries]) if (!k.plates) countries.delete(name);
-    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], reg, total: [...plates.values()].length };
+    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], reg, places: (plc && plc.places) || [], total: [...plates.values()].length };
     return D;
   };
   const sortedCountries = () => [...D.countries.values()].sort((a, b) => b.plates - a.plates || a.name.localeCompare(b.name, "ru"));
@@ -183,6 +183,7 @@
         : `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(D.cities.get(p.city).name)}${p.date ? " · " + esc(p.date) : ""}</span><b>${esc(p.title)}</b><span class="hook">${esc(hook || "")}</span></span></a>`).join("")}</div>` : '<span id="main"></span>'}
       <a class="theme" href="#/benoist"><span class="lt-small">Тема издания</span><b>Листы Бенуа</b><span>Как читать подпись литографии, где есть листы Филиппа и Феликса Бенуа и как сравнить их с фото сегодня.</span></a>
       <a class="theme" href="#/catalog"><span class="lt-small">Реестр</span><b>Собрание</b><span>Все найденные листы Бенуа по авторам, сериям, странам и городам: сколько найдено, сколько проверено и сколько можно показать.</span></a>
+      <a class="theme" href="#/places"><span class="lt-small">Истории</span><b>Истории мест</b><span>Нотр-Дам, Сент-Шапель, колоннада Лувра, Пале-Рояль и утраченный дворец Тюильри: факты с датами и ссылками на источники.</span></a>
       <h2 id="toc">Оглавление</h2>
       <ol class="toc">${top.map(tocItem).join("")}</ol>
       ${rest.length ? `<details class="more-toc"><summary class="btn ghost wide">Ещё ${plural(rest.length, "страна", "страны", "стран")}</summary><ol class="toc">${rest.map(tocItem).join("")}</ol></details>` : ""}
@@ -380,6 +381,36 @@
     const more = document.getElementById("catMore"); if (more) more.addEventListener("click", () => { catState.take += 40; viewCatalog(artist); });
   }
 
+
+  // ---------- the story of a place: every statement points to its source, unknowns are said aloud
+  const STATUS = { exists: "здание стоит", rebuilt: "здание пережило пожар и восстановлено", lost: "здание утрачено" };
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+  function viewPlace(id) {
+    const pl = D.places.find((x) => x.id === id);
+    if (!pl) return notFound();
+    setTitle(pl.name_ru); crumbs([{ t: "Книга", href: "#/" }, { t: "Истории мест", href: "#/places" }, { t: pl.name_ru }]);
+    const i = D.places.indexOf(pl), next = D.places[i + 1], prev = D.places[i - 1];
+    const sheets = pl.related_sheet_ids.map((sid) => D.sheets.find((x) => x.id === sid)).filter(Boolean);
+    const lostNote = pl.status === "lost" ? `<div class="lt-tool" role="note"><span class="lt-legend">Сравнение с фото</span><p>Здания больше нет, поэтому «того же кадра» сегодня не существует. Мы не подгоняем чужой фасад под этот лист: показываем лист и то, что теперь на этом месте.</p></div>` : "";
+    $app.innerHTML = `<div class="page-enter">
+      <section class="chead"><p class="eyebrow">История места · ${esc(STATUS[pl.status] || "")}</p><h1>${esc(pl.name_ru)}</h1><p class="lede">${esc(pl.lede_ru)}</p></section>
+      ${lostNote}
+      ${sheets.length ? `<h2>Листы с этим местом</h2><div class="plates">${sheets.map((x) => `<a class="pl" href="#/sheet/${esc(x.id)}"><img src="${esc(x.image)}" alt="" loading="lazy" width="400"><span class="t">${esc(cut(x.title.split(" / ")[0], 40))}</span><span class="s">${esc(x.holder)}</span></a>`).join("")}</div>` : ""}
+      <h2>Что известно</h2>
+      <ol class="story">${pl.facts.map((f) => `<li><span class="when">${esc(f.date)}</span><p>${esc(f.text_ru)}</p><a class="src" href="${esc(safe(f.source_url))}" target="_blank" rel="noopener">${esc(f.source_name || host(f.source_url))} ↗</a></li>`).join("")}</ol>
+      ${pl.changes_ru && pl.changes_ru.length ? `<h2>Что изменилось</h2><ul class="facts-list">${pl.changes_ru.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
+      ${pl.old_plan ? `<h2>Старый план</h2><p>${esc(pl.old_plan.note)} <a href="../eras/">Открыть карту эпох →</a></p>` : ""}
+      ${pl.unknowns_ru && pl.unknowns_ru.length ? `<h2>Не установлено</h2><ul class="facts-list unk">${pl.unknowns_ru.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
+      <p class="small">${esc(pl.print_licence_note || "")}</p>
+      ${dock(next ? { href: "#/place/" + next.id, t: next.name_ru, small: "Следующее место" } : { href: "#/places", t: "Все места" }, prev ? { href: "#/place/" + prev.id, t: prev.name_ru } : { href: "#/places", t: "Истории мест" })}</div>`;
+  }
+  function viewPlaces() {
+    setTitle("Истории мест"); crumbs([{ t: "Книга", href: "#/" }, { t: "Истории мест" }]);
+    $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Здания на листах</p><h1>Истории мест</h1><p class="lede">Что стояло на листе, что с этим стало и откуда мы это знаем. Каждый факт ведёт к источнику.</p></section>
+      <ol class="toc">${D.places.map((p) => `<li><a href="#/place/${esc(p.id)}"><span class="nm">${esc(p.name_ru)}</span><span class="num">${plural(p.facts.length, "факт", "факта", "фактов")}</span><span class="sub">${esc(STATUS[p.status] || "")}</span></a></li>`).join("")}</ol>
+      ${dock({ href: "#/benoist", t: "Листы Бенуа" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+
   function notFound() {
     setTitle("Страница не найдена"); crumbs([{ t: "Книга", href: "#/" }, { t: "Нет такой страницы" }]);
     $app.innerHTML = `<section class="chead"><h1>Такой страницы нет</h1><p class="lede">Возможно, ссылка устарела. Вернитесь к оглавлению.</p><div class="btn-row"><a class="btn" href="#/">К оглавлению</a></div></section>`;
@@ -409,6 +440,8 @@
     else if (h[0] === "plate") viewPlate(arg);
     else if (h[0] === "benoist") viewBenoist();
     else if (h[0] === "sheet") viewSheet(arg);
+    else if (h[0] === "place") viewPlace(arg);
+    else if (h[0] === "places") viewPlaces();
     else if (h[0] === "catalog") viewCatalog(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else notFound();

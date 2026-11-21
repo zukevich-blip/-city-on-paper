@@ -84,6 +84,16 @@ const views = [
     await page.locator(".chips").nth(1).locator("button").nth(1).click();
     check(`${v.name}: register filters narrow the list`, (await page.locator(".cw").count()) <= before);
     check(`${v.name}: register has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
+    await page.goto(base + "#/places", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".toc li");
+    check(`${v.name}: five place histories are listed`, (await page.locator(".toc li").count()) === 5);
+    await page.goto(base + "#/place/tuileries", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".story li");
+    check(`${v.name}: lost Tuileries says plainly that no same-view photo can exist`, /не существует/.test(await page.locator("[role=note]").innerText()));
+    const facts = await page.locator(".story li").evaluateAll((a) => a.map((li) => ({ when: li.querySelector(".when").innerText, href: li.querySelector("a.src").href })));
+    check(`${v.name}: every story fact has a date and an https source`, facts.length >= 3 && facts.every((f) => f.when && /^https:/.test(f.href)), JSON.stringify(facts.slice(0, 1)));
+    check(`${v.name}: unknowns are stated`, (await page.locator(".unk li").count()) >= 1);
+    check(`${v.name}: place page has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
     check(`${v.name}: no console/page errors`, errors.length === 0, errors.slice(0, 2).join(" | "));
