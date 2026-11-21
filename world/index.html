@@ -41,7 +41,7 @@ footer{padding:29px clamp(18px,5vw,75px);background:#e7dfd2;font:12px/1.55 sans-
 <header><strong>Город на бумаге</strong><a href="../">Главная</a><a href="../salon/">Все работы</a><a href="../photography/">Город сегодня</a><a href="../poc/compare/">Тогда и сейчас</a><a href="../closeup/">Кабинет деталей</a></header>
 <section class="hero"><div class="kicker">Мировое собрание · 6 регионов</div><h1>Атлас городов<br>на бумаге</h1><p>От Рима до Киото: исторические литографии, гравюры и ксилографии. Выбирайте город, рассматривайте детали и открывайте оригиналы в архиве.</p><div class="stats"><div><b id="works">...</b><span>изображений в каталоге</span></div><div><b id="cities">...</b><span>городов с изображениями</span></div><div><b id="regions">...</b><span>регионов с изображениями</span></div></div><small>Показаны только найденные изображения; реестр городов значительно шире.</small></section>
 <main><div class="eyebrow">Откройте место · Сравните эпохи</div><div class="tools"><input id="query" type="search" placeholder="Город или страна" aria-label="Поиск города или страны"><select id="tech" aria-label="Техника"><option value="">Все техники</option><option>Литография</option><option>Гравюра / офорт</option><option>Ксилография</option><option>Рисунок</option></select><button id="journey">Путешествие по пяти городам</button></div>
-<div class="regions" id="regionButtons" role="group" aria-label="Регионы мира"></div><section class="featuredStory"><div><span class="kicker">Новая история / Флоренция</span><h2>Старый рынок Флоренции</h2><p>Переустройство старого центра, утраченные переулки и сохранённые художниками городские виды. Реальные архивные работы, источники и три вопроса к изображениям.</p><a href="../exhibitions/lost-florence/">Пройти выставку о старой Флоренции ↗</a></div></section>
+<div class="regions" id="regionButtons" role="group" aria-label="Регионы мира"></div><section class="featuredStory"><div><span class="kicker">Новая история / Флоренция</span><h2>Старый рынок Флоренции</h2><p>Переустройство старого центра, утраченные переулки и сохранённые художниками городские виды. Реальные архивные работы, источники и три вопроса к изображениям.</p><a href="../exhibitions/lost-florence/">Пройти выставку о старой Флоренции ↗︎</a></div></section>
 <section class="featuredStory" id="worldComparisons" aria-labelledby="worldComparisonTitle" hidden>
  <span class="kicker">Историческая графика и фотографии</span><h2 id="worldComparisonTitle">Один город, две эпохи</h2>
  <div class="routeGrid" id="worldComparisonCards"></div>
@@ -101,11 +101,11 @@ function render(){
   const p=document.createElement("p");p.textContent="Архитектура, улицы и городская память. Исторические виды из открытых архивов.";
   const q=document.createElement("div");q.className="quality";q.textContent="Один из источников: "+c.preview.source;
   const actions=document.createElement("div");actions.className="actions";
-  const artLink=document.createElement("a");artLink.href=link("../salon/",c.name);artLink.textContent="Смотреть графику ↗";
-  const photoLink=document.createElement("a");photoLink.href=link("../photography/",c.name);photoLink.textContent="Найти фотографии ↗";
+  const artLink=document.createElement("a");artLink.href=link("../salon/",c.name);artLink.textContent="Смотреть графику ↗︎";
+  const photoLink=document.createElement("a");photoLink.href=link("../photography/",c.name);photoLink.textContent="Найти фотографии ↗︎";
   const directoryLink=document.createElement("a");
   directoryLink.href="../cities/?query="+encodeURIComponent(c.name);
-  directoryLink.textContent="Город и источники ↗";
+  directoryLink.textContent="Город и источники ↗︎";
   actions.append(directoryLink,artLink,photoLink);const storyPanel=document.createElement("div");if(window.CityArtworkHistory)storyPanel.innerHTML=CityArtworkHistory.markup({...c.preview,city:c.name},{compact:true});body.append(label,h,p,q,storyPanel,actions);node.append(fig,body);$("cityGrid").append(node);
  }
 }

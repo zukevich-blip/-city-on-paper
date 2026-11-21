@@ -15,7 +15,7 @@ function check(name,condition){if(!condition)throw Error(name);}
    page.on("pageerror",e=>errors.push(e.message));
    const home=await page.goto(new URL("./",base).href,{waitUntil:"domcontentloaded"});
    check(device+" home loaded",home && home.status()===200);
-   await page.waitForSelector('.hybrid-story-hero a.btn.primary[href="stories/paris-on-paper/"]');
+   await page.waitForSelector(".lt-home .lh-welcome");
    check(device+" cities visible on home",await page.locator('header .navlinks a[href="cities/"]').count()===1);
    const menu=page.locator("header .navlinks");
    await menu.scrollIntoViewIfNeeded();
@@ -34,8 +34,8 @@ function check(name,condition){if(!condition)throw Error(name);}
    });
    check(device+" rooms menu is not clipped on viewport",menuAccessible);
    await showRooms.click();
-   const firstTitle=await page.locator(".hybrid-story-hero .storytitle").textContent();
-   check(device+" story-first home",firstTitle.includes("Париж"));
+   const firstTitle=await page.locator(".lh-welcome .lt-title").textContent();
+   check(device+" album home welcome",firstTitle.includes("Город на бумаге"));
    const response=await page.goto(new URL("cities/",base).href,{waitUntil:"domcontentloaded"});
    check(device+" city index status",response && response.status()===200);
    await page.waitForFunction(()=>document.querySelectorAll(".city-card").length>5,null,{timeout:18000});

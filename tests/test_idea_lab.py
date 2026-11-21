@@ -53,7 +53,7 @@ def test_fieldwork_local_only_and_publication_boundaries():
 
 def test_three_new_modules_linked_from_home():
     text = (ROOT / "index.html").read_text()
-    assert 'href="ideas/"' in text
+    # the internal project plan is not part of the public visitor path
     assert 'href="printlab/"' in text
     assert 'href="fieldwork/"' in text
     assert "Город на бумаге" in text

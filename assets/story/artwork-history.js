@@ -120,7 +120,7 @@ window.CityArtworkHistory = (() => {
       '<p class="art-history-pending">Подробной истории этого листа мы пока не нашли. '+
       'Выше — только то, что известно точно: автор, дата и где он хранится.</p>';
     const refs=x.source.length?'<div class="art-history-sources"><b>Первоисточники</b>'+
-      x.source.map(([n,u])=>'<a target="_blank" rel="noopener noreferrer" href="'+h(u)+'">'+h(n)+' ↗</a>').join("")+
+      x.source.map(([n,u])=>'<a target="_blank" rel="noopener noreferrer" href="'+h(u)+'">'+h(n)+' ↗︎</a>').join("")+
       '</div>':'<p class="art-history-pending">Ссылки на оригинал в музее пока нет.</p>';
     return '<details class="art-history'+(compact?" art-history-compact":"")+'"'+(open?" open":"")+'> '+
       '<summary><span>Подробнее об этом листе</span><small>'+h(heading)+'</small></summary>'+

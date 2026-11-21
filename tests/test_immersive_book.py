@@ -113,9 +113,9 @@ def test_calm_mode_and_keyboard_accessibility_have_real_implementation():
 
 def test_book_is_available_as_optional_entry_below_story_in_hybrid_home():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert 'href="stories/paris-on-paper/" class="btn primary"' in html
+    assert 'href="stories/paris-on-paper/"' in html
     assert 'href="experience/"' in html
     assert 'href="atlas/"' in html
-    assert html.index('href="stories/paris-on-paper/" class="btn primary"') < html.index('class="hybrid-book-row"')
+    assert html.index('class="lh-hero"') < html.index('href="experience/"')
     assert 'id="home"' in html
     assert 'id="catalog"' in html

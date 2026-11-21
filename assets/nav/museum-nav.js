@@ -15,7 +15,7 @@
     ["Расследовать", [["discover/", "Первое расследование", "Начать знакомство"], ["detective/", "Дело № 01 · Мадлен", "Литография под лупой"],
       ["fieldwork/", "Городская фотоохота", "Найти ракурс художника самому"], ["submit/", "Предложить находку", "Представить свою литографию, фотографию или исторический материал"], ["studio/", "Кабинет коллекционера", "Происхождение листов, блокнот"]]],
     ["Как это сделано", [["printlab/", "Камень и бумага", "Как печатали литографию"], ["atelier/bargue/", "Школа рисунка", "Учиться рисовать по-старому"],
-      ["ornaments/", "Мастерская орнамента", "Узоры и декор"], ["ideas/", "Лаборатория идей", "Куда растёт музей"]]],
+      ["ornaments/", "Мастерская орнамента", "Узоры и декор"]]],
   ];
   const here = location.pathname.replace(/index\.html$/, "");
   // The curated homepage owns its primary navigation. Keep the global bar in inner rooms.
@@ -63,8 +63,8 @@
 #museumBar .mbp{top:100%;max-height:min(70dvh,640px);overflow-y:auto;overscroll-behavior:contain}
 }`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  // One primary menu for the whole museum — the same five doors as on the home page.
-  const quick = [["book/", "Книга"], ["guides/", "Путеводители"], ["stories/", "Истории"], ["cities/", "Города"], ["eras/", "Атлас"], ["eras/#/epochs", "Эпохи"], ["salon/", "Каталог"]];
+  // One primary menu for the whole museum: the same four doors as on the home page.
+  const quick = [["book/", "Книга"], ["poc/compare/", "Тогда и сейчас"], ["eras/", "Карта"], ["book/#/benoist", "Бенуа"]];
   const bar = document.createElement("div");
   bar.id = "museumBar";
   bar.innerHTML = `<div class="mb"><a class="mbh" href="${esc(base)}">Город на бумаге</a>

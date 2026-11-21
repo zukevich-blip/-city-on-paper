@@ -54,7 +54,7 @@ window.Atlas = (() => {
         <input id="q" type="search" placeholder="Город, страна или регион" value="${esc(filter.q)}" autocomplete="off">
         <select id="grp" aria-label="Показать">${groups.map(([v, l]) => `<option value="${esc(v)}" ${filter.group === v ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></div>
       <figure class="plate"><div id="maphost"></div>
-        <figcaption><span class="legend2"><b class="sw benoist"></b> города Бенуа <b class="sw featured"></b> истории эпох <b class="sw other"></b> другие города · приближайте кнопками «+ / −» в углу или двумя пальцами</span><br>${esc(P.title)} — ${esc(P.credit)}. <a href="${esc(safe(P.object_url))}" target="_blank" rel="noopener">карточка ↗</a>. ${esc(A.portal_note)}</figcaption></figure>
+        <figcaption><span class="legend2"><b class="sw benoist"></b> города Бенуа <b class="sw featured"></b> истории эпох <b class="sw other"></b> другие города · приближайте кнопками «+ / −» в углу или двумя пальцами</span><br>${esc(P.title)} — ${esc(P.credit)}. <a href="${esc(safe(P.object_url))}" target="_blank" rel="noopener">карточка ↗︎</a>. ${esc(A.portal_note)}</figcaption></figure>
       <div class="country-toolbar">
         <span class="eyebrow">Оглавление атласа · страны и города</span>
         <div><button type="button" id="countriesOpen">Раскрыть все</button>
@@ -160,10 +160,10 @@ window.Atlas = (() => {
   // ---------- city (generic, for every city)
   const card = (w) => `<article class="wcard"${w.wid ? ` id="w-${esc(w.wid)}"` : ""}>
       ${w.image ? `<a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">${imgTag(w.image, (w.medium ? w.medium + ": " : "") + (w.title || w.name))}</a>`
-        : `<div class="noimg">Изображение не встраивается: права хранителя. <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">Открыть у хранителя ↗</a></div>`}
+        : `<div class="noimg">Изображение не встраивается: права хранителя. <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">Открыть у хранителя ↗︎</a></div>`}
       <h4>${esc(w.title || w.name)}</h4>
       <p>${esc(w.artist || w.maker || "")}${w.date ? " · " + esc(w.date) : ""}</p>
-      <p class="src">${esc(w.institution || w.source || "")} · <span class="rights ${w.rights_class === "link" ? "link" : "open"}">${esc(w.rights_label || RIGHTS[w.rights] || w.rights || "")}</span> · <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">источник ↗</a></p>
+      <p class="src">${esc(w.institution || w.source || "")} · <span class="rights ${w.rights_class === "link" ? "link" : "open"}">${esc(w.rights_label || RIGHTS[w.rights] || w.rights || "")}</span> · <a href="${esc(safeLink(w.url))}" target="_blank" rel="noopener">источник ↗︎</a></p>
       ${window.CityArtworkHistory ? CityArtworkHistory.markup(w,{compact:true}) : ""}
     </article>`;
 
@@ -196,14 +196,14 @@ window.Atlas = (() => {
     const head = `<nav class="crumbs" aria-label="Путь"><a href="#/">Атлас</a> › <a href="#/country/${encodeURIComponent(c.country)}">${esc(c.country)}</a> › <span aria-current="page">${esc(c.name)}</span></nav>
       <span class="eyebrow">${esc(c.country)}${c.area ? " · " + esc(c.area) : ""}</span>
       <h1>${esc(c.name)}${c.name_orig && c.name_orig !== c.name ? ` <small class="orig">${esc(c.name_orig)}</small>` : ""}</h1>`;
-    const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">Город на современной карте ↗</a></p>
+    const body = `<div class="museum-journey-host" data-kind="city"></div><p class="coords">${Number(c.lat).toFixed(4)}, ${Number(c.lon).toFixed(4)} · <a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=15/${c.lat}/${c.lon}" target="_blank" rel="noopener">Город на современной карте ↗︎</a></p>
       <section class="cmap" aria-labelledby="cmapH"><h2 id="cmapH">Карта города${c.plan ? ": тогда и сейчас" : ""}</h2><div id="cmaphost"></div></section>
       <section id="atlasPilot" hidden aria-label="Музейные листы"></section>
       <section id="historicCartography" class="historic-cartography" aria-label="Исторические карты и первоисточники города"></section>
       <section id="cityViewpoints" aria-labelledby="vpaTitle"><p class="note">Загружаем места съёмки…</p></section>
       ${(c.epochs || []).length ? `<section class="epochs" aria-labelledby="epH"><h2 id="epH">Одно место — разные эпохи</h2>
         <p class="lede">Выберите место и сравните виды разных лет. Можно добавить своё фото.</p>
-        <div id="eplist"></div><p class="mapnote"><a id="epopen" href="#/epochs">Открыть место на отдельной странице ↗</a> · <a href="#/epochs">все места «Эпох»</a></p><div id="epview"></div></section>` : ""}
+        <div id="eplist"></div><p class="mapnote"><a id="epopen" href="#/epochs">Открыть место на отдельной странице ↗︎</a> · <a href="#/epochs">все места «Эпох»</a></p><div id="epview"></div></section>` : ""}
       <section id="cityLab" class="citylab" aria-label="Исследование произведений города"><p class="note">Подготавливаем изображения для сравнения…</p></section>
       ${c.albums && c.albums.length ? `<p class="note">Альбомы и серии: ${c.albums.map(esc).join("; ")}.</p>` : ""}
       ${(c.works || []).length ? `<details class="city-archive" ${c.works.length <= 6 ? "open" : ""}>
@@ -221,7 +221,7 @@ window.Atlas = (() => {
       <button type="button" id="more" class="morebtn" hidden>Показать ещё</button>
       ${(c.halls || []).length ? `<section class="halls"><span class="eyebrow">Что ещё посмотреть об этом городе</span><p>${c.halls.map(([u, t]) => `<a href="${esc(/^\.\.\/[a-z]/.test(u) ? u : "#")}">${esc(t)} →</a>`).join("")}</p></section>` : ""}
       <section class="hunt2" id="archiveSearch"><span class="eyebrow">Найти больше</span><p>Ищите другие виды на сайтах архивов. Условия использования смотрите там же.</p>
-        <p>${search.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join(" · ")}</p></section>`;
+        <p>${search.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗︎</a>`).join(" · ")}</p></section>`;
     const hist = '<section class="cityhist" id="cityHistory" hidden></section>';
     if (append) app.querySelector(".view").insertAdjacentHTML("beforeend", `<hr class="sep">${hist}${body}`);
     else app.innerHTML = `<div class="view">${head}${hist}${body}</div>`;

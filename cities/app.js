@@ -147,22 +147,22 @@
     if(row.status==="detailed"){
       const journey=el("nav","city-journey");
       journey.setAttribute("aria-label","Исследование города "+row.name);
-      const art=el("a",null,"Произведения ↗");
+      const art=el("a",null,"Произведения ↗︎");
       art.href="../salon/?city="+encodeURIComponent(row.name);
-      const modern=el("a",null,"Сегодня ↗");
+      const modern=el("a",null,"Сегодня ↗︎");
       modern.href="../photography/?city="+encodeURIComponent(row.name);
       journey.append(art,modern);
       if(city==="paris"){
-        const comparison=el("a",null,"Тогда и сейчас ↗");
+        const comparison=el("a",null,"Тогда и сейчас ↗︎");
         comparison.href="../poc/compare/#madeleine-ph-benoist";
         journey.append(comparison);
       }
-      const regionMap=el("a",null,"Где стояли художники и фотографы ↗");
+      const regionMap=el("a",null,"Где стояли художники и фотографы ↗︎");
       regionMap.href=city?"../eras/#/city/"+encodeURIComponent(city):"../eras/";
       journey.append(regionMap);
       item.append(journey);
     } else if(row.status==="candidate"){
-      const openArchive=el("a","action","Проверить открытую графику ↗");
+      const openArchive=el("a","action","Проверить открытую графику ↗︎");
       openArchive.href="../world/?query="+encodeURIComponent(row.name);
       item.append(openArchive);
     }

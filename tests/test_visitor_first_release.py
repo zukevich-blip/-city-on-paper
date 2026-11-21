@@ -13,11 +13,11 @@ def read(path: str) -> str:
 def test_visitor_routes_are_shipped_in_public_bundle():
     assert {"walk/index.html", "submit/index.html", "guides/index.html"} <= set(PAGES)
     home = read("index.html")
-    assert 'class="museum-frontdoor museum-wow"' in home
-    assert 'class="wow-features"' in home
-    assert 'href="poc/compare/?journey=1#paris-eiffel"' in home
-    assert 'class="wow-secondary" href="book/"' in home
-    assert 'id="museumFind"' in home
+    assert 'class="lt-home"' in home
+    assert 'class="lh-hero"' in home
+    assert 'href="poc/compare/?journey=1#madeleine-benoist-carnavalet"' in home
+    assert 'href="book/#/benoist"' in home
+    assert 'href="book/"' in home
     assert 'href="walk/?city=paris&amp;place=0"' in home
     assert 'href="submit/"' in home
     nav = read("assets/nav/museum-nav.js")

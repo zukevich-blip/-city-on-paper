@@ -269,7 +269,7 @@
       </ul>
       ${pair ? `<div class="btn-row"><a class="btn wide" href="../poc/compare/?journey=1#${esc(pair.id)}">Сравнить с фото сегодня →</a></div>` : `<div class="nolook"><b>Фото сегодня пока нет.</b> ${hasGeo ? "Место известно, его можно найти на карте ниже и снять самому." : "Точное место на карте пока не отмечено."}</div>`}
       ${hasGeo ? `<h2>Где это</h2><div class="lmap" id="lmap" role="region" aria-label="Карта: место листа"></div><p class="small"><a href="${E}#/city/${esc(c.id)}">Весь город на старых и современных картах</a></p>` : ""}
-      <div class="btn-row"><a class="btn ghost" href="${esc(safe(p.url))}" target="_blank" rel="noopener noreferrer">Оригинал у хранителя ↗</a></div>
+      <div class="btn-row"><a class="btn ghost" href="${esc(safe(p.url))}" target="_blank" rel="noopener noreferrer">Оригинал у хранителя ↗︎</a></div>
       ${dock(next ? { href: plateLink(next), t: next.title, small: `Лист ${next.n} из ${p.total}` } : { href: cityLink(c), t: "К главе города", small: "Это последний лист" }, prev ? { href: plateLink(prev), t: "Назад" } : { href: cityLink(c), t: c.name })}</article>`;
     if (hasGeo) mountMap("lmap", [p], p);
     // swipe left/right turns the page (not while dragging the map)

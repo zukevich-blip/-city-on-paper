@@ -24,8 +24,8 @@
     <dt>Авторы</dt><dd>${esc((img.creators || []).filter((c) => c.name).map((c) => c.role ? `${c.name} (${c.role})` : c.name).join("; ") || "не указаны хранителем")}</dd>
     <dt>Дата</dt><dd>${esc(img.date)}</dd>
     <dt>Хранитель</dt><dd>${esc(img.institution)}</dd>
-    <dt>Права</dt><dd>${esc(img.rights)}${img.rights_checked ? ` (проверено ${esc(img.rights_checked)})` : ""}${img.license_url ? ` · <a href="${esc(safeUrl(img.license_url))}" target="_blank" rel="noopener">текст лицензии ↗</a>` : ""}</dd>
-    <dt>Страница в архиве</dt><dd><a href="${esc(safeUrl(img.object_url))}" target="_blank" rel="noopener">открыть у хранителя ↗</a></dd>
+    <dt>Права</dt><dd>${esc(img.rights)}${img.rights_checked ? ` (проверено ${esc(img.rights_checked)})` : ""}${img.license_url ? ` · <a href="${esc(safeUrl(img.license_url))}" target="_blank" rel="noopener">текст лицензии ↗︎</a>` : ""}</dd>
+    <dt>Страница в архиве</dt><dd><a href="${esc(safeUrl(img.object_url))}" target="_blank" rel="noopener">открыть у хранителя ↗︎</a></dd>
     ${img.file ? `<dt>Файл</dt><dd><a href="${esc(safeUrl(img.file))}" target="_blank" rel="noopener">открыть без изменений</a>${img.note ? ` · ${esc(img.note)}` : ""}</dd>` : ""}
   </dl>`;
 
@@ -53,7 +53,7 @@
       <div class="eras" role="group" aria-label="Эпохи">${eras}</div>
       <figure class="plate"><div class="frame"><img src="${esc(P.image)}" ${P.image_small ? `srcset="${esc(P.image_small)} 1000w, ${esc(P.image)} 2000w" sizes="(max-width: 700px) 100vw, 1400px"` : ""} width="${P.width}" height="${P.height}" alt="${esc(P.alt)}" fetchpriority="high">
         <div class="pins">${pins}</div></div>
-        <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>. Декоративная карта: расстояния и очертания не точны.</figcaption></figure>
+        <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗︎</a>. Декоративная карта: расстояния и очертания не точны.</figcaption></figure>
       <p class="note" id="eraStatus" role="status" aria-live="polite">Выберите эпоху, чтобы увидеть города с подтверждёнными материалами.</p>
       <h2>Города</h2>
       <div class="cities">${D.cities.map((c) => `<a class="card" href="#/city/${esc(c.id)}"><span class="eyebrow">${esc(c.country)}</span><h3>${esc(c.name)}</h3><p>${esc(c.summary)}</p><small>${c.places.length} мест · ${c.places.reduce((n, p) => n + p.images.length, 0)} записей с источниками</small></a>`).join("")}</div>
@@ -97,7 +97,7 @@
       <span class="eyebrow">${esc(c.country)}</span><h1>${esc(c.name)}</h1><p class="lede">${esc(c.summary)}</p>
       <div class="twocol">
         <div>${P ? `<figure class="plate"><div class="frame"><img src="${esc(P.image)}" width="${P.width}" height="${P.height}" alt="${esc(P.alt)}"><div class="pins">${cams}</div></div>
-          <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>.
+          <figcaption>${esc(P.title)} — ${esc(P.credit)}. ${rightsBadge(P)} <a href="${esc(safeUrl(P.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗︎</a>.
           ${P.georef ? `Положение на карте указано примерно: ${esc(P.georef)}.` : "Места на этом плане пока не отмечены."}</figcaption></figure>`
           : `<p class="note">Исторический план этого города ещё не подобран с подтверждёнными правами.</p>`}</div>
         <div><h2>Места</h2><div class="places">${c.places.map((pl) => `<a href="#/place/${esc(pl.id)}"><b>${esc(pl.title)}</b><small>${pl.images.map((i) => esc(i.year_label)).join(" → ")} · ${esc(VERDICT_SHORT(pl))}</small></a>`).join("") || '<p class="note">Места готовятся.</p>'}</div></div>
@@ -135,7 +135,7 @@
       <div class="timeline" role="list" aria-label="Шкала эпох">${cards}</div>
       ${pl.plan_detail ? `<details class="credits" open><summary>Где стояли художник и фотографы — план 1878 года</summary>
         <figure class="plate" style="margin:8px 0"><div class="frame"><img src="${esc(pl.plan_detail.image)}" width="${pl.plan_detail.width}" height="${pl.plan_detail.height}" alt="${esc(pl.plan_detail.alt)}" loading="lazy"><div class="pins">${imgs.map((img) => camMarker(img, pl.plan_detail)).join("")}</div></div>
-        <figcaption>${esc(pl.plan_detail.title)} — ${esc(pl.plan_detail.credit)}. ${rightsBadge(pl.plan_detail)} <a href="${esc(safeUrl(pl.plan_detail.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>. Точки — оценки по видимым ориентирам и GPS снимков; погрешность привязки плана 30–50 м.</figcaption></figure>
+        <figcaption>${esc(pl.plan_detail.title)} — ${esc(pl.plan_detail.credit)}. ${rightsBadge(pl.plan_detail)} <a href="${esc(safeUrl(pl.plan_detail.object_url))}" target="_blank" rel="noopener">Смотреть в архиве ↗︎</a>. Точки — оценки по видимым ориентирам и GPS снимков; погрешность привязки плана 30–50 м.</figcaption></figure>
         <div class="legend"><span><b style="background:#7a3f22"></b>литография</span><span><b style="background:#2c5d73"></b>фотография</span><span><b style="background:#5b6b2f"></b>сегодня</span><span>конус — направление взгляда</span></div>
         <div class="camlist" role="group" aria-label="Точки съёмки">${imgs.filter((im) => im.camera && im.camera.px != null).map((im) => `<button type="button" data-img="${esc(im.id)}" ${im.file ? "" : "disabled"}><b class="sw era-${esc(im.era)}"></b>${esc(im.year_label)} · ${esc(KIND[im.kind] || im.kind)} <small>±${esc(im.camera.radius_m)} м · ${Math.round(im.camera.azimuth_deg ?? 0)}°</small></button>`).join("")}</div></details>` : ""}
       <section class="compare" aria-label="Сравнение эпох">

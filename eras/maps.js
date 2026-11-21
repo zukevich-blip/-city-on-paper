@@ -165,7 +165,7 @@ window.Maps = (() => {
       </div>
       <div class="lmap" id="pmap" aria-label="Историческая карта Европы 1769 года; приблизительные позиции городов"></div>
       <div class="lmap" id="nmap" hidden aria-label="Современная карта мира с групповыми метками городов"></div>
-      <p class="map-summary" id="mapTruth">На старой карте отмечены города. Приблизьте современную карту, чтобы увидеть, откуда смотрели художники и фотографы. <a href="../cities/">Все города, включая те, которых ещё нет на карте ↗</a></p>
+      <p class="map-summary" id="mapTruth">На старой карте отмечены города. Приблизьте современную карту, чтобы увидеть, откуда смотрели художники и фотографы. <a href="../cities/">Все города, включая те, которых ещё нет на карте ↗︎</a></p>
       <details class="map-archive" id="mapArchive">
         <summary>Перелистать другие исторические карты и планы</summary>
         <div class="map-archive-actions" role="group" aria-label="Исторические картографические оригиналы">
@@ -175,11 +175,11 @@ window.Maps = (() => {
         <figure><img id="mapSheetImage" src="${archiveRoot}img/loc-97683588-carte-d-europe-1769_w1000.jpg"
           alt="Историческая карта Европы, 1769 год" loading="lazy" decoding="async">
           <figcaption id="mapSheetCaption">Карта Европы, de L’Isle / Buache, экземпляр Библиотеки Конгресса США, 1769.
-            <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗</a></figcaption>
+            <a id="mapSheetSource" target="_blank" rel="noopener noreferrer" href="https://www.loc.gov/item/97683588/">Архивный оригинал ↗︎</a></figcaption>
         </figure>
         <p class="map-summary">На этих старых планах отметки мест появятся после проверки.</p>
       </details>
-      <p class="map-summary"><a href="../cities/">Все города и находки в архивах ↗</a></p>`;
+      <p class="map-summary"><a href="../cities/">Все города и находки в архивах ↗︎</a></p>`;
     const sheets = {
       europe: { file: "img/loc-97683588-carte-d-europe-1769_w1000.jpg",
         name: "Карта Европы de L’Isle / Buache, 1769. Библиотеки Конгресса США.",
@@ -382,7 +382,7 @@ window.Maps = (() => {
         <p id="cPlaceFeedback" role="status" aria-live="polite">Сначала выберите место. Координата объекта не означает точку художника.</p>
       </div>
       <div class="city-compare-jump"><button id="cViewpoints" type="button">Откуда смотрел художник ↓</button></div>
-      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены места с изображений (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Метки показывают сами места. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">Смотреть в архиве ↗</a>` : ""}</p>`;
+      <p class="mapnote" id="cityPlaceGuide">${pts.length ? `На обеих картах отмечены места с изображений (${pts.length}). Нажмите метку, затем «Место сегодня» или «На старом плане». Метки показывают сами места. ` : ""}${plan ? `План: ${esc(plan.title)}, ${esc(plan.credit)}. ${esc(plan.georef_note || "")} <a href="${esc(plan.object_url)}" target="_blank" rel="noopener">Смотреть в архиве ↗︎</a>` : ""}</p>`;
     host.querySelector("#cViewpoints")?.addEventListener("click", () =>
       document.getElementById("cityViewpoints")?.scrollIntoView({ behavior:"smooth", block:"start" }));
     const historicalStatus=(item)=>{
@@ -400,8 +400,8 @@ window.Maps = (() => {
     };
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
-      ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗</a></small>':""}
-      <span class="mlinks"><a class="mbook" href="../book/#/plate/${esc(s.wid)}">лист в книге →</a><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗</a></span></div>`;
+      ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗︎</a></small>':""}
+      <span class="mlinks"><a class="mbook" href="../book/#/plate/${esc(s.wid)}">лист в книге →</a><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗︎</a></span></div>`;
     let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
     const picker=host.querySelector("#cPlaceSelect");
     const btnNow=host.querySelector("#cPlaceNow");

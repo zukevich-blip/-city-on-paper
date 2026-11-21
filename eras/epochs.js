@@ -433,7 +433,7 @@ window.Epochs = (() => {
       $("epSideCapA").textContent = `${lab(A)} · ${A.label}`;
       $("epSideCapB").textContent = `${lab(B)} · ${B.label}`;
       $("epTagA").textContent = lab(A); $("epTagB").textContent = lab(B);
-      $("epCredit").innerHTML = [A, B].map((f) => `${f.url ? `<a href="${esc(safeLink(f.url))}" target="_blank" rel="noopener">${esc(lab(f))}: источник ↗</a>` : esc(lab(f))}${f.credit ? " · " + esc(f.credit) : ""}${f.lic ? `, ${/^https?:\/\//.test(f.licUrl || "") ? `<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>` : esc(f.lic)}` : ""}${f.camera ? ` · точка съёмки ${f.camera.lat.toFixed(5)}, ${f.camera.lon.toFixed(5)}, направление ${Math.round(f.camera.azimuth)}°` : ""}`).join("<br>");
+      $("epCredit").innerHTML = [A, B].map((f) => `${f.url ? `<a href="${esc(safeLink(f.url))}" target="_blank" rel="noopener">${esc(lab(f))}: источник ↗︎</a>` : esc(lab(f))}${f.credit ? " · " + esc(f.credit) : ""}${f.lic ? `, ${/^https?:\/\//.test(f.licUrl || "") ? `<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>` : esc(f.lic)}` : ""}${f.camera ? ` · точка съёмки ${f.camera.lat.toFixed(5)}, ${f.camera.lon.toFixed(5)}, направление ${Math.round(f.camera.azimuth)}°` : ""}`).join("<br>");
       host.querySelectorAll(".epf[data-f]").forEach((x) => x.classList.toggle("on", +x.dataset.f === a || +x.dataset.f === b));
       drawCones();
       showMode(); store();

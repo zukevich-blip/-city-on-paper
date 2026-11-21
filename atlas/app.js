@@ -78,7 +78,7 @@
     $("selectedRights").replaceChildren(create("strong",null,"Право: "),document.createTextNode(img.rights_short||img.rights||"Проверка прав требуется"));
     const source=$("selectedSource");
     source.href=safeSource(img);
-    source.textContent="Смотреть в архиве ↗";
+    source.textContent="Смотреть в архиве ↗︎";
     const story=$("selectedStory");
     if(state.city==="paris"){story.href="../stories/paris-on-paper/";story.textContent="Читать историю Парижа";}
     else{story.href="../experience/?city="+encodeURIComponent(state.city)+"&chapter=1";story.textContent="Читать главу "+names[state.city];}

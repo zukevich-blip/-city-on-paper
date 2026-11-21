@@ -10,7 +10,7 @@ window.History = (() => {
   const load = () => H ? Promise.resolve(H) : fetch("data/history.json").then((r) => (r.ok ? r.json() : { cities: [], masters: [] }))
     .catch(() => ({ cities: [], masters: [] })).then((d) => (H = d));
   const src = (list) => (list || []).filter((s) => link(s.url)).map((s) =>
-    `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || host(s.url))} ↗</a>`).join(" · ");
+    `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || host(s.url))} ↗︎</a>`).join(" · ");
 
   function city(host_, name) {
     if (!host_) return;
@@ -25,8 +25,8 @@ window.History = (() => {
           <summary><b>${esc(ch.title)}</b></summary><p>${esc(ch.text)}</p>
           <p class="hist-src">Источники: ${src(ch.sources) || "уточняются"}</p></details>`).join("")}</div>
         ${(c.timeline || []).length ? `<ol class="hist-time" aria-label="Хронология">${c.timeline.map((t) =>
-          `<li><b>${esc(t.year)}</b><span>${esc(t.text)}${link(t.source_url) ? ` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" aria-label="Источник: ${esc(host(t.source_url))}">↗</a>` : ""}</span></li>`).join("")}</ol>` : ""}
-        ${c.did_you_know && c.did_you_know.text ? `<p class="hist-fact"><b>А вы знали?</b> ${esc(c.did_you_know.text)}${link(c.did_you_know.source_url) ? ` <a href="${esc(c.did_you_know.source_url)}" target="_blank" rel="noopener">источник ↗</a>` : ""}</p>` : ""}
+          `<li><b>${esc(t.year)}</b><span>${esc(t.text)}${link(t.source_url) ? ` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" aria-label="Источник: ${esc(host(t.source_url))}">↗︎</a>` : ""}</span></li>`).join("")}</ol>` : ""}
+        ${c.did_you_know && c.did_you_know.text ? `<p class="hist-fact"><b>А вы знали?</b> ${esc(c.did_you_know.text)}${link(c.did_you_know.source_url) ? ` <a href="${esc(c.did_you_know.source_url)}" target="_blank" rel="noopener">источник ↗︎</a>` : ""}</p>` : ""}
         <p class="mapnote">Текст составлен по открытым источникам, ссылки приведены у каждой главы. Заметили неточность — напишите через «Отзыв».</p>`;
     });
   }

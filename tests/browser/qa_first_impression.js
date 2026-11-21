@@ -16,52 +16,35 @@ const out=process.argv[3]||"/tmp/city-on-paper-screens";
       page.on("pageerror",e=>errors.push(e.message));
       const response=await page.goto(base,{waitUntil:"domcontentloaded",timeout:30000});
       assert.equal(response?.status(),200,"Museum homepage responds HTTP 200");
-      assert.equal(await page.locator(".museum-frontdoor").count(),1);
-      assert.equal(await page.locator(".wow-features>a").count(),5,"Five-step route visible in one section");
-      assert(await page.locator(".wow-primary").isVisible(),"Primary direct demo CTA is visible");
-      assert(await page.locator(".wow-secondary").isVisible(),"Guidebook catalogue CTA visible");
-      assert(await page.locator("#frontQuery").count()===1,"Preserve city search");
-      const labels=await page.locator(".wow-features strong").allTextContents();
-      for(const word of ["тогда и сейчас","историю","карте","город","фото"]){
-        assert(labels.some(t=>t.toLowerCase().includes(word)),word+" feature is missing");
-      }
-      const images=page.locator(".wow-duet img");
-      assert.equal(await images.count(),2,"Real pair is prominently presented");
-      if(width<=390){
-        const historic=await page.locator('.wow-duet [data-pane="then"] img').boundingBox();
-        assert(historic && historic.y+Math.min(100,historic.height)<720,
-          "At least the first 100 px of the engraving appear on a short phone without scrolling");
-      }
-      await page.evaluate(async()=>{
-        await Promise.all([...document.querySelectorAll(".wow-duet img")].map(async i=>{
-          try{await i.decode();}catch{}
-        }));
-      });
-      assert(await images.evaluateAll(a=>a.every(i=>i.naturalWidth>500&&i.naturalHeight>400)),
-        "Both original artwork and modern documentary photo actually load");
-      assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("с разных мест")),
-        "No false viewpoint match on the first screen");
-      assert(await page.locator(".wow-visual-bottom").innerText().then(s=>s.includes("CC0")),
-        "Modern photograph attribution is present");
-      assert.equal(await page.locator(".opening-plates>a").count(),4,"Three archive scenes and a historical map are available directly");
-      assert((await page.locator(".wow-primary").getAttribute("href")).includes("#rome-pantheon-vasi"),
-        "Hero points to real interactive compare");
-      assert((await page.locator(".wow-secondary").getAttribute("href")).includes("book/"),
-        "Hero points to the book of views (contents by country and city)");
-      const overflow=await page.evaluate(()=>({
-        body:document.body.scrollWidth,
-        html:document.documentElement.scrollWidth,
-        viewport:window.innerWidth
-      }));
-      assert(overflow.html<=overflow.viewport+5,
-        "No horizontal overflow on "+width+": "+JSON.stringify(overflow));
-      const clip=await page.locator(".museum-frontdoor").evaluate(e=>{
-        const r=e.getBoundingClientRect();return {top:r.top,width:r.width,right:r.right};
-      });
-      assert(clip.top<320,"Actual product showcase appears within the first screen, not below long introduction");
+      assert.equal(await page.locator("h1").count(),1,"One h1");
+      assert.equal(await page.locator(".lh-welcome").count(),1,"Welcome cartouche explains what this is");
+      const welcome=await page.locator(".lh-welcome").innerText();
+      assert(/Бенуа/.test(welcome)&&/литограф/i.test(welcome),"Welcome names the theme: Benoist and lithographs");
+      assert.equal(await page.locator(".lh-steps li").count(),3,"Three-step way to use the site");
+      const plaques=await page.locator(".lh-plaque").evaluateAll(a=>a.map(x=>x.getAttribute("href")));
+      for(const h of ["book/","poc/compare/?journey=1","eras/","book/#/benoist"])
+        assert(plaques.includes(h),"Desk plaque missing: "+h);
+      assert.equal(await page.locator(".lh-plaque").count(),4,"Exactly four doors on the desk");
+      assert.equal(await page.locator(".lh-row a").count(),3,"Three other masters");
+      // hero: real Benoist print and modern photo, slider fades one into the other
+      await page.locator("#lhNow").scrollIntoViewIfNeeded();
+      await page.evaluate(async()=>{await Promise.all([...document.querySelectorAll(".lh-stage img")].map(async i=>{try{await i.decode();}catch{}}));});
+      assert(await page.locator(".lh-stage img").evaluateAll(a=>a.length===2&&a.every(i=>i.naturalWidth>500&&i.naturalHeight>400)),"Print and photo both load");
+      assert.equal(await page.locator("#lhNow").evaluate(e=>getComputedStyle(e).opacity),"0","Starts on the print");
+      await page.locator("#lhRange").fill("100");
+      assert.equal(await page.locator("#lhNow").evaluate(e=>getComputedStyle(e).opacity),"1","Slider reveals the photo");
+      const credit=await page.locator("#lhNote").innerText();
+      assert(/CC0/.test(credit)&&/CC BY-SA/.test(credit)&&/без подгонки/i.test(credit),"Credits and honest no-fit note");
+      assert((await page.locator(".lh-cta .btn").first().getAttribute("href")).includes("madeleine-benoist-carnavalet"),"CTA opens the real compare tool");
+      assert(!/↗(?!\ufe0e)/.test(await page.content()),"No bare arrow glyphs that iOS draws as blue emoji");
+      const overflow=await page.evaluate(()=>({html:document.documentElement.scrollWidth,viewport:window.innerWidth}));
+      assert(overflow.html<=overflow.viewport+5,"No horizontal overflow on "+width+": "+JSON.stringify(overflow));
+      const small=await page.locator(".lh-cta .btn,.lh-plaque,.lh-more summary,.navlinks a").evaluateAll(a=>a.filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height<40;}).length);
+      assert.equal(small,0,"Touch targets are at least 40 px tall");
+      await page.evaluate(()=>window.scrollTo(0,0));
       await page.screenshot({path:path.join(out,"three-second-hero-"+width+".png"),fullPage:false,timeout:25000});
       assert.equal(errors.length,0,"No JS errors: "+errors.join(" | "));
-      console.log("PASS first impression "+width+"px: actual historical photo pair, two actions, four features, no overflow");
+      console.log("PASS first impression "+width+"px: welcome, four doors, Benoist then/now slider, no overflow");
       await context.close();
     }
   }finally{await browser.close();}
