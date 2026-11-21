@@ -239,6 +239,66 @@
    "creators": []
   },
   {
+   "id": "parismusees-200009791",
+   "title": "La Halle et la fontaine des innocents.",
+   "title_original": "La Halle et la fontaine des innocents.",
+   "holder": "Paris Musées / Maison de Balzac",
+   "accession": "node 200009791",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/maison-de-balzac/oeuvres/la-halle-et-la-fontaine-des-innocents",
+   "image": "img/benoist/pm-200009791.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Papier vélin",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320175609",
+   "title": "Paris dans sa splendeur. - Histoire. / Grand carrousel sous Louis XIV, (5 et 6 juin 1662) / d'après une gravure de cette époque",
+   "title_original": "Paris dans sa splendeur. - Histoire. / Grand carrousel sous Louis XIV, (5 et 6 juin 1662) / d'après une gravure de cette époque",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320175609",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-histoire-grand-carrousel-sous-louis-xiv-5-et-6-juin",
+   "image": "img/benoist/pm-320175609.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320262846",
+   "title": "Colonne de Juillet. / sur la place de la Bastille.",
+   "title_original": "Colonne de Juillet. / sur la place de la Bastille.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320262846",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille",
+   "image": "img/benoist/pm-320262846.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
    "id": "rijks-RP-P-1904-3864",
    "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
    "holder": "Rijksmuseum",

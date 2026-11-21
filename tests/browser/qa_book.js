@@ -66,9 +66,10 @@ const views = [
     while (await page.locator("#bsMore").count()) await page.locator("#bsMore").evaluate((b) => b.click()); // layout shifts while lazy images load, so no stability wait
     for (const f of await page.locator(".bsheet").all()) await f.scrollIntoViewIfNeeded();
     await page.waitForFunction(() => [...document.querySelectorAll(".bsheet img")].every((i) => i.complete && i.naturalWidth > 500), null, { timeout: 90000 });
+    const expectedSheets = await page.evaluate(async () => (await (await fetch("benoist-sheets.json")).json()).sheets.length);
     const bs = await page.locator(".bsheet").evaluateAll((a) => ({ n: a.length, ok: a.every((f) => f.querySelector("img").naturalWidth > 500),
       rights: a.every((f) => /(Public Domain Mark|CC0)/.test(f.innerText)), roles: a.every((f) => /:/.test(f.querySelector("small").innerText)) }));
-    check(`${v.name}: Benoist hub shows 33 open museum sheets with rights and participants`, bs.n === 33 && bs.ok && bs.rights && bs.roles, JSON.stringify(bs));
+    check(`${v.name}: Benoist hub shows every open museum sheet of the shipped list with rights and participants`, bs.n === expectedSheets && bs.ok && bs.rights && bs.roles, JSON.stringify(bs));
     check(`${v.name}: Benoist hub has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/sheet/parismusees-320290066", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("#zoomimg");
