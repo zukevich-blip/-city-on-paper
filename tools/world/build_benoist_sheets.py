@@ -72,6 +72,15 @@ def sheet(rec: dict) -> dict:
     }
 
 
+PM_ROLES_RU = {
+    "dessinateur-lithographe": "рисовал и литографировал",
+    "dessinateur": "рисовал",
+    "lithographe": "литографировал",
+    "imprimeur-lithographe": "печатал (литограф)",
+    "imprimeur": "печатал",
+    "editeur": "издатель",
+    "éditeur": "издатель",
+}
 PM_TITLES = {
     "320290066": "La Sainte-Chapelle",
     "320291197": "Palais du Luxembourg, côté jardin",
@@ -91,6 +100,18 @@ def pm_name(raw: str) -> str:
     """'Benoist, Philippe' -> 'Philippe Benoist'; names without a comma are kept."""
     last, _, first = raw.partition(", ")
     return f"{first} {last}".strip() if first else raw
+
+
+def roles_ru(roles: list[dict]) -> list[dict]:
+    """Roles exactly as the museum's record page states them (French), with a plain Russian rendering beside them."""
+    seen, out = set(), []
+    for r in roles:
+        key = (pm_name(r["name"]), r.get("role"))
+        if key in seen or not r.get("role"):
+            continue
+        seen.add(key)
+        out.append({"name": key[0], "role": r["role"], "role_ru": PM_ROLES_RU.get(r["role"], r["role"])})
+    return out
 
 
 def pm_sheets() -> list[dict]:
@@ -117,7 +138,9 @@ def pm_sheets() -> list[dict]:
                 "id": r["id"],
                 "title": PM_TITLES.get(r["node"], r["title"]),
                 "title_original": r["title"],
-                "holder": "Paris Musées / Musée Carnavalet",
+                "holder": "Paris Musées / Musée Carnavalet"
+                if "carnavalet" in r.get("holder", "carnavalet").lower()
+                else "Paris Musées / " + r["holder"],
                 "accession": "node " + r["node"],
                 "record_url": r["record_url"],
                 "image": r["image"],
@@ -127,7 +150,7 @@ def pm_sheets() -> list[dict]:
                 "participants": names,
                 "extra_impressions": len(extra.get(r["node"], [])),
                 "impressions": extra.get(r["node"], []),
-                "creators": [],
+                "creators": roles_ru(r.get("roles") or []),
             }
         )
     return out

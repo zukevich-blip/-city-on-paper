@@ -312,10 +312,16 @@
       ${open.length ? `<h2>Листы, которые можно открыть здесь</h2><div class="plates">${open.map((p) => `<a class="pl" href="${plateLink(p)}">${img(p.image, p.title, "", 400)}<span class="t">${esc(p.title)}<span class="d">${esc(D.cities.get(p.city).name)}</span></span></a>`).join("")}</div>` : ""}
       ${D.sheets.length ? `<div class="lt-divider" aria-hidden="true"></div><h2>Листы из открытых музеев</h2>
         <p class="small">${plural(D.sheets.length, "лист", "листа", "листов")} с открытой лицензией на файл: Paris Musées (CC0) и Rijksmuseum (Public Domain Mark). Участников и роли мы пишем так, как их называет музей, без своих догадок. <a href="#/catalog">Весь реестр найденных листов →</a></p>
-        <div class="bsheets">${D.sheets.map((s) => `<figure class="lt-sheet bsheet"><a class="lt-print zoomlink" href="#/sheet/${esc(s.id)}" aria-label="Открыть лист крупно: ${esc(s.title)}"><img src="${esc(s.image)}" alt="${esc(s.title)}" loading="lazy" width="900"></a>
+        <div class="bsheets" id="bsheets">${D.sheets.map((s, n) => `<figure class="lt-sheet bsheet"${n >= 24 ? " hidden" : ""}><a class="lt-print zoomlink" href="#/sheet/${esc(s.id)}" aria-label="Открыть лист крупно: ${esc(s.title)}"><img src="${esc(s.image)}" alt="${esc(s.title)}" loading="lazy" width="900"></a>
           <figcaption class="lt-caption">${esc(s.title.split(" / ")[0])}<small>${s.creators && s.creators.length ? s.creators.map((c) => esc(c.role_ru) + ": " + esc(c.name)).join(" · ") : "По записи музея: " + s.participants.map(esc).join(" · ") + " (роли в записи не указаны)"}</small></figcaption>
-          <p class="bs-meta">${esc(s.holder)} · ${esc(s.accession)} · <a href="${esc(safe(s.rights_url))}" target="_blank" rel="noopener">${esc(s.rights)}</a> · <a href="${esc(safe(s.record_url))}" target="_blank" rel="noopener">карточка музея</a>${s.extra_impressions ? " · в музее есть ещё " + plural(s.extra_impressions, "экземпляр", "экземпляра", "экземпляров") + " этого листа" : ""}</p></figure>`).join("")}</div>` : ""}
+          <p class="bs-meta">${esc(s.holder)} · ${esc(s.accession)} · <a href="${esc(safe(s.rights_url))}" target="_blank" rel="noopener">${esc(s.rights)}</a> · <a href="${esc(safe(s.record_url))}" target="_blank" rel="noopener">карточка музея</a>${s.extra_impressions ? " · в музее есть ещё " + plural(s.extra_impressions, "экземпляр", "экземпляра", "экземпляров") + " этого листа" : ""}</p></figure>`).join("")}</div>${D.sheets.length > 24 ? `<p class="btn-row"><button type="button" class="btn ghost" id="bsMore">Показать ещё листы</button></p>` : ""}` : ""}
       ${dock({ href: cityLink(D.cities.get("paris")), t: "Париж с Бенуа", small: "Дальше" }, { href: "#/", t: "Оглавление" })}</div>`;
+    const bm = document.getElementById("bsMore");
+    if (bm) bm.addEventListener("click", () => {
+      const hid = [...document.querySelectorAll("#bsheets .bsheet[hidden]")];
+      hid.slice(0, 24).forEach((f) => f.removeAttribute("hidden"));
+      if (hid.length <= 24) bm.parentElement.remove();
+    });
     const note = document.getElementById("signNote");
     document.querySelectorAll("#sign .hot").forEach((b) => b.addEventListener("click", () => {
       const h = SIGN[Number(b.dataset.i)];
