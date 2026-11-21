@@ -96,6 +96,16 @@ const views = [
     check(`${v.name}: every story fact has a date and an https source`, facts.length >= 3 && facts.every((f) => f.when && /^https:/.test(f.href)), JSON.stringify(facts.slice(0, 1)));
     check(`${v.name}: unknowns are stated`, (await page.locator(".unk li").count()) >= 1);
     check(`${v.name}: place page has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
+    check(`${v.name}: place page mounts map, compare link and 1878 plan preview`,
+      (await page.locator("#lmap").count()) === 1 && (await page.locator('a[href*="../poc/compare/?journey=1#tuileries-"]').count()) === 1 && (await page.locator(".plan-box").count()) === 1);
+    await page.goto(base + "#/sheet/parismusees-320291945", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#zoomimg");
+    check(`${v.name}: sheet cross-links to its place story and ready comparison`,
+      (await page.locator('a[href="#/place/notre-dame"]').count()) === 1 && (await page.locator('a[href*="../poc/compare/?journey=1#notre-dame-"]').count()) === 1);
+    await page.goto(base + "#/city/antverpen", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("h1");
+    check(`${v.name}: zero-plate city from omitted country renders without crashing`,
+      /Антверпен/i.test(await page.locator("main h1").first().innerText()) && (await page.locator(".nolook").count()) === 1);
     await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
     check(`${v.name}: no console/page errors`, errors.length === 0, errors.slice(0, 2).join(" | "));
