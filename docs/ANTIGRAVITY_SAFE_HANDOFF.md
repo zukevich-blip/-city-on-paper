@@ -71,3 +71,30 @@ pytest -q tests
 For browser testing, inspect `tests/browser/` and `.github/workflows/qa-city-on-paper.yml` for actual dependencies and commands; do not invent test invocations. When the system cannot execute these commands, supply the patch and explicitly mark the tests NOT RUN.
 
 There is no permission to merge or publish, alter repository permissions, or touch private repositories. A ZIP file can be inspected without connecting the entire GitHub account.
+
+
+## Cross-agent handoff: ChatGPT + Claude + Gemini
+
+All agents must use **GitHub as the shared record**, not private chat memory. This is collaboration by source-controlled changes, not direct connectivity between separate chat sessions.
+
+**Ownership and handoff**
+- **Claude**: continue existing museum curation, source research, and design on its current development line. Check `AGENTS.md`, `CLAUDE.md`, live PRs and the latest branch HEAD before modifying.
+- **Gemini / Antigravity**: start as an *independent reviewer* of this public repository. Inspect real source under `claude/consilium-wander` and newer `codex/consilium-mobile` work. Pick one concrete non-overlapping bug, make a new branch prefixed `gemini/`, run the defined tests and open a **draft PR** if GitHub access is authorized.
+- **ChatGPT / Codex**: verify the proposed patch against the product contracts, check CI and site safety, suggest improvements or prepare independent review. No independent publication or merge.
+- **Owner**: reviews tradeoffs, resolves conflicting proposals, approves production merges/publication.
+
+**Shared work anchors:** [Product contract #39](https://github.com/zukevich-blip/-city-on-paper/issues/39), [Design review #40](https://github.com/zukevich-blip/-city-on-paper/issues/40), [Museum expert review #49](https://github.com/zukevich-blip/-city-on-paper/issues/49), [this handoff PR #93](https://github.com/zukevich-blip/-city-on-paper/pull/93).
+
+**Every agent's delivery must include**
+1. Read commit SHA, source branch, exact changed paths and reason for changing each.
+2. Links to relevant product requirement and upstream art/museum record when applicable.
+3. A minimal diff in its *own* branch and a draft PR (if authorized), never a force-push to another agent's branch.
+4. Exact checks run and result, or a clear `NOT RUN` marker.
+5. Screen sizes tested, with real Safari/browser tests only if actually executed.
+6. Known limitations, potential conflicts, what the next agent must review, and an explicit handoff to the owner.
+
+**Conflict control:** One agent owns a given file for the duration of an active change. Before creating work, inspect existing open PRs and issues to avoid duplicating an implemented fix. Do not automatically merge agents' branches, change workflows that control release, or push to `main`.
+
+**Security boundary:** This public repository is the only repository approved for the Gemini pilot. Its instructions do not authorize access to any private repo, personal archive, email, provider account, or secret. Any later private access requires the owner's explicit per-repository decision and separate OAuth authorization with repository-scoped permissions. Do not paste OAuth tokens, passwords or one-time codes into chat.
+
+**No paid automation by default:** No Gemini API / Anthropic API / OpenAI API keys, pay-as-you-go activation, hosted background workers or new subscriptions without an explicit budget approval. Chat subscriptions are not API billing.
