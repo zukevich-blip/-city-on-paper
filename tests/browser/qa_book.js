@@ -63,7 +63,7 @@ const views = [
     check(`${v.name}: tapping a number reads that inscription`, /Lemercier/.test(await page.locator("#signNote").innerText()) && noScroll && (await noScroll()));
     await page.locator(".bsheets").scrollIntoViewIfNeeded();
     // lazy images load as they scroll into view: walk down the grid, then wait until every file has really loaded
-    while (await page.locator("#bsMore").count()) await page.locator("#bsMore").click();
+    while (await page.locator("#bsMore").count()) await page.locator("#bsMore").evaluate((b) => b.click()); // layout shifts while lazy images load, so no stability wait
     for (const f of await page.locator(".bsheet").all()) await f.scrollIntoViewIfNeeded();
     await page.waitForFunction(() => [...document.querySelectorAll(".bsheet img")].every((i) => i.complete && i.naturalWidth > 500), null, { timeout: 90000 });
     const bs = await page.locator(".bsheet").evaluateAll((a) => ({ n: a.length, ok: a.every((f) => f.querySelector("img").naturalWidth > 500),

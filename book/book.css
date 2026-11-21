@@ -216,3 +216,7 @@ h2::before{display:none}
 .story p{margin:2px 0 4px;font:16px/1.5 var(--lt-serif)}
 .story .src{font:13px var(--lt-sans);color:var(--lt-brick)}
 .facts-list.unk li{color:var(--lt-ink-2);font-style:italic}
+
+/* reserve the picture's room so the grid does not jump while lazy images arrive */
+.bsheet .lt-print{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--lt-wash)}
+.bsheet .lt-print img{max-height:100%;width:auto;max-width:100%;height:auto;object-fit:contain}
