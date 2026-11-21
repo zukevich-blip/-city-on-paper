@@ -66,10 +66,10 @@
   async function load() {
     if (D) return D;
     const j = (u, d) => fetch(u).then((r) => (r.ok ? r.json() : d)).catch(() => d);
-    const [atlas, thumbs, hist, pairs, ed, cc0, bnp] = await Promise.all([
+    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh] = await Promise.all([
       j(E + "data/atlas.json", null), j(E + "data/thumbs.json", {}), j(E + "data/history.json", { cities: [] }),
       j("../poc/compare/pairs/index.json", { places: {}, pairs: [] }), j("editorial.json", {}),
-      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }),
+      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }),
     ]);
     // curated records know who made a sheet, who keeps it and on which terms: use them when the url matches
     const known = new Map();
@@ -127,7 +127,7 @@
       k.cities = k.cities.filter((c) => c.plates.length || c.pairs.length).sort((a, b) => b.plates.length - a.plates.length || a.name.localeCompare(b.name, "ru"));
     }
     for (const [name, k] of [...countries]) if (!k.plates) countries.delete(name);
-    D = { cities, countries, plates, ed, pairs, total: [...plates.values()].length };
+    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], total: [...plates.values()].length };
     return D;
   };
   const sortedCountries = () => [...D.countries.values()].sort((a, b) => b.plates - a.plates || a.name.localeCompare(b.name, "ru"));
@@ -308,6 +308,11 @@
       <ol class="toc">${cities.slice(0, 12).map(({ c, n }) => `<li><a href="${cityLink(c)}"><span class="nm">${esc(c.name)}</span><span class="num">${plural(n, "лист", "листа", "листов")}</span><span class="sub">${esc(c.country)}</span></a></li>`).join("")}</ol>
       ${pairs.length ? `<h2>Сравнить Бенуа с фото</h2><div class="cards">${pairs.map((x) => `<a class="card" href="../poc/compare/?journey=1#${esc(x.id)}">${x.pl ? `<img src="../poc/compare/pairs/${esc(x.pl.image)}" alt="" loading="lazy">` : '<span class="ph"></span>'}<span class="body"><b>${esc(x.label)}</b><span class="meta">Тогда и сейчас</span></span></a>`).join("")}</div>` : ""}
       ${open.length ? `<h2>Листы, которые можно открыть здесь</h2><div class="plates">${open.map((p) => `<a class="pl" href="${plateLink(p)}">${img(p.image, p.title, "", 400)}<span class="t">${esc(p.title)}<span class="d">${esc(D.cities.get(p.city).name)}</span></span></a>`).join("")}</div>` : ""}
+      ${D.sheets.length ? `<div class="lt-divider" aria-hidden="true"></div><h2>Листы из открытых музеев</h2>
+        <p class="small">${plural(D.sheets.length, "лист", "листа", "листов")} с открытой лицензией на файл: Paris Musées (CC0) и Rijksmuseum (Public Domain Mark). Участников и роли мы пишем так, как их называет музей, без своих догадок.</p>
+        <div class="bsheets">${D.sheets.map((s) => `<figure class="lt-sheet bsheet"><div class="lt-print"><img src="${esc(s.image)}" alt="${esc(s.title)}" loading="lazy" width="900"></div>
+          <figcaption class="lt-caption">${esc(s.title.split(" / ")[0])}<small>${s.creators && s.creators.length ? s.creators.map((c) => esc(c.role_ru) + ": " + esc(c.name)).join(" · ") : "По записи музея: " + s.participants.map(esc).join(" · ") + " (роли в записи не указаны)"}</small></figcaption>
+          <p class="bs-meta">${esc(s.holder)} · ${esc(s.accession)} · <a href="${esc(safe(s.rights_url))}" target="_blank" rel="noopener">${esc(s.rights)}</a> · <a href="${esc(safe(s.record_url))}" target="_blank" rel="noopener">карточка музея</a>${s.extra_impressions ? " · в музее есть ещё " + plural(s.extra_impressions, "экземпляр", "экземпляра", "экземпляров") + " этого листа" : ""}</p></figure>`).join("")}</div>` : ""}
       ${dock({ href: cityLink(D.cities.get("paris")), t: "Париж с Бенуа", small: "Дальше" }, { href: "#/", t: "Оглавление" })}</div>`;
     const note = document.getElementById("signNote");
     document.querySelectorAll("#sign .hot").forEach((b) => b.addEventListener("click", () => {

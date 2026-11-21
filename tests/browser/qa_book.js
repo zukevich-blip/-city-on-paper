@@ -61,6 +61,12 @@ const views = [
       (await page.locator(".hot").count()) === 5 && (await page.locator(".toc li").count()) >= 5);
     await page.locator(".hot").nth(3).click();
     check(`${v.name}: tapping a number reads that inscription`, /Lemercier/.test(await page.locator("#signNote").innerText()) && noScroll && (await noScroll()));
+    await page.locator(".bsheets").scrollIntoViewIfNeeded();
+    await page.evaluate(async () => { await Promise.all([...document.querySelectorAll(".bsheet img")].map(async (i) => { i.scrollIntoView(); try { await i.decode(); } catch (e) { /* counted below */ } })); });
+    const bs = await page.locator(".bsheet").evaluateAll((a) => ({ n: a.length, ok: a.every((f) => f.querySelector("img").naturalWidth > 500),
+      rights: a.every((f) => /(Public Domain Mark|CC0)/.test(f.innerText)), roles: a.every((f) => /:/.test(f.querySelector("small").innerText)) }));
+    check(`${v.name}: Benoist hub shows 33 open museum sheets with rights and participants`, bs.n === 33 && bs.ok && bs.rights && bs.roles, JSON.stringify(bs));
+    check(`${v.name}: Benoist hub has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
     check(`${v.name}: no console/page errors`, errors.length === 0, errors.slice(0, 2).join(" | "));

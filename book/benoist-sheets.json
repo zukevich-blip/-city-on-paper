@@ -1,0 +1,828 @@
+{
+ "version": 1,
+ "source": "data/curation/benoist-harvest-v1.json",
+ "holders": [
+  "Paris Musées / Musée Carnavalet",
+  "Rijksmuseum"
+ ],
+ "note": "Роли указаны так, как их называет музей. Это не наша атрибуция.",
+ "sheets": [
+  {
+   "id": "parismusees-320290066",
+   "title": "La Sainte-Chapelle",
+   "title_original": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320290066",
+   "record_url": "https://www.parismuseescollections.paris.fr/en/node/645179",
+   "image": "img/benoist/pm-320290066.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Thierry Frères",
+    "L. Chapon"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320291197",
+   "title": "Palais du Luxembourg, côté jardin",
+   "title_original": "Palais du Luxembourg. / Côté jardin.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320291197",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-jardin",
+   "image": "img/benoist/pm-320291197.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320294285",
+   "title": "Le Château d'Eau et le marché aux fleurs",
+   "title_original": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320294285",
+   "record_url": "https://www.parismuseescollections.paris.fr/zh-hans/node/637571",
+   "image": "img/benoist/pm-320294285.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320291945",
+   "title": "Notre-Dame",
+   "title_original": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320291945",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
+   "image": "img/benoist/pm-320291945.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320290399",
+   "title": "Galerie d'Orléans au Palais-Royal",
+   "title_original": "Vues de Paris / Galerie d'Orléans, au Palais Royal.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320290399",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-galerie-d-orleans-au-palais-royal",
+   "image": "img/benoist/pm-320290399.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292157",
+   "title": "Colonne de la place Vendôme",
+   "title_original": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292157",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the",
+   "image": "img/benoist/pm-320292157.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320288755",
+   "title": "Le Louvre achevé et la nouvelle rue de Rivoli",
+   "title_original": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320288755",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
+   "image": "img/benoist/pm-320288755.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Rehauts de couleur",
+   "participants": [
+    "Philippe Benoist"
+   ],
+   "extra_impressions": 1,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320290954",
+   "title": "Saint-Sulpice et Saint-Étienne-du-Mont",
+   "title_original": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320290954",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont",
+   "image": "img/benoist/pm-320290954.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320291211",
+   "title": "Rue de Rivoli, ministères des Finances et de la Marine",
+   "title_original": "Vues de Paris / Rue de Rivoli / Ministères des Finances et de la Marine.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320291211",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-rue-de-rivoli-ministeres-des-finances-et-de-la-marine",
+   "image": "img/benoist/pm-320291211.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320291262",
+   "title": "Bourse et Tribunal de Commerce",
+   "title_original": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320291262",
+   "record_url": "https://parismuseescollections.paris.fr/ru/node/647366",
+   "image": "img/benoist/pm-320291262.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Adolphe Jean Baptiste Bayot",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "creators": []
+  },
+  {
+   "id": "parismusees-320291352",
+   "title": "Colonnade du Louvre",
+   "title_original": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320291352",
+   "record_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
+   "image": "img/benoist/pm-320291352.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 1,
+   "creators": []
+  },
+  {
+   "id": "rijks-RP-P-1904-3864",
+   "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1904-3864",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1904-3864--d6f06ffd3b4205c491b1c6193ddd620d",
+   "image": "img/benoist/rijks-RP-P-1904-3864.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Buffa & Fils, Francois",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Nicolas Marie Joseph Chapuy",
+     "role": "after design by",
+     "role_ru": "по рисунку"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1904-3866",
+   "title": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1904-3866",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1904-3866--f3a162a4ef9cc4968d8bd1e17ffc8f4f",
+   "image": "img/benoist/rijks-RP-P-1904-3866.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Buffa & Fils, Francois",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Nicolas Marie Joseph Chapuy",
+     "role": "after design by",
+     "role_ru": "по рисунку"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1908-1979",
+   "title": "Hôtel de ville de Bruxelles",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1908-1979",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-1979--f2c43f90fd39f046219eebf33ddd362c",
+   "image": "img/benoist/rijks-RP-P-1908-1979.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Nicolas Marie Joseph Chapuy",
+     "role": "after drawing by",
+     "role_ru": "по рисунку"
+    },
+    {
+     "name": "Veith & Hauser",
+     "role": "publisher",
+     "role_ru": "издатель"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1908-259",
+   "title": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1908-259",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-259--70d1c97b8a1228203a2e33d4a222f4a1",
+   "image": "img/benoist/rijks-RP-P-1908-259.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Bulla & Delarue",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "after drawing by",
+     "role_ru": "по рисунку"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Joseph Rose Lemercier",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1908-258",
+   "title": "Naples. Palais du roi",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1908-258",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-258--8c08b213286084e412cb01dc8f6f2cbc",
+   "image": "img/benoist/rijks-RP-P-1908-258.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Bulla & Delarue",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "after drawing by",
+     "role_ru": "по рисунку"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5494",
+   "title": "Place de la Concorde",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5494",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5494--3f42a222e9027e27050340724596eba3",
+   "image": "img/benoist/rijks-RP-P-1905-5494.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5495",
+   "title": "La Madeleine",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5495",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5495--b52166ac4a3a77933c1a9808cec1f07f",
+   "image": "img/benoist/rijks-RP-P-1905-5495.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5496",
+   "title": "Colonne de Juillet",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5496",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5496--55e352fc06193998052872578bfec6f3",
+   "image": "img/benoist/rijks-RP-P-1905-5496.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5497",
+   "title": "Cour d'Honneur",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5497",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5497--7929b38560a78b9873285996e13224c7",
+   "image": "img/benoist/rijks-RP-P-1905-5497.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5498",
+   "title": "Hôtel de Ville",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5498",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5498--38c11b05c521c05cdf6e22fc83e31e85",
+   "image": "img/benoist/rijks-RP-P-1905-5498.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5499",
+   "title": "Jardin du Palais Royal",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5499",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5499--687fde102ea07695f16ba436d39a458b",
+   "image": "img/benoist/rijks-RP-P-1905-5499.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5500",
+   "title": "Notre-Dame, Cathédrale de Paris",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5500",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5500--5d8c494cfd6c6ad22ae964ed2224afd6",
+   "image": "img/benoist/rijks-RP-P-1905-5500.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5501",
+   "title": "Château des Tuileries",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5501",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5501--34851268cd64da0283c30f9af40ede7e",
+   "image": "img/benoist/rijks-RP-P-1905-5501.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5502",
+   "title": "Église St. Étienne-du-Mont",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5502",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5502--439d317099250bfe9c06af874e60234a",
+   "image": "img/benoist/rijks-RP-P-1905-5502.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5503",
+   "title": "Porte St. Denis",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5503",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5503--56ce768410d2f88e13fce8f50143f900",
+   "image": "img/benoist/rijks-RP-P-1905-5503.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5504",
+   "title": "Vues des Palais d'Orçay et de la Légion d'honneur",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5504",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5504--77f9522f83a9f73ccdf342b60f2a98aa",
+   "image": "img/benoist/rijks-RP-P-1905-5504.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5505",
+   "title": "Colonnade du Louvre",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5505",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5505--8d5532db57ad2b34205aec20a47ca896",
+   "image": "img/benoist/rijks-RP-P-1905-5505.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1905-5506",
+   "title": "Le Panthéon",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1905-5506",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5506--7aeaf1ee21c6355ff8322df9b5d8e574",
+   "image": "img/benoist/rijks-RP-P-1905-5506.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Gihaut frères",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    }
+   ]
+  },
+  {
+   "id": "rijks-RP-P-1944-1699",
+   "title": "Rome Vestibule de la Basilique de St. Pierre / Roma Vestibulo della Basilica di San Pietro",
+   "holder": "Rijksmuseum",
+   "accession": "RP-P-1944-1699",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1944-1699--4fd06dd5a935605a9512a406a7d311f5",
+   "image": "img/benoist/rijks-RP-P-1944-1699.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "after own design by",
+     "role_ru": "по собственному рисунку"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Bulla & Jouy",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Lemercier et Cie.",
+     "role": "printer (person)",
+     "role_ru": "печатник"
+    },
+    {
+     "name": "François Delarue",
+     "role": "publisher",
+     "role_ru": "издатель"
+    }
+   ]
+  },
+  {
+   "id": "rijks-KOG-AA-1-2-19",
+   "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+   "holder": "Rijksmuseum",
+   "accession": "KOG-AA-1-2-19",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-1-2-19--35206282c07914d136210d58364c2e4d",
+   "image": "img/benoist/rijks-KOG-AA-1-2-19.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Buffa & Fils, Francois",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Nicolas Marie Joseph Chapuy",
+     "role": "after design by",
+     "role_ru": "по рисунку"
+    }
+   ]
+  },
+  {
+   "id": "rijks-KOG-AA-1-2-20",
+   "title": "Gezigt op het Westerdok / Vue du Port Bassin de l'Ouest",
+   "holder": "Rijksmuseum",
+   "accession": "KOG-AA-1-2-20",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-1-2-20--89134cd4e2834198a9c4a05b98089777",
+   "image": "img/benoist/rijks-KOG-AA-1-2-20.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Buffa & Fils, Francois",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Nicolas Marie Joseph Chapuy",
+     "role": "after design by",
+     "role_ru": "по рисунку"
+    }
+   ]
+  },
+  {
+   "id": "rijks-KOG-AA-8-71",
+   "title": "Gezigt op het Oosterdok / Vue du Port Bassin de l'Est",
+   "holder": "Rijksmuseum",
+   "accession": "KOG-AA-8-71",
+   "record_url": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-AA-8-71--4dcdaa1713531fffd6d73e0128ad19f3",
+   "image": "img/benoist/rijks-KOG-AA-8-71.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "printmaker",
+     "role_ru": "автор оттиска (printmaker)"
+    },
+    {
+     "name": "Buffa & Fils, Francois",
+     "role": "publisher",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Nicolas Marie Joseph Chapuy",
+     "role": "after drawing by",
+     "role_ru": "по рисунку"
+    }
+   ]
+  }
+ ]
+}

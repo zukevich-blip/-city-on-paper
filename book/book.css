@@ -177,3 +177,11 @@ h2::before{display:none}
 .hot[aria-pressed=true]{background:var(--lt-brick);color:#fff}
 .hot:focus-visible{outline:3px solid var(--lt-gold);outline-offset:3px}
 @media(pointer:coarse){.hot{width:40px;height:40px;font-size:15px}}
+
+/* Листы Бенуа из открытых хранилищ */
+.bsheets{display:grid;gap:18px;margin-top:12px}
+@media(min-width:700px){.bsheets{grid-template-columns:1fr 1fr}}
+.bsheet .lt-caption{font-size:13px}
+.bsheet .lt-caption small{margin-top:6px;line-height:1.45}
+.bs-meta{margin:8px 2px 0;font:12px/1.5 var(--lt-sans);color:var(--lt-ink-2);text-align:center}
+.bs-meta a{color:var(--lt-brick)}
