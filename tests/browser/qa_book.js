@@ -62,7 +62,9 @@ const views = [
     await page.locator(".hot").nth(3).click();
     check(`${v.name}: tapping a number reads that inscription`, /Lemercier/.test(await page.locator("#signNote").innerText()) && noScroll && (await noScroll()));
     await page.locator(".bsheets").scrollIntoViewIfNeeded();
-    await page.evaluate(async () => { await Promise.all([...document.querySelectorAll(".bsheet img")].map(async (i) => { i.scrollIntoView(); try { await i.decode(); } catch (e) { /* counted below */ } })); });
+    // lazy images load as they scroll into view: walk down the grid, then wait until every file has really loaded
+    for (const f of await page.locator(".bsheet").all()) await f.scrollIntoViewIfNeeded();
+    await page.waitForFunction(() => [...document.querySelectorAll(".bsheet img")].every((i) => i.complete && i.naturalWidth > 500), null, { timeout: 90000 });
     const bs = await page.locator(".bsheet").evaluateAll((a) => ({ n: a.length, ok: a.every((f) => f.querySelector("img").naturalWidth > 500),
       rights: a.every((f) => /(Public Domain Mark|CC0)/.test(f.innerText)), roles: a.every((f) => /:/.test(f.querySelector("small").innerText)) }));
     check(`${v.name}: Benoist hub shows 33 open museum sheets with rights and participants`, bs.n === 33 && bs.ok && bs.rights && bs.roles, JSON.stringify(bs));
