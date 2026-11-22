@@ -223,3 +223,12 @@ h2::before{display:none}
 
 .bsheet{min-width:0}
 .bsheet .lt-print{min-width:0}
+
+/* хронология */
+.tlhist{display:flex;gap:6px;align-items:flex-end;height:150px;margin:14px 0 6px;padding:0 2px}
+.tlbar{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px;height:100%;padding:0;border:0;background:none;cursor:pointer;font:600 10px var(--lt-sans);color:var(--lt-ink-2)}
+.tlbar i{display:block;width:100%;min-height:2px;background:var(--lt-rule);border:1px solid var(--lt-sepia)}
+.tlbar[aria-pressed=true] i{background:#355a43;border-color:#2a4636}
+.tlbar b{font-weight:700;color:var(--lt-brick)}
+.tlctl label{display:flex;gap:8px;align-items:baseline;margin-top:4px}
+.tlyear{list-style:none;font:600 12px var(--lt-sans);letter-spacing:.16em;color:var(--lt-brick);padding:8px 2px 0;border-top:1px dotted var(--lt-rule)}

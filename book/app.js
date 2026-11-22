@@ -183,6 +183,7 @@
         : `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(D.cities.get(p.city).name)}${p.date ? " · " + esc(p.date) : ""}</span><b>${esc(p.title)}</b><span class="hook">${esc(hook || "")}</span></span></a>`).join("")}</div>` : '<span id="main"></span>'}
       <a class="theme" href="#/benoist"><span class="lt-small">Тема издания</span><b>Листы Бенуа</b><span>Как читать подпись литографии, где есть листы Филиппа и Феликса Бенуа и как сравнить их с фото сегодня.</span></a>
       <a class="theme" href="#/catalog"><span class="lt-small">Реестр</span><b>Собрание</b><span>Все найденные листы Бенуа по авторам, сериям, странам и городам: сколько найдено, сколько проверено и сколько можно показать.</span></a>
+      <a class="theme" href="#/timeline"><span class="lt-small">По годам</span><b>Хронология</b><span>Листы от 1790-х до 1880-х: двигайте ползунки и смотрите, что печатали в каждое десятилетие.</span></a>
       <a class="theme" href="#/places"><span class="lt-small">Истории</span><b>Истории мест</b><span>Нотр-Дам, Сент-Шапель, колоннада Лувра, Пале-Рояль и утраченный дворец Тюильри: факты с датами и ссылками на источники.</span></a>
       <h2 id="toc">Оглавление</h2>
       <ol class="toc">${top.map(tocItem).join("")}</ol>
@@ -355,6 +356,12 @@
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
   }
 
+  const workRow = (w, byImg) => { const sh = w.image && byImg.get(w.image);
+      return `<li class="cw">${sh ? `<a class="th" href="#/sheet/${esc(sh.id)}"><img src="${esc(sh.image)}" alt="" loading="lazy" width="96"></a>` : `<span class="th none" aria-hidden="true">нет файла</span>`}
+        <div><b>${esc(cut(String(w.title || "Без названия").split(" / ")[0], 70))}</b>
+        <span class="sub">${[ARTIST[w.artist], w.series, w.city, w.date].filter(Boolean).map(esc).join(" · ")}</span>
+        <span class="sub">${w.impressions > 1 ? plural(w.impressions, "экземпляр", "экземпляра", "экземпляров") + " · " : ""}${w.open_file ? "изображение открыто" : "только ссылка на хранителя"}${sh ? ` · <a href="#/sheet/${esc(sh.id)}">лист в книге</a>` : ""}${(w.links || [])[0] ? ` · <a href="${esc(safe(w.links[0].u))}" target="_blank" rel="noopener">${esc(w.links[0].i || "в собрании")} ↗</a>` : ""}</span></div></li>`; };
+
   // ---------- the collection register: author -> series -> country -> city -> work, with honest counters
   const catState = { series: "", country: "", city: "", take: 40 };
   function viewCatalog(artist) {
@@ -368,11 +375,7 @@
     const uniq = (k) => [...new Set(pool.map((w) => w[k]).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ru"));
     const list = pool.filter((w) => (!catState.series || w.series === catState.series) && (!catState.country || w.country === catState.country) && (!catState.city || w.city === catState.city));
     const chips = (k, vals, label) => vals.length ? `<div class="chips" role="group" aria-label="${label}"><button type="button" data-k="${k}" data-v="" aria-pressed="${!catState[k]}">Все</button>${vals.map((v) => `<button type="button" data-k="${k}" data-v="${esc(v)}" aria-pressed="${catState[k] === v}">${esc(cut(v, 28))}</button>`).join("")}</div>` : "";
-    const row = (w) => { const sh = w.image && byImg.get(w.image);
-      return `<li class="cw">${sh ? `<a class="th" href="#/sheet/${esc(sh.id)}"><img src="${esc(sh.image)}" alt="" loading="lazy" width="96"></a>` : `<span class="th none" aria-hidden="true">нет файла</span>`}
-        <div><b>${esc(cut(String(w.title || "Без названия").split(" / ")[0], 70))}</b>
-        <span class="sub">${[ARTIST[w.artist], w.series, w.city, w.date].filter(Boolean).map(esc).join(" · ")}</span>
-        <span class="sub">${w.impressions > 1 ? plural(w.impressions, "экземпляр", "экземпляра", "экземпляров") + " · " : ""}${w.open_file ? "изображение открыто" : "только ссылка на хранителя"}${sh ? ` · <a href="#/sheet/${esc(sh.id)}">лист в книге</a>` : ""}${(w.links || [])[0] ? ` · <a href="${esc(safe(w.links[0].u))}" target="_blank" rel="noopener">${esc(w.links[0].i || "в собрании")} ↗</a>` : ""}</span></div></li>`; };
+    const row = (w) => workRow(w, byImg);
     $app.innerHTML = `<div class="page-enter">
       <section class="chead"><p class="eyebrow">Реестр произведений</p><h1>Собрание</h1>
         <p class="lede">Сколько листов найдено и сколько из них можно показать. Записи без права показа остаются ссылками на хранителя: мы не копируем то, что копировать нельзя.</p></section>
@@ -417,6 +420,47 @@
       ${dock({ href: "#/benoist", t: "Листы Бенуа" }, { href: "#/", t: "Оглавление" })}</div>`;
   }
 
+  // ---------- chronology: slide through the years the register knows (only works whose record states a year)
+  const TL = { from: 1840, to: 1865, take: 40 };
+  const TL_MIN = 1790, TL_MAX = 1890;
+  function viewTimeline() {
+    setTitle("Хронология"); crumbs([{ t: "Книга", href: "#/" }, { t: "Хронология" }]);
+    const R = D.reg || { works: [] };
+    const dated = R.works.filter((w) => w.year);
+    if (!dated.length) return notFound();
+    const byImg = new Map(D.sheets.map((x) => [x.image, x]));
+    const inScale = dated.filter((w) => w.year >= TL_MIN && w.year <= TL_MAX);
+    const decades = []; for (let d = TL_MIN; d < TL_MAX; d += 10) decades.push([d, inScale.filter((w) => w.year >= d && w.year < d + 10).length]);
+    const peak = Math.max(1, ...decades.map((x) => x[1]));
+    const draw = () => {
+      const lo = Math.min(TL.from, TL.to), hi = Math.max(TL.from, TL.to);
+      const list = inScale.filter((w) => w.year >= lo && w.year <= hi).sort((a, b) => a.year - b.year);
+      const withImg = list.filter((w) => w.image).length;
+      document.getElementById("tlOut").innerHTML = `<p class="small" role="status">${lo === hi ? lo : lo + "–" + hi}: ${plural(list.length, "лист", "листа", "листов")}, из них ${withImg} с картинкой в книге. Без указанного года в записях ещё ${R.works.length - dated.length} листов, вне шкалы ${dated.length - inScale.length}.</p>
+        <ul class="cwlist">${list.slice(0, TL.take).map((w) => `<li class="tlyear" aria-hidden="true">${w.year}</li>` + workRow(w, byImg)).join("")}</ul>
+        ${list.length > TL.take ? `<p class="btn-row"><button type="button" class="btn ghost" id="tlMore">Показать ещё</button></p>` : ""}`;
+      const more = document.getElementById("tlMore"); if (more) more.addEventListener("click", () => { TL.take += 40; draw(); });
+      document.querySelectorAll(".tlbar").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.d) <= hi && Number(b.dataset.d) + 9 >= lo)));
+      document.getElementById("tlFromV").textContent = TL.from; document.getElementById("tlToV").textContent = TL.to;
+    };
+    $app.innerHTML = `<div class="page-enter">
+      <section class="chead"><p class="eyebrow">Листы по годам</p><h1>Хронология</h1>
+        <p class="lede">Двигайте ползунки: книга покажет листы, у которых музей назвал год. Остальные записи без года в эту шкалу не попадают, мы их не угадываем.</p></section>
+      <div class="tlhist" role="group" aria-label="Сколько листов в каждом десятилетии">${decades.map(([d, n]) => `<button type="button" class="tlbar" data-d="${d}" aria-label="${d}-е годы: ${n}"><i style="height:${Math.round((n / peak) * 100)}%"></i><span>${d}</span><b>${n}</b></button>`).join("")}</div>
+      <div class="lt-tool tlctl"><label for="tlFrom"><span class="lt-legend">С года</span> <b id="tlFromV">${TL.from}</b></label><input id="tlFrom" type="range" min="${TL_MIN}" max="${TL_MAX}" step="1" value="${TL.from}">
+        <label for="tlTo"><span class="lt-legend">По год</span> <b id="tlToV">${TL.to}</b></label><input id="tlTo" type="range" min="${TL_MIN}" max="${TL_MAX}" step="1" value="${TL.to}"></div>
+      <div id="tlOut"></div>
+      ${dock({ href: "#/catalog", t: "Собрание" }, { href: "#/", t: "Оглавление" })}</div>`;
+    const set = (k, v) => { TL[k] = Number(v); TL.take = 40; draw(); };
+    document.getElementById("tlFrom").addEventListener("input", (e) => set("from", e.target.value));
+    document.getElementById("tlTo").addEventListener("input", (e) => set("to", e.target.value));
+    document.querySelectorAll(".tlbar").forEach((b) => b.addEventListener("click", () => {
+      const d = Number(b.dataset.d); TL.from = d; TL.to = d + 9; TL.take = 40;
+      document.getElementById("tlFrom").value = d; document.getElementById("tlTo").value = d + 9; draw();
+    }));
+    draw();
+  }
+
   function notFound() {
     setTitle("Страница не найдена"); crumbs([{ t: "Книга", href: "#/" }, { t: "Нет такой страницы" }]);
     $app.innerHTML = `<section class="chead"><h1>Такой страницы нет</h1><p class="lede">Возможно, ссылка устарела. Вернитесь к оглавлению.</p><div class="btn-row"><a class="btn" href="#/">К оглавлению</a></div></section>`;
@@ -449,6 +493,7 @@
     else if (h[0] === "place") viewPlace(arg);
     else if (h[0] === "places") viewPlaces();
     else if (h[0] === "catalog") viewCatalog(arg);
+    else if (h[0] === "timeline") viewTimeline();
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else notFound();
     if (h[0] !== "main" && h[0] !== "toc") window.scrollTo(0, 0);

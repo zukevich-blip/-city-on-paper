@@ -101,6 +101,12 @@ def legacy_to_schema(rec: dict) -> dict:
     }
 
 
+def year_of(date: str | None) -> int | None:
+    """First plausible year (1500-1999) in a date string exactly as a record states it."""
+    m = re.search(r"(?<!\d)(1[5-9]\d\d)(?!\d)", date or "")
+    return int(m.group(1)) if m else None
+
+
 def group_key(rec: dict) -> str:
     hint = rec.get("duplicate_hint")
     if hint:
@@ -171,6 +177,7 @@ def build() -> tuple[dict, dict]:
                 "city": city,
                 "country": CITY_COUNTRY.get(city or "") if city else None,
                 "date": next((m.get("date_as_stated") for m in members if m.get("date_as_stated")), None),
+                "year": year_of(next((m.get("date_as_stated") for m in members if m.get("date_as_stated")), None)),
                 "kind": head.get("object_type"),
                 "impressions": len(members),
                 "image": image,
@@ -215,6 +222,7 @@ def build() -> tuple[dict, dict]:
                     "city",
                     "country",
                     "date",
+                    "year",
                     "kind",
                     "impressions",
                     "image",

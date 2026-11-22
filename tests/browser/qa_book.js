@@ -96,6 +96,13 @@ const views = [
     check(`${v.name}: every story fact has a date and an https source`, facts.length >= 3 && facts.every((f) => f.when && /^https:/.test(f.href)), JSON.stringify(facts.slice(0, 1)));
     check(`${v.name}: unknowns are stated`, (await page.locator(".unk li").count()) >= 1);
     check(`${v.name}: place page has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
+    await page.goto(base + "#/timeline", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".tlbar");
+    const t0 = await page.locator("#tlOut .small").innerText();
+    await page.locator("#tlFrom").fill("1860"); await page.locator("#tlTo").fill("1862");
+    const t1 = await page.locator("#tlOut .small").innerText();
+    check(`${v.name}: timeline sliders narrow the range and the list`, (await page.locator(".tlbar").count()) === 10 && t0 !== t1 && /1860–1862/.test(t1) && (await page.locator("#tlOut .cw").count()) > 0, t1.slice(0, 60));
+    check(`${v.name}: timeline has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
     check(`${v.name}: no console/page errors`, errors.length === 0, errors.slice(0, 2).join(" | "));
