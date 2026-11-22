@@ -232,3 +232,11 @@ h2::before{display:none}
 .tlbar b{font-weight:700;color:var(--lt-brick)}
 .tlctl label{display:flex;gap:8px;align-items:baseline;margin-top:4px}
 .tlyear{list-style:none;font:600 12px var(--lt-sans);letter-spacing:.16em;color:var(--lt-brick);padding:8px 2px 0;border-top:1px dotted var(--lt-rule)}
+
+/* карта места и встроенное сравнение */
+.placemap{height:320px;border:1px solid var(--lt-sepia);background:var(--lt-wash);margin:8px 0}
+.planimg{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;pointer-events:none}
+.placectl{display:grid;gap:8px;margin-top:8px}
+.cmp{margin:10px 0}
+.cmpframe{width:100%;height:720px;border:1px solid var(--lt-sepia);background:var(--lt-page)}
+@media(min-width:700px){.cmpframe{height:760px}}

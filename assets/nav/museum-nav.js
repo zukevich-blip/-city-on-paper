@@ -20,6 +20,7 @@
   const here = location.pathname.replace(/index\.html$/, "");
   // The curated homepage owns its primary navigation. Keep the global bar in inner rooms.
   if (here === new URL(base).pathname) return;
+  if (new URLSearchParams(location.search).has("embed")) return; // embedded inside another page: no global bar
   const isHere = (p) => {
     if (p.includes("#")) { const [path, hash] = p.split("#"); return here.endsWith("/" + path) && location.hash.startsWith("#" + hash); }
     if (p === "eras/" && /^#\/epoch/.test(location.hash)) return false;

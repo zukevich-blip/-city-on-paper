@@ -66,10 +66,10 @@
   async function load() {
     if (D) return D;
     const j = (u, d) => fetch(u).then((r) => (r.ok ? r.json() : d)).catch(() => d);
-    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh, reg, plc] = await Promise.all([
+    const [atlas, thumbs, hist, pairs, ed, cc0, bnp, bsh, reg, plc, spl] = await Promise.all([
       j(E + "data/atlas.json", null), j(E + "data/thumbs.json", {}), j(E + "data/history.json", { cities: [] }),
       j("../poc/compare/pairs/index.json", { places: {}, pairs: [] }), j("editorial.json", {}),
-      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }), j("benoist-registry.json", { summary: null, works: [] }), j("places.json", { places: [] }),
+      j("../data/curation/cc0-gallery-20261103.json", { items: [] }), j("../data/curation/benoist-paris-musees-v1.json", { items: [] }), j("benoist-sheets.json", { sheets: [] }), j("benoist-registry.json", { summary: null, works: [] }), j("places.json", { places: [] }), j("sheet-places.json", { sheets: {} }),
     ]);
     // curated records know who made a sheet, who keeps it and on which terms: use them when the url matches
     const known = new Map();
@@ -127,7 +127,7 @@
       k.cities = k.cities.filter((c) => c.plates.length || c.pairs.length).sort((a, b) => b.plates.length - a.plates.length || a.name.localeCompare(b.name, "ru"));
     }
     for (const [name, k] of [...countries]) if (!k.plates) countries.delete(name);
-    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], reg, places: (plc && plc.places) || [], total: [...plates.values()].length };
+    D = { cities, countries, plates, ed, pairs, sheets: (bsh && bsh.sheets) || [], reg, places: (plc && plc.places) || [], sp: (spl && spl.sheets) || {}, total: [...plates.values()].length };
     return D;
   };
   const sortedCountries = () => [...D.countries.values()].sort((a, b) => b.plates - a.plates || a.name.localeCompare(b.name, "ru"));
@@ -351,9 +351,12 @@
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
       <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
         <dt>Оригинал</dt><dd><a href="${esc(safe(sh.record_url))}" target="_blank" rel="noopener">карточка в собрании ↗</a></dd>${more ? `<dt>Другие экземпляры</dt><dd>${more}</dd>` : ""}</dl>
+      ${compareSection(sh)}
+      ${placeSection(sh)}
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+    mountPlace(sh);
   }
 
   const workRow = (w, byImg) => { const sh = w.image && byImg.get(w.image);
@@ -390,6 +393,83 @@
     const more = document.getElementById("catMore"); if (more) more.addEventListener("click", () => { catState.take += 40; viewCatalog(artist); });
   }
 
+
+  // ---------- where it stands, then and now, and where the photographer looked
+  const PLAN = { s: 48.815, n: 48.901, w: 2.2365, e: 2.4173 }; // extent of our georeferenced 1878 plan of Paris
+  const inPlan = (p) => p && p.lat >= PLAN.s && p.lat <= PLAN.n && p.lon >= PLAN.w && p.lon <= PLAN.e;
+  const wedge = (lat, lon, head, len = 150, spread = 22) => {
+    const R = 111320, k = Math.cos(lat * Math.PI / 180);
+    const pt = (h, d) => [lat + (d * Math.cos(h * Math.PI / 180)) / R, lon + (d * Math.sin(h * Math.PI / 180)) / (R * k)];
+    return [[lat, lon], pt(head - spread, len), pt(head, len * 1.06), pt(head + spread, len)];
+  };
+  function compareSection(sh) {
+    const e = D.sp[sh.id] || { pairs: [] };
+    if (!e.pairs.length) {
+      return `<h2>Сравнить с сегодняшним днём</h2><div class="lt-tool" role="note"><span class="lt-legend">Современный кадр</span>
+        <p>Для этого листа пока нет подтверждённого современного снимка: ракурс не установлен. Мы не подгоняем чужое фото на глаз ради эффекта. Можно <a href="../fieldwork/">снять это место сами</a>: фото останется только у вас в браузере.</p></div>`;
+    }
+    return `<h2>Сравнить с сегодняшним днём</h2>` + e.pairs.map((q) => `<div class="cmp">
+      <p class="small"><b>${esc(q.status_ru)}.</b> Фото: ${esc(q.photo.author || "автор не указан")}${q.photo.date ? ", " + esc(q.photo.date) : ""}${q.photo.licence ? ", " + esc(q.photo.licence) : ""}.</p>
+      <iframe class="cmpframe" loading="lazy" src="../poc/compare/?embed=1#${esc(q.id)}" title="Инструмент сравнения: лист и сегодняшний снимок"></iframe>
+      <p class="small">В режимах «Переход» и «Шторка» рисунок плавно превращается в фото; «Совместить» включает и выключает подгонку по геометрии здания (с ползунком прозрачности). <a href="../poc/compare/?journey=1#${esc(q.id)}">Открыть на весь экран →</a></p></div>`).join("");
+  }
+  function placeSection(sh) {
+    const e = D.sp[sh.id];
+    if (!e || !e.place) {
+      return `<h2>Где это</h2><div class="lt-tool" role="note"><span class="lt-legend">Место</span><p>Здание на этом листе мы пока не привязали к карте: название не позволяет назвать место без догадок.</p></div>`;
+    }
+    const plan = inPlan(e.place);
+    const est = e.pairs.map((q) => q.artist_estimate).filter(Boolean)[0];
+    return `<h2>Где это</h2><p class="small">${esc(e.place.name)}, ${esc(e.place.city)}. Координаты здания приблизительные (OpenStreetMap).</p>
+      <div id="placemap" class="placemap" role="img" aria-label="Карта: где находится здание и куда смотрит современная фотография"></div>
+      <div class="lt-tool placectl"><button type="button" class="btn ghost" id="planBtn" aria-pressed="false"${plan ? "" : " hidden"}>Старый план Парижа 1878</button>
+        <label for="planRange" id="planRangeL" hidden><span class="lt-legend">Прозрачность плана</span></label><input id="planRange" type="range" min="10" max="100" value="70" hidden>
+        <p class="small" id="planNote" role="status"></p></div>
+      <p class="small">${e.pairs.some((q) => q.photo.lat) ? "Зелёный клин: куда смотрит современная фотография (положение камеры из данных Panoramax, направление по компасу снимка)." : "Современной фотографии для этого места пока нет, поэтому направление взгляда не показано."}${est ? " Где стоял художник, известно только как оценка по рисунку: " + esc(est) + "." : " Где стоял художник, мы не знаем: измерить это по рисунку без догадок нельзя."}</p>`;
+  }
+  let planData = null;
+  function mountPlace(sh) {
+    const e = D.sp[sh.id], el = document.getElementById("placemap");
+    if (!e || !e.place || !el || !window.L) return;
+    const map = L.map(el, { scrollWheelZoom: false });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(map);
+    const pts = [[e.place.lat, e.place.lon]];
+    L.circleMarker(pts[0], { radius: 9, color: "#23493d", weight: 2, fillColor: "#8d4b36", fillOpacity: .95 }).addTo(map).bindTooltip(e.place.name);
+    for (const q of e.pairs) {
+      if (q.photo.lat == null || q.photo.heading == null) continue;
+      L.polygon(wedge(q.photo.lat, q.photo.lon, q.photo.heading), { color: "#3d5a45", weight: 1, fillColor: "#3d5a45", fillOpacity: .35 }).addTo(map)
+        .bindTooltip("Фото " + (q.photo.date || "") + ", направление " + Math.round(q.photo.heading) + "°");
+      L.circleMarker([q.photo.lat, q.photo.lon], { radius: 5, color: "#3d5a45", fillColor: "#fbf5e4", fillOpacity: 1 }).addTo(map);
+      pts.push([q.photo.lat, q.photo.lon]);
+    }
+    if (pts.length > 1) map.fitBounds(pts, { padding: [30, 30], maxZoom: 17 }); else map.setView(pts[0], 16);
+    const btn = document.getElementById("planBtn"), range = document.getElementById("planRange"), rl = document.getElementById("planRangeL"), note = document.getElementById("planNote");
+    if (!btn || btn.hidden) return;
+    let layer = null;
+    const localPlan = (data) => new (L.Layer.extend({
+      onAdd(m) {
+        this.image = document.createElement("img"); this.image.src = "../eras/img/loc-2012586603-paris-1878.jpg"; this.image.alt = ""; this.image.className = "planimg";
+        this.image.style.clipPath = `polygon(${data.clip})`; this.image.style.opacity = String(range.value / 100);
+        this.update = () => {
+          const [tl, tr, , bl] = data.corners.map((c) => m.latLngToLayerPoint(c));
+          this.image.style.transform = `matrix(${(tr.x - tl.x) / 2000},${(tr.y - tl.y) / 2000},${(bl.x - tl.x) / 1448},${(bl.y - tl.y) / 1448},${tl.x},${tl.y})`;
+        };
+        m.getPane("overlayPane").append(this.image); m.on("move zoom viewreset", this.update); this.update();
+      },
+      onRemove(m) { this.image.remove(); m.off("move zoom viewreset", this.update); },
+    }))();
+    btn.addEventListener("click", async () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", String(on)); range.hidden = rl.hidden = !on;
+      if (!on) { if (layer) map.removeLayer(layer); note.textContent = ""; return; }
+      try {
+        if (!planData) planData = await (await fetch("../eras/data/paris-1878-overlay.json")).json();
+        layer = layer || localPlan(planData); layer.addTo(map);
+        note.textContent = "План Парижа 1878 года (Библиотека Конгресса), приблизительная привязка по 15 точкам; участок плана ограничен опорными точками, дальше карта сегодняшняя.";
+      } catch (err) { note.textContent = "План сейчас недоступен."; btn.setAttribute("aria-pressed", "false"); }
+    });
+    range.addEventListener("input", () => { if (layer && layer.image) layer.image.style.opacity = String(range.value / 100); });
+  }
 
   // ---------- the story of a place: every statement points to its source, unknowns are said aloud
   const STATUS = { exists: "здание стоит", rebuilt: "здание пережило пожар и восстановлено", lost: "здание утрачено" };

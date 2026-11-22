@@ -86,6 +86,14 @@ const views = [
     await page.locator(".chips").nth(1).locator("button").nth(1).click();
     check(`${v.name}: register filters narrow the list`, (await page.locator(".cw").count()) <= before);
     check(`${v.name}: register has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
+    await page.goto(base + "#/sheet/parismusees-320291945", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#placemap");
+    check(`${v.name}: sheet with a pair embeds the compare tool and a map with the camera wedge`,
+      (await page.locator('.cmpframe[src*="embed=1"]').count()) === 1 && (await page.locator("#placemap path.leaflet-interactive").count()) >= 1);
+    check(`${v.name}: sheet page offers the 1878 plan with transparency`, (await page.locator("#planBtn").isVisible()));
+    await page.goto(base + "#/sheet/parismusees-320290108", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("[role=note]");
+    check(`${v.name}: sheet without a photo says the viewpoint is not established`, /ракурс не установлен/.test(await page.locator("[role=note]").first().innerText()));
     await page.goto(base + "#/places", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".toc li");
     check(`${v.name}: five place histories are listed`, (await page.locator(".toc li").count()) === 5);
