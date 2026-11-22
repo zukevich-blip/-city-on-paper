@@ -1032,7 +1032,7 @@ def run_aic(f: Fetcher, authors, max_pages=6) -> dict:
     return {"records": list(recs.values()), "queries": qs}
 
 
-def run_met(f: Fetcher, authors, max_objects=120) -> dict:
+def run_met(f: Fetcher, authors, max_objects=450) -> dict:
     recs, qs = {}, []
     for a in authors:
         term = a["queries"][0]
@@ -1055,6 +1055,9 @@ def run_met(f: Fetcher, authors, max_objects=120) -> dict:
             if r and r["artist_id"] == a["slug"] and in_period(r["date_as_stated"]):
                 recs.setdefault(r["record_id"], r)
                 e["kept"] += 1
+            if e["examined"] >= 40 and e["kept"] == 0:
+                e["stopped_early"] = "0 kept in the first 40 examined (name matches other people); remaining IDs not fetched"
+                break
     return {"records": list(recs.values()), "queries": qs}
 
 
@@ -1267,19 +1270,33 @@ def run_commons(f: Fetcher, authors) -> dict:
     return {"records": list(recs.values()), "queries": qs}
 
 
-def run_parismusees(f: Fetcher, authors, max_pages=2, max_records=20) -> dict:
+# Paris Musees authority search: the free-text path ignores the query (454055 hits), the author path works.
+PM_PATH = "/fr/recherche/AND/auteur/"
+PM_FORMS = {
+    "thomas-shotter-boys": "Boys, Thomas Shotter",
+    "canaletto": "Canaletto",
+    "alexandre-benois": "Benois",
+    "albert-benois": "Benois",
+    "nicolas-benois": "Benois",
+    "thomas-hosmer-shepherd": "Shepherd, Thomas Hosmer",
+    "eugene-ciceri": "Cicéri",
+    "israel-silvestre": "Silvestre",
+}
+
+
+def run_parismusees(f: Fetcher, authors, max_pages=2, max_records=25) -> dict:
     from tools.world import search_parismusees as pm
 
     fetch = pm.Fetcher(f.cache / "pm", delay=1.5)
     recs, qs = {}, []
     fails = 0
     for a in authors:
-        term = a["queries"][0]
-        e = qentry("parismusees", a["slug"], term, pm.SITE + "/fr/recherche/" + urllib.parse.quote(term))
+        term = PM_FORMS.get(a["slug"]) or a["name"].split("(")[0].split()[-1]
+        e = qentry("parismusees", a["slug"], f"auteur:{term}", pm.SITE + PM_PATH + urllib.parse.quote(term, safe=""))
         qs.append(e)
         cards = []
         for p in range(1, max_pages + 1):
-            html = fetch.get(pm.SITE + "/fr/recherche/" + urllib.parse.quote(term) + (f"?page={p}" if p > 1 else ""))
+            html = fetch.get(pm.SITE + PM_PATH + urllib.parse.quote(term, safe="") + (f"?page={p}" if p > 1 else ""))
             if not html:
                 fails += 1
                 break
