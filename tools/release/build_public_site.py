@@ -49,7 +49,8 @@ DATA = (
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
     "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
-    "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/litho", "assets/story", "assets/share",
+    "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk",
+    "assets/nav", "assets/litho", "assets/story", "assets/share",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
              "private-archive", "data/private", "data/research/benoist", "research",
@@ -100,7 +101,7 @@ def optimize(page: Path, rel: str) -> None:
             '<meta property="og:image:type" content="image/jpeg">\n'
             '<meta property="og:image:width" content="1200">\n'
             '<meta property="og:image:height" content="630">\n'
-            '<meta property="og:image:alt" content="Три музейные литографии Филиппа Бенуа: Нотр-Дам, Лувр и Вандомская колонна">\n'
+            '<meta property="og:image:alt" content="Музейные литографии Бенуа: Нотр-Дам, Лувр, Вандомская колонна">\n'
             f'<meta name="twitter:image" content="{image}">\n'
         )
     if rel == "index.html":
