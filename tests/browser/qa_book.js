@@ -10,6 +10,9 @@ const views = [
   { name: "iphone-320", viewport: { width: 320, height: 640 }, isMobile: true, hasTouch: true },
   { name: "desktop-1280", viewport: { width: 1280, height: 900 } },
 ];
+const fs = require("fs"), path = require("path");
+const SHEET_LIST = JSON.parse(fs.readFileSync(path.join(__dirname, "../../book/benoist-sheets.json"), "utf8")).sheets;
+const SHEETS = SHEET_LIST.length;
 (async () => {
   const browser = await chromium.launch();
   for (const v of views) {
@@ -85,6 +88,15 @@ const views = [
     const before = await page.locator(".cw").count();
     await page.locator(".chips").nth(1).locator("button").nth(1).click();
     check(`${v.name}: register filters narrow the list`, (await page.locator(".cw").count()) <= before);
+    await page.locator('a.chip[href="#/catalog/felix-benoist"]').click();
+    await page.locator('a.chip[href="#/catalog/felix-benoist"][aria-current="page"]').waitFor();
+    await page.locator('.chips button[data-k="country"]').nth(1).click();
+    await page.locator('a.chip[href="#/catalog/philippe-benoist"]').click();
+    await page.locator('a.chip[href="#/catalog/philippe-benoist"][aria-current="page"]').waitFor();
+    check(`${v.name}: switching author drops stale filters`, (await page.locator(".cw").count()) >= 30 && (await page.locator('.chips[aria-label="Страна"] button[data-v=""]').getAttribute("aria-pressed")) === "true");
+    await page.locator('a.chip[href="#/catalog"]').click();
+    await page.locator('a.chip[href="#/catalog"][aria-current="page"]').waitFor();
+    check(`${v.name}: register counts real sheets`, (await page.locator(".stats dd").last().innerText()) === String(SHEETS));
     check(`${v.name}: register has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/sheet/parismusees-320291945", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("#placemap");
@@ -116,6 +128,26 @@ const views = [
     check(`${v.name}: every story fact has a date and an https source`, facts.length >= 3 && facts.every((f) => f.when && /^https:/.test(f.href)), JSON.stringify(facts.slice(0, 1)));
     check(`${v.name}: unknowns are stated`, (await page.locator(".unk li").count()) >= 1);
     check(`${v.name}: place page has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
+    check(`${v.name}: lost building has a map and says the view is not the same shot`, (await page.locator("#placemap").count()) === 1 && /больше нет/.test(await page.locator("#angmeta").innerText()));
+    await page.goto(base + "#/place/notre-dame", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".cmpframe");
+    const nAng = await page.locator(".angbtn").count();
+    const metaA = await page.locator("#angmeta").innerText();
+    const srcA = await page.locator("#cmpframe").getAttribute("src");
+    if (nAng > 1) await page.locator(".angbtn").nth(1).click();
+    const srcB = await page.locator("#cmpframe").getAttribute("src");
+    check(`${v.name}: Notre-Dame offers several angles with date, author, camera and rights; picking one swaps the comparison`,
+      nAng >= 2 && /Фото:/.test(metaA) && /CC/.test(metaA) && srcA !== srcB && (await page.locator('.angbtn[aria-pressed="true"]').count()) === 1, `${nAng} ${metaA.slice(0, 80)}`);
+    check(`${v.name}: place page has the old-plan toggle and a link to the sheet story`, (await page.locator("#planBtn").count()) === 1 && (await page.locator('a[href^="#/sheet/"]').count()) >= 1);
+    await page.goto(base + "#/sheet/parismusees-320291945", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#zoomimg");
+    check(`${v.name}: sheet links to its place story and to the comparison`, (await page.locator('a[href="#/place/notre-dame"]').count()) >= 1 && (await page.locator(".cmpframe").count()) === 1);
+    await page.goto(base + "#/city/antverpen", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("h1");
+    check(`${v.name}: city with no open sheets renders an honest block, not a crash`, /Антверпен/i.test(await page.locator("main h1").first().innerText()) && (await page.locator(".nolook").count()) === 1);
+    await page.goto(base + "#/places", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".toc li");
+    check(`${v.name}: places page has a map`, (await page.locator("#lmap").count()) === 1);
     await page.goto(base + "#/timeline", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".tlbar");
     const t0 = await page.locator("#tlOut .small").innerText();
@@ -125,6 +157,25 @@ const views = [
     check(`${v.name}: timeline has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
+    if (v.name === "desktop-1280") {
+      const bad = [];
+      for (const sh of SHEET_LIST) {
+        await page.goto(base + "#/sheet/" + sh.id, { waitUntil: "domcontentloaded" });
+        await page.waitForSelector("#zoomimg");
+        await page.waitForFunction(() => { const i = document.getElementById("zoomimg"); return i && i.complete; }, null, { timeout: 8000 }).catch(() => {});
+        const r = await page.evaluate(() => ({
+          img: document.getElementById("zoomimg").naturalWidth,
+          h1: document.querySelector("main h1").innerText.length,
+          rights: !!document.querySelector('.facts a[href^="http"]'),
+          orig: !!Array.from(document.querySelectorAll(".facts a")).find((a) => /карточка/.test(a.innerText) && /^https:/.test(a.href)),
+          route: !!document.querySelector(".cmpframe") || /ракурс не установлен/.test(document.body.innerText),
+          place: !!document.getElementById("placemap") || /пока не привязали/.test(document.body.innerText),
+          over: document.documentElement.scrollWidth > innerWidth + 4,
+        }));
+        if (!(r.img > 0 && r.h1 && r.rights && r.orig && r.route && r.place && !r.over)) bad.push(sh.id + ":" + JSON.stringify(r));
+      }
+      check(`${v.name}: all ${SHEET_LIST.length} sheets have image, source, rights, place-or-status and a comparison-or-status`, bad.length === 0 && SHEET_LIST.length === SHEETS, bad.slice(0, 3).join(" | "));
+    }
     check(`${v.name}: no console/page errors`, errors.length === 0, errors.slice(0, 2).join(" | "));
     await ctx.close();
   }

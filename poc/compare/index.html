@@ -246,6 +246,7 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
     <button type="button" data-view="originals" aria-pressed="false"><b data-i18n="v_originals">Шторка</b><small data-i18n="v_originals_h">без подгонки</small></button>
   </div>
   <p id="viewCaption" class="viewcap" role="status"></p>
+  <p id="perspWarn" class="small" role="note" hidden><b>Не совпадает перспектива.</b> Это два разных кадра: прозрачность и мерцание показывают их вместе только для сравнения, а не как точное наложение.</p>
   <span id="opacityCtl" hidden><label for="opacity" data-i18n="photoPct">Фото, %</label> <input id="opacity" type="range" min="0" max="100" value="50"></span>
   <div id="viewerModes" class="bar" role="toolbar" aria-label="Режим сравнения" data-i18n-aria="modes">
     <button data-mode="slider" aria-pressed="true" data-i18n="m_slider">Шторка</button>
@@ -558,6 +559,7 @@ function applyMode(){
   $("sbs").hidden = mode !== "sbs";
   $("opacityCtl").hidden = mode !== "opacity";
   $("flickerCtl").hidden = mode !== "flicker";
+  $("perspWarn").hidden = !((mode === "opacity" || mode === "flicker") && pair && pair.viewpoint_status !== "exact_verified");
   h.hidden = mode !== "slider";
   ov.style.clipPath = "none"; ov.style.opacity = 1; ov.style.visibility = "visible";
   if (mode === "slider") { ov.style.clipPath = `inset(0 0 0 ${split}%)`; h.style.left = split + "%"; h.setAttribute("aria-valuenow", Math.round(split)); }
