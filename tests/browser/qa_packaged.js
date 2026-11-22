@@ -20,6 +20,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
    }
    await p.goto(new URL("invite/",base).href,{waitUntil:"domcontentloaded"});
    if(await p.locator(".sheets .sheet").count()!==3)throw Error(label+": Benoist invite missing three real prints");
+   await p.waitForFunction(()=>[...document.querySelectorAll(".sheets .sheet img")].length===3&&[...document.querySelectorAll(".sheets .sheet img")].every(x=>x.complete&&x.naturalWidth>300),null,{timeout:20000});
    const pics=await p.locator(".sheets .sheet img").evaluateAll(xs=>xs.map(x=>({loaded:x.complete&&x.naturalWidth>300,src:x.currentSrc,alt:x.alt})));
    if(pics.some(x=>!x.loaded||!x.src.includes("/book/img/benoist/")))throw Error(label+": Benoist originals unavailable: "+JSON.stringify(pics));
    const firstLink=await p.locator(".sheets .sheet").first().getAttribute("href");
