@@ -94,6 +94,18 @@ const views = [
     await page.goto(base + "#/sheet/parismusees-320290108", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("[role=note]");
     check(`${v.name}: sheet without a photo says the viewpoint is not established`, /ракурс не установлен/.test(await page.locator("[role=note]").first().innerText()));
+    await page.goto(base + "#/plate/64fa693216", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#pzr");
+    const pw0 = await page.locator(".plate .lt-print img").first().evaluate((i) => i.getBoundingClientRect().width);
+    await page.locator("#pzr").fill("250");
+    const pw1 = await page.locator(".plate .lt-print img").first().evaluate((i) => i.getBoundingClientRect().width);
+    check(`${v.name}: plate page zooms by slider and offers compare or an honest note, and a map`, pw1 > pw0 * 2 && ((await page.locator(".cmpframe").count()) > 0 || /ракурс не установлен/.test(await page.locator("[role=note]").first().innerText())) && (await page.locator("#placemap").count()) === 1, `${pw0}→${pw1}`);
+    await page.goto(base + "#/catalog", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".cwlist li");
+    const wt = page.locator(".cw .wtitle[href^='#/work/']").first();
+    await wt.evaluate((a) => a.click());
+    await page.waitForSelector(".facts");
+    check(`${v.name}: a register entry opens our own page, not the museum`, /#\/work\//.test(page.url()) && (await page.locator(".facts").innerText()).includes("Автор"));
     await page.goto(base + "#/places", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".toc li");
     check(`${v.name}: five place histories are listed`, (await page.locator(".toc li").count()) === 5);

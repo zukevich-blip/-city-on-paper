@@ -240,3 +240,8 @@ h2::before{display:none}
 .cmp{margin:10px 0}
 .cmpframe{width:100%;height:720px;border:1px solid var(--lt-sepia);background:var(--lt-page)}
 @media(min-width:700px){.cmpframe{height:760px}}
+
+.lt-print.zoomable{overflow:auto;max-height:72vh;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.plate figure .lt-print.zoomable img{max-height:none;object-fit:fill}
+.cw .wtitle{color:var(--lt-ink);text-decoration:none;border-bottom:1px dotted var(--lt-sepia)}
+.cw .ext{opacity:.7}

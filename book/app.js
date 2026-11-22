@@ -257,6 +257,8 @@
     const pair = pairFor(p);
     const hasGeo = Number.isFinite(p.lat) && Number.isFinite(p.lon);
     const ed = (D.ed.plateNotes || {})[p.id];
+    const plateEntry = { place: hasGeo ? { name: p.title, city: c.name, lat: p.lat, lon: p.lon, approximate: true, href: `${E}#/city/${c.id}` } : null,
+      pairs: pair ? [{ id: pair.id, status_ru: "Сравнение из музея: рисунок и фото одного места", photo: null }] : [] };
     $app.innerHTML = `<article class="plate page-enter"><p class="eyebrow">${esc(c.name)} · лист ${p.n} из ${p.total}</p>
       <figure class="lt-sheet"><div class="lt-print">${img(p.image, p.title, "", 960)}</div>
         <div class="lt-imprint"><span class="l">${esc(imprint(p).left)}</span><span class="c">№ ${p.n}</span><span class="r">${esc(imprint(p).right)}</span></div>
@@ -270,11 +272,19 @@
         <li><b>Хранится</b><span>${esc(p.institution || "Викисклад (собрание указано на странице файла)")}</span></li>
         <li><b>Права</b><span>${esc(p.rights || "условия указаны на странице источника")}</span></li>
       </ul>
-      ${pair ? `<div class="btn-row"><a class="btn wide" href="../poc/compare/?journey=1#${esc(pair.id)}">Сравнить с фото сегодня →</a></div>` : `<div class="nolook"><b>Фото сегодня пока нет.</b> ${hasGeo ? "Место известно, его можно найти на карте ниже и снять самому." : "Точное место на карте пока не отмечено."}</div>`}
-      ${hasGeo ? `<h2>Где это</h2><div class="lmap" id="lmap" role="region" aria-label="Карта: место листа"></div><p class="small"><a href="${E}#/city/${esc(c.id)}">Весь город на старых и современных картах</a></p>` : ""}
+      ${compareSection(plateEntry)}
+      ${placeSection(plateEntry)}
       <div class="btn-row"><a class="btn ghost" href="${esc(safe(p.url))}" target="_blank" rel="noopener noreferrer">Оригинал у хранителя ↗︎</a></div>
       ${dock(next ? { href: plateLink(next), t: next.title, small: `Лист ${next.n} из ${p.total}` } : { href: cityLink(c), t: "К главе города", small: "Это последний лист" }, prev ? { href: plateLink(prev), t: "Назад" } : { href: cityLink(c), t: c.name })}</article>`;
-    if (hasGeo) mountMap("lmap", [p], p);
+    mountPlace(plateEntry);
+    const pr = $app.querySelector(".plate .lt-print"), pim = pr && pr.querySelector("img");
+    if (pim) {
+      const ctl = document.createElement("div"); ctl.className = "lt-tool zoomctl";
+      ctl.innerHTML = `<label for="pzr"><span class="lt-legend">Увеличение</span> <b id="pzv">100%</b></label><input id="pzr" type="range" min="100" max="300" step="10" value="100">`;
+      pr.closest("figure").after(ctl);
+      const zr = ctl.querySelector("input");
+      zr.addEventListener("input", () => { pr.classList.add("zoomable"); pim.style.width = zr.value + "%"; pim.style.maxWidth = "none"; document.getElementById("pzv").textContent = zr.value + "%"; });
+    }
     // swipe left/right turns the page (not while dragging the map)
     const art = $app.querySelector(".plate"); let sx = null, sy = 0;
     art.addEventListener("touchstart", (e) => { sx = e.target.closest(".lmap") ? null : e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
@@ -351,19 +361,19 @@
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
       <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
         <dt>Оригинал</dt><dd><a href="${esc(safe(sh.record_url))}" target="_blank" rel="noopener">карточка в собрании ↗</a></dd>${more ? `<dt>Другие экземпляры</dt><dd>${more}</dd>` : ""}</dl>
-      ${compareSection(sh)}
-      ${placeSection(sh)}
+      ${compareSection(D.sp[sh.id])}
+      ${placeSection(D.sp[sh.id])}
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
-    mountPlace(sh);
+    mountPlace(D.sp[sh.id]);
   }
 
   const workRow = (w, byImg) => { const sh = w.image && byImg.get(w.image);
       return `<li class="cw">${sh ? `<a class="th" href="#/sheet/${esc(sh.id)}"><img src="${esc(sh.image)}" alt="" loading="lazy" width="96"></a>` : `<span class="th none" aria-hidden="true">нет файла</span>`}
-        <div><b>${esc(cut(String(w.title || "Без названия").split(" / ")[0], 70))}</b>
+        <div><b><a class="wtitle" href="${sh ? "#/sheet/" + esc(sh.id) : "#/work/" + esc(w.id)}">${esc(cut(String(w.title || "Без названия").split(" / ")[0], 70))}</a></b>
         <span class="sub">${[ARTIST[w.artist], w.series, w.city, w.date].filter(Boolean).map(esc).join(" · ")}</span>
-        <span class="sub">${w.impressions > 1 ? plural(w.impressions, "экземпляр", "экземпляра", "экземпляров") + " · " : ""}${w.open_file ? "изображение открыто" : "только ссылка на хранителя"}${sh ? ` · <a href="#/sheet/${esc(sh.id)}">лист в книге</a>` : ""}${(w.links || [])[0] ? ` · <a href="${esc(safe(w.links[0].u))}" target="_blank" rel="noopener">${esc(w.links[0].i || "в собрании")} ↗</a>` : ""}</span></div></li>`; };
+        <span class="sub">${w.impressions > 1 ? plural(w.impressions, "экземпляр", "экземпляра", "экземпляров") + " · " : ""}${w.open_file ? "изображение открыто" : "только ссылка на хранителя"}${sh ? ` · <a href="#/sheet/${esc(sh.id)}">лист в книге</a>` : ""}${(w.links || [])[0] ? ` · <a class="ext" href="${esc(safe(w.links[0].u))}" target="_blank" rel="noopener">${esc(w.links[0].i || "в собрании")} ↗</a>` : ""}</span></div></li>`; };
 
   // ---------- the collection register: author -> series -> country -> city -> work, with honest counters
   const catState = { series: "", country: "", city: "", take: 40 };
@@ -402,41 +412,40 @@
     const pt = (h, d) => [lat + (d * Math.cos(h * Math.PI / 180)) / R, lon + (d * Math.sin(h * Math.PI / 180)) / (R * k)];
     return [[lat, lon], pt(head - spread, len), pt(head, len * 1.06), pt(head + spread, len)];
   };
-  function compareSection(sh) {
-    const e = D.sp[sh.id] || { pairs: [] };
+  function compareSection(e) {
+    e = e || { pairs: [] };
     if (!e.pairs.length) {
       return `<h2>Сравнить с сегодняшним днём</h2><div class="lt-tool" role="note"><span class="lt-legend">Современный кадр</span>
         <p>Для этого листа пока нет подтверждённого современного снимка: ракурс не установлен. Мы не подгоняем чужое фото на глаз ради эффекта. Можно <a href="../fieldwork/">снять это место сами</a>: фото останется только у вас в браузере.</p></div>`;
     }
     return `<h2>Сравнить с сегодняшним днём</h2>` + e.pairs.map((q) => `<div class="cmp">
-      <p class="small"><b>${esc(q.status_ru)}.</b> Фото: ${esc(q.photo.author || "автор не указан")}${q.photo.date ? ", " + esc(q.photo.date) : ""}${q.photo.licence ? ", " + esc(q.photo.licence) : ""}.</p>
+      <p class="small"><b>${esc(q.status_ru)}.</b>${q.photo ? ` Фото: ${esc(q.photo.author || "автор не указан")}${q.photo.date ? ", " + esc(q.photo.date) : ""}${q.photo.licence ? ", " + esc(q.photo.licence) : ""}.` : ""}</p>
       <iframe class="cmpframe" loading="lazy" src="../poc/compare/?embed=1#${esc(q.id)}" title="Инструмент сравнения: лист и сегодняшний снимок"></iframe>
       <p class="small">В режимах «Переход» и «Шторка» рисунок плавно превращается в фото; «Совместить» включает и выключает подгонку по геометрии здания (с ползунком прозрачности). <a href="../poc/compare/?journey=1#${esc(q.id)}">Открыть на весь экран →</a></p></div>`).join("");
   }
-  function placeSection(sh) {
-    const e = D.sp[sh.id];
+  function placeSection(e) {
     if (!e || !e.place) {
       return `<h2>Где это</h2><div class="lt-tool" role="note"><span class="lt-legend">Место</span><p>Здание на этом листе мы пока не привязали к карте: название не позволяет назвать место без догадок.</p></div>`;
     }
     const plan = inPlan(e.place);
     const est = e.pairs.map((q) => q.artist_estimate).filter(Boolean)[0];
-    return `<h2>Где это</h2><p class="small">${esc(e.place.name)}, ${esc(e.place.city)}. Координаты здания приблизительные (OpenStreetMap).</p>
+    return `<h2>Где это</h2><p class="small">${esc(e.place.name)}, ${esc(e.place.city)}. Координаты приблизительные (OpenStreetMap).${e.place.href ? ` <a href="${e.place.href}">Весь город на старых и современных картах →</a>` : ""}</p>
       <div id="placemap" class="placemap" role="img" aria-label="Карта: где находится здание и куда смотрит современная фотография"></div>
       <div class="lt-tool placectl"><button type="button" class="btn ghost" id="planBtn" aria-pressed="false"${plan ? "" : " hidden"}>Старый план Парижа 1878</button>
         <label for="planRange" id="planRangeL" hidden><span class="lt-legend">Прозрачность плана</span></label><input id="planRange" type="range" min="10" max="100" value="70" hidden>
         <p class="small" id="planNote" role="status"></p></div>
-      <p class="small">${e.pairs.some((q) => q.photo.lat) ? "Зелёный клин: куда смотрит современная фотография (положение камеры из данных Panoramax, направление по компасу снимка)." : "Современной фотографии для этого места пока нет, поэтому направление взгляда не показано."}${est ? " Где стоял художник, известно только как оценка по рисунку: " + esc(est) + "." : " Где стоял художник, мы не знаем: измерить это по рисунку без догадок нельзя."}</p>`;
+      <p class="small">${e.pairs.some((q) => q.photo && q.photo.lat) ? "Зелёный клин: куда смотрит современная фотография (положение камеры из данных Panoramax, направление по компасу снимка)." : "Современной фотографии для этого места пока нет, поэтому направление взгляда не показано."}${est ? " Где стоял художник, известно только как оценка по рисунку: " + esc(est) + "." : " Где стоял художник, мы не знаем: измерить это по рисунку без догадок нельзя."}</p>`;
   }
   let planData = null;
-  function mountPlace(sh) {
-    const e = D.sp[sh.id], el = document.getElementById("placemap");
+  function mountPlace(e) {
+    const el = document.getElementById("placemap");
     if (!e || !e.place || !el || !window.L) return;
     const map = L.map(el, { scrollWheelZoom: false });
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(map);
     const pts = [[e.place.lat, e.place.lon]];
     L.circleMarker(pts[0], { radius: 9, color: "#23493d", weight: 2, fillColor: "#8d4b36", fillOpacity: .95 }).addTo(map).bindTooltip(e.place.name);
     for (const q of e.pairs) {
-      if (q.photo.lat == null || q.photo.heading == null) continue;
+      if (!q.photo || q.photo.lat == null || q.photo.heading == null) continue;
       L.polygon(wedge(q.photo.lat, q.photo.lon, q.photo.heading), { color: "#3d5a45", weight: 1, fillColor: "#3d5a45", fillOpacity: .35 }).addTo(map)
         .bindTooltip("Фото " + (q.photo.date || "") + ", направление " + Math.round(q.photo.heading) + "°");
       L.circleMarker([q.photo.lat, q.photo.lon], { radius: 5, color: "#3d5a45", fillColor: "#fbf5e4", fillOpacity: 1 }).addTo(map);
@@ -541,6 +550,27 @@
     draw();
   }
 
+  // ---------- one register entry (also for works we may not copy): everything we know, and a way to keep exploring
+  function viewWork(id) {
+    const w = (D.reg.works || []).find((x) => x.id === id);
+    if (!w) return notFound();
+    const sh = w.image && D.sheets.find((x) => x.image === w.image);
+    const title = String(w.title || "Без названия").split(" / ")[0];
+    setTitle(title); crumbs([{ t: "Книга", href: "#/" }, { t: "Собрание", href: "#/catalog" }, { t: cut(title, 28) }]);
+    const same = (D.reg.works || []).filter((x) => x.id !== w.id && ((w.series && x.series === w.series) || (w.city && x.city === w.city)) && x.artist === w.artist).slice(0, 8);
+    $app.innerHTML = `<div class="page-enter">
+      <section class="chead"><p class="eyebrow">${esc(ARTIST[w.artist] || w.artist)}${w.series ? " · " + esc(w.series) : ""}</p><h1>${esc(title)}</h1></section>
+      ${sh ? `<p class="btn-row"><a class="btn" href="#/sheet/${esc(sh.id)}">Открыть лист крупно, сравнить и найти на карте →</a></p>` : `<div class="lt-tool" role="note"><span class="lt-legend">Изображения нет у нас</span><p>${w.open_file ? "Файл открыт у хранителя, но мы его ещё не загрузили." : "Права на показ этого листа у хранителя не подтверждены, поэтому мы не копируем его: он остаётся ссылкой на музей."} Ниже всё, что известно о листе, и похожие работы, которые можно открыть у нас.</p></div>`}
+      <h2>Что известно</h2><dl class="facts"><dt>Автор</dt><dd>${esc(ARTIST[w.artist] || w.artist)}${w.artist === "uncertain-benoist" ? " (в записи названа только фамилия или оба брата)" : ""}</dd>
+        ${w.series ? `<dt>Серия</dt><dd>${esc(w.series)}</dd>` : ""}${w.city ? `<dt>Место</dt><dd>${esc(w.city)}${w.country ? ", " + esc(w.country) : ""}</dd>` : ""}
+        <dt>Год</dt><dd>${w.year ? esc(String(w.year)) + (w.date && w.date !== String(w.year) ? " (в записи: " + esc(w.date) + ")" : "") : "в записях не указан"}</dd>
+        <dt>Вид</dt><dd>${esc({ print: "лист", drawing: "рисунок", book: "книга или том", page_in_book: "пластина из книги", volume: "том" }[w.kind] || w.kind || "не указан")}</dd>
+        <dt>Экземпляры</dt><dd>${w.impressions > 1 ? plural(w.impressions, "запись", "записи", "записей") + " о том же листе в разных каталогах" : "одна запись"}</dd></dl>
+      ${(w.links || []).length ? `<h2>У хранителей</h2><ul class="facts-list">${w.links.map((l) => `<li><a href="${esc(safe(l.u))}" target="_blank" rel="noopener">${esc(l.i || "запись в каталоге")} ↗</a></li>`).join("")}</ul>` : ""}
+      ${same.length ? `<h2>Другие листы ${w.series ? "серии" : "из этого места"}</h2><ul class="cwlist">${same.map((x) => workRow(x, new Map(D.sheets.map((y) => [y.image, y])))).join("")}</ul>` : ""}
+      ${dock({ href: "#/catalog", t: "Собрание" }, { href: "#/timeline", t: "Хронология" })}</div>`;
+  }
+
   function notFound() {
     setTitle("Страница не найдена"); crumbs([{ t: "Книга", href: "#/" }, { t: "Нет такой страницы" }]);
     $app.innerHTML = `<section class="chead"><h1>Такой страницы нет</h1><p class="lede">Возможно, ссылка устарела. Вернитесь к оглавлению.</p><div class="btn-row"><a class="btn" href="#/">К оглавлению</a></div></section>`;
@@ -574,6 +604,7 @@
     else if (h[0] === "places") viewPlaces();
     else if (h[0] === "catalog") viewCatalog(arg);
     else if (h[0] === "timeline") viewTimeline();
+    else if (h[0] === "work") viewWork(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else notFound();
     if (h[0] !== "main" && h[0] !== "toc") window.scrollTo(0, 0);

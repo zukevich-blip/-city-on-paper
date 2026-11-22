@@ -399,9 +399,9 @@ window.Maps = (() => {
       return null;
     };
     const pop = (s) => `<div class="mpop">${s.image ? `<img src="${esc(thumbOf(s.image))}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
-      <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(s.title || "")}</small>
+      <b>${esc(cap(s.site_ru || s.site_name))}</b><small>${esc(String(s.title || "").replace(/([a-zà-ÿ])([A-ZÀ-Ý])/g, "$1 $2"))}</small>
       ${historicalStatus(s)?'<small class="museum-historical-state">'+esc(historicalStatus(s).label)+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(historicalStatus(s).url)+'">исторический источник ↗︎</a></small>':""}
-      <span class="mlinks"><a class="mbook" href="../book/#/plate/${esc(s.wid)}">лист в книге →</a><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗︎</a></span></div>`;
+      <span class="mlinks"><a class="mbook" href="../book/#/plate/${esc(s.wid)}">Изучить: крупно, сравнить, карта →</a></span><span class="mlinks mlinks2"><a href="#w-${esc(s.wid)}" data-w="${esc(s.wid)}">к работе ↓</a><a class="mext" href="${esc(s.url)}" target="_blank" rel="noopener">у хранителя ↗︎</a></span></div>`;
     let oldMap = null, oldAt = null, showMap = null, selectedPlace = null;
     const picker=host.querySelector("#cPlaceSelect");
     const btnNow=host.querySelector("#cPlaceNow");
