@@ -29,12 +29,10 @@ import hashlib
 import html as htmllib
 import json
 import re
+import subprocess
 import sys
 import time
 import unicodedata
-import urllib.error
-import urllib.parse
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -541,20 +539,22 @@ class Fetcher:
                 time.sleep(wait)
             self.last = time.monotonic()
             self.requests += 1
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "fr,en;q=0.5"})
-            try:
-                with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-                    text = resp.read().decode("utf-8", "replace")
-            except urllib.error.HTTPError as exc:
-                if exc.code in (403, 429):
-                    self.blocked.append({"url": url, "http": exc.code, "why": "access refused; not bypassed"})
-                    return None
-                if exc.code in (404, 410):
-                    self.blocked.append({"url": url, "http": exc.code, "why": "not found"})
-                    return None
-                err = f"HTTP {exc.code}"
-            except (urllib.error.URLError, TimeoutError, OSError) as exc:
-                err = f"{type(exc).__name__}: {exc}"
+            res = subprocess.run(
+                ["curl", "-sS", "-L", "--http1.1", "-m", "90", "-A", UA, "-H", "Accept-Language: fr,en;q=0.5",
+                 "-w", "\n%{http_code}", url],
+                capture_output=True,
+            )
+            body, _, code = res.stdout.rpartition(b"\n")
+            status = int(code) if code.strip().isdigit() else 0
+            text = body.decode("utf-8", "replace")
+            if status in (403, 429):
+                self.blocked.append({"url": url, "http": status, "why": "access refused; not bypassed"})
+                return None
+            if status in (404, 410):
+                self.blocked.append({"url": url, "http": status, "why": "not found"})
+                return None
+            if status != 200:
+                err = f"HTTP {status} {res.stderr.decode(errors='replace')[:80]}"
             else:
                 if len(text) < 500:
                     err = f"short/empty body ({len(text)} bytes)"
