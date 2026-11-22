@@ -73,7 +73,7 @@ def generate(root: Path) -> Path:
     d.line((87, 184, 1113, 184), fill=GOLD, width=2)
 
     panels = [(80, 197, 330, 510), (391, 197, 809, 510), (870, 197, 1120, 510)]
-    for (name, caption), rect in zip(WORKS, panels):
+    for (name, caption), rect in zip(WORKS, panels, strict=True):
         x0, y0, x1, y1 = rect
         d.rectangle((x0 - 7, y0 - 7, x1 + 7, y1 + 5), fill="#f8f0e2", outline=GOLD, width=2)
         src = Image.open(source / name).convert("RGB")
