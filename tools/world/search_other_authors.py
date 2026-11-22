@@ -304,7 +304,7 @@ BUILDING_RES = (
     r"colosseo|colosseum|coliseum|colisée",
     r"foro romano|forum romanum|roman forum|campo vaccino",
     r"campidoglio|capitol(?:ine)?",
-    r"san pietro|st\.? peter'?s|saint[- ]pierre|vatican|vaticano",
+    r"san pietro|st\.? peter'?s(?!burg)|saint[- ]pierre|vatican|vaticano",
     r"fontana di trevi|trevi",
     r"castel sant'?angelo",
     r"piazza (?:navona|di spagna|del popolo|san marco)",
@@ -472,6 +472,7 @@ def base_record(source: str, source_id: str, author: dict) -> dict:
         "place": None,
         "country": None,
         "geo_confidence": "unknown",
+        "geo_basis": None,
         "date_as_stated": None,
         "technique_as_stated": None,
         "object_type": "print",
@@ -492,10 +493,22 @@ def base_record(source: str, source_id: str, author: dict) -> dict:
     }
 
 
+def apply_geo(rec: dict) -> None:
+    """City/place/geo_basis read literally from the title (or, city only, from a series name)."""
+    title = rec["original_title"] or ""
+    if rec["record_id"].startswith("europeana:"):
+        title = title.split(" / ")[0]  # BnF-style statement of responsibility (imprint, printer's town) is not the subject
+    rec["city"], rec["place"], rec["geo_confidence"] = detect_geo(title)
+    rec["geo_basis"] = "title" if rec["city"] else None
+    if not rec["city"] and rec["series"]:
+        city, _, _ = detect_geo(rec["series"])
+        if city:  # a series name that contains a city is weaker evidence than the title: city only, never a building
+            rec["city"], rec["geo_confidence"], rec["geo_basis"] = city, "city", "series"
+
+
 def finish(rec: dict, author: dict, matched: str) -> dict:
     """Common post-processing: geo from the literal title, series, hint; drop image_url unless open."""
-    geo = detect_geo(rec["original_title"], rec["series"])
-    rec["city"], rec["place"], rec["geo_confidence"] = geo
+    apply_geo(rec)
     rec["series"] = rec["series"] or detect_series(rec["original_title"])
     rec["duplicate_hint"] = duplicate_hint(rec["original_title"], rec["series"], rec["plate_number"], author["slug"])
     rec["attribution_note"] = (
@@ -1309,20 +1322,28 @@ def run_parismusees(f: Fetcher, authors, max_pages=2, max_records=25) -> dict:
         for card in cards:
             e["examined"] += 1
             m = match_author(card.get("authors") or [])
-            if not m or m[0]["slug"] != a["slug"] or e["kept"] >= max_records or fails >= 4:
+            bare = any(fold(x) == fold(term.split(",")[0]) for x in card.get("authors") or [])
+            if not ((m and m[0]["slug"] == a["slug"]) or bare) or e["kept"] >= max_records or fails >= 4:
                 continue
             html = fetch.get(pm.SITE + card["path"])
             if not html:
                 fails += 1
                 continue
             rec = pm.parse_record_page(html)
-            author, matched = m
+            m = match_author([x.get("name") or "" for x in rec["authors"]])
+            low_conf = False
+            if m and m[0]["slug"] == a["slug"]:
+                author, matched = m
+            elif any(fold(x.get("name")) == fold(term.split(",")[0]) for x in rec["authors"]):
+                author, matched, low_conf = a, term.split(",")[0], True  # source names only the bare surname
+            else:
+                continue
             r = base_record("parismusees", card["node"], author)
             r["participants"] = [
                 {
                     "name": x.get("name"),
-                    "role_as_stated": x.get("role"),
-                    "role_normalized": role_normalize(x.get("role")),
+                    "role_as_stated": x.get("role_as_stated"),
+                    "role_normalized": role_normalize(x.get("role_as_stated")),
                 }
                 for x in rec["authors"]
             ]
@@ -1345,6 +1366,12 @@ def run_parismusees(f: Fetcher, authors, max_pages=2, max_records=25) -> dict:
                             cv[0]["width"],
                             cv[0]["height"],
                         )
+            if low_conf:
+                r["attribution_confidence"] = "low"
+                r["attribution_note"] = (
+                    f"Paris Musees gives only the surname «{matched}» as author (no first name/dates): "
+                    "identity with the listed author is NOT confirmed by the record; curator must verify."
+                )
             if in_period(r["date_as_stated"]):
                 recs.setdefault(r["record_id"], finish(r, author, matched))
                 e["kept"] += 1
@@ -1383,6 +1410,8 @@ def known_ids(roots=("data/curation", "data/catalog", "data/candidates", "data/r
 
 def build_output(results: dict[str, dict], blocked: list[dict]) -> dict:
     recs = [r for res in results.values() for r in res["records"] if in_period(r["date_as_stated"])]
+    for r in recs:
+        apply_geo(r)
     qs = [e for res in results.values() for e in res["queries"]]
     corpus = known_ids()
     for r in recs:
@@ -1465,6 +1494,11 @@ def build_output(results: dict[str, dict], blocked: list[dict]) -> dict:
                 "image_width/height only where the source states them (Cleveland, AIC, NGA, Commons, Paris Musées manifest canvas, which is a capped derivative); Met, Rijksmuseum and Europeana do not state pixel size.",
                 "AIC/Met 'public domain' flags are the museums' own open-access statements (CC0), not independent verification. LoC 'no known restrictions' is NOT treated as open (rights_pending).",
                 "City/place are read literally from title/series text, never inferred from the author; geo_confidence=unknown when the title names no city.",
+                "hits_reported for AIC is the size of the fuzzy full-text result set (the whole museum ranks by relevance), not a count of the author's works; only records whose creator string matches an exact name form are kept.",
+                "Europeana queries use reusability=open, so hits_reported there counts open-licence items only; Met queries stop at 450 IDs per author (examined vs hits_reported shows truncation) and stop early after 40 examined with 0 kept.",
+                "Wikimedia Commons answered 429 after the first authors; the host was abandoned (not bypassed). Commons records come only from the queries answered before that, so Commons coverage is partial.",
+                "Paris Musees records for Arnout/Champin name only the bare surname in the source: they are kept with attribution_confidence=low and must be verified by a curator before use as Louis-Jules Arnout / Jean-Jacques Champin.",
+                "City words include adjective forms in the title (Roman/Romane, Venetian); place is the literal matched substring of the title, not a normalised building name.",
                 "Nantes, Moscow and some Russian authors are thinly covered because the open-API sources hold few such objects; see per_author_source.",
                 "Compare known_before with previous branch source IDs: it is true when the record_url already appears in data/curation, data/catalog, data/candidates or data/research/benoist.",
             ],

@@ -263,3 +263,16 @@ def test_duplicate_hint_groups_impressions():
 
 def test_in_period_keeps_unknown_dates_and_drops_modern():
     assert oa.in_period(None) and oa.in_period("1763") and not oa.in_period("1975")
+
+
+def test_geo_does_not_misread_petersburg_or_imprint():
+    assert oa.detect_geo("View of Sadovaya Street in St. Petersburg")[1] is None
+    rec = oa.base_record("europeana", "x", oa.AUTHOR_BY_SLUG["nicolas-marie-joseph-chapuy"])
+    rec["original_title"] = "Cadix : place de la Constitution / dessiné par Chapuy ; imp. Lemercier à Paris"
+    oa.apply_geo(rec)
+    assert rec["city"] is None and rec["geo_confidence"] == "unknown"
+    rec2 = oa.base_record("aic", "y", oa.AUTHOR_BY_SLUG["charles-meryon"])
+    rec2["original_title"] = "The Vampire"
+    rec2["series"] = "Eaux-fortes sur Paris"
+    oa.apply_geo(rec2)
+    assert (rec2["city"], rec2["geo_basis"], rec2["geo_confidence"]) == ("Paris", "series", "city")
