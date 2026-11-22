@@ -103,6 +103,12 @@ def pm_name(raw: str) -> str:
     return f"{first} {last}".strip() if first else raw
 
 
+def tech(value) -> str:
+    if not value:
+        return "в записи не указана"
+    return value if isinstance(value, str) else ", ".join(value)
+
+
 def roles_ru(roles: list[dict]) -> list[dict]:
     """Roles exactly as the museum's record page states them (French), with a plain Russian rendering beside them."""
     seen, out = set(), []
@@ -147,7 +153,7 @@ def pm_sheets() -> list[dict]:
                 "image": r["image"],
                 "rights": "CC0 Paris Musées",
                 "rights_url": r["rights_url"],
-                "technique": r["technique"] if isinstance(r["technique"], str) else ", ".join(r["technique"]),
+                "technique": tech(r.get("technique")),
                 "participants": names,
                 "extra_impressions": len(extra.get(r["node"], [])),
                 "impressions": extra.get(r["node"], []),
