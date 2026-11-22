@@ -24,7 +24,7 @@ PAGES = (
     "cities/index.html", "atlas/index.html",
     "stories/index.html", "stories/paris-on-paper/index.html",
     "experience/index.html",
-    "walk/index.html", "submit/index.html", "guides/index.html", "book/index.html",
+    "walk/index.html", "submit/index.html", "guides/index.html", "book/index.html", "invite/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -49,7 +49,7 @@ DATA = (
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
     "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
-    "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/litho", "assets/story",
+    "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/litho", "assets/story", "assets/share",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
              "private-archive", "data/private", "data/research/benoist", "research",
@@ -77,6 +77,9 @@ def optimize(page: Path, rel: str) -> None:
     address = BASE + ("" if rel == "index.html" else rel.removesuffix("index.html"))
     title_match = re.search(r"<title>(.*?)</title>", content, re.S | re.I)
     title = re.sub(r"\s+", " ", html.unescape(title_match.group(1))).strip() if title_match else "Город на бумаге"
+    if rel == "index.html":
+        title = "Город на бумаге · Литографии Бенуа и сравнение эпох"
+    is_share = rel in ("index.html", "invite/index.html")
     metas = (
         f'<link rel="canonical" href="{html.escape(address, quote=True)}">\n'
         f'<meta property="og:type" content="website">\n'
@@ -84,18 +87,26 @@ def optimize(page: Path, rel: str) -> None:
         f'<meta property="og:title" content="{html.escape(title, quote=True)}">\n'
         f'<meta property="og:url" content="{html.escape(address, quote=True)}">\n'
         '<meta property="og:locale" content="ru_RU">\n'
-        '<meta name="twitter:card" content="summary">\n'
+        f'<meta name="twitter:card" content="{"summary_large_image" if is_share else "summary"}">\n'
         '<meta name="robots" content="index,follow,max-image-preview:large">\n'
     )
+    if is_share:
+        desc = ("Откройте подлинные литографии Филиппа Бенуа: Париж XIX века, "
+                "исторические карты и фотографии города сегодня.")
+        image = BASE + "assets/share/benoist-paris.jpg"
+        metas += (
+            f'<meta property="og:description" content="{desc}">\n'
+            f'<meta property="og:image" content="{image}">\n'
+            '<meta property="og:image:type" content="image/jpeg">\n'
+            '<meta property="og:image:width" content="1200">\n'
+            '<meta property="og:image:height" content="630">\n'
+            '<meta property="og:image:alt" content="Три музейные литографии Филиппа Бенуа: Нотр-Дам, Лувр и Вандомская колонна">\n'
+            f'<meta name="twitter:image" content="{image}">\n'
+        )
     if rel == "index.html":
         content = re.sub(r'<button\s+data-go="research"\s*>[^<]*</button>', "", content)
         content = re.sub(r'(<section\s+id="research"\s+class="tab wrap")',
                          r'\1 hidden', content, count=1)
-        # The cover reproduces Vasi’s print from Wikimedia Commons.
-        metas += (
-            f'<meta property="og:image" content="{BASE}poc/compare/pairs/rome-pantheon-1752.jpg">\n'
-            '<meta property="og:image:alt" content="Рим. Пантеон, офорт Джузеппе Вази">\n'
-        )
         content = content.replace(
             "Частная исследовательская выставка.", "Открытая цифровая выставка."
         ).replace(
