@@ -44,6 +44,11 @@ async function viewerChecks(browser, vp) {
       check(`${vp.name} ${id}: viewpoint_mismatch opens side by side, alignment button disabled`, st.sbs && !st.stage && st.alignDisabled);
       check(`${vp.name} ${id}: viewpoint_mismatch never applies matrix3d`, (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
       if (id === "palais-royal-ph-benoist") await shot(page, `${vp.name}-${id}-side-by-side.jpg`, { fullPage: vp.name !== "iphone-375" });
+    } else if (conf === "insufficient_points" && !pair.alignment.H) {
+      const st = await page.evaluate(() => ({ alignDisabled: document.getElementById("alignBtn").disabled,
+        stage: getComputedStyle(document.getElementById("stage")).display !== "none" }));
+      check(`${vp.name} ${id}: no measured fit, originals only, alignment button disabled`, st.alignDisabled && st.stage);
+      check(`${vp.name} ${id}: no measured fit never applies matrix3d`, (await page.$eval("#photoLayer", e => e.style.transform)).startsWith("translate"));
     } else {
       if (pair.local_overlay) {
         check(`${vp.name} ${id}: local fit opens inside a polygon`,

@@ -1,0 +1,103 @@
+{
+ "id": "pantheon-rijks-5506-451335cc",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Портик с северо-запада у площади Пантеона, ракурс косой.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Le Panthéon",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5506--7aeaf1ee21c6355ff8322df9b5d8e574",
+  "accession": "RP-P-1905-5506",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5506.jpg",
+  "sha256": "6039c70a293da5804b27888f12eb0148c0cd9f42652d0196a64f9778002f270a",
+  "size": [
+   900,
+   637
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5506.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Le Panthéon · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Пантеон, 2024-06-20",
+  "provider": "Panoramax",
+  "panoramax_id": "451335cc-20a9-4707-a01e-3fe72b15833d",
+  "object_url": "https://api.panoramax.xyz/api/collections/79f39c2c-f682-4f92-861b-9fcfc22d1166/items/451335cc-20a9-4707-a01e-3fe72b15833d",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=451335cc-20a9-4707-a01e-3fe72b15833d",
+  "author": "Britzz (Panoramax account)",
+  "date": "2024-06-20",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.846563,
+   "lon": 2.344844972,
+   "heading_deg": 117,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 117,
+  "distance_to_building_m_approx": 98,
+  "file": "pantheon-photo-panoramax-451335cc.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/45/13/35/cc/20a9-4707-a01e-3fe72b15833d/sd.jpg",
+  "source_sha256": "30d1fc30618517a673ffd203f30f0bc50208e0bb897795c5af5d8cca9e9aca11",
+  "sha256": "4394ce237b54e8791f7eb40bdcf42b17f280a2e5644fe906eb2c227d1419affd",
+  "size": [
+   2048,
+   1152
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: Britzz / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 295,
+  "photo_distance_m": 98,
+  "artist_bearing_estimate_deg": 330,
+  "bearing_diff_deg": 35,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Портик с северо-запада у площади Пантеона, ракурс косой."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Портик с северо-запада у площади Пантеона, ракурс косой.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   637
+  ],
+  "photo_size": [
+   2048,
+   1152
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

@@ -1,0 +1,115 @@
+{
+ "id": "saint_sulpice-pm320290954-98282647",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Левая половина листа (Сен-Сюльпис); правая половина — Сент-Этьен-дю-Мон, для неё снимков нет.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Saint-Sulpice et Saint-Étienne-du-Mont",
+  "title_original": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont",
+  "accession": "node 320290954",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320290954.jpg",
+  "sha256": "c1ae9f84125135ba820877cbe9cd1514e298ea640c83d02a1b8306b3371d2851",
+  "size": [
+   1280,
+   894
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320290954.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Saint-Sulpice et Saint-Étienne-du-Mont · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Сен-Сюльпис, 2024-09-15 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "98282647-ed75-47df-819d-976b1e142802",
+  "object_url": "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/98282647-ed75-47df-819d-976b1e142802",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=98282647-ed75-47df-819d-976b1e142802",
+  "author": "Cyril5C (Panoramax account)",
+  "date": "2024-09-15",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.85056,
+   "lon": 2.33376,
+   "heading_deg": 41,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 41,
+  "distance_to_building_m_approx": 72,
+  "file": "saint_sulpice-photo-panoramax-98282647-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/98/28/26/47/ed75-47df-819d-976b1e142802.jpg",
+  "source_sha256": "aa2d11797efc957771a5356afcf67398d4714ccd4b5fba36dd536a9da8ea6949",
+  "sha256": "1e897cf47c853879588d4e7089a8ad3641093397feda82af00e18dae4a9a0c47",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: Cyril5C / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 262,
+   "yaw_deg": 40.7,
+   "horizontal_fov_deg": 100,
+   "pitch_deg": 25,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 221,
+  "photo_distance_m": 72,
+  "artist_bearing_estimate_deg": 235,
+  "bearing_diff_deg": 14,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Левая половина листа (Сен-Сюльпис); правая половина — Сент-Этьен-дю-Мон, для неё снимков нет."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Левая половина листа (Сен-Сюльпис); правая половина — Сент-Этьен-дю-Мон, для неё снимков нет.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   894
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

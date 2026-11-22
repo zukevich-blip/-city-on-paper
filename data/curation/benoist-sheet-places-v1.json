@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "Координаты зданий приблизительные (OSM Nominatim); какое здание на листе, выбрано человеком по названию.",
+ "note": "Координаты приблизительные (OSM Nominatim); какое здание на листе, выбрано человеком.",
  "places": [
   {
    "id": "sainte-chapelle",
@@ -477,6 +477,201 @@
    "lat": 40.63446,
    "lon": 14.60344,
    "evidence": "Nominatim: Duomo di Amalfi, 1, Piazza Duomo, Pogerola, Amalfi, Salerno, Campania, 84011, Italia"
+  },
+  {
+   "id": "rond-point",
+   "name_ru": "Рон-Пуэн Елисейских полей",
+   "query": "Rond-point des Champs-Élysées, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288694",
+    "parismusees-320150228"
+   ],
+   "approximate": true,
+   "lat": 48.86957,
+   "lon": 2.30859,
+   "evidence": "Nominatim: Rond-Point des Champs-Élysées, Quartier du Faubourg-du-Roule, Paris 8e Arrondissement, Paris, Île-de-France, France métr"
+  },
+  {
+   "id": "chatelet",
+   "name_ru": "Площадь Шатле",
+   "query": "Place du Châtelet, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320289145",
+    "parismusees-320289156"
+   ],
+   "approximate": true,
+   "lat": 48.85752,
+   "lon": 2.34746,
+   "evidence": "Nominatim: Place du Châtelet, Saint-Germain-l'Auxerrois, Paris 1er Arrondissement, Paris, Île-de-France, France métropolitaine, 750"
+  },
+  {
+   "id": "cirque-imperatrice",
+   "name_ru": "Цирк Императрицы (Рон-Пуэн)",
+   "query": "Théâtre du Rond-Point, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293136"
+   ],
+   "approximate": true,
+   "lat": 48.86777,
+   "lon": 2.31087,
+   "evidence": "Nominatim: Théâtre du Rond-Point, Avenue Franklin Delano Roosevelt, Quartier des Champs-Élysées, Paris 8e Arrondissement, Paris, Îl"
+  },
+  {
+   "id": "invalides",
+   "name_ru": "Дом инвалидов",
+   "query": "Hôtel des Invalides, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293263",
+    "parismusees-320293264"
+   ],
+   "approximate": true,
+   "lat": 48.85595,
+   "lon": 2.31334,
+   "evidence": "Nominatim: Hôtel des Invalides, 129, Rue de Grenelle, Quartier des Invalides, Paris 7e Arrondissement, Paris, Île-de-France, France"
+  },
+  {
+   "id": "opera",
+   "name_ru": "Новая опера (Опера Гарнье)",
+   "query": "Palais Garnier, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293288"
+   ],
+   "approximate": true,
+   "lat": 48.87209,
+   "lon": 2.33233,
+   "evidence": "Nominatim: L'Opéra Restaurant, Place Jacques Rouché, Quartier de la Chaussée-d'Antin, Paris 9e Arrondissement, Paris, Île-de-France"
+  },
+  {
+   "id": "etoile",
+   "name_ru": "Триумфальная арка на площади Звезды",
+   "query": "Arc de Triomphe, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293177"
+   ],
+   "approximate": true,
+   "lat": 48.87378,
+   "lon": 2.29504,
+   "evidence": "Nominatim: Arc de Triomphe, Place Charles de Gaulle, Quartier du Faubourg-du-Roule, Paris 8e Arrondissement, Paris, Île-de-France, "
+  },
+  {
+   "id": "saint-laurent",
+   "name_ru": "Церковь Сен-Лоран и Восточный вокзал",
+   "query": "Église Saint-Laurent, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293678"
+   ],
+   "approximate": true,
+   "lat": 48.87477,
+   "lon": 2.35825,
+   "evidence": "Nominatim: Église Saint-Laurent, Rue Sibour, Quartier de la Porte-Saint-Martin, Paris 10e Arrondissement, Paris, Île-de-France, Fra"
+  },
+  {
+   "id": "boulevard-italiens",
+   "name_ru": "Бульвар Итальянцев",
+   "query": "Boulevard des Italiens, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320289563",
+    "parismusees-320289583"
+   ],
+   "approximate": true,
+   "lat": 48.87191,
+   "lon": 2.33941,
+   "evidence": "Nominatim: Boulevard des Italiens, Quartier du Faubourg-Montmartre, Paris 9e Arrondissement, Paris, Île-de-France, France métropoli"
+  },
+  {
+   "id": "trinite",
+   "name_ru": "Церковь Святой Троицы",
+   "query": "Église de la Sainte-Trinité, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320292523"
+   ],
+   "approximate": true,
+   "lat": 48.8773,
+   "lon": 2.3314,
+   "evidence": "Nominatim: Église de la Sainte-Trinité, Place d'Estienne d'Orves, Quartier Saint-Georges, Paris 9e Arrondissement, Paris, Île-de-Fr"
+  },
+  {
+   "id": "lorette",
+   "name_ru": "Церковь Нотр-Дам-де-Лорет",
+   "query": "Église Notre-Dame-de-Lorette, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320292641"
+   ],
+   "approximate": true,
+   "evidence": "not geocoded"
+  },
+  {
+   "id": "saint-augustin",
+   "name_ru": "Церковь Сен-Огюстен",
+   "query": "Église Saint-Augustin, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320294429"
+   ],
+   "approximate": true,
+   "lat": 48.87621,
+   "lon": 2.31888,
+   "evidence": "Nominatim: Église Saint-Augustin, Boulevard Malesherbes, Quartier de l'Europe, Paris 8e Arrondissement, Paris, Île-de-France, Franc"
+  },
+  {
+   "id": "buttes-chaumont",
+   "name_ru": "Парк Бют-Шомон",
+   "query": "Parc des Buttes-Chaumont, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288322",
+    "parismusees-320295801"
+   ],
+   "approximate": true,
+   "lat": 48.87956,
+   "lon": 2.3821,
+   "evidence": "Nominatim: Parc des Buttes-Chaumont, Paris, Île-de-France, France métropolitaine, France"
+  },
+  {
+   "id": "ecole-militaire",
+   "name_ru": "Военная школа",
+   "query": "École militaire, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320272359"
+   ],
+   "approximate": true,
+   "evidence": "not geocoded"
+  },
+  {
+   "id": "parc-monceau",
+   "name_ru": "Парк Монсо",
+   "query": "Parc Monceau, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293986",
+    "parismusees-320294396"
+   ],
+   "approximate": true,
+   "lat": 48.87937,
+   "lon": 2.30887,
+   "evidence": "Nominatim: Parc Monceau, Paris, Île-de-France, France métropolitaine, France"
+  },
+  {
+   "id": "louvre-cour",
+   "name_ru": "Двор Лувра",
+   "query": "Cour Napoléon, Louvre, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288930"
+   ],
+   "approximate": true,
+   "evidence": "not geocoded"
   }
  ]
 }

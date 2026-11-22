@@ -1,0 +1,1881 @@
+{
+ "version": 1,
+ "date": "2026-11-22",
+ "method": "Panoramax API (api.panoramax.xyz), bbox + per-year datetime windows (2013-2026), only licences starting with CC (CC BY-SA 4.0 found; etalab-2.0 excluded). Candidates filtered by distance and bearing to building, then viewed as contact sheets by Claude; 360 images cropped with tools/align/panorama_crop.py. Wikimedia Commons: HTTP 429 on 2026-11-22 (one polite request with descriptive User-Agent, not retried). Mapillary: Graph API requires an access token (HTTP 500/code 190 without key), not used.",
+ "status_rule": "exact_verified requires measured control points and a computed fit with adequate coverage: none reached it. approximate = same building, same side (bearing diff <=60 deg to the artist side estimated from the print), no fit. unverified = building is the same but the artist's side or pose is not established. lost_or_reconstructed = subject destroyed/rebuilt/moved; context only.",
+ "artist_bearing_note": "artist_bearing_estimate_deg is Claude's reading of the print (bearing from building to artist camera), not a measurement; null where it could not be read.",
+ "places": [
+  {
+   "place": "vendome",
+   "sheets": [
+    "parismusees-320292157"
+   ],
+   "cc_photos_in_search_radius": 15,
+   "photos_kept": 1,
+   "pairs": 1,
+   "years": [
+    "2025"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "f43dc246-a04b-49c1-8f87-8d0d3222f7ad",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-06-09",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.86659126,
+      "lon": 2.32861892,
+      "heading_deg": 32,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/916c5369-3293-4425-95f9-8353471fdacd/items/f43dc246-a04b-49c1-8f87-8d0d3222f7ad",
+     "file": "vendome-photo-panoramax-f43dc246-crop.jpg",
+     "sha256": "74f416c12e4485e1e1df295489fa64a0115cc6bfb83e19e3e19ccdefb92abc44",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 116,
+      "yaw_deg": 31.6,
+      "horizontal_fov_deg": 70,
+      "pitch_deg": 6,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 212,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 113,
+     "same_side_of_building": "unknown",
+     "evidence": "Вид от улицы Кастильоне на северо-восток к колонне: композиция (колонна по оси, ряд домов слева и справа, отель в глубине) совпадает с листом.",
+     "sheets": [
+      "parismusees-320292157"
+     ],
+     "pairs": [
+      "vendome-pm320292157-f43dc246"
+     ]
+    }
+   ],
+   "rejected_note": "Только одна серия (benoitdd, 2025-06-09) в радиусе; остальные 360-кадры смотрят на фасады.",
+   "limits": "Один год; ракурс сверен по композиции, не измерен."
+  },
+  {
+   "place": "luxembourg",
+   "sheets": [
+    "parismusees-320291197"
+   ],
+   "cc_photos_in_search_radius": 454,
+   "photos_kept": 3,
+   "pairs": 3,
+   "years": [
+    "2025",
+    "2026"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "3b758447-3c04-41c3-bdba-146d84a2efed",
+     "author": "Britzz (Panoramax account)",
+     "date_taken": "2025-08-19",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.847628,
+      "lon": 2.337877,
+      "heading_deg": 345,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/0c75c40a-0bb2-4452-aec5-2b7fbc02509c/items/3b758447-3c04-41c3-bdba-146d84a2efed",
+     "file": "luxembourg-photo-panoramax-3b758447.jpg",
+     "sha256": "8811ea8a3587b82a525421d164ae3f08c4aaf00170544f00586ba83403674de2",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 176,
+     "artist_bearing_estimate_deg": 185,
+     "bearing_diff_deg": 9,
+     "distance_m": 102,
+     "same_side_of_building": "yes",
+     "evidence": "Сад у западного фасада: дворец виден под углом, лист снят почти по оси сада.",
+     "sheets": [
+      "parismusees-320291197"
+     ],
+     "pairs": [
+      "luxembourg-pm320291197-3b758447"
+     ]
+    },
+    {
+     "panoramax_id": "0ee50c84-dbf5-4394-8330-3bf0dd4d8c93",
+     "author": "jerome92370 (Panoramax account)",
+     "date_taken": "2026-01-20",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.847761762,
+      "lon": 2.338528541,
+      "heading_deg": 321,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/5af70fab-717a-4124-bcea-796b0647d12c/items/0ee50c84-dbf5-4394-8330-3bf0dd4d8c93",
+     "file": "luxembourg-photo-panoramax-0ee50c84.jpg",
+     "sha256": "376bde22c20a8fac2ecb5f34d1e7dfad9c3df2b65b74a9333f1084146237f819",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 148,
+     "artist_bearing_estimate_deg": 185,
+     "bearing_diff_deg": 37,
+     "distance_m": 103,
+     "same_side_of_building": "yes",
+     "evidence": "Дворец с угла террасы, ракурс косой.",
+     "sheets": [
+      "parismusees-320291197"
+     ],
+     "pairs": [
+      "luxembourg-pm320291197-0ee50c84"
+     ]
+    },
+    {
+     "panoramax_id": "9ea84c7a-eee1-4df7-9f44-88b255c4dfd8",
+     "author": "jerome92370 (Panoramax account)",
+     "date_taken": "2026-01-20",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.847684657,
+      "lon": 2.338881225,
+      "heading_deg": 290,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/5af70fab-717a-4124-bcea-796b0647d12c/items/9ea84c7a-eee1-4df7-9f44-88b255c4dfd8",
+     "file": "luxembourg-photo-panoramax-9ea84c7a.jpg",
+     "sha256": "16a5d60a0a3fcc322492dfae6608562eb97d227ac6f49006ff05d6bb032ff549",
+     "transformation": null,
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 140,
+     "artist_bearing_estimate_deg": 185,
+     "bearing_diff_deg": 45,
+     "distance_m": 125,
+     "same_side_of_building": "yes",
+     "evidence": "Дворец виден вдали между деревьями с аллеи; камера заметно левее оси листа.",
+     "sheets": [
+      "parismusees-320291197"
+     ],
+     "pairs": [
+      "luxembourg-pm320291197-9ea84c7a"
+     ]
+    }
+   ],
+   "rejected_note": "Виды сбоку на дворец; осевых кадров из сада на CC лицензии нет, 9ea84c удалён от оси.",
+   "limits": "Годы 2025-2026; вид сбоку и ближе, чем на листе."
+  },
+  {
+   "place": "notre_dame",
+   "sheets": [
+    "parismusees-320291945",
+    "rijks-RP-P-1905-5500"
+   ],
+   "cc_photos_in_search_radius": 1014,
+   "photos_kept": 3,
+   "pairs": 5,
+   "years": [
+    "2016",
+    "2025"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "5c4e33a2-c128-4bb6-83d2-85504ebfb2cb",
+     "author": "JLZIMMERMANN (Panoramax account)",
+     "date_taken": "2016-05-26",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.85311835,
+      "lon": 2.348519492,
+      "heading_deg": 99,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/634d2357-9937-414a-9e9b-45466553297e/items/5c4e33a2-c128-4bb6-83d2-85504ebfb2cb",
+     "file": "notre_dame-photo-panoramax-5c4e33a2-crop.jpg",
+     "sha256": "67376a47e29f855350421eda4f477b0457886ff25211e75b0c5000510b8d7042",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 338,
+      "yaw_deg": 98.9,
+      "horizontal_fov_deg": 100,
+      "pitch_deg": 15,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 279,
+     "artist_bearing_estimate_deg": 323,
+     "bearing_diff_deg": 44,
+     "distance_m": 113,
+     "same_side_of_building": "yes",
+     "evidence": "Кадр 2016 года, до пожара 2019: фасад с юго-запада паперти.",
+     "sheets": [
+      "parismusees-320291945",
+      "rijks-RP-P-1905-5500"
+     ],
+     "pairs": [
+      "notre_dame-pm320291945-5c4e33a2",
+      "notre_dame-rijks-5500-5c4e33a2"
+     ]
+    },
+    {
+     "panoramax_id": "dd602ce3-6fca-4c1d-8a28-b1a2d212c1c4",
+     "author": "cquest (Panoramax account)",
+     "date_taken": "2025-05-01",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.853190293,
+      "lon": 2.347860439,
+      "heading_deg": 99,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/95084bfa-375f-4298-880a-c65809e0972a/items/dd602ce3-6fca-4c1d-8a28-b1a2d212c1c4",
+     "file": "notre_dame-photo-panoramax-dd602ce3-crop.jpg",
+     "sha256": "b7c60475cb90c42b35514137ec4743233b7bf3071c3c6b06dd1fe22fccdf1bc1",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 85,
+      "yaw_deg": 99.1,
+      "horizontal_fov_deg": 90,
+      "pitch_deg": 10,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 279,
+     "artist_bearing_estimate_deg": 323,
+     "bearing_diff_deg": 44,
+     "distance_m": 162,
+     "same_side_of_building": "yes",
+     "evidence": "Фасад после восстановления; снимок с дальнего края паперти.",
+     "sheets": [
+      "parismusees-320291945",
+      "rijks-RP-P-1905-5500"
+     ],
+     "pairs": [
+      "notre_dame-pm320291945-dd602ce3",
+      "notre_dame-rijks-5500-dd602ce3"
+     ]
+    },
+    {
+     "panoramax_id": "33acc54c-115f-4323-a234-444ebee8e53c",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-07-28",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.85313308,
+      "lon": 2.34864882,
+      "heading_deg": 101,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/6e3ae92a-45f7-46ae-a0ea-3067ec4a4c90/items/33acc54c-115f-4323-a234-444ebee8e53c",
+     "file": "notre_dame-photo-panoramax-33acc54c-crop.jpg",
+     "sha256": "463501c1294be854500d825221531381f8416b33e6201e0849a34a79cb115e73",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 144,
+      "yaw_deg": 100.6,
+      "horizontal_fov_deg": 100,
+      "pitch_deg": 20,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 281,
+     "artist_bearing_estimate_deg": 323,
+     "bearing_diff_deg": 42,
+     "distance_m": 104,
+     "same_side_of_building": "yes",
+     "evidence": "Лето 2025, у фасада стоят краны реставрации.",
+     "sheets": [
+      "parismusees-320291945"
+     ],
+     "pairs": [
+      "notre_dame-pm320291945-33acc54c"
+     ]
+    }
+   ],
+   "rejected_note": "Паперть: 2016 (до пожара), 2025 (оба кадра), 4 кадра отброшены (дверной портал в упор, нутро собора, сквер, боковая стена).",
+   "limits": "Камера на 30-45 град. от НЗ стороны листа; ни одна точка не измерена."
+  },
+  {
+   "place": "louvre_colonnade",
+   "sheets": [
+    "parismusees-320291352",
+    "rijks-RP-P-1905-5505"
+   ],
+   "cc_photos_in_search_radius": 315,
+   "photos_kept": 2,
+   "pairs": 3,
+   "years": [
+    "2025"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "01ca11e0-26e6-4069-8dc9-7649362d8e3f",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-06-21",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.86061518,
+      "lon": 2.34068378,
+      "heading_deg": 268,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/fd6a8507-4dae-4900-85ab-001b99375b5d/items/01ca11e0-26e6-4069-8dc9-7649362d8e3f",
+     "file": "louvre_colonnade-photo-panoramax-01ca11e0-crop.jpg",
+     "sha256": "65036c6d5eed52c33d8394bed59ca471088bf3fd00a56941c964c67aaade55e4",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 30,
+      "yaw_deg": 267.7,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 0,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 88,
+     "artist_bearing_estimate_deg": 90,
+     "bearing_diff_deg": 2,
+     "distance_m": 43,
+     "same_side_of_building": "yes",
+     "evidence": "Колоннада с юго-востока в упор, лист снят фронтально и издали.",
+     "sheets": [
+      "parismusees-320291352",
+      "rijks-RP-P-1905-5505"
+     ],
+     "pairs": [
+      "louvre_colonnade-pm320291352-01ca11e0",
+      "louvre_colonnade-rijks-5505-01ca11e0"
+     ]
+    },
+    {
+     "panoramax_id": "9229020f-4fed-43e2-9ee7-3ba10f8f44fc",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-03-15",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.860629293,
+      "lon": 2.340782257,
+      "heading_deg": 266,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/6d01b0e4-86b4-4a48-adeb-45b19e670a09/items/9229020f-4fed-43e2-9ee7-3ba10f8f44fc",
+     "file": "louvre_colonnade-photo-panoramax-9229020f-crop.jpg",
+     "sha256": "66168f62de8c61f549e392ff650d1469d3dc7fe7c7a1b327a38bf25add7981e0",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 197,
+      "yaw_deg": 266.3,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 0,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 86,
+     "artist_bearing_estimate_deg": 90,
+     "bearing_diff_deg": 4,
+     "distance_m": 50,
+     "same_side_of_building": "yes",
+     "evidence": "Колоннада с юго-востока, март 2025.",
+     "sheets": [
+      "parismusees-320291352"
+     ],
+     "pairs": [
+      "louvre_colonnade-pm320291352-9229020f"
+     ]
+    }
+   ],
+   "rejected_note": "Улицы Риволи/Арбр-Сек не показывают колоннаду; удачны два 360-кадра с площади.",
+   "limits": "Фото в упор под острым углом, лист фронтален и издали."
+  },
+  {
+   "place": "saint_sulpice",
+   "sheets": [
+    "parismusees-320050912",
+    "parismusees-320290954"
+   ],
+   "cc_photos_in_search_radius": 91,
+   "photos_kept": 2,
+   "pairs": 3,
+   "years": [
+    "2024"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "98282647-ed75-47df-819d-976b1e142802",
+     "author": "Cyril5C (Panoramax account)",
+     "date_taken": "2024-09-15",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.85056,
+      "lon": 2.33376,
+      "heading_deg": 41,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/98282647-ed75-47df-819d-976b1e142802",
+     "file": "saint_sulpice-photo-panoramax-98282647-crop.jpg",
+     "sha256": "1e897cf47c853879588d4e7089a8ad3641093397feda82af00e18dae4a9a0c47",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 262,
+      "yaw_deg": 40.7,
+      "horizontal_fov_deg": 100,
+      "pitch_deg": 25,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 221,
+     "artist_bearing_estimate_deg": 235,
+     "bearing_diff_deg": 14,
+     "distance_m": 72,
+     "same_side_of_building": "yes",
+     "evidence": "Фасад с юго-запада площади; на переднем плане рынок.",
+     "sheets": [
+      "parismusees-320050912",
+      "parismusees-320290954"
+     ],
+     "pairs": [
+      "saint_sulpice-pm320050912-98282647",
+      "saint_sulpice-pm320290954-98282647"
+     ]
+    },
+    {
+     "panoramax_id": "e3c70c4a-921a-4997-bb5d-28eca4372982",
+     "author": "Cyril5C (Panoramax account)",
+     "date_taken": "2024-09-15",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.8505375,
+      "lon": 2.33343,
+      "heading_deg": 51,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/e3c70c4a-921a-4997-bb5d-28eca4372982",
+     "file": "saint_sulpice-photo-panoramax-e3c70c4a-crop.jpg",
+     "sha256": "2f64145046ad2ffc9882d95afb318b958e6add7014132bc5b97855a0e61a4e2e",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 266,
+      "yaw_deg": 51.2,
+      "horizontal_fov_deg": 100,
+      "pitch_deg": 25,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 231,
+     "artist_bearing_estimate_deg": 235,
+     "bearing_diff_deg": 4,
+     "distance_m": 91,
+     "same_side_of_building": "yes",
+     "evidence": "Тот же рынок на площади, башни видны сквозь деревья.",
+     "sheets": [
+      "parismusees-320050912"
+     ],
+     "pairs": [
+      "saint_sulpice-pm320050912-e3c70c4a"
+     ]
+    }
+   ],
+   "rejected_note": "Фасад виден только в серии Cyril5C 2024-09-15; кадры benoitdd 2025 показывают соседнее здание мэрии.",
+   "limits": "Один день съёмки; рынок закрывает площадь."
+  },
+  {
+   "place": "saint_etienne",
+   "sheets": [
+    "parismusees-320290954",
+    "rijks-RP-P-1905-5502"
+   ],
+   "cc_photos_in_search_radius": 361,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "Все 13 кадров, прошедших фильтр по геометрии, показывают двери/боковые стены вблизи; фасада в кадре нет.",
+   "limits": "Нет открытого фото фасада. Для интерьера (Rijks 5502) снимков нет."
+  },
+  {
+   "place": "bourse",
+   "sheets": [
+    "parismusees-320291262"
+   ],
+   "cc_photos_in_search_radius": 107,
+   "photos_kept": 2,
+   "pairs": 2,
+   "years": [
+    "2024"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "d7a724ab-5262-45a1-a9ee-8ff1cddeeecf",
+     "author": "Cyril5C (Panoramax account)",
+     "date_taken": "2024-09-18",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.869,
+      "lon": 2.34015,
+      "heading_deg": 72,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/6bd4b011-272e-4ca2-ad27-5b3a24367e8b/items/d7a724ab-5262-45a1-a9ee-8ff1cddeeecf",
+     "file": "bourse-photo-panoramax-d7a724ab-crop.jpg",
+     "sha256": "c5f62ba6986e2f5a5fda24f6fedd42180cf556df4e5f7989601831ea8fe9a011",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 24,
+      "yaw_deg": 71.7,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 4,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 252,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 89,
+     "same_side_of_building": "unknown",
+     "evidence": "Колоннада Биржи с угла площади, длинная сторона уходит вправо, как на листе. Оценка по сопоставлению композиции, камера не измерена.",
+     "sheets": [
+      "parismusees-320291262"
+     ],
+     "pairs": [
+      "bourse-pm320291262-d7a724ab"
+     ]
+    },
+    {
+     "panoramax_id": "ca6cd57d-f396-436e-8f7f-504179a2a4fe",
+     "author": "Cyril5C (Panoramax account)",
+     "date_taken": "2024-09-18",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.86949,
+      "lon": 2.34042,
+      "heading_deg": 113,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/6bd4b011-272e-4ca2-ad27-5b3a24367e8b/items/ca6cd57d-f396-436e-8f7f-504179a2a4fe",
+     "file": "bourse-photo-panoramax-ca6cd57d-crop.jpg",
+     "sha256": "2d7ea4b19356f930f20bc6c84402bda75b4e666047e8d197ec852fca0af39c53",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 16,
+      "yaw_deg": 112.5,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 4,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 293,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 70,
+     "same_side_of_building": "unknown",
+     "evidence": "Фасад Биржи фронтально с площади; ближе к оси, чем лист.",
+     "sheets": [
+      "parismusees-320291262"
+     ],
+     "pairs": [
+      "bourse-pm320291262-ca6cd57d"
+     ]
+    }
+   ],
+   "rejected_note": "Кадры benoitdd 2025-06 — заборы и граффити вплотную; годные только Cyril5C 2024-09-18.",
+   "limits": "Один день съёмки."
+  },
+  {
+   "place": "hotel_de_ville",
+   "sheets": [
+    "parismusees-320290537",
+    "rijks-RP-P-1905-5498"
+   ],
+   "cc_photos_in_search_radius": 557,
+   "photos_kept": 2,
+   "pairs": 2,
+   "years": [
+    "2024",
+    "2025"
+   ],
+   "best_status": "lost_or_reconstructed",
+   "photos": [
+    {
+     "panoramax_id": "f67766f2-40cb-4eb0-87b4-63cd31a977a2",
+     "author": "Benoît C MdP (Panoramax account)",
+     "date_taken": "2025-07-08",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.856119,
+      "lon": 2.3516614,
+      "heading_deg": 61,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/e8c9cb14-4d90-4d16-b123-92d5cd1860d4/items/f67766f2-40cb-4eb0-87b4-63cd31a977a2",
+     "file": "hotel_de_ville-photo-panoramax-f67766f2-crop.jpg",
+     "sha256": "0689f03eb57fb9cc9fdb10fc3a63a03369a908d33b04a794b58acabca3d2a268",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 2,
+      "yaw_deg": 61.4,
+      "horizontal_fov_deg": 110,
+      "pitch_deg": 25,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 241,
+     "artist_bearing_estimate_deg": 235,
+     "bearing_diff_deg": 6,
+     "distance_m": 72,
+     "same_side_of_building": "yes",
+     "evidence": "Здание сожжено в 1871 году и перестроено, фасад не тот же объект.",
+     "sheets": [
+      "parismusees-320290537"
+     ],
+     "pairs": [
+      "hotel_de_ville-pm320290537-f67766f2"
+     ]
+    },
+    {
+     "panoramax_id": "6afa5131-550e-45d5-b5e0-73c60010a536",
+     "author": "Robot8A (Panoramax account)",
+     "date_taken": "2024-04-14",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.856419444,
+      "lon": 2.350975,
+      "heading_deg": 63,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/17149f9f-0e91-4046-93bd-0032bf04c7c0/items/6afa5131-550e-45d5-b5e0-73c60010a536",
+     "file": "hotel_de_ville-photo-panoramax-6afa5131.jpg",
+     "sha256": "d5164e68fbf2180fe610db1a83324f37481c50827ca4d0988c3cb5890eff4945",
+     "transformation": null,
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 269,
+     "artist_bearing_estimate_deg": 235,
+     "bearing_diff_deg": 34,
+     "distance_m": 114,
+     "same_side_of_building": "yes",
+     "evidence": "Здание сожжено в 1871 году и перестроено; на фото баннеры Олимпиады 2024.",
+     "sheets": [
+      "rijks-RP-P-1905-5498"
+     ],
+     "pairs": [
+      "hotel_de_ville-rijks-5498-6afa5131"
+     ]
+    }
+   ],
+   "rejected_note": "Остальные кадры — плиты, фонари, мост издалека.",
+   "limits": "Здание перестроено после 1871; без наложения."
+  },
+  {
+   "place": "pantheon",
+   "sheets": [
+    "rijks-RP-P-1905-5506"
+   ],
+   "cc_photos_in_search_radius": 416,
+   "photos_kept": 3,
+   "pairs": 3,
+   "years": [
+    "2024",
+    "2025"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "451335cc-20a9-4707-a01e-3fe72b15833d",
+     "author": "Britzz (Panoramax account)",
+     "date_taken": "2024-06-20",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.846563,
+      "lon": 2.344844972,
+      "heading_deg": 117,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/79f39c2c-f682-4f92-861b-9fcfc22d1166/items/451335cc-20a9-4707-a01e-3fe72b15833d",
+     "file": "pantheon-photo-panoramax-451335cc.jpg",
+     "sha256": "4394ce237b54e8791f7eb40bdcf42b17f280a2e5644fe906eb2c227d1419affd",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 295,
+     "artist_bearing_estimate_deg": 330,
+     "bearing_diff_deg": 35,
+     "distance_m": 98,
+     "same_side_of_building": "yes",
+     "evidence": "Портик с северо-запада у площади Пантеона, ракурс косой.",
+     "sheets": [
+      "rijks-RP-P-1905-5506"
+     ],
+     "pairs": [
+      "pantheon-rijks-5506-451335cc"
+     ]
+    },
+    {
+     "panoramax_id": "5116b338-3c8c-45a6-bc72-5a93da6867fe",
+     "author": "jerome92370 (Panoramax account)",
+     "date_taken": "2024-04-06",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.846521832,
+      "lon": 2.344450194,
+      "heading_deg": 131,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/9b248e54-31e1-4916-b28b-c9c453453c97/items/5116b338-3c8c-45a6-bc72-5a93da6867fe",
+     "file": "pantheon-photo-panoramax-5116b338.jpg",
+     "sha256": "c24eab0f02a945e83ba3724054700def72433d2657ba0a4d7632800b89b09116",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 287,
+     "artist_bearing_estimate_deg": 330,
+     "bearing_diff_deg": 43,
+     "distance_m": 123,
+     "same_side_of_building": "yes",
+     "evidence": "Портик по оси улицы Суффло, почти фронтально.",
+     "sheets": [
+      "rijks-RP-P-1905-5506"
+     ],
+     "pairs": [
+      "pantheon-rijks-5506-5116b338"
+     ]
+    },
+    {
+     "panoramax_id": "5974302a-8874-47a9-955d-6a8d2d744ddb",
+     "author": "jerome92370 (Panoramax account)",
+     "date_taken": "2025-01-10",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.84652367,
+      "lon": 2.344467432,
+      "heading_deg": 126,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/d07d3eab-18ae-4ebf-a024-3fc46e9ba0c0/items/5974302a-8874-47a9-955d-6a8d2d744ddb",
+     "file": "pantheon-photo-panoramax-5974302a.jpg",
+     "sha256": "6bac5d368f1f498cc41038b7c3a427d71f72e4de302575f97f2a1e97e20615b2",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 288,
+     "artist_bearing_estimate_deg": 330,
+     "bearing_diff_deg": 42,
+     "distance_m": 122,
+     "same_side_of_building": "yes",
+     "evidence": "Январь 2025, ёлки перед портиком.",
+     "sheets": [
+      "rijks-RP-P-1905-5506"
+     ],
+     "pairs": [
+      "pantheon-rijks-5506-5974302a"
+     ]
+    }
+   ],
+   "rejected_note": "Оценка стороны листа по башне Сент-Этьен-дю-Мон слева от купола; Пантеон на всех трёх узнаваем.",
+   "limits": "Оценка стороны слабая (чтение рисунка)."
+  },
+  {
+   "place": "porte_saint_denis",
+   "sheets": [
+    "rijks-RP-P-1905-5503"
+   ],
+   "cc_photos_in_search_radius": 192,
+   "photos_kept": 3,
+   "pairs": 3,
+   "years": [
+    "2024",
+    "2025"
+   ],
+   "best_status": "unverified",
+   "photos": [
+    {
+     "panoramax_id": "9e737168-c70b-4f7d-a448-77fb06fda5f8",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-06-09",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.869708824,
+      "lon": 2.352072804,
+      "heading_deg": 79,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/fb880ec0-ff78-4a8f-b000-42218c0bf7f7/items/9e737168-c70b-4f7d-a448-77fb06fda5f8",
+     "file": "porte_saint_denis-photo-panoramax-9e737168-crop.jpg",
+     "sha256": "a63ace246d6bdee0f0f61f2b9d98a18524f8c93bd38bf95ba4ac73f1c6eb0a29",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 102,
+      "yaw_deg": 78.7,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 259,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 46,
+     "same_side_of_building": "unknown",
+     "evidence": "Сторона камеры на листе не установлена; ворота те же.",
+     "sheets": [
+      "rijks-RP-P-1905-5503"
+     ],
+     "pairs": [
+      "porte_saint_denis-rijks-5503-9e737168"
+     ]
+    },
+    {
+     "panoramax_id": "0e034840-5438-4bda-9da3-fbec16b11e17",
+     "author": "amicklew (Panoramax account)",
+     "date_taken": "2025-02-19",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.8698053,
+      "lon": 2.352328954,
+      "heading_deg": 94,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/4c3949f1-a60f-4697-915c-17d65c3b01f4/items/0e034840-5438-4bda-9da3-fbec16b11e17",
+     "file": "porte_saint_denis-photo-panoramax-0e034840-crop.jpg",
+     "sha256": "9a6ca0e13b088baee584cb8cc4745b1d3eb8592769d5b4ed6a05eebd94e217b1",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 100,
+      "yaw_deg": 93.7,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 274,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 26,
+     "same_side_of_building": "unknown",
+     "evidence": "Сторона камеры на листе не установлена; ворота те же.",
+     "sheets": [
+      "rijks-RP-P-1905-5503"
+     ],
+     "pairs": [
+      "porte_saint_denis-rijks-5503-0e034840"
+     ]
+    },
+    {
+     "panoramax_id": "2cb1a095-3dd9-4cb6-b892-3f3d4e3c1e59",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2024-07-20",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.87001,
+      "lon": 2.352835972,
+      "heading_deg": 185,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/77fccaa7-7f31-496a-ac2c-16b0c7995212/items/2cb1a095-3dd9-4cb6-b892-3f3d4e3c1e59",
+     "file": "porte_saint_denis-photo-panoramax-2cb1a095.jpg",
+     "sha256": "d5921718cd435976507c8e49b5d575f85a1e858b8bbe70ea38b629784a37773a",
+     "transformation": null,
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 24,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 27,
+     "same_side_of_building": "unknown",
+     "evidence": "Фронтально с севера; сторона камеры на листе не установлена.",
+     "sheets": [
+      "rijks-RP-P-1905-5503"
+     ],
+     "pairs": [
+      "porte_saint_denis-rijks-5503-2cb1a095"
+     ]
+    }
+   ],
+   "rejected_note": "Ворота узнаваемы на всех кадрах.",
+   "limits": "Сторону камеры на листе не удалось установить по рисунку."
+  },
+  {
+   "place": "bastille",
+   "sheets": [
+    "parismusees-320262846",
+    "rijks-RP-P-1905-5496"
+   ],
+   "cc_photos_in_search_radius": 557,
+   "photos_kept": 3,
+   "pairs": 6,
+   "years": [
+    "2020",
+    "2024",
+    "2025"
+   ],
+   "best_status": "unverified",
+   "photos": [
+    {
+     "panoramax_id": "0f8bd6c7-cc49-4f51-968f-55d6e5edd4da",
+     "author": "R_A (Panoramax account)",
+     "date_taken": "2020-08-22",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.852293193,
+      "lon": 2.369410219,
+      "heading_deg": 347,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/1e55e74e-a921-4fe9-bd8f-2c399eb618a6/items/0f8bd6c7-cc49-4f51-968f-55d6e5edd4da",
+     "file": "bastille-photo-panoramax-0f8bd6c7.jpg",
+     "sha256": "456dc906486e1c60cb9e9c40984aa150f6ff3c825d7d7fee99a2b7f57e167763",
+     "transformation": null,
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 169,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 100,
+     "same_side_of_building": "unknown",
+     "evidence": "Колонна вдали; сторона камеры на листе не установлена.",
+     "sheets": [
+      "parismusees-320262846",
+      "rijks-RP-P-1905-5496"
+     ],
+     "pairs": [
+      "bastille-pm320262846-0f8bd6c7",
+      "bastille-rijks-5496-0f8bd6c7"
+     ]
+    },
+    {
+     "panoramax_id": "5812222c-162a-4441-88e3-deb8363bbd43",
+     "author": "Aradrin (Panoramax account)",
+     "date_taken": "2024-08-27",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.852622973,
+      "lon": 2.369292723,
+      "heading_deg": 350,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/e60dd6fe-34b7-4d96-b188-9c2fcf00d211/items/5812222c-162a-4441-88e3-deb8363bbd43",
+     "file": "bastille-photo-panoramax-5812222c-crop.jpg",
+     "sha256": "42d6ee2ac6d2ba19ac4e2d6536ddc78168b8e8a91557287cccbd2eaed8dd1f04",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 185,
+      "yaw_deg": 349.6,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 10,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 170,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 62,
+     "same_side_of_building": "unknown",
+     "evidence": "Колонна из сквера; сторона камеры на листе не установлена.",
+     "sheets": [
+      "parismusees-320262846",
+      "rijks-RP-P-1905-5496"
+     ],
+     "pairs": [
+      "bastille-pm320262846-5812222c",
+      "bastille-rijks-5496-5812222c"
+     ]
+    },
+    {
+     "panoramax_id": "c2c532bf-6c06-4da7-8817-a14ea6a227e0",
+     "author": "amicklew (Panoramax account)",
+     "date_taken": "2025-05-14",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.853242612,
+      "lon": 2.368321912,
+      "heading_deg": 98,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/4c96a549-9a27-494b-827a-075555462718/items/c2c532bf-6c06-4da7-8817-a14ea6a227e0",
+     "file": "bastille-photo-panoramax-c2c532bf-crop.jpg",
+     "sha256": "32468ef35101717010fe71610505d8213418bde883287b33e72b72e54b22c307",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 287,
+      "yaw_deg": 97.7,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 10,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 278,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 60,
+     "same_side_of_building": "unknown",
+     "evidence": "Колонна и Опера Бастилии (1989); сторона камеры на листе не установлена.",
+     "sheets": [
+      "parismusees-320262846",
+      "rijks-RP-P-1905-5496"
+     ],
+     "pairs": [
+      "bastille-pm320262846-c2c532bf",
+      "bastille-rijks-5496-c2c532bf"
+     ]
+    }
+   ],
+   "rejected_note": "Колонна на всех кадрах; Опера Бастилии (1989) в кадре отсутствует на листе.",
+   "limits": "Сторону камеры на листе не удалось установить."
+  },
+  {
+   "place": "halles_innocents",
+   "sheets": [
+    "parismusees-200009791"
+   ],
+   "cc_photos_in_search_radius": 353,
+   "photos_kept": 2,
+   "pairs": 2,
+   "years": [
+    "2025"
+   ],
+   "best_status": "lost_or_reconstructed",
+   "photos": [
+    {
+     "panoramax_id": "34348d73-049b-4688-ad11-ee9dfccb2f4d",
+     "author": "cquest (Panoramax account)",
+     "date_taken": "2025-05-01",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.860934676,
+      "lon": 2.347849809,
+      "heading_deg": 159,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/95084bfa-375f-4298-880a-c65809e0972a/items/34348d73-049b-4688-ad11-ee9dfccb2f4d",
+     "file": "halles_innocents-photo-panoramax-34348d73-crop.jpg",
+     "sha256": "07c01b1ea01c8c111a16e8162f687f6ad48e57ec37f50be495e3ea5100d27dbd",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 331,
+      "yaw_deg": 159.2,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 339,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 35,
+     "same_side_of_building": "unknown",
+     "evidence": "Фонтан сохранился, но стоит на другом месте, а рынок снесён.",
+     "sheets": [
+      "parismusees-200009791"
+     ],
+     "pairs": [
+      "halles_innocents-pm200009791-34348d73"
+     ]
+    },
+    {
+     "panoramax_id": "4d4442b8-e7b9-4272-a60c-dc0c3989d95f",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-07-10",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.86087196,
+      "lon": 2.34817568,
+      "heading_deg": 204,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/72f93a45-a1b2-43ad-8a06-2ae89f59a529/items/4d4442b8-e7b9-4272-a60c-dc0c3989d95f",
+     "file": "halles_innocents-photo-panoramax-4d4442b8-crop.jpg",
+     "sha256": "42353f51d8353cbdc41c8a5cd2b6b9899c976a8faa742b5fb0337e08884ea733",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 285,
+      "yaw_deg": 203.8,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 24,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 28,
+     "same_side_of_building": "unknown",
+     "evidence": "Фонтан Невинных с площади, 2025.",
+     "sheets": [
+      "parismusees-200009791"
+     ],
+     "pairs": [
+      "halles_innocents-pm200009791-4d4442b8"
+     ]
+    }
+   ],
+   "rejected_note": "Фонтан сохранился, но перенесён; рынок снесён.",
+   "limits": "Контекст утрачен."
+  },
+  {
+   "place": "chateau_eau",
+   "sheets": [
+    "parismusees-320294285"
+   ],
+   "cc_photos_in_search_radius": 948,
+   "photos_kept": 4,
+   "pairs": 4,
+   "years": [
+    "2021",
+    "2023",
+    "2025",
+    "2026"
+   ],
+   "best_status": "lost_or_reconstructed",
+   "photos": [
+    {
+     "panoramax_id": "69edbfd4-2b65-4a01-b3c1-c60c9eaee8d6",
+     "author": "motocultrice (Panoramax account)",
+     "date_taken": "2021-01-11",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.867266177,
+      "lon": 2.365046475,
+      "heading_deg": 317,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/bd74ac45-30b3-4df7-896b-97dc990cf5bf/items/69edbfd4-2b65-4a01-b3c1-c60c9eaee8d6",
+     "file": "chateau_eau-photo-panoramax-69edbfd4.jpg",
+     "sha256": "694c9345e9d30997c2ba3821282122b60307280238202e3abb9d9560b45ebf10",
+     "transformation": null,
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 111,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 85,
+     "same_side_of_building": "unknown",
+     "evidence": "Площадь в январе 2021; фонтана со львами здесь больше нет.",
+     "sheets": [
+      "parismusees-320294285"
+     ],
+     "pairs": [
+      "chateau_eau-pm320294285-69edbfd4"
+     ]
+    },
+    {
+     "panoramax_id": "25cc66b6-b3cf-4d66-8baa-c29a71671e84",
+     "author": "Carto'Cité (Panoramax account)",
+     "date_taken": "2023-10-17",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.867556666,
+      "lon": 2.363410237,
+      "heading_deg": 93,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/809044a8-b984-47e4-b585-37e7c1299be9/items/25cc66b6-b3cf-4d66-8baa-c29a71671e84",
+     "file": "chateau_eau-photo-panoramax-25cc66b6-crop.jpg",
+     "sha256": "27841bd5ca3516894e1121bf9c3ba8208248d53cbb20e25a46636b3c04f757f5",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 136,
+      "yaw_deg": 92.6,
+      "horizontal_fov_deg": 90,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 273,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 40,
+     "same_side_of_building": "unknown",
+     "evidence": "Площадь Республики, октябрь 2023.",
+     "sheets": [
+      "parismusees-320294285"
+     ],
+     "pairs": [
+      "chateau_eau-pm320294285-25cc66b6"
+     ]
+    },
+    {
+     "panoramax_id": "5f5a19ad-d79e-4033-9741-6cbb160b707a",
+     "author": "amicklew (Panoramax account)",
+     "date_taken": "2025-02-19",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.867782447,
+      "lon": 2.364374315,
+      "heading_deg": 228,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/4c3949f1-a60f-4697-915c-17d65c3b01f4/items/5f5a19ad-d79e-4033-9741-6cbb160b707a",
+     "file": "chateau_eau-photo-panoramax-5f5a19ad-crop.jpg",
+     "sha256": "a2e1684bfe01a3070192f5ed0d5500e8c818c92408edde581d47f899d60fb0f4",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 122,
+      "yaw_deg": 228.3,
+      "horizontal_fov_deg": 90,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 48,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 41,
+     "same_side_of_building": "unknown",
+     "evidence": "Площадь Республики, февраль 2025.",
+     "sheets": [
+      "parismusees-320294285"
+     ],
+     "pairs": [
+      "chateau_eau-pm320294285-5f5a19ad"
+     ]
+    },
+    {
+     "panoramax_id": "78bbe58d-31df-49fb-bed5-a59a880c84d0",
+     "author": "Britzz (Panoramax account)",
+     "date_taken": "2026-02-08",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.867877,
+      "lon": 2.364841972,
+      "heading_deg": 263,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/8dbf86db-ab8d-424d-b062-202e30e9aa09/items/78bbe58d-31df-49fb-bed5-a59a880c84d0",
+     "file": "chateau_eau-photo-panoramax-78bbe58d.jpg",
+     "sha256": "a1adb88c50c458aee85fb70ba45db36f77dcac26b02bcd5ce6161a82e5b095ad",
+     "transformation": null,
+     "viewpoint_status": "lost_or_reconstructed",
+     "bearing_from_building_deg": 60,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 75,
+     "same_side_of_building": "unknown",
+     "evidence": "Площадь Республики, февраль 2026.",
+     "sheets": [
+      "parismusees-320294285"
+     ],
+     "pairs": [
+      "chateau_eau-pm320294285-78bbe58d"
+     ]
+    }
+   ],
+   "rejected_note": "Фонтан со львами убран; на площади статуя Республики.",
+   "limits": "Четыре кадра 2021-2026 как контекст места."
+  },
+  {
+   "place": "madeleine",
+   "sheets": [
+    "parismusees-320295651",
+    "parismusees-320295653",
+    "parismusees-320295656",
+    "rijks-RP-P-1905-5495"
+   ],
+   "cc_photos_in_search_radius": 95,
+   "photos_kept": 1,
+   "pairs": 2,
+   "years": [
+    "2026"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "800c5582-8a62-44ab-ba18-16adf0082475",
+     "author": "jerome92370 (Panoramax account)",
+     "date_taken": "2026-04-30",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.869660847,
+      "lon": 2.32421158,
+      "heading_deg": 17,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/b97b1ba7-0d62-4638-8be6-b86260a13296/items/800c5582-8a62-44ab-ba18-16adf0082475",
+     "file": "madeleine-photo-panoramax-800c5582.jpg",
+     "sha256": "071aba699dc0a5f166984507287bb90c2efc7deb4fcd57a02b1cad176bdf37bb",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 227,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 39,
+     "same_side_of_building": "unknown",
+     "evidence": "Интерьер Мадлен: взгляд по нефу к апсиде, как на листе; точка внутри здания определена по GPS неточно.",
+     "sheets": [
+      "parismusees-320295653",
+      "parismusees-320295656"
+     ],
+     "pairs": [
+      "madeleine-pm320295653-800c5582",
+      "madeleine-pm320295656-800c5582"
+     ]
+    }
+   ],
+   "rejected_note": "Фасад: единственный CC-кадр — уже имеющийся 38b6d262; пара для Rijks 5495 не создана. Интерьер: 800c55 (2026).",
+   "limits": "Портик ~7%: наложение всего листа не допускается."
+  },
+  {
+   "place": "rivoli",
+   "sheets": [
+    "parismusees-320291211"
+   ],
+   "cc_photos_in_search_radius": 172,
+   "photos_kept": 2,
+   "pairs": 2,
+   "years": [
+    "2025"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "c0239b58-bc6f-4d28-a1df-06c788ae8671",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-06-21",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.86490592,
+      "lon": 2.32849776,
+      "heading_deg": 265,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/fd6a8507-4dae-4900-85ab-001b99375b5d/items/c0239b58-bc6f-4d28-a1df-06c788ae8671",
+     "file": "rivoli-photo-panoramax-c0239b58-crop.jpg",
+     "sha256": "c6d56c0f7d3d2a7a2c60e809ff7aef35fea75a7e781445259ec0cdb2e4921b2b",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 288,
+      "yaw_deg": 265,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": null,
+     "artist_bearing_estimate_deg": 270,
+     "bearing_diff_deg": 5,
+     "distance_m": 440,
+     "same_side_of_building": "yes",
+     "evidence": "Улица Риволи, взгляд на запад: ограда Тюильри слева, аркады справа, как на листе.",
+     "sheets": [
+      "parismusees-320291211"
+     ],
+     "pairs": [
+      "rivoli-pm320291211-c0239b58"
+     ]
+    },
+    {
+     "panoramax_id": "c5b57013-23f3-4b92-b31f-7eaeebfc8dea",
+     "author": "Benoît C MdP (Panoramax account)",
+     "date_taken": "2025-07-08",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.8656576,
+      "lon": 2.3260668,
+      "heading_deg": 265,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/e8c9cb14-4d90-4d16-b123-92d5cd1860d4/items/c5b57013-23f3-4b92-b31f-7eaeebfc8dea",
+     "file": "rivoli-photo-panoramax-c5b57013-crop.jpg",
+     "sha256": "f0b4d9779038fcb8bfdd7a08f5e59117029c950a5638635ccc7af80672026a7d",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 108,
+      "yaw_deg": 265,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 5,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": null,
+     "artist_bearing_estimate_deg": 270,
+     "bearing_diff_deg": 5,
+     "distance_m": 266,
+     "same_side_of_building": "yes",
+     "evidence": "Та же улица ближе к площади Согласия, июль 2025.",
+     "sheets": [
+      "parismusees-320291211"
+     ],
+     "pairs": [
+      "rivoli-pm320291211-c5b57013"
+     ]
+    }
+   ],
+   "rejected_note": "Видны ограда Тюильри и аркады; кадры Lejun 2025-12 сняты в саду и отброшены.",
+   "limits": "Годы только 2025."
+  },
+  {
+   "place": "pont_royal",
+   "sheets": [
+    "parismusees-320299869"
+   ],
+   "cc_photos_in_search_radius": 74,
+   "photos_kept": 1,
+   "pairs": 1,
+   "years": [
+    "2025"
+   ],
+   "best_status": "unverified",
+   "photos": [
+    {
+     "panoramax_id": "d0859ca4-5992-49b2-8123-907130272e91",
+     "author": "benoitdd (Panoramax account)",
+     "date_taken": "2025-07-01",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 48.86067016,
+      "lon": 2.325971524,
+      "heading_deg": 95,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/c357d9bb-0b14-4f90-8fb6-8f52201a53b2/items/d0859ca4-5992-49b2-8123-907130272e91",
+     "file": "pont_royal-photo-panoramax-d0859ca4-crop.jpg",
+     "sha256": "692299f02462aca996137f07a632518ca54193d4a3da75fb40cad57280f11986",
+     "transformation": {
+      "tool": "tools/align/panorama_crop.py",
+      "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+      "pano_heading_deg": 280,
+      "yaw_deg": 95,
+      "horizontal_fov_deg": 80,
+      "pitch_deg": 0,
+      "output_px": [
+       1800,
+       1000
+      ]
+     },
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": null,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 66,
+     "same_side_of_building": "unknown",
+     "evidence": "Набережная вниз по течению от Королевского моста, взгляд вверх по Сене; лист снят с самого моста с высоты.",
+     "sheets": [
+      "parismusees-320299869"
+     ],
+     "pairs": [
+      "pont_royal-pm320299869-d0859ca4"
+     ]
+    }
+   ],
+   "rejected_note": "Другие 360-кадры тех же набережных так же не с моста.",
+   "limits": "Нет кадров с самого моста и с высоты."
+  },
+  {
+   "place": "sainte_chapelle",
+   "sheets": [
+    "parismusees-320290066",
+    "parismusees-320290060"
+   ],
+   "cc_photos_in_search_radius": 61,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "Панорамакс: 61 CC-кадр поблизости, все снаружи (двор Дворца правосудия); интерьера верхней капеллы нет. Commons: 429.",
+   "limits": "Нет открытого фото интерьера."
+  },
+  {
+   "place": "concorde",
+   "sheets": [
+    "rijks-RP-P-1905-5494"
+   ],
+   "cc_photos_in_search_radius": 113,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "Нет CC-кадров с террасы вдоль Сены.",
+   "limits": "Лист снят с террасы Тюильри."
+  },
+  {
+   "place": "orsay",
+   "sheets": [
+    "rijks-RP-P-1905-5504"
+   ],
+   "cc_photos_in_search_radius": 93,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Дворец Орсе сожжён в 1871, на месте вокзал/музей.",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "palais_industrie",
+   "sheets": [
+    "parismusees-320150835",
+    "parismusees-320298071"
+   ],
+   "cc_photos_in_search_radius": 286,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Здание снесено в 1897 (Гран-Пале на месте).",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "square_temple",
+   "sheets": [
+    "parismusees-320074413"
+   ],
+   "cc_photos_in_search_radius": 54,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Вид 1881 года сверху, застройка изменена.",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "palais_royal",
+   "sheets": [
+    "parismusees-320290399"
+   ],
+   "cc_photos_in_search_radius": 264,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Галерея Орлеанская снесена в 1934/35.",
+   "limits": "Сад — существующая пара."
+  },
+  {
+   "place": "carrousel",
+   "sheets": [
+    "parismusees-320175609",
+    "parismusees-320175628"
+   ],
+   "cc_photos_in_search_radius": 65,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Турнир 1662 по старой гравюре; дворец Тюильри утрачен.",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "expo1867",
+   "sheets": [
+    "parismusees-320298080",
+    "parismusees-320298085"
+   ],
+   "cc_photos_in_search_radius": 12,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Вид с воздуха, выставка снесена.",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "louvre_rivoli_aerial",
+   "sheets": [
+    "parismusees-320288755"
+   ],
+   "cc_photos_in_search_radius": null,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "lost_or_reconstructed",
+   "photos": [],
+   "rejected_note": "Вид с высоты птичьего полёта (рисунок Chapuis); с уровня улицы воссоздать нельзя.",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "bologna",
+   "sheets": [
+    "rijks-RP-P-1908-259"
+   ],
+   "cc_photos_in_search_radius": 5,
+   "photos_kept": 1,
+   "pairs": 1,
+   "years": [
+    "2025"
+   ],
+   "best_status": "approximate",
+   "photos": [
+    {
+     "panoramax_id": "550bb3e3-fb36-4d93-8041-e99d73724343",
+     "author": "scai (Panoramax account)",
+     "date_taken": "2025-09-14",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 44.494289,
+      "lon": 11.345993972,
+      "heading_deg": 88,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/9b830782-7458-4109-ae7f-cfabc1b8b12d/items/550bb3e3-fb36-4d93-8041-e99d73724343",
+     "file": "bologna-photo-panoramax-550bb3e3.jpg",
+     "sha256": "122c7e53c4ef0ab536859d6af588e38170228b0e1acf863ba7c368881d4cad08",
+     "transformation": null,
+     "viewpoint_status": "approximate",
+     "bearing_from_building_deg": 286,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 58,
+     "same_side_of_building": "unknown",
+     "evidence": "Две башни и Сан-Бартоломео-э-Гаэтано: композиция листа узнаётся; камера на листе не измерена.",
+     "sheets": [
+      "rijks-RP-P-1908-259"
+     ],
+     "pairs": [
+      "bologna-rijks-259-550bb3e3"
+     ]
+    }
+   ],
+   "rejected_note": "Единственный CC-кадр в радиусе.",
+   "limits": "Один кадр, камера на листе не измерена."
+  },
+  {
+   "place": "brussels",
+   "sheets": [
+    "rijks-RP-P-1908-1979"
+   ],
+   "cc_photos_in_search_radius": 631,
+   "photos_kept": 1,
+   "pairs": 1,
+   "years": [
+    "2016"
+   ],
+   "best_status": "unverified",
+   "photos": [
+    {
+     "panoramax_id": "4ad71c94-a6c7-4a30-899d-9fac11433b07",
+     "author": "JLZIMMERMANN (Panoramax account)",
+     "date_taken": "2016-10-01",
+     "licence": "CC BY-SA 4.0",
+     "camera": {
+      "lat": 50.847183333,
+      "lon": 4.352347222,
+      "heading_deg": 213,
+      "source": "Panoramax item metadata (GPS + compass), not independently verified"
+     },
+     "source_url": "https://api.panoramax.xyz/api/collections/462103ed-782e-4764-8d5e-1bf8e594b4b7/items/4ad71c94-a6c7-4a30-899d-9fac11433b07",
+     "file": "brussels-photo-panoramax-4ad71c94.jpg",
+     "sha256": "23eef784e68cf0ac6f45d5557f88013e6d53a737f49d565da9958c3304c25e4c",
+     "transformation": null,
+     "viewpoint_status": "unverified",
+     "bearing_from_building_deg": 29,
+     "artist_bearing_estimate_deg": null,
+     "bearing_diff_deg": null,
+     "distance_m": 85,
+     "same_side_of_building": "unknown",
+     "evidence": "Гран-Плас с ратушей на правом краю кадра; ракурс другой, фасад ратуши виден сбоку и мал.",
+     "sheets": [
+      "rijks-RP-P-1908-1979"
+     ],
+     "pairs": [
+      "brussels-rijks-1979-4ad71c94"
+     ]
+    }
+   ],
+   "rejected_note": "631 CC-кадр в радиусе, но почти все — улицы вокруг; Гран-Плас лишь на 4ad71c.",
+   "limits": "Ратуша мала и сбоку."
+  },
+  {
+   "place": "amsterdam_oosterdok",
+   "sheets": [
+    "rijks-RP-P-1904-3864",
+    "rijks-KOG-AA-1-2-19",
+    "rijks-KOG-AA-8-71"
+   ],
+   "cc_photos_in_search_radius": 514,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "1394 кадра у Схрейерсторен: вокзал/трамвайные пути, башни в кадре нет в годных ракурсах.",
+   "limits": "Пейзаж гавани изменён."
+  },
+  {
+   "place": "amsterdam_westerdok",
+   "sheets": [
+    "rijks-RP-P-1904-3866",
+    "rijks-KOG-AA-1-2-20"
+   ],
+   "cc_photos_in_search_radius": 511,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "Не просматривалось по существу (изменённая гавань).",
+   "limits": "Пара не создана."
+  },
+  {
+   "place": "freiburg",
+   "sheets": [
+    "os-labw-freiburg-1",
+    "os-labw-freiburg-2"
+   ],
+   "cc_photos_in_search_radius": 0,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "0 CC-кадров Panoramax в радиусе 130 м.",
+   "limits": ""
+  },
+  {
+   "place": "cadix",
+   "sheets": [
+    "os-icgc-cadix-1845",
+    "os-icgc-cadix-1847",
+    "os-icgc-cadix-679"
+   ],
+   "cc_photos_in_search_radius": 0,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "0 CC-кадров.",
+   "limits": ""
+  },
+  {
+   "place": "naples",
+   "sheets": [
+    "rijks-RP-P-1908-258"
+   ],
+   "cc_photos_in_search_radius": 0,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "0 CC-кадров.",
+   "limits": ""
+  },
+  {
+   "place": "rome_peter",
+   "sheets": [
+    "rijks-RP-P-1944-1699"
+   ],
+   "cc_photos_in_search_radius": 0,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "0 CC-кадров; интерьер.",
+   "limits": ""
+  },
+  {
+   "place": "salerno",
+   "sheets": [
+    "os-ekm-salerno"
+   ],
+   "cc_photos_in_search_radius": 0,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "0 CC-кадров.",
+   "limits": ""
+  },
+  {
+   "place": "amalfi",
+   "sheets": [
+    "os-ekm-amalfi"
+   ],
+   "cc_photos_in_search_radius": 0,
+   "photos_kept": 0,
+   "pairs": 0,
+   "years": [],
+   "best_status": "none",
+   "photos": [],
+   "rejected_note": "0 CC-кадров.",
+   "limits": ""
+  }
+ ]
+}

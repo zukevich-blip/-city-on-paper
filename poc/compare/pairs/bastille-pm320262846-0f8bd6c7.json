@@ -1,0 +1,103 @@
+{
+ "id": "bastille-pm320262846-0f8bd6c7",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Колонна вдали; сторона камеры на листе не установлена.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Colonne de Juillet. / sur la place de la Bastille.",
+  "title_original": "Colonne de Juillet. / sur la place de la Bastille.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "dessinateur-lithographe"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "imprimeur-lithographe"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "editeur"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille",
+  "accession": "node 320262846",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320262846.jpg",
+  "sha256": "ca7231181e8028812db4968df315a1b5eda8c92815bfb2d455632e10f0e9ac49",
+  "size": [
+   1280,
+   881
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320262846.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Colonne de Juillet. / sur la place de la Bastille. · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Июльская колонна, Бастилия, 2020-08-22",
+  "provider": "Panoramax",
+  "panoramax_id": "0f8bd6c7-cc49-4f51-968f-55d6e5edd4da",
+  "object_url": "https://api.panoramax.xyz/api/collections/1e55e74e-a921-4fe9-bd8f-2c399eb618a6/items/0f8bd6c7-cc49-4f51-968f-55d6e5edd4da",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=0f8bd6c7-cc49-4f51-968f-55d6e5edd4da",
+  "author": "R_A (Panoramax account)",
+  "date": "2020-08-22",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.852293193,
+   "lon": 2.369410219,
+   "heading_deg": 347,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 347,
+  "distance_to_building_m_approx": 100,
+  "file": "bastille-photo-panoramax-0f8bd6c7.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/0f/8b/d6/c7/cc49-4f51-968f-55d6e5edd4da/sd.jpg",
+  "source_sha256": "b34e8f6a8f0cbb5398ff82e1e63f60b9d496e830b447cfe6c77056e7b6b84420",
+  "sha256": "456dc906486e1c60cb9e9c40984aa150f6ff3c825d7d7fee99a2b7f57e167763",
+  "size": [
+   2048,
+   1152
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: R_A / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": 169,
+  "photo_distance_m": 100,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Колонна вдали; сторона камеры на листе не установлена."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Колонна вдали; сторона камеры на листе не установлена.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   881
+  ],
+  "photo_size": [
+   2048,
+   1152
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

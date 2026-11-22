@@ -1,0 +1,103 @@
+{
+ "id": "pantheon-rijks-5506-5974302a",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Январь 2025, ёлки перед портиком.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Le Panthéon",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5506--7aeaf1ee21c6355ff8322df9b5d8e574",
+  "accession": "RP-P-1905-5506",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5506.jpg",
+  "sha256": "6039c70a293da5804b27888f12eb0148c0cd9f42652d0196a64f9778002f270a",
+  "size": [
+   900,
+   637
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5506.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Le Panthéon · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Пантеон, 2025-01-10",
+  "provider": "Panoramax",
+  "panoramax_id": "5974302a-8874-47a9-955d-6a8d2d744ddb",
+  "object_url": "https://api.panoramax.xyz/api/collections/d07d3eab-18ae-4ebf-a024-3fc46e9ba0c0/items/5974302a-8874-47a9-955d-6a8d2d744ddb",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=5974302a-8874-47a9-955d-6a8d2d744ddb",
+  "author": "jerome92370 (Panoramax account)",
+  "date": "2025-01-10",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.84652367,
+   "lon": 2.344467432,
+   "heading_deg": 126,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 126,
+  "distance_to_building_m_approx": 122,
+  "file": "pantheon-photo-panoramax-5974302a.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/59/74/30/2a/8874-47a9-955d-6a8d2d744ddb/sd.jpg",
+  "source_sha256": "79efa97e4280b573cd33f5e37e3ef3ddfa75b7f960a0d7311f97247ba68218da",
+  "sha256": "6bac5d368f1f498cc41038b7c3a427d71f72e4de302575f97f2a1e97e20615b2",
+  "size": [
+   2048,
+   1536
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 288,
+  "photo_distance_m": 122,
+  "artist_bearing_estimate_deg": 330,
+  "bearing_diff_deg": 42,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Январь 2025, ёлки перед портиком."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Январь 2025, ёлки перед портиком.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   637
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

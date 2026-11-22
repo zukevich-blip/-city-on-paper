@@ -1,0 +1,115 @@
+{
+ "id": "saint_sulpice-pm320050912-e3c70c4a",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Тот же рынок на площади, башни видны сквозь деревья.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Paris dans sa splendeur// Eglise St Sulpice et fontaine de la place St Sulpice",
+  "title_original": "Paris dans sa splendeur// Eglise St Sulpice et fontaine de la place St Sulpice",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Adolphe Jean Baptiste Bayot",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "éditeurs,  Nantes et Paris) Charpentier (imprimeurs",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-eglise-st-sulpice-et-fontaine-de-la-place-st",
+  "accession": "node 320050912",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320050912.jpg",
+  "sha256": "2c87c5697c464e3a12d0649306eaf8bd39d78bc63097e51cf690ce92d343ca4c",
+  "size": [
+   1280,
+   839
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320050912.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Paris dans sa splendeur// Eglise St Sulpice et fontaine de la place St Sulpice · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Сен-Сюльпис, 2024-09-15 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "e3c70c4a-921a-4997-bb5d-28eca4372982",
+  "object_url": "https://api.panoramax.xyz/api/collections/779fb271-0ad3-4fe7-a392-7f42212eaa36/items/e3c70c4a-921a-4997-bb5d-28eca4372982",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=e3c70c4a-921a-4997-bb5d-28eca4372982",
+  "author": "Cyril5C (Panoramax account)",
+  "date": "2024-09-15",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.8505375,
+   "lon": 2.33343,
+   "heading_deg": 51,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 51,
+  "distance_to_building_m_approx": 91,
+  "file": "saint_sulpice-photo-panoramax-e3c70c4a-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/e3/c7/0c/4a/921a-4997-bb5d-28eca4372982.jpg",
+  "source_sha256": "f591a48954331aec3e6ed8c304cc1515b9a3b8ccdf3242f363dc36e1e9fae0be",
+  "sha256": "2f64145046ad2ffc9882d95afb318b958e6add7014132bc5b97855a0e61a4e2e",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: Cyril5C / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 266,
+   "yaw_deg": 51.2,
+   "horizontal_fov_deg": 100,
+   "pitch_deg": 25,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 231,
+  "photo_distance_m": 91,
+  "artist_bearing_estimate_deg": 235,
+  "bearing_diff_deg": 4,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Тот же рынок на площади, башни видны сквозь деревья."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Тот же рынок на площади, башни видны сквозь деревья.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   839
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

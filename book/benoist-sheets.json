@@ -367,7 +367,33 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur",
+     "role_ru": "рисовал"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Adolphe Jean Baptiste Bayot",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Charpentier",
+     "role": "editeur",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Charpentier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    }
+   ]
   },
   {
    "id": "parismusees-320074413",
@@ -386,7 +412,18 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Fédor Hoffbauer",
+     "role": "dessinateur",
+     "role_ru": "рисовал"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    }
+   ]
   },
   {
    "id": "parismusees-320175628",
@@ -406,7 +443,23 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "A. Bayot",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Charpentier",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320150835",
@@ -425,7 +478,18 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Charpentier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    }
+   ]
   },
   {
    "id": "parismusees-320209544",
@@ -444,7 +508,18 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Imprimerie Lemercier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    }
+   ]
   },
   {
    "id": "parismusees-320210218",
@@ -465,7 +540,28 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Eugène Ciceri",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Imprimerie Lemercier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Bulla Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320286237",
@@ -486,7 +582,28 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Louis-Julien Jacottet",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320298071",
@@ -510,7 +627,43 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Félix Régamey",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Eugène-Charles-François Guérard",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Eugène Ciceri",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Imprimerie Lemercier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Gambart E. et Cie",
+     "role": "editeur",
+     "role_ru": "издатель"
+    },
+    {
+     "name": "Goupil & Cie",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320298080",
@@ -532,7 +685,33 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Eugène Ciceri",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Inconnu",
+     "role": "auteur du modèle",
+     "role_ru": "auteur du modèle"
+    },
+    {
+     "name": "Imprimerie Lemercier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Goupil & Cie",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320298085",
@@ -554,7 +733,33 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Eugène Ciceri",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Inconnu",
+     "role": "auteur du modèle",
+     "role_ru": "auteur du modèle"
+    },
+    {
+     "name": "Imprimerie Lemercier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Goupil & Cie",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320299869",
@@ -573,7 +778,18 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    }
+   ]
   },
   {
    "id": "parismusees-320295651",
@@ -595,7 +811,33 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Louis-Julien Jacottet",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "A. Bayot",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320295653",
@@ -615,7 +857,23 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320295656",
@@ -635,7 +893,23 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Auguste Bry",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320290166",
@@ -654,7 +928,28 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur",
+     "role_ru": "рисовал"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "imprimeur",
+     "role_ru": "печатал"
+    },
+    {
+     "name": "Gihaut Frères",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320290537",
@@ -673,7 +968,18 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Charpentier",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    }
+   ]
   },
   {
    "id": "parismusees-320290060",
@@ -694,7 +1000,28 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "A. Bayot",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Thierry Frères",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    },
+    {
+     "name": "L. Chapon",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
   },
   {
    "id": "parismusees-320290108",
@@ -713,7 +1040,18 @@
    ],
    "extra_impressions": 0,
    "impressions": [],
-   "creators": []
+   "creators": [
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Thierry Frères",
+     "role": "imprimeur-lithographe",
+     "role_ru": "печатал (литограф)"
+    }
+   ]
   },
   {
    "id": "parismusees-320288930",
@@ -729,6 +1067,818 @@
    "participants": [
     "Adolphe Jean Baptiste Bayot",
     "Philippe Benoist",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": [
+    {
+     "name": "Adolphe Jean Baptiste Bayot",
+     "role": "dessinateur-lithographe",
+     "role_ru": "рисовал и литографировал"
+    },
+    {
+     "name": "Philippe Benoist",
+     "role": "dessinateur",
+     "role_ru": "рисовал"
+    },
+    {
+     "name": "Charpentier",
+     "role": "editeur",
+     "role_ru": "издатель"
+    }
+   ]
+  },
+  {
+   "id": "parismusees-320290069",
+   "title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+   "title_original": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320290069",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-1",
+   "image": "img/benoist/pm-320290069.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Thierry Frères",
+    "L. Chapon"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320288694",
+   "title": "Vue prise au-dessus du Rond-Point des Champs-Elysées",
+   "title_original": "Vue prise au-dessus du Rond-Point des Champs-Elysées",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320288694",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-prise-au-dessus-du-rond-point-des-champs-elysees",
+   "image": "img/benoist/pm-320288694.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Rehauts de couleur",
+   "participants": [
+    "Philippe Benoist",
+    "Charles-Claude Bachelier",
+    "Auguste Bry",
+    "Martinet (imprimeur-libraire)"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320289145",
+   "title": "Place et Fontaine du Châtelet / Pont au Change. Théâtre du Châtelet et Théâtre Lyrique.",
+   "title_original": "Place et Fontaine du Châtelet / Pont au Change. Théâtre du Châtelet et Théâtre Lyrique.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320289145",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-et-fontaine-du-chatelet-pont-au-change-theatre-du-chatelet-et-theatre",
+   "image": "img/benoist/pm-320289145.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320289156",
+   "title": "Fontaine du Châtelet / Fontaine Richelieu.",
+   "title_original": "Fontaine du Châtelet / Fontaine Richelieu.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320289156",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/fontaine-du-chatelet-fontaine-richelieu",
+   "image": "img/benoist/pm-320289156.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Cihaut frères",
+    "Auguste Bry"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320295200",
+   "title": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
+   "title_original": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320295200",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-madeleine-the-madeleine-church-vues-de-paris-6-views-of-paris",
+   "image": "img/benoist/pm-320295200.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Louis-Julien (dit Jean-Louis François) Jacottet",
+    "A. Bayot",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293074",
+   "title": "Vue générale des expositions / Prise du côté de l'annexe.",
+   "title_original": "Vue générale des expositions / Prise du côté de l'annexe.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293074",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe-0",
+   "image": "img/benoist/pm-320293074.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Eugène Ciceri",
+    "Nicolas Marie Joseph Chapuy",
+    "Victor (Jean-Victor Adam, dit) Adam",
+    "Jean Vincent Marie Dopter"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293136",
+   "title": "Cirque de l'Impératrice / aux Champs-Elysées.",
+   "title_original": "Cirque de l'Impératrice / aux Champs-Elysées.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293136",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/cirque-de-l-imperatrice-aux-champs-elysees",
+   "image": "img/benoist/pm-320293136.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Adolphe Jean Baptiste Bayot",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293263",
+   "title": "Hôtel des Invalides.",
+   "title_original": "Hôtel des Invalides.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293263",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides",
+   "image": "img/benoist/pm-320293263.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Louis-Julien (dit Jean-Louis François) Jacottet",
+    "A. Bayot",
+    "Gihaut Frères",
+    "Philippe Benoist"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293264",
+   "title": "Hôtel des Invalides.",
+   "title_original": "Hôtel des Invalides.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293264",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides-0",
+   "image": "img/benoist/pm-320293264.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Louis-Julien (dit Jean-Louis François) Jacottet",
+    "A. Bayot",
+    "Auguste Bry",
+    "Gihaut Frères",
+    "Philippe Benoist"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293288",
+   "title": "Les grands aspects du nouveau Paris / Nouvel Opéra. / Façade principale sur le Boulevard des Capucines.",
+   "title_original": "Les grands aspects du nouveau Paris / Nouvel Opéra. / Façade principale sur le Boulevard des Capucines.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293288",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvel-opera-facade-principale-sur-le",
+   "image": "img/benoist/pm-320293288.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293177",
+   "title": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
+   "title_original": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293177",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-5-views-of-paris-arc-de-triomphe-de-l-etoile-cote-de-paris",
+   "image": "img/benoist/pm-320293177.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Chromolithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Louis-Julien (dit Jean-Louis François) Jacottet",
+    "A. Bayot",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293500",
+   "title": "Colonne de Juillet sur la place de la Bastille / Vues de Paris N° 19",
+   "title_original": "Colonne de Juillet sur la place de la Bastille / Vues de Paris N° 19",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293500",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille-vues-de-paris-ndeg-19",
+   "image": "img/benoist/pm-320293500.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293678",
+   "title": "Eglise Saint-Laurent / avec sa nouvelle façade et la Gare du Chemin de fer de l'Est",
+   "title_original": "Eglise Saint-Laurent / avec sa nouvelle façade et la Gare du Chemin de fer de l'Est",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293678",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/eglise-saint-laurent-avec-sa-nouvelle-facade-et-la-gare-du-chemin-de-fer-de",
+   "image": "img/benoist/pm-320293678.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293393",
+   "title": "Palais de l'Industrie aux Champs Elysées.",
+   "title_original": "Palais de l'Industrie aux Champs Elysées.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293393",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees",
+   "image": "img/benoist/pm-320293393.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Frédéric et Guillaume) Régamey (Félix",
+    "Guérard",
+    "Eugène Ciceri",
+    "Imprimerie Lemercier",
+    "Goupil & Cie",
+    "Anonyme"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293396",
+   "title": "Vues de Paris // Les Boulevards Saint-Denis et Saint-Martin",
+   "title_original": "Vues de Paris // Les Boulevards Saint-Denis et Saint-Martin",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293396",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-les-boulevards-saint-denis-et-saint-martin",
+   "image": "img/benoist/pm-320293396.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293399",
+   "title": "Palais de l'Industrie aux Champs-Elysées.",
+   "title_original": "Palais de l'Industrie aux Champs-Elysées.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293399",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees-0",
+   "image": "img/benoist/pm-320293399.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Frédéric et Guillaume) Régamey (Félix",
+    "Guérard",
+    "Eugène Ciceri",
+    "Imprimerie Lemercier",
+    "Goupil & Cie",
+    "Anonyme"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320289470",
+   "title": "Vues de Paris. // La halle et la fontaine des Innocens. [sic]",
+   "title_original": "Vues de Paris. // La halle et la fontaine des Innocens. [sic]",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320289470",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-la-halle-et-la-fontaine-des-innocens-sic",
+   "image": "img/benoist/pm-320289470.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320289647",
+   "title": "Château des Tuileries.",
+   "title_original": "Château des Tuileries.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320289647",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/chateau-des-tuileries-2",
+   "image": "img/benoist/pm-320289647.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320289563",
+   "title": "Paris / Boulevart des Italiens",
+   "title_original": "Paris / Boulevart des Italiens",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320289563",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-boulevart-des-italiens",
+   "image": "img/benoist/pm-320289563.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Estampe en couleurs",
+   "participants": [
+    "Philippe Benoist",
+    "Imprimerie Lemercier",
+    "Daziaro"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320289583",
+   "title": "Vues de Paris. / (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
+   "title_original": "Vues de Paris. / (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320289583",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-11-views-of-paris-le-boulevart-des-italiens-the-boulevart-des",
+   "image": "img/benoist/pm-320289583.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Adolphe Jean Baptiste Bayot",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292326",
+   "title": "Vues du Panthéon.",
+   "title_original": "Vues du Panthéon.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292326",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-du-pantheon",
+   "image": "img/benoist/pm-320292326.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292523",
+   "title": "Les grands aspects du nouveau Paris / Nouvelle église de la Trinité / Chaussée d'Antin.",
+   "title_original": "Les grands aspects du nouveau Paris / Nouvelle église de la Trinité / Chaussée d'Antin.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292523",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-de-la-trinite-chaussee",
+   "image": "img/benoist/pm-320292523.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292527",
+   "title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+   "title_original": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292527",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur",
+   "image": "img/benoist/pm-320292527.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292536",
+   "title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+   "title_original": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292536",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur-0",
+   "image": "img/benoist/pm-320292536.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292641",
+   "title": "Vues de Paris / 8 / Eglise Notre Dame de Lorette.",
+   "title_original": "Vues de Paris / 8 / Eglise Notre Dame de Lorette.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292641",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-8-eglise-notre-dame-de-lorette",
+   "image": "img/benoist/pm-320292641.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320292491",
+   "title": "Place de la Concorde.",
+   "title_original": "Place de la Concorde.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320292491",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-de-la-concorde-28",
+   "image": "img/benoist/pm-320292491.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320294429",
+   "title": "Les Grands Aspects du Nouveau Paris/ Nouvelle Eglise St. Augustin./ Boulevard Malesherbes.",
+   "title_original": "Les Grands Aspects du Nouveau Paris/ Nouvelle Eglise St. Augustin./ Boulevard Malesherbes.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320294429",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-st-augustin-boulevard",
+   "image": "img/benoist/pm-320294429.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320290970",
+   "title": "Intérieur de l' Eglise de St Etienne du Mont",
+   "title_original": "Intérieur de l' Eglise de St Etienne du Mont",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320290970",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-l-eglise-de-st-etienne-du-mont",
+   "image": "img/benoist/pm-320290970.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Philippe Benoist",
+    "Auguste Bry",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320291273",
+   "title": "Palais du Luxembourg. / Côté du jardin.",
+   "title_original": "Palais du Luxembourg. / Côté du jardin.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320291273",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-du-jardin",
+   "image": "img/benoist/pm-320291273.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Eau-forte, Aquarelle",
+   "participants": [
+    "Philippe Benoist",
+    "Gihaut Frères"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320288322",
+   "title": "Paris et ses ruines. / Square des Buttes Chaumont. / Vue du lac, des grottes et du grand rocher avec le Temple de la Sibylle.",
+   "title_original": "Paris et ses ruines. / Square des Buttes Chaumont. / Vue du lac, des grottes et du grand rocher avec le Temple de la Sibylle.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320288322",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-et-ses-ruines-square-des-buttes-chaumont-vue-du-lac-des-grottes-et-du",
+   "image": "img/benoist/pm-320288322.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Félix Benoist",
+    "Eugène Ciceri",
+    "Philippe Benoist",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320272359",
+   "title": "Paris dans sa splendeur / Ecole Militaire / Façade sur la Place de Fontenoy",
+   "title_original": "Paris dans sa splendeur / Ecole Militaire / Façade sur la Place de Fontenoy",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320272359",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-ecole-militaire-facade-sur-la-place-de-fontenoy",
+   "image": "img/benoist/pm-320272359.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Chromolithographie, Estampe en couleurs",
+   "participants": [
+    "Philippe Benoist",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320274915",
+   "title": "Paris dans sa grandeur - Histoire. /Distribuition des aigles au Champ de Mars / (5 décembre 1804) / 84",
+   "title_original": "Paris dans sa grandeur - Histoire. /Distribuition des aigles au Champ de Mars / (5 décembre 1804) / 84",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320274915",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-grandeur-histoire-distribuition-des-aigles-au-champ-de-mars-5",
+   "image": "img/benoist/pm-320274915.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Chromolithographie",
+   "participants": [
+    "Philippe Benoist",
+    "A. Bayot",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320089731",
+   "title": "Exposition universelle de 1867. Vue générale du Champs de Mars, prise à vol d'oiseau du côté de la porte Rapp.",
+   "title_original": "Exposition universelle de 1867. Vue générale du Champs de Mars, prise à vol d'oiseau du côté de la porte Rapp.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320089731",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/exposition-universelle-de-1867-vue-generale-du-champs-de-mars-prise-a-vol-d",
+   "image": "img/benoist/pm-320089731.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Félix Benoist",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320150228",
+   "title": "Paris en 1860. Vue prise à vol d'oiseau au dessus du Rond-point des Ch. Elysées.",
+   "title_original": "Paris en 1860. Vue prise à vol d'oiseau au dessus du Rond-point des Ch. Elysées.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320150228",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-en-1860-vue-prise-a-vol-d-oiseau-au-dessus-du-rond-point-des-ch",
+   "image": "img/benoist/pm-320150228.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie, Lavis",
+   "participants": [
+    "Jules Arnout",
+    "Félix Benoist"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320150715",
+   "title": "Vue générale des Expositions, prise du côté de l'annexe.",
+   "title_original": "Vue générale des Expositions, prise du côté de l'annexe.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320150715",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe",
+   "image": "img/benoist/pm-320150715.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Félix Benoist",
+    "Eugène Ciceri",
+    "Victor (Jean-Victor Adam, dit) Adam",
+    "Chapuy",
+    "Jean Vincent Marie Dopter"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320150718",
+   "title": "Palais de l'Industrie.",
+   "title_original": "Palais de l'Industrie.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320150718",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-4",
+   "image": "img/benoist/pm-320150718.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Félix Benoist",
+    "Eugène Ciceri"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320295801",
+   "title": "Les Buttes Chaumont / Vue générale à vol d'oiseau, du nouveau square, prise du dessus du lac.",
+   "title_original": "Les Buttes Chaumont / Vue générale à vol d'oiseau, du nouveau square, prise du dessus du lac.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320295801",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-buttes-chaumont-vue-generale-a-vol-d-oiseau-du-nouveau-square-prise-du",
+   "image": "img/benoist/pm-320295801.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Léon Jean-Baptiste Sabatier",
+    "A. Bayot",
+    "Félix Benoist",
+    "Nantes (imprimeur)",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320293986",
+   "title": "Les Grands Aspects du Nouveau Paris./ Parc de Monceaux/ Vue générale, à vol d'oiseau, prise du côté du Boulevard Malesherbes.",
+   "title_original": "Les Grands Aspects du Nouveau Paris./ Parc de Monceaux/ Vue générale, à vol d'oiseau, prise du côté du Boulevard Malesherbes.",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320293986",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-parc-de-monceaux-vue-generale-a-vol-d",
+   "image": "img/benoist/pm-320293986.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Félix Benoist",
+    "Léon Jean-Baptiste Sabatier",
+    "A. Bayot",
+    "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
+   ],
+   "extra_impressions": 0,
+   "impressions": [],
+   "creators": []
+  },
+  {
+   "id": "parismusees-320294396",
+   "title": "Paris dans sa splendeur./ 51./ Parc de Monceaux./ (La Naumachie)",
+   "title_original": "Paris dans sa splendeur./ 51./ Parc de Monceaux./ (La Naumachie)",
+   "holder": "Paris Musées / Musée Carnavalet",
+   "accession": "node 320294396",
+   "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-51-parc-de-monceaux-la-naumachie",
+   "image": "img/benoist/pm-320294396.jpg",
+   "rights": "CC0 Paris Musées",
+   "rights_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "technique": "Lithographie",
+   "participants": [
+    "Eugène Ciceri",
+    "Félix Benoist",
     "éditeurs,  Nantes et Paris) Charpentier (imprimeurs"
    ],
    "extra_impressions": 0,

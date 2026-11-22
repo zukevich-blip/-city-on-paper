@@ -1,0 +1,104 @@
+{
+ "id": "hotel_de_ville-rijks-5498-6afa5131",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "lost_or_reconstructed",
+ "condition": "Здание сожжено в 1871 году и перестроено; на фото баннеры Олимпиады 2024.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Hôtel de Ville",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5498--38c11b05c521c05cdf6e22fc83e31e85",
+  "accession": "RP-P-1905-5498",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5498.jpg",
+  "sha256": "f0f410cd8d5ee36b1ce0f9ebb7484b2cbffcb18fb1950d8097c2341c5f4af27c",
+  "size": [
+   900,
+   650
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5498.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Hôtel de Ville · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Отель-де-Виль, 2024-04-14",
+  "provider": "Panoramax",
+  "panoramax_id": "6afa5131-550e-45d5-b5e0-73c60010a536",
+  "object_url": "https://api.panoramax.xyz/api/collections/17149f9f-0e91-4046-93bd-0032bf04c7c0/items/6afa5131-550e-45d5-b5e0-73c60010a536",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=6afa5131-550e-45d5-b5e0-73c60010a536",
+  "author": "Robot8A (Panoramax account)",
+  "date": "2024-04-14",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.856419444,
+   "lon": 2.350975,
+   "heading_deg": 63,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 63,
+  "distance_to_building_m_approx": 114,
+  "file": "hotel_de_ville-photo-panoramax-6afa5131.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/6a/fa/51/31/550e-45d5-b5e0-73c60010a536/sd.jpg",
+  "source_sha256": "f8c5c1e327997fd59e645dd5beb42677ec48eddb954dec227d5b0ae5f8869c9d",
+  "sha256": "d5164e68fbf2180fe610db1a83324f37481c50827ca4d0988c3cb5890eff4945",
+  "size": [
+   2048,
+   2730
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: Robot8A / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "different",
+  "photo_bearing_from_building_deg": 269,
+  "photo_distance_m": 114,
+  "artist_bearing_estimate_deg": 235,
+  "bearing_diff_deg": 34,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Здание сожжено в 1871 году и перестроено; на фото баннеры Олимпиады 2024."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch",
+  "observations": [
+   "Здание сожжено в 1871 году и перестроено; на фото баннеры Олимпиады 2024.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   650
+  ],
+  "photo_size": [
+   2048,
+   2730
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

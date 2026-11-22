@@ -9,7 +9,7 @@
   "extra_impressions": 349,
   "reviewed": 319,
   "open_file": 204,
-  "shipped_with_image": 53,
+  "shipped_with_image": 83,
   "external_only": 229,
   "no_image_at_all": 229,
   "by_artist": {
@@ -2334,7 +2334,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320089731.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -3045,7 +3045,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320295801.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -3068,7 +3068,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293986.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -3362,7 +3362,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320150718.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -3564,7 +3564,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320294396.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -3662,7 +3662,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320150228.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -4065,7 +4065,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320150715.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -5224,7 +5224,7 @@
    "year": null,
    "kind": "page_in_book",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293136.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -5357,7 +5357,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293500.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -5907,7 +5907,7 @@
    "year": 1860,
    "kind": "print",
    "impressions": 2,
-   "image": null,
+   "image": "img/benoist/pm-320272359.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6040,7 +6040,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320292641.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6063,7 +6063,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293678.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6294,7 +6294,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320289156.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6596,7 +6596,7 @@
    "year": null,
    "kind": "print",
    "impressions": 2,
-   "image": null,
+   "image": "img/benoist/pm-320293263.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6648,7 +6648,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320290970.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6879,7 +6879,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320289470.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7099,7 +7099,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293396.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7145,7 +7145,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293288.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7168,7 +7168,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320292523.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7191,7 +7191,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320294429.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7735,7 +7735,7 @@
    "year": null,
    "kind": "print",
    "impressions": 2,
-   "image": null,
+   "image": "img/benoist/pm-320293393.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7764,7 +7764,7 @@
    "year": null,
    "kind": "page_in_book",
    "impressions": 2,
-   "image": "img/benoist/pm-320291197.jpg",
+   "image": "img/benoist/pm-320291273.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7891,7 +7891,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320289563.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7914,7 +7914,7 @@
    "year": null,
    "kind": "page_in_book",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320274915.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -8537,7 +8537,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320289145.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -9692,7 +9692,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293177.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -9790,7 +9790,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320289583.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -9963,7 +9963,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320293074.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -10021,7 +10021,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320288694.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -10131,7 +10131,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320292326.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -11211,7 +11211,7 @@
    "year": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/pm-320288322.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [

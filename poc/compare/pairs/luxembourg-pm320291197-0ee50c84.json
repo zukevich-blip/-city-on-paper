@@ -1,0 +1,103 @@
+{
+ "id": "luxembourg-pm320291197-0ee50c84",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Дворец с угла террасы, ракурс косой.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Palais du Luxembourg, côté jardin",
+  "title_original": "Palais du Luxembourg. / Côté jardin.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-jardin",
+  "accession": "node 320291197",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320291197.jpg",
+  "sha256": "21e224376096ac037d66dd12973ecd15431493412848e7514ad6b4dbf03f8f5d",
+  "size": [
+   1280,
+   955
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320291197.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Palais du Luxembourg, côté jardin · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Люксембургский дворец, 2026-01-20",
+  "provider": "Panoramax",
+  "panoramax_id": "0ee50c84-dbf5-4394-8330-3bf0dd4d8c93",
+  "object_url": "https://api.panoramax.xyz/api/collections/5af70fab-717a-4124-bcea-796b0647d12c/items/0ee50c84-dbf5-4394-8330-3bf0dd4d8c93",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=0ee50c84-dbf5-4394-8330-3bf0dd4d8c93",
+  "author": "jerome92370 (Panoramax account)",
+  "date": "2026-01-20",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.847761762,
+   "lon": 2.338528541,
+   "heading_deg": 321,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 321,
+  "distance_to_building_m_approx": 103,
+  "file": "luxembourg-photo-panoramax-0ee50c84.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/0e/e5/0c/84/dbf5-4394-8330-3bf0dd4d8c93/sd.jpg",
+  "source_sha256": "e3ecc3eafa6716fa437f1d638d7e863037d883d2a609fa1f67d3d9b4df940e62",
+  "sha256": "376bde22c20a8fac2ecb5f34d1e7dfad9c3df2b65b74a9333f1084146237f819",
+  "size": [
+   2048,
+   1536
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 148,
+  "photo_distance_m": 103,
+  "artist_bearing_estimate_deg": 185,
+  "bearing_diff_deg": 37,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Дворец с угла террасы, ракурс косой."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Дворец с угла террасы, ракурс косой.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   955
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

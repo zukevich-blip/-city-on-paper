@@ -1,0 +1,103 @@
+{
+ "id": "brussels-rijks-1979-4ad71c94",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Гран-Плас с ратушей на правом краю кадра; ракурс другой, фасад ратуши виден сбоку и мал.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Hôtel de ville de Bruxelles",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Nicolas Marie Joseph Chapuy",
+    "role": "after drawing by"
+   },
+   {
+    "name": "Veith & Hauser",
+    "role": "publisher"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-1979--f2c43f90fd39f046219eebf33ddd362c",
+  "accession": "RP-P-1908-1979",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1908-1979.jpg",
+  "sha256": "c3fd116bc69ab4246728e1f696d7b3da4c12dd6eb67cdb673ba9e0126b4e5355",
+  "size": [
+   900,
+   1313
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1908-1979.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Hôtel de ville de Bruxelles · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Брюссель · ратуша, 2016-10-01",
+  "provider": "Panoramax",
+  "panoramax_id": "4ad71c94-a6c7-4a30-899d-9fac11433b07",
+  "object_url": "https://api.panoramax.xyz/api/collections/462103ed-782e-4764-8d5e-1bf8e594b4b7/items/4ad71c94-a6c7-4a30-899d-9fac11433b07",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=4ad71c94-a6c7-4a30-899d-9fac11433b07",
+  "author": "JLZIMMERMANN (Panoramax account)",
+  "date": "2016-10-01",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 50.847183333,
+   "lon": 4.352347222,
+   "heading_deg": 213,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 213,
+  "distance_to_building_m_approx": 85,
+  "file": "brussels-photo-panoramax-4ad71c94.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/4a/d7/1c/94/a6c7-4a30-899d-9fac11433b07/sd.jpg",
+  "source_sha256": "89da0e30dbe738b4aa3f008da0f6bfb7d26e4e4c1d548613c516e81f5798883f",
+  "sha256": "23eef784e68cf0ac6f45d5557f88013e6d53a737f49d565da9958c3304c25e4c",
+  "size": [
+   2048,
+   1536
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: JLZIMMERMANN / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": 29,
+  "photo_distance_m": 85,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Гран-Плас с ратушей на правом краю кадра; ракурс другой, фасад ратуши виден сбоку и мал."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Гран-Плас с ратушей на правом краю кадра; ракурс другой, фасад ратуши виден сбоку и мал.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   1313
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

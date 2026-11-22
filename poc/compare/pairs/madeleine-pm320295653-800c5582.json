@@ -1,0 +1,103 @@
+{
+ "id": "madeleine-pm320295653-800c5582",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Интерьер Мадлен: взгляд по нефу к апсиде, как на листе; точка внутри здания определена по GPS неточно.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Intérieur de La Madeleine. / Interior of the Church of he Madeleine // Vues de Paris. / (42.) / Views of Paris.",
+  "title_original": "Intérieur de La Madeleine. / Interior of the Church of he Madeleine // Vues de Paris. / (42.) / Views of Paris.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-la-madeleine-interior-of-the-church-of-he-madeleine-vues-de",
+  "accession": "node 320295653",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320295653.jpg",
+  "sha256": "3d6d7bb51b3111e2348e48d196a62913a6e4030a28980258689321320f9d49ca",
+  "size": [
+   1280,
+   1049
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320295653.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Intérieur de La Madeleine. / Interior of the Church of he Madeleine // Vues de Paris. / (42.) / Views of Paris. · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Церковь Мадлен, интерьер, 2026-04-30",
+  "provider": "Panoramax",
+  "panoramax_id": "800c5582-8a62-44ab-ba18-16adf0082475",
+  "object_url": "https://api.panoramax.xyz/api/collections/b97b1ba7-0d62-4638-8be6-b86260a13296/items/800c5582-8a62-44ab-ba18-16adf0082475",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=800c5582-8a62-44ab-ba18-16adf0082475",
+  "author": "jerome92370 (Panoramax account)",
+  "date": "2026-04-30",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.869660847,
+   "lon": 2.32421158,
+   "heading_deg": 17,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 17,
+  "distance_to_building_m_approx": 39,
+  "file": "madeleine-photo-panoramax-800c5582.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/80/0c/55/82/8a62-44ab-ba18-16adf0082475/sd.jpg",
+  "source_sha256": "cb3b061552dd3c940f064fc71a5415c4878fdc11863e16b2a97e8c7a9c6d0670",
+  "sha256": "071aba699dc0a5f166984507287bb90c2efc7deb4fcd57a02b1cad176bdf37bb",
+  "size": [
+   2048,
+   1536
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: jerome92370 / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 227,
+  "photo_distance_m": 39,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Интерьер Мадлен: взгляд по нефу к апсиде, как на листе; точка внутри здания определена по GPS неточно."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Интерьер Мадлен: взгляд по нефу к апсиде, как на листе; точка внутри здания определена по GPS неточно.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   1049
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

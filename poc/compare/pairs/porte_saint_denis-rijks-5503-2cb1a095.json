@@ -1,0 +1,103 @@
+{
+ "id": "porte_saint_denis-rijks-5503-2cb1a095",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Фронтально с севера; сторона камеры на листе не установлена.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Porte St. Denis",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5503--56ce768410d2f88e13fce8f50143f900",
+  "accession": "RP-P-1905-5503",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5503.jpg",
+  "sha256": "ba30d99d66329f23bfe4441ce1bc276274a17192b751f8c7074f88309066403b",
+  "size": [
+   900,
+   633
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5503.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Porte St. Denis · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Ворота Сен-Дени, 2024-07-20",
+  "provider": "Panoramax",
+  "panoramax_id": "2cb1a095-3dd9-4cb6-b892-3f3d4e3c1e59",
+  "object_url": "https://api.panoramax.xyz/api/collections/77fccaa7-7f31-496a-ac2c-16b0c7995212/items/2cb1a095-3dd9-4cb6-b892-3f3d4e3c1e59",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=2cb1a095-3dd9-4cb6-b892-3f3d4e3c1e59",
+  "author": "benoitdd (Panoramax account)",
+  "date": "2024-07-20",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.87001,
+   "lon": 2.352835972,
+   "heading_deg": 185,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 185,
+  "distance_to_building_m_approx": 27,
+  "file": "porte_saint_denis-photo-panoramax-2cb1a095.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/2c/b1/a0/95/3dd9-4cb6-b892-3f3d4e3c1e59/sd.jpg",
+  "source_sha256": "496788d35288da8d1679aab108574ff1ffd16ed13237c5538874dd40069fb793",
+  "sha256": "d5921718cd435976507c8e49b5d575f85a1e858b8bbe70ea38b629784a37773a",
+  "size": [
+   2048,
+   1536
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: benoitdd / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": 24,
+  "photo_distance_m": 27,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Фронтально с севера; сторона камеры на листе не установлена."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Фронтально с севера; сторона камеры на листе не установлена.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   633
+  ],
+  "photo_size": [
+   2048,
+   1536
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

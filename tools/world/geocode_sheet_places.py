@@ -148,6 +148,90 @@ LANDMARKS = [
 ]
 
 
+# Sheets added later (second batch of Paris Musées) for places already listed, and places that are new.
+EXTRA_SHEETS = {
+    "sainte-chapelle": ["parismusees-320290069"],
+    "madeleine": ["parismusees-320295200"],
+    "palais-industrie": [
+        "parismusees-320293074",
+        "parismusees-320150715",
+        "parismusees-320293393",
+        "parismusees-320293399",
+        "parismusees-320150718",
+    ],
+    "bastille": ["parismusees-320293500"],
+    "porte-saint-denis": ["parismusees-320293396"],
+    "halles-innocents": ["parismusees-320289470"],
+    "tuileries": ["parismusees-320289647"],
+    "pantheon": ["parismusees-320292326"],
+    "orsay": ["parismusees-320292527", "parismusees-320292536"],
+    "concorde": ["parismusees-320292491"],
+    "saint-etienne": ["parismusees-320290970"],
+    "luxembourg": ["parismusees-320291273"],
+    "expo-1867": ["parismusees-320274915", "parismusees-320089731"],
+}
+NEW_LANDMARKS = [
+    (
+        "rond-point",
+        "Рон-Пуэн Елисейских полей",
+        "Rond-point des Champs-Élysées, Paris",
+        "Париж",
+        ["parismusees-320288694", "parismusees-320150228"],
+    ),
+    (
+        "chatelet",
+        "Площадь Шатле",
+        "Place du Châtelet, Paris",
+        "Париж",
+        ["parismusees-320289145", "parismusees-320289156"],
+    ),
+    (
+        "cirque-imperatrice",
+        "Цирк Императрицы (Рон-Пуэн)",
+        "Théâtre du Rond-Point, Paris",
+        "Париж",
+        ["parismusees-320293136"],
+    ),
+    (
+        "invalides",
+        "Дом инвалидов",
+        "Hôtel des Invalides, Paris",
+        "Париж",
+        ["parismusees-320293263", "parismusees-320293264"],
+    ),
+    ("opera", "Новая опера (Опера Гарнье)", "Palais Garnier, Paris", "Париж", ["parismusees-320293288"]),
+    ("etoile", "Триумфальная арка на площади Звезды", "Arc de Triomphe, Paris", "Париж", ["parismusees-320293177"]),
+    (
+        "saint-laurent",
+        "Церковь Сен-Лоран и Восточный вокзал",
+        "Église Saint-Laurent, Paris",
+        "Париж",
+        ["parismusees-320293678"],
+    ),
+    (
+        "boulevard-italiens",
+        "Бульвар Итальянцев",
+        "Boulevard des Italiens, Paris",
+        "Париж",
+        ["parismusees-320289563", "parismusees-320289583"],
+    ),
+    ("trinite", "Церковь Святой Троицы", "Église de la Sainte-Trinité, Paris", "Париж", ["parismusees-320292523"]),
+    ("lorette", "Церковь Нотр-Дам-де-Лорет", "Église Notre-Dame-de-Lorette, Paris", "Париж", ["parismusees-320292641"]),
+    ("saint-augustin", "Церковь Сен-Огюстен", "Église Saint-Augustin, Paris", "Париж", ["parismusees-320294429"]),
+    (
+        "buttes-chaumont",
+        "Парк Бют-Шомон",
+        "Parc des Buttes-Chaumont, Paris",
+        "Париж",
+        ["parismusees-320288322", "parismusees-320295801"],
+    ),
+    ("ecole-militaire", "Военная школа", "École militaire, Paris", "Париж", ["parismusees-320272359"]),
+    ("parc-monceau", "Парк Монсо", "Parc Monceau, Paris", "Париж", ["parismusees-320293986", "parismusees-320294396"]),
+    ("louvre-cour", "Двор Лувра", "Cour Napoléon, Louvre, Paris", "Париж", ["parismusees-320288930"]),
+]
+LANDMARKS = [(a, b, c, d, e + EXTRA_SHEETS.get(a, [])) for a, b, c, d, e in LANDMARKS] + NEW_LANDMARKS
+
+
 def geocode(query: str) -> dict | None:
     url = "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=" + urllib.parse.quote(query)
     res = subprocess.run(["curl", "-sS", "--http1.1", "-m", "40", "-A", UA, url], capture_output=True)

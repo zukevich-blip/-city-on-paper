@@ -454,7 +454,7 @@ def in_period(s: str | None, lo: int = 1700, hi: int = 1900) -> bool:
     a, b = parse_year(s)
     if a is None:
         return True
-    return not (b < 1650 or a > 1925)
+    return not (b < 1700 or a > 1925)
 
 
 def base_record(source: str, source_id: str, author: dict) -> dict:
@@ -1365,7 +1365,7 @@ def known_ids(roots=("data/curation", "data/catalog", "data/candidates", "data/r
 
 
 def build_output(results: dict[str, dict], blocked: list[dict]) -> dict:
-    recs = [r for res in results.values() for r in res["records"]]
+    recs = [r for res in results.values() for r in res["records"] if in_period(r["date_as_stated"])]
     qs = [e for res in results.values() for e in res["queries"]]
     corpus = known_ids()
     for r in recs:

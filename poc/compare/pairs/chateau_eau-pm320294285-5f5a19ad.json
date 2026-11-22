@@ -1,0 +1,116 @@
+{
+ "id": "chateau_eau-pm320294285-5f5a19ad",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "lost_or_reconstructed",
+ "condition": "Площадь Республики, февраль 2025.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Le Château d'Eau et le marché aux fleurs",
+  "title_original": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/zh-hans/node/637571",
+  "accession": "node 320294285",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320294285.jpg",
+  "sha256": "2e984921a9fde0e3cab476e4e8b2abe37a96459285dd79b48706d737dcc298c1",
+  "size": [
+   1280,
+   948
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320294285.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Le Château d'Eau et le marché aux fleurs · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Шато-д'О, площадь Республики, 2025-02-19 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "5f5a19ad-d79e-4033-9741-6cbb160b707a",
+  "object_url": "https://api.panoramax.xyz/api/collections/4c3949f1-a60f-4697-915c-17d65c3b01f4/items/5f5a19ad-d79e-4033-9741-6cbb160b707a",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=5f5a19ad-d79e-4033-9741-6cbb160b707a",
+  "author": "amicklew (Panoramax account)",
+  "date": "2025-02-19",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.867782447,
+   "lon": 2.364374315,
+   "heading_deg": 228,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 228,
+  "distance_to_building_m_approx": 41,
+  "file": "chateau_eau-photo-panoramax-5f5a19ad-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/5f/5a/19/ad/d79e-4033-9741-6cbb160b707a.jpg",
+  "source_sha256": "1a170f58c82f722ae14215e9d1e8fb9f7bafe7dd7d200ff17ee2a1a012974775",
+  "sha256": "a2e1684bfe01a3070192f5ed0d5500e8c818c92408edde581d47f899d60fb0f4",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: amicklew / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 122,
+   "yaw_deg": 228.3,
+   "horizontal_fov_deg": 90,
+   "pitch_deg": 5,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "different",
+  "photo_bearing_from_building_deg": 48,
+  "photo_distance_m": 41,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Площадь Республики, февраль 2025."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch",
+  "observations": [
+   "Площадь Республики, февраль 2025.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   948
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

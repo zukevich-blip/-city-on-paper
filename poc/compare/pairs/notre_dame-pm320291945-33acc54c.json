@@ -1,0 +1,115 @@
+{
+ "id": "notre_dame-pm320291945-33acc54c",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Лето 2025, у фасада стоят краны реставрации.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Notre-Dame",
+  "title_original": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
+  "accession": "node 320291945",
+  "rights": "CC0 Paris Musées",
+  "file": "notre-dame-benoist-carnavalet-cargtop029216.jpg",
+  "sha256": "c88b3d25b62581669b2d5a06b8bf27be43105440784954456857be080621a03b",
+  "size": [
+   926,
+   1280
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320291945.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Notre-Dame · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Нотр-Дам, 2025-07-28 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "33acc54c-115f-4323-a234-444ebee8e53c",
+  "object_url": "https://api.panoramax.xyz/api/collections/6e3ae92a-45f7-46ae-a0ea-3067ec4a4c90/items/33acc54c-115f-4323-a234-444ebee8e53c",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=33acc54c-115f-4323-a234-444ebee8e53c",
+  "author": "benoitdd (Panoramax account)",
+  "date": "2025-07-28",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.85313308,
+   "lon": 2.34864882,
+   "heading_deg": 101,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 101,
+  "distance_to_building_m_approx": 104,
+  "file": "notre_dame-photo-panoramax-33acc54c-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/33/ac/c5/4c/115f-4323-a234-444ebee8e53c.jpg",
+  "source_sha256": "13368f8192f5864270328cbf918f01a3a1ad7dffdd2ab7392e23761541318811",
+  "sha256": "463501c1294be854500d825221531381f8416b33e6201e0849a34a79cb115e73",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: benoitdd / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 144,
+   "yaw_deg": 100.6,
+   "horizontal_fov_deg": 100,
+   "pitch_deg": 20,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 281,
+  "photo_distance_m": 104,
+  "artist_bearing_estimate_deg": 323,
+  "bearing_diff_deg": 42,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Лето 2025, у фасада стоят краны реставрации."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Лето 2025, у фасада стоят краны реставрации.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   926,
+   1280
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}
