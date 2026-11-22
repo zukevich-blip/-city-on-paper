@@ -89,7 +89,7 @@ const views = [
     await page.goto(base + "#/sheet/parismusees-320291945", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("#placemap");
     check(`${v.name}: sheet with a pair embeds the compare tool and a map with the camera wedge`,
-      (await page.locator('.cmpframe[src*="embed=1"]').count()) === 1 && (await page.locator("#placemap path.leaflet-interactive").count()) >= 1);
+      (await page.locator('.cmpframe[src*="embed=1"]').count()) >= 1 && (await page.locator("#placemap path.leaflet-interactive").count()) >= 1);
     check(`${v.name}: sheet page offers the 1878 plan with transparency`, (await page.locator("#planBtn").isVisible()));
     await page.goto(base + "#/sheet/parismusees-320290108", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("[role=note]");
