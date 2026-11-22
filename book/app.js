@@ -392,7 +392,8 @@
     $app.innerHTML = `<div class="page-enter">
       <section class="chead"><p class="eyebrow">Реестр произведений</p><h1>Собрание</h1>
         <p class="lede">Сколько листов найдено и сколько из них можно показать. Записи без права показа остаются ссылками на хранителя: мы не копируем то, что копировать нельзя.</p></section>
-      <dl class="stats"><div><dt>Записей найдено</dt><dd>${sum.discovered_records}</dd></div><div><dt>Разных листов</dt><dd>${sum.unique_works}</dd></div><div><dt>Записи прочитаны</dt><dd>${sum.reviewed}</dd></div><div><dt>Открытые файлы</dt><dd>${sum.open_file}</dd></div><div><dt>Показано в книге</dt><dd>${sum.shipped_with_image}</dd></div></dl>
+      <dl class="stats"><div><dt>Записей найдено</dt><dd>${sum.discovered_records}</dd></div><div><dt>Разных листов, оценка</dt><dd>${sum.unique_works}</dd></div><div><dt>Записи прочитаны</dt><dd>${sum.reviewed}</dd></div><div><dt>Открытые файлы</dt><dd>${sum.open_file}</dd></div><div><dt>Показано в книге</dt><dd>${sum.shipped_with_image}</dd></div></dl>
+      <p class="small">«Разных листов»: записи об одном листе в разных каталогах склеены, когда совпадение надёжно (склеено ${sum.merged_by_high_groups || 0}). Ещё ${sum.possible_merges_medium || 0} пар куратору предстоит проверить глазами; без склейки было бы ${sum.unique_works_strict || sum.unique_works}.</p>
       <div class="chips" role="group" aria-label="Автор"><a class="chip" href="#/catalog" aria-pressed="${!cur}">Все</a>${artists.map(([a, n]) => `<a class="chip" href="#/catalog/${a}" aria-pressed="${cur === a}">${esc(ARTIST[a] || a)} · ${n}</a>`).join("")}</div>
       ${chips("series", uniq("series"), "Серия")}${chips("country", uniq("country"), "Страна")}${chips("city", uniq("city"), "Город")}
       <p class="small" role="status">Показано ${Math.min(catState.take, list.length)} из ${plural(list.length, "листа", "листов", "листов")}.</p>

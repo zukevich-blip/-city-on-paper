@@ -24,7 +24,8 @@ LEGACY = ROOT / "data" / "curation" / "benoist-harvest-v1.json"
 SHEETS = ROOT / "book" / "benoist-sheets.json"
 OUT_RESEARCH = RESEARCH / "registry-v1.json"
 OUT_PUBLIC = ROOT / "book" / "benoist-registry.json"
-SKIP_FILES = {"registry-v1.json"}
+SKIP_FILES = {"registry-v1.json", "duplicate-groups-v1.json", "photo-pairs-report-v1.json", "photos-by-place-v1.json"}
+GROUPS = RESEARCH / "duplicate-groups-v1.json"
 CITY_COUNTRY = {
     "Paris": "Франция",
     "Nantes": "Франция",
@@ -136,7 +137,19 @@ def load_records() -> tuple[list[dict], dict]:
             r.setdefault("_origin", f.name)
         records += recs
         sources[f.name] = {"records": len(recs), "coverage": data.get("coverage")}
-    return records, sources
+    seen: dict[str, dict] = {}
+    unique: list[dict] = []
+    for r in records:  # the same record read by two searches is one record, never two
+        rid = r.get("record_id")
+        if rid and rid in seen:
+            for k, v in r.items():
+                if seen[rid].get(k) in (None, "", []) and v not in (None, "", []):
+                    seen[rid][k] = v
+            continue
+        if rid:
+            seen[rid] = r
+        unique.append(r)
+    return unique, sources
 
 
 def norm_url(url: str | None) -> str:
@@ -154,6 +167,51 @@ def public_images() -> dict[str, str]:
     return out
 
 
+def record_aliases(rid: str) -> list[str]:
+    """Ids a record may be known by: the legacy harvest wrote europeana/... where newer searches write europeana:/..."""
+    out = [rid]
+    if rid.startswith("legacy:"):
+        bare = rid[7:]
+        out += [bare, bare.replace("/", ":/", 1)]
+    return out
+
+
+def apply_duplicate_groups(groups: dict[str, list[dict]]) -> tuple[dict[str, list[dict]], int, int]:
+    """Merge works that a HIGH duplicate group says are one sheet; MEDIUM groups are only counted as possible."""
+    if not GROUPS.exists():
+        return groups, 0, 0
+    data = json.loads(GROUPS.read_text(encoding="utf-8"))
+    where: dict[str, str] = {}
+    for key, members in groups.items():
+        for m in members:
+            for a in record_aliases(m.get("record_id") or ""):
+                where[a] = key
+    parent = {k: k for k in groups}
+
+    def find(k: str) -> str:
+        while parent[k] != k:
+            parent[k] = parent[parent[k]]
+            k = parent[k]
+        return k
+
+    def keys_of(group: dict) -> set[str]:
+        return {where[m["record_id"]] for m in group["members"] if m["record_id"] in where}
+
+    merged = 0
+    for g in data.get("high_groups", []):
+        ks = sorted(keys_of(g))
+        for other in ks[1:]:
+            a, b = find(ks[0]), find(other)
+            if a != b:
+                parent[b] = a
+                merged += 1
+    possible = sum(1 for g in data.get("medium_groups", []) if len({find(k) for k in keys_of(g)}) > 1)
+    out: dict[str, list[dict]] = defaultdict(list)
+    for key, members in groups.items():
+        out[find(key)].extend(members)
+    return out, merged, possible
+
+
 def build() -> tuple[dict, dict]:
     records, sources = load_records()
     shipped = public_images()
@@ -161,6 +219,8 @@ def build() -> tuple[dict, dict]:
     for r in records:
         r["artist_id"] = r.get("artist_id") or "uncertain-benoist"
         groups[group_key(r)].append(r)
+    strict = len(groups)
+    groups, merged_by_high, possible = apply_duplicate_groups(groups)
     works = []
     for i, (_key, members) in enumerate(sorted(groups.items()), start=1):
         head = members[0]
@@ -198,6 +258,9 @@ def build() -> tuple[dict, dict]:
     summary = {
         "discovered_records": len(records),
         "unique_works": len(works),
+        "unique_works_strict": strict,
+        "merged_by_high_groups": merged_by_high,
+        "possible_merges_medium": possible,
         "extra_impressions": len(records) - len(works),
         "reviewed": sum(w["reviewed"] for w in works),
         "open_file": sum(w["open_file"] for w in works),

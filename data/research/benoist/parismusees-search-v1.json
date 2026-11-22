@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "Paris Musées collections (parismuseescollections.paris.fr + apicollections.parismusees.paris.fr IIIF)",
-  "fetched_at": "2026-11-21T12:43:37Z",
+  "fetched_at": "2026-11-22T06:36:27Z",
   "coverage": {
     "queries": [
       {
@@ -138,59 +138,53 @@
           {
             "page": 2,
             "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs?page=2",
-            "cards": 0,
-            "hits_reported_by_source": null
+            "cards": 56,
+            "hits_reported_by_source": 454055
+          },
+          {
+            "page": 3,
+            "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs?page=3",
+            "cards": 56,
+            "hits_reported_by_source": 454055
+          },
+          {
+            "page": 4,
+            "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs?page=4",
+            "cards": 56,
+            "hits_reported_by_source": 454055
+          },
+          {
+            "page": 5,
+            "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs?page=5",
+            "cards": 56,
+            "hits_reported_by_source": 454055
+          },
+          {
+            "page": 6,
+            "url": "https://www.parismuseescollections.paris.fr/fr/recherche/Promenade%20dans%20Paris%20et%20ses%20environs?page=6",
+            "cards": 56,
+            "hits_reported_by_source": 454055
           }
         ],
-        "cards_not_benoist_on_card": 56
+        "cards_not_benoist_on_card": 336
       }
     ],
-    "pages_walked": 17,
+    "pages_walked": 21,
     "hits_total_reported_by_source": 77,
     "hits_total_note": "Sum over the two author queries; the same notice can match both when Philippe and Félix are co-named. Series/text queries are reported separately and are not added.",
     "records_kept": 76,
     "records_by_artist_id": {
       "philippe-benoist": 67,
-      "felix-benoist": 9
+      "uncertain-benoist": 1,
+      "felix-benoist": 8
     },
     "records_not_benoist_dropped": 0,
     "unique_compositions": 64,
     "impressions": 76,
-    "known_before_count": 18,
-    "open_confirmed_with_image_size": 24,
-    "http_requests": 15,
-    "blocked": [
-      {
-        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-1",
-        "http": null,
-        "why": "failed after 3 attempts: short/empty body (0 bytes)"
-      },
-      {
-        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-prise-au-dessus-du-rond-point-des-champs-elysees",
-        "http": null,
-        "why": "failed after 3 attempts: short/empty body (0 bytes)"
-      },
-      {
-        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
-        "http": null,
-        "why": "failed after 3 attempts: short/empty body (0 bytes)"
-      },
-      {
-        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli-0",
-        "http": null,
-        "why": "failed after 3 attempts: short/empty body (0 bytes)"
-      },
-      {
-        "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-et-fontaine-du-chatelet-pont-au-change-theatre-du-chatelet-et-theatre",
-        "http": null,
-        "why": "failed after 3 attempts: short/empty body (0 bytes)"
-      },
-      {
-        "url": "https://www.parismuseescollections.paris.fr",
-        "http": null,
-        "why": "4 consecutive record pages came back empty/failed (throttling); remaining records kept as search_hit_only from the result cards, no further hammering"
-      }
-    ],
+    "known_before_count": 40,
+    "open_confirmed_with_image_size": 74,
+    "http_requests": 171,
+    "blocked": [],
     "notes": [
       "No images downloaded. image_width/height are canvas values from the IIIF manifest; the image resource is the '4k' derivative (height capped near 2160 px), so they are NOT the pixel size of the museum's master scan.",
       "rights_status open_confirmed only when every canvas states CC0 in Droits/Copyright of the manifest.",
@@ -219,7 +213,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "chateau des tuileries||",
@@ -274,7 +268,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "cour du louvre|paris dans sa splendeur|",
@@ -285,7 +279,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "depart de s a la reine d angleterre de paris le aout 1855||",
@@ -296,7 +290,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "dessinee d apres nature et lithographiee par jacottet et benoist|promenade dans paris et ses environs|",
@@ -307,7 +301,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "distribution des recompenses aux exposants au palais de l industrie novembre 1855||",
@@ -318,7 +312,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "ecole militaire facade sur la place de fontenoy|paris dans sa splendeur|",
@@ -373,7 +367,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "exposition universelle de 1867 vue generale du champs de mars prise a vol d oiseau du cote de la porte rapp||",
@@ -418,7 +412,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "hotel des invalides||",
@@ -453,7 +447,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "la halle et la fontaine des innocens sic|vues de paris|",
@@ -475,7 +469,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "la madeleine the madeleine church views of paris|vues de paris|6",
@@ -487,7 +481,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
@@ -556,7 +550,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "les grands aspects du nouveau paris nouvel opera facade principale sur le boulevard des capucines||",
@@ -611,7 +605,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "palais de l industrie aux champs elysees a paris construit conformement au decret du mars 1853 par m viel arch d apres les plans et dessins de mm cendrier arch lorentz et barrault ingen||",
@@ -622,7 +616,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "palais de l industrie aux champs elysees||",
@@ -720,7 +714,7 @@
         "parismusees:523457"
       ],
       "artist_ids": [
-        "felix-benoist"
+        "uncertain-benoist"
       ],
       "any_known_before": false
     },
@@ -733,7 +727,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "place de la concorde||",
@@ -777,7 +771,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "views of paris arc de triomphe de l etoile cote de paris arc of triumph de l etoile side of paris|vues de paris|5",
@@ -855,7 +849,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "vue generale des expositions prise du cote de l annexe||",
@@ -880,7 +874,7 @@
       "artist_ids": [
         "philippe-benoist"
       ],
-      "any_known_before": false
+      "any_known_before": true
     },
     {
       "duplicate_hint": "vue prise au dessus du rond point des champs elysees||",
@@ -977,7 +971,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:123268",
@@ -1058,7 +1052,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:178310",
@@ -1115,7 +1109,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:353488",
@@ -1180,7 +1174,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:353506",
@@ -1245,7 +1239,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:296746",
@@ -1304,7 +1298,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:392521",
@@ -1362,7 +1356,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:393466",
@@ -1434,7 +1428,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:621232",
@@ -1499,7 +1493,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:642224",
@@ -1573,7 +1567,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:641519",
@@ -1668,7 +1662,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:641522",
@@ -1746,7 +1740,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:641525",
@@ -1824,7 +1818,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:642107",
@@ -1883,7 +1877,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:639857",
@@ -1964,7 +1958,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:639863",
@@ -2028,7 +2022,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:639872",
@@ -2092,7 +2086,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:645353",
@@ -2159,7 +2153,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:646037",
@@ -2219,7 +2213,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:645806",
@@ -2354,7 +2348,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:645179",
@@ -2434,15 +2428,39 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Thierry Frères",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Chapon, L.",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "La Sainte Chapelle. / C.",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -2450,22 +2468,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 55.4 cm; Largeur : 43.4 cm",
+        "Dimensions - Montage": "Hauteur : 65 cm; Largeur : 50.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-1",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320290069/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028377_001.jpg?itok=-vf6Zfy6",
+      "image_width": 1701,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "la sainte chapelle de paris inauguree pour la ceremonie de l institution de la magistrature novembre 1849||",
       "impression_note": "3 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2530,7 +2551,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:643379",
@@ -2593,7 +2614,7 @@
       "found_by": [
         "author:Benoist, Philippe"
       ],
-      "known_before": false
+      "known_before": true
     },
     {
       "record_id": "parismusees:643076",
@@ -2601,15 +2622,36 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bachelier, Charles-Claude",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Paris, avant 1814 - après 1874"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Martinet",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeur-libraire"
         }
       ],
       "original_title": "Vue prise au-dessus du Rond-Point des Champs-Elysées",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Vues générales de Paris, 19e siècle",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -2617,22 +2659,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Rehauts de couleur",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 40.5 cm; Largeur : 53.7 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 65"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-prise-au-dessus-du-rond-point-des-champs-elysees",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320288694/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027906_001.jpg?itok=ro6A5qK4",
+      "image_width": 2819,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "vue prise au dessus du rond point des champs elysees||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2646,15 +2691,18 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
         }
       ],
       "original_title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Vues générales de Paris, 19e siècle",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -2662,22 +2710,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Rehauts de couleur",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 41.2 cm; Largeur : 54.4 cm",
+        "Dimensions - Montage": "Hauteur : 49 cm; Largeur : 65"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320288755/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027910_001.jpg?itok=VS-Km8PV",
+      "image_width": 2820,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "le louvre acheve et la nouvelle rue de rivoli|vues de paris|",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2691,15 +2742,18 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
         }
       ],
       "original_title": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Vues générales de Paris, 19e siècle",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -2707,22 +2761,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Rehauts de couleur",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 43.2 cm; Largeur : 54.2 cm",
+        "Dimensions - Montage": "Hauteur : 50.2 cm; Largeur : 65.3"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli-0",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320288773/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027911_001.jpg?itok=gYVeMyhm",
+      "image_width": 2633,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "le louvre acheve et la nouvelle rue de rivoli|vues de paris|",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2736,15 +2793,24 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Place et Fontaine du Châtelet / Pont au Change. Théâtre du Châtelet et Théâtre Lyrique.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Plan du Châtelet, Grand Châtelet, Théâtre du Châtelet. / C",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -2752,22 +2818,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 49 cm; Largeur : 64.4 cm",
+        "Dimensions - Montage": "Hauteur : 54.8 cm; Largeur : 70 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-et-fontaine-du-chatelet-pont-au-change-theatre-du-chatelet-et-theatre",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320289145/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028406_001.jpg?itok=5Ky1OdbP",
+      "image_width": 2799,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "place et fontaine du chatelet pont au change theatre du chatelet et theatre lyrique||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2781,15 +2850,29 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Cihaut frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "1805 - 1880"
         }
       ],
       "original_title": "Fontaine du Châtelet / Fontaine Richelieu.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Plan du Châtelet, Grand Châtelet, Théâtre du Châtelet. / C",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -2797,22 +2880,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 39.2 cm; Largeur : 47.4 cm",
+        "Dimensions - Montage": "Hauteur : 49.4 cm; Largeur : 65.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/fontaine-du-chatelet-fontaine-richelieu",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320289156/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028407_001.jpg?itok=D17xTlgz",
+      "image_width": 3095,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "fontaine du chatelet fontaine richelieu||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2826,15 +2912,49 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Jacottet, Louis-Julien",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "dit Jean-Louis François) (Paris, en 1806 - en 1880"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Eglise de la Madeleine. Projets, plans, vues, événements. Rue Royale / F",
       "plate_number": "6",
       "volume": null,
       "city": "Paris",
@@ -2842,22 +2962,24 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Largeur : 45.7 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-madeleine-the-madeleine-church-vues-de-paris-6-views-of-paris",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320295200/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030438_001.jpg?itok=ULvvu4-M",
+      "image_width": 2712,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "la madeleine the madeleine church views of paris|vues de paris|6",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2871,15 +2993,45 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Chapuy, Nicolas Marie Joseph",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Paris, en 1790 - Paris, 23–07–1858"
+        },
+        {
+          "name": "Adam, Victor",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Jean-Victor Adam, dit) (Paris, 28–01–1801 - Viroflay, 30–12–1866"
+        },
+        {
+          "name": "Dopter, Jean Vincent Marie",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "Paris, 19–02–1807 - Paris, 31–12–1859"
         }
       ],
       "original_title": "Vue générale des expositions / Prise du côté de l'annexe.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Champs-Elysées, palais de l'industrie, galerie des machines. / D",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -2887,22 +3039,24 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 49.8 cm; Largeur : 68.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe-0",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293074/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030230_001.jpg?itok=UyEDUXLx",
+      "image_width": 2949,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "vue generale des expositions prise du cote de l annexe||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2916,15 +3070,33 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, Adolphe Jean Baptiste",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Alexandria (Alessandria), 08–01–1810 - Paris, 06–02–1871"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Cirque de l'Impératrice / aux Champs-Elysées.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Champs Elysées (1). / C.",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -2932,22 +3104,24 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "page_in_book",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 34.2 cm; Largeur : 50 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/cirque-de-l-imperatrice-aux-champs-elysees",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293136/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030210_001.jpg?itok=sgVfZ3uH",
+      "image_width": 3093,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "cirque de l imperatrice aux champs elysees||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -2961,15 +3135,40 @@
       "participants": [
         {
           "name": "Jacottet, Louis-Julien",
-          "role_as_stated": null,
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "dit Jean-Louis François) (Paris, en 1806 - en 1880"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "dit Jean-Louis François) (1806 - 1880"
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
         }
       ],
       "original_title": "Hôtel des Invalides.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Esplanade des Invalides. Hôtel des Invalides. Plans. Vues extérieures et intérieurs. / E",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -2977,24 +3176,27 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42.1 cm; Largeur : 57.5 cm",
+        "Dimensions - Montage": "Hauteur : 49.9 cm; Largeur : 65.3 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293263/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030657_001.jpg?itok=dorf4u5k",
+      "image_width": 2933,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "hotel des invalides||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "medium",
-      "attribution_note": "Assigned from the author-query hit (author:Benoist, Philippe); the search card shows other authors only and the record page was not read.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3006,15 +3208,46 @@
       "participants": [
         {
           "name": "Jacottet, Louis-Julien",
-          "role_as_stated": null,
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "dit Jean-Louis François) (Paris, en 1806 - en 1880"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "dit Jean-Louis François) (1806 - 1880"
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
         }
       ],
       "original_title": "Hôtel des Invalides.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Esplanade des Invalides. Hôtel des Invalides. Plans. Vues extérieures et intérieurs. / E",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3022,24 +3255,27 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42 cm; Largeur : 57.4 cm",
+        "Dimensions - Montage": "Hauteur : 43.5 cm; Largeur : 58.6 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides-0",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293264/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030658_001.jpg?itok=mXwRAsbf",
+      "image_width": 2897,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "hotel des invalides||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "medium",
-      "attribution_note": "Assigned from the author-query hit (author:Benoist, Philippe); the search card shows other authors only and the record page was not read.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -3051,15 +3287,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Les grands aspects du nouveau Paris / Nouvel Opéra. / Façade principale sur le Boulevard des Capucines.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Nouvel Opéra, rue Boudreau. / E1.",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3067,22 +3320,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 49.2 cm; Largeur : 64.2 cm",
+        "Dimensions - Montage": "Hauteur : 49.2 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvel-opera-facade-principale-sur-le",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293288/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030824_001.jpg?itok=QvyueUqY",
+      "image_width": 2809,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "les grands aspects du nouveau paris nouvel opera facade principale sur le boulevard des capucines||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3096,15 +3352,40 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Jacottet, Louis-Julien",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "dit Jean-Louis François) (Paris, en 1806 - en 1880"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Plans de l'Etoile / Arc de triomphe, évènements et fêtes / E",
       "plate_number": "5",
       "volume": null,
       "city": "Paris",
@@ -3112,22 +3393,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Chromolithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42 cm; Largeur : 58 cm",
+        "Dimensions - Montage": "Hauteur : 51 cm; Largeur : 65.6 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-5-views-of-paris-arc-de-triomphe-de-l-etoile-cote-de-paris",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293177/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030347_001.jpg?itok=W3wkyHn5",
+      "image_width": 2957,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris arc de triomphe de l etoile cote de paris arc of triumph de l etoile side of paris|vues de paris|5",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3141,15 +3425,35 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Colonne de Juillet sur la place de la Bastille / Vues de Paris N° 19",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Place de la Bastille : fêtes, événements historiques, colonne de Juillet, fouilles",
       "plate_number": "19",
       "volume": null,
       "city": "Paris",
@@ -3157,22 +3461,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 32.4 cm; Largeur : 49 cm",
+        "Dimensions - Montage": "Hauteur : 49.9 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "G.33369",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille-vues-de-paris-ndeg-19",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293500/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg033369_001.jpg?itok=D59wW-kX",
+      "image_width": 3190,
+      "image_height": 2160,
+      "canvas_count": 2,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/; CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "colonne de juillet sur la place de la bastille n|vues de paris|19",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3186,15 +3493,18 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
         }
       ],
       "original_title": "Eglise Saint-Laurent / avec sa nouvelle façade et la Gare du Chemin de fer de l'Est",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Xe arrondissement : Boulevard de Strasbourg, Eglise Saint-Laurent, Foire Saint-Laurent. / D",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3202,22 +3512,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 35 cm; Largeur : 45.2 cm",
+        "Dimensions - Montage": "Hauteur : 51.5 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/eglise-saint-laurent-avec-sa-nouvelle-facade-et-la-gare-du-chemin-de-fer-de",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293678/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030905_001.jpg?itok=X3sZ3pQx",
+      "image_width": 2747,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "eglise saint laurent avec sa nouvelle facade et la gare du chemin de fer de l est||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3231,15 +3544,62 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Régamey",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Félix, Frédéric et Guillaume"
+        },
+        {
+          "name": "Guérard",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Imprimerie Lemercier",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Goupil & Cie",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
+        },
+        {
+          "name": "Anonyme , marchand d'estampes",
           "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_normalized": "unspecified"
         }
       ],
       "original_title": "Palais de l'Industrie aux Champs Elysées.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Champs-Elysées, palais de l'industrie, galerie des machines. / D",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3247,22 +3607,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 29.9 cm; Largeur : 63 cm",
+        "Dimensions - Montage": "Hauteur : 32.8 cm; Largeur : 50.3 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293393/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030237_001.jpg?itok=LWQ-qwq1",
+      "image_width": 3840,
+      "image_height": 1881,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "palais de l industrie aux champs elysees||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3276,15 +3639,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris // Les Boulevards Saint-Denis et Saint-Martin",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Xe arrondissement : Boulevard Saint Denis (côté IVe), Porte Saint-Denis, Boulevard de Bonne Nouvelle (côté Nord). / B",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3292,22 +3672,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 40 cm; Largeur : 56.8 cm",
+        "Dimensions - Montage": "Hauteur : 51.5 cm; Largeur : 66 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-les-boulevards-saint-denis-et-saint-martin",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293396/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030887_001.jpg?itok=TZaZd7UU",
+      "image_width": 3009,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "les boulevards saint denis et saint martin|vues de paris|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3321,15 +3704,62 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Régamey",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Félix, Frédéric et Guillaume"
+        },
+        {
+          "name": "Guérard",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Imprimerie Lemercier",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Goupil & Cie",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
+        },
+        {
+          "name": "Anonyme , marchand d'estampes",
           "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_normalized": "unspecified"
         }
       ],
       "original_title": "Palais de l'Industrie aux Champs-Elysées.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Champs-Elysées, palais de l'industrie, galerie des machines. / D",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3337,22 +3767,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 29.9 cm; Largeur : 63 cm",
+        "Dimensions - Montage": "Hauteur : 50.7 cm; Largeur : 70.8 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees-0",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293399/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030238_001.jpg?itok=6AwVrRF5",
+      "image_width": 3840,
+      "image_height": 2042,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "palais de l industrie aux champs elysees||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3366,15 +3799,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Cathédrale Notre-Dame de Paris, vue générales : façades occidentale, méridionale et septentrionale, chevet. /B",
       "plate_number": "26",
       "volume": null,
       "city": "Paris",
@@ -3382,22 +3832,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 57.4 cm; Largeur : 40.5 cm",
+        "Dimensions - Montage": "Hauteur : 64.5 cm; Largeur : 50 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291945/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=1rLC2LPq",
+      "image_width": 1563,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris notre dame cathedrale de paris notre dame paris cathedral|vues de paris|26",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3411,15 +3864,45 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Place Vendôme : Vues, plans",
       "plate_number": "7",
       "volume": null,
       "city": "Paris",
@@ -3427,22 +3910,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 52.1 cm; Largeur : 36.9 cm",
+        "Dimensions - Montage": "Hauteur : 70.2 cm; Largeur : 50 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292157/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028680_001.jpg?itok=P_qD6q63",
+      "image_width": 1557,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris colonne de la place vendome colomn of the place vendome|vues de paris|7",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3456,15 +3942,37 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris. // La halle et la fontaine des Innocens. [sic]",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Fontaine et Marché des Innocents. / C",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3472,22 +3980,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 38.3 cm; Largeur : 57.4 cm",
+        "Dimensions - Montage": "Hauteur : 50.4 cm; Largeur : 65.2 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-la-halle-et-la-fontaine-des-innocens-sic",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320289470/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028462_001.jpg?itok=q_2xTmfA",
+      "image_width": 3077,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "la halle et la fontaine des innocens sic|vues de paris|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3501,15 +4012,34 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Château des Tuileries.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Palais des Tuileries - Façade avec les jardins / B",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3517,22 +4047,24 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42 cm; Largeur : 57.2 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/chateau-des-tuileries-2",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320289647/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028023_001.jpg?itok=tXKgD5yN",
+      "image_width": 2853,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "chateau des tuileries||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3546,15 +4078,28 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Imprimerie Lemercier",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer"
+        },
+        {
+          "name": "Daziaro",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Paris / Boulevart des Italiens",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Boulevards des Italiens côté sud / Vues générales / Rue de la Paix / Avenue de l'Opéra / Butte des Moulins / Rue Daunou",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3562,22 +4107,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Estampe en couleurs",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 43.3 cm; Largeur : 60 cm",
+        "Dimensions - Montage": "Hauteur : 50.2 cm; Largeur : 70.2 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-boulevart-des-italiens",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320289563/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=t1L1rWRx",
+      "image_width": 2973,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "paris boulevart des italiens||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3591,15 +4139,35 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, Adolphe Jean Baptiste",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Alexandria (Alessandria), 08–01–1810 - Paris, 06–02–1871"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
         }
       ],
       "original_title": "Vues de Paris. / (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Boulevards des Italiens côté sud / Vues générales / Rue de la Paix / Avenue de l'Opéra / Butte des Moulins / Rue Daunou",
       "plate_number": "11",
       "volume": null,
       "city": "Paris",
@@ -3607,22 +4175,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 37.5 cm; Largeur : 48.5 cm",
+        "Dimensions - Montage": "Hauteur : 50.2 cm; Largeur : 65.2 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-11-views-of-paris-le-boulevart-des-italiens-the-boulevart-des",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320289583/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=FJU76V4F",
+      "image_width": 2748,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris le boulevart des italiens the boulevart des italiens|vues de paris|11",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3636,15 +4207,39 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues du Panthéon.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Panthéon : nouvelle église Sainte Geneviève; plans, coupes, élévations, projets et divers; plans de l’ancien cimetière de l’église de Saint Etienne du Mont, les fouilles / C",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3652,22 +4247,24 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 41.5 cm; Largeur : 57.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-du-pantheon",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292326/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029719_001.jpg?itok=ZilUKeyu",
+      "image_width": 2926,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "vues du pantheon||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3681,15 +4278,35 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Les grands aspects du nouveau Paris / Nouvelle église de la Trinité / Chaussée d'Antin.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Eglise de la Trinité, rue d'Amsterdam, place, rue Saint Lazare. / A.",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3697,22 +4314,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 64.2 cm; Largeur : 49.1 cm",
+        "Dimensions - Montage": "Hauteur : 67 cm; Largeur : 51.6 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-de-la-trinite-chaussee",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292523/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030774_001.jpg?itok=7mMuSmjj",
+      "image_width": 1658,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "les grands aspects du nouveau paris nouvelle eglise de la trinite chaussee d antin||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3726,15 +4346,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "VIIe arrondissement : Quai d'Orsay, ancienne cour des Comptes, Pont-Royal. / C",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3742,22 +4379,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 39.5 cm; Largeur : 57.3 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 65.3 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292527/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030554_001.jpg?itok=bXWTqy8H",
+      "image_width": 3087,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "vues des palais d orcay et de la legion d honneur||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3771,15 +4411,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues des Palais d'Orçay / et de la Légion d'honneur",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "VIIe arrondissement : Quai d'Orsay, ancienne cour des Comptes, Pont-Royal. / C",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3787,22 +4444,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42 cm; Largeur : 57.3 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 65.3 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur-0",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292536/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030555_001.jpg?itok=OXD6dOW7",
+      "image_width": 2904,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "vues des palais d orcay et de la legion d honneur||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3816,15 +4476,40 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris / 8 / Eglise Notre Dame de Lorette.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Eglise Notre-Dame de Lorette, nouvel Opéra, rue du Chateaudun, rue de Provence, rue de la Victoire. / B.",
       "plate_number": "8",
       "volume": null,
       "city": "Paris",
@@ -3832,22 +4517,24 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 57 cm; Largeur : 42 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-8-eglise-notre-dame-de-lorette",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292641/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030781_001.jpg?itok=1LLT3TBk",
+      "image_width": 1614,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "eglise notre dame de lorette|vues de paris|8",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3861,15 +4548,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Place de la Concorde.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Plans de la Concorde (1). / A.",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -3877,22 +4581,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 40 cm; Largeur : 57.2 cm",
+        "Dimensions - Montage": "Hauteur : 51 cm; Largeur : 65.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-de-la-concorde-28",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320292491/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030163_001.jpg?itok=CKQjQEm2",
+      "image_width": 3030,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "place de la concorde||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3906,15 +4613,24 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Les Grands Aspects du Nouveau Paris/ Nouvelle Eglise St. Augustin./ Boulevard Malesherbes.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Boulevard Malesherbes, église Saint-Augustin./ D",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3922,22 +4638,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 48.2 cm; Largeur : 64 cm",
+        "Dimensions - Montage": "Hauteur : 53 cm; Largeur : 72 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-st-augustin-boulevard",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320294429/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030768_001.jpg?itok=brZtG96T",
+      "image_width": 2822,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "les grands aspects du nouveau paris nouvelle eglise st augustin boulevard malesherbes||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3951,15 +4670,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Xe arrondissement : Boulevard Saint-Martin (II), ancienne fontaine du Château d'Eau, place de la République, ancienne place du Château d'Eau. / F",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -3967,22 +4703,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 41.5 cm; Largeur : 57 cm",
+        "Dimensions - Montage": "Hauteur : 51.5 cm; Largeur : 66 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-chateau-d-eau-marche-aux-fleurs",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320294285/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030925_001.jpg?itok=e6oqqARB",
+      "image_width": 2915,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "le chateau d eau marche aux fleurs|vues de paris|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -3996,15 +4735,40 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Nouveau Louvre : façades, détails de décorations, grande gallerie, pavillon de Flore. / D",
       "plate_number": "21",
       "volume": null,
       "city": "Paris",
@@ -4012,22 +4776,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 40.2 cm; Largeur : 55 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 64.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291352/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=VsrQ0ubi",
+      "image_width": 2903,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris colonnade du louvre colonnade of the louvre|vues de paris|21",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4041,15 +4808,40 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Nouveau Louvre : façades, détails de décorations, grande gallerie, pavillon de Flore. / D",
       "plate_number": "21",
       "volume": null,
       "city": "Paris",
@@ -4057,22 +4849,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42.2 cm; Largeur : 57.5 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 64.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-0",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291365/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028171_001.jpg?itok=xSKtRllf",
+      "image_width": 2893,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris colonnade du louvre colonnade of the louvre|vues de paris|21",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4086,15 +4881,35 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Rue de Sévigne, musée Carnavalet / F",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4102,22 +4917,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 39.7 cm; Largeur : 57.5 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320290954/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029652_001.jpg?itok=b3bsHNqd",
+      "image_width": 3093,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "eglise st sulpice eglise st etienne du mont|vues de paris|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4131,15 +4949,35 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer",
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Intérieur de l' Eglise de St Etienne du Mont",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Eglise de St Etienne du Mont : vues intérieures et extérieures, oeuvres d'art. / A",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -4147,22 +4985,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 57.4 cm; Largeur : 39.7 cm",
+        "Dimensions - Montage": "Hauteur : 65.5 cm; Largeur : 49.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-l-eglise-de-st-etienne-du-mont",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320290970/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029653_001.jpg?itok=HPQlUzql",
+      "image_width": 1535,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "interieur de l eglise de st etienne du mont||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4176,15 +5017,23 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Palais du Luxembourg. / Côté du jardin.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Couvent des Chartreux. / Palais du Luxembourg. / B.",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -4192,22 +5041,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Eau-forte; Aquarelle",
+      "object_type": "page_in_book",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 41.5 cm; Largeur : 57 cm",
+        "Dimensions - Montage": "Hauteur : 49.6 cm; Largeur : 65.4 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-du-jardin",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291273/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029809_001.jpg?itok=YwHsXesP",
+      "image_width": 2952,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "palais du luxembourg cote du jardin||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4221,15 +5073,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Palais du Luxembourg. / Côté jardin.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Couvent des Chartreux. / Palais du Luxembourg. / B.",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -4237,22 +5106,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "page_in_book",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 41 cm; Largeur : 54.7 cm",
+        "Dimensions - Montage": "Hauteur : 49.8 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-jardin",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291197/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029820_001.jpg?itok=Xpe_-m4N",
+      "image_width": 2895,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "palais du luxembourg cote jardin||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4266,15 +5138,38 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bry, Auguste",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "1805 - 1880"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris / Rue de Rivoli / Ministères des Finances et de la Marine.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Hôtel et magasin du Louvre, place et rue des Pyramides, rue de Rivoli (1er arr.). / K",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4282,22 +5177,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 40.4 cm; Largeur : 49.7 cm",
+        "Dimensions - Montage": "Hauteur : 45 cm; Largeur : 54.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-rue-de-rivoli-ministeres-des-finances-et-de-la-marine",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291211/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028655_001.jpg?itok=-B7pJKKK",
+      "image_width": 2623,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "rue de rivoli ministeres des finances et de la marine|vues de paris|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4311,15 +5209,32 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, Adolphe Jean Baptiste",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Alexandria (Alessandria), 08–01–1810 - Paris, 06–02–1871"
+        },
+        {
+          "name": "Gihaut Frères",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher"
         }
       ],
       "original_title": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
       "translated_title_ru": null,
       "series": "Vues de Paris",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Place de la Bourse / Palais de la Bourse / G",
       "plate_number": "9",
       "volume": null,
       "city": "Paris",
@@ -4327,22 +5242,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 39.4 cm; Largeur : 57.3 cm",
+        "Dimensions - Montage": "Hauteur : 49.8 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-9-views-of-paris-bourse-et-tribunal-de-commerce-the-bourse",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320291262/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028813_001.jpg?itok=QG5eUjwQ",
+      "image_width": 3070,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "views of paris bourse et tribunal de commerce the bourse and tribunal of commerce|vues de paris|9",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4352,19 +5270,46 @@
     },
     {
       "record_id": "parismusees:523457",
-      "artist_id": "felix-benoist",
+      "artist_id": "uncertain-benoist",
       "participants": [
         {
           "name": "Benoist, Félix",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1818 - 1896"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Paris et ses ruines. / Square des Buttes Chaumont. / Vue du lac, des grottes et du grand rocher avec le Temple de la Sibylle.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Buttes Chaumont : parc, square. / D",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4372,24 +5317,27 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 30.9 cm; Largeur : 46.4 cm",
+        "Dimensions - Montage": "Hauteur : 32.3 cm; Largeur : 50 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "G.52948",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-et-ses-ruines-square-des-buttes-chaumont-vue-du-lac-des-grottes-et-du",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320288322/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052948_001.jpg?itok=Mb-_ywTm",
+      "image_width": 3236,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "paris et ses ruines square des buttes chaumont vue du lac des grottes et du grand rocher avec le temple de la sibylle||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "high",
-      "attribution_note": "Name matches the museum authority form exactly.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "medium",
+      "attribution_note": "Both Philippe and Félix Benoist are named on the record; not assigned to one.",
       "found_by": [
         "author:Benoist, Félix",
         "author:Benoist, Philippe"
@@ -4402,9 +5350,32 @@
       "participants": [
         {
           "name": "Ciceri, Eugène",
-          "role_as_stated": null,
+          "role_as_stated": "graveur",
+          "role_normalized": "engraver",
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Benoist, Philippe",
+          "role_as_stated": "graveur",
+          "role_normalized": "engraver",
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Sagot, Emile",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1890"
+          "life_data_as_stated": "Dijon, 29–01–1805 - 18–02–1888"
+        },
+        {
+          "name": "Lemaître, Augustin-François",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "Paris, 1797 - Paris, 25–02–1870"
+        },
+        {
+          "name": "Imprimerie Lemercier",
+          "role_as_stated": "imprimeur",
+          "role_normalized": "printer"
         }
       ],
       "original_title": "Château du Pailly d'après une esquisse d'Emile Sagot (IFF79, n° 366)",
@@ -4418,24 +5389,27 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Papier de Chine",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Feuille": "Hauteur : 36 cm; Largeur : 54.5 cm",
+        "Dimensions - Trait carré": "Hauteur : 26.9 cm; Largeur : 38.8 cm"
+      },
       "institution": "Petit Palais, musée des Beaux-arts de la Ville de Paris",
-      "accession": null,
+      "accession": "PPG4410",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/chateau-du-pailly-d-apres-une-esquisse-d-emile-sagot-iff79-ndeg-366",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
       "image_height": null,
       "canvas_count": null,
-      "rights_statement": null,
+      "rights_statement": "Paris Musées / Petit Palais, Musée des Beaux-Arts de la Ville de Paris",
       "rights_status": "unknown",
       "duplicate_hint": "chateau du pailly d apres une esquisse d emile sagot iff79 n||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "medium",
-      "attribution_note": "Assigned from the author-query hit (author:Benoist, Philippe); the search card shows other authors only and the record page was not read.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Philippe"
       ],
@@ -4447,15 +5421,24 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Paris dans sa splendeur / Ecole Militaire / Façade sur la Place de Fontenoy",
       "translated_title_ru": null,
       "series": "Paris dans sa splendeur",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Callet / École Militaire / C",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4463,22 +5446,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Chromolithographie; Estampe en couleurs",
+      "object_type": "page_in_book",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 32.3 cm; Largeur : 48.7 cm",
+        "Dimensions - Montage": "Hauteur : 32.6 cm; Largeur : 49.8 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "G.25178",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-ecole-militaire-facade-sur-la-place-de-fontenoy",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320272359/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg025178_001.jpg?itok=B8GKjk9P",
+      "image_width": 3000,
+      "image_height": 2005,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "ecole militaire facade sur la place de fontenoy|paris dans sa splendeur|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4492,15 +5478,41 @@
       "participants": [
         {
           "name": "Benoist, Philippe",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1905"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Genève, en 1813 - en 1905"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Paris dans sa grandeur - Histoire. /Distribuition des aigles au Champ de Mars / (5 décembre 1804) / 84",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Champ de Mars : Fêtes et cérémonies et divers / D",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4508,22 +5520,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Chromolithographie",
+      "object_type": "page_in_book",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 10.3 cm; Largeur : 26 cm",
+        "Dimensions - Montage": "Hauteur : 32.7 cm; Largeur : 48 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "G.23169",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-grandeur-histoire-distribuition-des-aigles-au-champ-de-mars-5",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320274915/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg023169_001.jpg?itok=M_VSamtX",
+      "image_width": 3000,
+      "image_height": 1969,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "paris dans sa grandeur histoire distribuition des aigles au champ de mars decembre 1804||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4537,15 +5552,30 @@
       "participants": [
         {
           "name": "Benoist, Félix",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1818 - 1896"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Exposition universelle de 1867. Vue générale du Champs de Mars, prise à vol d'oiseau du côté de la porte Rapp.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Vues générales de l'exposition. / Distribution des récompenses. / Le déménagement. / A2.",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -4553,22 +5583,25 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 30.5 cm; Largeur : 41.4 cm",
+        "Dimensions - Montage du musée": "Hauteur : 32.5 cm; Largeur : 50 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "G.31601",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/exposition-universelle-de-1867-vue-generale-du-champs-de-mars-prise-a-vol-d",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320089731/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/lpdp_39591-1.jpg?itok=dqlzKzAK",
+      "image_width": 2938,
+      "image_height": 2160,
+      "canvas_count": 3,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "exposition universelle de 1867 vue generale du champs de mars prise a vol d oiseau du cote de la porte rapp||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4582,9 +5615,18 @@
       "participants": [
         {
           "name": "Arnout, Jules",
-          "role_as_stated": null,
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 01–06–1814 - 1868"
+        },
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "1814 - 1868"
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
         }
       ],
       "original_title": "Paris en 1860. Vue prise à vol d'oiseau au dessus du Rond-point des Ch. Elysées.",
@@ -4598,24 +5640,26 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie; Lavis",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 38.5 cm; Largeur : 55.8 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "QB.189",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-en-1860-vue-prise-a-vol-d-oiseau-au-dessus-du-rond-point-des-ch",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320150228/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0189_001.jpg?itok=7MhdspJv",
+      "image_width": 3228,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "paris en 1860 vue prise a vol d oiseau au dessus du rond point des ch elysees||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "medium",
-      "attribution_note": "Assigned from the author-query hit (author:Benoist, Félix); the search card shows other authors only and the record page was not read.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -4627,9 +5671,47 @@
       "participants": [
         {
           "name": "Benoist, Félix",
-          "role_as_stated": null,
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Adam, Victor",
+          "role_as_stated": "auteur du modèle",
           "role_normalized": "unspecified",
-          "life_data_as_stated": "1818 - 1896"
+          "life_data_as_stated": "Jean-Victor Adam, dit) (Paris, 28–01–1801 - Viroflay, 30–12–1866"
+        },
+        {
+          "name": "Chapuy , auteur du modèle",
+          "role_as_stated": null,
+          "role_normalized": "unspecified"
+        },
+        {
+          "name": "Dopter, Jean Vincent Marie",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 19–02–1807 - Paris, 31–12–1859"
+        },
+        {
+          "name": "Dopter, Jean Vincent Marie",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "Paris, 19–02–1807 - Paris, 31–12–1859"
         }
       ],
       "original_title": "Vue générale des Expositions, prise du côté de l'annexe.",
@@ -4643,22 +5725,24 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 42.7 cm; Largeur : 55.2 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "QB.735",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320150715/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0735_001.jpg?itok=0AfQtqtT",
+      "image_width": 2795,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "vue generale des expositions prise du cote de l annexe||",
       "impression_note": "2 records share this duplicate_hint; check whether they are impressions of one sheet or different compositions with a similar title.",
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4672,9 +5756,21 @@
       "participants": [
         {
           "name": "Benoist, Félix",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1818 - 1896"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Ciceri, Eugène",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
         }
       ],
       "original_title": "Palais de l'Industrie.",
@@ -4688,22 +5784,24 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 37.2 cm; Largeur : 55.9 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "QB.736",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-4",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320150718/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0736_001.jpg?itok=gstDQVGJ",
+      "image_width": 3236,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet - Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "palais de l industrie||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4717,15 +5815,47 @@
       "participants": [
         {
           "name": "Sabatier, Léon Jean-Baptiste",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1887"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris - 07–1887"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": "dessinateur",
+          "role_normalized": "designer",
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Nantes",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "imprimeur"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Les Buttes Chaumont / Vue générale à vol d'oiseau, du nouveau square, prise du dessus du lac.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Rue de Meaux, rue Curial, rue de l'Atlas, parc des Buttes Chaumont, place Armand Curial-Marie du XIXe . / F",
       "plate_number": null,
       "volume": null,
       "city": null,
@@ -4733,24 +5863,27 @@
       "country": null,
       "geo_confidence": "unknown",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 49 cm; Largeur : 64.5 cm",
+        "Dimensions - Montage": "Hauteur : 54 cm; Largeur : 68.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-buttes-chaumont-vue-generale-a-vol-d-oiseau-du-nouveau-square-prise-du",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320295801/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop031402_001.jpg?itok=eeR_v_m3",
+      "image_width": 2767,
+      "image_height": 2160,
+      "canvas_count": 2,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "les buttes chaumont vue generale a vol d oiseau du nouveau square prise du dessus du lac||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "medium",
-      "attribution_note": "Assigned from the author-query hit (author:Benoist, Félix); the search card shows other authors only and the record page was not read.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -4762,15 +5895,41 @@
       "participants": [
         {
           "name": "Benoist, Félix",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1818 - 1896"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Sabatier, Léon Jean-Baptiste",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris - 07–1887"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Les Grands Aspects du Nouveau Paris./ Parc de Monceaux/ Vue générale, à vol d'oiseau, prise du côté du Boulevard Malesherbes.",
       "translated_title_ru": null,
       "series": null,
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Parc Monceau : Plans et vues./ C",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4778,22 +5937,25 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 49.2 cm; Largeur : 64.2 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 65 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-parc-de-monceaux-vue-generale-a-vol-d",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320293986/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030750_001.jpg?itok=eZdKdVlL",
+      "image_width": 2758,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "les grands aspects du nouveau paris parc de monceaux vue generale a vol d oiseau prise du cote du boulevard malesherbes||",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
@@ -4807,15 +5969,33 @@
       "participants": [
         {
           "name": "Ciceri, Eugène",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1813 - 1890"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, 23–01–1813 - en 1890"
+        },
+        {
+          "name": "Benoist, Félix",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Paris dans sa splendeur./ 51./ Parc de Monceaux./ (La Naumachie)",
       "translated_title_ru": null,
       "series": "Paris dans sa splendeur",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Parc Monceau : Plans et vues./ C",
       "plate_number": "51",
       "volume": null,
       "city": "Paris",
@@ -4823,24 +6003,27 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 32.2 cm; Largeur : 49.2 cm",
+        "Dimensions - Montage": "Hauteur : 50 cm; Largeur : 64.5 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
       "accession": null,
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-51-parc-de-monceaux-la-naumachie",
-      "iiif_manifest": null,
-      "image_url": null,
-      "image_width": null,
-      "image_height": null,
-      "canvas_count": null,
-      "rights_statement": null,
-      "rights_status": "unknown",
+      "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/320294396/manifest",
+      "image_url": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030764_001.jpg?itok=ML7MfHEp",
+      "image_width": 3241,
+      "image_height": 2160,
+      "canvas_count": 1,
+      "rights_statement": "CC0 Paris Musées / Musée Carnavalet – Histoire de Paris | https://creativecommons.org/publicdomain/zero/1.0/",
+      "rights_status": "open_confirmed",
       "duplicate_hint": "parc de monceaux la naumachie|paris dans sa splendeur|51",
       "impression_note": null,
-      "verification_status": "search_hit_only",
-      "attribution_confidence": "medium",
-      "attribution_note": "Assigned from the author-query hit (author:Benoist, Félix); the search card shows other authors only and the record page was not read.",
+      "verification_status": "source_record_read",
+      "attribution_confidence": "high",
+      "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
         "author:Benoist, Félix"
       ],
@@ -4852,15 +6035,41 @@
       "participants": [
         {
           "name": "Benoist, Félix",
-          "role_as_stated": null,
-          "role_normalized": "unspecified",
-          "life_data_as_stated": "1818 - 1896"
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Saumur, 15–04–1818 - en 1896"
+        },
+        {
+          "name": "Bayot, A.",
+          "role_as_stated": "dessinateur-lithographe",
+          "role_normalized": "designer",
+          "role_normalized_also": [
+            "lithographer"
+          ]
+        },
+        {
+          "name": "Bachelier, Charles-Claude",
+          "role_as_stated": "imprimeur-lithographe",
+          "role_normalized": "printer",
+          "role_normalized_also": [
+            "lithographer"
+          ],
+          "life_data_as_stated": "Paris, avant 1814 - après 1874"
+        },
+        {
+          "name": "Charpentier",
+          "role_as_stated": "editeur",
+          "role_normalized": "publisher",
+          "life_data_as_stated": "imprimeurs, éditeurs, Nantes et Paris"
         }
       ],
       "original_title": "Paris dans sa splendeur / Bibliothèque du Conservatoire des arts et métiers./ (Ancien couvent de l'Abbaye Saint Martin des Champs).",
       "translated_title_ru": null,
       "series": "Paris dans sa splendeur",
-      "series_title_on_sheet": null,
+      "series_title_on_sheet": "Rue Saint-Martin : Conservatoire des Arts et métiers / A",
       "plate_number": null,
       "volume": null,
       "city": "Paris",
@@ -4868,22 +6077,24 @@
       "country": null,
       "geo_confidence": "city",
       "date_as_stated": null,
-      "technique_as_stated": null,
-      "object_type": null,
-      "dimensions_as_stated": null,
+      "technique_as_stated": "Lithographie",
+      "object_type": "print",
+      "dimensions_as_stated": {
+        "Dimensions - Oeuvre": "Hauteur : 49.3 cm; Largeur : 32 cm"
+      },
       "institution": "Musée Carnavalet, Histoire de Paris",
-      "accession": null,
+      "accession": "G.23809",
       "record_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-bibliotheque-du-conservatoire-des-arts-et-metiers",
       "iiif_manifest": null,
       "image_url": null,
       "image_width": null,
       "image_height": null,
       "canvas_count": null,
-      "rights_statement": null,
+      "rights_statement": "Musée Carnavalet / Ville de Paris",
       "rights_status": "unknown",
       "duplicate_hint": "bibliotheque du conservatoire des arts et metiers ancien couvent de l abbaye saint martin des champs|paris dans sa splendeur|",
       "impression_note": null,
-      "verification_status": "search_hit_only",
+      "verification_status": "source_record_read",
       "attribution_confidence": "high",
       "attribution_note": "Name matches the museum authority form exactly.",
       "found_by": [
