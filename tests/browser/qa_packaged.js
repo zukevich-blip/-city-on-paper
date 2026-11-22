@@ -5,7 +5,7 @@ const fs = require("fs");
 const [,,base,outDir]=process.argv;
 if(!base||!outDir)throw Error("Usage: qa_packaged.js <http-origin> <screenshots-directory>");
 fs.mkdirSync(outDir,{recursive:true});
-const paths=["","experience/","atlas/","cities/","stories/","stories/paris-on-paper/","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","poc/compare/","fieldwork/",
+const paths=["","invite/","experience/","atlas/","cities/","stories/","stories/paris-on-paper/","salon/","world/","photography/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","poc/compare/","fieldwork/",
  "journeys/","detective/","discover/","desk/","studio/","ideas/","printlab/","ornaments/","atelier/bargue/","atelier/ornament/"];
 async function requireImage(page,id,min=80){await page.waitForFunction(({selector,min})=>{const n=document.querySelector(selector);return n instanceof HTMLImageElement&&n.complete&&n.naturalWidth>=min;},{selector:id,min},{timeout:22000})}
 (async()=>{
@@ -18,6 +18,13 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
     if(!resp||resp.status()!==200)throw Error(label+": missing "+path+": "+resp?.status());
     const overflow=await p.evaluate(()=>({scroll:document.documentElement.scrollWidth,view:innerWidth,offenders:[...document.querySelectorAll("body *")].filter(e=>{let r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+3}).slice(0,6).map(e=>({tag:e.tagName,cls:typeof e.className==="string"?e.className.slice(0,60):"",id:e.id,right:Math.round(e.getBoundingClientRect().right)}))}));if(overflow.scroll>overflow.view+2)throw Error(label+": horizontal overflow "+path+" "+JSON.stringify(overflow));
    }
+   await p.goto(new URL("invite/",base).href,{waitUntil:"domcontentloaded"});
+   if(await p.locator(".sheets .sheet").count()!==3)throw Error(label+": Benoist invite missing three real prints");
+   const pics=await p.locator(".sheets .sheet img").evaluateAll(xs=>xs.map(x=>({loaded:x.complete&&x.naturalWidth>300,src:x.currentSrc,alt:x.alt})));
+   if(pics.some(x=>!x.loaded||!x.src.includes("/book/img/benoist/")))throw Error(label+": Benoist originals unavailable: "+JSON.stringify(pics));
+   const firstLink=await p.locator(".sheets .sheet").first().getAttribute("href");
+   if(!firstLink?.includes("../book/#/sheet/"))throw Error(label+": Benoist print does not link to book");
+   if(await p.locator("a.open").getAttribute("href")!=="../book/#/benoist")throw Error(label+": Benoist invite CTA is not clickable");
    await p.goto(new URL("salon/",base).href,{waitUntil:"domcontentloaded"});
    try{await p.waitForFunction(()=>document.querySelectorAll("#gallery .art").length>=41,null,{timeout:15000})}catch(e){const debug=await p.evaluate(()=>({cards:document.querySelectorAll("#gallery .art").length,count:document.querySelector("#count")?.textContent,status:document.querySelector("#archiveStatus")?.textContent,empty:document.querySelector("#empty")?.textContent}));throw Error(label+": gallery initial load "+JSON.stringify({debug,errs,original:String(e)}))}
    await p.waitForFunction(()=>document.querySelector("#archiveStatus")?.textContent?.includes("Расширенный фонд:"),null,{timeout:25000});
