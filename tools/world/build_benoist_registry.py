@@ -154,7 +154,9 @@ def load_records() -> tuple[list[dict], dict]:
 
 def norm_url(url: str | None) -> str:
     """Compare record pages across ``www.``, scheme, query and language prefixes of the same museum."""
-    u = re.sub(r"^https?://(www\.)?", "", (url or "").lower()).split("?")[0].rstrip("/")
+    u = re.sub(r"^https?://(www\.)?", "", (url or "").lower())
+    # the Landesarchiv permalink IS its query (?f=4-...); every other museum page is identified by its path
+    u = (u if "landesarchiv-bw.de/plink" in u else u.split("?")[0]).rstrip("/")
     return re.sub(r"^(parismuseescollections\.paris\.fr)/(fr|en|de|ru|zh-hans)/", r"\1/", u)
 
 
@@ -228,6 +230,9 @@ def build() -> tuple[dict, dict]:
         image = next(
             (shipped[norm_url(m.get("record_url"))] for m in members if norm_url(m.get("record_url")) in shipped), None
         )
+        images = sorted(
+            {shipped[norm_url(m.get("record_url"))] for m in members if norm_url(m.get("record_url")) in shipped}
+        )
         works.append(
             {
                 "id": f"w{i:04d}",
@@ -241,6 +246,7 @@ def build() -> tuple[dict, dict]:
                 "kind": head.get("object_type"),
                 "impressions": len(members),
                 "image": image,
+                "images": images,
                 "reviewed": any(m.get("verification_status") == "source_record_read" for m in members),
                 "open_file": any(m.get("rights_status") == "open_confirmed" for m in members),
                 "holders": [
@@ -265,7 +271,7 @@ def build() -> tuple[dict, dict]:
         "reviewed": sum(w["reviewed"] for w in works),
         "open_file": sum(w["open_file"] for w in works),
         "shipped_with_image": len(json.loads(SHEETS.read_text(encoding="utf-8"))["sheets"]) if SHEETS.exists() else 0,
-        "shipped_matched_to_register": len({w["image"] for w in works if w["image"]}),
+        "shipped_matched_to_register": len({im for w in works for im in w["images"]}),
         "external_only": sum(1 for w in works if not w["open_file"]),
         "no_image_at_all": sum(1 for w in works if not w["open_file"] and not w["image"]),
         "by_artist": dict(Counter(w["artist"] for w in works)),
@@ -290,6 +296,7 @@ def build() -> tuple[dict, dict]:
                     "kind",
                     "impressions",
                     "image",
+                    "images",
                     "open_file",
                 )
             }
