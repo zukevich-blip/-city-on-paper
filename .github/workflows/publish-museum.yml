@@ -33,7 +33,7 @@ jobs:
         with:
           # Explicitly published public demonstration. Original research PRs
           # stay draft; never auto-follow their new commits.
-          ref: ac21a5256086a2013aab21113b8a9ae40f289195
+          ref: 7ae53c68fde9e16036f78d157b7966987184b0a7
 
       - name: Verify exact approved test run before downloading
         id: source
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RUN_ID=45042111189
-          EXPECTED_SHA=ac21a5256086a2013aab21113b8a9ae40f289195
+          RUN_ID=45084644617
+          EXPECTED_SHA=7ae53c68fde9e16036f78d157b7966987184b0a7
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
           gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > /tmp/city-public-tested-run.json
           ACTUAL_SHA="$(python -c 'import json;print(json.load(open("/tmp/city-public-tested-run.json"))["head_sha"])')"
@@ -108,6 +108,10 @@ jobs:
           test -s public/assets/litho/litho.css
           test -s public/book/index.html
           test -s public/book/app.js
+          test -s public/invite/index.html
+          test -s public/assets/share/benoist-paris.jpg
+          grep -q 'benoist-paris.jpg' public/index.html
+          grep -q 'benoist-paris.jpg' public/invite/index.html
           test -s public/book/benoist-sheets.json
           test -s public/book/benoist-registry.json
           test ! -e public/private-archive
@@ -204,9 +208,9 @@ jobs:
           path=Path("public/PUBLIC_DEMO_REVISION.json")
           path.write_text(json.dumps({
             "kind": "public demonstration / research preview",
-            "source_revision": "ac21a5256086a2013aab21113b8a9ae40f289195",
+            "source_revision": "7ae53c68fde9e16036f78d157b7966987184b0a7",
             "overlay_browser_qa": "not_used",
-            "qa_run": 45042111189,
+            "qa_run": 45084644617,
             "qa_conclusion": "success",
             "publication": "museum-safe allowlist",
             "scientific_acceptance": "research_draft_unverified"
