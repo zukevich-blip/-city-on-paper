@@ -6,7 +6,7 @@
   "extra_impressions": 258,
   "reviewed": 437,
   "open_file": 191,
-  "shipped_with_image": 49,
+  "shipped_with_image": 70,
   "external_only": 478,
   "no_image_at_all": 471,
   "by_artist": {
@@ -4329,7 +4329,7 @@
    "date": null,
    "kind": "print",
    "impressions": 2,
-   "image": null,
+   "image": "img/benoist/os-ekm-amalfi.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -4781,7 +4781,7 @@
    "date": "1840",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-1845.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -4803,7 +4803,7 @@
    "date": "1840",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-1845.jpg",
    "reviewed": false,
    "open_file": true,
    "holders": [
@@ -4825,7 +4825,7 @@
    "date": "1840",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-1847.jpg",
    "reviewed": false,
    "open_file": true,
    "holders": [
@@ -4847,7 +4847,7 @@
    "date": "1800",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-679.jpg",
    "reviewed": false,
    "open_file": true,
    "holders": [
@@ -4869,7 +4869,7 @@
    "date": "1840",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-1847.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -4891,7 +4891,7 @@
    "date": "1800",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-679.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -6039,7 +6039,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
    "reviewed": false,
    "open_file": true,
    "holders": [
@@ -6061,7 +6061,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -7315,7 +7315,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
    "reviewed": false,
    "open_file": true,
    "holders": [
@@ -7337,7 +7337,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -10765,7 +10765,7 @@
    "date": null,
    "kind": "print",
    "impressions": 2,
-   "image": null,
+   "image": "img/benoist/os-ekm-temple-ruins.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -11029,7 +11029,7 @@
    "date": null,
    "kind": "print",
    "impressions": 2,
-   "image": null,
+   "image": "img/benoist/os-ekm-salerno.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -11995,7 +11995,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-ekm-amalfi.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -14021,7 +14021,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-ekm-temple-ruins.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -14131,7 +14131,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-ekm-salerno.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -17125,7 +17125,7 @@
    "date": "1840",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-1845.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -17147,7 +17147,7 @@
    "date": "1840",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-1847.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -17169,7 +17169,7 @@
    "date": "1800",
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-icgc-cadix-679.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -17235,7 +17235,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [
@@ -17279,7 +17279,7 @@
    "date": null,
    "kind": "print",
    "impressions": 1,
-   "image": null,
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
    "reviewed": true,
    "open_file": true,
    "holders": [

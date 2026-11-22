@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data" / "curation" / "benoist-harvest-v1.json"
 PM = ROOT / "data" / "curation" / "benoist-parismusees-batch-v1.json"
+OPEN = ROOT / "data" / "curation" / "benoist-open-sheets-v1.json"
 OUT = ROOT / "book" / "benoist-sheets.json"
 IMG_DIR = ROOT / "book" / "img" / "benoist"
 UA = "CityOnPaperResearch/0.9 (non-commercial museum atlas; github.com/zukevich-blip/-city-on-paper)"
@@ -156,13 +157,40 @@ def pm_sheets() -> list[dict]:
     return out
 
 
+def open_sheets() -> list[dict]:
+    """Hand-picked sheets from other holders that state an open licence on the file (see ingest_open_sheets.py)."""
+    if not OPEN.exists():
+        return []
+    out = []
+    for r in json.loads(OPEN.read_text(encoding="utf-8"))["sheets"]:
+        out.append(
+            {
+                "id": r["id"],
+                "title": r["title"],
+                "title_original": r["title"],
+                "holder": r["holder"],
+                "accession": r["accession"],
+                "record_url": r["record_url"],
+                "image": r["image"],
+                "rights": r["rights"],
+                "rights_url": r["rights_url"],
+                "technique": r.get("technique") or "в записи не указана",
+                "participants": r["participants"],
+                "extra_impressions": 0,
+                "impressions": [],
+                "creators": [],
+            }
+        )
+    return out
+
+
 def build() -> dict:
     data = json.loads(SRC.read_text(encoding="utf-8"))
-    sheets = pm_sheets() + [sheet(r) for r in data["records"] if eligible(r)]
+    sheets = pm_sheets() + open_sheets() + [sheet(r) for r in data["records"] if eligible(r)]
     return {
         "version": 1,
         "source": "data/curation/benoist-harvest-v1.json",
-        "holders": ["Paris Musées / Musée Carnavalet", "Rijksmuseum"],
+        "holders": ["Paris Musées", "Rijksmuseum", "Landesarchiv Baden-Württemberg", "ICGC", "Eesti Kunstimuuseum"],
         "note": "Роли указаны так, как их называет музей. Это не наша атрибуция.",
         "sheets": sheets,
     }

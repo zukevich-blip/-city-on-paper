@@ -39,7 +39,7 @@ def test_no_workflow_copies_the_private_tier_into_an_artifact():
 
 def test_every_image_shipped_with_the_book_is_an_open_confirmed_sheet():
     sheets = json.loads((ROOT / "book/benoist-sheets.json").read_text(encoding="utf-8"))["sheets"]
-    assert all(s["rights"].startswith(("CC0", "Public Domain Mark")) for s in sheets)
+    assert all(s["rights"].startswith(("CC0", "Public Domain Mark", "CC BY")) for s in sheets)
     declared = {s["image"] for s in sheets} | {i["image"] for s in sheets for i in s.get("impressions", [])}
     shipped = {
         p.relative_to(ROOT / "book").as_posix()

@@ -1,0 +1,145 @@
+{
+ "version": 1,
+ "source": "hand-picked open-licence records",
+ "sheets": [
+  {
+   "id": "os-labw-freiburg-1",
+   "title": "Das Münster zu Freiburg, Südliche Seiten-Ansicht",
+   "holder": "Landesarchiv Baden-Württemberg, Hauptstaatsarchiv Stuttgart",
+   "accession": "/542/item_B5OHYCJFHXY5EUVULKZP2COBNYZYGXBW",
+   "record_url": "https://www.landesarchiv-bw.de/plink/?f=4-1473015",
+   "image": "img/benoist/os-labw-freiburg-1.jpg",
+   "rights": "CC BY 3.0",
+   "rights_url": "http://creativecommons.org/licenses/by/3.0/",
+   "participants": [
+    "Gezeichnet von [Nicolas-Marie-Joseph] Chapuy (1790-1858); Lithografie von Philippe Benoist (1813-1905); Druck von Lemercier, Paris. Verlag: Goupil et Vibert, Paris; London pub. 15 November by the Anaglyphic Company; L. Sachse, Berlin."
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/542/item_B5OHYCJFHXY5EUVULKZP2COBNYZYGXBW",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-labw-freiburg-2",
+   "title": "Innere Ansicht des Münsters zu Freiburg (Seiteneingang)",
+   "holder": "Landesarchiv Baden-Württemberg, Hauptstaatsarchiv Stuttgart",
+   "accession": "/542/item_NOHVZIMUAQBNAFFOXHV2Z6MEAWARL2D3",
+   "record_url": "https://www.landesarchiv-bw.de/plink/?f=4-1473006",
+   "image": "img/benoist/os-labw-freiburg-2.jpg",
+   "rights": "CC BY 3.0",
+   "rights_url": "http://creativecommons.org/licenses/by/3.0/",
+   "participants": [
+    "Gezeichnet von [Nicolas-Marie-Joseph] Chapuy (1790-1858); Lithografie von P[hilippe] Benoist (1813-1905); Druck von Lemercier, [Paris]. Verlag: Goupil et Vibert, Paris; London pub. 1. November by the Anaglyphic Company; L. Sachse et Cie., Berlin."
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/542/item_NOHVZIMUAQBNAFFOXHV2Z6MEAWARL2D3",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-icgc-cadix-1845",
+   "title": "Cadix: Almada de Cadix, prise dès la rue du Quartier de la Marine / Juan B. Coli dibujo en Cadiz ; imprimé par Auguste Bry ; Ph. Benoist lith.",
+   "holder": "Institut Cartogràfic i Geològic de Catalunya",
+   "accession": "/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____1845_ent0",
+   "record_url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/1845",
+   "image": "img/benoist/os-icgc-cadix-1845.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "http://creativecommons.org/publicdomain/mark/1.0/",
+   "participants": [
+    "Coli, J.B. ; Bry, Auguste ; Benoist, Ph."
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____1845_ent0",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-icgc-cadix-1847",
+   "title": "Cadix: vue de l'Observatoire et de la Tour haute de la ville de St. Ferdinand / Juan B. Coli dibujo en Sn. Fernando ; imprimé par Auguste Bry ; Ph. Benoist lith",
+   "holder": "Institut Cartogràfic i Geològic de Catalunya",
+   "accession": "/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____1847_ent0",
+   "record_url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/1847",
+   "image": "img/benoist/os-icgc-cadix-1847.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "http://creativecommons.org/publicdomain/mark/1.0/",
+   "participants": [
+    "Coli, J.B. ; Bry, Auguste ; Benoist, Ph."
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____1847_ent0",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-icgc-cadix-679",
+   "title": "Cadix : vue du salon de Christine à Cadix pris des son entrée par la Alameda = Cádiz : vista del salón de Cristina de Cadiz tomado desde su entrada por la Alameda",
+   "holder": "Institut Cartogràfic i Geològic de Catalunya",
+   "accession": "/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____679_ent0",
+   "record_url": "http://cdm21055.contentdm.oclc.org/cdm/ref/collection/vistes/id/679",
+   "image": "img/benoist/os-icgc-cadix-679.jpg",
+   "rights": "Public Domain Mark",
+   "rights_url": "http://creativecommons.org/publicdomain/mark/1.0/",
+   "participants": [
+    "Juan B. dibujo en Cadiz ; Ph. Benoist lith."
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/991/https___catalonica_bnc_cat_catalonicahub_lod_oai_cdm21055_contentdm_oclc_org_vistes____679_ent0",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-ekm-salerno",
+   "title": "Vaade Salernole",
+   "holder": "Eesti Kunstimuuseum (Art Museum of Estonia)",
+   "accession": "/401/item_5K3LW3OVRSRUREBLF5BG7HM5MRW56KIV",
+   "record_url": "https://www.muis.ee/museaalView/100148",
+   "image": "img/benoist/os-ekm-salerno.jpg",
+   "rights": "CC0",
+   "rights_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "participants": [
+    "Benoist, Philippe (eeskuju)",
+    "Benoist, Philippe (example)"
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/401/item_5K3LW3OVRSRUREBLF5BG7HM5MRW56KIV",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-ekm-amalfi",
+   "title": "Amalfi Cathedral",
+   "holder": "Eesti Kunstimuuseum (Art Museum of Estonia)",
+   "accession": "/401/item_MSMJAXRUAH6MAK5MQMESZLQ5BP3D23IE",
+   "record_url": "https://www.muis.ee/museaalView/100147",
+   "image": "img/benoist/os-ekm-amalfi.jpg",
+   "rights": "CC0",
+   "rights_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "participants": [
+    "Benoist, Philippe (autor)"
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/401/item_MSMJAXRUAH6MAK5MQMESZLQ5BP3D23IE",
+   "attribution_note": "Creator field names Benoist."
+  },
+  {
+   "id": "os-ekm-temple-ruins",
+   "title": "temple ruins",
+   "holder": "Eesti Kunstimuuseum (Art Museum of Estonia)",
+   "accession": "/401/item_PH6L2ZH66RF5NKPCAFYVIB5LVL5GSSVV",
+   "record_url": "https://www.muis.ee/museaalView/100146",
+   "image": "img/benoist/os-ekm-temple-ruins.jpg",
+   "rights": "CC0",
+   "rights_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "participants": [
+    "Benoist, Philippe (example)",
+    "Benoist, Philippe (eeskuju)"
+   ],
+   "technique": null,
+   "artist": "philippe-benoist",
+   "source_record": "europeana:/401/item_PH6L2ZH66RF5NKPCAFYVIB5LVL5GSSVV",
+   "attribution_note": "Creator field names Benoist."
+  }
+ ],
+ "failures": []
+}

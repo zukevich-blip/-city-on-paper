@@ -13,21 +13,24 @@ def test_published_file_matches_the_harvest():
 
 
 def test_every_sheet_is_open_imaged_and_stored_locally():
-    kinds = {"paris": 0, "rijks": 0}
+    kinds = {"paris": 0, "rijks": 0, "other": 0}
     for s in DATA["sheets"]:
-        kinds["rijks" if s["holder"] == "Rijksmuseum" else "paris"] += 1
+        kinds["rijks" if s["holder"] == "Rijksmuseum" else "other" if s["id"].startswith("os-") else "paris"] += 1
         assert (ROOT / "book" / s["image"]).stat().st_size > 20_000, s["id"]
-        assert s["accession"] and s["record_url"].startswith("https://")
+        assert s["accession"] and s["record_url"].startswith("http")
         if s["holder"] == "Rijksmuseum":
             assert s["rights"] == "Public Domain Mark" and "publicdomain/mark" in s["rights_url"]
             assert s["record_url"].startswith("https://www.rijksmuseum.nl/")
             assert any("Benoist" in c["name"] for c in s["creators"]), s["id"]
+        elif s["id"].startswith("os-"):
+            assert s["rights"] in {"CC0", "Public Domain Mark", "CC BY 3.0"} and s["rights_url"].startswith("http")
+            assert any("Benoist" in n for n in s["participants"]), s["id"]
         else:
             assert s["rights"].startswith("CC0") and s["rights_url"].endswith("publicdomain/zero/1.0/")
             assert "parismuseescollections.paris.fr/" in s["record_url"]
             assert any("Benoist" in n for n in s["participants"]), s["id"]
             assert "impression_of" not in s  # a second impression is counted on its first sheet, never twice
-    assert kinds["rijks"] == 22 and kinds["paris"] >= 11
+    assert kinds["rijks"] == 22 and kinds["paris"] >= 11 and kinds["other"] == 8
     batch = json.loads((ROOT / "data/curation/benoist-parismusees-batch-v1.json").read_text(encoding="utf-8"))
     assert kinds["paris"] == len([r for r in batch["records"] if not r["impression_of"]])
 
