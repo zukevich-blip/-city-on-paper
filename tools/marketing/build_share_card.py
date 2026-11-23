@@ -61,6 +61,11 @@ def generate(root: Path) -> Path:
     d.rectangle((23, 22, W - 24, H - 23), outline=GOLD, width=1)
     d.rectangle((35, 31, W - 36, 39), fill=ACCENT)
 
+    kicker = "ОНЛАЙН-МУЗЕЙ  ·  ЖИВОЙ ИСТОРИЧЕСКИЙ АТЛАС"
+    fk = font(15, True)
+    kw = d.textbbox((0, 0), kicker, font=fk)[2]
+    d.text(((W - kw) / 2, 34), kicker, font=fk, fill=ACCENT)
+
     title = "ГОРОД НА БУМАГЕ"
     ft = font(64, True)
     box = d.textbbox((0, 0), title, font=ft)
@@ -87,15 +92,15 @@ def generate(root: Path) -> Path:
         d.text(((x0 + x1 - tw) / 2, 520), caption, font=label_font, fill=INK)
 
     d.line((90, 549, 1110, 549), fill=GOLD, width=1)
-    detail = "Подлинные музейные листы · исторические карты · сравнение эпох"
-    fd = font(21)
+    detail = "ОТКРЫТЬ ЦИФРОВОЙ МУЗЕЙ  ↗"
+    fd = font(22, True)
     tw = d.textbbox((0, 0), detail, font=fd)[2]
     d.text(((W - tw) / 2, 563), detail, font=fd, fill=ACCENT)
 
-    small = "Paris Musées / Musée Carnavalet · CC0"
-    ff = font(13)
+    small = "zukevich-blip.github.io/-city-on-paper/"
+    ff = font(17)
     tw = d.textbbox((0, 0), small, font=ff)[2]
-    d.text(((W - tw) / 2, 604), small, font=ff, fill="#745e4b")
+    d.text(((W - tw) / 2, 598), small, font=ff, fill="#745e4b")
 
     im.save(out, "JPEG", quality=90, optimize=True, subsampling=0)
     assert Image.open(out).size == (W, H)
