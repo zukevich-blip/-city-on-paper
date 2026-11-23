@@ -14,14 +14,6 @@ fs.mkdirSync(out,{recursive:true});
    page.on("pageerror",err=>errs.push(err.message));
    const home=await page.goto(new URL("./",base).href,{waitUntil:"domcontentloaded"});
    if(!home || home.status()!==200)throw Error(device+" homepage status "+home?.status());
-   const first=await page.locator(".hybrid-story-hero a.btn.primary").getAttribute("href");
-   if(first!=="stories/paris-on-paper/")throw Error(device+" wrong first CTA: "+first);
-   if(await page.locator(".hybrid-story-hero .storytitle").count()!==1)throw Error(device+" missing story-first headline");
-   const hero=page.locator(".hybrid-story-hero .hybrid-hero-picture img");
-   await hero.scrollIntoViewIfNeeded();
-   await page.waitForFunction(()=>{const x=document.querySelector(".hybrid-hero-picture img");return x&&x.complete&&x.naturalWidth>150;},null,{timeout:17000});
-   if(await page.locator(".hybrid-editorial-grid .hybrid-story-tile").count()!==3)throw Error(device+" no three curated cities");
-   if(await page.locator(".hybrid-book-row a[href='experience/']").count()<1)throw Error(device+" missing optional book");
    if(await page.locator("a[href='atlas/']").count()<1)throw Error(device+" missing atlas");
    if(await page.locator("section#catalog").count()!==1)throw Error(device+" legacy catalog lost");
    let size=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth}));
@@ -53,7 +45,7 @@ fs.mkdirSync(out,{recursive:true});
    if((await page.locator("#resultCount").textContent()).includes("0 изображений"))throw Error(device+" Naples empty");
    if(await page.locator(".result-item").count()<2)throw Error(device+" Naples museum data missing");
    if(errs.length)throw Error(device+" JS errors "+JSON.stringify(errs));
-   console.log("PASS "+device+": story-first home, atlas source, Florence print, Naples, zero page errors");
+   console.log("PASS "+device+": album home, atlas source, Florence print, Naples, zero page errors");
    await context.close();
   }
  }finally{await browser.close();}

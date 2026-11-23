@@ -4,7 +4,7 @@
   const {chromium}=require("playwright"), fs=require("node:fs"), path=require("node:path");
   const origin=process.argv[2]||"http://127.0.0.1:8791/";
   const output=process.argv[3]||"/tmp/museum-route-audit.json";
-  const routes=["","walk/","stories/","stories/paris-on-paper/","atlas/","experience/","eras/","salon/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","photography/","journeys/","cities/","world/","poc/compare/","poc/compare/editor.html","atlas-prototype/","discover/","detective/","fieldwork/","submit/","studio/","printlab/","atelier/bargue/","atelier/ornament/","ornaments/","ideas/","desk/","exhibitions/lost-florence/","eras/#/epochs","eras/#/city/paris","eras/#/city/florence","eras/#/city/naples"];
+  const routes=["","guides/","walk/","stories/","stories/paris-on-paper/","atlas/","experience/","eras/","salon/","closeup/","exhibitions/city-as-evidence/","exhibitions/lost-florence/","photography/","journeys/","cities/","world/","poc/compare/","poc/compare/editor.html","atlas-prototype/","discover/","detective/","fieldwork/","submit/","studio/","printlab/","atelier/bargue/","atelier/ornament/","ornaments/","ideas/","desk/","exhibitions/lost-florence/","eras/#/epochs","eras/#/city/paris","eras/#/city/florence","eras/#/city/naples"];
   const browser=await chromium.launch({headless:true});
   const base=new URL(origin), results=[],internal=new Map(),external=new Set();
   for (const width of [390,1440]) {

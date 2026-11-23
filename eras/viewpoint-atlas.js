@@ -123,15 +123,15 @@ window.CityOnPaperViewpoints = (() => {
     return {city:c,rows};
   }
   function status(row) {
-    if(row.kind==="today")return "Современный снимок · геоданные: "+(row.cam?"есть":"нет");
+    if(row.kind==="today")return "Фото сегодня · место съёмки указано: "+(row.cam?"да":"нет");
     if(!row.modern)return "Современная фотография того же объекта не подобрана";
-    if(row.match==="near")return "Близкий ракурс по оценке координат и направления, совпадение не доказано";
-    if(row.match==="different")return "Тот же объект, другой ракурс";
+    if(row.match==="near")return "Точки и направления взгляда, по нашей оценке, близки";
+    if(row.match==="different")return "То же место, другая точка";
     return "Тот же объект, точка съёмки не установлена";
   }
   function mount(host, city) {
     if(!host||!city)return;
-    host.innerHTML='<div class="vpa-shell"><p class="note">Загружаем подтверждённые ракурсы и личные снимки…</p></div>';
+    host.innerHTML='<div class="vpa-shell"><p class="note">Загружаем изображения и точки съёмки…</p></div>';
     Promise.all([archive(),localDb.all()]).then(([data,personal])=>{
       if(!host.isConnected)return;
       let list=curated(city.id,data);
@@ -182,25 +182,25 @@ window.CityOnPaperViewpoints = (() => {
       const historic=list.city && (list.city.places||[]).find(p=>p.plan_detail && (p.images||[]).some(x=>x.camera&&finite(x.camera.px,0,1e6)));
       const oldSheet=historic?historic.plan_detail:null;
       const oldMapHtml=oldSheet?'<div class="vpa-map-col"><h3>Исторический план · '+esc(oldSheet.title)+
-        '</h3><div id="vpaOld" class="vpa-map" role="region" aria-label="Лист исторической карты с исследовательскими точками ракурсов"></div>'+
+        '</h3><div id="vpaOld" class="vpa-map" role="region" aria-label="Старая карта с точками художников и фотографов"></div>'+
         '<p class="vpa-note">Положение на листе установлено приблизительно по опорным точкам. Это фрагмент именно '+esc(oldSheet.title)+
         ', не любая историческая карта.</p></div>':'';
-      host.innerHTML='<div class="vpa-shell"><div class="vpa-intro"><span class="eyebrow">Карта ракурсов · музейная лаборатория</span>'+
+      host.innerHTML='<div class="vpa-shell"><div class="vpa-intro"><span class="eyebrow">Старые виды на современной карте</span>'+
         '<h2 id="vpaTitle">Откуда смотрел автор. Как выглядит сегодня</h2>'+
-        '<p>Одна работа, один изображённый объект, отдельная точка наблюдения и современная фотография. Отсутствующий ракурс не заменяем выдуманным.</p>'+
-        '<div class="vpa-counts" role="status"><span>Работ: <b>'+years+'</b></span><span>Исследованных точек: <b>'+located+
-        '</b></span><span>Современных аналогов объекта: <b>'+analogues+
+        '<p>Выберите работу и посмотрите, откуда на город смотрел автор. Рядом появится современное фото, если оно есть.</p>'+
+        '<div class="vpa-counts" role="status"><span>Работ: <b>'+years+'</b></span><span>Точек на карте: <b>'+located+
+        '</b></span><span>Современных фото: <b>'+analogues+
         '</b></span><span>Мои снимки: <b id="vpaOwnCount">'+own.length+'</b></span></div></div>'+
         '<div class="vpa-map-grid">'+oldMapHtml+
         '<div class="vpa-map-col"><h3>Город сегодня · точки камеры и объекты</h3>'+
-        '<div id="vpaNow" class="vpa-map" role="region" aria-label="Современная карта с ракурсами авторов и посетителя"></div>'+
-        '<p class="vpa-note">◉ Камера с направлением; ● изображённый объект. Приблизительные позиции исторических авторов отмечены как гипотезы.</p></div></div>'+
+        '<div id="vpaNow" class="vpa-map" role="region" aria-label="Современная карта с точками художников, фотографов и посетителя"></div>'+
+        '<p class="vpa-note">◉ Точка и линия показывают, откуда и куда смотрели; ● отмечает само место. Точки художников указаны примерно.</p></div></div>'+
         '<div class="vpa-film"><div class="vpa-film-head"><h3 id="vpaSelected">Выберите изображение для сравнения</h3>'+
-        '<span id="vpaStatus"></span></div><div id="vpaCompare" class="vpa-compare" role="region" aria-label="Сравнение старого и нового ракурса"></div>'+
+        '<span id="vpaStatus"></span></div><div id="vpaCompare" class="vpa-compare" role="region" aria-label="Сравнение старого вида и фото сегодня"></div>'+
         '<div class="vpa-mode"><button id="vpaSide" type="button" aria-pressed="true">Рядом</button>'+
-        '<button id="vpaWipe" type="button" aria-pressed="false">Шторка</button>'+
-        '<label id="vpaWipeWrap" hidden>Положение шторки <input id="vpaWipeRange" type="range" min="0" max="100" value="50"></label></div>'+
-        '<p class="vpa-note" id="vpaCompareTruth">Пара не выбрана. При разных ракурсах геометрическое наложение не подтверждено.</p><div id="vpaWipeCredits" class="vpa-wipe-credits" hidden aria-label="Атрибуция изображений"></div><div id="vpaStory" aria-label="История выбранного произведения"></div></div>'+
+        '<button id="vpaWipe" type="button" aria-pressed="false">Ползунок</button>'+
+        '<label id="vpaWipeWrap" hidden>Положение ползунка <input id="vpaWipeRange" type="range" min="0" max="100" value="50"></label></div>'+
+        '<p class="vpa-note" id="vpaCompareTruth">Выберите два изображения для сравнения.</p><div id="vpaWipeCredits" class="vpa-wipe-credits" hidden aria-label="Сведения об изображениях"></div><div id="vpaStory" aria-label="История выбранного произведения"></div></div>'+
         '<details class="vpa-contribute" id="vpaContribution"><summary>Добавить современное фото и точку съёмки на карту</summary>'+
         '<p>Ваш снимок останется в этом браузере. Выберите произведение, нажмите на современную карту в месте съёмки, укажите направление взгляда. На карте появится ваш маркер.</p>'+
         '<form id="vpaForm"><label>Файл JPG/PNG/WebP (до 15 МБ)<input id="vpaFile" type="file" accept="image/jpeg,image/png,image/webp" required></label>'+
@@ -243,8 +243,8 @@ window.CityOnPaperViewpoints = (() => {
           " · азимут "+r.cam.az+"° · точность "+(r.cam.confidence||"не задана"):"Точка автора не установлена");
         const left=r.image?'<figure><img loading="lazy" src="'+esc(r.image)+'" alt="'+esc(r.title)+'"><figcaption>'+
           esc(r.year)+" · "+esc(r.author)+'</figcaption></figure>':
-          '<div class="vpa-empty">Источник изображения находится у хранителя. Откройте архивную карточку.</div>';
-        const right=analog?'<figure><img loading="lazy" src="'+esc(analog.file)+'" alt="Современный аналог объекта"><figcaption>'+
+          '<div class="vpa-empty">Изображение доступно на странице в архиве.</div>';
+        const right=analog?'<figure><img loading="lazy" src="'+esc(analog.file)+'" alt="Фото этого места сегодня"><figcaption>'+
           esc(analog.year)+" · "+esc(analog.author)+
           (analog.source?' · <a href="'+esc(https(analog.source))+
             '" target="_blank" rel="noopener noreferrer">Источник современного фото</a>':'')+
@@ -271,7 +271,7 @@ window.CityOnPaperViewpoints = (() => {
           "Разница точек ≈"+Math.round(dist(r.cam,analog.cam))+" м, направления ≈"+
             Math.round(azdiff(r.cam.az,+analog.cam.azimuth_deg||analog.cam.az||0))+"°. " : "";
         info.textContent=(analog?"Один изображённый объект. "+mat+
-          "Сравнение исследовательское: точное совпадение перспективы не подтверждено.":
+          "Мы ещё не проверили, совпадают ли направления взгляда.":
           "Для этой работы нет подобранного современного кадра. Сохраните снимок с новой точки на карте.")+
           (r.cam&&r.cam.basis?" Основание оценки: "+r.cam.basis:"");
         galleryHost.querySelectorAll("[data-vpa-id]").forEach(b=>
@@ -305,12 +305,12 @@ window.CityOnPaperViewpoints = (() => {
             '" aria-pressed="false">'+(r.image?'<img src="'+esc(r.image)+
             '" alt="" loading="lazy">':'<span class="vpa-placeholder">Архивный источник</span>')+
             '<span class="vpa-art-text"><b>'+esc(r.title)+'</b><small>'+esc(r.year)+" · "+esc(r.author)+
-            '</small><small>'+esc(r.place)+'</small><em>'+esc(analog?"Современный аналог объекта: найден":
-            "Современный аналог требуется")+'</em></span></button>'+
+            '</small><small>'+esc(r.place)+'</small><em>'+esc(analog?"Есть фото сегодня":
+            "Фото сегодня пока нет")+'</em></span></button>'+
             '<div class="vpa-art-foot"><small>'+esc(r.cam?
-              "Ракурс: "+(r.cam.confidence||"оценка")+" · ±"+(r.cam.radius||"?")+" м":
+              "Точка художника: "+(r.cam.confidence||"оценка")+" · ±"+(r.cam.radius||"?")+" м":
               "Точка автора не установлена")+'</small>'+a+'</div></article>';
-        }).join(""):'<p class="vpa-note">Для этого города ещё нет работ с индивидуальной географической карточкой. Городской каталог доступен выше; карта не выдаёт центр города за точку художника.</p>';
+        }).join(""):'<p class="vpa-note">Точки художников для этого города пока не установлены. Работы можно посмотреть в каталоге выше.</p>';
         galleryHost.querySelectorAll("button[data-vpa-id]").forEach(b=>
           b.onclick=()=>{const r=works.find(x=>x.id===b.dataset.vpaId);
             if(r){compare(r);$(".vpa-film").scrollIntoView({behavior:"smooth",block:"start"});}});
@@ -386,7 +386,7 @@ window.CityOnPaperViewpoints = (() => {
             fillColor:"#e6bf69",fillOpacity:1,weight:2}).addTo(ownLayer);
           const linked=works.find(x=>x.id===p.workLink);
           m.bindPopup("<b>Мой снимок</b><p>"+esc(linked?linked.title:"Своя фотография")+
-            "</p><small>Точка введена посетителем, совпадение с историческим ракурсом не проверено.</small>");
+            "</p><small>Точку указал посетитель. Мы ещё не проверили, совпадает ли она с точкой художника.</small>");
           m.on("click",()=>{if(linked)compare(linked);});
           if(finite(p.az,0,359))L.polyline(
             [[p.lat,p.lon],target(p,p.az,35)],{
@@ -478,7 +478,7 @@ window.CityOnPaperViewpoints = (() => {
       if(!hasLeaflet)nowNode.innerHTML="<p class='vpa-note'>Карта недоступна. Координаты можно ввести вручную.</p>";
       if(!works.length)$("#vpaLink").disabled=true;
     }).catch(()=>{
-      if(host.isConnected)host.innerHTML='<p class="note">Не удалось загрузить карту ракурсов. Каталог города и исторические карты выше остаются доступны.</p>';
+      if(host.isConnected)host.innerHTML='<p class="note">Точки съёмки не загрузились. Каталог и старые карты города доступны выше.</p>';
     });
   }
 

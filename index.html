@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Город на бумаге · Музей исторических изображений и городских историй</title>
-<meta name="description" content="Сравните литографию XIX века с сегодняшним городом. Шторка «Тогда / Сейчас», старые карты, ракурсы художников и истории произведений с музейными источниками. Попробуйте на примере Парижа.">
+<meta name="description" content="Исторические литографии, гравюры и карты городов. Сравните Париж и Рим с современными фотографиями, изучите авторов и музейные первоисточники.">
+<link rel="stylesheet" href="assets/litho/litho.css">
 <style>
 :root{--paper:#f5f0e7;--cream:#fbf8f2;--ink:#292720;--muted:#6e665e;--line:#d8d0c5;--red:#893f32;--warm:#b79362;--green:#3e604d;--page:1140px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font:16px/1.58 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
@@ -265,6 +266,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  #home .museum-wow .wow-lead{font-size:16px}
  #home .museum-wow .wow-trust{display:none}
 }
+#home .opening-shelf{grid-column:1/-1;padding:18px clamp(12px,3vw,24px);border-top:1px solid #c8b79c;background:#fffaf0}
+#home .opening-shelf h2{margin:0 0 12px;font:normal clamp(25px,3vw,34px)/1.14 Georgia,serif;color:#284338}
+#home .opening-plates{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#home .opening-plates>a{min-width:0;display:flex;flex-direction:column;gap:4px;padding:6px 6px 9px;border:1px solid #d9cbb5;text-decoration:none;color:#284338;background:#fffdf8}
+#home .opening-plates>a:hover,#home .opening-plates>a:focus-visible{border-color:#855239;background:#f3e9d8}
+#home .opening-plates img{width:100%;height:clamp(75px,12vw,128px);object-fit:contain;background:#eae0cd}
+#home .opening-plates strong{font:normal clamp(15px,2vw,21px)/1.15 Georgia,serif;padding:2px 3px}
+#home .opening-plates small{font:11px/1.3 system-ui,sans-serif;color:#55483b;padding:0 3px}
+#home .opening-more{display:inline-flex;align-items:center;min-height:44px;color:#25483d;text-underline-offset:3px}
+@media(max-width:700px){#home .opening-plates{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* first-visit route: hero toggle, five steps, facts, "more" fold */
 #home .herotoggle{display:none;gap:8px;margin:0 0 10px;flex-wrap:wrap}
 #home .herotoggle button,#home .herotoggle a{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;border:1px solid #b9ab94;background:#fffdf7;color:#29342d;font:600 14px system-ui,sans-serif;border-radius:4px;text-decoration:none;cursor:pointer}
@@ -275,6 +287,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  #home .wow-duet{grid-template-columns:1fr}
  #home .wow-duet figure[data-pane]{display:none}
  #home .wow-duet[data-active=then] figure[data-pane=then],#home .wow-duet[data-active=now] figure[data-pane=now]{display:block}
+}
+/* wander: phone-first order — picture before text, one main action under the thumb */
+#home .wow-visual-bottom>small a{color:#3d3123;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:10px 0}
+#home .wow-visual-bottom>small{font-size:12px;color:#3d3123}
+#home .wow-actions .wow-secondary{background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;padding-left:0}
+@media(max-width:760px){
+ #home .museum-wow{display:flex;flex-direction:column;border:0;background:transparent;margin-top:6px}
+ #home .museum-wow .front-copy{display:contents}
+ #home .museum-wow .eyebrow{order:1;padding:8px 2px 0}
+ #home .museum-wow h1{order:2;font-size:30px;line-height:1.1;margin:6px 2px 10px;letter-spacing:-.03em}
+ #home .museum-wow .wow-visual{display:contents}
+ #home .herotoggle{order:3;margin:2px 0 8px}
+ #home .wow-duet{order:4}
+ #home .wow-duet figcaption{flex-direction:row;gap:8px;align-items:baseline;padding:6px 2px 2px}
+ #home .wow-visual-bottom{order:6;margin:6px 2px 10px}
+ #home .wow-visual-top{display:none}
+ #home .museum-wow .wow-actions{order:5;margin:10px 0 4px;width:100%;padding:0}
+ #home .museum-wow h1,#home .museum-wow .eyebrow,#home .museum-wow .wow-lead,#home .opening-more,#home .wow-visual-bottom{padding-left:2px;padding-right:2px;margin-left:0;margin-right:0}
+ #home .wow-actions a{width:100%;min-height:54px;font-size:16px}
+ #home .wow-actions .wow-secondary{justify-content:flex-start;min-height:44px}
+ #home .museum-wow .wow-lead{order:7;font-size:15px;padding:0 2px 8px}
+ #home .opening-more{order:8}
+ #home .opening-shelf{order:9}
+ #home .wow-features,#home .route-head{order:10}
+ #home .wow-duet img{max-height:36vh;object-fit:contain}
+ #home .wow-duet figure{box-shadow:none;background:#efe6d6}
 }
 #home .route-head{grid-column:1/-1;padding:26px 4px 6px}#home .route-head h2{font:normal clamp(24px,3.4vw,34px)/1.15 Georgia,serif;margin:4px 0 0}
 #home .wow-features{grid-template-columns:repeat(5,minmax(0,1fr))}
@@ -290,6 +328,55 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .more-museum>summary{min-height:56px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;cursor:pointer;padding:14px 4px;list-style:none}
 .more-museum>summary::-webkit-details-marker{display:none}.more-museum>summary span{font:normal 24px Georgia,serif}.more-museum>summary small{font:13px system-ui,sans-serif;color:#6f6f63}
 .more-museum>summary::after{content:"+";margin-left:auto;font:26px Georgia,serif;color:#7a3f22}.more-museum[open]>summary::after{content:"−"}
+
+
+/* Главная: одна концепция — альбом литографий */
+.lt-home{max-width:760px;margin:0 auto;padding:18px 0 40px}
+.lh-welcome{padding:24px 18px 20px}
+.lh-welcome .lt-title{font-size:clamp(34px,9vw,54px);margin:6px 0 10px}
+.lh-lede{font:400 17px/1.55 var(--lt-serif);color:var(--lt-ink);margin:0 auto 16px;max-width:36em;text-align:left}
+.lh-steps{list-style:none;margin:0;padding:0;display:grid;gap:8px;text-align:left}
+.lh-steps li{display:flex;gap:12px;align-items:center;padding:8px 12px;border:1px solid var(--lt-rule);background:var(--lt-paper-2)}
+.lh-steps b{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--lt-sepia);font:600 15px var(--lt-serif);color:var(--lt-brick);background:var(--lt-page)}
+.lh-steps span{font:400 15px/1.35 var(--lt-serif)}
+.lh-hero{margin-top:26px;text-align:center}
+.lh-sheet{text-align:left}
+.lh-stage{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--lt-wash)}
+.lh-stage img{position:absolute;inset:5px;width:calc(100% - 10px);height:calc(100% - 10px);object-fit:contain;display:block}
+.lh-now{opacity:0}
+.lh-tag{position:absolute;top:12px;padding:3px 9px;font:700 11px var(--lt-sans);letter-spacing:.12em;text-transform:uppercase;background:#23382ce6;color:#fbf5e4;border-radius:2px;transition:opacity .2s}
+.lh-tag-then{left:12px}.lh-tag-now{right:12px;opacity:0}
+.lh-ctl{margin:12px 2px 0}.lh-ctl label{display:block;font:600 11px var(--lt-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lt-brick)}
+.lh-ctl label b{font-weight:700;color:var(--lt-ink)}
+.lh-ends{display:flex;justify-content:space-between;font:italic 12px var(--lt-serif);color:var(--lt-ink-2)}
+.lh-sheet .lt-imprint{grid-template-columns:1fr;gap:4px;text-align:center}
+.lh-sheet .lt-imprint .l,.lh-sheet .lt-imprint .r{text-align:center}
+.lh-sheet .lt-imprint .c{order:-1}
+@media(min-width:640px){.lh-sheet .lt-imprint{grid-template-columns:1fr auto 1fr}.lh-sheet .lt-imprint .l{text-align:left}.lh-sheet .lt-imprint .r{text-align:right}.lh-sheet .lt-imprint .c{order:0}}
+.lh-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:16px 0 0}
+.lh-cta .btn{min-height:48px;display:inline-flex;align-items:center;padding:0 18px;text-decoration:none;border:1px solid #2a4636}
+.lh-cta .btn.ghost{border-color:var(--lt-sepia)}
+.lh-desk,.lh-masters{margin-top:8px;text-align:center}
+.lh-plaques{display:grid;gap:12px;margin-top:14px;text-align:left}
+@media(min-width:640px){.lh-plaques{grid-template-columns:1fr 1fr}}
+.lh-plaque{position:relative;display:block;padding:16px 16px 14px;text-decoration:none;color:var(--lt-ink);border:1px solid var(--lt-sepia);background:var(--lt-page) var(--lt-grain);min-height:44px}
+.lh-plaque::before{content:"";position:absolute;inset:4px;border:1px solid var(--lt-rule);pointer-events:none}
+.lh-plaque strong{display:block;font:400 22px/1.15 var(--lt-serif);margin:4px 0 6px}
+.lh-plaque p{margin:0;font:400 14.5px/1.45 var(--lt-serif);color:var(--lt-ink-2)}
+.lh-plaque:hover,.lh-plaque:focus-visible{background:var(--lt-paper-2)}
+.lh-row a{text-decoration:none;color:var(--lt-ink);padding:6px;border:1px solid var(--lt-rule);background:var(--lt-paper-2);display:block}
+.lh-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;text-align:left}
+.lh-row img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block;border:1px solid var(--lt-sepia)}
+.lh-row strong{display:block;font:400 15px var(--lt-serif);margin-top:6px}
+.lh-row small{display:block;font:italic 12.5px var(--lt-serif);color:var(--lt-ink-2)}
+@media(max-width:520px){.lh-row{grid-template-columns:1fr}.lh-row a{display:grid;grid-template-columns:104px 1fr;column-gap:12px;align-items:center}.lh-row img{grid-row:span 2}}
+.lh-more{margin:26px 0 0;border-top:1px solid var(--lt-rule);padding-top:12px}
+.lh-more summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font:600 12px var(--lt-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lt-brick)}
+.lh-more-grid{display:grid;gap:14px 24px}@media(min-width:640px){.lh-more-grid{grid-template-columns:repeat(3,1fr)}}
+.lh-more ul{list-style:none;margin:0;padding:0}
+.lh-more li a{display:block;padding:10px 0;font:15px var(--lt-serif);color:var(--lt-ink);text-decoration:none;border-bottom:1px dotted var(--lt-rule)}
+.lh-foot{margin:18px 0 0;font:italic 13px/1.45 var(--lt-serif);color:var(--lt-ink-2);text-align:center}
+body.cop-engraved{background:var(--lt-paper) var(--lt-grain)}
 </style>
 <link rel="stylesheet" href="assets/hybrid/tokens.css">
 <link rel="stylesheet" href="assets/hybrid/museum.css">
@@ -297,170 +384,114 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <script src="assets/nav/museum-nav.js" defer></script>
 </head>
 <body class="cop-engraved">
-<header><nav class="wrap"><a class="brand" href="#home"><strong>Город на бумаге</strong><span>City on Paper · Искусство и история городов</span></a>
+<header><nav class="wrap"><a class="brand" href="./"><strong>Город на бумаге</strong><span>City on Paper · Альбом видов</span></a>
 <div class="navlinks">
-<a href="stories/" class="main-story-link">Истории</a>
-<a href="cities/" aria-label="Все города мира">Города</a>
-<a href="atlas/" aria-label="Атлас времени">Атлас</a>
-<button data-go="catalog">Каталог</button>
-<a href="studio/">Кабинет коллекционера</a>
-<details class="allrooms"><summary>Залы</summary><div class="rooms-panel">
-<button data-go="home" aria-current="true">Главная</button>
-<a href="experience/">Книга городов</a>
-<a href="world/">Галерея исторических видов мира</a>
-<a href="discover/">Первое расследование</a>
-<button data-go="compare">Тогда / Сейчас</button>
-<button data-go="research">Архивный поиск</button>
-<button data-go="cities">Городские виды</button>
-<a href="eras/">Атлас эпох</a>
-<a href="journeys/">Путешествия по векам</a>
-<a href="salon/">Салон открытий</a>
-<a href="exhibitions/city-as-evidence/">Исторические выставки</a>
+<a href="book/">Книга</a>
+<a href="poc/compare/?journey=1">Тогда и сейчас</a>
+<a href="eras/">Карта</a>
+<a href="book/#/benoist">Бенуа</a>
+<details class="allrooms"><summary>Ещё</summary><div class="rooms-panel">
+<a href="guides/">Путеводители</a>
+<a href="cities/">Города мира</a>
+<a href="salon/">Каталог видов</a>
+<a href="exhibitions/city-as-evidence/">Выставка «Город как свидетельство»</a>
 <a href="exhibitions/lost-florence/">Исчезнувшая Флоренция</a>
-<a href="detective/">Литография под лупой</a>
-<a href="printlab/">Как печатали литографии</a>
-<a href="ornaments/">Мастерская орнамента</a>
-<a href="atelier/ornament/">Анатомия орнамента</a>
-<a href="atelier/bargue/index.html">Школа рисунка</a>
+<a href="detective/">Лист под лупой</a>
+<a href="printlab/">Как печатали литографию</a>
 <a href="fieldwork/">Фотоохота</a>
-<a href="photography/">Фотографии</a>
+<a href="submit/">Предложить находку</a>
 </div></details></div>
 </nav></header>
 <main>
 <section id="home" class="tab wrap">
+<div class="lt-home">
+  <div class="lt-cartouche lh-welcome">
+    <p class="lt-small">Альбом видов · цифровое издание</p>
+    <h1 class="lt-title">Город на бумаге</h1>
+    <p class="lh-lede">Путеводитель по старым литографиям городов. В центре — <b>Филипп Бенуа</b>, чьи листы Парижа печатали в 1840–1860-х годах. Рядом — другие мастера: Джузеппе Вази, Рим; Сильвестр, Флоренция. К каждому листу можно подобрать фото сегодняшнего дня и посмотреть, что осталось на месте.</p>
+    <ol class="lh-steps" aria-label="Как пользоваться">
+      <li><b>1</b><span>Откройте лист в книге</span></li>
+      <li><b>2</b><span>Сдвиньте ползунок: рисунок станет фото</span></li>
+      <li><b>3</b><span>Найдите место на старой карте</span></li>
+    </ol>
+  </div>
 
-<div class="museum-frontdoor museum-wow" aria-label="Что умеет музей «Город на бумаге»">
-  <div class="front-copy">
-    <span class="eyebrow">Старые виды городов — и как они выглядят сегодня</span>
-    <h1>Как выглядел город больше полутора веков назад — и что в нём осталось?</h1>
-    <p class="wow-lead">Литография — это печатный рисунок на бумаге: так до появления фотографии показывали далёкие города. Мы кладём такой лист рядом со снимком того же места сегодня. Начните с парижской церкви Мадлен: переключайте «Рисунок» и «Фото сегодня» и ищите, что не изменилось.</p>
-    <div class="wow-actions">
-      <a class="wow-primary" href="poc/compare/?journey=1#madeleine-benoist-carnavalet">Сравнить тогда и сейчас <span aria-hidden="true">↗</span></a>
-      <a class="wow-secondary" href="cities/">Выбрать город <span aria-hidden="true">↗</span></a>
-    </div>
-    <p class="wow-trust">Рисунки — из архивов Библиотеки Конгресса США и Художественного института Чикаго. У каждого указаны автор, год и источник.</p>
-  </div>
-  <div class="front-map wow-visual" aria-label="Пример: церковь Мадлен на литографии и на современной фотографии">
-    <div class="wow-visual-top"><span>ПАРИЖ · ЦЕРКОВЬ МАДЛЕН</span><strong>Два века. Один адрес.</strong></div>
-    <div class="herotoggle" role="group" aria-label="Что показать">
-      <button type="button" data-pane="then" aria-pressed="true">Рисунок</button>
-      <button type="button" data-pane="now" aria-pressed="false">Фото сегодня</button>
-      <a href="poc/compare/?view=fit#madeleine-ph-benoist">Совместить →</a>
-    </div>
-    <div class="wow-duet" id="heroDuet" data-active="then">
-      <figure data-pane="then">
-        <img src="assets/web/poc-compare-pairs-madeleine-historic-loc-pga14315v-720.jpg" data-full="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" width="1024" height="750" alt="Церковь Мадлен в Париже на раскрашенной литографии Филиппа Бенуа, 1845–1860 годы" loading="eager" fetchpriority="high">
-        <figcaption><b>РИСУНОК</b><span>Литография · 1845–1860</span></figcaption>
-      </figure>
-      <figure data-pane="now">
-        <img src="assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg" data-full="poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" width="2048" height="1536" alt="Церковь Мадлен на современной фотографии, сделанной 30 апреля 2026 года" loading="eager">
-        <figcaption><b>ФОТО СЕГОДНЯ</b><span>Фотография · 2026</span></figcaption>
-      </figure>
-    </div>
-    <div class="wow-visual-bottom">
-      <span>Рисунок и фото сняты с разных мест, поэтому совпадают не полностью. Какая часть церкви узнаётся в обоих кадрах?</span>
-      <small>Филипп Бенуа, Библиотека Конгресса · Фото jerome92370, Panoramax, CC BY-SA 4.0</small>
-    </div>
-  </div>
-  <div class="route-head"><span class="eyebrow">Ваш маршрут</span><h2>Пять шагов от первого взгляда до своего фото</h2></div>
-  <div class="wow-features" aria-label="Маршрут по музею в пять шагов">
-    <a href="poc/compare/#madeleine-ph-benoist"><span class="wow-feature-num">1</span><strong>Сравните тогда и сейчас</strong><small>Переключайте рисунок и фото или двигайте границу между ними. Что осталось на месте?</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="stories/paris-on-paper/"><span class="wow-feature-num">2</span><strong>Прочтите историю места</strong><small>Кто нарисовал лист, как его печатали и что было с этим местом дальше. Пять глав, 5–7 минут.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="eras/"><span class="wow-feature-num">3</span><strong>Найдите место на карте</strong><small>Старая карта Европы 1769 года с метками городов. Нажмите на город — и увидите его старые виды.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="cities/"><span class="wow-feature-num">4</span><strong>Отправьтесь в другой город</strong><small>Санкт-Петербург, Москва, Рим, Венеция, Нью-Йорк и ещё десятки городов мира.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-    <a href="eras/#/epoch/paris/Q330564"><span class="wow-feature-num">5</span><strong>Добавьте своё фото</strong><small>Снимите то же место сегодня и сравните со старым рисунком. Фото остаётся только в вашем браузере.</small><span class="wow-feature-arrow" aria-hidden="true">↗</span></a>
-  </div>
-</div>
-<div class="wow-find">
-  <div class="wow-find-heading"><strong>А если хочется увидеть свой город?</strong><span>Начните с названия места или выберите готовый маршрут.</span></div>
-  <form class="front-search" id="museumFind" action="cities/" method="get" role="search">
-    <input name="query" id="frontQuery" type="search" placeholder="Париж, Флоренция, Москва…" aria-label="Поиск города или произведения">
-    <button type="submit">Найти город <span aria-hidden="true">→</span></button>
-    <button type="button" id="frontArt">Найти литографию <span aria-hidden="true">→</span></button>
-  </form>
-  <div class="front-quick"><a href="walk/?city=paris">Париж</a><a href="walk/?city=florence">Флоренция</a><a href="walk/?city=naples">Неаполь</a><a href="cities/">Все города мира</a></div>
-</div>
-<div class="hybrid-story-hero">
-<div class="hybrid-story-copy">
-  <div class="cop-imprint" aria-label="Авторский знак цифрового музея «Город на бумаге»"><span class="cop-signet" aria-hidden="true">ГБ</span><span class="cop-imprint-copy"><span>Город на бумаге · City on Paper</span><span>Цифровое издание · Графика и города</span></span></div>
-  <div class="eyebrow">История недели · Париж · XIX век</div>
-  <h2 class="storytitle">Париж,<br><em>который</em><br>напечатали.</h2>
-  <div class="cop-engraved-line" aria-hidden="true"><span>✦</span></div>
-  <p class="lead">Два городских вида Филиппа Бенуа. Один хранит торжественную Мадлен, другой зовёт прогуляться по Пале-Рояль.</p>
-  <p class="supporting">Что художник увидел сам, что выбрал для композиции и как его рисунок превратился в литографский оттиск? Пройдём пять глав, сопоставим изображения и вернёмся к музейным оригиналам.</p>
-  <div class="actions"><a href="stories/paris-on-paper/" class="btn primary">Начать историю Парижа <span aria-hidden="true">→</span></a></div>
-  <p class="hybrid-meta">5 глав · Подлинные листы Library of Congress · 1845–1860 · Датировки, роли и права по архивным карточкам</p>
-</div>
-<figure class="hybrid-hero-picture">
-<a class="artwork-link" href="stories/paris-on-paper/" aria-label="Читать историю литографии «Париж. Мадлен»"><img src="assets/web/poc-compare-pairs-madeleine-historic-loc-pga14315v-720.jpg" data-full="poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg" alt="Раскрашенная литография Филиппа Бенуа: церковь Мадлен в Париже, люди и экипаж перед колоннадой" width="1024" height="750" loading="eager" fetchpriority="high"></a>
-<span class="cop-plate-mark">Исторический лист · Париж · XIX век</span>
-<figcaption>Филипп Бенуа, рисунок; типография Lemercier. <i>Paris. La Madeleine</i>, 1845–1860. Library of Congress, LC-DIG-pga-14315. <a href="https://www.loc.gov/item/2016652452/" target="_blank" rel="noopener noreferrer">Открыть оригинал</a>.</figcaption>
-</figure>
-</div>
-<section class="fv-facts" aria-labelledby="factsH">
-  <h2 id="factsH">Знаете ли вы?</h2>
-  <div class="fv-facts-grid">
-    <article><b>Литография</b><p>Её придумал в 1796 году баварский актёр и драматург Алоис Зенефельдер. Рисуют жирным составом по гладкому камню: краска липнет только к рисунку, а мокрый камень её отталкивает.</p><a href="https://en.wikipedia.org/wiki/Lithography" target="_blank" rel="noopener">Википедия ↗</a></article>
-    <article><b>Санкт-Петербург</b><p>Один и тот же город трижды менял имя: с 1914 года Петроград, с 1924-го Ленинград, а с 1991-го снова Санкт-Петербург. Столицей России он был с 1712 по 1918 год.</p><a href="https://en.wikipedia.org/wiki/Saint_Petersburg" target="_blank" rel="noopener">Википедия ↗</a></article>
-    <article><b>Москва</b><p>Храм Христа Спасителя освятили в 1883 году и взорвали в 1931-м. На его месте в 1958 году сделали бассейн «Москва», а новый храм освятили в 2000-м.</p><a href="https://en.wikipedia.org/wiki/Cathedral_of_Christ_the_Saviour" target="_blank" rel="noopener">Википедия ↗</a></article>
-    <article><b>Нью-Йорк</b><p>Бруклинский мост открыли 24 мая 1883 года, а через год по нему провели 21 слона — цирк Барнума доказывал, что мост выдержит.</p><a href="https://en.wikipedia.org/wiki/Brooklyn_Bridge" target="_blank" rel="noopener">Википедия ↗</a></article>
-  </div>
-</section>
-<div class="participate-home"><div><span class="eyebrow" style="color:#dfcaa4">Открытая коллекция</span><h2>Есть старая литография или современный ракурс?</h2><p>Предложите изображение, адрес или историю здания. Сначала проверим автора, дату, источник и права; новые материалы не появятся в музее автоматически.</p></div><a href="submit/">Предложить находку →</a></div>
-<details class="more-museum"><summary><span>Ещё в музее</span><small>книга городов, мастерские, каталог, истории</small></summary>
-<div class="hybrid-journal-index" aria-label="Быстрые маршруты музея">
- <span>Музей исторических изображений</span>
- <a href="stories/">Все истории</a>
- <a href="atlas/">Атлас времени</a>
- <a href="experience/">Книга городов</a>
-<a href="cities/">Все города мира</a>
-</div>
-<div class="signature" aria-labelledby="signatureHeading">
- <span class="eyebrow">Главная особенность музея / История на карте</span>
- <h2 id="signatureHeading">Один фасад. Четыре эпохи.</h2>
- <p>Мадлен в Париже: литография Филиппа Бенуа 1845–1860 годов, фотография Эдуара Бальдю около 1860-го, фотохромы 1890–1900-х и современный вид. Можно выбирать свидетельства, проверять источники и переходить на карту.</p>
- <div class="signature-pair">
-  <a href="walk/?city=paris&amp;place=0"><figure><img loading="lazy" src="assets/web/eras-img-paris-madeleine-1845-60-benoist-lemercier-loc-pga-14315-720.jpg" data-full="eras/img/paris_madeleine_1845-60_benoist_lemercier_loc-pga-14315.jpg" alt="Церковь Мадлен, литография Филиппа Бенуа, 1845–1860"></figure><span><small>Тогда · XIX век</small>Литография Бенуа</span></a>
-  <a href="walk/?city=paris&amp;place=0"><figure><img loading="lazy" src="assets/web/poc-compare-pairs-madeleine-photo-panoramax-38b6d262-720.jpg" data-full="eras/img/paris_madeleine_2026_panoramax_facade_38b6d262.jpg" alt="Портик Мадлен в Париже, фотография 30 апреля 2026 года"></figure><span><small>30 апреля 2026 · jerome92370 / Panoramax · CC BY-SA 4.0</small>Портик Мадлен</span></a>
- </div>
- <div class="signature-bottom"><p>Виды показаны рядом без геометрического наложения: точки съёмки не подтверждены как совпадающие. Внутри есть дополнительные кадры, даты, музейные источники и карта.</p><a class="btn primary" href="walk/?city=paris&amp;place=0">Пройти маршрут по времени →</a> <a class="btn" href="poc/compare/#madeleine-benoist-carnavalet">Совместить второй лист Бенуа →</a> <a class="btn" href="world/#worldComparisons">Сравнить города мира →</a></div>
-</div>
-<div class="hybrid-world-portal"><div><span class="eyebrow">Города шести регионов</span><h2>История продолжается за пределами Европы.</h2><p>Открывайте исторические изображения городов мира. У каждого направления честно показано, что уже есть в архиве, а что пока только ищется. Городские истории не подменяются пустыми карточками.</p></div><a class="btn primary" href="cities/">Исследовать города мира ↗</a></div>
-<section class="hybrid-editorial" aria-labelledby="hybrid-collections-heading">
- <div class="hybrid-editorial-head"><div><div class="eyebrow">Следующие путешествия</div><h2 id="hybrid-collections-heading">С какого города продолжить?</h2></div><p>Листы и фотографии с подтверждённым происхождением. У каждого сюжета свой город, художник, время и вопрос.</p></div>
- <div class="hybrid-editorial-grid">
-  <a class="hybrid-story-tile" href="stories/paris-on-paper/"><img src="assets/web/poc-compare-pairs-palais-royal-historic-loc-pga14314v-720.jpg" data-full="poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg" alt="Филипп Бенуа. Пале-Рояль. Архивная раскрашенная литография XIX века" loading="lazy" width="1024" height="756"><div class="hybrid-tile-copy"><span class="tile-kicker">Париж · История 01</span><h3>Сад, в котором гуляет город</h3><p>Пале-Рояль на старой литографии. Как архитектура, аллеи и прохожие превращаются в рассказ о повседневной жизни?</p><span class="tile-go">Пять глав и источники →</span></div></a>
-  <a class="hybrid-story-tile" href="experience/?city=florence&chapter=1"><img src="assets/web/eras-img-florence-pontevecchio-1883-pennell-etching-aic-194443-720.jpg" data-full="eras/img/florence_pontevecchio_1883_pennell_etching_aic-194443.jpg" alt="Джозеф Пеннелл. Офорт Ponte Vecchio, Florence, 1883 год" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Флоренция · 1883</span><h3>Мост, который стал рисунком</h3><p>Сопоставляем офорт Пеннелла и исторический фотоснимок Понте-Веккьо. Ракурсы различаются.</p><span class="tile-go">Исследовать Флоренцию →</span></div></a>
-  <a class="hybrid-story-tile" href="experience/?city=naples&chapter=1"><img src="assets/web/eras-img-naples-santalucia-1846-calvert-jones-aic-27086-720.jpg" data-full="eras/img/naples_santalucia_1846_calvert-jones_aic-27086.jpg" alt="Калверт Ричард Джонс. Старинная фотография побережья Санта-Лючия в Неаполе, 1846" loading="lazy"><div class="hybrid-tile-copy"><span class="tile-kicker">Неаполь · 1846</span><h3>Город перед морем</h3><p>Ранняя фотография Калверта Ричарда Джонса из Художественного института Чикаго. Вход в историю морского города.</p><span class="tile-go">Исследовать Неаполь →</span></div></a>
- </div>
-</section>
+  <section class="lh-hero" aria-labelledby="lhHeroT">
+    <p class="lt-small">Мадлен, Париж · лист Филиппа Бенуа</p>
+    <h2 id="lhHeroT" class="lt-caption" style="margin:6px 0 12px">Тогда и сейчас</h2>
+    <figure class="lt-sheet lh-sheet">
+      <div class="lt-print lh-stage" id="lhStage">
+        <img class="lh-then" src="poc/compare/pairs/madeleine-benoist-carnavalet-cargtop030438.jpg" width="1280" height="1019" alt="Церковь Мадлен в Париже на литографии Филиппа Бенуа, XIX век" fetchpriority="high">
+        <img class="lh-now" id="lhNow" src="poc/compare/pairs/madeleine-photo-panoramax-38b6d262.jpg" width="2048" height="1536" alt="Южный портик церкви Мадлен на фотографии 30 апреля 2026 года" loading="lazy">
+        <span class="lh-tag lh-tag-then">Тогда</span><span class="lh-tag lh-tag-now">Сейчас · 2026</span>
+      </div>
+      <div class="lh-ctl">
+        <label for="lhRange">Ползунок: <b id="lhVal">рисунок</b></label>
+        <input id="lhRange" type="range" min="0" max="100" value="0" aria-describedby="lhNote">
+        <div class="lh-ends"><span>Рисунок</span><span>Фото</span></div>
+      </div>
+      <figcaption class="lt-imprint" id="lhNote"><span class="l">Рисунок: Ph. Benoist · Paris Musées / Carnavalet · CC0</span><span class="c">Показано без подгонки</span><span class="r">Фото: jerome92370 / Panoramax · 30.04.2026 · CC BY-SA 4.0</span></figcaption>
+    </figure>
+    <p class="lh-cta">
+      <a class="btn" href="poc/compare/?journey=1#madeleine-benoist-carnavalet">Точное наложение и прозрачность <span aria-hidden="true">→</span></a>
+      <a class="btn ghost" href="book/#/benoist">Кто такой Бенуа <span aria-hidden="true">→</span></a>
+    </p>
+  </section>
 
-<section class="hybrid-mode-section" aria-labelledby="hybrid-tools-heading">
- <div class="eyebrow">Три способа посетить музей</div><h2 id="hybrid-tools-heading">Продолжайте в своём темпе.</h2>
- <p class="hybrid-mode-lead">Истории остаются главным маршрутом. Карта и коллекция открываются по вашему выбору; анимация книги никогда не обязательна.</p>
- <div class="museum-pathway">
-  <a class="pathway-door featured-door" href="atlas/"><span class="door-number">01 / Исследовать место и век</span><strong>Атлас времени</strong><p>Выберите город, эпоху и архивный лист. Исторические изображения не выдаются за точные географические координаты.</p><em>Открыть атлас →</em></a>
-  <button class="pathway-door" data-go="catalog"><span class="door-number">02 / Изучать произведения</span><strong>Коллекция</strong><p>Архивные карточки, художники, техника, оригиналы и проверка прав.</p><em>Смотреть работы →</em></button>
-  <a class="pathway-door" href="studio/"><span class="door-number">03 / Запомнить находки</span><strong>Мой кабинет</strong><p>Личные заметки и сохранённые материалы в браузере. Без обещания облачной синхронизации.</p><em>Перейти в кабинет →</em></a>
- </div>
- <div class="hybrid-book-row">
-  <a class="hybrid-book-thin" href="experience/"><span class="hybrid-book-thumb" aria-hidden="true">✣</span><span><strong>Книга городов</strong><small>Необязательное погружение. Три тома, девять глав.</small></span></a>
-  <p>Любите атмосферу старинной библиотеки? Откройте переплёт и путешествуйте по разворотам. Включите спокойный режим, чтобы убрать анимацию.</p>
-  <a class="btn" href="experience/">Открыть книгу <span aria-hidden="true">↗</span></a>
- </div>
-</section>
-<div class="sectionhead"><div><div class="eyebrow">01 / Содержание</div><h2>Париж: следующий взгляд</h2></div><p>После истории Мадлен откройте сад Пале-Рояль. Даже два вида одного города нельзя автоматически считать снимками с одного ракурса.</p></div>
-<div class="feature"><img src="assets/web/docs-ux-mockups-assets-loc-pga14314v-720.jpg" data-full="docs/ux/mockups/assets/loc-pga14314v.jpg" alt="Париж. Сад Пале-Рояль. Историческая литография Филиппа Бенуа"><div><span class="labels">Париж · 1845–1860</span><h2>Пале-Рояль</h2><p>Сад и галереи на листе Филиппа Бенуа. Существующая фотография сделана с противоположной стороны. Поэтому в просмотрщике честно показаны оба оригинала без натянутого совпадения.</p><button data-go="compare" class="btn">Посмотреть сравнение</button><div class="note">Точное совпадение ракурсов ещё не подтверждено.</div></div></div>
-<div class="museumWorkshops"><div class="eyebrow" style="margin-bottom:17px">Смежные залы · Изображение и ремесло</div><div class="workshopCards"><a href="atelier/ornament/" class="workshopCard"><span>01 / Архитектура</span><strong>Анатомия орнамента</strong><p>Карнизы, капители, маскароны, каталоги производителей и материал XIX века. 14 архивных моделей.</p><em>Изучить детали ↗</em></a><a href="atelier/bargue/" class="workshopCard"><span>02 / Школа художника</span><strong>Учимся видеть форму</strong><p>Курс по принципам Барга: измерение пропорций, построение контура, свет и тень. Можно рисовать прямо в браузере.</p><em>Начать упражнение ↗</em></a></div></div><div class="livingLab"><div class="eyebrow">После прогулки · исследовательские залы</div><h2>Когда захочется пойти глубже</h2><p class="livingIntro">Историю можно продолжить в мастерской печати, кабинете деталей, фототеке или мировом атласе. Это дополнительные исследовательские инструменты; музейный первоисточник и учебная реконструкция всегда помечаются отдельно.</p><div class="livingGrid"><a href="ideas/" class="livingCard"><span>01 / План проекта</span><strong>Лаборатория идей</strong><p>14 проверяемых направлений, приоритеты и три рабочие схемы. Что работает, а что только предстоит доказать.</p><em>Открыть рейтинг ↗</em></a><a href="printlab/" class="livingCard"><span>02 / Ремесло</span><strong>Как делали литографию</strong><p>Нарисуйте на условном камне и пройдите путь через воду, краску и печатный станок до отпечатка.</p><em>Запустить пресс ↗</em></a><a href="fieldwork/" class="livingCard"><span>03 / Собственный поиск</span><strong>Найди этот Париж сегодня</strong><p>Два оригинала Бенуа, современные виды и возможность сравнить свою фотографию без отправки на сервер.</p><em>Начать исследование ↗</em></a><a href="salon/" class="livingCard"><span>04 / Музейная коллекция</span><strong>Салон открытий</strong><p>41 работа в кураторском ядре и большой архивный фонд с фильтрами музеев, качества оригиналов, городов и собственной подборкой.</p><em>Рассмотреть коллекцию ↗</em></a><a href="exhibitions/city-as-evidence/" class="livingCard"><span>05 / История в деталях</span><strong>Город как свидетельство</strong><p>Рим, Венеция, Париж: девять подлинных произведений, три маршрута, вопросы и сравнение художественных взглядов.</p><em>Пройти выставку ↗</em></a><a href="closeup/" class="livingCard"><span>06 / Исследование</span><strong>Кабинет деталей</strong><p>Увеличение литографий Бенуа и музейной графики, сравнение штрихов, три вопроса к произведению и личные заметки без сервера.</p><em>Исследовать под лупой ↗</em></a><a href="photography/" class="livingCard"><span>07 / Город сегодня</span><strong>Современный фотоархив</strong><p>Документальные фотографии, открытые лицензии, авторы, разрешение снимка и подлинные музейные города. Без выдуманных совпадений ракурсов.</p><em>Посмотреть фотографии ↗</em></a><a href="world/" class="livingCard"><span>08 / Атлас мира</span><strong>Города шести регионов</strong><p>Европа, Азия, Африка, обе Америки и Океания. Исторические виды с первоисточниками, разрешением снимков и путешествием по пяти городам.</p><em>Исследовать мир ↗</em></a></div></div>
-<div class="museum-articles" aria-labelledby="journalHeading">
- <span class="eyebrow">Музейный журнал · Изображения, города и люди</span><h2 id="journalHeading">Истории, за которыми хочется следить</h2>
- <div class="article-grid">
-  <a href="stories/paris-on-paper/"><span class="eyebrow">Художник и типография</span><strong>Кто печатал Париж Бенуа?</strong><p>Что можно прочитать по подписям на литографиях, как работала мастерская Lemercier и что мы знаем о заказчиках.</p><em>История и документы →</em></a>
-  <a href="exhibitions/lost-florence/"><span class="eyebrow">Исчезнувший город</span><strong>Флоренция до перестройки центра</strong><p>Mercato Vecchio в городских изображениях и свидетельствах. Какие здания и городские привычки ушли.</p><em>Открыть выставку →</em></a>
-  <a href="printlab/"><span class="eyebrow">Мастерская художника</span><strong>Как рисунок превращался в тираж</strong><p>Камень, штрих, краска, бумага и печатный пресс. Ремесло исторической литографии в интерактивной мастерской.</p><em>Попробовать →</em></a>
- </div>
+  <section class="lh-desk" aria-labelledby="lhDeskT">
+    <div class="lt-divider" aria-hidden="true"></div>
+    <h2 id="lhDeskT" class="lt-caption">Рабочий стол</h2>
+    <div class="lh-plaques">
+      <a href="book/" class="lh-plaque"><span class="lt-small">Первая книга</span><strong>Книга видов</strong><p>Оглавление по странам и городам. У каждого листа автор, год и место на карте.</p></a>
+      <a href="poc/compare/?journey=1" class="lh-plaque"><span class="lt-small">Тогда и сейчас</span><strong>Сравнение с фото</strong><p>Шторка, прозрачность и ручная подгонка. Рисунок никогда не искажается.</p></a>
+      <a href="eras/" class="lh-plaque"><span class="lt-small">Старые карты</span><strong>Карта с листами</strong><p>Европа 1769 года с литографиями на городах. Ползунок накладывает современную карту.</p></a>
+      <a href="book/#/benoist" class="lh-plaque"><span class="lt-small">Главный мастер</span><strong>Филипп Бенуа</strong><p>Как подписан лист, где его печатали и в каких городах есть его работы.</p></a>
+    </div>
+  </section>
+
+  <section class="lh-masters" aria-labelledby="lhMastersT">
+    <div class="lt-divider" aria-hidden="true"></div>
+    <h2 id="lhMastersT" class="lt-caption">Другие мастера</h2>
+    <div class="lh-row">
+      <a href="poc/compare/?journey=1&amp;view=originals#rome-pantheon-vasi"><img src="poc/compare/pairs/rome-pantheon-1752.jpg" alt="" loading="lazy" width="733" height="522"><strong>Рим, 1752</strong><small>Джузеппе Вази · Пантеон</small></a>
+      <a href="poc/compare/?journey=1#florence-ponte-vecchio-silvestre"><img src="poc/compare/pairs/florence-ponte-vecchio-silvestre-historic.jpg" alt="" loading="lazy" width="600" height="400"><strong>Флоренция</strong><small>Сильвестр · Понте Веккьо</small></a>
+      <a href="poc/compare/?journey=1#new-york-statue-of-liberty"><img src="poc/compare/pairs/new-york-statue-of-liberty-historic.jpg" alt="" loading="lazy" width="600" height="400"><strong>Нью-Йорк</strong><small>Статуя Свободы</small></a>
+    </div>
+  </section>
+
+  <details class="lh-more">
+    <summary>Ещё в музее</summary>
+    <div class="lh-more-grid">
+      <div><p class="lt-small">Читать</p><ul>
+        <li><a href="guides/">Путеводители по городам</a></li>
+        <li><a href="stories/">Истории</a></li>
+        <li><a href="stories/paris-on-paper/">Париж, который напечатали</a></li>
+        <li><a href="walk/?city=paris&amp;place=0">Маршрут по времени</a></li>
+        <li><a href="experience/">Книга городов</a></li>
+        <li><a href="journeys/">Путешествия по векам</a></li>
+        <li><a href="cities/">Все города мира</a></li>
+        <li><a href="world/">Галерея видов мира</a></li>
+      </ul></div>
+      <div><p class="lt-small">Смотреть</p><ul>
+        <li><a href="atlas/">Атлас времени</a></li>
+        <li><a href="salon/">Каталог видов</a></li>
+        <li><a href="closeup/">Лист под лупой</a></li>
+        <li><a href="exhibitions/city-as-evidence/">Город как свидетельство</a></li>
+        <li><a href="studio/">Кабинет коллекционера</a></li>
+        <li><a href="discover/">Первое расследование</a></li>
+      </ul></div>
+      <div><p class="lt-small">Пробовать</p><ul>
+        <li><a href="printlab/">Как печатали литографию</a></li>
+        <li><a href="fieldwork/">Снимите то же место сами</a></li>
+        <li><a href="ornaments/">Мастерская орнамента</a></li>
+        <li><a href="atelier/ornament/">Анатомия орнамента</a></li>
+        <li><a href="atelier/bargue/">Школа рисунка</a></li>
+        <li><a href="submit/">Предложить находку</a></li>
+      </ul></div>
+    </div>
+  </details>
+  <p class="lh-foot">Некоммерческий проект. Фото сегодняшнего дня — только с открытой лицензией, автор и дата указаны на листе. Ваши снимки остаются в вашем браузере.</p>
 </div>
-</details>
 </section>
 <section id="catalog" class="tab wrap" hidden><div class="sectionhead"><div><div class="eyebrow">02 / Собрание</div><h2>Карточки произведений</h2></div><p>27 записей перечитаны Claude по музейным источникам. Указанное авторство подтверждено источниками для 22 и остаётся неопределённым для пяти работ. Право на показ изображения проверяется отдельно.</p></div>
 <div class="controls"><input id="search" type="search" placeholder="Название, художник, музей, серия" aria-label="Поиск по каталогу"><select id="rights"><option value="all">Все права</option><option value="allowed">Разрешённые репродукции</option><option value="link_only">Только музейная ссылка</option></select><select id="sort"><option value="title">По названию</option><option value="institution">По музею</option><option value="date">По дате</option></select><button id="onlyFav" class="btn">Избранное ♡</button></div>
@@ -479,9 +510,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </section>
 <section id="cities" class="tab wrap" hidden><div class="eyebrow">05 / Атлас</div><h2>От Парижа до Вильнюса</h2><p style="max-width:700px;color:var(--muted)">Не у каждого исторического изображения найдена точка съёмки. Пока география указана по городу, а не по выдуманным координатам на карте.</p>
 <div class="citygrid"><div class="city"><b>Париж</b><span>Мадлен · Лувр · Пале-Рояль · Les Halles</span></div><div class="city"><b>Вильнюс</b><span>Album de Wilna · университет · Св. Анна</span></div><div class="city"><b>Рим</b><span>Rome dans sa grandeur · Ватикан</span></div><div class="city"><b>Варшава</b><span>Album de Varsovie · Лазенки</span></div></div>
-<div class="band" style="margin-top:34px"><div class="wrap"><div class="eyebrow">Жизнь на площади</div><h2>Les Halles centrales</h2><p>Литография по рисунку Феликса Бенуа, литограф Жюль Арну, издатель Charpentier. Музейная карточка BnF не даёт точной даты листа. Права оцифровки ограничивают повторное размещение, поэтому изображение доступно в библиотеке.</p><a class="btn" href="https://gallica.bnf.fr/ark:/12148/btv1b530189355" target="_blank" rel="noopener">Открыть оригинал BnF ↗</a></div></div></section>
+<div class="band" style="margin-top:34px"><div class="wrap"><div class="eyebrow">Жизнь на площади</div><h2>Les Halles centrales</h2><p>Литография по рисунку Феликса Бенуа, литограф Жюль Арну, издатель Charpentier. Музейная карточка BnF не даёт точной даты листа. Права оцифровки ограничивают повторное размещение, поэтому изображение доступно в библиотеке.</p><a class="btn" href="https://gallica.bnf.fr/ark:/12148/btv1b530189355" target="_blank" rel="noopener">Открыть оригинал BnF ↗︎</a></div></div></section>
 </main>
-<footer><div class="wrap"><div><div class="serif" style="font-size:29px">Город на бумаге</div><p>Частная исследовательская выставка. Источники: Library of Congress, Europeana, BnF, Musée Carnavalet и другие фонды. Права на каждый цифровой экземпляр учитываются отдельно. Сохранённая версия 2026 года остаётся доступной отдельно.</p></div><div><p><a href="https://city-on-paper-anatolii.tolyaz.chatgpt.site/" target="_blank" rel="noopener">Предыдущий сайт</a></p><p><a href="https://github.com/zukevich-blip/-city-on-paper/pull/13" target="_blank" rel="noopener">Дорожная карта проекта</a></p></div></div></footer>
+<footer><div class="wrap"><div><i class="cop-engraved-line" aria-hidden="true"></i><div class="cop-imprint" aria-label="Авторский знак цифрового музея «Город на бумаге»"><span class="cop-signet" aria-hidden="true">ГБ</span><span class="cop-imprint-copy"><span>Альбом видов</span><span>Город на бумаге · цифровое издание</span></span></div><div class="serif" style="font-size:29px">Город на бумаге</div><p>Некоммерческий альбом старых видов городов. Источники: Library of Congress, Paris Musées, Wikimedia Commons, Panoramax и другие. Права на каждое изображение указаны на его листе.</p></div></div></footer>
 <script>
 "use strict";
 const $=x=>document.getElementById(x), f=new Set(JSON.parse(localStorage.getItem("city-paper-favorites")||"[]"));
@@ -493,7 +524,7 @@ document.querySelectorAll("[data-go]").forEach(x=>x.onclick=()=>showPage(x.datas
 function parseCSV(s){const rows=[];let a=[],x="",q=false;for(let i=0;i<s.length;i++){let c=s[i];if(c==='"'){if(q&&s[i+1]==='"'){x+='"';i++;}else q=!q;}else if(c===","&&!q){a.push(x);x="";}else if((c==="\n"||c==="\r")&&!q){if(c==="\r"&&s[i+1]==="\n")i++;a.push(x);x="";if(a.length>1)rows.push(a);a=[];}else x+=c;}if(x||a.length){a.push(x);rows.push(a);}let cols=rows.shift();return rows.map(row=>Object.fromEntries(cols.map((k,i)=>[k,row[i]||""])));}
 function getArtwork(i){if(i.redistribution==="allowed"){if(i.id.includes("madeleine"))return "poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg";if(i.id.includes("palais-royal"))return "poc/compare/pairs/palais-royal-historic-loc-pga14314v.jpg";}return "";}
 function renderWorks(){let arr=works.filter(x=>{let q=$("search").value.toLowerCase(),z=Object.values(x).join(" ").toLowerCase();return(!q||z.includes(q))&&($("rights").value==="all"||x.redistribution===$("rights").value)&&(!favOnly||f.has(x.id))});let sort=$("sort").value;arr.sort((a,b)=>(a[sort]||"").localeCompare(b[sort]||"","ru"));$("count").textContent=arr.length+" из 27 архивных карточек";
-$("works").innerHTML=arr.length?arr.map(i=>{let im=getArtwork(i);let credit=i.artists_roles?.split(";")[0]||"Автор не уточнён";return `<article class="work"><div class="art">${im?`<img loading="lazy" src="${safe(im)}" alt="${safe(i.title)}">`:`<span class="artletter">✦</span><small>Без изображения · музейная ссылка</small>`}</div><div class="workmain"><span class="eyebrow">${safe(i.institution.split(",")[0])}</span><h3>${safe(i.title)}</h3><div class="desc">${safe(credit)}</div><div class="desc">${safe(i.date)}</div><div class="desc">${safe(i.series)}</div></div><div class="foot"><span class="pill ${i.redistribution==="link_only"?"limit":""}">${i.redistribution==="allowed"?"Право указано":"Только ссылка"}</span><a href="${safe(allowedURL(i.object_url))}" target="_blank" rel="noopener" style="font-size:12px">Оригинал ↗</a><button class="heart" data-favorite="${safe(i.id)}" aria-label="Сохранить работу" aria-pressed="${f.has(i.id)}">${f.has(i.id)?"♥":"♡"}</button></div></article>`}).join(""):'<div class="empty">Ничего не найдено. Попробуйте изменить фильтры.</div>';
+$("works").innerHTML=arr.length?arr.map(i=>{let im=getArtwork(i);let credit=i.artists_roles?.split(";")[0]||"Автор не уточнён";return `<article class="work"><div class="art">${im?`<img loading="lazy" src="${safe(im)}" alt="${safe(i.title)}">`:`<span class="artletter">✦</span><small>Без изображения · музейная ссылка</small>`}</div><div class="workmain"><span class="eyebrow">${safe(i.institution.split(",")[0])}</span><h3>${safe(i.title)}</h3><div class="desc">${safe(credit)}</div><div class="desc">${safe(i.date)}</div><div class="desc">${safe(i.series)}</div></div><div class="foot"><span class="pill ${i.redistribution==="link_only"?"limit":""}">${i.redistribution==="allowed"?"Право указано":"Только ссылка"}</span><a href="${safe(allowedURL(i.object_url))}" target="_blank" rel="noopener" style="font-size:12px">Оригинал ↗︎</a><button class="heart" data-favorite="${safe(i.id)}" aria-label="Сохранить работу" aria-pressed="${f.has(i.id)}">${f.has(i.id)?"♥":"♡"}</button></div></article>`}).join(""):'<div class="empty">Ничего не найдено. Попробуйте изменить фильтры.</div>';
 document.querySelectorAll("[data-favorite]").forEach(b=>b.onclick=()=>{if(f.has(b.dataset.favorite))f.delete(b.dataset.favorite);else f.add(b.dataset.favorite);localStorage.setItem("city-paper-favorites",JSON.stringify([...f]));renderWorks()});}
 ["search","rights","sort"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",renderWorks));
 $("onlyFav").onclick=()=>{favOnly=!favOnly;$("onlyFav").textContent=favOnly?"Показать все":"Избранное ♡";renderWorks()};
@@ -501,7 +532,7 @@ $("exportFav").onclick=()=>{let content=JSON.stringify({format:"city-on-paper/fa
 $("importFav").onchange=async e=>{try{let d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d.items)||d.items.some(x=>typeof x!=="string"))throw Error("Недопустимый формат");for(let x of d.items)f.add(x);localStorage.setItem("city-paper-favorites",JSON.stringify([...f]));renderWorks();alert("Избранное загружено");}catch(err){alert("Ошибка импорта: "+err.message)}};
 async function loadResearch(){loaded=true;try{let d=await(await fetch("data/candidates/candidates-2026-11-01b.json")).json();research=d.items||[];renderResearch()}catch(e){$("researchState").textContent="Не удалось загрузить файл базы. Откройте сайт через веб-сервер, а не как локальный файл.";}}
 function renderResearch(){let q=$("researchQuery").value.toLowerCase(),right=$("researchRights").value,all=research.filter(x=>{let s=[x.title,x.creator_display,x.institution,x.date_display,x.place_display].join(" ").toLowerCase();return(!q||s.includes(q))&&(right==="all"||x.rights_category===right)});$("researchState").textContent=all.length+" кандидатов из "+research.length+" исследовательских записей. Ни один не опубликован автоматически.";
-$("research-grid").innerHTML=all.slice(0,researchTake).map(i=>`<article class="researchCard"><div class="eyebrow">${safe(i.institution)}</div><h3>${safe(i.title||"Без названия")}</h3><p>${safe(i.creator_display||"Автор не указан")} · ${safe(i.date_display||"Дата не указана")}</p><p>Права: ${safe(i.rights_category)}</p><a style="font-size:13px" target="_blank" rel="noopener" href="${safe(allowedURL(i.source_url))}">Карточка источника ↗</a></article>`).join("");$("moreResearch").hidden=all.length<=researchTake;}
+$("research-grid").innerHTML=all.slice(0,researchTake).map(i=>`<article class="researchCard"><div class="eyebrow">${safe(i.institution)}</div><h3>${safe(i.title||"Без названия")}</h3><p>${safe(i.creator_display||"Автор не указан")} · ${safe(i.date_display||"Дата не указана")}</p><p>Права: ${safe(i.rights_category)}</p><a style="font-size:13px" target="_blank" rel="noopener" href="${safe(allowedURL(i.source_url))}">Карточка источника ↗︎</a></article>`).join("");$("moreResearch").hidden=all.length<=researchTake;}
 $("researchQuery").addEventListener("input",()=>{researchTake=20;renderResearch()});$("researchRights").addEventListener("change",()=>{researchTake=20;renderResearch()});$("moreResearch").onclick=()=>{researchTake+=20;renderResearch()};
 fetch("data/catalog/ledger-2026-11-01.csv").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.text()}).then(c=>{works=parseCSV(c);renderWorks()}).catch(()=>{$("count").textContent="Для каталога нужен локальный HTTP сервер (например python3 -m http.server)."});
 showPage(["home","catalog","compare","research","cities"].includes(location.hash.slice(1))?location.hash.slice(1):"home");
@@ -510,5 +541,12 @@ showPage(["home","catalog","compare","research","cities"].includes(location.hash
 (function(){const d=document.getElementById("heroDuet");if(!d)return;
  document.querySelectorAll(".herotoggle [data-pane]").forEach(b=>b.addEventListener("click",()=>{d.dataset.active=b.dataset.pane;
   document.querySelectorAll(".herotoggle [data-pane]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));}));})();
+</script>
+<script>
+(function(){const r=document.getElementById("lhRange");if(!r)return;const now=document.getElementById("lhNow"),v=document.getElementById("lhVal");
+ const tn=document.querySelector(".lh-tag-now"),tt=document.querySelector(".lh-tag-then");
+ const upd=()=>{const x=+r.value/100;now.style.opacity=x;tn.style.opacity=x>.5?1:0;tt.style.opacity=x<=.5?1:0;
+  v.textContent=x<.05?"рисунок":x>.95?"фото":"перетекает "+Math.round(x*100)+"%";};
+ r.addEventListener("input",upd);upd();})();
 </script>
 </body></html>

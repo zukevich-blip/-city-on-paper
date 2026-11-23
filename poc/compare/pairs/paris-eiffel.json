@@ -1,0 +1,62 @@
+{
+ "id": "paris-eiffel",
+ "status": "candidate_real_pair",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch"
+ },
+ "control_points": [],
+ "condition": "На печатном листе башня показана ночью, на фото — днём. Виды сняты с разных мест.",
+ "historic": {
+  "title": "Эйфелева башня в огнях",
+  "date": "1889",
+  "medium": "Цветная литография на цинке",
+  "holding": "Музей Карнавале",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/embrasement-de-la-tour-eiffel",
+  "rights": "CC0, Музей Карнавале",
+  "credit": "Жорж-Феликс Гарен · Музей Карнавале · G.41013",
+  "file_note": "Копия музейного изображения уменьшена для экрана. Лист не кадрировали.",
+  "file": "paris-eiffel-1889.jpg",
+  "size": [
+   1052,
+   1440
+  ],
+  "sha256": "92ae60f83ab13fba65cc8536fe78fb21f418daa0e5d7d5a1304d2131cf99840a"
+ },
+ "photo": {
+  "title": "Эйфелева башня с Марсова поля",
+  "date": "2026-07-24",
+  "object_url": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_located_on_the_Champ_de_Mars_in_Paris,_France.jpg",
+  "credit": "Алива Саху · Викисклад · CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "Копия уменьшена для экрана. Форма изображения не менялась.",
+  "file": "paris-eiffel-2026.jpg",
+  "size": [
+   1440,
+   899
+  ],
+  "sha256": "426a5655e9cbf411eeccfb64b183899649dbef9d419cdd0fc91fc32d7f471499"
+ },
+ "story": {
+  "title": "Что написано под башней",
+  "text": "Под изображением Гарена указано, что лист напечатали на цинке прямо на Всемирной выставке, в Галерее машин. Внизу также напечатаны название мастерской Монрок и имя изготовителя печатного станка Мариньони.",
+  "source": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/embrasement-de-la-tour-eiffel",
+  "source_label": "Посмотреть лист и надпись в Музее Карнавале"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1052,
+   1440
+  ],
+  "photo_size": [
+   1440,
+   899
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

@@ -1,0 +1,677 @@
+{
+ "version": 1,
+ "note": "Координаты приблизительные (OSM Nominatim); какое здание на листе, выбрано человеком.",
+ "places": [
+  {
+   "id": "sainte-chapelle",
+   "name_ru": "Сент-Шапель",
+   "query": "Sainte-Chapelle",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320290066",
+    "parismusees-320290060"
+   ],
+   "approximate": true,
+   "lat": 48.85539,
+   "lon": 2.34499,
+   "evidence": "Nominatim: Sainte-Chapelle, 8, Boulevard du Palais, Saint-Germain-l'Auxerrois, Paris 1er Arrondissement, Paris, Île-de-France, Fran"
+  },
+  {
+   "id": "luxembourg",
+   "name_ru": "Люксембургский дворец",
+   "query": "Palais du Luxembourg, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320291197"
+   ],
+   "approximate": true,
+   "lat": 48.84854,
+   "lon": 2.33778,
+   "evidence": "Nominatim: Palais du Luxembourg, Cour d'Honneur, Quartier de l'Odéon, Paris 6e Arrondissement, Paris, Île-de-France, France métropo"
+  },
+  {
+   "id": "chateau-eau",
+   "name_ru": "Площадь Республики (Шато-д'О)",
+   "query": "Place de la République",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320294285"
+   ],
+   "approximate": true,
+   "lat": 48.86754,
+   "lon": 2.36396,
+   "evidence": "Nominatim: Place de la République, Quartier de la Folie-Méricourt, Paris 11e Arrondissement, Paris, Île-de-France, France métropoli"
+  },
+  {
+   "id": "notre-dame",
+   "name_ru": "Нотр-Дам",
+   "query": "Cathédrale Notre-Dame de Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320291945",
+    "rijks-RP-P-1905-5500"
+   ],
+   "approximate": true,
+   "lat": 48.85294,
+   "lon": 2.35005,
+   "evidence": "Nominatim: Cathédrale Notre-Dame de Paris, 6, Parvis Notre-Dame - Place Jean-Paul II, Quartier Les Îles, Paris 4e Arrondissement, P"
+  },
+  {
+   "id": "palais-royal",
+   "name_ru": "Пале-Рояль",
+   "query": "Palais-Royal, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320290399",
+    "rijks-RP-P-1905-5499"
+   ],
+   "approximate": true,
+   "lat": 48.86358,
+   "lon": 2.3362,
+   "evidence": "Nominatim: Palais Royal, Galerie de Valois, Quartier du Palais Royal, Paris 1er Arrondissement, Paris, Île-de-France, France métrop"
+  },
+  {
+   "id": "vendome",
+   "name_ru": "Вандомская колонна",
+   "query": "Place Vendôme",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320292157"
+   ],
+   "approximate": true,
+   "lat": 48.86746,
+   "lon": 2.32943,
+   "evidence": "Nominatim: Place Vendôme, Quartier Vendôme, Paris 1er Arrondissement, Paris, Île-de-France, France métropolitaine, 75001, France"
+  },
+  {
+   "id": "louvre-rivoli",
+   "name_ru": "Лувр и улица Риволи",
+   "query": "Palais du Louvre, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288755",
+    "parismusees-320291211"
+   ],
+   "approximate": true,
+   "lat": 48.86147,
+   "lon": 2.33687,
+   "evidence": "Nominatim: Palais du Louvre, Accès Parking des Petits Champs, Quartier Les Halles, Paris 1er Arrondissement, Paris, Île-de-France, "
+  },
+  {
+   "id": "saint-sulpice",
+   "name_ru": "Сен-Сюльпис",
+   "query": "Saint-Sulpice, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320050912"
+   ],
+   "approximate": true,
+   "lat": 48.8511,
+   "lon": 2.3307,
+   "evidence": "Nominatim: Saint-Sulpice, Rue de Rennes, Quartier Notre-Dame-des-Champs, Paris 6e Arrondissement, Paris, Île-de-France, France métr"
+  },
+  {
+   "id": "saint-etienne",
+   "name_ru": "Сен-Этьен-дю-Мон и Сен-Сюльпис",
+   "query": "Église Saint-Étienne-du-Mont, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320290954",
+    "rijks-RP-P-1905-5502"
+   ],
+   "approximate": true,
+   "lat": 48.84655,
+   "lon": 2.34802,
+   "evidence": "Nominatim: Église Saint-Étienne-du-Mont, Rue Saint-Étienne du Mont, Quartier de la Sorbonne, Paris 5e Arrondissement, Paris, Île-de"
+  },
+  {
+   "id": "bourse",
+   "name_ru": "Дворец Броньяра (Биржа)",
+   "query": "Palais de la Bourse, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320291262"
+   ],
+   "approximate": true,
+   "lat": 48.86914,
+   "lon": 2.34137,
+   "evidence": "Nominatim: Palais Brongniart, Place de la Bourse, Vivienne, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 7"
+  },
+  {
+   "id": "louvre-colonnade",
+   "name_ru": "Колоннада Лувра",
+   "query": "Rue de l'Amiral de Coligny, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320291352",
+    "rijks-RP-P-1905-5505"
+   ],
+   "approximate": true,
+   "lat": 48.86028,
+   "lon": 2.34052,
+   "evidence": "Nominatim: Rue de l'Amiral de Coligny, Saint-Germain-l'Auxerrois, Paris 1er Arrondissement, Paris, Île-de-France, France métropolit"
+  },
+  {
+   "id": "halles-innocents",
+   "name_ru": "Фонтан Невинных",
+   "query": "Fontaine des Innocents, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-200009791"
+   ],
+   "approximate": true,
+   "lat": 48.86064,
+   "lon": 2.34802,
+   "evidence": "Nominatim: Fontaine des Innocents, Place Joachim du Bellay, Quartier Les Halles, Paris 1er Arrondissement, Paris, Île-de-France, Fr"
+  },
+  {
+   "id": "carrousel",
+   "name_ru": "Площадь Карусель",
+   "query": "Arc de Triomphe du Carrousel, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320175609",
+    "parismusees-320175628"
+   ],
+   "approximate": true,
+   "lat": 48.86173,
+   "lon": 2.33291,
+   "evidence": "Nominatim: Arc de Triomphe du Carrousel, Jardin du Carrousel, Saint-Germain-l'Auxerrois, Paris 1er Arrondissement, Paris, Île-de-Fr"
+  },
+  {
+   "id": "bastille",
+   "name_ru": "Июльская колонна",
+   "query": "Colonne de Juillet, Place de la Bastille, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320262846",
+    "rijks-RP-P-1905-5496"
+   ],
+   "approximate": true,
+   "lat": 48.85317,
+   "lon": 2.36914,
+   "evidence": "Nominatim: Colonne de Juillet, Place de la Bastille, Quartier de l'Arsenal, Paris 4e Arrondissement, Paris, Île-de-France, France m"
+  },
+  {
+   "id": "square-temple",
+   "name_ru": "Сквер дю Тампль",
+   "query": "Square du Temple, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320074413"
+   ],
+   "approximate": true,
+   "lat": 48.86494,
+   "lon": 2.36009,
+   "evidence": "Nominatim: Square du Temple, Rue du Temple, Quartier des Enfants-Rouges, Paris 3e Arrondissement, Paris, Île-de-France, France métr"
+  },
+  {
+   "id": "palais-industrie",
+   "name_ru": "Дворец промышленности (на месте Гран-Пале)",
+   "query": "Grand Palais",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320150835",
+    "parismusees-320298071"
+   ],
+   "approximate": true,
+   "lat": 48.86616,
+   "lon": 2.31222,
+   "evidence": "Nominatim: Grand Palais, Avenue du Général-Eisenhower, Quartier des Champs-Élysées, Paris 8e Arrondissement, Paris, Île-de-France, "
+  },
+  {
+   "id": "pont-royal",
+   "name_ru": "Королевский мост",
+   "query": "Pont Royal, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320299869"
+   ],
+   "approximate": true,
+   "lat": 48.86012,
+   "lon": 2.32992,
+   "evidence": "Nominatim: Pont Royal, Quartier Saint-Thomas-d'Aquin, Paris 7e Arrondissement, Paris, Île-de-France, France métropolitaine, 75007, "
+  },
+  {
+   "id": "madeleine",
+   "name_ru": "Церковь Мадлен",
+   "query": "Église de la Madeleine, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320295651",
+    "parismusees-320295653",
+    "parismusees-320295656",
+    "rijks-RP-P-1905-5495"
+   ],
+   "approximate": true,
+   "lat": 48.87013,
+   "lon": 2.32454,
+   "evidence": "Nominatim: Église de la Madeleine, Place de la Madeleine, Quartier de la Madeleine, Paris 8e Arrondissement, Paris, Île-de-France, "
+  },
+  {
+   "id": "tuileries",
+   "name_ru": "Тюильри (утраченный дворец)",
+   "query": "Arc de Triomphe du Carrousel, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320290166",
+    "rijks-RP-P-1905-5501"
+   ],
+   "approximate": true,
+   "lat": 48.86173,
+   "lon": 2.33291,
+   "evidence": "Nominatim: Arc de Triomphe du Carrousel, Jardin du Carrousel, Saint-Germain-l'Auxerrois, Paris 1er Arrondissement, Paris, Île-de-Fr"
+  },
+  {
+   "id": "hotel-de-ville",
+   "name_ru": "Ратуша",
+   "query": "Hôtel de Ville, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320290537",
+    "rijks-RP-P-1905-5498"
+   ],
+   "approximate": true,
+   "lat": 48.85643,
+   "lon": 2.35253,
+   "evidence": "Nominatim: Hôtel de ville, 4, Place de l'Hôtel de Ville, Quartier Saint-Merri, Paris 4e Arrondissement, Paris, Île-de-France, Franc"
+  },
+  {
+   "id": "concorde",
+   "name_ru": "Площадь Согласия",
+   "query": "Place de la Concorde, Paris",
+   "city": "Париж",
+   "sheets": [
+    "rijks-RP-P-1905-5494"
+   ],
+   "approximate": true,
+   "lat": 48.86557,
+   "lon": 2.32122,
+   "evidence": "Nominatim: Place de la Concorde, Quartier des Champs-Élysées, Paris 8e Arrondissement, Paris, Île-de-France, France métropolitaine,"
+  },
+  {
+   "id": "porte-saint-denis",
+   "name_ru": "Ворота Сен-Дени",
+   "query": "Porte Saint-Denis, Paris",
+   "city": "Париж",
+   "sheets": [
+    "rijks-RP-P-1905-5503"
+   ],
+   "approximate": true,
+   "lat": 48.86979,
+   "lon": 2.35269,
+   "evidence": "Nominatim: Porte Saint-Denis, Boulevard Saint-Denis, Quartier de la Porte-Saint-Denis, Paris 10e Arrondissement, Paris, Île-de-Fran"
+  },
+  {
+   "id": "orsay",
+   "name_ru": "Дворец Орсе и Почётного легиона",
+   "query": "Musée d'Orsay",
+   "city": "Париж",
+   "sheets": [
+    "rijks-RP-P-1905-5504"
+   ],
+   "approximate": true,
+   "lat": 48.85992,
+   "lon": 2.32658,
+   "evidence": "Nominatim: Musée d'Orsay, 1, Rue de la Légion d'Honneur, Quartier Saint-Thomas-d'Aquin, Paris 7e Arrondissement, Paris, Île-de-Fran"
+  },
+  {
+   "id": "pantheon",
+   "name_ru": "Пантеон",
+   "query": "Panthéon, Paris",
+   "city": "Париж",
+   "sheets": [
+    "rijks-RP-P-1905-5506"
+   ],
+   "approximate": true,
+   "lat": 48.84619,
+   "lon": 2.34605,
+   "evidence": "Nominatim: Panthéon, Place du Panthéon, Quartier de la Sorbonne, Paris 5e Arrondissement, Paris, Île-de-France, France métropolitai"
+  },
+  {
+   "id": "expo-1867",
+   "name_ru": "Парижская выставка 1867 года (Марсово поле)",
+   "query": "Champ de Mars, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320298080",
+    "parismusees-320298085"
+   ],
+   "approximate": true,
+   "lat": 48.85614,
+   "lon": 2.29782,
+   "evidence": "Nominatim: Champ-de-Mars, Allée du Général Denain, Dupleix, Paris 15e Arrondissement, Paris, Île-de-France, France métropolitaine, "
+  },
+  {
+   "id": "freiburg",
+   "name_ru": "Фрайбургский собор",
+   "query": "Freiburger Münster, Freiburg im Breisgau",
+   "city": "Фрайбург",
+   "sheets": [
+    "os-labw-freiburg-1",
+    "os-labw-freiburg-2"
+   ],
+   "approximate": true,
+   "lat": 47.99555,
+   "lon": 7.85292,
+   "evidence": "Nominatim: Münster Unserer Lieben Frau, 1, Münsterplatz, Altstadt-Mitte, Altstadt, Freiburg im Breisgau, Baden-Württemberg, 79098, "
+  },
+  {
+   "id": "cadix",
+   "name_ru": "Кадис",
+   "query": "Cádiz",
+   "city": "Кадис",
+   "sheets": [
+    "os-icgc-cadix-1845",
+    "os-icgc-cadix-1847",
+    "os-icgc-cadix-679"
+   ],
+   "approximate": true,
+   "lat": 36.52974,
+   "lon": -6.2929,
+   "evidence": "Nominatim: Cádiz, Bahía de Cádiz, Cádiz, Andalucía, España"
+  },
+  {
+   "id": "amsterdam-oosterdok",
+   "name_ru": "Остердок, Амстердам",
+   "query": "Oosterdok, Amsterdam",
+   "city": "Амстердам",
+   "sheets": [
+    "rijks-RP-P-1904-3864",
+    "rijks-KOG-AA-1-2-19",
+    "rijks-KOG-AA-8-71"
+   ],
+   "approximate": true,
+   "lat": 52.3752,
+   "lon": 4.91101,
+   "evidence": "Nominatim: Oosterdok, Nieuwmarkt/Lastage, Centrum, Amsterdam, Noord-Holland, Nederland, 1019 BS, Nederland"
+  },
+  {
+   "id": "amsterdam-westerdok",
+   "name_ru": "Вестердок, Амстердам",
+   "query": "Westerdok, Amsterdam",
+   "city": "Амстердам",
+   "sheets": [
+    "rijks-RP-P-1904-3866",
+    "rijks-KOG-AA-1-2-20"
+   ],
+   "approximate": true,
+   "lat": 52.38568,
+   "lon": 4.89088,
+   "evidence": "Nominatim: Westerdok, Centrum, Amsterdam, Noord-Holland, Nederland, 1013 AZ, Nederland"
+  },
+  {
+   "id": "brussels",
+   "name_ru": "Ратуша Брюсселя",
+   "query": "Hôtel de Ville de Bruxelles",
+   "city": "Брюссель",
+   "sheets": [
+    "rijks-RP-P-1908-1979"
+   ],
+   "approximate": true,
+   "lat": 50.84652,
+   "lon": 4.35176,
+   "evidence": "Nominatim: Hôtel de Ville de Bruxelles - Stadhuis van Brussel, Rue de l'Amigo - Vruntstraat, Quartier du Centre - Centrumwijk, Pent"
+  },
+  {
+   "id": "bologna",
+   "name_ru": "Башни Азинелли и Гаризенда",
+   "query": "Torre degli Asinelli, Bologna",
+   "city": "Болонья",
+   "sheets": [
+    "rijks-RP-P-1908-259"
+   ],
+   "approximate": true,
+   "lat": 44.4942,
+   "lon": 11.34677,
+   "evidence": "Nominatim: Top of Asinelli Tower, Piazza di Porta Ravegnana, Ghetto ebraico, Irnerio, Santo Stefano, Bologna, Emilia-Romagna, 40100"
+  },
+  {
+   "id": "naples",
+   "name_ru": "Королевский дворец, Неаполь",
+   "query": "Palazzo Reale di Napoli",
+   "city": "Неаполь",
+   "sheets": [
+    "rijks-RP-P-1908-258"
+   ],
+   "approximate": true,
+   "lat": 40.83648,
+   "lon": 14.25032,
+   "evidence": "Nominatim: Palazzo Reale, Piazza del Plebiscito, Pizzofalcone, San Ferdinando, Municipalità 1, Napoli, Campania, 80132, Italia"
+  },
+  {
+   "id": "rome-peter",
+   "name_ru": "Собор Святого Петра, Рим",
+   "query": "Basilica di San Pietro, Vaticano",
+   "city": "Рим",
+   "sheets": [
+    "rijks-RP-P-1944-1699"
+   ],
+   "approximate": true,
+   "lat": 41.90216,
+   "lon": 12.45371,
+   "evidence": "Nominatim: Basilica di San Pietro, Piazza San Pietro, Civitas Vaticana - Città del Vaticano, 00120, Civitas Vaticana - Città del Va"
+  },
+  {
+   "id": "salerno",
+   "name_ru": "Салерно",
+   "query": "Salerno, Italia",
+   "city": "Салерно",
+   "sheets": [
+    "os-ekm-salerno"
+   ],
+   "approximate": true,
+   "lat": 40.41944,
+   "lon": 15.31061,
+   "evidence": "Nominatim: Salerno, Campania, Italia"
+  },
+  {
+   "id": "amalfi",
+   "name_ru": "Собор Амальфи",
+   "query": "Duomo di Amalfi",
+   "city": "Амальфи",
+   "sheets": [
+    "os-ekm-amalfi"
+   ],
+   "approximate": true,
+   "lat": 40.63446,
+   "lon": 14.60344,
+   "evidence": "Nominatim: Duomo di Amalfi, 1, Piazza Duomo, Pogerola, Amalfi, Salerno, Campania, 84011, Italia"
+  },
+  {
+   "id": "rond-point",
+   "name_ru": "Рон-Пуэн Елисейских полей",
+   "query": "Rond-point des Champs-Élysées, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288694",
+    "parismusees-320150228"
+   ],
+   "approximate": true,
+   "lat": 48.86957,
+   "lon": 2.30859,
+   "evidence": "Nominatim: Rond-Point des Champs-Élysées, Quartier du Faubourg-du-Roule, Paris 8e Arrondissement, Paris, Île-de-France, France métr"
+  },
+  {
+   "id": "chatelet",
+   "name_ru": "Площадь Шатле",
+   "query": "Place du Châtelet, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320289145",
+    "parismusees-320289156"
+   ],
+   "approximate": true,
+   "lat": 48.85752,
+   "lon": 2.34746,
+   "evidence": "Nominatim: Place du Châtelet, Saint-Germain-l'Auxerrois, Paris 1er Arrondissement, Paris, Île-de-France, France métropolitaine, 750"
+  },
+  {
+   "id": "cirque-imperatrice",
+   "name_ru": "Цирк Императрицы (Рон-Пуэн)",
+   "query": "Théâtre du Rond-Point, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293136"
+   ],
+   "approximate": true,
+   "lat": 48.86777,
+   "lon": 2.31087,
+   "evidence": "Nominatim: Théâtre du Rond-Point, Avenue Franklin Delano Roosevelt, Quartier des Champs-Élysées, Paris 8e Arrondissement, Paris, Îl"
+  },
+  {
+   "id": "invalides",
+   "name_ru": "Дом инвалидов",
+   "query": "Hôtel des Invalides, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293263",
+    "parismusees-320293264"
+   ],
+   "approximate": true,
+   "lat": 48.85595,
+   "lon": 2.31334,
+   "evidence": "Nominatim: Hôtel des Invalides, 129, Rue de Grenelle, Quartier des Invalides, Paris 7e Arrondissement, Paris, Île-de-France, France"
+  },
+  {
+   "id": "opera",
+   "name_ru": "Новая опера (Опера Гарнье)",
+   "query": "Palais Garnier, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293288"
+   ],
+   "approximate": true,
+   "lat": 48.87209,
+   "lon": 2.33233,
+   "evidence": "Nominatim: L'Opéra Restaurant, Place Jacques Rouché, Quartier de la Chaussée-d'Antin, Paris 9e Arrondissement, Paris, Île-de-France"
+  },
+  {
+   "id": "etoile",
+   "name_ru": "Триумфальная арка на площади Звезды",
+   "query": "Arc de Triomphe, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293177"
+   ],
+   "approximate": true,
+   "lat": 48.87378,
+   "lon": 2.29504,
+   "evidence": "Nominatim: Arc de Triomphe, Place Charles de Gaulle, Quartier du Faubourg-du-Roule, Paris 8e Arrondissement, Paris, Île-de-France, "
+  },
+  {
+   "id": "saint-laurent",
+   "name_ru": "Церковь Сен-Лоран и Восточный вокзал",
+   "query": "Église Saint-Laurent, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293678"
+   ],
+   "approximate": true,
+   "lat": 48.87477,
+   "lon": 2.35825,
+   "evidence": "Nominatim: Église Saint-Laurent, Rue Sibour, Quartier de la Porte-Saint-Martin, Paris 10e Arrondissement, Paris, Île-de-France, Fra"
+  },
+  {
+   "id": "boulevard-italiens",
+   "name_ru": "Бульвар Итальянцев",
+   "query": "Boulevard des Italiens, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320289563",
+    "parismusees-320289583"
+   ],
+   "approximate": true,
+   "lat": 48.87191,
+   "lon": 2.33941,
+   "evidence": "Nominatim: Boulevard des Italiens, Quartier du Faubourg-Montmartre, Paris 9e Arrondissement, Paris, Île-de-France, France métropoli"
+  },
+  {
+   "id": "trinite",
+   "name_ru": "Церковь Святой Троицы",
+   "query": "Église de la Sainte-Trinité, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320292523"
+   ],
+   "approximate": true,
+   "lat": 48.8773,
+   "lon": 2.3314,
+   "evidence": "Nominatim: Église de la Sainte-Trinité, Place d'Estienne d'Orves, Quartier Saint-Georges, Paris 9e Arrondissement, Paris, Île-de-Fr"
+  },
+  {
+   "id": "lorette",
+   "name_ru": "Церковь Нотр-Дам-де-Лорет",
+   "query": "Église Notre-Dame-de-Lorette, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320292641"
+   ],
+   "approximate": true,
+   "evidence": "not geocoded"
+  },
+  {
+   "id": "saint-augustin",
+   "name_ru": "Церковь Сен-Огюстен",
+   "query": "Église Saint-Augustin, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320294429"
+   ],
+   "approximate": true,
+   "lat": 48.87621,
+   "lon": 2.31888,
+   "evidence": "Nominatim: Église Saint-Augustin, Boulevard Malesherbes, Quartier de l'Europe, Paris 8e Arrondissement, Paris, Île-de-France, Franc"
+  },
+  {
+   "id": "buttes-chaumont",
+   "name_ru": "Парк Бют-Шомон",
+   "query": "Parc des Buttes-Chaumont, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288322",
+    "parismusees-320295801"
+   ],
+   "approximate": true,
+   "lat": 48.87956,
+   "lon": 2.3821,
+   "evidence": "Nominatim: Parc des Buttes-Chaumont, Paris, Île-de-France, France métropolitaine, France"
+  },
+  {
+   "id": "ecole-militaire",
+   "name_ru": "Военная школа",
+   "query": "École militaire, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320272359"
+   ],
+   "approximate": true,
+   "evidence": "not geocoded"
+  },
+  {
+   "id": "parc-monceau",
+   "name_ru": "Парк Монсо",
+   "query": "Parc Monceau, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320293986",
+    "parismusees-320294396"
+   ],
+   "approximate": true,
+   "lat": 48.87937,
+   "lon": 2.30887,
+   "evidence": "Nominatim: Parc Monceau, Paris, Île-de-France, France métropolitaine, France"
+  },
+  {
+   "id": "louvre-cour",
+   "name_ru": "Двор Лувра",
+   "query": "Cour Napoléon, Louvre, Paris",
+   "city": "Париж",
+   "sheets": [
+    "parismusees-320288930"
+   ],
+   "approximate": true,
+   "evidence": "not geocoded"
+  }
+ ]
+}

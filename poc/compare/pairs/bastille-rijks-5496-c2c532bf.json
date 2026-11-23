@@ -1,0 +1,115 @@
+{
+ "id": "bastille-rijks-5496-c2c532bf",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Колонна и Опера Бастилии (1989); сторона камеры на листе не установлена.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Colonne de Juillet",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5496--55e352fc06193998052872578bfec6f3",
+  "accession": "RP-P-1905-5496",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5496.jpg",
+  "sha256": "4dcdb8194b92ef20938c307c0ad9727d2c31b144c930c426bd7ab8761bd29764",
+  "size": [
+   900,
+   661
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5496.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Colonne de Juillet · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Июльская колонна, Бастилия, 2025-05-14 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "c2c532bf-6c06-4da7-8817-a14ea6a227e0",
+  "object_url": "https://api.panoramax.xyz/api/collections/4c96a549-9a27-494b-827a-075555462718/items/c2c532bf-6c06-4da7-8817-a14ea6a227e0",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=c2c532bf-6c06-4da7-8817-a14ea6a227e0",
+  "author": "amicklew (Panoramax account)",
+  "date": "2025-05-14",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.853242612,
+   "lon": 2.368321912,
+   "heading_deg": 98,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 98,
+  "distance_to_building_m_approx": 60,
+  "file": "bastille-photo-panoramax-c2c532bf-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/c2/c5/32/bf/6c06-4da7-8817-a14ea6a227e0.jpg",
+  "source_sha256": "0ce2ba902ab76b9a22c360d4e74110c2571fb064d92f9dc3f87d5687f2f57b45",
+  "sha256": "32468ef35101717010fe71610505d8213418bde883287b33e72b72e54b22c307",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: amicklew / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 287,
+   "yaw_deg": 97.7,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 10,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": 278,
+  "photo_distance_m": 60,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Колонна и Опера Бастилии (1989); сторона камеры на листе не установлена."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Колонна и Опера Бастилии (1989); сторона камеры на листе не установлена.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   661
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

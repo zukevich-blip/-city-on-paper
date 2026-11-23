@@ -1,0 +1,107 @@
+{
+ "id": "bologna-rijks-259-550bb3e3",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Две башни и Сан-Бартоломео-э-Гаэтано: композиция листа узнаётся; камера на листе не измерена.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Bulla & Delarue",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "after drawing by"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Joseph Rose Lemercier",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1908-259--70d1c97b8a1228203a2e33d4a222f4a1",
+  "accession": "RP-P-1908-259",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1908-259.jpg",
+  "sha256": "bd27d7600e67bd8828dab80b8147600064fb4d6a8dc61fff12ba91097f025bd0",
+  "size": [
+   900,
+   1257
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1908-259.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Bologne, Tours Asinelli et Garizenda / Bologna, Torri Arsinelli e Garizenda · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Болонья · две башни, 2025-09-14",
+  "provider": "Panoramax",
+  "panoramax_id": "550bb3e3-fb36-4d93-8041-e99d73724343",
+  "object_url": "https://api.panoramax.xyz/api/collections/9b830782-7458-4109-ae7f-cfabc1b8b12d/items/550bb3e3-fb36-4d93-8041-e99d73724343",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=550bb3e3-fb36-4d93-8041-e99d73724343",
+  "author": "scai (Panoramax account)",
+  "date": "2025-09-14",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 44.494289,
+   "lon": 11.345993972,
+   "heading_deg": 88,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 88,
+  "distance_to_building_m_approx": 58,
+  "file": "bologna-photo-panoramax-550bb3e3.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/derivates/55/0b/b3/e3/fb36-4d93-8041-e99d73724343/sd.jpg",
+  "source_sha256": "0e0a39b446a55a8a548b180969b3219bf09fabf25d72ab93e6a1498c60ac8914",
+  "sha256": "122c7e53c4ef0ab536859d6af588e38170228b0e1acf863ba7c368881d4cad08",
+  "size": [
+   2048,
+   2730
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. No geometric or colour change.",
+  "credit": "Photo: scai / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0"
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 286,
+  "photo_distance_m": 58,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Две башни и Сан-Бартоломео-э-Гаэтано: композиция листа узнаётся; камера на листе не измерена."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Две башни и Сан-Бартоломео-э-Гаэтано: композиция листа узнаётся; камера на листе не измерена.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   1257
+  ],
+  "photo_size": [
+   2048,
+   2730
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

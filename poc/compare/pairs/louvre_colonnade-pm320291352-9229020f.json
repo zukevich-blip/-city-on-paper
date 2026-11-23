@@ -1,0 +1,119 @@
+{
+ "id": "louvre_colonnade-pm320291352-9229020f",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Колоннада с юго-востока, март 2025.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Colonnade du Louvre",
+  "title_original": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "A. Bayot",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
+  "accession": "node 320291352",
+  "rights": "CC0 Paris Musées",
+  "file": "louvre-colonnade-benoist-carnavalet-cargtop028170.jpg",
+  "sha256": "9e0622847b96ac11ed893638fc931abb8129debc637d2bbaf1211fc58680f84d",
+  "size": [
+   1280,
+   952
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320291352.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Colonnade du Louvre · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Колоннада Лувра, 2025-03-15 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "9229020f-4fed-43e2-9ee7-3ba10f8f44fc",
+  "object_url": "https://api.panoramax.xyz/api/collections/6d01b0e4-86b4-4a48-adeb-45b19e670a09/items/9229020f-4fed-43e2-9ee7-3ba10f8f44fc",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=9229020f-4fed-43e2-9ee7-3ba10f8f44fc",
+  "author": "benoitdd (Panoramax account)",
+  "date": "2025-03-15",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.860629293,
+   "lon": 2.340782257,
+   "heading_deg": 266,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 266,
+  "distance_to_building_m_approx": 50,
+  "file": "louvre_colonnade-photo-panoramax-9229020f-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/92/29/02/0f/4fed-43e2-9ee7-3ba10f8f44fc.jpg",
+  "source_sha256": "512af4e0efa76528db165506c14ac42c7310e56738fb564e7eb9ef8f21ec6552",
+  "sha256": "66168f62de8c61f549e392ff650d1469d3dc7fe7c7a1b327a38bf25add7981e0",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: benoitdd / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 197,
+   "yaw_deg": 266.3,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 0,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 86,
+  "photo_distance_m": 50,
+  "artist_bearing_estimate_deg": 90,
+  "bearing_diff_deg": 4,
+  "same_side_of_building": "yes",
+  "historic_camera_estimate": "Estimate read from the print by Claude (not measured)",
+  "note": "Колоннада с юго-востока, март 2025."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Колоннада с юго-востока, март 2025.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   952
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

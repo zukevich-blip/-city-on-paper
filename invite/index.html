@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#572723">
+<title>Город на бумаге | Визитка цифрового музея</title>
+<meta name="description" content="Город на бумаге: подлинные литографии Филиппа Бенуа, старые карты, современные фотографии и сравнение эпох. Нажмите на открытку, чтобы открыть музей.">
+<style>
+:root{--paper:#eee1cb;--wine:#5b2926;--gold:#a87944}
+*{box-sizing:border-box}
+html{background:#d8c7aa}
+body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 20%,#f9efdf 0%,#d8c7aa 90%);font-family:Georgia,"Times New Roman",serif;color:var(--wine)}
+main{width:min(100%,1280px);padding:clamp(10px,3vw,42px);text-align:center}
+.postcard{display:block;width:100%;border:1px solid var(--gold);padding:clamp(4px,1vw,11px);background:var(--paper);box-shadow:0 18px 65px #41281845;outline-offset:5px;transition:transform .16s ease,box-shadow .16s ease}
+.postcard:hover{transform:translateY(-3px);box-shadow:0 22px 70px #41281865}
+.postcard:focus-visible{outline:4px solid var(--wine)}
+.postcard img{display:block;width:100%;height:auto;aspect-ratio:1200/630;background:var(--paper)}
+.note{font:14px/1.5 Georgia,serif;margin:17px 0 8px}
+.credits{font:11px/1.5 Arial,sans-serif;color:#745e4b;margin:0}
+.credits a{color:inherit;text-underline-offset:3px}
+@media(max-width:600px){main{padding:9px}.note{font-size:13px}.credits{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.postcard{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<a class="postcard" href="../" aria-label="Открыть главную страницу музея «Город на бумаге»">
+<img src="../assets/share/benoist-paris.jpg" alt="Визитка онлайн-музея «Город на бумаге». Подлинные литографии Бенуа: Нотр-Дам, Лувр, Вандомская колонна. Нажмите для перехода на главную страницу музея." width="1200" height="630" loading="eager" fetchpriority="high">
+</a>
+<p class="note">Нажмите на визитку, чтобы открыть музей.</p>
+<p class="credits">Литографии: Paris Musées / Musée Carnavalet, CC0 ·
+<a href="https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame">Нотр-Дам</a> ·
+<a href="https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre">Лувр</a> ·
+<a href="https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the">Вандомская колонна</a></p>
+</main>
+</body>
+</html>

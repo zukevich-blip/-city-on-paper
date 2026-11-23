@@ -1,0 +1,1432 @@
+{
+ "when": "2026-11-20T14:24:58.631Z",
+ "passed": 285,
+ "failed": 0,
+ "results": [
+  {
+   "n": "phone-390 portal: city list ≥ 80",
+   "c": true,
+   "d": "214"
+  },
+  {
+   "n": "phone-390 geographic country index",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 country chapters close",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 country chapters open",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 shareable country chapter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: historical map tile loaded and served",
+   "c": true,
+   "d": "1 / 200 / http://localhost:8765/eras/tiles/europe-1769/0/0/0.jpg"
+  },
+  {
+   "n": "phone-390 portal: all historically positioned cities grouped accessibly",
+   "c": true,
+   "d": "183"
+  },
+  {
+   "n": "phone-390 portal: clustered pins show count on small screens",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 museum bar: all halls",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: search filters list",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: featured filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: filter announced",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: zoom button in the corner works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 portal: zoom control is ≥44px, top-right",
+   "c": true,
+   "d": "44,12,13"
+  },
+  {
+   "n": "phone-390 portal: modern map covers every geocoded atlas city",
+   "c": true,
+   "d": "214"
+  },
+  {
+   "n": "phone-390 portal: map layers do not stack when switched",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 PWA manifest",
+   "c": true,
+   "d": "standalone|3"
+  },
+  {
+   "n": "phone-390 service worker registered",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 feedback dialog opens",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 feedback gives a status",
+   "c": true,
+   "d": "Не удалось скопировать автоматически: выделите текст отзыва и отправьте его автору в мессенджере."
+  },
+  {
+   "n": "phone-390 generic city page",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city study lab available in a generic city",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city: plan with place pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 featured city also lists museum works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 all-artist city lab renders visual records",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city lab can compare selected different museum works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 any print can open an enlarged source dossier",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city print zoom",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city lab accepts local rephotography",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 locally added image can join historical comparison",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city lab removes local photo",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 user-selected work alters city timeline",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city studio artwork search",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city offers author and artwork search",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 author filter excludes unrelated prints",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 author filter restores all works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city: zoomable 1878 plan of Paris",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city: links to other museum halls",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: timeline cards",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: recent photo is dated and unadjusted",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: only photograph transformed inside validated region",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: pair picker chooses a separate archive print",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple time slider available",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple timeline has 3 actual images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple timeline all source links",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple stage: 0% shows first era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple stage: 50% shows middle era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple stage: 100% shows last era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 triple stage: third image fully revealed",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 local photo: third epoch selected",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 local photo: no server upload in UI",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 local photo: removed",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope available",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope displays all available archival frames",
+   "c": true,
+   "d": "7/7"
+  },
+  {
+   "n": "phone-390 chronoscope one-keyframe-per-frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope whole range",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope excludes chosen frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope restores archival frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope zoom magnifies detail",
+   "c": true,
+   "d": "translate(0px, 0px) scale(1.5)"
+  },
+  {
+   "n": "phone-390 chronoscope zoom matches both epochs",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope zoom resets",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope last epoch selected",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 chronoscope source attribution",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 Madeleine architectural desk present",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 architectural glossary explains at least three details",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 architecture and printmaking sources linked",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 historical fact distinguishes 1842 and 1845-1860",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: verdict shown",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 place: camera cones on 1878 plan",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 historic images: no transform/filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 no broken images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 slider keyboard Home",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 slider keyboard step",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 slider pointer",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 camera list selects image",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
+   "n": "phone-390 side-by-side exclusive",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 touch targets ≥40px",
+   "c": true,
+   "d": "0 small"
+  },
+  {
+   "n": "phone-390 no horizontal page scroll",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 images have alt",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 epochs gallery",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 epoch place: frames + angle map",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 my photo dialog (local only)",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 my viewpoints page",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 Naples place renders honest mismatch",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 uncatalogued place gets source-led research checklist",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 unknown route handled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 design prototype uses real map and city albums",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city album opens with real source references",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 city folio flips",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 map and book view switch is functional",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 desk city finder navigates to true catalog city",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 desk prototype no horizontal overflow",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "phone-390 no console/page/HTTP errors",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: city list ≥ 80",
+   "c": true,
+   "d": "214"
+  },
+  {
+   "n": "tablet-820 geographic country index",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 country chapters close",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 country chapters open",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 shareable country chapter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: historical map tile loaded and served",
+   "c": true,
+   "d": "16 / 200 / http://localhost:8765/eras/tiles/europe-1769/2/1/1.jpg"
+  },
+  {
+   "n": "tablet-820 portal: all historically positioned cities grouped accessibly",
+   "c": true,
+   "d": "183"
+  },
+  {
+   "n": "tablet-820 portal: clustered pins show count on small screens",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 museum bar: all halls",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: search filters list",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: featured filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: filter announced",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: zoom button in the corner works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 portal: zoom control is ≥44px, top-right",
+   "c": true,
+   "d": "44,13,13"
+  },
+  {
+   "n": "tablet-820 portal: modern map covers every geocoded atlas city",
+   "c": true,
+   "d": "214"
+  },
+  {
+   "n": "tablet-820 portal: map layers do not stack when switched",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 PWA manifest",
+   "c": true,
+   "d": "standalone|3"
+  },
+  {
+   "n": "tablet-820 service worker registered",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 feedback dialog opens",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 feedback gives a status",
+   "c": true,
+   "d": "Не удалось скопировать автоматически: выделите текст отзыва и отправьте его автору в мессенджере."
+  },
+  {
+   "n": "tablet-820 generic city page",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city study lab available in a generic city",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city: plan with place pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 featured city also lists museum works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 all-artist city lab renders visual records",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city lab can compare selected different museum works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 any print can open an enlarged source dossier",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city print zoom",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city lab accepts local rephotography",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 locally added image can join historical comparison",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city lab removes local photo",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 user-selected work alters city timeline",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city studio artwork search",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city offers author and artwork search",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 author filter excludes unrelated prints",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 author filter restores all works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city: zoomable 1878 plan of Paris",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city: links to other museum halls",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: timeline cards",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: recent photo is dated and unadjusted",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: only photograph transformed inside validated region",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: pair picker chooses a separate archive print",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple time slider available",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple timeline has 3 actual images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple timeline all source links",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple stage: 0% shows first era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple stage: 50% shows middle era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple stage: 100% shows last era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 triple stage: third image fully revealed",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 local photo: third epoch selected",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 local photo: no server upload in UI",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 local photo: removed",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope available",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope displays all available archival frames",
+   "c": true,
+   "d": "7/7"
+  },
+  {
+   "n": "tablet-820 chronoscope one-keyframe-per-frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope whole range",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope excludes chosen frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope restores archival frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope zoom magnifies detail",
+   "c": true,
+   "d": "translate(0px, 0px) scale(1.5)"
+  },
+  {
+   "n": "tablet-820 chronoscope zoom matches both epochs",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope zoom resets",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope last epoch selected",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 chronoscope source attribution",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 Madeleine architectural desk present",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 architectural glossary explains at least three details",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 architecture and printmaking sources linked",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 historical fact distinguishes 1842 and 1845-1860",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: verdict shown",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 place: camera cones on 1878 plan",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 historic images: no transform/filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 no broken images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 slider keyboard Home",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 slider keyboard step",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 slider pointer",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 camera list selects image",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
+   "n": "tablet-820 side-by-side exclusive",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 touch targets ≥40px",
+   "c": true,
+   "d": "0 small"
+  },
+  {
+   "n": "tablet-820 no horizontal page scroll",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 images have alt",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 epochs gallery",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 epoch place: frames + angle map",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 my photo dialog (local only)",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 my viewpoints page",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 Naples place renders honest mismatch",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 uncatalogued place gets source-led research checklist",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 unknown route handled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 design prototype uses real map and city albums",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city album opens with real source references",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 city folio flips",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 map and book view switch is functional",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 desk city finder navigates to true catalog city",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 desk prototype no horizontal overflow",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "tablet-820 no console/page/HTTP errors",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: city list ≥ 80",
+   "c": true,
+   "d": "214"
+  },
+  {
+   "n": "desktop-1440 geographic country index",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 country chapters close",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 country chapters open",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 shareable country chapter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: historical map tile loaded and served",
+   "c": true,
+   "d": "16 / 200 / http://localhost:8765/eras/tiles/europe-1769/2/1/1.jpg"
+  },
+  {
+   "n": "desktop-1440 portal: all historically positioned cities grouped accessibly",
+   "c": true,
+   "d": "183"
+  },
+  {
+   "n": "desktop-1440 portal: clustered pins show count on small screens",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 museum bar: all halls",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: search filters list",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: featured filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: filter announced",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: zoom button in the corner works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 portal: zoom control is ≥44px, top-right",
+   "c": true,
+   "d": "44,13,13"
+  },
+  {
+   "n": "desktop-1440 portal: modern map covers every geocoded atlas city",
+   "c": true,
+   "d": "214"
+  },
+  {
+   "n": "desktop-1440 portal: map layers do not stack when switched",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 PWA manifest",
+   "c": true,
+   "d": "standalone|3"
+  },
+  {
+   "n": "desktop-1440 service worker registered",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 feedback dialog opens",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 feedback gives a status",
+   "c": true,
+   "d": "Не удалось скопировать автоматически: выделите текст отзыва и отправьте его автору в мессенджере."
+  },
+  {
+   "n": "desktop-1440 generic city page",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city study lab available in a generic city",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city: plan with place pins",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 featured city also lists museum works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 all-artist city lab renders visual records",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city lab can compare selected different museum works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 any print can open an enlarged source dossier",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city print zoom",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city lab accepts local rephotography",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 locally added image can join historical comparison",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city lab removes local photo",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 user-selected work alters city timeline",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city studio artwork search",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city offers author and artwork search",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 author filter excludes unrelated prints",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 author filter restores all works",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city: zoomable 1878 plan of Paris",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city: links to other museum halls",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: timeline cards",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: recent photo is dated and unadjusted",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: only photograph transformed inside validated region",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: pair picker chooses a separate archive print",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple time slider available",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple timeline has 3 actual images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple timeline all source links",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple stage: 0% shows first era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple stage: 50% shows middle era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple stage: 100% shows last era",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 triple stage: third image fully revealed",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 local photo: third epoch selected",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 local photo: no server upload in UI",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 local photo: removed",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope available",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope displays all available archival frames",
+   "c": true,
+   "d": "7/7"
+  },
+  {
+   "n": "desktop-1440 chronoscope one-keyframe-per-frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope whole range",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope excludes chosen frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope restores archival frame",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope zoom magnifies detail",
+   "c": true,
+   "d": "translate(0px, 0px) scale(1.5)"
+  },
+  {
+   "n": "desktop-1440 chronoscope zoom matches both epochs",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope zoom resets",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope last epoch selected",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 chronoscope source attribution",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 Madeleine architectural desk present",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 architectural glossary explains at least three details",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 architecture and printmaking sources linked",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 historical fact distinguishes 1842 and 1845-1860",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: verdict shown",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 place: camera cones on 1878 plan",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 historic images: no transform/filter",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 no broken images",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 slider keyboard Home",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 slider keyboard step",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 slider pointer",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 camera list selects image",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 opacity disabled for non-close pair",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 derived crop labelled in compare",
+   "c": true,
+   "d": "1845–1860 · Литография / гравюра/ок. 1860 · Фотография/ок. 1890–1900 · Фотохром/ок. 1890–1900 · Фотохром/2017 · Сегодня/2017 · Сегодня/2026 · Сегодня"
+  },
+  {
+   "n": "desktop-1440 side-by-side exclusive",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 touch targets ≥40px",
+   "c": true,
+   "d": "0 small"
+  },
+  {
+   "n": "desktop-1440 no horizontal page scroll",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 images have alt",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 epochs gallery",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 epoch place: frames + angle map",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 my photo dialog (local only)",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 my viewpoints page",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 Naples place renders honest mismatch",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 uncatalogued place gets source-led research checklist",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 unknown route handled",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 design prototype uses real map and city albums",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city album opens with real source references",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 city folio flips",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 map and book view switch is functional",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 desk city finder navigates to true catalog city",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 desk prototype no horizontal overflow",
+   "c": true,
+   "d": ""
+  },
+  {
+   "n": "desktop-1440 no console/page/HTTP errors",
+   "c": true,
+   "d": ""
+  }
+ ]
+}

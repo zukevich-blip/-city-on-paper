@@ -36,14 +36,13 @@ class Scan(HTMLParser):
 
 def test_hybrid_home_prioritizes_historical_story_and_keeps_previous_sections():
     page = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert 'href="stories/paris-on-paper/" class="btn primary"' in page
+    assert 'href="stories/paris-on-paper/"' in page
     assert 'href="experience/"' in page
     assert 'href="atlas/"' in page
     assert 'href="studio/"' in page
-    assert page.index('href="stories/paris-on-paper/" class="btn primary"') < page.index('class="more-museum"')
+    assert page.index('class="lh-hero"') < page.index('class="lh-more"')
     assert page.index("Город на бумаге · Музей") < page.index("<style>")
-    assert 'class="museum-pathway"' in page
-    assert 'data-go="catalog"' in page
+    assert 'class="lh-desk"' in page
     assert 'id="research"' in page
     assert 'id="catalog"' in page
 

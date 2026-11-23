@@ -78,7 +78,7 @@
     $("selectedRights").replaceChildren(create("strong",null,"Право: "),document.createTextNode(img.rights_short||img.rights||"Проверка прав требуется"));
     const source=$("selectedSource");
     source.href=safeSource(img);
-    source.textContent="Открыть музейный оригинал ↗";
+    source.textContent="Смотреть в архиве ↗︎";
     const story=$("selectedStory");
     if(state.city==="paris"){story.href="../stories/paris-on-paper/";story.textContent="Читать историю Парижа";}
     else{story.href="../experience/?city="+encodeURIComponent(state.city)+"&chapter=1";story.textContent="Читать главу "+names[state.city];}
@@ -97,7 +97,7 @@
     $("routeCompare").hidden=state.city!=="paris";
     $("routeCompare").href="../poc/compare/#madeleine-ph-benoist";
     $("currentCity").textContent=names[state.city]+" · Исторические изображения";
-    $("cityDescription").textContent=city.places.map(p=>p.title).join(" · ")+". Выберите лист для просмотра архивной карточки.";
+    $("cityDescription").textContent=city.places.map(p=>p.title).join(" · ")+". Выберите лист, чтобы открыть его в архиве.";
     const items=available();
     $("resultCount").textContent=items.length+" изображений с открытым статусом прав";
     const container=$("atlasResults");

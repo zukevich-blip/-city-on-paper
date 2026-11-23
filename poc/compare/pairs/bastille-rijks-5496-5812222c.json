@@ -1,0 +1,115 @@
+{
+ "id": "bastille-rijks-5496-5812222c",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Колонна из сквера; сторона камеры на листе не установлена.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Colonne de Juillet",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5496--55e352fc06193998052872578bfec6f3",
+  "accession": "RP-P-1905-5496",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5496.jpg",
+  "sha256": "4dcdb8194b92ef20938c307c0ad9727d2c31b144c930c426bd7ab8761bd29764",
+  "size": [
+   900,
+   661
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5496.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Colonne de Juillet · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Июльская колонна, Бастилия, 2024-08-27 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "5812222c-162a-4441-88e3-deb8363bbd43",
+  "object_url": "https://api.panoramax.xyz/api/collections/e60dd6fe-34b7-4d96-b188-9c2fcf00d211/items/5812222c-162a-4441-88e3-deb8363bbd43",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=5812222c-162a-4441-88e3-deb8363bbd43",
+  "author": "Aradrin (Panoramax account)",
+  "date": "2024-08-27",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.852622973,
+   "lon": 2.369292723,
+   "heading_deg": 350,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 350,
+  "distance_to_building_m_approx": 62,
+  "file": "bastille-photo-panoramax-5812222c-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/58/12/22/2c/162a-4441-88e3-deb8363bbd43.jpg",
+  "source_sha256": "36ae7f9949d216f27eae0fd999f441a841ba26aa7aea29c6f360e07a062a489f",
+  "sha256": "42d6ee2ac6d2ba19ac4e2d6536ddc78168b8e8a91557287cccbd2eaed8dd1f04",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: Aradrin / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 185,
+   "yaw_deg": 349.6,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 10,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": 170,
+  "photo_distance_m": 62,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Колонна из сквера; сторона камеры на листе не установлена."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Колонна из сквера; сторона камеры на листе не установлена.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   661
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

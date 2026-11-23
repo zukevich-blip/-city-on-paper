@@ -1,0 +1,111 @@
+{
+ "id": "pont_royal-pm320299869-d0859ca4",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Набережная вниз по течению от Королевского моста, взгляд вверх по Сене; лист снят с самого моста с высоты.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Vues de Paris. / Paris, pris du pont Royal. / Views of Paris. / Paris, from the Royal bridge.",
+  "title_original": "Vues de Paris. / Paris, pris du pont Royal. / Views of Paris. / Paris, from the Royal bridge.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-paris-pris-du-pont-royal-views-of-paris-paris-from-the-royal",
+  "accession": "node 320299869",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320299869.jpg",
+  "sha256": "5a4cd0af4963cbbac7088fdb53f754ac00ec2bb319abade4f35e49a941eaf684",
+  "size": [
+   1280,
+   948
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320299869.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Vues de Paris. / Paris, pris du pont Royal. / Views of Paris. / Paris, from the Royal bridge. · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Вид с Королевского моста, 2025-07-01 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "d0859ca4-5992-49b2-8123-907130272e91",
+  "object_url": "https://api.panoramax.xyz/api/collections/c357d9bb-0b14-4f90-8fb6-8f52201a53b2/items/d0859ca4-5992-49b2-8123-907130272e91",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=d0859ca4-5992-49b2-8123-907130272e91",
+  "author": "benoitdd (Panoramax account)",
+  "date": "2025-07-01",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.86067016,
+   "lon": 2.325971524,
+   "heading_deg": 95,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 95,
+  "distance_to_building_m_approx": 66,
+  "file": "pont_royal-photo-panoramax-d0859ca4-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/d0/85/9c/a4/5992-49b2-8123-907130272e91.jpg",
+  "source_sha256": "d22cf39d0566b960b6f890ae7c35871a4e4d58eed892237bdcb12ca5d16b508a",
+  "sha256": "692299f02462aca996137f07a632518ca54193d4a3da75fb40cad57280f11986",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: benoitdd / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 280,
+   "yaw_deg": 95,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 0,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": null,
+  "photo_distance_m": 66,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Набережная вниз по течению от Королевского моста, взгляд вверх по Сене; лист снят с самого моста с высоты."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Набережная вниз по течению от Королевского моста, взгляд вверх по Сене; лист снят с самого моста с высоты.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   948
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

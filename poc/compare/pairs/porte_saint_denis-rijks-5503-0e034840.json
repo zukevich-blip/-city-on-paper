@@ -1,0 +1,115 @@
+{
+ "id": "porte_saint_denis-rijks-5503-0e034840",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "unverified",
+ "condition": "Сторона камеры на листе не установлена; ворота те же.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Porte St. Denis",
+  "title_original": null,
+  "agents": [
+   {
+    "name": "Gihaut frères",
+    "role": "publisher"
+   },
+   {
+    "name": "Philippe Benoist",
+    "role": "printmaker"
+   },
+   {
+    "name": "Auguste Bry",
+    "role": "printer (person)"
+   }
+  ],
+  "holding": "Rijksmuseum",
+  "object_url": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1905-5503--56ce768410d2f88e13fce8f50143f900",
+  "accession": "RP-P-1905-5503",
+  "rights": "Public Domain Mark",
+  "file": "benoist-rijks-RP-P-1905-5503.jpg",
+  "sha256": "ba30d99d66329f23bfe4441ce1bc276274a17192b751f8c7074f88309066403b",
+  "size": [
+   900,
+   633
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/rijks-RP-P-1905-5503.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Porte St. Denis · Rijksmuseum · Public Domain Mark"
+ },
+ "photo": {
+  "title": "Ворота Сен-Дени, 2025-02-19 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "0e034840-5438-4bda-9da3-fbec16b11e17",
+  "object_url": "https://api.panoramax.xyz/api/collections/4c3949f1-a60f-4697-915c-17d65c3b01f4/items/0e034840-5438-4bda-9da3-fbec16b11e17",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=0e034840-5438-4bda-9da3-fbec16b11e17",
+  "author": "amicklew (Panoramax account)",
+  "date": "2025-02-19",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.8698053,
+   "lon": 2.352328954,
+   "heading_deg": 94,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 94,
+  "distance_to_building_m_approx": 26,
+  "file": "porte_saint_denis-photo-panoramax-0e034840-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/0e/03/48/40/5438-4bda-9da3-fbec16b11e17.jpg",
+  "source_sha256": "e842a593f4b66b02ed5a22f49468eb02c5ead4ca0ab485e0f9cc05ebfb2ea72e",
+  "sha256": "9a6ca0e13b088baee584cb8cc4745b1d3eb8592769d5b4ed6a05eebd94e217b1",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: amicklew / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 100,
+   "yaw_deg": 93.7,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 5,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "unknown",
+  "photo_bearing_from_building_deg": 274,
+  "photo_distance_m": 26,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Сторона камеры на листе не установлена; ворота те же."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "unverified",
+  "observations": [
+   "Сторона камеры на листе не установлена; ворота те же.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   900,
+   633
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

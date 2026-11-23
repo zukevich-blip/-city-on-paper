@@ -1,0 +1,115 @@
+{
+ "id": "bourse-pm320291262-d7a724ab",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "approximate",
+ "condition": "Колоннада Биржи с угла площади, длинная сторона уходит вправо, как на листе. Оценка по сопоставлению композиции, камера не измерена.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "Bourse et Tribunal de Commerce",
+  "title_original": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Adolphe Jean Baptiste Bayot",
+    "role": "participant (museum record)"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "participant (museum record)"
+   }
+  ],
+  "holding": "Paris Musées / Musée Carnavalet",
+  "object_url": "https://parismuseescollections.paris.fr/ru/node/647366",
+  "accession": "node 320291262",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-320291262.jpg",
+  "sha256": "840ec33c5c2698c340f7c7f4bcab92a5cf16d6850da4167573946ff72d488f3c",
+  "size": [
+   1280,
+   901
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-320291262.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "Bourse et Tribunal de Commerce · Paris Musées / Musée Carnavalet · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Биржа (дворец Броньяр), 2024-09-18 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "d7a724ab-5262-45a1-a9ee-8ff1cddeeecf",
+  "object_url": "https://api.panoramax.xyz/api/collections/6bd4b011-272e-4ca2-ad27-5b3a24367e8b/items/d7a724ab-5262-45a1-a9ee-8ff1cddeeecf",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=d7a724ab-5262-45a1-a9ee-8ff1cddeeecf",
+  "author": "Cyril5C (Panoramax account)",
+  "date": "2024-09-18",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.869,
+   "lon": 2.34015,
+   "heading_deg": 72,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 72,
+  "distance_to_building_m_approx": 89,
+  "file": "bourse-photo-panoramax-d7a724ab-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/d7/a7/24/ab/5262-45a1-a9ee-8ff1cddeeecf.jpg",
+  "source_sha256": "932d9aa509bc50f36693363a1ff803a7d6d1eb0f31091ccbd747807ec438af4b",
+  "sha256": "c5f62ba6986e2f5a5fda24f6fedd42180cf556df4e5f7989601831ea8fe9a011",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: Cyril5C / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 24,
+   "yaw_deg": 71.7,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 4,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "similar",
+  "photo_bearing_from_building_deg": 252,
+  "photo_distance_m": 89,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Колоннада Биржи с угла площади, длинная сторона уходит вправо, как на листе. Оценка по сопоставлению композиции, камера не измерена."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "approximate",
+  "observations": [
+   "Колоннада Биржи с угла площади, длинная сторона уходит вправо, как на листе. Оценка по сопоставлению композиции, камера не измерена.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   901
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "insufficient_points",
+  "H": null,
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

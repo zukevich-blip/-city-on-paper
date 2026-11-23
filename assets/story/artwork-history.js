@@ -111,20 +111,20 @@ window.CityArtworkHistory = (() => {
     return {a,deep,source,data,missing};
   }
   function markup(w,{open=false,compact=false}={}){
-    const x=story(w),{a,deep}=x,heading=deep?deep.badge:"Индивидуальный паспорт · история уточняется";
+    const x=story(w),{a,deep}=x,heading=deep?deep.badge:"автор, дата и где хранится";
     const origins=x.data.map(t=>"<p>"+h(t)+"</p>").join("");
     const editorial=a.note&&!deep?'<div class="art-history-editorial"><h5>Описание в каталоге проекта</h5><p>'+h(limit(a.note,450))+'</p><small>Редакционная помета, не независимое подтверждение исторического события.</small></div>':"";
     const deepHtml=deep?'<div class="art-history-context"><h5>Что происходило с местом и листом</h5>'+
       deep.text.map(t=>"<p>"+h(t)+"</p>").join("")+
       (deep.context?"<p>"+h(deep.context)+"</p>":"")+"</div>":
-      '<p class="art-history-pending">Подробная история создания пока не подтверждена источниками. '+
-      'Здесь приведены установленные сведения именно об этом листе, а не выдуманный рассказ.</p>';
+      '<p class="art-history-pending">Подробной истории этого листа мы пока не нашли. '+
+      'Выше — только то, что известно точно: автор, дата и где он хранится.</p>';
     const refs=x.source.length?'<div class="art-history-sources"><b>Первоисточники</b>'+
-      x.source.map(([n,u])=>'<a target="_blank" rel="noopener noreferrer" href="'+h(u)+'">'+h(n)+' ↗</a>').join("")+
-      '</div>':'<p class="art-history-pending">Ссылка на музейный оригинал пока не указана.</p>';
+      x.source.map(([n,u])=>'<a target="_blank" rel="noopener noreferrer" href="'+h(u)+'">'+h(n)+' ↗︎</a>').join("")+
+      '</div>':'<p class="art-history-pending">Ссылки на оригинал в музее пока нет.</p>';
     return '<details class="art-history'+(compact?" art-history-compact":"")+'"'+(open?" open":"")+'> '+
-      '<summary><span>История произведения</span><small>'+h(heading)+'</small></summary>'+
-      '<div class="art-history-body"><h4>'+h(a.title)+'</h4><section><h5>Паспорт и происхождение</h5>'+origins+'</section>'+
+      '<summary><span>Подробнее об этом листе</span><small>'+h(heading)+'</small></summary>'+
+      '<div class="art-history-body"><h4>'+h(a.title)+'</h4><section><h5>Что известно о листе</h5>'+origins+'</section>'+
       deepHtml+editorial+
       '<p class="art-history-unknown"><b>Что пока неизвестно:</b> '+h(x.missing.join("; "))+'.</p>'+refs+
       '</div></details>';

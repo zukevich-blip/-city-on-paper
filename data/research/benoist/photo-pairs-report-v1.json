@@ -1,0 +1,167 @@
+{
+ "version": 1,
+ "date": "2026-11-21",
+ "method": "Panoramax API search (api.panoramax.xyz), bbox + view:azimuth/licence filter; Wikimedia Commons API returned HTTP 429 on 2026-11-21 (one request, not retried or bypassed)",
+ "licence_policy": "CC0 / CC BY / CC BY-SA only. Panoramax etalab-2.0 pictures were excluded although they are open.",
+ "statuses": "exact_verified | approximate | lost_or_reconstructed | unverified. No pair reached exact_verified: it needs a computed fit with adequate coverage AND a matching camera pose; none qualified.",
+ "sheets": [
+  {
+   "sheet": "Notre-Dame",
+   "source": "Paris Musées 320291945 (CARGTOP029216), CC0",
+   "status": "approximate",
+   "pair": "notre-dame-benoist-carnavalet",
+   "photos_tried": 9,
+   "photos_viewed": [
+    "0ca5d80e (JLZIMMERMANN, frontal close-up)",
+    "98cd0119",
+    "19e9b008",
+    "2ce8036e",
+    "8cf17a79",
+    "f98c720b",
+    "fe6122f4",
+    "31c51fb4",
+    "174b5861"
+   ],
+   "chosen": {
+    "panoramax_id": "8cf17a79-cec7-48e3-9200-8da7c37efcf5",
+    "author": "JLZIMMERMANN",
+    "date": "2025-04-04",
+    "licence": "CC BY-SA 4.0",
+    "camera": [
+     48.8534299,
+     2.3479294
+    ],
+    "heading_deg": 98,
+    "url": "https://api.panoramax.xyz/api/collections/3eec576c-f1c9-4968-8b0c-81581cb175c0/items/8cf17a79-cec7-48e3-9200-8da7c37efcf5"
+   },
+   "evidence": {
+    "control_points": 10,
+    "rms_px": 4.62,
+    "rms_rel_diag": 0.0029,
+    "loo_max_px": 11.52,
+    "coverage": 0.047,
+    "tool_confidence": "low (local scope)"
+   },
+   "why": "Fit is consistent but covers 5% of the sheet and camera poses differ (lithograph more oblique); not exact.",
+   "rejected": {
+    "0ca5d80e": "close-up, towers cut by frame, strongly different distance",
+    "98cd0119/19e9b008": "pavement/portal detail, not a facade view",
+    "2ce8036e": "side view of the flank",
+    "f98c720b/fe6122f4/31c51fb4": "wide square views, facade small/cropped",
+    "174b5861": "statue of Charlemagne blocks the facade; etalab 360 sets excluded by licence"
+   },
+   "limits": "Crane of the restoration in photo; point picking by Claude, not human-reviewed."
+  },
+  {
+   "sheet": "Sainte-Chapelle",
+   "source": "Paris Musées 320290066",
+   "status": "unverified",
+   "pair": null,
+   "photos_tried": 0,
+   "evidence": "Panoramax: 0 pictures inside the chapel footprint (bbox 2.3446,48.8551,2.3455,48.8558); ~50 CC BY-SA pictures nearby are exterior (courtyard/street). The sheet is an interior of the upper chapel (ceremony of 3 Nov 1844). Commons not queryable (429).",
+   "why": "No suitable open-licence interior photo found; none invented."
+  },
+  {
+   "sheet": "Colonnade du Louvre",
+   "source": "Paris Musées 320291352 (CARGTOP028170), CC0",
+   "status": "approximate",
+   "pair": "louvre-colonnade-benoist-carnavalet",
+   "photos_tried": 21,
+   "photos_viewed": [
+    "Britzz 0ef50c7b, f8856b82, 85e27e05",
+    "Nzau 2ee668cb, 34a3dc34, 89218cdd, e31977fe, 13a80662",
+    "tykayn 8801d9ca",
+    "benoitdd 360: 80b517b7, 9471ad50, 0dc917b7, 594d3f8d, 8e0b8848, 54109eef, 58fd36ef, 56f732d3, 7f2e9175, d2d2ae7e, bf22eee5",
+    "Lejun 360 (4)"
+   ],
+   "chosen": {
+    "panoramax_id": "54109eef-61b6-4d6d-8f1f-2256d27c8e24",
+    "author": "benoitdd",
+    "date": "2025-06-21",
+    "licence": "CC BY-SA 4.0",
+    "camera": [
+     48.86031326,
+     2.340837499
+    ],
+    "heading_deg": 262,
+    "url": "https://api.panoramax.xyz/api/collections/fd6a8507-4dae-4900-85ab-001b99375b5d/items/54109eef-61b6-4d6d-8f1f-2256d27c8e24",
+    "note": "rectilinear crop of a 360 panorama, parameters in pair JSON"
+   },
+   "evidence": {
+    "control_points": 8,
+    "rms_px": 3.68,
+    "loo_max_px": 22.31,
+    "coverage": 0.019,
+    "tool_confidence": "low (local scope)"
+   },
+   "why": "Same east side; photo is ~45 m away at ~55-60 deg, lithograph frontal and far; points span several depth planes.",
+   "rejected": {
+    "rue de Rivoli street views (Nzau, Britzz)": "do not show the colonnade",
+    "80b517b7/56f732d3/7f2e9175": "trees or only the end pavilion visible, more oblique",
+    "no flat CC photo faces the facade": "only 360 sets"
+   },
+   "limits": "No frontal open-licence view found; vehicles in foreground."
+  },
+  {
+   "sheet": "Galerie d'Orléans, Palais-Royal",
+   "source": "Paris Musées 320290399",
+   "status": "lost_or_reconstructed",
+   "pair": null,
+   "photos_tried": 0,
+   "evidence": "Interior glass-roofed gallery, destroyed in 1934/35 (sources differ: Brown Univ. repository says 1935, Univ. of Michigan record says 1934); only its colonnades survive (web search, not a curated source). No CC photo inside the garden/Cour d'honneur area.",
+   "why": "Subject lost; no modern photo of the same interior can exist. Sheet shown alone."
+  },
+  {
+   "sheet": "Jardin du Palais Royal (Rijksmuseum RP-P-1905-5499)",
+   "source": "Rijksmuseum, Public Domain Mark",
+   "status": "unverified",
+   "pair": "palais-royal-jardin-benoist-rijksmuseum",
+   "photos_tried": 6,
+   "photos_viewed": [
+    "200a3dee (fgouget, 2020-07-19, CC BY-SA, az 20)",
+    "benoitdd 360 cad22614/397fbe36 line (street, not garden)",
+    "d25b0bde, 2ac08270, 413e63b5 (streets east of the garden)"
+   ],
+   "chosen": {
+    "panoramax_id": "200a3dee-8fbc-4429-ba62-45e963950ab1",
+    "author": "fgouget",
+    "date": "2020-07-19",
+    "licence": "CC BY-SA 4.0",
+    "camera": [
+     48.86418,
+     2.33737
+    ],
+    "heading_deg": 20
+   },
+   "evidence": "Opposite direction to the sheet (SSW). Garden interior otherwise has only etalab-2.0 360 imagery (excluded).",
+   "why": "Side by side only; no fit; status unverified (a photo looking SSW from the north end would be needed)."
+  },
+  {
+   "sheet": "Tuileries (Rijksmuseum RP-P-1905-5501)",
+   "source": "Rijksmuseum, Public Domain Mark",
+   "status": "lost_or_reconstructed",
+   "pair": "tuileries-benoist-rijksmuseum",
+   "photos_tried": 3,
+   "photos_viewed": [
+    "ddb93322 (Cyril5C 360)",
+    "flat Panoramax images in the Carrousel (none facing west)",
+    "0481ee52 (Robot8A, faces east)"
+   ],
+   "chosen": {
+    "panoramax_id": "ddb93322-243f-4313-addd-5c2f56974155",
+    "author": "Cyril5C",
+    "date": "2024-09-18",
+    "licence": "CC BY-SA 4.0",
+    "camera": [
+     48.86117975,
+     2.333902
+    ],
+    "heading_deg": 283,
+    "note": "rectilinear crop of a 360 panorama"
+   },
+   "evidence": "Palace burned 1871 and was cleared; only the Arc du Carrousel is common to both.",
+   "why": "Side by side only; no fit."
+  }
+ ],
+ "code": "tools/align/panorama_crop.py (new, reproducible 360 crop); fits via tools/align/homography.py"
+}

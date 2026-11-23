@@ -1,8 +1,8 @@
 {
-  "version": "2026-11-05",
-  "scope": "Two individually identified Philippe Benoist / Paris Musées Musée Carnavalet CC0 lithographs, verified from official IIIF Presentation 2 manifests",
+  "version": "2026-11-19",
+  "scope": "Литографии Филиппа и Феликса Бенуа из Музея Карнавале, сверенные с музейными записями.",
   "editorial_status": "Institution source metadata confirmed; work and publication roles must remain distinct",
-  "rights_note": "Both official IIIF manifests and object pages explicitly say CC0. Other Benoist reproductions are not covered by this status.",
+  "rights_note": "У этих цифровых копий есть пометка CC0 на страницах музея.",
   "items": [
     {
       "id": "parismusees-320289563",
@@ -89,6 +89,367 @@
       "curated": true,
       "note": "Отдельный лист серии Vues de Paris. Два названных автора и типография Gihaut Frères. Датировка оригинала не указана.",
       "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=CeEi3wBT"
+    },
+    {
+      "id": "parismusees-320291945",
+      "name": "Собор Парижской Богоматери",
+      "title_original": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Огюст Бри",
+          "role": "типография"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "издатель"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Музей Карнавале",
+      "source_id": "320291945",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320291945/manifest",
+      "image": "../assets/web/paris-benoist-320291945.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=1rLC2LPq",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=1rLC2LPq",
+      "original_width": 1563,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true
+    },
+    {
+      "id": "parismusees-320290399",
+      "name": "Галерея Орлеана в Пале-Рояль",
+      "title_original": "Vues de Paris / Galerie d'Orléans, au Palais Royal.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "типография"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Музей Карнавале",
+      "source_id": "320290399",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-galerie-d-orleans-au-palais-royal",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320290399/manifest",
+      "image": "../assets/web/paris-benoist-320290399.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028614_001.jpg?itok=WcXwDfXh",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028614_001.jpg?itok=WcXwDfXh",
+      "original_width": 2951,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true
+    },
+    {
+      "id": "parismusees-320288755",
+      "name": "Лувр и новая улица Риволи",
+      "title_original": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография с подкраской",
+      "source": "Музей Карнавале",
+      "source_id": "320288755",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320288755/manifest",
+      "image": "../assets/web/paris-benoist-320288755.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027910_001.jpg?itok=VS-Km8PV",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027910_001.jpg?itok=VS-Km8PV",
+      "original_width": 2820,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true
+    },
+    {
+      "id": "parismusees-320292326",
+      "name": "Пантеон в Париже",
+      "title_original": "Vues du Panthéon.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа; А. Байо",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "А. Байо",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "печатник-литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "издатель"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Музей Карнавале",
+      "source_id": "320292326",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-du-pantheon",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320292326/manifest",
+      "image": "../assets/web/paris-benoist-320292326.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029719_001.jpg?itok=ZilUKeyu",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029719_001.jpg?itok=ZilUKeyu",
+      "original_width": 2926,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Парижский Пантеон. Отдельный лист из собрания музея Карнавале."
+    },
+    {
+      "id": "parismusees-320292157",
+      "name": "Вандомская колонна",
+      "title_original": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа; А. Байо",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Филипп Бенуа",
+          "role": "автор оригинала"
+        },
+        {
+          "name": "А. Байо",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "печатник-литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "издатель"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Музей Карнавале",
+      "source_id": "320292157",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320292157/manifest",
+      "image": "../assets/web/paris-benoist-320292157.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028680_001.jpg?itok=P_qD6q63",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028680_001.jpg?itok=P_qD6q63",
+      "original_width": 1557,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Лист № 7 серии «Виды Парижа»."
+    },
+    {
+      "id": "parismusees-320293177",
+      "name": "Триумфальная арка со стороны Парижа",
+      "title_original": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа; Луи-Жюльен Жакотте; А. Байо",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Луи-Жюльен Жакотте",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "А. Байо",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "издатель"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография, хромолитография",
+      "source": "Музей Карнавале",
+      "source_id": "320293177",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-5-views-of-paris-arc-de-triomphe-de-l-etoile-cote-de-paris",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320293177/manifest",
+      "image": "../assets/web/paris-benoist-320293177.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030347_001.jpg?itok=W3wkyHn5",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030347_001.jpg?itok=W3wkyHn5",
+      "original_width": 2957,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Лист № 5 серии «Виды Парижа»."
+    },
+    {
+      "id": "parismusees-320291352",
+      "name": "Колоннада Лувра",
+      "title_original": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Филипп Бенуа; А. Байо",
+      "creator_roles": [
+        {
+          "name": "Филипп Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "А. Байо",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Огюст Бри",
+          "role": "печатник-литограф"
+        },
+        {
+          "name": "Братья Жио",
+          "role": "издатель"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Музей Карнавале",
+      "source_id": "320291352",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320291352/manifest",
+      "image": "../assets/web/paris-benoist-320291352.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=VsrQ0ubi",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=VsrQ0ubi",
+      "original_width": 2903,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Лист № 21 серии «Виды Парижа»."
+    },
+    {
+      "id": "parismusees-320150715",
+      "name": "Общий вид выставок со стороны пристройки",
+      "title_original": "Vue générale des Expositions, prise du côté de l'annexe.",
+      "city": "Париж",
+      "region": "Европа",
+      "country": "Франция",
+      "maker": "Феликс Бенуа; Эжен Сисери",
+      "creator_roles": [
+        {
+          "name": "Феликс Бенуа",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Эжен Сисери",
+          "role": "рисовальщик и литограф"
+        },
+        {
+          "name": "Виктор Адам",
+          "role": "автор оригинала"
+        },
+        {
+          "name": "Шапюи",
+          "role": "автор оригинала"
+        },
+        {
+          "name": "Жан Венсан Мари Доптер",
+          "role": "печатник-литограф"
+        },
+        {
+          "name": "Жан Венсан Мари Доптер",
+          "role": "издатель"
+        }
+      ],
+      "date": "Дата не указана",
+      "era": "19",
+      "medium": "Литография",
+      "source": "Музей Карнавале",
+      "source_id": "320150715",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe",
+      "manifest_url": "https://apicollections.parismusees.paris.fr/iiif/320150715/manifest",
+      "image": "../assets/web/paris-benoist-320150715.jpg",
+      "image_large": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0735_001.jpg?itok=0AfQtqtT",
+      "image_remote": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0735_001.jpg?itok=0AfQtqtT",
+      "original_width": 2795,
+      "original_height": 2160,
+      "quality_tier": "высокое",
+      "rights": "cc0",
+      "license_label": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified": "official_iiif_manifest",
+      "selection": "curator_verified_primary_source",
+      "curated": true,
+      "note": "Музей Карнавале, инвентарный номер QB.735. В этой записи музей указывает Феликса Бенуа."
     }
   ]
 }

@@ -24,7 +24,7 @@ PAGES = (
     "cities/index.html", "atlas/index.html",
     "stories/index.html", "stories/paris-on-paper/index.html",
     "experience/index.html",
-    "walk/index.html", "submit/index.html",
+    "walk/index.html", "submit/index.html", "guides/index.html", "book/index.html", "invite/index.html",
 )
 DATA = (
     "data/curation/cc0-gallery-20261103.json",
@@ -37,6 +37,7 @@ DATA = (
     "data/curation/modern-city-photography-v1.json",
     "data/curation/world-graphic-archive-v1.json",
     "data/curation/world-open-views-v2.json",
+    "data/curation/historical-guidebooks-v1.json",
     "data/curation/modern-photos-cc0-20261103.json",
     "data/stories/madeleine-dossier-20261103.json",
     "data/research/benoist-production-network-v1.json",
@@ -48,9 +49,11 @@ DATA = (
 ASSETS = (
     "assets/art/cc0", "assets/art/expansion", "assets/photos/cc0",
     "assets/hybrid", "assets/web", "cities", "atlas", "stories", "experience",
-    "poc/compare", "docs/ux/mockups", "eras", "desk", "assets/nav", "assets/story",
+    "poc/compare", "guides", "book", "docs/ux/mockups", "eras", "desk",
+    "assets/nav", "assets/litho", "assets/story", "assets/share",
 )
 FORBIDDEN = ("data/candidates", "docs/consilium", ".github", ".git",
+             "private-archive", "data/private", "data/research/benoist", "research",
              "PROJECT_HANDOFF.md", "serve_local.py")
 
 
@@ -75,6 +78,9 @@ def optimize(page: Path, rel: str) -> None:
     address = BASE + ("" if rel == "index.html" else rel.removesuffix("index.html"))
     title_match = re.search(r"<title>(.*?)</title>", content, re.S | re.I)
     title = re.sub(r"\s+", " ", html.unescape(title_match.group(1))).strip() if title_match else "Город на бумаге"
+    if rel == "index.html":
+        title = "Город на бумаге · Литографии Бенуа и сравнение эпох"
+    is_share = rel in ("index.html", "invite/index.html")
     metas = (
         f'<link rel="canonical" href="{html.escape(address, quote=True)}">\n'
         f'<meta property="og:type" content="website">\n'
@@ -82,18 +88,26 @@ def optimize(page: Path, rel: str) -> None:
         f'<meta property="og:title" content="{html.escape(title, quote=True)}">\n'
         f'<meta property="og:url" content="{html.escape(address, quote=True)}">\n'
         '<meta property="og:locale" content="ru_RU">\n'
-        '<meta name="twitter:card" content="summary">\n'
+        f'<meta name="twitter:card" content="{"summary_large_image" if is_share else "summary"}">\n'
         '<meta name="robots" content="index,follow,max-image-preview:large">\n'
     )
+    if is_share:
+        desc = ("Откройте подлинные литографии Филиппа Бенуа: Париж XIX века, "
+                "исторические карты и фотографии города сегодня.")
+        image = BASE + "assets/share/benoist-paris.jpg"
+        metas += (
+            f'<meta property="og:description" content="{desc}">\n'
+            f'<meta property="og:image" content="{image}">\n'
+            '<meta property="og:image:type" content="image/jpeg">\n'
+            '<meta property="og:image:width" content="1200">\n'
+            '<meta property="og:image:height" content="630">\n'
+            '<meta property="og:image:alt" content="Музейные литографии Бенуа: Нотр-Дам, Лувр, Вандомская колонна">\n'
+            f'<meta name="twitter:image" content="{image}">\n'
+        )
     if rel == "index.html":
         content = re.sub(r'<button\s+data-go="research"\s*>[^<]*</button>', "", content)
         content = re.sub(r'(<section\s+id="research"\s+class="tab wrap")',
                          r'\1 hidden', content, count=1)
-        # This source-labelled image is a Library of Congress original.
-        metas += (
-            f'<meta property="og:image" content="{BASE}poc/compare/pairs/madeleine-historic-loc-pga14315v.jpg">\\n'
-            '<meta property="og:image:alt" content="Париж. Церковь Мадлен, литография Филиппа Бенуа">\\n'
-        )
         content = content.replace(
             "Частная исследовательская выставка.", "Открытая цифровая выставка."
         ).replace(
@@ -176,6 +190,54 @@ def info_pages(destination: Path) -> None:
             "Для посещения не нужна регистрация. Закладки, заметки и фотографии пользователя, если они доступны в мастерских, хранятся локально в браузере. Сайт не включает рекламные пиксели и формы сбора адресов.",  # noqa: E501 — editorial copy
             "Хостинг GitHub Pages может вести технические журналы. Переходы по ссылкам на музейные источники открывают сторонние сайты."),  # noqa: E501 — editorial copy
     }
+    descriptions = {
+        "about": (
+            "О проекте «Город на бумаге»: историческая графика, карты, музеи, "
+            "сравнение эпох и проверка художественных источников городов."
+        ),
+        "rights": (
+            "Источники и права музея «Город на бумаге»: авторство, музейные "
+            "записи, CC0, CC BY, CC BY-SA и ограничения исторических изображений."
+        ),
+        "contribute": (
+            "Предложите литографию, старую карту или фотографию для музея "
+            "«Город на бумаге». Узнайте, какие источники и сведения нужны."
+        ),
+        "privacy": (
+            "Конфиденциальность музея «Город на бумаге»: локальные заметки "
+            "и фотографии, отсутствие регистрации и сторонние музейные сайты."
+        ),
+    }
+    details = {
+        "about": (
+            "<p>Начните с городского атласа, выберите старый план и перейдите "
+            "к конкретному произведению. В карточке можно проверить автора, "
+            "технику, датировку и ссылку на музей. Там, где есть современная "
+            "фотография, показано сопоставление эпох. Разницу ракурсов и "
+            "неопределённость исторической привязки мы отмечаем отдельно.</p>"
+            "<p><a href=\"../eras/\">Открыть атлас эпох</a> · "
+            "<a href=\"../poc/compare/\">Сравнить виды</a> · "
+            "<a href=\"../stories/\">Читать истории</a></p>"
+        ),
+        "rights": (
+            "<p>Перед публикацией мы различаем музейную карточку, "
+            "репродукцию произведения и разрешение на её использование. "
+            "Автоматически найденная запись не означает проверенную работу. "
+            "Подробности о статусе и ссылку на первоисточник ищите у "
+            "конкретного изображения. Для исправления сведений об авторе "
+            "или правах приложите адрес музейной записи.</p>"
+            "<p><a href=\"../salon/\">Перейти к коллекции</a> · "
+            "<a href=\"../photography/\">Фотографии с указанием прав</a></p>"
+        ),
+        "contribute": (
+            "<p>Для исторического листа приложите фотографию надписей, "
+            "имя рисовальщика и литографа, размер и ссылку на коллекцию, "
+            "если она существует. Для современного кадра укажите город, "
+            "место съёмки, год и право на публикацию. Новые материалы "
+            "рассматриваются как предложения, а не сразу как "
+            "подтверждённые музейные оригиналы.</p>"
+        ),
+    }
     for slug, (heading, first, second) in docs.items():
         page = destination / slug / "index.html"
         page.parent.mkdir(parents=True, exist_ok=True)
@@ -191,6 +253,7 @@ def info_pages(destination: Path) -> None:
             '<!doctype html><html lang="ru"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{heading} | Город на бумаге</title>'
+            f'<meta name="description" content="{html.escape(descriptions[slug], quote=True)}">'
             '<style>body{margin:0;background:#f5f0e7;color:#292720;'
             'font:17px/1.7 system-ui,sans-serif}main{max-width:740px;'
             'margin:9vh auto;padding:0 23px}h1{font:normal 48px Georgia,serif}'
@@ -198,7 +261,7 @@ def info_pages(destination: Path) -> None:
             'padding:22px 0;font-size:14px}</style></head><body>'
             '<main><nav><a href="../">Город на бумаге</a> · '
             '<a href="../salon/">Галерея</a> · <a href="../world/">Атлас</a></nav>'
-            f'<h1>{heading}</h1><p>{first}</p><p>{second}</p>{extra}'
+            f'<h1>{heading}</h1><p>{first}</p><p>{second}</p>{details.get(slug, "")}{extra}'
             '<footer><a href="../about/">О проекте</a> · '
             '<a href="../rights/">Источники и права</a> · '
             '<a href="../privacy/">Конфиденциальность</a> · '

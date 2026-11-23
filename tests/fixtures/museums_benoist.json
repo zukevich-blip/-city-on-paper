@@ -1,0 +1,1544 @@
+{
+ "met_benoist": {
+  "objectID": 345889,
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "accessionNumber": "50.576.1",
+  "artistDisplayName": "Philippe Benoist",
+  "artistDisplayBio": "French, Geneva 1813–ca. 1905",
+  "artistRole": "Artist",
+  "title": "Nouvelles Vues de Paris",
+  "objectDate": "ca. 1850",
+  "medium": "Lithographs",
+  "objectName": "Book",
+  "classification": "Books",
+  "creditLine": "Gift of Joseph Verner Reed, 1950",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/345889",
+  "constituents": [
+   {
+    "constituentID": 77737,
+    "role": "Artist",
+    "name": "Philippe Benoist",
+    "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500009717",
+    "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q26309223",
+    "gender": ""
+   },
+   {
+    "constituentID": 77738,
+    "role": "Draftsman",
+    "name": "Drawn and lithographed by Louis Julien Jacottet",
+    "constituentULAN_URL": "",
+    "constituentWikidata_URL": "",
+    "gender": ""
+   },
+   {
+    "constituentID": 77739,
+    "role": "Draftsman",
+    "name": "A. Provost",
+    "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500056868",
+    "constituentWikidata_URL": "",
+    "gender": ""
+   },
+   {
+    "constituentID": 77736,
+    "role": "Publisher",
+    "name": "Gibaut Frères, Editions",
+    "constituentULAN_URL": "",
+    "constituentWikidata_URL": "",
+    "gender": ""
+   },
+   {
+    "constituentID": 92674,
+    "role": "Printer",
+    "name": "Auguste Bry",
+    "constituentULAN_URL": "(not assigned)",
+    "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q21644940",
+    "gender": ""
+   }
+  ]
+ },
+ "met_other_benoist": {
+  "objectID": 346533,
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "accessionNumber": "39.60",
+  "artistDisplayName": "Benoist Boullay",
+  "artistDisplayBio": "",
+  "artistRole": "Author",
+  "title": "Le Tailleur Sincere contenant ce qu'il faut observer pour bien tracer, couper & assembler toutes les principales pieces qui se sont dans la profession de Tailleur",
+  "objectDate": "1671",
+  "medium": "plates: engraving, woodcut",
+  "objectName": "Book",
+  "classification": "Books",
+  "creditLine": "Harris Brisbane Dick Fund, 1939",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/346533",
+  "constituents": [
+   {
+    "constituentID": 78255,
+    "role": "Author",
+    "name": "Written by Benoist Boullay",
+    "constituentULAN_URL": "",
+    "constituentWikidata_URL": "",
+    "gender": ""
+   },
+   {
+    "constituentID": 78256,
+    "role": "Publisher",
+    "name": "Published by Antoine de Rafflé",
+    "constituentULAN_URL": "",
+    "constituentWikidata_URL": "",
+    "gender": ""
+   }
+  ]
+ },
+ "vam_record": {
+  "systemNumber": "O743314",
+  "accessionNumber": "E.3933-1932",
+  "objectType": "Print",
+  "titles": [],
+  "physicalDescription": "Lithograph, 1 of 9 views of Naples, from a series lithographed by Bachelier, J. Jacottet and P. Benoist after P. Benoist.",
+  "briefDescription": "Print after Philippe Benoist, 1 of 9 views of Naples, from a series lithographed by Bachelier, J. Jacottet and P. Benoist, lithograph, France, 19th century",
+  "artistMakerPerson": [
+   {
+    "name": {
+     "text": "Benoist, Philippe",
+     "id": "AUTH334060"
+    },
+    "association": {
+     "text": "artist",
+     "id": "AAT25103"
+    },
+    "note": "after"
+   }
+  ],
+  "artistMakerOrganisations": [],
+  "placesOfOrigin": [
+   {
+    "place": {
+     "text": "France",
+     "id": "x28849"
+    },
+    "association": {
+     "text": "made",
+     "id": "x28654"
+    },
+    "note": "probably"
+   }
+  ],
+  "productionDates": [
+   {
+    "date": {
+     "text": "19th century",
+     "earliest": "1800-01-01",
+     "latest": "1899-12-31"
+    },
+    "association": {
+     "text": "made",
+     "id": "x28654"
+    },
+    "note": ""
+   }
+  ]
+ },
+ "brown_item": {
+  "pid": "bdr:226258",
+  "object_type": "image",
+  "primary_title": "Ecole militaire. Façade sur la Place de Fontenoy.",
+  "contributor_display": [
+   "Benoist, Philippe, 1813-ca. 1905 (lithographer)",
+   "Bayot, Adolphe Jean-Baptiste, 1810-1866 (artist)",
+   "Charpentier (publisher)"
+  ],
+  "genre": [
+   "lithographs"
+  ],
+  "abstract": [
+   "Color lithograph by Benoist after Benoist and A. Bayot; view of military academy showing body of cavalry, some dismounted soldiers etc. in foreground."
+  ],
+  "other_title": [
+   "Paris dans sa splendeur"
+  ],
+  "mods_related_title_partnumber_ssim": [
+   "No. 22"
+  ],
+  "mods_dateIssued_ssim": [
+   "c. 1860"
+  ],
+  "mods_physicalDescription_extent_ssim": [
+   "1 lithograph; 13.6 x 19.3 cm."
+  ],
+  "mods_id_local_ssim": [
+   "FrP1860f-1"
+  ],
+  "mods_access_condition_rights_text_tsim": [
+   "No Copyright - United States"
+  ],
+  "mods_access_condition_rights_link_ssim": [
+   "http://rightsstatements.org/vocab/NoC-US/1.0/"
+  ],
+  "publication_place": [
+   "Paris"
+  ],
+  "subject": [
+   "Ecole royale militaire (Paris, France)"
+  ],
+  "ir_collection_name": [
+   "Brown University Library",
+   "Prints, Drawings and Watercolors from the Anne S.K. Brown Military Collection"
+  ],
+  "mods_note_provenance_ssim": [
+   "London, Parker Gallery, 1953."
+  ],
+  "links": {
+   "thumbnail": "https://repository.library.brown.edu/viewers/image/thumbnail/bdr:226258/",
+   "descriptive_datastreams": {
+    "MODS": "https://repository.library.brown.edu/storage/bdr:226258/MODS/"
+   },
+   "content_datastreams": {
+    "highres_jp2": "https://repository.library.brown.edu/storage/bdr:226258/highres_jp2/"
+   },
+   "views": {
+    "Detailed Image Viewer": "https://repository.library.brown.edu/viewers/image/zoom/bdr:226258/",
+    "Mirador Viewer": "https://repository.library.brown.edu/viewers/mirador/bdr:226258/",
+    "Universal Viewer": "https://repository.library.brown.edu/viewers/universal/bdr:226258/",
+    "Medium Resolution": "https://repository.library.brown.edu/viewers/image/medium/bdr:226258/",
+    "iiif_image_info": "https://repository.library.brown.edu/iiif/image/bdr:226258/info.json",
+    "iiif_manifest": "https://repository.library.brown.edu/iiif/presentation/bdr:226258/manifest.json"
+   },
+   "collections": {
+    "Prints, Drawings and Watercolors from the Anne S.K. Brown Military Collection": "https://repository.library.brown.edu/studio/collections/bdr:224400/"
+   },
+   "media_streams": [],
+   "keywords": {}
+  }
+ },
+ "europeana_hertziana": {
+  "id": "/366/item_V2JPDOJU7TVSP2AKW6YXGDWLVTIAK6NG",
+  "title": [
+   "Rome dans sa grandeur: vues, monuments anciens et modernes; description, histoire, institutions / dessins d'après nature par Philippe Benoist et Félix Benoist. Texte par Franz De Champagny ... Paris: Charpentier, 1870. Band 3: Rome moderne., Civitavecchia"
+  ],
+  "dcCreator": [
+   "Philippe (1813) Benoist",
+   "Félix Benoist"
+  ],
+  "dcContributor": null,
+  "dcDescription": [
+   "Abbildung: Es gelten die Nutzungsbedingungen der Bibliotheca Hertziana - Max-Planck-Institut für Kunstgeschichte. (Bemerkung)",
+   "Inschrift: CIVITA VECCHIA (unten)"
+  ],
+  "dataProvider": [
+   "Bibliotheca Hertziana, Max Planck Institute for Art History Rome. Photographic Collection"
+  ],
+  "rights": [
+   "http://rightsstatements.org/vocab/InC/1.0/"
+  ],
+  "edmIsShownAt": [
+   "http://foto.biblhertz.it/obj08003574"
+  ],
+  "edmIsShownBy": [
+   "http://fotothek.biblhertz.it/bh/2048px/bhfc135c86.jpg"
+  ],
+  "year": null,
+  "type": "IMAGE"
+ },
+ "europeana_bnf_felix": {
+  "id": "/9200518/ark__12148_btv1b530189355",
+  "title": [
+   "Les Halles centrales : [estampe]"
+  ],
+  "dcCreator": [
+   "Benoist, Félix (1818-1896). Dessinateur du modèle",
+   "Benoist, Felix (1818-1896). Model designer",
+   "Arnout, Jules (1814-1868). Lithographe",
+   "Benoist, Félix (1818-1896). Dessinateur du modèle"
+  ],
+  "dcContributor": null,
+  "dcDescription": [
+   "Référence bibliographique : De Vinck, 15935",
+   "Appartient à l’ensemble documentaire : Est19Vinck",
+   "Bibliographical Reference: De Vinck, 15935",
+   "Part of the documentary ensemble: Est19Vinck",
+   "Référence bibliographique : De Vinck, 15935",
+   "Appartient à l’ensemble documentaire : Est19Vinck"
+  ],
+  "dataProvider": [
+   "National Library of France"
+  ],
+  "rights": [
+   "http://rightsstatements.org/vocab/NoC-OKLR/1.0/"
+  ],
+  "edmIsShownAt": [
+   "http://gallica.bnf.fr/ark:/12148/btv1b530189355"
+  ],
+  "edmIsShownBy": [
+   "http://gallica.bnf.fr/iiif/ark:/12148/btv1b530189355/f1/full/512,/0/native.jpg"
+  ],
+  "year": null,
+  "type": "IMAGE"
+ },
+ "europeana_text_only_felix": {
+  "id": "/9200579/vrts8n69",
+  "title": [
+   "Two sleeping cowherds on the Mont-sous-les-Baisses just before an appearance of the Virgin of the Salette. Lithograph by E. Ciceri and Ph. Benoist after F. Benoist."
+  ],
+  "dcCreator": [
+   "Felix Benoist"
+  ],
+  "dcContributor": null,
+  "dcDescription": [
+   "Lettering: Sommeil des jeunes bergers un instant avant l'apparition. Maximin et Mélanie, conduisant chacun un troupeau de vaches, arrivent à midi, le 19 Sept.bre, 1846, sur le plateau de la Salette appelé Mont-sous-les-Baisses. Accablés par la chaleur excessive de ce jour, les jeunes begers s'endormirent après leur repas, dans le ravin de la Sézia, où bientôt va leur apparaître la Mère de Dieu. Album du Pélerin a Notre-Dame de la Salette. F.x Benoist del.d. après nature. Eug. Ciceri & Ph. Benoist.Lith."
+  ],
+  "dataProvider": [
+   "Wellcome Collection"
+  ],
+  "rights": [
+   "http://creativecommons.org/licenses/by/4.0/"
+  ],
+  "edmIsShownAt": [
+   "https://wellcomecollection.org/works/vrts8n69"
+  ],
+  "edmIsShownBy": [
+   "https://iiif.wellcomecollection.org/image/V0035497.jpg/full/512,/0/default.jpg"
+  ],
+  "year": null,
+  "type": "IMAGE"
+ },
+ "nga_object_row": {
+  "objectid": "60903",
+  "accessionnum": "1981.69.5",
+  "title": "Paris dans sa Splendeur (volume I)",
+  "displaydate": "published 1863",
+  "medium": "1 vol: ill: lithographs",
+  "classification": "Volume",
+  "series": "(1 of 3 volumes, 1981.69.5-7)",
+  "portfolio": "",
+  "volume": "",
+  "creditline": "Gift of Robert H. Thayer"
+ },
+ "nga_constituent_rows": [
+  {
+   "objectid": "60903",
+   "constituentid": "2929",
+   "roletype": "artist",
+   "role": "lithographer"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "2992",
+   "roletype": "artist",
+   "role": "lithographer"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "3267",
+   "roletype": "artist",
+   "role": "artist"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "3495",
+   "roletype": "artist",
+   "role": "artist"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "3497",
+   "roletype": "artist",
+   "role": "artist"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "3731",
+   "roletype": "artist",
+   "role": "artist"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "3758",
+   "roletype": "artist",
+   "role": "artist"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "4081",
+   "roletype": "artist",
+   "role": "lithographer"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "5125",
+   "roletype": "artist",
+   "role": "lithographer"
+  },
+  {
+   "objectid": "60903",
+   "constituentid": "6969",
+   "roletype": "artist",
+   "role": "author"
+  }
+ ],
+ "nga_names": {
+  "2929": "Aubrun",
+  "2992": "Bayot, Adolphe-Jean-Baptiste",
+  "3267": "Various Artists",
+  "3495": "Benoist, Félix",
+  "3497": "Benoist, Philippe",
+  "3731": "Chapuy, Nicolas Marie Joseph",
+  "3758": "Ciceri, Eugene",
+  "4081": "Fichot, Charles",
+  "5125": "Ollivault, A.",
+  "6969": "Audiganne, Armand"
+ },
+ "nga_open_image_row": {
+  "iiifurl": "https://api.nga.gov/iiif/00000000-0000-0000-0000-000000000000",
+  "width": "3393",
+  "height": "4965",
+  "openaccess": "1",
+  "viewtype": "primary",
+  "depictstmsobjectid": "60903"
+ },
+ "rijks_guillaume_philippe": {
+  "object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/200156710",
+   "type": "HumanMadeObject",
+   "assigned_by": [
+    {
+     "type": "AttributeAssignment",
+     "assigned": [
+      {
+       "type": "LinguisticObject",
+       "identified_by": [
+        {
+         "type": "Identifier",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300311705",
+           "type": "Type"
+          }
+         ],
+         "content": "IFF 18e siècle 10"
+        }
+       ]
+      }
+     ],
+     "assigned_property": "referred_to_by",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300311954",
+       "type": "Type"
+      }
+     ],
+     "used_specific_object": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011008",
+       "type": [
+        "LinguisticObject",
+        "skos:Concept"
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300026061",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AttributeAssignment",
+     "assigned": [
+      {
+       "type": "LinguisticObject",
+       "identified_by": [
+        {
+         "type": "Identifier",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300311705",
+           "type": "Type"
+          }
+         ],
+         "part": [
+          {
+           "type": "Identifier",
+           "classified_as": [
+            {
+             "id": "http://vocab.getty.edu/aat/300404620",
+             "type": "Type"
+            }
+           ],
+           "content": "10"
+          },
+          {
+           "type": "Identifier",
+           "classified_as": [
+            {
+             "id": "http://vocab.getty.edu/aat/300445022",
+             "type": "Type"
+            }
+           ],
+           "content": "dl. 2, p. 337"
+          }
+         ]
+        }
+       ],
+       "part_of": [
+        {
+         "id": "https://id.rijksmuseum.nl/30171096",
+         "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        }
+       ]
+      }
+     ],
+     "assigned_property": "referred_to_by",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300311954",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "classified_as": [
+    {
+     "id": "https://id.rijksmuseum.nl/22040",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300041273",
+       "type": "Type"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "print"
+      },
+      {
+       "@language": "nl",
+       "@value": "prent"
+      }
+     ]
+    }
+   ],
+   "dimension": [
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055644",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "height"
+        },
+        {
+         "@language": "nl",
+         "@value": "hoogte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "blad",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "referred_to_by": [
+      {
+       "type": "LinguisticObject",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300435430",
+         "type": "Type",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300418049",
+           "type": "Type",
+           "_label": "brief text"
+          }
+         ]
+        }
+       ],
+       "content": "Binnen plaatrand afgesneden.",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "154"
+    },
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22012",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055647",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "width"
+        },
+        {
+         "@language": "nl",
+         "@value": "breedte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "blad",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "referred_to_by": [
+      {
+       "type": "LinguisticObject",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300435430",
+         "type": "Type",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300418049",
+           "type": "Type",
+           "_label": "brief text"
+          }
+         ]
+        }
+       ],
+       "content": "Binnen plaatrand afgesneden.",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "106"
+    }
+   ],
+   "equivalent": [
+    {
+     "id": "http://hdl.handle.net/10934/RM0001.COLLECT.78267",
+     "type": "HumanMadeObject"
+    }
+   ],
+   "identified_by": [
+    {
+     "type": "Identifier",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300312355",
+       "type": "Type"
+      },
+      {
+       "id": "https://id.rijksmuseum.nl/22015218",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "object number"
+        },
+        {
+         "@language": "nl",
+         "@value": "objectnummer"
+        }
+       ]
+      }
+     ],
+     "content": "RP-P-1910-4613"
+    },
+    {
+     "type": "Name",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type"
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300417200",
+       "type": "Type"
+      }
+     ],
+     "content": "Portret van Jean Carondelet",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "Name",
+     "carried_by": [
+      "https://id.rijksmuseum.nl/200156710"
+     ],
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22015525",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "title on object"
+        },
+        {
+         "@language": "nl",
+         "@value": "titel op object"
+        }
+       ]
+      }
+     ],
+     "content": "Jean de Carondelet",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "2"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "made_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/22020",
+     "type": "Material",
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014109",
+       "type": "Material"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q11472",
+       "type": "Material"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200156710"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "paper"
+      },
+      {
+       "@language": "nl",
+       "@value": "papier (materiaal)"
+      }
+     ]
+    }
+   ],
+   "member_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/260238",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260239",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260251",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/26151",
+     "type": "Set"
+    }
+   ],
+   "produced_by": {
+    "type": "Production",
+    "part": [
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/21011234",
+          "type": "Person"
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200156710"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/21011234",
+          "type": "Person"
+         }
+        ],
+        "assigned_property": "influenced_by",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300404286",
+          "type": "Type"
+         }
+        ],
+        "motivated_by": [
+         "http://vocab.getty.edu/aat/300404264"
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404451",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "2"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "after painting by Rafaël (mentioned on object)",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "naar schilderij van Rafaël (vermeld op object)",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2208220",
+        "type": "Type",
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "after painting by"
+         },
+         {
+          "@language": "nl",
+          "@value": "naar schilderij van"
+         }
+        ]
+       }
+      ],
+      "used_object_of_type": [
+       {
+        "id": "http://vocab.getty.edu/aat/300033618",
+        "type": "Type"
+       }
+      ]
+     },
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/21012143",
+          "type": "Person"
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200156710"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404450",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "prentmaker: Guillaume Philippe Benoist (vermeld op object), Frankrijk",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "printmaker: Guillaume Philippe Benoist (mentioned on object), France",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "Guillaume Philippe Benoist (mentioned on object)",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "Guillaume Philippe Benoist (vermeld op object)",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2202348",
+        "type": "Type",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025164",
+          "type": "Type"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "printmaker"
+         },
+         {
+          "@language": "nl",
+          "@value": "prentmaker"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/23020",
+        "type": "Place",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/tgn/1000070",
+          "type": "Place"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q142",
+          "type": "Place"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "France"
+         },
+         {
+          "@language": "nl",
+          "@value": "Frankrijk"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "referred_to_by": [
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "Guillaume Philippe Benoist (mentioned on object)",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388277",
+        "type": "Language"
+       }
+      ]
+     },
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "Guillaume Philippe Benoist (vermeld op object)",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388256",
+        "type": "Language"
+       }
+      ]
+     }
+    ],
+    "technique": [
+     {
+      "id": "https://id.rijksmuseum.nl/2202942",
+      "type": "Type",
+      "equivalent": [
+       {
+        "id": "http://vocab.getty.edu/aat/300053241",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200156710"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "3"
+       }
+      ],
+      "notation": [
+       {
+        "@language": "en",
+        "@value": "etching"
+       },
+       {
+        "@language": "nl",
+        "@value": "etsen"
+       }
+      ]
+     },
+     {
+      "id": "https://id.rijksmuseum.nl/2202964",
+      "type": "Type",
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200156710"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "2"
+       }
+      ],
+      "notation": {
+       "@language": "nl",
+       "@value": "stippelwerk"
+      }
+     },
+     {
+      "id": "https://id.rijksmuseum.nl/2207277",
+      "type": "Type",
+      "equivalent": [
+       {
+        "id": "http://vocab.getty.edu/aat/300053225",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200156710"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "notation": [
+       {
+        "@language": "en",
+        "@value": "engraving"
+       },
+       {
+        "@language": "nl",
+        "@value": "graveren (drukprocedé)"
+       }
+      ]
+     }
+    ],
+    "timespan": {
+     "type": "TimeSpan",
+     "begin_of_the_begin": "1735-01-01T00:00:00Z",
+     "end_of_the_end": "1800-12-31T23:59:59Z",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "1735 - 1800",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "1735 - 1800",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: Lugt 2228",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: Lugt 2228",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "blad: hoogte 154 mm (Binnen plaatrand afgesneden.) x breedte 106 mm (Binnen plaatrand afgesneden.)",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "height 154 mm x width 106 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202156710",
+     "type": "VisualItem"
+    }
+   ],
+   "subject_of": [
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://iiif.micr.io/VqHFA/full/max/0/default.jpg",
+         "type": "DigitalObject"
+        }
+       ],
+       "referred_to_by": [
+        {
+         "type": "LinguisticObject",
+         "_label": "Public Domain",
+         "classified_as": [
+          {
+           "id": "https://vocab.getty.edu/aat/300460240",
+           "type": "Type"
+          }
+         ],
+         "content": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1910-4613--29049c3653a5d0ee4441ab2eb39e04a9",
+         "type": "DigitalObject"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300264578",
+         "type": "Type"
+        }
+       ],
+       "format": "text/html"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "id": "https://data.rijksmuseum.nl/200156710",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "people": {
+   "https://id.rijksmuseum.nl/21011234": "Rafaël",
+   "https://id.rijksmuseum.nl/21012143": "Guillaume Philippe Benoist"
+  }
+ },
+ "getty_ulan": {
+  "results": {
+   "bindings": [
+    {
+     "s": {
+      "type": "uri",
+      "value": "http://vocab.getty.edu/ulan/500009717"
+     },
+     "l": {
+      "type": "literal",
+      "value": "Benoist, Philippe"
+     }
+    },
+    {
+     "s": {
+      "type": "uri",
+      "value": "http://vocab.getty.edu/ulan/500104203"
+     },
+     "l": {
+      "type": "literal",
+      "value": "Benoist, Félix"
+     }
+    },
+    {
+     "s": {
+      "type": "uri",
+      "value": "http://vocab.getty.edu/ulan/500071766"
+     },
+     "l": {
+      "type": "literal",
+      "value": "Benoist, Michel"
+     }
+    }
+   ]
+  }
+ },
+ "_note": "Trimmed real API replies captured 2026-11-21 (V&A, Brown BDR, Met, NGA open data CSV rows, Europeana, Rijksmuseum, Getty ULAN SPARQL). The NGA open image row is a structural stand-in (all-zero uuid) used only to test pixel/open-access handling."
+}

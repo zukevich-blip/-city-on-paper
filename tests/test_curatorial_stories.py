@@ -60,13 +60,14 @@ def test_story_local_resources_and_links_exist(page):
 
 def test_homepage_presents_story_before_the_collection_and_research_queues():
     body = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert body.index("Начать историю Парижа") < body.index('class="more-museum"')
+    # concept home: welcome and the Benoist then/now sheet come before any collection or queue
+    assert body.index('class="lt-home"') < body.index('class="lh-hero"') < body.index('id="catalog"')
     assert 'href="stories/"' in body
     assert 'href="stories/paris-on-paper/"' in body
-    assert 'class="museum-pathway"' in body
+    assert 'class="lh-desk"' in body
     assert 'class="allrooms"' in body
     assert 'id="catalog"' in body
-    assert 'data-go="research"' in body
+    assert 'id="research"' in body
 
 
 def test_benoist_story_has_real_sources_honest_metadata_and_two_photo_credits():

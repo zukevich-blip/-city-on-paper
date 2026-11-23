@@ -1,0 +1,116 @@
+{
+ "id": "halles_innocents-pm200009791-34348d73",
+ "status": "candidate_real_pair",
+ "viewpoint_status": "lost_or_reconstructed",
+ "condition": "Фонтан сохранился, но стоит на другом месте, а рынок снесён.",
+ "expected_confidence": "side_by_side_only",
+ "historic": {
+  "title": "La Halle et la fontaine des innocents.",
+  "title_original": "La Halle et la fontaine des innocents.",
+  "agents": [
+   {
+    "name": "Philippe Benoist",
+    "role": "dessinateur-lithographe"
+   },
+   {
+    "name": "A. Bayot",
+    "role": "dessinateur"
+   },
+   {
+    "name": "Gihaut Frères",
+    "role": "editeur"
+   }
+  ],
+  "holding": "Paris Musées / Maison de Balzac",
+  "object_url": "https://www.parismuseescollections.paris.fr/fr/maison-de-balzac/oeuvres/la-halle-et-la-fontaine-des-innocents",
+  "accession": "node 200009791",
+  "rights": "CC0 Paris Musées",
+  "file": "benoist-pm-200009791.jpg",
+  "sha256": "33a6b24fdd614e281ac9e25e2ecee57ff5408756d9e321c799554db2ea48e8bf",
+  "size": [
+   1280,
+   947
+  ],
+  "file_note": "Museum reproduction as stored in book/img/benoist/pm-200009791.jpg, copied byte-for-byte; no crop, no geometry change.",
+  "credit": "La Halle et la fontaine des innocents. · Paris Musées / Maison de Balzac · CC0 Paris Musées"
+ },
+ "photo": {
+  "title": "Фонтан Невинных, 2025-05-01 (rectilinear crop of a 360-degree panorama)",
+  "provider": "Panoramax",
+  "panoramax_id": "34348d73-049b-4688-ad11-ee9dfccb2f4d",
+  "object_url": "https://api.panoramax.xyz/api/collections/95084bfa-375f-4298-880a-c65809e0972a/items/34348d73-049b-4688-ad11-ee9dfccb2f4d",
+  "viewer_url": "https://api.panoramax.xyz/#focus=pic&pic=34348d73-049b-4688-ad11-ee9dfccb2f4d",
+  "author": "cquest (Panoramax account)",
+  "date": "2025-05-01",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "camera": {
+   "lat": 48.860934676,
+   "lon": 2.347849809,
+   "heading_deg": 159,
+   "source": "Panoramax item metadata (GPS + compass), not independently verified"
+  },
+  "azimuth_deg": 159,
+  "distance_to_building_m_approx": 35,
+  "file": "halles_innocents-photo-panoramax-34348d73-crop.jpg",
+  "file_source_url": "https://panoramax.openstreetmap.fr/images/34/34/8d/73/049b-4688-ad11-ee9dfccb2f4d.jpg",
+  "source_sha256": "a8d9443c294634ed4e8ca84db237446d680d55c98c71bf5a523a6421ff04f6d6",
+  "sha256": "07c01b1ea01c8c111a16e8162f687f6ad48e57ec37f50be495e3ea5100d27dbd",
+  "size": [
+   1800,
+   1000
+  ],
+  "file_note": "Re-encoded once (JPEG q92) only to strip EXIF/GPS. Rectilinear crop: parameters in 'transformation'.",
+  "credit": "Photo: cquest / Panoramax, CC BY-SA 4.0",
+  "changes": "re-encoded (JPEG q92) to strip EXIF/GPS metadata; rectilinear crop of a 360-degree image; any view shown in the viewer is a derivative work shared under CC BY-SA 4.0",
+  "transformation": {
+   "tool": "tools/align/panorama_crop.py",
+   "type": "equirectangular to rectilinear (pinhole) crop, bicubic",
+   "pano_heading_deg": 331,
+   "yaw_deg": 159.2,
+   "horizontal_fov_deg": 80,
+   "pitch_deg": 5,
+   "output_px": [
+    1800,
+    1000
+   ]
+  }
+ },
+ "viewpoint": {
+  "relation": "different",
+  "photo_bearing_from_building_deg": 339,
+  "photo_distance_m": 35,
+  "artist_bearing_estimate_deg": null,
+  "bearing_diff_deg": null,
+  "same_side_of_building": "unknown",
+  "historic_camera_estimate": "not established from the print",
+  "note": "Фонтан сохранился, но стоит на другом месте, а рынок снесён."
+ },
+ "control_points": [],
+ "control_points_note": "No control points were measured for this pair; no overlay is claimed.",
+ "viewpoint_review": {
+  "status": "viewpoint_mismatch",
+  "observations": [
+   "Фонтан сохранился, но стоит на другом месте, а рынок снесён.",
+   "No homography computed: not exact_verified. Shown as side-by-side / slider of originals."
+  ],
+  "reviewer": "Claude (automated session) - needs human review",
+  "date": "2026-11-22"
+ },
+ "alignment": {
+  "n_points": 0,
+  "maps": "photo_px -> historic_px",
+  "historic_size": [
+   1280,
+   947
+  ],
+  "photo_size": [
+   1800,
+   1000
+  ],
+  "confidence": "viewpoint_mismatch",
+  "H": null,
+  "reason": "viewpoint review: no common plane / different camera position; no fit attempted",
+  "derived_label": "Photo geometry adjusted (reversible, display only)"
+ }
+}

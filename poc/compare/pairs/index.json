@@ -11,12 +11,62 @@
     "naples-san-francesco-di-paola",
     "giza-great-sphinx",
     "florence-ponte-vecchio-silvestre",
+    "rome-pantheon-vasi",
+    "paris-eiffel",
+    "notre-dame-benoist-carnavalet",
+    "louvre-colonnade-benoist-carnavalet",
+    "tuileries-benoist-rijksmuseum",
+    "palais-royal-jardin-benoist-rijksmuseum",
     "synthetic-near-identical",
     "synthetic-rotation-only",
-    "synthetic-parallax"
+    "synthetic-parallax",
+    "vendome-pm320292157-f43dc246",
+    "luxembourg-pm320291197-3b758447",
+    "luxembourg-pm320291197-0ee50c84",
+    "luxembourg-pm320291197-9ea84c7a",
+    "notre_dame-pm320291945-5c4e33a2",
+    "notre_dame-pm320291945-dd602ce3",
+    "notre_dame-rijks-5500-5c4e33a2",
+    "notre_dame-rijks-5500-dd602ce3",
+    "notre_dame-pm320291945-33acc54c",
+    "louvre_colonnade-pm320291352-01ca11e0",
+    "louvre_colonnade-pm320291352-9229020f",
+    "louvre_colonnade-rijks-5505-01ca11e0",
+    "saint_sulpice-pm320050912-98282647",
+    "saint_sulpice-pm320050912-e3c70c4a",
+    "saint_sulpice-pm320290954-98282647",
+    "bourse-pm320291262-d7a724ab",
+    "bourse-pm320291262-ca6cd57d",
+    "hotel_de_ville-pm320290537-f67766f2",
+    "hotel_de_ville-rijks-5498-6afa5131",
+    "pantheon-rijks-5506-451335cc",
+    "pantheon-rijks-5506-5116b338",
+    "pantheon-rijks-5506-5974302a",
+    "porte_saint_denis-rijks-5503-9e737168",
+    "porte_saint_denis-rijks-5503-0e034840",
+    "porte_saint_denis-rijks-5503-2cb1a095",
+    "bastille-pm320262846-0f8bd6c7",
+    "bastille-pm320262846-5812222c",
+    "bastille-pm320262846-c2c532bf",
+    "bastille-rijks-5496-0f8bd6c7",
+    "bastille-rijks-5496-5812222c",
+    "bastille-rijks-5496-c2c532bf",
+    "halles_innocents-pm200009791-34348d73",
+    "halles_innocents-pm200009791-4d4442b8",
+    "chateau_eau-pm320294285-69edbfd4",
+    "chateau_eau-pm320294285-25cc66b6",
+    "chateau_eau-pm320294285-5f5a19ad",
+    "chateau_eau-pm320294285-78bbe58d",
+    "rivoli-pm320291211-c0239b58",
+    "rivoli-pm320291211-c5b57013",
+    "madeleine-pm320295653-800c5582",
+    "madeleine-pm320295656-800c5582",
+    "pont_royal-pm320299869-d0859ca4",
+    "bologna-rijks-259-550bb3e3",
+    "brussels-rijks-1979-4ad71c94"
   ],
   "labels": {
-    "madeleine-ph-benoist": "Мадлен · Бенуа, Library of Congress",
+    "madeleine-ph-benoist": "Мадлен · Бенуа, Библиотека Конгресса",
     "madeleine-benoist-carnavalet": "Мадлен · Бенуа, музей Карнавале",
     "palais-royal-ph-benoist": "Сад Пале-Рояль · Бенуа",
     "madeleine-barescut-carnavalet": "Мадлен · Эстель де Барескю, музей Карнавале",
@@ -26,14 +76,72 @@
     "rio-guanabara": "Рио-де-Жанейро · Бухта Гуанабара",
     "naples-san-francesco-di-paola": "Неаполь · Сан-Франческо-ди-Паола",
     "giza-great-sphinx": "Гиза · Большой сфинкс",
-    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра"
+    "florence-ponte-vecchio-silvestre": "Флоренция · Понте-Веккьо глазами Сильвестра",
+    "paris-eiffel": "Париж · Эйфелева башня",
+    "rome-pantheon-vasi": "Рим · Пантеон глазами Вази",
+    "notre-dame-benoist-carnavalet": "Нотр-Дам · Бенуа, музей Карнавале",
+    "louvre-colonnade-benoist-carnavalet": "Колоннада Лувра · Бенуа, музей Карнавале",
+    "tuileries-benoist-rijksmuseum": "Тюильри (утрачен) · Бенуа, Рейксмюзеум",
+    "palais-royal-jardin-benoist-rijksmuseum": "Сад Пале-Рояль · Бенуа, Рейксмюзеум",
+    "vendome-pm320292157-f43dc246": "Вандомская колонна · 2025 · benoitdd",
+    "luxembourg-pm320291197-3b758447": "Люксембургский дворец · 2025 · Britzz",
+    "luxembourg-pm320291197-0ee50c84": "Люксембургский дворец · 2026 · jerome92370",
+    "luxembourg-pm320291197-9ea84c7a": "Люксембургский дворец · 2026 · jerome92370",
+    "notre_dame-pm320291945-5c4e33a2": "Нотр-Дам · 2016 · JLZIMMERMANN",
+    "notre_dame-pm320291945-dd602ce3": "Нотр-Дам · 2025 · cquest",
+    "notre_dame-rijks-5500-5c4e33a2": "Нотр-Дам · 2016 · JLZIMMERMANN",
+    "notre_dame-rijks-5500-dd602ce3": "Нотр-Дам · 2025 · cquest",
+    "notre_dame-pm320291945-33acc54c": "Нотр-Дам · 2025 · benoitdd",
+    "louvre_colonnade-pm320291352-01ca11e0": "Колоннада Лувра · 2025 · benoitdd",
+    "louvre_colonnade-pm320291352-9229020f": "Колоннада Лувра · 2025 · benoitdd",
+    "louvre_colonnade-rijks-5505-01ca11e0": "Колоннада Лувра · 2025 · benoitdd",
+    "saint_sulpice-pm320050912-98282647": "Сен-Сюльпис · 2024 · Cyril5C",
+    "saint_sulpice-pm320050912-e3c70c4a": "Сен-Сюльпис · 2024 · Cyril5C",
+    "saint_sulpice-pm320290954-98282647": "Сен-Сюльпис · 2024 · Cyril5C",
+    "bourse-pm320291262-d7a724ab": "Биржа (дворец Броньяр) · 2024 · Cyril5C",
+    "bourse-pm320291262-ca6cd57d": "Биржа (дворец Броньяр) · 2024 · Cyril5C",
+    "hotel_de_ville-pm320290537-f67766f2": "Отель-де-Виль · 2025 · Benoît C MdP",
+    "hotel_de_ville-rijks-5498-6afa5131": "Отель-де-Виль · 2024 · Robot8A",
+    "pantheon-rijks-5506-451335cc": "Пантеон · 2024 · Britzz",
+    "pantheon-rijks-5506-5116b338": "Пантеон · 2024 · jerome92370",
+    "pantheon-rijks-5506-5974302a": "Пантеон · 2025 · jerome92370",
+    "porte_saint_denis-rijks-5503-9e737168": "Ворота Сен-Дени · 2025 · benoitdd",
+    "porte_saint_denis-rijks-5503-0e034840": "Ворота Сен-Дени · 2025 · amicklew",
+    "porte_saint_denis-rijks-5503-2cb1a095": "Ворота Сен-Дени · 2024 · benoitdd",
+    "bastille-pm320262846-0f8bd6c7": "Июльская колонна, Бастилия · 2020 · R_A",
+    "bastille-pm320262846-5812222c": "Июльская колонна, Бастилия · 2024 · Aradrin",
+    "bastille-pm320262846-c2c532bf": "Июльская колонна, Бастилия · 2025 · amicklew",
+    "bastille-rijks-5496-0f8bd6c7": "Июльская колонна, Бастилия · 2020 · R_A",
+    "bastille-rijks-5496-5812222c": "Июльская колонна, Бастилия · 2024 · Aradrin",
+    "bastille-rijks-5496-c2c532bf": "Июльская колонна, Бастилия · 2025 · amicklew",
+    "halles_innocents-pm200009791-34348d73": "Фонтан Невинных · 2025 · cquest",
+    "halles_innocents-pm200009791-4d4442b8": "Фонтан Невинных · 2025 · benoitdd",
+    "chateau_eau-pm320294285-69edbfd4": "Шато-д'О, площадь Республики · 2021 · motocultrice",
+    "chateau_eau-pm320294285-25cc66b6": "Шато-д'О, площадь Республики · 2023 · Carto'Cité",
+    "chateau_eau-pm320294285-5f5a19ad": "Шато-д'О, площадь Республики · 2025 · amicklew",
+    "chateau_eau-pm320294285-78bbe58d": "Шато-д'О, площадь Республики · 2026 · Britzz",
+    "rivoli-pm320291211-c0239b58": "Улица Риволи · 2025 · benoitdd",
+    "rivoli-pm320291211-c5b57013": "Улица Риволи · 2025 · Benoît C MdP",
+    "madeleine-pm320295653-800c5582": "Церковь Мадлен, интерьер · 2026 · jerome92370",
+    "madeleine-pm320295656-800c5582": "Церковь Мадлен, интерьер · 2026 · jerome92370",
+    "pont_royal-pm320299869-d0859ca4": "Вид с Королевского моста · 2025 · benoitdd",
+    "bologna-rijks-259-550bb3e3": "Болонья · две башни · 2025 · scai",
+    "brussels-rijks-1979-4ad71c94": "Брюссель · ратуша · 2016 · JLZIMMERMANN"
   },
   "places": {
+    "paris-eiffel": {
+      "city": "Париж",
+      "name": "Эйфелева башня",
+      "mode": "Литография 1889 года и фото 2026 года",
+      "image": "paris-eiffel-1889.jpg"
+    },
     "madeleine-benoist-carnavalet": {
       "city": "Париж",
       "name": "Церковь Мадлен",
       "mode": "Совмещение портика · фото 2026",
-      "image": "madeleine-benoist-carnavalet-cargtop030438.jpg"
+      "image": "madeleine-benoist-carnavalet-cargtop030438.jpg",
+      "map_path": "paris/Q330564",
+      "map_label": "Мадлен и точки съёмки"
     },
     "new-york-statue-of-liberty": {
       "city": "Нью-Йорк",
@@ -51,7 +159,9 @@
       "city": "Флоренция",
       "name": "Понте-Веккьо",
       "mode": "Совмещение галереи · 1859–1866 и 2026",
-      "image": "florence-ponte-vecchio-historic.jpg"
+      "image": "florence-ponte-vecchio-historic.jpg",
+      "map_path": "florence/Q208633",
+      "map_label": "Понте-Веккьо на карте"
     },
     "rio-guanabara": {
       "city": "Рио-де-Жанейро",
@@ -63,7 +173,9 @@
       "city": "Неаполь",
       "name": "Сан-Франческо-ди-Паола",
       "mode": "Совмещение портика · 1847 и 2025",
-      "image": "naples-san-francesco-di-paola-historic.jpg"
+      "image": "naples-san-francesco-di-paola-historic.jpg",
+      "map_path": "naples/Q241410",
+      "map_label": "Площадь в Неаполе на карте"
     },
     "giza-great-sphinx": {
       "city": "Гиза",
@@ -75,10 +187,326 @@
       "city": "Флоренция",
       "name": "Понте-Веккьо глазами Сильвестра",
       "mode": "Совмещение арок · XVII век и 2026",
-      "image": "florence-ponte-vecchio-silvestre-historic.jpg"
+      "image": "florence-ponte-vecchio-silvestre-historic.jpg",
+      "map_path": "florence/Q208633",
+      "map_label": "Понте-Веккьо на карте"
+    },
+    "rome-pantheon-vasi": {
+      "city": "Рим",
+      "name": "Пантеон",
+      "mode": "Офорт 1752 года и фото 2025 года",
+      "image": "rome-pantheon-1752.jpg",
+      "map_path": "rim/Q99309",
+      "map_label": "Пантеон на карте и другие виды",
+      "guide_view": "originals"
+    },
+    "notre-dame-benoist-carnavalet": {
+      "city": "Париж",
+      "name": "Собор Парижской Богоматери",
+      "mode": "Приблизительно · фасад, фото 2025",
+      "image": "notre-dame-benoist-carnavalet-cargtop029216.jpg"
+    },
+    "louvre-colonnade-benoist-carnavalet": {
+      "city": "Париж",
+      "name": "Колоннада Лувра",
+      "mode": "Приблизительно · ракурсы разные, фото 2025",
+      "image": "louvre-colonnade-benoist-carnavalet-cargtop028170.jpg"
+    },
+    "tuileries-benoist-rijksmuseum": {
+      "city": "Париж",
+      "name": "Дворец Тюильри (утрачен)",
+      "mode": "Два вида рядом · дворца больше нет",
+      "image": "tuileries-benoist-rijksmuseum-rp-p-1905-5501.jpg"
+    },
+    "palais-royal-jardin-benoist-rijksmuseum": {
+      "city": "Париж",
+      "name": "Сад Пале-Рояль",
+      "mode": "Два вида рядом · противоположные направления",
+      "image": "palais-royal-jardin-benoist-rijksmuseum-rp-p-1905-5499.jpg"
+    },
+    "vendome-pm320292157-f43dc246": {
+      "city": "Париж",
+      "name": "Вандомская колонна",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-pm-320292157.jpg"
+    },
+    "luxembourg-pm320291197-3b758447": {
+      "city": "Париж",
+      "name": "Люксембургский дворец",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-pm-320291197.jpg"
+    },
+    "luxembourg-pm320291197-0ee50c84": {
+      "city": "Париж",
+      "name": "Люксембургский дворец",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2026",
+      "image": "benoist-pm-320291197.jpg"
+    },
+    "luxembourg-pm320291197-9ea84c7a": {
+      "city": "Париж",
+      "name": "Люксембургский дворец",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2026",
+      "image": "benoist-pm-320291197.jpg"
+    },
+    "notre_dame-pm320291945-5c4e33a2": {
+      "city": "Париж",
+      "name": "Нотр-Дам",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2016",
+      "image": "notre-dame-benoist-carnavalet-cargtop029216.jpg"
+    },
+    "notre_dame-pm320291945-dd602ce3": {
+      "city": "Париж",
+      "name": "Нотр-Дам",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "notre-dame-benoist-carnavalet-cargtop029216.jpg"
+    },
+    "notre_dame-rijks-5500-5c4e33a2": {
+      "city": "Париж",
+      "name": "Нотр-Дам",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2016",
+      "image": "benoist-rijks-RP-P-1905-5500.jpg"
+    },
+    "notre_dame-rijks-5500-dd602ce3": {
+      "city": "Париж",
+      "name": "Нотр-Дам",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-rijks-RP-P-1905-5500.jpg"
+    },
+    "notre_dame-pm320291945-33acc54c": {
+      "city": "Париж",
+      "name": "Нотр-Дам",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "notre-dame-benoist-carnavalet-cargtop029216.jpg"
+    },
+    "louvre_colonnade-pm320291352-01ca11e0": {
+      "city": "Париж",
+      "name": "Колоннада Лувра",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "louvre-colonnade-benoist-carnavalet-cargtop028170.jpg"
+    },
+    "louvre_colonnade-pm320291352-9229020f": {
+      "city": "Париж",
+      "name": "Колоннада Лувра",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "louvre-colonnade-benoist-carnavalet-cargtop028170.jpg"
+    },
+    "louvre_colonnade-rijks-5505-01ca11e0": {
+      "city": "Париж",
+      "name": "Колоннада Лувра",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-rijks-RP-P-1905-5505.jpg"
+    },
+    "saint_sulpice-pm320050912-98282647": {
+      "city": "Париж",
+      "name": "Сен-Сюльпис",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-pm-320050912.jpg"
+    },
+    "saint_sulpice-pm320050912-e3c70c4a": {
+      "city": "Париж",
+      "name": "Сен-Сюльпис",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-pm-320050912.jpg"
+    },
+    "saint_sulpice-pm320290954-98282647": {
+      "city": "Париж",
+      "name": "Сен-Сюльпис",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-pm-320290954.jpg"
+    },
+    "bourse-pm320291262-d7a724ab": {
+      "city": "Париж",
+      "name": "Биржа (дворец Броньяр)",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-pm-320291262.jpg"
+    },
+    "bourse-pm320291262-ca6cd57d": {
+      "city": "Париж",
+      "name": "Биржа (дворец Броньяр)",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-pm-320291262.jpg"
+    },
+    "hotel_de_ville-pm320290537-f67766f2": {
+      "city": "Париж",
+      "name": "Отель-де-Виль",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2025",
+      "image": "benoist-pm-320290537.jpg"
+    },
+    "hotel_de_ville-rijks-5498-6afa5131": {
+      "city": "Париж",
+      "name": "Отель-де-Виль",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2024",
+      "image": "benoist-rijks-RP-P-1905-5498.jpg"
+    },
+    "pantheon-rijks-5506-451335cc": {
+      "city": "Париж",
+      "name": "Пантеон",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-rijks-RP-P-1905-5506.jpg"
+    },
+    "pantheon-rijks-5506-5116b338": {
+      "city": "Париж",
+      "name": "Пантеон",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2024",
+      "image": "benoist-rijks-RP-P-1905-5506.jpg"
+    },
+    "pantheon-rijks-5506-5974302a": {
+      "city": "Париж",
+      "name": "Пантеон",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-rijks-RP-P-1905-5506.jpg"
+    },
+    "porte_saint_denis-rijks-5503-9e737168": {
+      "city": "Париж",
+      "name": "Ворота Сен-Дени",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2025",
+      "image": "benoist-rijks-RP-P-1905-5503.jpg"
+    },
+    "porte_saint_denis-rijks-5503-0e034840": {
+      "city": "Париж",
+      "name": "Ворота Сен-Дени",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2025",
+      "image": "benoist-rijks-RP-P-1905-5503.jpg"
+    },
+    "porte_saint_denis-rijks-5503-2cb1a095": {
+      "city": "Париж",
+      "name": "Ворота Сен-Дени",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2024",
+      "image": "benoist-rijks-RP-P-1905-5503.jpg"
+    },
+    "bastille-pm320262846-0f8bd6c7": {
+      "city": "Париж",
+      "name": "Июльская колонна, Бастилия",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2020",
+      "image": "benoist-pm-320262846.jpg"
+    },
+    "bastille-pm320262846-5812222c": {
+      "city": "Париж",
+      "name": "Июльская колонна, Бастилия",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2024",
+      "image": "benoist-pm-320262846.jpg"
+    },
+    "bastille-pm320262846-c2c532bf": {
+      "city": "Париж",
+      "name": "Июльская колонна, Бастилия",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2025",
+      "image": "benoist-pm-320262846.jpg"
+    },
+    "bastille-rijks-5496-0f8bd6c7": {
+      "city": "Париж",
+      "name": "Июльская колонна, Бастилия",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2020",
+      "image": "benoist-rijks-RP-P-1905-5496.jpg"
+    },
+    "bastille-rijks-5496-5812222c": {
+      "city": "Париж",
+      "name": "Июльская колонна, Бастилия",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2024",
+      "image": "benoist-rijks-RP-P-1905-5496.jpg"
+    },
+    "bastille-rijks-5496-c2c532bf": {
+      "city": "Париж",
+      "name": "Июльская колонна, Бастилия",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2025",
+      "image": "benoist-rijks-RP-P-1905-5496.jpg"
+    },
+    "halles_innocents-pm200009791-34348d73": {
+      "city": "Париж",
+      "name": "Фонтан Невинных",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2025",
+      "image": "benoist-pm-200009791.jpg"
+    },
+    "halles_innocents-pm200009791-4d4442b8": {
+      "city": "Париж",
+      "name": "Фонтан Невинных",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2025",
+      "image": "benoist-pm-200009791.jpg"
+    },
+    "chateau_eau-pm320294285-69edbfd4": {
+      "city": "Париж",
+      "name": "Шато-д'О, площадь Республики",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2021",
+      "image": "benoist-pm-320294285.jpg"
+    },
+    "chateau_eau-pm320294285-25cc66b6": {
+      "city": "Париж",
+      "name": "Шато-д'О, площадь Республики",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2023",
+      "image": "benoist-pm-320294285.jpg"
+    },
+    "chateau_eau-pm320294285-5f5a19ad": {
+      "city": "Париж",
+      "name": "Шато-д'О, площадь Республики",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2025",
+      "image": "benoist-pm-320294285.jpg"
+    },
+    "chateau_eau-pm320294285-78bbe58d": {
+      "city": "Париж",
+      "name": "Шато-д'О, площадь Республики",
+      "mode": "Два вида рядом · объект утрачен или перестроен · фото 2026",
+      "image": "benoist-pm-320294285.jpg"
+    },
+    "rivoli-pm320291211-c0239b58": {
+      "city": "Париж",
+      "name": "Улица Риволи",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-pm-320291211.jpg"
+    },
+    "rivoli-pm320291211-c5b57013": {
+      "city": "Париж",
+      "name": "Улица Риволи",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-pm-320291211.jpg"
+    },
+    "madeleine-pm320295653-800c5582": {
+      "city": "Париж",
+      "name": "Церковь Мадлен, интерьер",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2026",
+      "image": "benoist-pm-320295653.jpg"
+    },
+    "madeleine-pm320295656-800c5582": {
+      "city": "Париж",
+      "name": "Церковь Мадлен, интерьер",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2026",
+      "image": "benoist-pm-320295656.jpg"
+    },
+    "pont_royal-pm320299869-d0859ca4": {
+      "city": "Париж",
+      "name": "Вид с Королевского моста",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2025",
+      "image": "benoist-pm-320299869.jpg"
+    },
+    "bologna-rijks-259-550bb3e3": {
+      "city": "Болонья",
+      "name": "Болонья · две башни",
+      "mode": "Два вида рядом · ракурс приблизительный · фото 2025",
+      "image": "benoist-rijks-RP-P-1908-259.jpg"
+    },
+    "brussels-rijks-1979-4ad71c94": {
+      "city": "Брюссель",
+      "name": "Брюссель · ратуша",
+      "mode": "Два вида рядом · ракурс не подтверждён · фото 2016",
+      "image": "benoist-rijks-RP-P-1908-1979.jpg"
     }
   },
   "journey": [
+    {
+      "pair": "rome-pantheon-vasi",
+      "title": "С площади Ротонды",
+      "question": "Найдите круглую стену за колоннами. На каком из двух видов её видно лучше?",
+      "answer": "Вази показал площадь сверху. Посмотрите за колоннаду: на офорте за ней читаются круглая стена и купол. С другой точки, как на современном фото, главным становится портик.",
+      "next": "Парижский Пантеон на листе Бенуа",
+      "next_href": "../../guides/#plate-pantheon",
+      "next_hint": "Тот же тип здания — колоннада и купол — но другой город и другой художник.",
+      "next_small": "Дальше · из Рима в Париж"
+    },
+    {
+      "pair": "paris-eiffel",
+      "title": "Башня, которую печатали на выставке",
+      "question": "Вглядитесь в огни вокруг башни. Где, по-вашему, напечатали этот лист — в дальнем издательстве или прямо на Всемирной выставке?",
+      "answer": "Прямо на выставке. Это можно прочитать внизу листа: мастерская Монрок печатала его в Галерее машин. Переключитесь на фото, чтобы увидеть башню при дневном свете.",
+      "next": "Проверить, что совпадает у Бенуа"
+    },
     {
       "pair": "madeleine-benoist-carnavalet",
       "title": "Что осталось на месте?",

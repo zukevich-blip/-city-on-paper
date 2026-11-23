@@ -147,6 +147,15 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
       (await p.locator("#wg .wcard").count()) === initialWorks);
 
     await p.locator("#cmaphost").scrollIntoViewIfNeeded(); await p.waitForTimeout(800);
+    const pilotCards = p.locator("#atlasPilot article");
+    await pilotCards.last().waitFor();
+    ok(`${vp.n} Paris pilot: three archive records`, await pilotCards.count() === 3);
+    await pilotCards.first().getByRole("button").click();
+    const pilotDialog = p.locator(".pilot-dialog");
+    await pilotDialog.getByRole("button", { name: "Увеличить", exact: true }).click();
+    ok(`${vp.n} Paris pilot: museum sheet opens in zoom viewer`, await pilotDialog.locator(".openseadragon-canvas canvas").count() === 1);
+    await p.keyboard.press("Escape");
+    await pilotDialog.waitFor({ state: "detached" });
     ok(`${vp.n} city: zoomable 1878 plan of Paris`, (await p.locator("#cplan .leaflet-tile-loaded").count()) >= 2);
     ok(`${vp.n} city: links to other museum halls`, (await p.locator(".halls a").count()) >= 3);
     await p.screenshot({ path: `${out}/${vp.n}-2-paris.jpg`, type: "jpeg", quality: 60 });
@@ -154,6 +163,46 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.waitForSelector("#stage");
     await p.waitForFunction(() => document.getElementById("imA").complete && document.getElementById("imB").complete);
     ok(`${vp.n} place: timeline cards`, (await p.locator(".era-card").count()) >= 8);
+    const verified = p.locator("#verifiedPlace");
+    await verified.waitFor({ state: "visible" });
+    ok(`${vp.n} place: verified curtain shows two independent unwarped art/photo frames`,
+      await verified.locator(".ep-verified-dual").isVisible() &&
+      await verified.locator(".ep-verified-stage").evaluate(s => s.classList.contains("independent-view")) &&
+      await verified.locator("[data-verified-frame-old]").evaluate(i => getComputedStyle(i).objectFit === "contain" && i.naturalWidth > 0) &&
+      await verified.locator("[data-verified-frame-now]").evaluate(i => getComputedStyle(i).objectFit === "contain" && i.naturalWidth > 0));
+    const verifiedOld = verified.locator("[data-verified-old]");
+    const verifiedPhoto = verified.locator("[data-verified-raw]");
+    const originalSrc = await verifiedOld.getAttribute("src");
+    ok(`${vp.n} place: evidence-aware curtain is the default`,
+      await verified.locator('[data-verified-mode="curtain"]').getAttribute("aria-pressed") === "true" &&
+      await verified.locator(".ep-verified-dual").isVisible());
+    const verifiedHandle = verified.locator(".ep-verified-handle");
+    await verifiedHandle.focus();
+    await p.keyboard.press("Home");
+    await p.keyboard.press("ArrowRight");
+    ok(`${vp.n} place: curtain keyboard and visible left/right guide`,
+      (await verifiedHandle.getAttribute("aria-valuenow")) === "5" &&
+      /СЛЕВА/.test(await verified.locator(".ep-verified-legend").textContent()) &&
+      /СПРАВА/.test(await verified.locator(".ep-verified-legend").textContent()));
+    ok(`${vp.n} place: original image shapes are not cropped`,
+      await verified.locator("[data-verified-curtain]").evaluate(img =>
+        getComputedStyle(img).objectFit === "contain" && img.naturalWidth > 0));
+
+    await verified.locator('[data-verified-mode="now"]').click();
+    ok(`${vp.n} place: recent photo is dated and unadjusted`, await verifiedPhoto.isVisible() &&
+      await verifiedOld.isHidden() && /2026-04-30/.test(await verified.locator(".ep-verified-caption").textContent()));
+    await verified.locator('[data-verified-mode="fit"]').click();
+    ok(`${vp.n} place: only photograph transformed inside validated region`, await verified.evaluate(section => {
+      const original = section.querySelector("[data-verified-old]");
+      const adjusted = section.querySelector("[data-verified-fit]");
+      return getComputedStyle(original).transform === "none" &&
+        getComputedStyle(adjusted).transform.startsWith("matrix3d(") &&
+        getComputedStyle(adjusted.parentElement).clipPath.startsWith("polygon(");
+    }) && await verifiedOld.getAttribute("src") === originalSrc && await verifiedPhoto.isHidden());
+    const verifiedPairs = verified.locator("[data-verified-pair]");
+    await verifiedPairs.selectOption("madeleine-barescut-carnavalet");
+    ok(`${vp.n} place: pair picker chooses a separate archive print`,
+      (await verifiedOld.getAttribute("src")).endsWith("/madeleine-barescut-carnavalet.jpg"));
     ok(`${vp.n} triple time slider available`, await p.locator("#threeEpochs").isVisible());
     ok(`${vp.n} triple timeline has 3 actual images`, await p.locator("#threeEpochs .cp3-stage img").count() === 3);
     ok(`${vp.n} triple timeline all source links`, (await p.locator("#threeEpochs .cp3-sources a").count()) === 3);
@@ -161,9 +210,18 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} triple stage: 0% shows first era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "0");
     await p.locator('#threeEpochs [data-go="50"]').click();
     ok(`${vp.n} triple stage: 50% shows middle era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "50");
+    await p.locator('#threeEpochs [data-role="position"]').evaluate(el => {
+      el.value = "25";
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    ok(`${vp.n} three-era curtain: later frame enters from the right`,
+      await p.locator('#threeEpochs [data-role="layer-middle"]').evaluate(el =>
+        (/^inset\(0(?:px)? 0(?:px)? 0(?:px)? 50%\)$/.test(el.style.clipPath))) &&
+      await p.locator('#threeEpochs [data-role="guide"]').evaluate(el => el.style.left === "50%") &&
+      /Слева/.test(await p.locator('#threeEpochs [data-role="phase"]').textContent()));
     await p.locator('#threeEpochs [data-go="100"]').click();
     ok(`${vp.n} triple stage: 100% shows last era`, await p.locator('#threeEpochs [data-role="position"]').inputValue() === "100");
-    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
+    ok(`${vp.n} triple stage: third image fully revealed`, await p.locator('#threeEpochs [data-role="layer-last"]').evaluate(x => { const m = /inset\(0(?:px)? 0(?:px)? 0(?:px)? ([\d.]+)%/.exec(x.style.clipPath); return Boolean(m) && Number(m[1]) === 0; }));
     const baselineFrames = await p.locator('#threeEpochs [data-role="last"] option').count();
     const localFixture = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9eLp3WEAAAAASUVORK5CYII=", "base64");
     await p.locator('#threeEpochs [data-role="upload-photo"]').setInputFiles({ name: "my-photo.png", mimeType: "image/png", buffer: localFixture });
@@ -210,7 +268,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     ok(`${vp.n} historical fact distinguishes 1842 and 1845-1860`,
       /1842/.test(await p.locator("#curatorialDesk").textContent()) &&
       /1845/.test(await p.locator("#curatorialDesk").textContent()));
-    ok(`${vp.n} place: verdict shown`, /совпадение|точки съёмки|ракурс/i.test(await p.textContent("#verdict")));
+    ok(`${vp.n} place: verdict shown`, /совпадение|точки (съёмки|и направление)|точки могут|с разных точек/i.test(await p.textContent("#verdict")));
     ok(`${vp.n} place: camera cones on 1878 plan`, (await p.locator(".cam").count()) >= 5);
     const untouched = await p.$$eval(".era-card img, .plate img", ims => ims.every(i => { const s = getComputedStyle(i); return s.transform === "none" && s.filter === "none"; }));
     ok(`${vp.n} historic images: no transform/filter`, untouched);
@@ -229,7 +287,7 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.selectOption("#selA", { label: "ок. 1890–1900 · Фотохром" }).catch(() => {});
     const opts = await p.$$eval("#selB option", os => os.map(o => o.textContent));
     const der = await p.$$eval("#selB option", os => os.findIndex(o => /2017/.test(o.textContent)));
-    if (der >= 0) { await p.selectOption("#selB", { index: der }); ok(`${vp.n} derived crop labelled in compare`, /производная/.test(await p.textContent("#tagB")), opts.join("/")); }
+    if (der >= 0) { await p.selectOption("#selB", { index: der }); ok(`${vp.n} derived crop labelled in compare`, /фрагмент уличной панорамы/.test(await p.textContent("#tagB")), opts.join("/")); }
     await p.click('[data-m="sbs"]');
     ok(`${vp.n} side-by-side exclusive`, await p.evaluate(() => document.getElementById("stage").hidden && !document.getElementById("sbs").hidden));
     await p.click('[data-m="slider"]');
@@ -242,7 +300,18 @@ const ok = (n, c, d = "") => { res.push({ n, c, d }); console.log(`${c ? "PASS" 
     await p.goto(base + "eras/#/epochs", { waitUntil: "networkidle" });
     ok(`${vp.n} epochs gallery`, (await p.locator(".epcard").count()) >= 50);
     await p.locator(".epcard").first().click(); await p.waitForSelector("#epstage"); await p.waitForTimeout(600);
+    ok(`${vp.n} epoch: chronological curtain contains two independent framed images`,
+      await p.locator("#epIndependent").isVisible() &&
+      await p.locator("#epFullA").evaluate(i => i.naturalWidth > 0 && getComputedStyle(i).objectFit === "contain") &&
+      await p.locator("#epFullB").evaluate(i => i.naturalWidth > 0 && getComputedStyle(i).objectFit === "contain"));
     ok(`${vp.n} epoch place: frames + angle map`, (await p.locator(".epf[data-f]").count()) >= 2 && (await p.locator("#epMap .leaflet-tile").count()) >= 1);
+    ok(`${vp.n} epoch place: shutter has named left and right frames`,
+      /Слева/.test(await p.locator("#epReadout").textContent()) &&
+      /справа/.test(await p.locator("#epReadout").textContent()));
+    await p.locator('[data-compare-mode="side"]').click();
+    ok(`${vp.n} epoch place: different image formats available side by side`,
+      await p.locator("#epSide").isVisible() && /целиком/.test(await p.locator("#epReadout").textContent()));
+    await p.locator('[data-compare-mode="slider"]').click();
     await p.click("#epAdd");
     ok(`${vp.n} my photo dialog (local only)`, await p.$eval("#epDlg", (d) => d.open && /только на этом устройстве/.test(d.textContent)));
     await p.click('#epDlg button[value="cancel"]');

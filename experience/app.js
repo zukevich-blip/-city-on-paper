@@ -313,7 +313,7 @@
     interpretation.textContent = "Авторское прочтение: " + story.interpretation;
     $("chapterBody").append(interpretation);
     $("chapterSource").href = story.url;
-    $("chapterSource").textContent = story.sourceText + " ↗";
+    $("chapterSource").textContent = story.sourceText + " ↗︎";
     $("chapterRights").textContent = story.rights;
     $("prevChapter").disabled = chapter === 0;
     $("nextChapter").textContent = chapter + 1 === data.chapters.length ?

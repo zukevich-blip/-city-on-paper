@@ -11,12 +11,13 @@ def read(path: str) -> str:
 
 
 def test_visitor_routes_are_shipped_in_public_bundle():
-    assert {"walk/index.html", "submit/index.html"} <= set(PAGES)
+    assert {"walk/index.html", "submit/index.html", "guides/index.html"} <= set(PAGES)
     home = read("index.html")
-    assert 'class="museum-frontdoor museum-wow"' in home
-    assert 'class="wow-features"' in home
-    assert 'href="poc/compare/#madeleine-ph-benoist"' in home
-    assert 'id="museumFind"' in home
+    assert 'class="lt-home"' in home
+    assert 'class="lh-hero"' in home
+    assert 'href="poc/compare/?journey=1#madeleine-benoist-carnavalet"' in home
+    assert 'href="book/#/benoist"' in home
+    assert 'href="book/"' in home
     assert 'href="walk/?city=paris&amp;place=0"' in home
     assert 'href="submit/"' in home
     nav = read("assets/nav/museum-nav.js")
@@ -27,7 +28,7 @@ def test_visitor_routes_are_shipped_in_public_bundle():
 def test_historical_routes_keep_originals_and_say_when_no_modern_pair():
     walk = read("walk/index.html")
     for text in ("../eras/data/eras.json", "object-fit:contain",
-                 "Другой исторический год", "точные точки съёмки",
+                 "Другой исторический год", "Точки съёмки могут различаться",
                  "selectedCity", "selectedPlace", "rights_class"):
         assert text in walk
     assert "document.getElementById" in walk
@@ -36,11 +37,11 @@ def test_historical_routes_keep_originals_and_say_when_no_modern_pair():
 
 def test_photo_submission_is_manual_and_license_checked():
     submit = read("submit/index.html")
-    assert "публичное обращение GitHub" in submit
+    assert "черновик публичного сообщения на GitHub" in submit
     assert "не отправляется" in submit
     assert "github.com/zukevich-blip/-city-on-paper/issues/new?" in submit
     assert "URL.createObjectURL" in submit
-    assert "Статус прав" in submit
+    assert "Можно ли публиковать?" in submit
 
 
 def test_mobile_image_and_book_are_not_hard_clipped():
