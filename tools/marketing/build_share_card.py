@@ -91,16 +91,16 @@ def generate(root: Path) -> Path:
         tw = d.textbbox((0, 0), caption, font=label_font)[2]
         d.text(((x0 + x1 - tw) / 2, 520), caption, font=label_font, fill=INK)
 
-    d.line((90, 549, 1110, 549), fill=GOLD, width=1)
+    d.line((90, 542, 1110, 542), fill=GOLD, width=1)
     detail = "ОТКРЫТЬ ЦИФРОВОЙ МУЗЕЙ  ↗"
     fd = font(22, True)
     tw = d.textbbox((0, 0), detail, font=fd)[2]
-    d.text(((W - tw) / 2, 563), detail, font=fd, fill=ACCENT)
+    d.text(((W - tw) / 2, 551), detail, font=fd, fill=ACCENT)
 
     small = "zukevich-blip.github.io/-city-on-paper/"
-    ff = font(17)
+    ff = font(14)
     tw = d.textbbox((0, 0), small, font=ff)[2]
-    d.text(((W - tw) / 2, 598), small, font=ff, fill="#745e4b")
+    d.text(((W - tw) / 2, 583), small, font=ff, fill="#745e4b")
 
     im.save(out, "JPEG", quality=90, optimize=True, subsampling=0)
     assert Image.open(out).size == (W, H)
