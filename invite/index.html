@@ -4,71 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#572723">
-<title>Город на бумаге | Открыть исторический музей</title>
-<meta name="description" content="Живой исторический атлас: подлинные литографии Филиппа Бенуа, старые карты, современные фотографии и сравнение городов разных эпох.">
+<title>Город на бумаге | Визитка цифрового музея</title>
+<meta name="description" content="Город на бумаге: подлинные литографии Филиппа Бенуа, старые карты, современные фотографии и сравнение эпох. Нажмите на открытку, чтобы открыть музей.">
 <style>
-:root{--wine:#592522;--ink:#362721;--gold:#aa8155;--paper:#f0e2cc;--pale:#fbf4e8}
+:root{--paper:#eee1cb;--wine:#5b2926;--gold:#a87944}
 *{box-sizing:border-box}
-html{background:#d6c5ad}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:radial-gradient(ellipse at 50% 0%,#eee1cf,#d6c5ad)}
-.page{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 16px 18px}
-.postcard{display:block;width:min(100%,1020px);background:var(--paper);padding:13px;border:1px solid #8d664b;text-decoration:none;color:inherit;box-shadow:0 18px 55px #3d241b36;outline-offset:6px}
-.postcard:hover{box-shadow:0 22px 65px #3d241b59}
+html{background:#d8c7aa}
+body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 20%,#f9efdf 0%,#d8c7aa 90%);font-family:Georgia,"Times New Roman",serif;color:var(--wine)}
+main{width:min(100%,1280px);padding:clamp(10px,3vw,42px);text-align:center}
+.postcard{display:block;width:100%;border:1px solid var(--gold);padding:clamp(4px,1vw,11px);background:var(--paper);box-shadow:0 18px 65px #41281845;outline-offset:5px;transition:transform .16s ease,box-shadow .16s ease}
+.postcard:hover{transform:translateY(-3px);box-shadow:0 22px 70px #41281865}
 .postcard:focus-visible{outline:4px solid var(--wine)}
-.inner{position:relative;overflow:hidden;min-height:550px;border:1px solid var(--gold);padding:27px 34px 30px;text-align:center;background:radial-gradient(ellipse at 50% 22%,#fff8e9 0%,#f0e1ca 70%,#e5d2b6 100%)}
-.inner:before,.inner:after{content:"";position:absolute;width:170px;height:170px;opacity:.25;pointer-events:none}
-.inner:before{top:-105px;left:-95px;border:2px solid var(--gold);border-radius:50%}
-.inner:after{right:-110px;bottom:-100px;border:2px solid var(--gold);border-radius:50%}
-.kicker{margin:0;color:var(--wine);font:700 12px/1.5 Georgia,serif;letter-spacing:.29em;text-transform:uppercase}
-h1{margin:8px 0 2px;color:var(--wine);font-size:clamp(36px,6vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.035em}
-.subtitle{font-size:clamp(17px,2.6vw,26px);font-style:italic;margin:8px 0 0;color:#5f4333}
-.rule{height:1px;margin:21px auto 18px;max-width:870px;background:linear-gradient(to right,transparent,var(--gold) 15%,var(--gold) 85%,transparent)}
-.art{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:17px;align-items:end;max-width:850px;margin:auto}
-.print{min-width:0;padding:8px 8px 10px;background:#f6eddf;border:1px solid #bda180;box-shadow:0 5px 15px #48261830}
-.print:nth-child(1){transform:rotate(-2deg)}.print:nth-child(2){transform:translateY(-5px)}.print:nth-child(3){transform:rotate(2deg)}
-.print img{display:block;width:100%;height:235px;object-fit:contain;background:#e9ddc9}
-.print:nth-child(2) img{height:263px}
-.print figcaption{margin:8px 0 0;font:700 10px/1.5 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#684739}
-.copy{margin:20px auto 17px;max-width:680px;font:17px/1.5 Georgia,serif}
-.cta{display:inline-block;padding:13px 28px;background:var(--wine);color:#fff6e8;border:1px solid #9d704c;font:700 14px/1.3 Arial,sans-serif;letter-spacing:.075em;text-transform:uppercase;box-shadow:0 2px 0 #bda47c;min-height:46px}
-.postcard:hover .cta,.postcard:focus-visible .cta{background:#7a352c}
-.site{margin:12px 0 0;color:var(--wine);font:13px/1.5 Arial,sans-serif;overflow-wrap:anywhere;letter-spacing:.01em}
-.credits{max-width:1000px;margin:16px auto 0;color:#695543;text-align:center;font:12px/1.6 Arial,sans-serif}
-.credits a{color:#583429;text-underline-offset:3px}
-@media(max-width:650px){.page{padding:14px 9px}.postcard{padding:7px}.inner{min-height:0;padding:22px 10px 24px}
-.kicker{font-size:10px}.subtitle{margin-top:10px}.rule{margin:19px auto}
-.art{gap:7px}.print{padding:5px 4px 8px}.print img{height:164px}.print:nth-child(2) img{height:189px}.print figcaption{font-size:8px;letter-spacing:.03em}
-.copy{font-size:14px;margin:18px 8px}.cta{font-size:12px;padding:13px 17px}.site{font-size:11px}}
-@media(max-width:360px){h1{font-size:34px}.print img{height:137px}.print:nth-child(2) img{height:156px}.art{gap:4px}.copy{font-size:13px}}
-@media(prefers-reduced-motion:reduce){.postcard,.cta{transition:none}}
+.postcard img{display:block;width:100%;height:auto;aspect-ratio:1200/630;background:var(--paper)}
+.note{font:14px/1.5 Georgia,serif;margin:17px 0 8px}
+.credits{font:11px/1.5 Arial,sans-serif;color:#745e4b;margin:0}
+.credits a{color:inherit;text-underline-offset:3px}
+@media(max-width:600px){main{padding:9px}.note{font-size:13px}.credits{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.postcard{transition:none}}
 </style>
 </head>
 <body>
-<main class="page">
-<a class="postcard" href="../" aria-label="Открыть главный сайт цифрового музея «Город на бумаге»">
-<div class="inner">
-<p class="kicker">Онлайн-музей · Живой исторический атлас</p>
-<h1>ГОРОД НА БУМАГЕ</h1>
-<p class="subtitle">Париж в литографиях Филиппа Бенуа</p>
-<div class="rule" aria-hidden="true"></div>
-<div class="art" aria-label="Три подлинные музейные литографии">
-<figure class="print">
-<img src="../book/img/benoist/pm-320291945.jpg" width="926" height="1280" alt="Филипп Бенуа. Собор Парижской Богоматери, литография из Musée Carnavalet" loading="eager">
-<figcaption>Нотр-Дам</figcaption>
-</figure>
-<figure class="print">
-<img src="../book/img/benoist/pm-320291352.jpg" width="1280" height="952" alt="Филипп Бенуа. Колоннада Лувра, цветная литография из Musée Carnavalet" loading="eager">
-<figcaption>Лувр</figcaption>
-</figure>
-<figure class="print">
-<img src="../book/img/benoist/pm-320292157.jpg" width="923" height="1280" alt="Филипп Бенуа. Вандомская колонна, литография из Musée Carnavalet" loading="eager">
-<figcaption>Вандомская колонна</figcaption>
-</figure>
-</div>
-<p class="copy">Старинные карты, подлинные литографии и фотографии городов сегодня. Посмотрите, как изменились знакомые места.</p>
-<span class="cta">Открыть цифровой музей ↗</span>
-<p class="site">zukevich-blip.github.io/-city-on-paper/</p>
-</div>
+<main>
+<a class="postcard" href="../" aria-label="Открыть главную страницу музея «Город на бумаге»">
+<img src="../assets/share/benoist-paris.jpg" alt="Визитка онлайн-музея «Город на бумаге». Подлинные литографии Бенуа: Нотр-Дам, Лувр, Вандомская колонна. Нажмите для перехода на главную страницу музея." width="1200" height="630" loading="eager" fetchpriority="high">
 </a>
+<p class="note">Нажмите на визитку, чтобы открыть музей.</p>
 <p class="credits">Литографии: Paris Musées / Musée Carnavalet, CC0 ·
 <a href="https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame">Нотр-Дам</a> ·
 <a href="https://parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre">Лувр</a> ·
