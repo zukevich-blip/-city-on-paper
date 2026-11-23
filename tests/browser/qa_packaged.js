@@ -33,7 +33,7 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
      const social=await p.locator('meta[property="og:image"]').getAttribute("content");
      const ogTitle=await p.locator('meta[property="og:title"]').getAttribute("content");
      if(!social?.endsWith("/assets/share/benoist-paris.jpg")||!ogTitle?.includes("Город на бумаге"))throw Error(label+": public social preview metadata incomplete");
-     const socialResponse=await p.request.get(social);
+     const socialResponse=await p.request.get(new URL("assets/share/benoist-paris.jpg",base).href);
      if(!socialResponse.ok()||!socialResponse.headers()["content-type"]?.includes("image/jpeg"))throw Error(label+": public social preview image cannot load");
    }
    await p.screenshot({path:outDir+"/"+label+"-postcard.jpg",type:"jpeg",quality:80});
