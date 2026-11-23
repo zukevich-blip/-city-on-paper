@@ -231,6 +231,29 @@ jobs:
         with:
           path: public
 
+      # GitHub's artifact metadata can lag the upload finalization for this ~350MB archive.
+      # deploy-pages otherwise fails with "Found 0 artifact(s)" despite a successful upload.
+      - name: Wait for GitHub Pages artifact propagation
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          found=0
+          for attempt in {1..20}; do
+            found="$(gh api "repos/$GH_REPO/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length' || echo 0)"
+            if [ "$found" -ge 1 ]; then
+              echo "GitHub Pages archive is visible to the Actions artifact API"
+              break
+            fi
+            echo "Artifact index not ready (attempt $attempt of 20)"
+            sleep 6
+          done
+          test "$found" -ge 1
+          sleep 30
+
       - name: Publish to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
