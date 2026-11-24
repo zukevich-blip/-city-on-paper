@@ -506,6 +506,13 @@
   // ---------- the story of a place: every statement points to its source, unknowns are said aloud
   const STATUS = { exists: "здание стоит", rebuilt: "здание пережило пожар и восстановлено", lost: "здание утрачено" };
   const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+  function placeCoordinates(place) {
+    const parse = (value) => typeof value === "number" || (typeof value === "string" && value.trim())
+      ? Number(value) : NaN;
+    const lat = parse(place.lat), lon = parse(place.lon);
+    return Number.isFinite(lat) && Math.abs(lat) <= 90 && Number.isFinite(lon) && Math.abs(lon) <= 180
+      ? { lat, lon } : null;
+  }
   function viewPlace(id) {
     const pl = D.places.find((x) => x.id === id);
     if (!pl) return notFound();
@@ -513,10 +520,10 @@
     const i = D.places.indexOf(pl), next = D.places[i + 1], prev = D.places[i - 1];
     const sheets = pl.related_sheet_ids.map((sid) => D.sheets.find((x) => x.id === sid)).filter(Boolean);
     const entries = sheets.map((x) => D.sp[x.id]).filter(Boolean);
-    const hasGeo = Number.isFinite(Number(pl.lat)) && Number.isFinite(Number(pl.lon));
-    const placeEntry = hasGeo || entries.length ? { place: { name: pl.name_ru, city: "Париж", lat: Number(pl.lat), lon: Number(pl.lon) }, pairs: entries.flatMap((x) => x.pairs).filter((q, k, a) => a.findIndex((z) => z.id === q.id) === k), href: null } : null;
+    const coordinates = placeCoordinates(pl);
+    const placeEntry = coordinates || entries.length ? { place: { name: pl.name_ru, city: "Париж", ...coordinates }, pairs: entries.flatMap((x) => x.pairs).filter((q, k, a) => a.findIndex((z) => z.id === q.id) === k), href: null } : null;
     const compareHtml = placeEntry ? compareSection(placeEntry) : "";
-    const mapHtml = placeEntry && hasGeo ? placeSection(placeEntry) : "";
+    const mapHtml = placeEntry && coordinates ? placeSection(placeEntry) : "";
     const lostNote = pl.status === "lost" ? `<div class="lt-tool" role="note"><span class="lt-legend">Сравнение с фото</span><p>Здания больше нет, поэтому «того же кадра» сегодня не существует. Мы не подгоняем чужой фасад под этот лист: показываем лист и то, что теперь на этом месте.</p></div>` : "";
     $app.innerHTML = `<div class="page-enter">
       <section class="chead"><p class="eyebrow">История места · ${esc(STATUS[pl.status] || "")}</p><h1>${esc(pl.name_ru)}</h1><p class="lede">${esc(pl.lede_ru)}</p></section>
@@ -527,16 +534,19 @@
       <ol class="story">${pl.facts.map((f) => `<li><span class="when">${esc(f.date)}</span><p>${esc(f.text_ru)}</p><a class="src" href="${esc(safe(f.source_url))}" target="_blank" rel="noopener">${esc(f.source_name || host(f.source_url))} ↗</a></li>`).join("")}</ol>
       ${pl.changes_ru && pl.changes_ru.length ? `<h2>Что изменилось</h2><ul class="facts-list">${pl.changes_ru.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
       ${mapHtml}
-      ${pl.old_plan ? `<h2>Старый план</h2><p>${esc(pl.old_plan.note)} <a href="../eras/">Открыть карту эпох →</a> Слой «Старый план Парижа 1878» включается на карте выше.</p>` : ""}
+      ${pl.old_plan ? `<h2>Старый план</h2><p>${esc(pl.old_plan.note)} <a href="../eras/">Открыть карту эпох →</a> ${coordinates ? "Слой «Старый план Парижа 1878» включается на карте выше." : ""}</p>` : ""}
       ${pl.unknowns_ru && pl.unknowns_ru.length ? `<h2>Не установлено</h2><ul class="facts-list unk">${pl.unknowns_ru.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
       <p class="small">${esc(pl.print_licence_note || "")}</p>
       ${dock(next ? { href: "#/place/" + next.id, t: next.name_ru, small: "Следующее место" } : { href: "#/places", t: "Все места" }, prev ? { href: "#/place/" + prev.id, t: prev.name_ru } : { href: "#/places", t: "Истории мест" })}</div>`;
-    if (placeEntry && hasGeo) mountPlace(placeEntry);
+    if (placeEntry && coordinates) mountPlace(placeEntry);
     if (placeEntry) wireAngles(placeEntry);
   }
   function viewPlaces() {
     setTitle("Истории мест"); crumbs([{ t: "Книга", href: "#/" }, { t: "Истории мест" }]);
-    const geoPlaces = D.places.filter((p) => Number.isFinite(Number(p.lat)) && Number.isFinite(Number(p.lon))).map((p) => ({ title: p.name_ru, lat: Number(p.lat), lon: Number(p.lon), href: `#/place/${encodeURIComponent(p.id)}`, cta: "Открыть историю →" }));
+    const geoPlaces = D.places.flatMap((p) => {
+      const coordinates = placeCoordinates(p);
+      return coordinates ? [{ title: p.name_ru, ...coordinates, href: `#/place/${encodeURIComponent(p.id)}`, cta: "Открыть историю →" }] : [];
+    });
     $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Здания на листах</p><h1>Истории мест</h1><p class="lede">Что стояло на листе, что с этим стало и откуда мы это знаем. Каждый факт ведёт к источнику.</p></section>
       <ol class="toc">${D.places.map((p) => `<li><a href="#/place/${esc(p.id)}"><span class="nm">${esc(p.name_ru)}</span><span class="num">${plural(p.facts.length, "факт", "факта", "фактов")}</span><span class="sub">${esc(STATUS[p.status] || "")}</span></a></li>`).join("")}</ol>
       ${geoPlaces.length ? `<h2>На карте Парижа</h2><div class="lmap" id="lmap" role="region" aria-label="Карта: исторические места"></div><p class="small">Нажмите метку, чтобы открыть историю здания.</p>` : ""}
