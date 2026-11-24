@@ -16,6 +16,7 @@ main{width:min(100%,1280px);padding:clamp(10px,3vw,42px);text-align:center}
 .postcard:hover{transform:translateY(-3px);box-shadow:0 22px 70px #41281865}
 .postcard:focus-visible{outline:4px solid var(--wine)}
 .postcard img{display:block;width:100%;height:auto;aspect-ratio:1200/630;background:var(--paper)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 .note{font:14px/1.5 Georgia,serif;margin:17px 0 8px}
 .credits{font:11px/1.5 Arial,sans-serif;color:#745e4b;margin:0}
 .credits a{color:inherit;text-underline-offset:3px}
@@ -25,6 +26,7 @@ main{width:min(100%,1280px);padding:clamp(10px,3vw,42px);text-align:center}
 </head>
 <body>
 <main>
+<h1 class="sr-only">Город на бумаге — визитка музея</h1>
 <a class="postcard" href="../" aria-label="Открыть главную страницу музея «Город на бумаге»">
 <img src="../assets/share/benoist-paris.jpg" alt="Визитка онлайн-музея «Город на бумаге». Подлинные литографии Бенуа: Нотр-Дам, Лувр, Вандомская колонна. Нажмите для перехода на главную страницу музея." width="1200" height="630" loading="eager" fetchpriority="high">
 </a>
