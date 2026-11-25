@@ -19,13 +19,15 @@ async function requireImage(page,id,min=80){await page.waitForFunction(({selecto
     const overflow=await p.evaluate(()=>({scroll:document.documentElement.scrollWidth,view:innerWidth,offenders:[...document.querySelectorAll("body *")].filter(e=>{let r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+3}).slice(0,6).map(e=>({tag:e.tagName,cls:typeof e.className==="string"?e.className.slice(0,60):"",id:e.id,right:Math.round(e.getBoundingClientRect().right)}))}));if(overflow.scroll>overflow.view+2)throw Error(label+": horizontal overflow "+path+" "+JSON.stringify(overflow));
    }
    await p.goto(new URL("invite/",base).href,{waitUntil:"domcontentloaded"});
-   if(await p.locator(".art .print").count()!==3)throw Error(label+": Benoist postcard missing three originals");
-   await p.waitForFunction(()=>[...document.querySelectorAll(".art .print img")].length===3&&[...document.querySelectorAll(".art .print img")].every(x=>x.complete&&x.naturalWidth>300),null,{timeout:20000});
-   const pics=await p.locator(".art .print img").evaluateAll(xs=>xs.map(x=>({loaded:x.complete&&x.naturalWidth>300,src:x.currentSrc,alt:x.alt})));
-   if(pics.some(x=>!x.loaded||!x.src.includes("/book/img/benoist/")))throw Error(label+": genuine museum images unavailable: "+JSON.stringify(pics));
-   const card=await p.locator("a.postcard").first().getAttribute("href");
-   if(card!=="../"||await p.locator("a.postcard .print img").count()!==3)throw Error(label+": whole postcard must link to the main museum");
-   if(!(await p.locator("a.postcard .cta").textContent()).includes("Открыть цифровой музей"))throw Error(label+": postcard lacks clear museum CTA");
+   if(await p.locator("h1").count()!==1||!(await p.locator("h1").textContent()).includes("Город на бумаге"))throw Error(label+": postcard heading missing");
+   if(await p.locator("a.postcard").count()!==1||await p.locator("a.postcard img").count()!==1)throw Error(label+": expected one linked postcard");
+   await requireImage(p,"a.postcard img",1000);
+   const pic=await p.locator("a.postcard img").evaluate(x=>({src:x.currentSrc,alt:x.alt}));
+   if(!pic.src.endsWith("/assets/share/benoist-paris.jpg")||!pic.alt.includes("Бенуа"))throw Error(label+": postcard image or description missing");
+   if(await p.locator("a.postcard").getAttribute("href")!=="../"||!(await p.locator("a.postcard").getAttribute("aria-label"))?.includes("музея"))throw Error(label+": postcard navigation missing");
+   if(!(await p.locator(".note").textContent()).includes("открыть музей"))throw Error(label+": postcard instruction missing");
+   const credits=await p.locator(".credits a").evaluateAll(xs=>xs.map(x=>x.href));
+   if(credits.length!==3||credits.some(x=>!/^https:\/\/(www\.)?parismuseescollections\.paris\.fr\//.test(x))||!(await p.locator(".credits").textContent()).includes("CC0"))throw Error(label+": postcard source credits missing");
    const canonical=await p.locator("a.postcard").first().evaluate(x=>x.href);
    if(canonical!==new URL("",base).href)throw Error(label+": postcard points away from main museum: "+canonical);
    const publicRobots=await p.locator('meta[name="robots"][content*="index,follow"]').count();
