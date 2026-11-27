@@ -98,6 +98,48 @@
     }
   }
 
-  const api = { LIM, delaunay, buildMesh, gate, affine, hullArea, minAreaOverT, render };
+  /* LOCAL morph: the photo patch inside the trust region (hull of the control points) slides from its as-shot layout
+   * onto the print's geometry. Outside the hull the print is never touched. Quality limits are the same numbers the
+   * comparison tool already uses for a "high" alignment (rms <= 0.5 %, leave-one-out <= 1.5 % of the sheet diagonal);
+   * only the coverage rule is dropped, because the effect is confined to the measured region. */
+  const LOCAL = { minPoints: 6, maxRms: 0.005, maxLoo: 0.015 };
+  function gateLocal(pair) {
+    const why = [], cp = pair.control_points || [], al = pair.alignment || {};
+    if (cp.length < LOCAL.minPoints) return { ok: false, why: [`контрольных точек ${cp.length}, нужно не меньше ${LOCAL.minPoints}`] };
+    if (al.confidence === "viewpoint_mismatch") why.push("ракурсы признаны несовместимыми");
+    if (!(al.rms_rel_diag <= LOCAL.maxRms)) why.push(`средняя ошибка точек ${Math.round(al.rms_rel_diag * 1000) / 10}% диагонали листа, допустимо ${LOCAL.maxRms * 100}%`);
+    if (!(al.loo_max_rel_diag <= LOCAL.maxLoo)) why.push(`проверка «без одной точки» ${Math.round(al.loo_max_rel_diag * 1000) / 10}%, допустимо ${LOCAL.maxLoo * 100}%`);
+    const B = cp.map((c) => c.historic), Pp = cp.map((c) => c.photo);
+    const hb = hullArea(B), hp = hullArea(Pp);
+    if (!(hb > 0 && hp > 0)) return { ok: false, why: why.concat("точки лежат на одной прямой") };
+    const k = Math.sqrt(hb / hp), cen = (arr) => [arr.reduce((q, v) => q + v[0], 0) / arr.length, arr.reduce((q, v) => q + v[1], 0) / arr.length];
+    const cb = cen(B), cp0 = cen(Pp), A = Pp.map((q) => [cb[0] + (q[0] - cp0[0]) * k, cb[1] + (q[1] - cp0[1]) * k]);
+    const [hw, hh] = pair.historic.size, nrm = (arr) => arr.map((q) => [q[0] / hw, q[1] / hh]);
+    const An = nrm(A), Bn = nrm(B), tris = delaunay(Bn);
+    for (const t of tris) {
+      const r = minAreaOverT(t[0], t[1], t[2], An, Bn);
+      if (r.min <= 0) { why.push("при перетекании треугольник сетки выворачивается"); break; }
+      if (Math.abs(r.f0) > 0 && r.min / Math.abs(r.f0) < LIM.minAreaRatio) { why.push("при перетекании треугольник сетки схлопывается"); break; }
+    }
+    return { ok: why.length === 0, why, local: { A, B, photoPts: Pp, photoSize: pair.photo.size, tris, hullPrint: hb / (hw * hh), n: cp.length } };
+  }
+
+  function renderLocal(ctx, imgPrint, imgPhoto, m, t, W, H, histSize) {
+    const sx = W / histSize[0], sy = H / histSize[1], e = t * t * (3 - 2 * t); // smoothstep
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H); ctx.drawImage(imgPrint, 0, 0, W, H);
+    const V = m.A.map((a, i) => [(a[0] + e * (m.B[i][0] - a[0])) * sx, (a[1] + e * (m.B[i][1] - a[1])) * sy]);
+    const k = imgPhoto.naturalWidth / (m.photoSize ? m.photoSize[0] : imgPhoto.naturalWidth);
+    ctx.save();
+    if (e >= 0.999) { ctx.beginPath(); for (const tr of m.tris) { ctx.moveTo(...V[tr[0]]); ctx.lineTo(...V[tr[1]]); ctx.lineTo(...V[tr[2]]); ctx.closePath(); } ctx.clip(); }
+    ctx.globalAlpha = Math.min(1, e * 1.2);
+    for (const tr of m.tris) {
+      const src = tr.map((i) => [m.photoPts[i][0] * k, m.photoPts[i][1] * k]), dst = tr.map((i) => V[i]);
+      ctx.save(); ctx.beginPath(); ctx.moveTo(...dst[0]); ctx.lineTo(...dst[1]); ctx.lineTo(...dst[2]); ctx.closePath(); ctx.clip();
+      ctx.setTransform(...affine(src, dst)); ctx.drawImage(imgPhoto, 0, 0); ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  const api = { LIM, LOCAL, delaunay, buildMesh, gate, gateLocal, affine, hullArea, minAreaOverT, render, renderLocal };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.CoPMorph = api;
 })(typeof window !== "undefined" ? window : globalThis);

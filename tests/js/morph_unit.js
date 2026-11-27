@@ -25,4 +25,13 @@ assert.deepStrictEqual([a, b, c, d, e, g].map((v) => Math.round(v * 1e9) / 1e9),
 // 7. exact minimum of the quadratic area: a triangle that flips has min <= 0
 const A = [[0, 0], [1, 0], [0, 1]], B = [[0, 0], [1, 0], [0, -1]];
 assert.ok(M.minAreaOverT(0, 1, 2, A, B).min <= 0);
+// 8. local morph: the documented Notre-Dame pair passes with the same error limits as a "high" fit, madeleine-ph-benoist does not
+const fs = require("fs"), pr = (n) => JSON.parse(fs.readFileSync(__dirname + "/../../poc/compare/pairs/" + n + ".json", "utf8"));
+const nd = M.gateLocal(pr("notre-dame-benoist-carnavalet"));
+assert.ok(nd.ok, nd.why.join("; "));
+assert.ok(nd.local.hullPrint > 0.04 && nd.local.hullPrint < 0.5, "trust region share " + nd.local.hullPrint);
+const bad = M.gateLocal(pr("madeleine-ph-benoist"));
+assert.ok(!bad.ok && /допустимо/.test(bad.why.join()));
+for (const n of ["madeleine-benoist-carnavalet", "louvre-colonnade-benoist-carnavalet"]) assert.ok(M.gateLocal(pr(n)).ok, n);
+assert.ok(!M.gateLocal(pr("synthetic-parallax")).ok, "parallax synthetic must fail the leave-one-out limit");
 console.log("morph unit: ok");

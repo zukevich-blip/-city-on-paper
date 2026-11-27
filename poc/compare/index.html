@@ -676,16 +676,25 @@ function showImgError(){
 let requestedPair = 0;
 let userFit = null;
 function setupMorph() {
-  const why = $("morphWhy"), live = $("morphLive"); live.hidden = true;
+  const why = $("morphWhy"), live = $("morphLive"); live.hidden = true; why.textContent = "";
   if (!window.CoPMorph || !pair || !pair.control_points) { $("morphBox").hidden = true; return; }
   $("morphBox").hidden = false;
-  const g = window.CoPMorph.gate(pair);
-  if (!g.ok) { why.textContent = "Перетекание недоступно для этой пары: " + g.why.join("; ") + ". Пока смотрите шторку, «Рядом» или отдельные детали: мы не растягиваем кадр, чтобы создать видимость совпадения."; return; }
-  why.textContent = "Сетка из " + g.mesh.n + " проверенных точек не выворачивается на всём пути. Рисунок и фото перетекают по треугольникам; вне точек (края кадра) подгонка условная.";
+  const g = window.CoPMorph.gate(pair), cv = $("morphCv"), ctx = cv.getContext("2d"), A = $("histImg"), B = $("photoImg");
+  let draw = null;
+  if (g.ok) {
+    why.textContent = "Сетка из " + g.mesh.n + " проверенных точек не выворачивается на всём пути. Рисунок и фото перетекают по треугольникам; вне точек (края кадра) подгонка условная.";
+    cv.width = 900; cv.height = 630;
+    draw = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); window.CoPMorph.render(ctx, A, B, g.mesh, $("morphT").value / 100, cv.width, cv.height); };
+  } else {
+    const l = window.CoPMorph.gateLocal(pair);
+    if (!l.ok) { why.textContent = "Перетекание недоступно для этой пары: " + g.why.concat(l.why).join("; ") + ". Пока смотрите шторку, «Рядом» или отдельные детали: мы не растягиваем кадр, чтобы создать видимость совпадения."; return; }
+    const [hw, hh] = pair.historic.size; cv.width = 900; cv.height = Math.round(900 * hh / hw);
+    why.textContent = "Местное перетекание: участок фото внутри отмеченной зоны (" + l.local.n + " точек, ошибка в пределах допуска «высокой» подгонки) переходит из своего ракурса в перспективу рисунка. Рисунок вне зоны не меняется; на остальной части листа совмещения нет.";
+    draw = () => { window.CoPMorph.renderLocal(ctx, A, B, l.local, $("morphT").value / 100, cv.width, cv.height, pair.historic.size); };
+  }
   live.hidden = false;
-  const cv = $("morphCv"), ctx = cv.getContext("2d"), A = $("histImg"), B = $("photoImg");
-  const draw = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); window.CoPMorph.render(ctx, A, B, g.mesh, $("morphT").value / 100, cv.width, cv.height); $("morphTv").textContent = $("morphT").value + "%"; };
-  $("morphT").oninput = draw; draw();
+  const go = () => { draw(); $("morphTv").textContent = $("morphT").value + "%"; };
+  $("morphT").oninput = go; go();
 }
 async function loadPair(id){
   const request = ++requestedPair;
