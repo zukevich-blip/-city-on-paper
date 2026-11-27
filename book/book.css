@@ -249,3 +249,4 @@ html{scroll-padding-bottom:96px}
 .angles{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}.angles .angbtn{min-height:44px}
 .angles .angbtn[aria-pressed=true]{background:#355a43;border-color:#2a4636;color:#fbf5e4}
 .angmeta{margin:6px 0}
+.lens .lensbtn{min-height:44px}.lens .lensbtn[aria-pressed=true]{background:#355a43;border-color:#2a4636;color:#fbf5e4}

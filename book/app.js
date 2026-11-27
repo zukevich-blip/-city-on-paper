@@ -344,6 +344,42 @@
 
   // ---------- one sheet, large, with a zoom slider and neighbours
   const ARTIST = { "philippe-benoist": "Филипп Бенуа", "felix-benoist": "Феликс Бенуа", "uncertain-benoist": "Бенуа, имя не уточнено", other: "Другие авторы" };
+  // display-only looks for a sheet (edge kernel adapted from the Gemini "computer-vision" portable package, v10)
+  function sobelEdges(src) {
+    const { width: w, height: h, data } = src, g = new Float32Array(w * h), out = new Uint8ClampedArray(data.length).fill(255);
+    for (let p = 0; p < w * h; p++) { const i = p * 4; g[p] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]; }
+    for (let y = 1; y < h - 1; y++) for (let x = 1; x < w - 1; x++) {
+      const p = y * w + x;
+      const gx = -g[p - w - 1] + g[p - w + 1] - 2 * g[p - 1] + 2 * g[p + 1] - g[p + w - 1] + g[p + w + 1];
+      const gy = -g[p - w - 1] - 2 * g[p - w] - g[p - w + 1] + g[p + w - 1] + 2 * g[p + w] + g[p + w + 1];
+      const v = Math.max(0, Math.min(255, Math.round(255 - Math.hypot(gx, gy) * 1.2))), i = p * 4;
+      out[i] = out[i + 1] = out[i + 2] = v;
+    }
+    return new ImageData(out, w, h);
+  }
+  function wireLens(im) {
+    const btns = document.querySelectorAll(".lensbtn"); if (!btns.length) return;
+    let cv = null;
+    const press = (k) => btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lens === k)));
+    const set = (k) => {
+      press(k);
+      im.style.filter = k === "contrast" ? "contrast(1.4)" : k === "shadow" ? "brightness(1.18) contrast(1.08)" : "";
+      if (cv) { cv.remove(); cv = null; }
+      im.style.display = "";
+      if (k !== "edges") return;
+      const draw = () => {
+        try {
+          const c = document.createElement("canvas"), w = im.naturalWidth, h = im.naturalHeight; c.width = w; c.height = h;
+          const x = c.getContext("2d"); x.drawImage(im, 0, 0); x.putImageData(sobelEdges(x.getImageData(0, 0, w, h)), 0, 0);
+          c.style.cssText = "display:block;max-width:none;height:auto;width:" + (im.style.width || "100%"); c.setAttribute("role", "img"); c.setAttribute("aria-label", "Контуры листа, показ на экране");
+          cv = c; im.style.display = "none"; im.parentNode.append(c);
+        } catch (e) { press("orig"); }
+      };
+      im.complete && im.naturalWidth ? draw() : im.addEventListener("load", draw, { once: true });
+    };
+    btns.forEach((b) => b.addEventListener("click", () => set(b.dataset.lens)));
+    document.getElementById("zoomrange").addEventListener("input", () => { if (cv) cv.style.width = im.style.width; });
+  }
   const placeForSheet = (sh) => D.places.find((x) => (x.related_sheet_ids || []).includes(sh.id)) || null;
   function viewSheet(id) {
     const i = D.sheets.findIndex((x) => x.id === id), sh = D.sheets[i];
@@ -359,6 +395,7 @@
       <section class="chead"><p class="eyebrow">Лист ${i + 1} из ${D.sheets.length} · ${esc(sh.holder)}</p><h1>${esc(title)}</h1></section>
       <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Лист крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(sh.image)}" alt="${esc(sh.title)}" width="1280"></div>
         <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        <div class="lt-tool lens" role="group" aria-label="Как рассмотреть лист"><span class="lt-legend">Рассмотреть иначе</span>${[["orig", "Оригинал"], ["contrast", "Контраст"], ["shadow", "Тени"], ["edges", "Контур"]].map(([k, t]) => `<button type="button" class="btn ghost lensbtn" data-lens="${k}" aria-pressed="${k === "orig"}">${t}</button>`).join("")}<p class="small">Только показ на экране: файл не меняется. Это не научный снимок и не «реставрация».</p></div>
         <figcaption class="lt-imprint"><span class="l">${esc(sh.holder)}</span><span class="c">${esc(sh.rights)}</span><span class="r">${esc(sh.accession)}</span></figcaption></figure>
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
       <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
@@ -369,6 +406,7 @@
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+    wireLens(im);
     mountPlace(D.sp[sh.id]); wireAngles(D.sp[sh.id]);
   }
 
