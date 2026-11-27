@@ -380,6 +380,16 @@
     btns.forEach((b) => b.addEventListener("click", () => set(b.dataset.lens)));
     document.getElementById("zoomrange").addEventListener("input", () => { if (cv) cv.style.width = im.style.width; });
   }
+  // outside <-> inside of one building, only from sheets the book really has (no interior is ever borrowed from another hall)
+  const isInterior = (x) => /int[eé]rieur|interior|innen|binnen|galerie d/i.test(x.title);
+  function insideOutside(sh) {
+    const pid = ((D.sp[sh.id] || {}).place || {}).id; if (!pid) return "";
+    const kin = D.sheets.filter((x) => x.id !== sh.id && ((D.sp[x.id] || {}).place || {}).id === pid && isInterior(x) !== isInterior(sh)).slice(0, 4);
+    if (!kin.length) return "";
+    const inside = isInterior(sh);
+    return `<h2>${inside ? "Снаружи того же здания" : "Войти внутрь"}</h2><p class="small">${inside ? "Этот лист показывает внутреннее помещение. Фасад и город вокруг — на листах ниже." : "Для этого здания в книге есть лист с интерьером. Современный снимок помещения показан только там, где он действительно из этого зала."}</p>
+      <div class="plates">${kin.map((x) => `<a class="pl" href="#/sheet/${esc(x.id)}"><img src="${esc(x.image)}" alt="" loading="lazy" width="400"><span class="t">${esc(cut(x.title.split(" / ")[0], 40))}</span><span class="s">${esc(x.holder)}</span></a>`).join("")}</div>`;
+  }
   const placeForSheet = (sh) => D.places.find((x) => (x.related_sheet_ids || []).includes(sh.id)) || null;
   function viewSheet(id) {
     const i = D.sheets.findIndex((x) => x.id === id), sh = D.sheets[i];
@@ -400,6 +410,7 @@
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
       <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
         <dt>Оригинал</dt><dd><a href="${esc(safe(sh.record_url))}" target="_blank" rel="noopener">карточка в собрании ↗</a></dd>${more ? `<dt>Другие экземпляры</dt><dd>${more}</dd>` : ""}</dl>
+      ${insideOutside(sh)}
       ${pl ? `<h2>История места</h2><p><a class="btn ghost" href="#/place/${esc(pl.id)}">${esc(pl.name_ru)}: что стояло, что изменилось →</a></p>` : ""}
       ${compareSection(D.sp[sh.id])}
       ${placeSection(D.sp[sh.id])}
