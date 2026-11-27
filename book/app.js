@@ -495,6 +495,15 @@
       document.getElementById("angmeta").innerHTML = angleMeta(q);
     }));
   }
+  // georeferenced atlas sheets of the SODUCO project (Allmaps annotations are read from their repository at the visitor's request;
+  // the map images come from the libraries' IIIF servers; we copy neither). Terms of use stay with the sources.
+  const SODUCO = [
+    { year: 1789, title: "Atlas Verniquet, BnF", annId: "bnf_verniquet_37", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bnf_verniquet/annotation_bnf_verniquet.json" },
+    { year: 1836, title: "Atlas Jacoubet, BHVP", annId: "bhvp_jacoubet_32", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhvp_jacoubet/annotation_bhvp_jacoubet.json" },
+    { year: 1868, title: "Atlas municipal, BHdV", annId: "atlas_municipal_1868_bhdv_2", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhdv_atlas_municipal_1868/annotation_bhdv_atlas_municipal_1868.json" },
+    { year: 1888, title: "Atlas municipal, BHdV", annId: "atlas_municipal_1888_bhdv_2", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhdv_atlas_municipal_1888/annotation_bhdv_atlas_municipal_1888.json" },
+    { year: 1900, title: "Atlas municipal, BHdV", annId: "atlas_municipal_1900_bhdv_2", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhdv_atlas_municipal_1900/annotation_bhdv_atlas_municipal_1900.json" },
+  ];
   const CITE = { s: 48.8512, n: 48.8576, w: 2.3418, e: 2.3532 }; // extent of the open Île de la Cité contour layers
   const inCite = (p) => p && p.lat >= CITE.s && p.lat <= CITE.n && p.lon >= CITE.w && p.lon <= CITE.e;
   const gmaps = (p) => `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
@@ -539,6 +548,24 @@
         draw();
       } catch (err) { note.textContent = "Контуры сейчас недоступны."; loaded = false; }
     });
+    let warped = null;
+    const sel = document.getElementById("oldmapSel"), opr = document.getElementById("oldmapOp"), onote = document.getElementById("oldmapNote");
+    sel.addEventListener("change", async () => {
+      if (warped) { map.removeLayer(warped); warped = null; }
+      if (sel.value === "") { onote.textContent = ""; return; }
+      const m = SODUCO[Number(sel.value)]; onote.textContent = "Загружаю привязку карты…";
+      try {
+        const [{ WarpedMapLayer }, page] = await Promise.all([import("../eras/vendor/allmaps-leaflet-beta55/layer.js"), fetch(m.url).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })]);
+        const ann = (page.items || []).find((x) => x.id === m.annId); if (!ann) throw new Error("no annotation");
+        const layer = new WarpedMapLayer(undefined, { opacity: Number(opr.value) / 100, zIndex: 250 });
+        const res = layer.addGeoreferenceAnnotation(ann);
+        if (!res.length || res.every((x) => x instanceof Error)) throw new Error("bad annotation");
+        if (Number(sel.value) !== SODUCO.indexOf(m)) return;
+        warped = layer; layer.addTo(map);
+        onote.textContent = `${m.year}: ${m.title}. Привязка проекта SODUCO (Allmaps), изображение с сервера библиотеки; точность по опорным точкам, не геодезическая. Если карта не появилась, сервер библиотеки сейчас недоступен.`;
+      } catch (err) { onote.textContent = "Эту карту сейчас загрузить не удалось (сервер привязки или библиотеки недоступен). Остальные слои работают."; }
+    });
+    opr.addEventListener("input", () => { if (warped && warped.setOpacity) warped.setOpacity(Number(opr.value) / 100); });
     yr.addEventListener("input", draw);
     box.querySelectorAll(".laychk").forEach((c) => c.addEventListener("change", () => { on[c.dataset.k] = c.checked; draw(); }));
     box.querySelectorAll(".layop").forEach((c) => c.addEventListener("input", draw));
@@ -559,6 +586,8 @@
           <label for="yearRange"><span class="lt-legend">Эпоха</span> <b id="yearVal">1843</b></label><input id="yearRange" type="range" min="1200" max="2025" step="1" value="1843">
           <p class="small">Показаны контуры, которые на карте существовали в этом году (OpenHistoricalMap; даты вносят волонтёры). <span style="color:#8d4b36">Красным</span>: на месте центра контура сегодня нет здания (по IGN). Это эвристика, не доказательство сноса.</p>
           ${[["ohm", "Здания в выбранный год", 70], ["vas", "Участки Вассеро 1810–1836", 45], ["ign", "Здания сегодня (IGN)", 60]].map(([k, t, v]) => `<div class="layrow"><label><input type="checkbox" class="laychk" data-k="${k}"${k === "ohm" ? " checked" : ""}> ${t}</label><input type="range" class="layop" data-k="${k}" min="10" max="100" value="${v}" aria-label="Прозрачность: ${t}"></div>`).join("")}
+          <div class="layrow"><label for="oldmapSel">Старая карта эпохи (Allmaps)</label><select id="oldmapSel"><option value="">нет</option>${SODUCO.map((m, i) => `<option value="${i}">${m.year}: ${esc(m.title)}</option>`).join("")}</select><input type="range" id="oldmapOp" min="10" max="100" value="75" aria-label="Прозрачность старой карты"></div>
+          <p class="small" id="oldmapNote" role="status"></p>
           ${inPlan(e.place) ? `<button type="button" class="btn ghost" id="loupeBtn" aria-pressed="false" hidden>Лупа: старый план в круге</button>` : ""}
           <p class="small" id="layNote" role="status"></p>
           <details class="lost"><summary>Что исчезло к сегодняшнему дню</summary><ul id="lostList" class="facts-list"></ul></details>
