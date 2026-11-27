@@ -23,6 +23,7 @@ const check = (name, ok, detail = "") => { results.push(ok); console.log(`${ok ?
     await page.locator(".layers > summary").click();
     await page.waitForFunction(() => /контур/.test(document.getElementById("layNote").textContent), null, { timeout: 15000 });
     check(`${name}: place layers open`, true);
+    await page.locator(".lens > summary").click();
     await page.locator('.lensbtn[data-lens="edges"]').click();
     await page.waitForSelector(".zoomwrap canvas", { timeout: 15000 });
     check(`${name}: edge lens draws on a canvas`, true);

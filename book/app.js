@@ -405,15 +405,15 @@
       <section class="chead"><p class="eyebrow">Лист ${i + 1} из ${D.sheets.length} · ${esc(sh.holder)}</p><h1>${esc(title)}</h1></section>
       <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Лист крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(sh.image)}" alt="${esc(sh.title)}" width="1280"></div>
         <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
-        <div class="lt-tool lens" role="group" aria-label="Как рассмотреть лист"><span class="lt-legend">Рассмотреть иначе</span>${[["orig", "Оригинал"], ["contrast", "Контраст"], ["shadow", "Тени"], ["edges", "Контур"]].map(([k, t]) => `<button type="button" class="btn ghost lensbtn" data-lens="${k}" aria-pressed="${k === "orig"}">${t}</button>`).join("")}<p class="small">Только показ на экране: файл не меняется. Это не научный снимок и не «реставрация».</p></div>
+        <details class="lt-tool lens"><summary>Рассмотреть иначе: контраст, тени, контур</summary><div class="lensrow" role="group" aria-label="Как рассмотреть лист">${[["orig", "Оригинал"], ["contrast", "Контраст"], ["shadow", "Тени"], ["edges", "Контур"]].map(([k, t]) => `<button type="button" class="btn ghost lensbtn" data-lens="${k}" aria-pressed="${k === "orig"}">${t}</button>`).join("")}</div><p class="small">Только показ на экране: файл не меняется. Это не научный снимок и не «реставрация».</p></details>
         <figcaption class="lt-imprint"><span class="l">${esc(sh.holder)}</span><span class="c">${esc(sh.rights)}</span><span class="r">${esc(sh.accession)}</span></figcaption></figure>
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
       <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
         <dt>Оригинал</dt><dd><a href="${esc(safe(sh.record_url))}" target="_blank" rel="noopener">карточка в собрании ↗</a></dd>${more ? `<dt>Другие экземпляры</dt><dd>${more}</dd>` : ""}</dl>
       ${insideOutside(sh)}
       ${pl ? `<h2>История места</h2><p><a class="btn ghost" href="#/place/${esc(pl.id)}">${esc(pl.name_ru)}: что стояло, что изменилось →</a></p>` : ""}
-      ${compareSection(D.sp[sh.id])}
       ${placeSection(D.sp[sh.id])}
+      ${compareSection(D.sp[sh.id])}
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });

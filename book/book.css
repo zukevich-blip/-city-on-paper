@@ -253,3 +253,14 @@ html{scroll-padding-bottom:96px}
 .layers{margin:10px 0}.layers summary{list-style:none;cursor:pointer}.layers summary::-webkit-details-marker{display:none}
 .layrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0}.layrow label{min-width:190px}.layrow input[type=range]{flex:1;min-width:120px;min-height:44px}
 #loupeBtn[aria-pressed=true]{background:#355a43;border-color:#2a4636;color:#fbf5e4}.lost summary{cursor:pointer;margin:6px 0}
+/* design review fixes (independent review, stage 3) */
+.dock{padding:6px 10px calc(6px + env(safe-area-inset-bottom));gap:6px}
+.dock .btn{min-height:44px;flex-direction:row;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:44px;padding:0 10px}
+.dock .btn small{display:none}.dock .btn.ghost{flex:0 0 32%}
+body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+.lens summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font:600 14px var(--lt-sans)}
+.lensrow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}.lensrow .lensbtn{padding:0 4px;min-width:0}
+.layers select{min-height:44px;font-size:16px;max-width:100%}.layrow label{display:flex;align-items:center;gap:8px;min-height:44px}
+.laychk{width:24px;height:24px}.mapext a,.lost summary{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:480px){h2{letter-spacing:.06em}}
+a.card:focus-visible,a.pl:focus-visible{outline:3px solid var(--lt-brick);outline-offset:2px}
