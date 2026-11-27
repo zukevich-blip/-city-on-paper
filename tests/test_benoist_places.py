@@ -5,11 +5,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PLACES = json.loads((ROOT / "data/stories/benoist-places-v1.json").read_text(encoding="utf-8"))["places"]
 SHEET_IDS = {s["id"] for s in json.loads((ROOT / "book/benoist-sheets.json").read_text(encoding="utf-8"))["sheets"]}
-EXPECTED = {"notre-dame", "sainte-chapelle", "louvre-colonnade", "palais-royal", "tuileries"}
+EXPECTED = {"madeleine", "notre-dame", "sainte-chapelle", "louvre-colonnade", "palais-royal", "tuileries"}
 STATUSES = {"exists", "lost", "rebuilt"}
 
 
-def test_the_five_places_are_present_with_unique_ids():
+def test_the_six_places_are_present_with_unique_ids():
     ids = [p["id"] for p in PLACES]
     assert len(ids) == len(set(ids))
     assert set(ids) == EXPECTED

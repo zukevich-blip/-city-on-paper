@@ -120,7 +120,7 @@ const SHEETS = SHEET_LIST.length;
     check(`${v.name}: a register entry opens our own page, not the museum`, /#\/work\//.test(page.url()) && (await page.locator(".facts").innerText()).includes("Автор"));
     await page.goto(base + "#/places", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".toc li");
-    check(`${v.name}: five place histories are listed`, (await page.locator(".toc li").count()) === 5);
+    check(`${v.name}: six place histories are listed`, (await page.locator(".toc li").count()) === 6);
     await page.goto(base + "#/place/tuileries", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".story li");
     check(`${v.name}: lost Tuileries says plainly that no same-view photo can exist`, /не существует/.test(await page.locator("[role=note]").innerText()));
