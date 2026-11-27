@@ -189,7 +189,8 @@ const SHEETS = SHEET_LIST.length;
     const t1 = await page.locator("#tlOut .small").innerText();
     check(`${v.name}: timeline sliders narrow the range and the list`, (await page.locator(".tlbar").count()) === 10 && t0 !== t1 && /1860–1862/.test(t1) && (await page.locator("#tlOut .cw").count()) > 0, t1.slice(0, 60));
     check(`${v.name}: timeline has no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
-    await page.goto(base + "#/plate/nonexistent", { waitUntil: "networkidle" });
+    await page.goto(base + "#/plate/nonexistent", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("main h1");
     check(`${v.name}: unknown page is explained, not blank`, /нет/i.test(await page.locator("main h1").first().innerText()));
     if (v.name === "desktop-1280") {
       const bad = [];
