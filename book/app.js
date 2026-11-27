@@ -484,6 +484,54 @@
       document.getElementById("angmeta").innerHTML = angleMeta(q);
     }));
   }
+  const CITE = { s: 48.8512, n: 48.8576, w: 2.3418, e: 2.3532 }; // extent of the open Île de la Cité contour layers
+  const inCite = (p) => p && p.lat >= CITE.s && p.lat <= CITE.n && p.lon >= CITE.w && p.lon <= CITE.e;
+  const gmaps = (p) => `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
+  const gstreet = (p) => `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${p.lat},${p.lon}`;
+  const gearth = (p) => `https://earth.google.com/web/search/${p.lat},${p.lon}`;
+  const inRing = (r, x, y) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > y) !== (r[j][1] > y) && x < ((r[j][0] - r[i][0]) * (y - r[i][1])) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; };
+  const centroid = (r) => [r.reduce((a, q) => a + q[0], 0) / r.length, r.reduce((a, q) => a + q[1], 0) / r.length];
+  const geoCache = {};
+  const loadGeo = (k) => geoCache[k] || (geoCache[k] = fetch(`geo/cite-${k}.json`).then((r) => r.json()));
+  function mountLayers(map, e) {
+    const box = document.querySelector(".layers"); if (!box || !inCite(e.place)) return;
+    const yr = document.getElementById("yearRange"), yv = document.getElementById("yearVal"), note = document.getElementById("layNote"), lost = document.getElementById("lostList");
+    const grp = { ohm: L.layerGroup(), vas: L.layerGroup(), ign: L.layerGroup() }, on = { ohm: true, vas: false, ign: false };
+    const op = (k) => Number(box.querySelector(`.layop[data-k="${k}"]`).value) / 100;
+    const style = { ohm: { color: "#355a43", fill: "#355a43" }, vas: { color: "#6b4a8a", fill: "#6b4a8a" }, ign: { color: "#1f4f8a", fill: "#1f4f8a" } };
+    let data = {}, modern = [];
+    const draw = () => {
+      const y = Number(yr.value); yv.textContent = y;
+      for (const k of ["ohm", "vas", "ign"]) { grp[k].clearLayers(); if (!on[k] || !data[k]) continue; }
+      let shown = 0, gone = [];
+      const add = (k, r, extra) => L.polygon(r.map(([x, yy]) => [yy, x]), { weight: 1, color: extra || style[k].color, fillColor: extra || style[k].fill, fillOpacity: op(k) * 0.55, opacity: op(k) }).addTo(grp[k]);
+      if (on.ohm && data.ohm) for (const f of data.ohm) {
+        if (f.s != null && f.s > y) continue; if (f.e != null && f.e <= y) continue; shown++;
+        const [cx, cy] = centroid(f.r), missing = modern.length && !modern.some((m) => cx >= m.b[0] && cx <= m.b[2] && cy >= m.b[1] && cy <= m.b[3] && inRing(m.r, cx, cy));
+        add("ohm", f.r, missing ? "#8d4b36" : null).bindTooltip((f.n || "здание") + (f.s ? ", с " + f.s : "") + (missing ? ": сегодня здания на этом месте нет" : ""));
+        if (missing && f.n) gone.push(f.n + (f.e ? " (контур до " + f.e + ")" : ""));
+      }
+      if (on.vas && data.vas) for (const f of data.vas) if (y >= 1810 && y <= 1865) add("vas", f.r);
+      if (on.ign && data.ign) for (const f of data.ign) add("ign", f.r);
+      note.textContent = on.ohm ? `${plural(shown, "контур", "контура", "контуров")} в ${y} году.` + (on.vas && (y < 1810 || y > 1865) ? " Участки Вассеро показываются только для 1810–1865." : "") : "";
+      lost.innerHTML = [...new Set(gone)].slice(0, 12).map((t) => `<li>${esc(t)}</li>`).join("") || "<li>В выбранном году именованных контуров без здания на месте сегодня не найдено.</li>";
+    };
+    const need = ["ohm", "vasserot", "ign"];
+    let loaded = false;
+    box.addEventListener("toggle", async () => {
+      if (!box.open || loaded) return; loaded = true; note.textContent = "Загружаю контуры…";
+      try {
+        const [o, v, g] = await Promise.all(need.map(loadGeo));
+        data = { ohm: o.features, vas: v.features, ign: g.features };
+        modern = g.features.map((f) => ({ r: f.r, b: [Math.min(...f.r.map((q) => q[0])), Math.min(...f.r.map((q) => q[1])), Math.max(...f.r.map((q) => q[0])), Math.max(...f.r.map((q) => q[1]))] }));
+        for (const k of ["ohm", "vas", "ign"]) grp[k].addTo(map);
+        draw();
+      } catch (err) { note.textContent = "Контуры сейчас недоступны."; loaded = false; }
+    });
+    yr.addEventListener("input", draw);
+    box.querySelectorAll(".laychk").forEach((c) => c.addEventListener("change", () => { on[c.dataset.k] = c.checked; draw(); }));
+    box.querySelectorAll(".layop").forEach((c) => c.addEventListener("input", draw));
+  }
   function placeSection(e) {
     if (!e || !e.place) {
       return `<h2>Где это</h2><div class="lt-tool" role="note"><span class="lt-legend">Место</span><p>Здание на этом листе мы пока не привязали к карте: название не позволяет назвать место без догадок.</p></div>`;
@@ -495,6 +543,17 @@
       <div class="lt-tool placectl"><button type="button" class="btn ghost" id="planBtn" aria-pressed="false"${plan ? "" : " hidden"}>Старый план Парижа 1878</button>
         <label for="planRange" id="planRangeL" hidden><span class="lt-legend">Прозрачность плана</span></label><input id="planRange" type="range" min="10" max="100" value="70" hidden>
         <p class="small" id="planNote" role="status"></p></div>
+      ${inCite(e.place) ? `<details class="layers"><summary class="btn ghost">История места по годам: здания, участки, лупа</summary>
+        <div class="lt-tool">
+          <label for="yearRange"><span class="lt-legend">Эпоха</span> <b id="yearVal">1843</b></label><input id="yearRange" type="range" min="1200" max="2025" step="1" value="1843">
+          <p class="small">Показаны контуры, которые на карте существовали в этом году (OpenHistoricalMap; даты вносят волонтёры). <span style="color:#8d4b36">Красным</span>: на месте центра контура сегодня нет здания (по IGN). Это эвристика, не доказательство сноса.</p>
+          ${[["ohm", "Здания в выбранный год", 70], ["vas", "Участки Вассеро 1810–1836", 45], ["ign", "Здания сегодня (IGN)", 60]].map(([k, t, v]) => `<div class="layrow"><label><input type="checkbox" class="laychk" data-k="${k}"${k === "ohm" ? " checked" : ""}> ${t}</label><input type="range" class="layop" data-k="${k}" min="10" max="100" value="${v}" aria-label="Прозрачность: ${t}"></div>`).join("")}
+          ${inPlan(e.place) ? `<button type="button" class="btn ghost" id="loupeBtn" aria-pressed="false" hidden>Лупа: старый план в круге</button>` : ""}
+          <p class="small" id="layNote" role="status"></p>
+          <details class="lost"><summary>Что исчезло к сегодняшнему дню</summary><ul id="lostList" class="facts-list"></ul></details>
+          <p class="small">Источники: © ALPAGE (ODbL, Arch. nat. F31 73-96 – Arch. Paris), OpenHistoricalMap (CC0), © IGN BD TOPO (Licence Ouverte 2.0).</p>
+        </div></details>` : ""}
+      <p class="small mapext">Открыть это место: <a href="${esc(gmaps(e.place))}" target="_blank" rel="noopener">Google Карты ↗</a> · <a href="${esc(gstreet(e.place))}" target="_blank" rel="noopener">Street View ↗</a> · <a href="${esc(gearth(e.place))}" target="_blank" rel="noopener">Google Earth ↗</a>. Откроется на сайте Google, наши данные туда не передаются.</p>
       <p class="small">${e.pairs.some((q) => q.photo && q.photo.lat) ? "Зелёный клин: куда смотрит современная фотография (положение камеры из данных Panoramax, направление по компасу снимка)." : "Современной фотографии для этого места пока нет, поэтому направление взгляда не показано."}${est ? " Где стоял художник, известно только как оценка по рисунку: " + esc(est) + "." : " Где стоял художник, мы не знаем: измерить это по рисунку без догадок нельзя."}</p>`;
   }
   let planData = null;
@@ -513,6 +572,7 @@
       pts.push([q.photo.lat, q.photo.lon]);
     }
     if (pts.length > 1) map.fitBounds(pts, { padding: [30, 30], maxZoom: 17 }); else map.setView(pts[0], 16);
+    mountLayers(map, e);
     const btn = document.getElementById("planBtn"), range = document.getElementById("planRange"), rl = document.getElementById("planRangeL"), note = document.getElementById("planNote");
     if (!btn || btn.hidden) return;
     let layer = null;
@@ -522,10 +582,19 @@
         this.image.style.clipPath = `polygon(${data.clip})`; this.image.style.opacity = String(range.value / 100);
         this.update = () => {
           const [tl, tr, , bl] = data.corners.map((c) => m.latLngToLayerPoint(c));
-          this.image.style.transform = `matrix(${(tr.x - tl.x) / 2000},${(tr.y - tl.y) / 2000},${(bl.x - tl.x) / 1448},${(bl.y - tl.y) / 1448},${tl.x},${tl.y})`;
+          this.m = [(tr.x - tl.x) / 2000, (tr.y - tl.y) / 2000, (bl.x - tl.x) / 1448, (bl.y - tl.y) / 1448, tl.x, tl.y];
+          this.image.style.transform = `matrix(${this.m.join(",")})`;
+          if (this.loupeAt) this.maskAt(this.loupeAt);
         };
         m.getPane("overlayPane").append(this.image); m.on("move zoom viewreset", this.update); this.update();
       },
+      maskAt(pt) { // circular window onto the old plan; the radius is 90 screen pixels whatever the plan scale
+        const [a, b2, c, d, e0, f0] = this.m, det = a * d - b2 * c; if (!det) return;
+        const u = (d * (pt.x - e0) - c * (pt.y - f0)) / det, v = (-b2 * (pt.x - e0) + a * (pt.y - f0)) / det, r = 90 / Math.sqrt(Math.abs(det));
+        const g = `radial-gradient(circle ${r}px at ${u}px ${v}px, #000 94%, transparent 100%)`;
+        this.image.style.webkitMaskImage = g; this.image.style.maskImage = g;
+      },
+      setLoupe(on) { this.loupeAt = on ? this.loupeAt || map.latLngToLayerPoint(map.getCenter()) : null; if (!on) { this.image.style.webkitMaskImage = this.image.style.maskImage = "none"; } else this.maskAt(this.loupeAt); },
       onRemove(m) { this.image.remove(); m.off("move zoom viewreset", this.update); },
     }))();
     btn.addEventListener("click", async () => {
@@ -539,6 +608,18 @@
       } catch (err) { note.textContent = "План сейчас недоступен."; btn.setAttribute("aria-pressed", "false"); }
     });
     range.addEventListener("input", () => { if (layer && layer.image) layer.image.style.opacity = String(range.value / 100); });
+    const lb = document.getElementById("loupeBtn");
+    if (lb) {
+      const move = (ev) => { if (layer && layer.loupeAt) { layer.loupeAt = map.mouseEventToLayerPoint(ev.touches ? ev.touches[0] : ev); layer.maskAt(layer.loupeAt); } };
+      lb.hidden = false;
+      lb.addEventListener("click", () => {
+        if (!layer || !map.hasLayer(layer)) { note.textContent = "Сначала включите «Старый план Парижа 1878» выше."; return; }
+        const on = lb.getAttribute("aria-pressed") !== "true"; lb.setAttribute("aria-pressed", String(on));
+        if (on) { map.dragging.disable(); range.value = 100; layer.image.style.opacity = "1"; } else map.dragging.enable();
+        layer.setLoupe(on);
+      });
+      el.addEventListener("mousemove", move); el.addEventListener("touchstart", move, { passive: true }); el.addEventListener("touchmove", move, { passive: true });
+    }
   }
 
   // ---------- the story of a place: every statement points to its source, unknowns are said aloud

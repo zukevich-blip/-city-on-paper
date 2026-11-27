@@ -250,3 +250,6 @@ html{scroll-padding-bottom:96px}
 .angles .angbtn[aria-pressed=true]{background:#355a43;border-color:#2a4636;color:#fbf5e4}
 .angmeta{margin:6px 0}
 .lens .lensbtn{min-height:44px}.lens .lensbtn[aria-pressed=true]{background:#355a43;border-color:#2a4636;color:#fbf5e4}
+.layers{margin:10px 0}.layers summary{list-style:none;cursor:pointer}.layers summary::-webkit-details-marker{display:none}
+.layrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0}.layrow label{min-width:190px}.layrow input[type=range]{flex:1;min-width:120px;min-height:44px}
+#loupeBtn[aria-pressed=true]{background:#355a43;border-color:#2a4636;color:#fbf5e4}.lost summary{cursor:pointer;margin:6px 0}
