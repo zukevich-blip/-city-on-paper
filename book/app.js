@@ -182,6 +182,8 @@
       ${featured.length ? `<h2 id="main">Главные виды</h2><div class="strip" role="list">${featured.map(({ p, hook, pair }) => pair
         ? `<a class="feat pairc" role="listitem" href="../poc/compare/?journey=1#${esc(pair.id)}"><img src="../poc/compare/pairs/${esc(pair.image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(pair.city)} · тогда и сейчас</span><b>${esc(pair.name)}</b><span class="hook">${esc(hook || "")}</span></span></a>`
         : `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(D.cities.get(p.city).name)}${p.date ? " · " + esc(p.date) : ""}</span><b>${esc(p.title)}</b><span class="hook">${esc(hook || "")}</span></span></a>`).join("")}</div>` : '<span id="main"></span>'}
+      <a class="theme" href="#/exhibitions"><span class="lt-small">Залы</span><b>Выставки</b><span>Рим, Венеция, исчезнувший Париж: сорок с лишним работ Пиранези, Каналетто, Мерьона и других, все открыты музеями.</span></a>
+      <a class="theme" href="#/albums"><span class="lt-small">Книги целиком</span><b>Исторические альбомы</b><span>«Paris dans sa splendeur» (1861): 71 планша в порядке издания, с обложкой и ссылкой на страницу библиотеки.</span></a>
       <a class="theme" href="#/benoist"><span class="lt-small">Тема издания</span><b>Листы Бенуа</b><span>Как читать подпись литографии, где есть листы Филиппа и Феликса Бенуа и как сравнить их с фото сегодня.</span></a>
       <a class="theme" href="#/catalog"><span class="lt-small">Реестр</span><b>Собрание</b><span>Все найденные листы Бенуа по авторам, сериям, странам и городам: сколько найдено, сколько проверено и сколько можно показать.</span></a>
       <a class="theme" href="#/timeline"><span class="lt-small">По годам</span><b>Хронология</b><span>Листы от 1790-х до 1880-х: двигайте ползунки и смотрите, что печатали в каждое десятилетие.</span></a>
@@ -784,6 +786,88 @@
     if (focus) map.setView(group[0], 16); else map.fitBounds(group, { padding: [24, 24], maxZoom: 15 });
   }
 
+
+  // ---------- exhibitions and the historical album reader (rights come from the museums' own open-data feeds)
+  const lazyJson = {};
+  const getJson = (u) => lazyJson[u] || (lazyJson[u] = fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }));
+  const exCap = (w) => `<figcaption class="excap"><b>${esc(w.title)}</b><span>${esc(w.artist)}${w.role ? ", " + esc(w.role) : ""}${w.date ? " · " + esc(w.date) : ""}${w.technique ? " · " + esc(cut(w.technique, 60)) : ""}</span><span class="small">${esc(w.credit)} · <a href="${esc(safe(w.record_url))}" target="_blank" rel="noopener">запись музея ↗</a></span></figcaption>`;
+  async function viewExhibitions() {
+    setTitle("Выставки"); crumbs([{ t: "Книга", href: "#/" }, { t: "Выставки" }]);
+    let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
+    $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Залы музея</p><h1>Выставки</h1><p class="lede">Большие темы вокруг наследия Бенуа: Рим, Венеция, исчезнувший Париж. Работы других мастеров открыты музеями, права и источник указаны у каждой.</p></section>
+      <div class="exlist">${X.exhibitions.map((e) => `<a class="exhall" href="#/exhibit/${esc(e.id)}"><img src="${esc(e.works[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(e.city)} · ${plural(e.works.length, "работа", "работы", "работ")}</span><b>${esc(e.title)}</b><span class="hook">${esc(e.lede)}</span></span></a>`).join("")}</div>
+      <p class="small">Правила: рисунки и гравюры берутся только там, где музей сам указал свободное использование; подпись составляется из записи музея, без домыслов. Работы Бенуа и других художников из книги не смешиваются: у каждого свои роли.</p>
+      ${dock({ href: "#/albums", t: "Альбомы" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewExhibit(id) {
+    let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
+    const ex = X.exhibitions.find((e) => e.id === id); if (!ex) return notFound();
+    setTitle(ex.title); crumbs([{ t: "Книга", href: "#/" }, { t: "Выставки", href: "#/exhibitions" }, { t: ex.title }]);
+    const ws = ex.works, fig = (w, cls = "") => `<figure class="exfig ${cls}"><a class="eximg" href="#/exwork/${esc(w.id)}"><img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" width="${w.w}" height="${w.h}"></a>${exCap(w)}</figure>`;
+    const parts = []; let i = 1; const rest = ws.slice(1, ws.length - 6 > 1 ? ws.length - 6 : ws.length);
+    let k = 0;
+    while (k < rest.length) {
+      const a = rest[k], b = rest[k + 1], kind = k % 5;
+      if (kind === 2 || !b) { parts.push(`<section class="spread full"><p class="eyebrow">Полноэкранное произведение</p>${fig(a)}</section>`); k += 1; }
+      else { const dialog = a.artist !== b.artist; parts.push(`<section class="spread pair"><p class="eyebrow">${dialog ? "Диалог: " + esc(a.artist) + " и " + esc(b.artist) : "Две связанные работы"}</p><div class="pairgrid">${fig(a)}${fig(b)}</div></section>`); k += 2; }
+      i++;
+    }
+    const tail = ws.slice(rest.length + 1);
+    $app.innerHTML = `<div class="page-enter exhibit"><section class="spread hero">${fig(ws[0], "heroimg")}<div class="herotext"><p class="eyebrow">${esc(ex.city)}</p><h1>${esc(ex.title)}</h1><p class="lede">${esc(ex.lede)}</p><p class="small">${plural(ws.length, "работа", "работы", "работ")} · ${[...new Set(ws.map((w) => w.artist))].map(esc).join(", ")}</p></div></section>
+      ${parts.join("")}
+      ${tail.length ? `<section class="spread mosaic"><p class="eyebrow">Музейная галерея</p><div class="mosaicgrid">${tail.map((w) => `<a class="mtile" href="#/exwork/${esc(w.id)}"><img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy"><span>${esc(cut(w.title, 46))}</span></a>`).join("")}</div></section>` : ""}
+      <p class="small">Все работы открыты музеями (Метрополитен, Национальная галерея искусства, Институт искусств Чикаго, Кливленд, Рейксмюзеум); условия указаны под каждой работой.</p>
+      ${dock({ href: "#/exhibitions", t: "Все выставки" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewExWork(id) {
+    let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
+    let ex, w; for (const e of X.exhibitions) { const f = e.works.find((x) => x.id === id); if (f) { ex = e; w = f; } }
+    if (!w) return notFound();
+    setTitle(w.title); crumbs([{ t: "Книга", href: "#/" }, { t: "Выставки", href: "#/exhibitions" }, { t: ex.title, href: "#/exhibit/" + ex.id }, { t: cut(w.title, 28) }]);
+    const i = ex.works.indexOf(w), nx = ex.works[i + 1], pv = ex.works[i - 1];
+    $app.innerHTML = `<div class="page-enter plate"><section class="chead"><p class="eyebrow">${esc(ex.title)} · ${i + 1} из ${ex.works.length}</p><h1>${esc(w.title)}</h1></section>
+      <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Работа крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(w.image)}" alt="${esc(w.title)}" width="${w.w}"></div>
+        <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        <figcaption class="lt-imprint"><span class="l">${esc(w.institution)}</span><span class="c">${esc(cut(w.rights, 60))}</span><span class="r">${esc(w.accession)}</span></figcaption></figure>
+      <dl class="facts"><dt>Автор</dt><dd>${esc(w.artist)}${w.role ? ", " + esc(w.role) : ""}</dd><dt>Дата</dt><dd>${esc(w.date || "в записи не указана")}</dd><dt>Техника</dt><dd>${esc(w.technique || "в записи не указана")}</dd>${w.series ? `<dt>Серия</dt><dd>${esc(w.series)}</dd>` : ""}<dt>Музей</dt><dd>${esc(w.institution)}, ${esc(w.accession)}</dd><dt>Права</dt><dd>${esc(w.rights)}</dd><dt>Оригинал</dt><dd><a href="${esc(safe(w.record_url))}" target="_blank" rel="noopener">запись в музее ↗</a></dd></dl>
+      ${dock(nx ? { href: "#/exwork/" + nx.id, t: cut(nx.title, 26), small: "Дальше" } : { href: "#/exhibit/" + ex.id, t: "К выставке" }, pv ? { href: "#/exwork/" + pv.id, t: cut(pv.title, 22) } : { href: "#/exhibit/" + ex.id, t: "К выставке" })}</div>`;
+    const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
+    range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+  }
+  async function viewAlbums() {
+    setTitle("Исторические альбомы"); crumbs([{ t: "Книга", href: "#/" }, { t: "Альбомы" }]);
+    let A; try { A = await getJson("albums/paris-dans-sa-splendeur.json"); } catch (e) { return notFound(); }
+    $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Книги целиком</p><h1>Исторические альбомы</h1><p class="lede">Листы в том порядке, в каком их напечатали, а не в нашей подборке. Каждый лист ведёт к странице библиотеки.</p></section>
+      <a class="exhall" href="#/album/${esc(A.id)}/0"><img src="${esc(A.covers[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(A.years)} · ${esc(A.publisher)}</span><b>${esc(A.title)}</b><span class="hook">${plural(A.plates.length, "планша", "планши", "планш")} из изданий в оцифровке ${esc(A.holder)}. Порядок: ${esc(A.order_basis)}</span></span></a>
+      <div class="lt-tool" role="note"><span class="lt-legend">Что ещё готовится</span><p>«La Bretagne contemporaine» (BnF), «Rome dans sa grandeur» и «Vues de Paris»: оригинальный порядок листов пока не подтверждён первичными каталогами. Пока они не открыты как альбомы, чтобы не выдать нашу подборку за порядок издания.</p></div>
+      ${dock({ href: "#/exhibitions", t: "Выставки" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewAlbum(id, nStr) {
+    let A; try { A = await getJson("albums/paris-dans-sa-splendeur.json"); } catch (e) { return notFound(); }
+    if (id !== A.id) return notFound();
+    const n = Math.max(0, Math.min(A.plates.length, Number(nStr) || 0)), total = A.plates.length;
+    setTitle(A.title); crumbs([{ t: "Книга", href: "#/" }, { t: "Альбомы", href: "#/albums" }, { t: A.title }]);
+    const go = (k) => `#/album/${esc(A.id)}/${k}`;
+    const p = n ? A.plates[n - 1] : null;
+    const body = !p ? `<section class="spread albumcover"><p class="eyebrow">Обложка и титул</p><div class="coverrow">${A.covers.map((c) => `<figure class="exfig"><img src="${esc(c.image)}" alt="${esc(c.title)}" loading="lazy" width="${c.w}" height="${c.h}"><figcaption class="excap"><b>${esc(c.title)}</b><span class="small"><a href="${esc(safe(c.record_url))}" target="_blank" rel="noopener">страница библиотеки ↗</a></span></figcaption></figure>`).join("")}</div>
+        <p>${esc(A.full_title)}. ${esc(A.publisher)}, ${esc(A.years)}.</p><p class="small">${esc(A.attribution_note)}</p><p class="small">${esc(A.coverage.note)} ${esc(A.order_basis)}</p>
+        <p class="btn-row"><a class="btn" href="${go(1)}">Открыть первую планшу →</a></p></section>`
+      : `<section class="spread albumplate"><figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Планша крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(p.image)}" alt="${esc(p.title)}" width="${p.w}"></div>
+        <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        <figcaption class="lt-imprint"><span class="l">Том ${p.volume}</span><span class="c">${esc(p.rights)}</span><span class="r">${esc(A.years)}</span></figcaption></figure>
+        <p class="small">Подпись, название и имя художника напечатаны на самой планше: приблизьте её. Библиотека автора отдельной планши не называет. <a href="${esc(safe(p.record_url))}" target="_blank" rel="noopener">Страница библиотеки ↗</a></p></section>`;
+    $app.innerHTML = `<div class="page-enter albumview"><section class="chead"><p class="eyebrow">${esc(A.title)} · ${esc(A.years)}</p><h1>${p ? esc(p.title) + " из " + total : "Альбом"}</h1></section>${body}
+      <div class="lt-tool albumnav"><label for="albumRange"><span class="lt-legend">Планша</span> <b id="albumVal">${n || "обложка"}</b></label><input id="albumRange" type="range" min="0" max="${total}" value="${n}" aria-label="Номер планши"></div>
+      <div class="thumbrail" role="list" aria-label="Все планши">${A.plates.map((q, i) => `<a role="listitem" class="th2" href="${go(i + 1)}"${i + 1 === n ? ' aria-current="true"' : ""}><img src="${esc(q.image)}" alt="${esc(q.title)}" loading="lazy" width="80"><span>${q.n}${q.bis ? "b" : ""}</span></a>`).join("")}</div>
+      ${dock(n < total ? { href: go(n + 1), t: n ? "Планша " + (n + 1) : "Первая планша", small: "Дальше" } : { href: "#/albums", t: "Все альбомы" }, n > 0 ? { href: go(n - 1), t: n > 1 ? "Планша " + (n - 1) : "Обложка" } : { href: "#/albums", t: "Альбомы" })}</div>`;
+    const rail = document.querySelector(".thumbrail [aria-current]"); if (rail && rail.scrollIntoView) rail.scrollIntoView({ inline: "center", block: "nearest" });
+    const rg = document.getElementById("albumRange"); rg.addEventListener("change", () => { location.hash = go(Number(rg.value)); });
+    if (p) { const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval"); range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; }); }
+    window.__albumKey && document.removeEventListener("keydown", window.__albumKey);
+    window.__albumKey = (e) => { if (!/^#\/album\//.test(location.hash) || /INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || "")) return; if (e.key === "ArrowRight" && n < total) location.hash = go(n + 1); if (e.key === "ArrowLeft" && n > 0) location.hash = go(n - 1); };
+    document.addEventListener("keydown", window.__albumKey);
+  }
+
   // ---------- router
   function route() {
     if (!D) return;
@@ -798,6 +882,11 @@
     else if (h[0] === "places") viewPlaces();
     else if (h[0] === "catalog") viewCatalog(arg);
     else if (h[0] === "timeline") viewTimeline();
+    else if (h[0] === "exhibitions") viewExhibitions();
+    else if (h[0] === "exhibit") viewExhibit(arg);
+    else if (h[0] === "exwork") viewExWork(arg);
+    else if (h[0] === "albums") viewAlbums();
+    else if (h[0] === "album") viewAlbum(h[1], h[2]);
     else if (h[0] === "work") viewWork(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else notFound();
