@@ -407,6 +407,7 @@
       <section class="chead"><p class="eyebrow">Лист ${i + 1} из ${D.sheets.length} · ${esc(sh.holder)}</p><h1>${esc(title)}</h1></section>
       <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Лист крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(sh.image)}" alt="${esc(sh.title)}" width="1280"></div>
         <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        ${deepControls}
         <details class="lt-tool lens"><summary>Рассмотреть иначе: контраст, тени, контур</summary><div class="lensrow" role="group" aria-label="Как рассмотреть лист">${[["orig", "Оригинал"], ["contrast", "Контраст"], ["shadow", "Тени"], ["edges", "Контур"]].map(([k, t]) => `<button type="button" class="btn ghost lensbtn" data-lens="${k}" aria-pressed="${k === "orig"}">${t}</button>`).join("")}</div><p class="small">Только показ на экране: файл не меняется. Это не научный снимок и не «реставрация».</p></details>
         <figcaption class="lt-imprint"><span class="l">${esc(sh.holder)}</span><span class="c">${esc(sh.rights)}</span><span class="r">${esc(sh.accession)}</span></figcaption></figure>
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
@@ -419,7 +420,7 @@
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
-    wireLens(im);
+    wireLens(im); wireDeepZoom(sh.image, sh.title);
     mountPlace(D.sp[sh.id]); wireAngles(D.sp[sh.id]);
   }
 
@@ -787,6 +788,33 @@
   }
 
 
+  // deep zoom with OpenSeadragon (BSD-3-Clause, eras/vendor/openseadragon-6.1.1): pinch, double tap, wheel, keys; the image file is never changed
+  let osdLoad = null;
+  const loadOsd = () => osdLoad || (osdLoad = new Promise((res, rej) => {
+    if (window.OpenSeadragon) return res(window.OpenSeadragon);
+    const sc = document.createElement("script"); sc.src = "../eras/vendor/openseadragon-6.1.1/openseadragon.min.js";
+    sc.onload = () => res(window.OpenSeadragon); sc.onerror = () => { osdLoad = null; rej(new Error("osd")); }; document.head.append(sc);
+  }));
+  function wireDeepZoom(url, label) {
+    const btn = document.getElementById("deepBtn"), wrap = document.getElementById("zoomwrap"), ctl = document.querySelector(".zoomctl"); if (!btn || !wrap) return;
+    let viewer = null; const keep = document.getElementById("zoomimg"); // the same element comes back, so the lens and slider keep working
+    const restore = () => { wrap.innerHTML = ""; wrap.append(keep); wrap.classList.remove("deep"); ctl.hidden = false; btn.setAttribute("aria-pressed", "false"); document.getElementById("deepCtl").hidden = true; };
+    btn.addEventListener("click", async () => {
+      if (viewer) { viewer.destroy(); viewer = null; restore(); return; }
+      btn.disabled = true;
+      try {
+        const OSD = await loadOsd(); wrap.innerHTML = ""; wrap.classList.add("deep"); ctl.hidden = true;
+        viewer = OSD({ element: wrap, showNavigationControl: false, drawer: "canvas", placeholderFillStyle: "#eae3d1", visibilityRatio: 1, maxZoomPixelRatio: 3, gestureSettingsTouch: { pinchToZoom: true, clickToZoom: false, dblClickToZoom: true }, tileSources: { type: "image", url } });
+        viewer.addHandler("open-failed", () => { if (viewer) { viewer.destroy(); viewer = null; } restore(); document.getElementById("deepNote").textContent = "Не удалось открыть просмотр вблизи; рассмотрите лист ползунком."; });
+        document.getElementById("deepCtl").hidden = false; btn.setAttribute("aria-pressed", "true");
+        const z = (f) => { viewer.viewport.zoomBy(f); viewer.viewport.applyConstraints(); };
+        document.getElementById("deepIn").onclick = () => z(1.5); document.getElementById("deepOut").onclick = () => z(1 / 1.5); document.getElementById("deepHome").onclick = () => viewer.viewport.goHome();
+        window.__osd = viewer;
+      } catch (e) { restore(); document.getElementById("deepNote").textContent = "Просмотр вблизи сейчас недоступен: рассмотрите лист ползунком ниже."; }
+      finally { btn.disabled = false; }
+    });
+  }
+  const deepControls = '<div class="lt-tool deepctl"><button type="button" class="btn ghost" id="deepBtn" aria-pressed="false">Смотреть вблизи: щипок и двойное касание</button><span id="deepCtl" hidden><button type="button" class="btn ghost" id="deepIn" aria-label="Приблизить">+</button><button type="button" class="btn ghost" id="deepOut" aria-label="Отдалить">−</button><button type="button" class="btn ghost" id="deepHome">Весь лист</button></span><p class="small" id="deepNote" role="status">Файл не меняется; приближение только на экране.</p></div>';
   // ---------- exhibitions and the historical album reader (rights come from the museums' own open-data feeds)
   const lazyJson = {};
   const getJson = (u) => lazyJson[u] || (lazyJson[u] = fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }));
@@ -828,11 +856,13 @@
     $app.innerHTML = `<div class="page-enter plate"><section class="chead"><p class="eyebrow">${esc(ex.title)} · ${i + 1} из ${ex.works.length}</p><h1>${esc(w.title)}</h1></section>
       <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Работа крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(w.image)}" alt="${esc(w.title)}" width="${w.w}"></div>
         <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        ${deepControls}
         <figcaption class="lt-imprint"><span class="l">${esc(w.institution)}</span><span class="c">${esc(cut(w.rights, 60))}</span><span class="r">${esc(w.accession)}</span></figcaption></figure>
       <dl class="facts"><dt>Автор</dt><dd>${esc(w.artist)}${w.role ? ", " + esc(w.role) : ""}</dd><dt>Дата</dt><dd>${esc(w.date || "в записи не указана")}</dd><dt>Техника</dt><dd>${esc(w.technique || "в записи не указана")}</dd>${w.series ? `<dt>Серия</dt><dd>${esc(w.series)}</dd>` : ""}<dt>Музей</dt><dd>${esc(w.institution)}, ${esc(w.accession)}</dd><dt>Права</dt><dd>${esc(w.rights)}</dd><dt>Оригинал</dt><dd><a href="${esc(safe(w.record_url))}" target="_blank" rel="noopener">запись в музее ↗</a></dd></dl>
       ${dock(nx ? { href: "#/exwork/" + nx.id, t: cut(nx.title, 26), small: "Дальше" } : { href: "#/exhibit/" + ex.id, t: "К выставке" }, pv ? { href: "#/exwork/" + pv.id, t: cut(pv.title, 22) } : { href: "#/exhibit/" + ex.id, t: "К выставке" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+    wireDeepZoom(w.image, w.title);
   }
   async function viewAlbums() {
     setTitle("Исторические альбомы"); crumbs([{ t: "Книга", href: "#/" }, { t: "Альбомы" }]);

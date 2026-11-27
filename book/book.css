@@ -285,3 +285,5 @@ a.card:focus-visible,a.pl:focus-visible{outline:3px solid var(--lt-brick);outlin
 .th2[aria-current=true]{border-color:#355a43;outline:2px solid #355a43}
 @media(min-width:820px){.spread.hero{grid-template-columns:1.2fr 1fr;align-items:center}.exlist{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.pairgrid{grid-template-columns:1fr}}
+.zoomwrap.deep{height:70vh;min-height:320px;overflow:hidden;background:#eae3d1;touch-action:none}
+.deepctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.deepctl .btn{min-height:44px}.deepctl #deepCtl{display:inline-flex;gap:6px}
