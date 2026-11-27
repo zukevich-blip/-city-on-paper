@@ -675,9 +675,10 @@ function showImgError(){
 
 let requestedPair = 0;
 let userFit = null;
-function setupMorph() {
-  const why = $("morphWhy"), live = $("morphLive"); live.hidden = true; why.textContent = "";
-  if (!window.CoPMorph || !pair || !pair.control_points) { $("morphBox").hidden = true; return; }
+function setupMorph(id) {
+  const why = $("morphWhy"), live = $("morphLive"), box = $("morphBox"); live.hidden = true; why.textContent = "";
+  box.dataset.pair = id; box.dataset.state = "pending"; // the tests (and scripts) wait for the pair they asked for
+  if (!window.CoPMorph || !pair || !pair.control_points) { box.dataset.state = "none"; $("morphBox").hidden = true; return; }
   $("morphBox").hidden = false;
   const g = window.CoPMorph.gate(pair), cv = $("morphCv"), ctx = cv.getContext("2d"), A = $("histImg"), B = $("photoImg");
   let draw = null;
@@ -687,7 +688,7 @@ function setupMorph() {
     draw = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); window.CoPMorph.render(ctx, A, B, g.mesh, $("morphT").value / 100, cv.width, cv.height); };
   } else {
     const l = window.CoPMorph.gateLocal(pair);
-    if (!l.ok) { why.textContent = "Перетекание недоступно для этой пары: " + g.why.concat(l.why).join("; ") + ". Пока смотрите шторку, «Рядом» или отдельные детали: мы не растягиваем кадр, чтобы создать видимость совпадения."; return; }
+    if (!l.ok) { why.textContent = "Перетекание недоступно для этой пары: " + g.why.concat(l.why).join("; ") + ". Пока смотрите шторку, «Рядом» или отдельные детали: мы не растягиваем кадр, чтобы создать видимость совпадения."; box.dataset.state = "refused"; return; }
     const [hw, hh] = pair.historic.size; cv.width = 900; cv.height = Math.round(900 * hh / hw);
     why.textContent = "Местное перетекание: участок фото внутри отмеченной зоны (" + l.local.n + " точек, ошибка в пределах допуска «высокой» подгонки) переходит из своего ракурса в перспективу рисунка. Рисунок вне зоны не меняется; на остальной части листа совмещения нет.";
     draw = () => { window.CoPMorph.renderLocal(ctx, A, B, l.local, $("morphT").value / 100, cv.width, cv.height, pair.historic.size); };
@@ -695,6 +696,7 @@ function setupMorph() {
   live.hidden = false;
   const go = () => { draw(); $("morphTv").textContent = $("morphT").value + "%"; };
   $("morphT").oninput = go; go();
+  box.dataset.state = "live-" + (g.ok ? "full" : "local");
 }
 async function loadPair(id){
   const request = ++requestedPair;
@@ -743,7 +745,7 @@ async function loadPair(id){
   renderMeta();
   await Promise.all([settle(hi, "hist"), settle(pi, "photo")]);
   if (request !== requestedPair) return;
-  layout(); syncView(); setupMorph();
+  layout(); syncView(); setupMorph(id);
   history.replaceState(null, "", location.pathname + location.search + "#" + id);
 }
 
