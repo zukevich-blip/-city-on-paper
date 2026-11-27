@@ -77,6 +77,7 @@ header .jumpcompare{display:none!important}
 .vswitch button b{font:600 16px Georgia,serif}.vswitch button small{font:11px/1.2 system-ui,sans-serif;color:#6f6f63}
 .vswitch button[aria-pressed=true]{background:#22362f;border-color:#22362f;color:#fff}.vswitch button[aria-pressed=true] small{color:#d9cfbb}
 .vswitch button.unavailable{opacity:.6}
+.morphbox{margin:10px 0}.morphbox summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}.morphbox canvas{display:block;width:100%;height:auto;background:var(--lt-wash)}.morphbox input[type=range]{width:100%;min-height:44px}.embed .morphbox{display:none}
 #opacityCtl{display:flex;align-items:center;gap:10px;margin:8px 0}
 #opacityCtl[hidden]{display:none}
 #opacityCtl input[type=range]{flex:1;min-height:44px}
@@ -206,6 +207,7 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
 </style>
 <script src="../../assets/nav/museum-nav.js" defer></script>
 <script src="homography.js"></script>
+<script src="morph.js"></script>
 </head>
 <body>
 <script>if(new URLSearchParams(location.search).has("embed"))document.documentElement.classList.add("embed");</script>
@@ -270,6 +272,11 @@ header h1{font:normal clamp(32px,4vw,50px)/1.12 Georgia,serif;letter-spacing:-.0
   <div id="userFit" class="userfit" hidden role="status"><span id="userFitText"></span> <button type="button" id="userFitReset">Вернуть как было</button></div>
   <div class="curtain-readout" aria-label="Ориентиры сравнения"><button type="button" id="showThen" aria-label="Показать исторический вид целиком">← Только рисунок</button><p id="splitReadout" role="status">Слева рисунок · справа фотография</p><button type="button" id="showNow" aria-label="Показать современное фото целиком">Только фото →</button></div>
   <p class="comparison-fit-note" id="ratioHint" role="note"></p>
+  <details id="morphBox" class="morphbox"><summary>Геометрическое перетекание рисунка в фото</summary>
+    <p id="morphWhy" class="small" role="status"></p>
+    <div id="morphLive" hidden><canvas id="morphCv" width="900" height="630" role="img" aria-label="Перетекание рисунка в фото по сетке из контрольных точек"></canvas>
+      <label for="morphT"><span class="lt-legend">Эпоха</span> <b id="morphTv">0%</b> фото</label><input id="morphT" type="range" min="0" max="100" value="0"></div>
+  </details>
   <p class="creditline" id="creditLine"></p>
   <nav class="pair-links" aria-label="Карта и настройка сравнения" data-i18n-aria="pairLinks">
     <a id="pairMap" hidden></a>
@@ -668,6 +675,18 @@ function showImgError(){
 
 let requestedPair = 0;
 let userFit = null;
+function setupMorph() {
+  const why = $("morphWhy"), live = $("morphLive"); live.hidden = true;
+  if (!window.CoPMorph || !pair || !pair.control_points) { $("morphBox").hidden = true; return; }
+  $("morphBox").hidden = false;
+  const g = window.CoPMorph.gate(pair);
+  if (!g.ok) { why.textContent = "Перетекание недоступно для этой пары: " + g.why.join("; ") + ". Пока смотрите шторку, «Рядом» или отдельные детали: мы не растягиваем кадр, чтобы создать видимость совпадения."; return; }
+  why.textContent = "Сетка из " + g.mesh.n + " проверенных точек не выворачивается на всём пути. Рисунок и фото перетекают по треугольникам; вне точек (края кадра) подгонка условная.";
+  live.hidden = false;
+  const cv = $("morphCv"), ctx = cv.getContext("2d"), A = $("histImg"), B = $("photoImg");
+  const draw = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); window.CoPMorph.render(ctx, A, B, g.mesh, $("morphT").value / 100, cv.width, cv.height); $("morphTv").textContent = $("morphT").value + "%"; };
+  $("morphT").oninput = draw; draw();
+}
 async function loadPair(id){
   const request = ++requestedPair;
   const response = await fetch(`pairs/${encodeURIComponent(id)}.json`);
@@ -715,7 +734,7 @@ async function loadPair(id){
   renderMeta();
   await Promise.all([settle(hi, "hist"), settle(pi, "photo")]);
   if (request !== requestedPair) return;
-  layout(); syncView();
+  layout(); syncView(); setupMorph();
   history.replaceState(null, "", location.pathname + location.search + "#" + id);
 }
 
