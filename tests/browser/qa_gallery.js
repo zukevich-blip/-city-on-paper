@@ -21,6 +21,7 @@ const views = [
     await page.route(/tile\.openstreetmap/, (r) => r.abort());
     const shot = async (n) => { if (shots && v.name !== "ipad-820") await page.screenshot({ path: `${shots}/${v.name}-${n}.png` }); };
     const imgOk = (sel) => page.waitForFunction((s) => { const i = document.querySelector(s); return i && i.complete && i.naturalWidth > 0; }, sel, { timeout: 15000 });
+    const openF = async () => { if (!(await page.locator(".gfilters").evaluate((e) => e.open))) await page.locator(".gfilters > summary").click(); };
     const noScroll = () => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4);
     // 1. first visit
     await page.goto(base, { waitUntil: "networkidle" });
@@ -45,23 +46,30 @@ const views = [
       check(`${v.name}: lens «${lens}» shows works whose images open`, n > 0 && rx.test(String(n)), String(n));
     }
     await page.locator(".glens:has-text(\"Всё\")").click();
+    await openF();
     await page.locator('.gchip[data-k="c"][data-v="Рим"]').click();
     await page.waitForSelector(".gt");
     const rome = Number(((await page.locator("[role=status]").first().innerText()).match(/^(\d+)/) || [])[1]);
     await shot("03-rome");
     check(`${v.name}: Rome has many views`, rome >= 100, String(rome));
+    await openF();
     await page.locator('.gchip[data-k="c"][data-v="Рим"]').click();
+    await openF();
     await page.locator('.gchip[data-k="c"][data-v="Венеция"]').click();
     await page.waitForSelector(".gt");
     check(`${v.name}: Venice has its own views`, (await page.locator(".gmasonry .gt").count()) >= 30); await shot("04-venice");
+    await openF();
     await page.locator("#greset").click();
     await page.locator("#gq").fill("Мерион"); await page.locator("#gq").dispatchEvent("change");
     await page.waitForFunction(() => document.querySelectorAll(".gmasonry .gt").length > 5 && document.querySelectorAll(".gmasonry .gt").length < 80);
     check(`${v.name}: search by master works`, (await page.locator(".gmasonry .gt").count()) >= 20);
+    await openF();
     await page.locator("#greset").click();
+    await openF();
     await page.locator('.gchip[data-k="mode"]').click();
     await page.waitForSelector(".folio .fpage");
     check(`${v.name}: in-folio spreads show pages with numbers`, (await page.locator(".folio .fnum").count()) >= 20); await shot("05-folio");
+    await openF();
     await page.locator('.gchip[data-k="mode"]').click();
     // 3. twenty different works opened one after another through the dock
     await page.goto(base + "#/gallery", { waitUntil: "domcontentloaded" });
@@ -91,6 +99,7 @@ const views = [
     await page.locator("#deepBox > summary").click();
     await page.waitForFunction(() => window.__osd && window.__osd.world.getItemCount() === 1, null, { timeout: 15000 });
     check(`${v.name}: museum loupe (deep zoom) opens the work`, true);
+    await page.locator(".artctl .more > summary").click();
     await page.locator("#artTable").click();
     // 5. light table
     await page.goto(base + "#/table", { waitUntil: "domcontentloaded" });

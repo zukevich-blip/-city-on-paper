@@ -917,6 +917,7 @@
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else if (window.CoPBook && window.CoPBook.routes && window.CoPBook.routes[h[0]]) window.CoPBook.routes[h[0]](arg);
     else notFound();
+    document.body.classList.toggle("nodock", /^(table|guess|showcase)$/.test(h[0]));
     if (h[0] !== "main" && h[0] !== "toc") window.scrollTo(0, 0);
     $app.focus({ preventScroll: true });
   }
