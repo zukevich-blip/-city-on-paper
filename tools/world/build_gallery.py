@@ -26,10 +26,10 @@ from tools.world.imgfetch import fetch
 BOOK = ROOT / "book"
 GIMG = BOOK / "img/gallery"
 OK_INST = {"The Metropolitan Museum of Art", "National Gallery of Art, Washington", "Art Institute of Chicago", "The Cleveland Museum of Art", "Rijksmuseum"}
-QUOTA = {"giovanni-battista-piranesi": 80, "charles-meryon": 40, "canaletto": 30, "hubert-robert": 28, "thomas-shotter-boys": 30, "giuseppe-vasi": 22,
-         "francesco-guardi": 22, "thomas-hosmer-shepherd": 22, "thomas-girtin": 14, "jacques-rigaud": 18, "nicolas-marie-joseph-chapuy": 18,
-         "bernardo-bellotto": 18, "michele-marieschi": 14, "giuseppe-zocchi": 14, "israel-silvestre": 10, "luca-carlevarijs": 10, "eugene-ciceri": 24,
-         "louis-jules-arnout": 20, "francois-alexandre-pernot": 12, "thomas-malton": 6, "vasily-sadovnikov": 6, "karl-beggrov": 5, "adolphe-rouargue": 6, "giovanni-battista-falda": 4}
+QUOTA = {"giovanni-battista-piranesi": 160, "charles-meryon": 70, "canaletto": 40, "hubert-robert": 60, "thomas-shotter-boys": 80, "giuseppe-vasi": 40,
+         "francesco-guardi": 40, "thomas-hosmer-shepherd": 70, "thomas-girtin": 40, "jacques-rigaud": 40, "nicolas-marie-joseph-chapuy": 17,
+         "bernardo-bellotto": 30, "michele-marieschi": 25, "giuseppe-zocchi": 22, "israel-silvestre": 18, "luca-carlevarijs": 15, "eugene-ciceri": 70,
+         "louis-jules-arnout": 35, "francois-alexandre-pernot": 13, "thomas-malton": 7, "vasily-sadovnikov": 7, "karl-beggrov": 5, "adolphe-rouargue": 6, "giovanni-battista-falda": 4}
 ART_RU = {"giovanni-battista-piranesi": "Джованни Баттиста Пиранези", "giuseppe-vasi": "Джузеппе Вази", "hubert-robert": "Юбер Робер", "israel-silvestre": "Израэль Сильвестр",
           "canaletto": "Каналетто", "michele-marieschi": "Микеле Мариески", "bernardo-bellotto": "Бернардо Беллотто", "francesco-guardi": "Франческо Гварди",
           "luca-carlevarijs": "Лука Карлеварис", "charles-meryon": "Шарль Мерион", "nicolas-marie-joseph-chapuy": "Николя Шапюи", "thomas-shotter-boys": "Томас Шоттер Бойс",
