@@ -818,8 +818,9 @@ async function init(){
   };
   const onLoadError = err => { $("verdict").textContent = t("loadErr") + err; };
   sel.onchange = () => show(sel.value).catch(onLoadError);
-  window.addEventListener("hashchange", () => {
-    const id = location.hash.slice(1);
+  window.addEventListener("hashchange", (ev) => {
+    // read the id from the event, not from location: a finishing load of an older pair rewrites location.hash with replaceState
+    const id = decodeURIComponent((String(ev.newURL || location.href).split("#")[1]) || "");
     if (!ids.includes(id) || id === sel.value) return;
     sel.value = id;
     // Same-document hash navigation does not reload the page. Preserve the
