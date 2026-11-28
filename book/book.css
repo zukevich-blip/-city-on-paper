@@ -352,3 +352,8 @@ body.showmode .dock,body.showmode .museum-nav,body.showmode header,body.showmode
 .dialog{display:grid;gap:18px;margin:18px 0}.turn{max-width:92%}.turn.r{margin-left:auto}.turn.l{margin-right:auto}@media(min-width:820px){.dialog{grid-template-columns:1fr 1fr;gap:26px 20px}.turn{max-width:none}.turn.r{margin-top:48px}}
 .bio{list-style:none;margin:16px 0;padding:0 0 0 18px;border-left:3px solid var(--lt-sepia)}.bioev{position:relative;margin:0 0 22px;padding-left:12px}.bioev::before{content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--lt-brick)}
 .bioev .when{font:600 12px var(--lt-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--lt-brick)}.bioev p{margin:2px 0 4px}.piece{margin:12px 0;max-width:520px}.closing{margin:20px 0}
+/* review 3 fixes */
+.homehero{aspect-ratio:var(--ar,4/3);width:min(100%,calc(70vh * var(--ar,1.33)));max-height:70vh;height:auto;margin:0 auto;transition:aspect-ratio .6s ease}
+.hslide img{object-fit:contain}.gk{opacity:.75;font-size:11px}
+.exhall img{opacity:.92}.exhall .cap{background:linear-gradient(transparent 45%,#1d1c19ee)}
+.scene{min-height:0}.scene .eyebrow{margin-top:0}

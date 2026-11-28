@@ -11,7 +11,9 @@
   const KINDS = { photo: "Фотохромы и фотографии", interior: "Интерьеры", panorama: "Панорамы", ruins: "Руины и античность", church: "Храмы", palace: "Дворцы", bridge: "Мосты", square: "Площади и улицы" };
   const era = (y) => (y ? (y < 1700 ? "XVII и раньше" : y < 1800 ? "XVIII век" : y < 1850 ? "1800–1849" : "1850 и позже") : null);
   const shortA = (w) => { const f = String(w.a).split(";")[0].replace(/\s*\(.*$/, "").trim(); return w.set === "benoist" ? (f && !/роль/.test(f) ? f + " и др." : "Бенуа") : f; };
-  const ruTitle = (w) => (w.set === "benoist" || w.set === "album") ? w.t : `${w.kr || "Вид"}${w.c ? ", " + w.c : ""}`;
+  const ruTitle = (w) => B.cut(String(w.t || w.to || "Без названия").replace(/\s+/g, " "), 90);
+  const kicker = (w) => [w.kr, w.c].filter(Boolean).join(" · ");
+  B.rightsShort = (r) => { r = String(r || ""); return /openaccess=1/i.test(r) ? "NGA Open Access, CC0" : /isPublicDomain/i.test(r) ? "Public Domain (Метрополитен)" : /is_public_domain/i.test(r) ? "Public Domain (Art Institute of Chicago)" : /Open Access/i.test(r) && /CC0/.test(r) ? "CC0 (Open Access)" : B.cut(r.replace(/https?:\/\/\S+/g, "").trim() || "условия у музея", 60); };
   const state = { q: "", c: "", k: "", set: "", a: "", e: "", mode: "mosaic", take: 72, lens: "all" };
   let lastList = [];
   const filt = (g) => g.works.filter((w) => (!state.set || w.set === state.set) && (!state.c || w.c === state.c) && (!state.k || w.k === state.k) && (!state.a || w.a === state.a) && (!state.e || era(w.y) === state.e)
@@ -22,7 +24,7 @@
   const daySeed = () => { const d = new Date(); return (d.getFullYear() * 400 + d.getMonth() * 31 + d.getDate()) % 2147483646 + 1; };
   const tbl = () => { try { return JSON.parse(localStorage.getItem("cop-table") || "[]"); } catch (e) { return []; } };
   const saveTbl = (a) => { try { localStorage.setItem("cop-table", JSON.stringify(a.slice(0, 6))); } catch (e) { /* private mode */ } };
-  const tile = (w) => `<a class="gt" href="#/art/${E(w.id)}" data-id="${E(w.id)}"><img src="${E(w.th)}" alt="${E(ruTitle(w))}" loading="lazy" width="${Math.round(w.w >= w.h ? 360 : 360 * w.w / w.h)}" height="${Math.round(w.w >= w.h ? 360 * w.h / w.w : 360)}"><span class="gcap"><b>${E(B.cut(ruTitle(w), 40))}</b><span>${E(B.cut(shortA(w), 34))}${w.y ? " · " + w.y : ""}</span></span></a>`;
+  const tile = (w) => `<a class="gt" href="#/art/${E(w.id)}" data-id="${E(w.id)}"><img src="${E(w.th)}" alt="${E(ruTitle(w))}" loading="lazy" width="${Math.round(w.w >= w.h ? 360 : 360 * w.w / w.h)}" height="${Math.round(w.w >= w.h ? 360 * w.h / w.w : 360)}"><span class="gcap"><b>${E(B.cut(ruTitle(w), 40))}</b><span>${E(B.cut(shortA(w), 34))}${w.y ? " · " + w.y : ""}</span><span class="gk">${E(kicker(w))}</span></span></a>`;
   const chip = (key, val, label, n, on) => `<button type="button" class="gchip" data-k="${key}" data-v="${E(val)}" aria-pressed="${on}">${E(label)}${n ? ` <i>${n}</i>` : ""}</button>`;
 
   const LENSES = [["all", "Всё", {}], ["cities", "Города", { c: "*" }], ["masters", "Мастера", { a: "*" }], ["eras", "Эпохи", { e: "*" }], ["interior", "Интерьеры", { k: "interior" }], ["panorama", "Панорамы", { k: "panorama" }], ["ruins", "Античность", { k: "ruins" }], ["photo", "Фотохромы", { k: "photo" }], ["benoist", "Бенуа", { set: "benoist" }]];
@@ -48,7 +50,7 @@
       ${list.length ? body : `<div class="nolook"><b>Ничего не найдено.</b> Попробуйте другое слово или сбросьте фильтры.</div>`}
       ${list.length > state.take ? `<p class="btn-row"><button type="button" class="btn ghost wide" id="gmore">Показать ещё ${Math.min(72, list.length - state.take)}</button></p>` : ""}
       ${B.dock({ href: "#/exhibitions", t: "Выставки" }, { href: "#/", t: "Оглавление" })}</div>`;
-    const re = () => viewGallery();
+    const re = async () => { await viewGallery(); if (state.lens !== "all" && window.scrollY < 400) { const m = document.querySelector(".gmasonry,.folio"); if (m && m.scrollIntoView) m.scrollIntoView({ block: "start" }); } };
     document.getElementById("gq").addEventListener("change", (e) => { state.q = e.target.value.trim(); state.take = 72; re(); });
     document.querySelectorAll(".gchip[data-k]").forEach((b) => b.addEventListener("click", () => { const k = b.dataset.k, v = b.dataset.v; if (k === "mode") state.mode = v; else state[k] = state[k] === v ? "" : v; state.take = 72; re(); }));
     document.querySelectorAll(".glens").forEach((b) => b.addEventListener("click", () => { const id = b.dataset.lens, p = LENSES.find((l) => l[0] === id)[2]; Object.assign(state, { q: "", c: "", k: "", set: "", a: "", e: "", take: 72, lens: id }); for (const [k, v] of Object.entries(p)) if (v !== "*") state[k] = v; re(); }));
@@ -99,12 +101,12 @@
     const onTable = tbl().includes(w.id), pano = w.k === "panorama" && w.w / w.h >= 1.8;
     B.app().innerHTML = `<div class="page-enter plate artpage" data-art="${E(w.id)}">
       <figure class="lt-sheet artfig" id="artfig"><div class="zoomwrap${pano ? " pano" : ""}" id="zoomwrap" tabindex="0" aria-label="${pano ? "Панорама: прокручивайте вбок" : "Работа крупно"}"><img id="zoomimg" src="${E(w.i)}" alt="${E(ruTitle(w))}" width="${w.w}" height="${w.h}"></div>
-        <figcaption class="lt-imprint"><span class="l">${E(B.cut(ruTitle(w), 60))}</span><span class="c">${E(shortA(w))}${w.y ? " · " + w.y : ""}</span><span class="r">${E(w.m)} · ${E(w.r)}</span></figcaption></figure>
+        <figcaption class="lt-imprint"><span class="l">${E(B.cut(ruTitle(w), 60))}</span><span class="c">${E(shortA(w))}${w.y ? " · " + w.y : ""}</span><span class="r">${E(w.m)} · ${E(B.rightsShort(w.r))}</span></figcaption></figure>
       <section class="chead compact"><p class="eyebrow">${E(SET[w.set])}${w.c ? " · " + E(w.c) : ""}${w.kr ? " · " + E(w.kr) : ""}</p><h1>${E(ruTitle(w))}</h1>${w.to && w.to !== ruTitle(w) ? `<p class="small orig"><i>${E(B.cut(w.to, 140))}</i></p>` : ""}</section>
       <div class="lt-tool artctl"><button type="button" class="btn" id="artFull">Во весь экран</button><button type="button" class="btn ghost" id="artRand">Случайный шедевр</button>${w.link ? `<a class="btn ghost" href="${E(w.link)}">В книге →</a>` : ""}<details class="more"><summary class="btn ghost">Ещё</summary><button type="button" class="btn ghost" id="artTable">${onTable ? "Убрать со стола" : "На световой стол"}</button></details></div>
       <details class="lt-tool" id="deepBox"><summary>Смотреть вблизи${w.iiif ? " (IIIF музея)" : ""}</summary><p class="small" id="deepNote">Файл не меняется; приближение щипком, двойным касанием или колесом.</p><div id="deepHost" class="deephost"></div></details>
       <details class="lt-tool" id="cabBox"><summary>Кабинет деталей: девять фрагментов</summary><div id="cabinet" class="cabinet"></div><div id="cabBig" class="cabbig" hidden></div><p class="small">Фрагменты вырезаны автоматически, подписей деталей пока нет; нажмите фрагмент, чтобы увеличить.</p></details>
-      <dl class="facts"><dt>Название</dt><dd>${E(w.to)}</dd><dt>Автор</dt><dd>${E(w.a)}</dd><dt>Дата</dt><dd>${E(w.d || "в записи не указана")}</dd><dt>Музей</dt><dd>${E(w.m)}, ${E(w.n)}</dd><dt>Права</dt><dd>${E(w.r)}</dd><dt>Оригинал</dt><dd><a href="${E(B.safe(w.u))}" target="_blank" rel="noopener">запись в музее ↗</a></dd></dl>
+      <dl class="facts"><dt>Название</dt><dd>${E(w.to)}</dd><dt>Автор</dt><dd>${E(w.a)}</dd><dt>Дата</dt><dd>${E(w.d || "в записи не указана")}</dd><dt>Музей</dt><dd>${E(w.m)}, ${E(w.n)}</dd><dt>Права</dt><dd>${E(B.rightsShort(w.r))}</dd><dt>Оригинал</dt><dd><a href="${E(B.safe(w.u))}" target="_blank" rel="noopener">запись в музее ↗</a></dd></dl>
       ${related(g, w).map(([t, l]) => `<h2>${E(t)}</h2><div class="rail" role="list">${l.map((x) => `<a role="listitem" class="gt rt" href="#/art/${E(x.id)}"><img src="${E(x.th)}" alt="${E(ruTitle(x))}" loading="lazy" width="150" height="${Math.round(150 * x.h / x.w)}"><span class="gcap"><b>${E(B.cut(ruTitle(x), 30))}</b></span></a>`).join("")}</div>`).join("")}
       ${B.dock(nx ? { href: "#/art/" + nx.id, t: B.cut(ruTitle(nx), 24), small: "Дальше" } : { href: "#/gallery", t: "В галерею" }, pv ? { href: "#/art/" + pv.id, t: B.cut(ruTitle(pv), 20) } : { href: "#/gallery", t: "Галерея" })}</div>`;
     const fig = document.getElementById("artfig");
@@ -149,7 +151,7 @@
         let lock = false; const mirror = (from, to) => from.addHandler("viewport-change", () => { if (lock) return; lock = true; to.viewport.zoomTo(from.viewport.getZoom(), null, true); to.viewport.panTo(from.viewport.getCenter(), true); lock = false; });
         mirror(a, b); mirror(b, a); window.__lp = [a, b]; n.dataset.ready = "1";
       })().catch(() => { const n = document.getElementById("lpNote"); if (n) n.textContent = "Лупа сейчас недоступна."; });
-      document.getElementById("tRand").addEventListener("click", () => { ids = []; while (ids.length < 6) { const w = g.works[rnd(g.works.length)]; if (!ids.includes(w.id)) ids.push(w.id); } saveTbl(ids); draw(); });
+      document.getElementById("tRand").addEventListener("click", () => { ids = []; const photos = g.works.filter((w) => w.k === "photo"); while (ids.length < 2) { const w = photos[rnd(photos.length)]; if (!ids.includes(w.id)) ids.push(w.id); } while (ids.length < 6) { const w = g.works[rnd(g.works.length)]; if (!ids.includes(w.id)) ids.push(w.id); } saveTbl(ids); draw(); });
       const cl = document.getElementById("tClear"); if (cl) cl.addEventListener("click", () => { ids = []; saveTbl(ids); draw(); });
       document.querySelectorAll(".tdel").forEach((b) => b.addEventListener("click", () => { ids = ids.filter((x) => x !== b.dataset.id); saveTbl(ids); draw(); }));
       const rg = document.getElementById("cRange"); if (rg) rg.addEventListener("input", () => { document.querySelector(".cB").style.clipPath = `inset(0 0 0 ${rg.value}%)`; }), rg && (document.querySelector(".cB").style.clipPath = "inset(0 0 0 50%)");
@@ -192,7 +194,7 @@
     const ws = hall.ids.map((i) => g.by.get(i)).filter(Boolean);
     B.setTitle(hall.title); B.crumbs([{ t: "Книга", href: "#/" }, { t: "Залы", href: "#/halls" }, { t: hall.title }]);
     lastList = ws;
-    const cap = (w) => `<figcaption class="excap"><b>${E(ruTitle(w))}</b><span>${E(shortA(w))}${w.d ? " · " + E(B.cut(String(w.d), 24)) : ""}${w.c ? " · " + E(w.c) : ""}</span><span class="small">${E(w.m)} · ${E(w.r)}</span></figcaption>`;
+    const cap = (w) => `<figcaption class="excap"><b>${E(ruTitle(w))}</b><span>${E(shortA(w))}${w.d ? " · " + E(B.cut(String(w.d), 24)) : ""}${w.c ? " · " + E(w.c) : ""}</span><span class="small">${E(w.m)} · ${E(B.rightsShort(w.r))}</span></figcaption>`;
     const fig = (w, cls = "") => `<figure class="exfig ${cls}"><a class="eximg" href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}" loading="lazy" width="${w.w}" height="${w.h}"></a>${cap(w)}</figure>`;
     let body = "";
     if (hall.layout === "wall") body = `<div class="wall">${ws.map((w, i) => `<a class="wtile${i % 7 === 0 ? " big" : ""}" href="#/art/${E(w.id)}"><img src="${E(i % 7 === 0 ? w.i : w.th)}" alt="${E(ruTitle(w))}" loading="lazy"><span>${E(B.cut(ruTitle(w), 40))}<i>${E(shortA(w))}${w.c ? " · " + E(w.c) : ""}</i></span></a>`).join("")}</div>`;
@@ -221,9 +223,9 @@
   B.mountHome = async function (host) {
     let g; try { g = await fetch("home.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }); } catch (e) { try { g = await load(); } catch (e2) { host.innerHTML = ""; return; } }
     const rr = seeded(daySeed()), mix = (f, n) => g.works.filter(f).sort(() => rr() - 0.5).slice(0, n);
-    const hero = mix((w) => w.w >= 900 && w.k && w.set !== "album", 5), mosaic = [...mix((w) => w.c === "Рим", 3), ...mix((w) => w.c === "Венеция", 3), ...mix((w) => w.c === "Париж" && w.set !== "album", 3), ...mix((w) => w.k === "interior", 2), ...mix((w) => w.set === "benoist", 3), ...mix((w) => w.k === "panorama", 2)];
+    const hero = [...mix((w) => w.w >= 900 && w.k && w.k !== "photo" && w.set !== "album", 3), ...mix((w) => w.k === "photo" && w.w >= 600, 2)], mosaic = [...mix((w) => w.c === "Рим", 3), ...mix((w) => w.c === "Венеция", 3), ...mix((w) => w.c === "Париж" && w.set !== "album", 3), ...mix((w) => w.k === "interior", 2), ...mix((w) => w.set === "benoist", 3), ...mix((w) => w.k === "panorama", 2)];
     const cities = count(g.works, "c").slice(0, 6);
-    host.innerHTML = `<div class="homehero" id="hh">${hero.map((w, i) => `<a class="hslide${i ? "" : " on"}" href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}"${i ? ' loading="lazy"' : ""}><span class="hcap"><b>${E(ruTitle(w))}</b><i>${E(shortA(w))}${w.y ? " · " + w.y : ""}</i></span></a>`).join("")}</div>
+    host.innerHTML = `<div class="homehero" id="hh" style="--ar:${hero[0].w / hero[0].h}">${hero.map((w, i) => `<a class="hslide${i ? "" : " on"}" href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}"${i ? ' loading="lazy"' : ""}><span class="hcap"><b>${E(ruTitle(w))}</b><i>${E(shortA(w))}${w.y ? " · " + w.y : ""} · ${E(kicker(w))}</i></span></a>`).join("")}</div>
       <nav class="hdoors" aria-label="Входы в музей"><a class="hdoor" href="#/gallery"><b>${g.count}</b><span>работ в галерее</span></a><a class="hdoor" href="#/halls"><b>12</b><span>залов и выставок</span></a><a class="hdoor" href="#/albums"><b>71</b><span>планша альбома 1861</span></a><a class="hdoor" href="#/benoist"><b>102</b><span>листа Бенуа</span></a><a class="hdoor" href="#/inside"><b>⌂</b><span>внутри истории</span></a><a class="hdoor" href="#/guess"><b>?</b><span>угадай город</span></a></nav>
       <div class="gmasonry home">${mosaic.map(tile).join("")}</div>
       <p class="btn-row"><button type="button" class="btn" id="hRand">Случайный шедевр</button><a class="btn ghost" href="#/showcase">Показ на весь экран</a><a class="btn ghost" href="#/gallery">Вся галерея</a></p>
@@ -231,7 +233,7 @@
     host.querySelectorAll("[data-city]").forEach((a) => a.addEventListener("click", () => { Object.assign(state, { q: "", c: a.dataset.city, k: "", set: "", a: "", e: "", take: 72, lens: "cities" }); }));
     document.getElementById("hRand").addEventListener("click", () => { location.hash = "#/art/" + g.works[rnd(g.works.length)].id; });
     const slides = [...host.querySelectorAll(".hslide")]; let k = 0;
-    if (slides.length > 1) setInterval(() => { if (!document.body.contains(host)) return; slides[k].classList.remove("on"); k = (k + 1) % slides.length; slides[k].classList.add("on"); }, 6000);
+    if (slides.length > 1) setInterval(() => { if (!document.body.contains(host)) return; slides[k].classList.remove("on"); k = (k + 1) % slides.length; slides[k].classList.add("on"); document.getElementById("hh").style.setProperty("--ar", hero[k].w / hero[k].h); }, 6000);
   };
 
   B.loadGallery = load;

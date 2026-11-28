@@ -6,7 +6,7 @@
   const E = (s) => B.esc(s);
   let X = null;
   const load = () => X || (X = fetch("inside.json").then((r) => r.json()));
-  const ruTitle = (w) => (w.set === "benoist" || w.set === "album" ? w.t : `${w.kr || "Вид"}${w.c ? ", " + w.c : ""}`);
+  const ruTitle = (w) => B.cut(String(w.t || w.to || "Без названия").replace(/\s+/g, " "), 90);
   const card = (w) => `<a class="gt rt" href="#/art/${E(w.id)}"><img src="${E(w.th)}" alt="${E(ruTitle(w))}" loading="lazy" width="150" height="${Math.round(150 * w.h / w.w)}"><span class="gcap"><b>${E(B.cut(ruTitle(w), 34))}</b><span>${E(B.cut(String(w.a).split(";")[0].replace(/\s*\(.*$/, ""), 28))}${w.y ? " · " + w.y : ""}</span></span></a>`;
   const credit = (x) => `<figcaption class="excap"><b>${E(x.caption)}</b><span class="small">${E(x.credit)} · ${E(x.licence)}${x.page && /^https:\/\/(?!api\.panoramax\.xyz\/api\/collections\/$)/.test(x.page) ? ` · <a href="${E(x.page)}" target="_blank" rel="noopener">источник ↗</a>` : ""}</span></figcaption>`;
   const fig = (x, cls = "") => `<figure class="exfig insfig ${cls}"><img src="${E(x.i)}" alt="${E(x.caption)}" loading="lazy">${credit(x)}</figure>`;
@@ -26,7 +26,7 @@
     const j = b.journey; if (!j) return "";
     const A = b.modern[j.from], C = b.modern[j.to];
     return `<section class="insec" id="door"><h2>Через дверной проём</h2><div class="door" id="doorStage" style="--dx:${j.door[0]}%;--dy:${j.door[1]}%"><img class="dA" src="${E(A.i)}" alt="${E(A.caption)}"><img class="dB" src="${E(C.i)}" alt="${E(C.caption)}"><div class="dmark" aria-hidden="true"></div></div>
-      <div class="lt-tool"><label for="doorT"><span class="lt-legend">Подойти к двери и войти</span></label><input id="doorT" type="range" min="0" max="100" value="0"><button type="button" class="btn ghost" id="doorPlay">▶ Войти</button></div><p class="small">${E(j.note)} ${E(A.credit)}; ${E(C.credit)}.</p></section>`;
+      <div class="lt-tool"><label for="doorT"><span class="lt-legend">Подойти к двери и войти</span></label><input id="doorT" type="range" min="0" max="100" value="0"><button type="button" class="btn ghost" id="doorPlay">▶ Войти</button></div><p class="small">${E(j.note)} ${E(A.credit === C.credit ? A.credit : A.credit + "; " + C.credit)}.</p></section>`;
   }
   const wireDoor = () => {
     const st = document.getElementById("doorStage"); if (!st) return; const r = document.getElementById("doorT"), A = st.querySelector(".dA"), C = st.querySelector(".dB");
@@ -52,9 +52,9 @@
       <section class="insec" id="facade"><h2>Фасад на листах и гравюрах</h2>${facade.length ? `<div class="rail" role="list">${facade.map(card).join("")}</div>` : '<p class="small">Листов фасада в фонде нет.</p>'}</section>
       ${journey(b)}
       <section class="insec" id="interior"><h2>Внутри</h2>${inter.length || b.extras.length ? `<div class="rail" role="list">${inter.map(card).join("")}</div><div class="insgrid">${b.extras.map((x) => fig(x)).join("")}</div>` : '<p class="small">Подлинного интерьера этого здания в фонде нет, поэтому дверь не открывается: мы не подставляем чужие залы.</p>'}</section>
-      <section class="insec" id="plan"><h2>План</h2>${b.plan.length ? `<div class="insgrid">${b.plan.map((x) => fig(x, "plan")).join("")}</div>` : '<p class="small">Плана в открытых собраниях пока не найдено.</p>'}</section>
-      <section class="insec" id="section"><h2>Разрез: что держит своды и купола</h2>${b.section.length ? `<div class="insgrid">${b.section.map((x) => fig(x, "plan")).join("")}</div><p class="small">Это подлинный чертёж-источник; его подпись выше. Мы не дорисовываем конструкции.</p>` : '<p class="small">Разреза в открытых собраниях не найдено.</p>'}</section>
-      <section class="insec" id="today"><h2>Сегодня</h2>${b.modern.length ? `<div class="insgrid">${b.modern.map((x) => fig(x)).join("")}</div>` : '<p class="small">Современного снимка в фонде пока нет.</p>'}</section>
+      ${b.plan.length ? `<section class="insec" id="plan"><h2>План</h2><div class="insgrid">${b.plan.map((x) => fig(x, "plan")).join("")}</div></section>` : ""}
+      ${b.section.length ? `<section class="insec" id="section"><h2>Разрез: что держит своды и купола</h2><div class="insgrid">${b.section.map((x) => fig(x, "plan")).join("")}</div><p class="small">Это подлинный чертёж-источник; его подпись выше. Мы не дорисовываем конструкции.</p></section>` : ""}
+      ${b.modern.length ? `<section class="insec" id="today"><h2>Сегодня</h2><div class="insgrid">${b.modern.map((x) => fig(x)).join("")}</div></section>` : ""}
       <section class="insec"><h2>Чего не хватает</h2><ul class="facts-list unk">${b.missing.map((t) => `<li>${E(t)}</li>`).join("")}</ul>${b.place ? `<p class="btn-row"><a class="btn ghost" href="#/place/${E(b.place)}">История места в книге →</a></p>` : ""}</section>
       ${B.dock(nx ? { href: "#/inside/" + nx.id, t: nx.title, small: "Следующее здание" } : { href: "#/inside", t: "Все здания" }, pv ? { href: "#/inside/" + pv.id, t: pv.title } : { href: "#/inside", t: "Здания" })}</div>`;
     wireDoor();
@@ -65,7 +65,7 @@
   let ST = null;
   const loadStories = () => ST || (ST = fetch("stories.json").then((r) => r.json()));
   const resolve = (it, g, d) => {
-    if (it.work) { const w = g.by.get(it.work); return w && { i: w.i, th: w.th, w: w.w, h: w.h, title: ruTitle(w), sub: `${String(w.a).split(";")[0].replace(/\s*\(.*$/, "")}${w.d ? " · " + w.d : ""}`, credit: `${w.m} · ${w.r}`, link: "#/art/" + w.id }; }
+    if (it.work) { const w = g.by.get(it.work); return w && { i: w.i, th: w.th, w: w.w, h: w.h, title: ruTitle(w), sub: `${String(w.a).split(";")[0].replace(/\s*\(.*$/, "")}${w.d ? " · " + w.d : ""}`, credit: `${w.m} · ${B.rightsShort(w.r)}`, link: "#/art/" + w.id }; }
     const b = d.buildings.find((x) => x.id === (it.extra || it.modern || {}).building); if (!b) return null;
     if (it.extra) { const pool = b.extras.concat(b.plan, b.section).filter((x) => !it.extra.kind || x.kind === it.extra.kind), x = pool[it.extra.n || 0]; return x && { i: x.i, title: x.caption, sub: x.credit, credit: x.licence, link: null }; }
     const m = b.modern[it.modern.n || 0]; return m && { i: m.i, title: m.caption, sub: m.credit, credit: m.licence, link: null };
