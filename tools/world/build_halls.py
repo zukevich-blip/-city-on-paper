@@ -55,7 +55,19 @@ def main() -> int:
     ]
     halls = [{"id": i, "title": t, "layout": lay, "lede": lede, "ids": [w["id"] for w in ws]} for i, t, lay, lede, ws in H if len(ws) >= 5]
     (BOOK / "halls.json").write_text(json.dumps({"version": 1, "halls": halls}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print({h["id"]: len(h["ids"]) for h in halls})
+    # a small start file: the home page must not download the whole fund (about 1 MB of JSON) to show twenty pictures
+    keep = ("id", "t", "to", "a", "d", "y", "k", "kr", "c", "set", "m", "r", "i", "th", "w", "h")
+    home = []
+    for f, n in [(lambda w: w["c"] == "Рим" and w["w"] >= 800, 14), (lambda w: w["c"] == "Венеция" and w["w"] >= 800, 12), (lambda w: w["c"] == "Париж" and w["set"] != "album" and w["w"] >= 800, 12),
+                 (lambda w: w["k"] == "interior", 8), (lambda w: w["set"] == "benoist", 14), (lambda w: w["k"] == "panorama", 6), (lambda w: w["k"] == "photo" and w["w"] >= 600, 10)]:
+        home += pick(works, f, n, per_artist=4)
+    seen, uniq = set(), []
+    for w in home:
+        if w["id"] not in seen:
+            seen.add(w["id"])
+            uniq.append({k: w.get(k) for k in keep})
+    (BOOK / "home.json").write_text(json.dumps({"version": 1, "count": len(works), "works": uniq}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print({h["id"]: len(h["ids"]) for h in halls}, "home:", len(uniq))
     return 0
 
 

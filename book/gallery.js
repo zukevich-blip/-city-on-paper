@@ -219,12 +219,12 @@
 
   /* home: a mosaic of different works instead of one repeated lithograph; no text over the pictures */
   B.mountHome = async function (host) {
-    let g; try { g = await load(); } catch (e) { host.innerHTML = ""; return; }
+    let g; try { g = await fetch("home.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }); } catch (e) { try { g = await load(); } catch (e2) { host.innerHTML = ""; return; } }
     const rr = seeded(daySeed()), mix = (f, n) => g.works.filter(f).sort(() => rr() - 0.5).slice(0, n);
     const hero = mix((w) => w.w >= 900 && w.k && w.set !== "album", 5), mosaic = [...mix((w) => w.c === "Рим", 3), ...mix((w) => w.c === "Венеция", 3), ...mix((w) => w.c === "Париж" && w.set !== "album", 3), ...mix((w) => w.k === "interior", 2), ...mix((w) => w.set === "benoist", 3), ...mix((w) => w.k === "panorama", 2)];
     const cities = count(g.works, "c").slice(0, 6);
     host.innerHTML = `<div class="homehero" id="hh">${hero.map((w, i) => `<a class="hslide${i ? "" : " on"}" href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}"${i ? ' loading="lazy"' : ""}><span class="hcap"><b>${E(ruTitle(w))}</b><i>${E(shortA(w))}${w.y ? " · " + w.y : ""}</i></span></a>`).join("")}</div>
-      <nav class="hdoors" aria-label="Входы в музей"><a class="hdoor" href="#/gallery"><b>${g.count}</b><span>работ в галерее</span></a><a class="hdoor" href="#/halls"><b>12</b><span>залов и выставок</span></a><a class="hdoor" href="#/albums"><b>71</b><span>планша альбома 1861</span></a><a class="hdoor" href="#/benoist"><b>102</b><span>листа Бенуа</span></a><a class="hdoor" href="#/table"><b>◐</b><span>световой стол</span></a><a class="hdoor" href="#/guess"><b>?</b><span>угадай город</span></a></nav>
+      <nav class="hdoors" aria-label="Входы в музей"><a class="hdoor" href="#/gallery"><b>${g.count}</b><span>работ в галерее</span></a><a class="hdoor" href="#/halls"><b>12</b><span>залов и выставок</span></a><a class="hdoor" href="#/albums"><b>71</b><span>планша альбома 1861</span></a><a class="hdoor" href="#/benoist"><b>102</b><span>листа Бенуа</span></a><a class="hdoor" href="#/inside"><b>⌂</b><span>внутри истории</span></a><a class="hdoor" href="#/guess"><b>?</b><span>угадай город</span></a></nav>
       <div class="gmasonry home">${mosaic.map(tile).join("")}</div>
       <p class="btn-row"><button type="button" class="btn" id="hRand">Случайный шедевр</button><a class="btn ghost" href="#/showcase">Показ на весь экран</a><a class="btn ghost" href="#/gallery">Вся галерея</a></p>
       <div class="gchips" role="group" aria-label="Города">${cities.map(([c, n]) => `<a class="gchip" href="#/gallery" data-city="${E(c)}">${E(c)} <i>${n}</i></a>`).join("")}</div>`;
@@ -234,5 +234,6 @@
     if (slides.length > 1) setInterval(() => { if (!document.body.contains(host)) return; slides[k].classList.remove("on"); k = (k + 1) % slides.length; slides[k].classList.add("on"); }, 6000);
   };
 
+  B.loadGallery = load;
   Object.assign(B.routes, { gallery: viewGallery, art: viewArt, table: viewTable, guess: viewGuess, showcase: viewShowcase, halls: viewHalls, hall: viewHall });
 })();

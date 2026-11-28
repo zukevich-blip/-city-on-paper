@@ -1,0 +1,811 @@
+{
+ "floorPlans": [
+  {
+   "id": "plan-rome-pantheon",
+   "cityId": "rome",
+   "monumentRu": "Римский Пантеон (План Нолли 1748 + обмер Г. Дехио)",
+   "cityRu": "Рим и Ватикан",
+   "floorLabelRu": "Основной уровень ротонды и портика Агриппы",
+   "architecturalSourceRu": "Giambattista Nolli «Pianta Grande di Roma» (1748, PD) · Georg Dehio (1887, PD)",
+   "archivalPlanImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Nolli_detail_pantheon.jpg",
+   "archivalPlanSourcePage": "https://commons.wikimedia.org/wiki/File:Nolli_detail_pantheon.jpg",
+   "archivalPlanLicense": "Public Domain",
+   "archivalPlanCaptionRu": "Подлинный фрагмент гравюры Джамбаттисты Нолли (1748): интерьер Пантеона показан в единой системе координат с площадью Ротонда.",
+   "viewBox": "0 0 600 440",
+   "wallSegments": [
+    {
+     "id": "w-pan-bell-l",
+     "epochFrom": 1626,
+     "epochTo": 1883,
+     "status": "demolished",
+     "x1": 186,
+     "y1": 146,
+     "x2": 222,
+     "y2": 146,
+     "noteRu": "Западная колокольня Бернини (демонтирована в 1883 г.)"
+    },
+    {
+     "id": "w-pan-bell-r",
+     "epochFrom": 1626,
+     "epochTo": 1883,
+     "status": "demolished",
+     "x1": 378,
+     "y1": 146,
+     "x2": 414,
+     "y2": 146,
+     "noteRu": "Восточная колокольня Бернини (демонтирована в 1883 г.)"
+    },
+    {
+     "id": "w-pan-drum",
+     "epochFrom": 126,
+     "epochTo": null,
+     "status": "original",
+     "x1": 165,
+     "y1": 230,
+     "x2": 165,
+     "y2": 330,
+     "noteRu": "Несущее кольцо ротонды 126 г. н.э. толщиной 6 метров"
+    }
+   ],
+   "vantagePoints": [
+    {
+     "id": "vp-panini-1734",
+     "artist": "Giovanni Paolo Panini",
+     "year": 1734,
+     "kind": "painting_litho",
+     "x": 300,
+     "y": 205,
+     "bearingDeg": 180,
+     "fovDeg": 78,
+     "noteRu": "Точка обзора знаменитого полотна Панини (NGA CC0) от бронзовых врат к главной апсиде.",
+     "linkedInteriorId": "rome-pantheon-rotunda"
+    },
+    {
+     "id": "vp-piranesi-1768",
+     "artist": "Giovanni Battista Piranesi",
+     "year": 1768,
+     "kind": "painting_litho",
+     "x": 232,
+     "y": 268,
+     "bearingDeg": 118,
+     "fovDeg": 85,
+     "noteRu": "Диагональный ракурс офорта Пиранези с акцентом на кессоны купола.",
+     "linkedInteriorId": "rome-pantheon-piranesi-parallel"
+    },
+    {
+     "id": "vp-modern-pan",
+     "artist": "Современная фотофиксация (CC0)",
+     "year": 2019,
+     "kind": "modern_photo",
+     "x": 300,
+     "y": 215,
+     "bearingDeg": 180,
+     "fovDeg": 72,
+     "noteRu": "Совпадающая ось современной камеры для 9/9 морфинга.",
+     "linkedInteriorId": "rome-pantheon-rotunda"
+    }
+   ],
+   "roomRoutes": [
+    {
+     "id": "rt-pan-entry",
+     "titleRu": "Маршрут Нолли: площадь → портик → центр окулуса → апсида",
+     "pointsSvg": "300,48 300,120 300,275 300,388",
+     "roomIds": [
+      "r-pan-piazza",
+      "r-pan-portico",
+      "r-pan-rotunda",
+      "r-pan-apse"
+     ],
+     "descriptionRu": "Прямая осевая перспектива длиной 75 метров от Пьяцца делла Ротонда до главного алтаря."
+    }
+   ],
+   "linkedInteriorIds": [
+    "rome-pantheon-rotunda",
+    "rome-pantheon-piranesi-parallel"
+   ]
+  },
+  {
+   "id": "plan-paris-madeleine",
+   "cityId": "paris",
+   "monumentRu": "Церковь Мадлен (Архивный план Paris Musées D.14500-29)",
+   "cityRu": "Париж",
+   "floorLabelRu": "Основной уровень периптера и трёхкупольного нефа",
+   "architecturalSourceRu": "Paris Musées / Musée Carnavalet «Plan de l'église Sainte-Madeleine» (D.14500-29, CC0)",
+   "archivalPlanImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Plan_de_l%27%C3%A9glise_Sainte-Madeleine._D.14500-29.jpg",
+   "archivalPlanSourcePage": "https://commons.wikimedia.org/wiki/File:Plan_de_l%27%C3%A9glise_Sainte-Madeleine._D.14500-29.jpg",
+   "archivalPlanLicense": "CC0 1.0",
+   "archivalPlanCaptionRu": "Подлинный обмерный чертёж из собрания Paris Musées (CC0): 52 коринфские колонны периптера и три пролёта куполов нефа.",
+   "viewBox": "0 0 600 440",
+   "wallSegments": [
+    {
+     "id": "w-mad-organ",
+     "epochFrom": 1846,
+     "epochTo": null,
+     "status": "added_later",
+     "x1": 230,
+     "y1": 312,
+     "x2": 370,
+     "y2": 312,
+     "noteRu": "Органная галерея Аристида Кавайе-Коля (1846)"
+    },
+    {
+     "id": "w-mad-cella",
+     "epochFrom": 1806,
+     "epochTo": null,
+     "status": "original",
+     "x1": 222,
+     "y1": 115,
+     "x2": 222,
+     "y2": 318,
+     "noteRu": "Каменная стена целлы с боковыми капеллами"
+    }
+   ],
+   "vantagePoints": [
+    {
+     "id": "vp-benoist-mad-int",
+     "artist": "Philippe Benoist",
+     "year": 1855,
+     "kind": "painting_litho",
+     "x": 300,
+     "y": 298,
+     "bearingDeg": 0,
+     "fovDeg": 64,
+     "noteRu": "Точка съёмки литографии Vues de Paris pl. 42 строго по оси нефа к апсиде.",
+     "linkedInteriorId": "paris-madeleine-nave"
+    },
+    {
+     "id": "vp-baldus-mad-ext",
+     "artist": "Édouard Baldus",
+     "year": 1860,
+     "kind": "historical_photo",
+     "x": 112,
+     "y": 405,
+     "bearingDeg": 32,
+     "fovDeg": 58,
+     "noteRu": "Внешняя точка Э. Бальдюса (ЮЗ 3/4, Met CC0).",
+     "linkedInteriorId": null
+    }
+   ],
+   "roomRoutes": [
+    {
+     "id": "rt-mad-axis",
+     "titleRu": "От бронзовых врат по оси трёх куполов к алтарю",
+     "pointsSvg": "300,395 300,310 300,220 300,90",
+     "roomIds": [
+      "r-mad-steps",
+      "r-mad-nave",
+      "r-mad-apse"
+     ],
+     "descriptionRu": "Прямой вход с площади Мадлен в полумрак нефа, залитый верхним светом куполов."
+    }
+   ],
+   "linkedInteriorIds": [
+    "paris-madeleine-nave"
+   ]
+  },
+  {
+   "id": "plan-paris-notre-dame",
+   "cityId": "paris",
+   "monumentRu": "Собор Парижской Богоматери (План нефа и капелл)",
+   "cityRu": "Париж",
+   "floorLabelRu": "Основной уровень пятинефной базилики",
+   "architecturalSourceRu": "Архитектурный план Нотр-Дам-де-Пари (Wikimedia CC BY-SA 4.0) · Реставрационные обмеры Виолле-ле-Дюка",
+   "archivalPlanImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Notre-Dame_de_Paris_Floor_Plan_with_Compendious_List_and_Labels.png/1280px-Notre-Dame_de_Paris_Floor_Plan_with_Compendious_List_and_Labels.png",
+   "archivalPlanSourcePage": "https://commons.wikimedia.org/wiki/File:Notre-Dame_de_Paris_Floor_Plan_with_Compendious_List_and_Labels.png",
+   "archivalPlanLicense": "CC BY-SA 4.0",
+   "archivalPlanCaptionRu": "Подлинный детальный поэтажный план собора с маркировкой башен, двойного обхода хора и капелл.",
+   "viewBox": "0 0 600 440",
+   "wallSegments": [
+    {
+     "id": "w-nd-jube-lost",
+     "epochFrom": 1300,
+     "epochTo": 1708,
+     "status": "demolished",
+     "x1": 420,
+     "y1": 165,
+     "x2": 420,
+     "y2": 275,
+     "noteRu": "Средневековый каменный жюбе (разобран при Людовике XIV в 1708 г.)"
+    },
+    {
+     "id": "w-nd-sacristy",
+     "epochFrom": 1845,
+     "epochTo": null,
+     "status": "added_later",
+     "x1": 430,
+     "y1": 332,
+     "x2": 525,
+     "y2": 332,
+     "noteRu": "Неоготическая сакристия Виолле-ле-Дюка (1845–1850)"
+    }
+   ],
+   "vantagePoints": [
+    {
+     "id": "vp-nd-rijks-1875",
+     "artist": "Архив Rijksmuseum (RP-F-F09501)",
+     "year": 1875,
+     "kind": "historical_photo",
+     "x": 155,
+     "y": 220,
+     "bearingDeg": 90,
+     "fovDeg": 62,
+     "noteRu": "Вид по оси главного нефа от органа на восток к хору.",
+     "linkedInteriorId": "paris-notre-dame-nave"
+    },
+    {
+     "id": "vp-nd-modern",
+     "artist": "Современная фотофиксация (CC BY 2.0)",
+     "year": 2014,
+     "kind": "modern_photo",
+     "x": 168,
+     "y": 220,
+     "bearingDeg": 90,
+     "fovDeg": 65,
+     "noteRu": "Современный вид главного нефа на восток.",
+     "linkedInteriorId": "paris-notre-dame-nave"
+    }
+   ],
+   "roomRoutes": [
+    {
+     "id": "rt-nd-pilgrim",
+     "titleRu": "Паломнический обход: Западный портал → Неф → Деамбулаторий",
+     "pointsSvg": "85,220 235,220 380,220 505,180 505,260 380,220",
+     "roomIds": [
+      "r-nd-towers",
+      "r-nd-nave",
+      "r-nd-transept",
+      "r-nd-choir"
+     ],
+     "descriptionRu": "Классический маршрут через двойной обход хора и витражные розы трансепта."
+    }
+   ],
+   "linkedInteriorIds": [
+    "paris-notre-dame-nave"
+   ]
+  }
+ ],
+ "architecturalCutaways": [
+  {
+   "id": "cutaway-rome-pantheon",
+   "monumentRu": "Пантеон в Риме",
+   "cityId": "rome",
+   "cityRu": "Рим",
+   "fidelityClass": "scientific_reconstruction",
+   "fidelityDisclosureRu": "Научная параметрическая 3D-реконструкция по классическим обмерам (диаметр 43,3 м, толщина барабана 6,2 м, окулус 8,7 м, 5 рядов кессонов). Строго отделена от лазерного сканирования; рядом представлен подлинный обмерный план Дехио (1887–1901).",
+   "archivalSectionUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Dehio_1_Pantheon_Floor_plan.jpg/960px-Dehio_1_Pantheon_Floor_plan.jpg",
+   "archivalSectionCaptionRu": "Подлинный обмерный план Пантеона (Г. Дехио, 1887–1901, PD)",
+   "hbimAndStandards": {
+    "standards": [
+     "IFC 4.3 (Heritage BIM)",
+     "glTF 2.0",
+     "London Charter",
+     "Seville Principles"
+    ],
+    "openDataLinks": [
+     {
+      "label": "OpenHeritage3D",
+      "url": "https://openheritage3d.org/"
+     },
+     {
+      "label": "Bern Digital Pantheon Project",
+      "url": "https://www.digitalpantheon.ch/"
+     },
+     {
+      "label": "CesiumJS / 3D Tiles Standard",
+      "url": "https://cesium.com/platform/cesiumjs/"
+     }
+    ]
+   },
+   "floors": [
+    {
+     "id": "floor-ground",
+     "labelRu": "Уровень 0 · Пол и 7 экседр (0–12 м)",
+     "yMin": 0,
+     "yMax": 12
+    },
+    {
+     "id": "floor-attic",
+     "labelRu": "Уровень 1 · Аттик и разгрузочные арки (12–21 м)",
+     "yMin": 12,
+     "yMax": 21
+    },
+    {
+     "id": "floor-dome",
+     "labelRu": "Уровень 2 · Кессонированный купол и окулус (21–43 м)",
+     "yMin": 21,
+     "yMax": 44
+    }
+   ],
+   "engineeringNoteRu": "Градиентная плотность римского бетона (opus caementicium): в фундаменте — тяжёлый травертин, в стенах — туф и кирпич, у вершины купола — лёгкая вулканическая пемза. Восемь скрытых разгрузочных арок перенаправляют вес мимо ниш-экседр.",
+   "linkedInteriorIds": [
+    "rome-pantheon-rotunda",
+    "rome-pantheon-piranesi-parallel"
+   ]
+  },
+  {
+   "id": "cutaway-paris-notre-dame",
+   "monumentRu": "Собор Парижской Богоматери (Notre-Dame)",
+   "cityId": "paris",
+   "cityRu": "Париж",
+   "fidelityClass": "scientific_reconstruction",
+   "fidelityDisclosureRu": "Научная параметрическая 3D-модель конструктивного разреза (высота сводов 33,5 м, двойные аркбутаны, трёхуровневая стена нефа и дубовая ферма кровли «Лес»). Рядом приведён подлинный чертёж-разрез Виолле-ле-Дюка (PD).",
+   "archivalSectionUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Coupe.beffroi.cathedrale.Paris.png",
+   "archivalSectionCaptionRu": "Подлинный конструктивный разрез Собора Парижской Богоматери (Э. Виолле-ле-Дюк, XIX в., PD)",
+   "hbimAndStandards": {
+    "standards": [
+     "HBIM CNRS Notre-Dame Digital Twin",
+     "IFC 4.3",
+     "Three.js Clipping Planes"
+    ],
+    "openDataLinks": [
+     {
+      "label": "CNRS / n-Dame Heritage Digital Twin",
+      "url": "https://www.notre-dame-de-paris.culture.gouv.fr/"
+     },
+     {
+      "label": "Europeana 3D Heritage",
+      "url": "https://www.europeana.eu/"
+     }
+    ]
+   },
+   "floors": [
+    {
+     "id": "nd-nave",
+     "labelRu": "Уровень 0 · Главный и боковые нефы (0–11 м)",
+     "yMin": 0,
+     "yMax": 11
+    },
+    {
+     "id": "nd-tribune",
+     "labelRu": "Уровень 1 · Галереи-трибуны и роза (11–22 м)",
+     "yMin": 11,
+     "yMax": 22
+    },
+    {
+     "id": "nd-vaults",
+     "labelRu": "Уровень 2 · Нервюрные своды и стропила «Лес» (22–44 м)",
+     "yMin": 22,
+     "yMax": 45
+    }
+   ],
+   "engineeringNoteRu": "Стрельчатая арка уменьшает боковой распор вдвое по сравнению с полуциркульной; оставшееся горизонтальное усилие передаётся через внешние каменные аркбутаны на массивные контрфорсы, позволяя прорезать стены гигантскими витражами.",
+   "linkedInteriorIds": [
+    "paris-notre-dame-nave"
+   ]
+  }
+ ],
+ "documentedInteriors": [
+  {
+   "floorPlanId": "plan-paris-madeleine",
+   "linkedMorphId": "madeleine-interior-4d",
+   "modernViewMissingReasonRu": null,
+   "id": "paris-madeleine-nave",
+   "cityId": "paris",
+   "countryRu": "Франция",
+   "cityRu": "Париж",
+   "streetRu": "Place de la Madeleine, 8e",
+   "buildingNameRu": "Церковь Мадлен (Église de la Madeleine)",
+   "wikidataQid": "Q212088",
+   "coords": [
+    2.3242,
+    48.87
+   ],
+   "floorLabelRu": "Основной уровень нефа",
+   "roomId": "madeleine-central-nave",
+   "roomNameRu": "Центральный неф под тремя куполами",
+   "comparisonCategory": "same_room",
+   "comparisonNoteRu": "То же помещение: литография Филиппа Бенуа (Vues de Paris, лист 42, ~1855) ↔ современная фотография центрального нефа по оси к главному алтарю.",
+   "exteriorImageUrl": "https://images.metmuseum.org/CRDImages/ph/web-large/DP-43768-013.jpg",
+   "historicalInterior": {
+    "titleRu": "Intérieur de La Madeleine (Vues de Paris, pl. 42)",
+    "artist": "Philippe Benoist",
+    "year": 1855,
+    "repository": "Paris Musées / Musée Carnavalet",
+    "license": "CC0 1.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Int%C3%A9rieur_de_La_Madeleine._Interior_of_the_Church_of_he_Madeleine_Vues_de_Paris._%2842.%29_Views_of_Paris._Paris_Mus%C3%A9es_20230614133350.jpg/960px-Int%C3%A9rieur_de_La_Madeleine._Interior_of_the_Church_of_he_Madeleine_Vues_de_Paris._%2842.%29_Views_of_Paris._Paris_Mus%C3%A9es_20230614133350.jpg",
+    "chronology": {
+     "constructionDate": "1764–1842",
+     "depictedStateYear": 1855,
+     "artworkCreationYear": 1855,
+     "photographyYear": null,
+     "restorationYears": [
+      1842,
+      1991,
+      2022
+     ],
+     "digitalPublicationYear": 2023,
+     "mediaKind": "historical_artwork",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "modernInterior": {
+    "titleRu": "Центральный неф церкви Мадлен (совр. фото)",
+    "year": 2021,
+    "repository": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Paris%2C_La_Madeleine%2C_Innenraum_%284%29.jpg/960px-Paris%2C_La_Madeleine%2C_Innenraum_%284%29.jpg",
+    "chronology": {
+     "constructionDate": "1764–1842",
+     "depictedStateYear": 2021,
+     "artworkCreationYear": null,
+     "photographyYear": 2021,
+     "restorationYears": [
+      1842,
+      1991,
+      2022
+     ],
+     "digitalPublicationYear": 2021,
+     "mediaKind": "modern_photograph",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "architecturalChangesRu": "Кессонированные купола с верхним светом, ионические колонны и мраморный пол сохранились; заменены деревянные стулья, добавлена электрическая подсветка сводов.",
+   "objectsInside": [
+    {
+     "id": "mad-altar",
+     "titleRu": "Скульптурная группа «Вознесение Марии Магдалины»",
+     "categoryRu": "Главный алтарь",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      42,
+      54,
+      16,
+      22
+     ],
+     "noteRu": "Мраморная композиция Карло Марочетти (1835–1837), установленная к освящению храма.",
+     "originDateRu": "1837"
+    },
+    {
+     "id": "mad-fresco",
+     "titleRu": "Фреска конхи апсиды «История христианства»",
+     "categoryRu": "Монументальная живопись",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      34,
+      30,
+      32,
+      20
+     ],
+     "noteRu": "Роспись Жюля-Клода Циглера (1838) с фигурами Наполеона, Карла Великого и Константина.",
+     "originDateRu": "1838"
+    },
+    {
+     "id": "mad-benches",
+     "titleRu": "Неидентифицированные переносные стулья середины XIX в.",
+     "categoryRu": "Церковная мебель",
+     "identificationStatus": "unknown",
+     "boxPct": [
+      18,
+      76,
+      28,
+      16
+     ],
+     "noteRu": "Типовые плетёные стулья chaises d'église, сдававшиеся в аренду за несколько сантимов; конкретный экземпляр не инвентаризован.",
+     "originDateRu": "ок. 1855"
+    }
+   ],
+   "otherArtistsSameRoom": [
+    {
+     "artist": "Ж.-Ж. Юве (архитектор)",
+     "year": 1842,
+     "noteRu": "Завершил проект трёхкупольного нефа, вдохновлённого римскими термами."
+    }
+   ],
+   "peopleInsideRu": "Прихожане эпохи Второй империи, органисты на галерее Кавайе-Коля, дамы в кринолинах на воскресных мессах и траурных церемониях (отпевание Шопена, 1849).",
+   "buildingConstructionDate": "1764–1842"
+  },
+  {
+   "floorPlanId": null,
+   "linkedMorphId": null,
+   "modernViewMissingReasonRu": null,
+   "id": "paris-sainte-chapelle-upper",
+   "cityId": "paris",
+   "countryRu": "Франция",
+   "cityRu": "Париж",
+   "streetRu": "10 Boulevard du Palais, 1er",
+   "buildingNameRu": "Сент-Шапель (Sainte-Chapelle)",
+   "wikidataQid": "Q193193",
+   "coords": [
+    2.345,
+    48.8554
+   ],
+   "floorLabelRu": "2-й этаж (Верхняя капелла)",
+   "roomId": "sainte-chapelle-upper-chapel",
+   "roomNameRu": "Верхняя королевская капелла",
+   "comparisonCategory": "same_room",
+   "comparisonNoteRu": "То же помещение: исторический витражный зал XIII в. в сопоставлении двух ракурсов верхней капеллы (см. также 3D-модель в модуле «3D Интерьеры»).",
+   "exteriorImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Santa_Capilla%2C_Par%C3%ADs%2C_Francia%2C_2022-11-01%2C_DD_62-64_HDR.jpg",
+   "historicalInterior": {
+    "titleRu": "Верхняя капелла Сент-Шапель до реставрации 2015 г. (фото 2009 г.)",
+    "artist": "Архивная фиксация витражей",
+    "year": 2009,
+    "repository": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/La_Sainte_Chapelle_-_avec_le_Christ_en_Majest%C3%A9_manquant.jpg",
+    "chronology": {
+     "constructionDate": "1242–1248",
+     "depictedStateYear": 2009,
+     "artworkCreationYear": null,
+     "photographyYear": 2009,
+     "restorationYears": [
+      1840,
+      1863,
+      2008,
+      2015
+     ],
+     "digitalPublicationYear": 2009,
+     "mediaKind": "modern_photograph",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "modernInterior": {
+    "titleRu": "Верхняя капелла Сент-Шапель после реставрации витражей",
+    "year": 2022,
+    "repository": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Santa_Capilla%2C_Par%C3%ADs%2C_Francia%2C_2022-11-01%2C_DD_62-64_HDR.jpg",
+    "chronology": {
+     "constructionDate": "1242–1248",
+     "depictedStateYear": 2022,
+     "artworkCreationYear": null,
+     "photographyYear": 2022,
+     "restorationYears": [
+      1840,
+      1863,
+      2008,
+      2015
+     ],
+     "digitalPublicationYear": 2022,
+     "mediaKind": "modern_photograph",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "architecturalChangesRu": "Около двух третей витражей подлинные XIII в.; полихромия колонн и сводов научно воссоздана Дюбаном и Лассю в 1840–1863 гг.",
+   "objectsInside": [
+    {
+     "id": "sc-stained",
+     "titleRu": "15 витражных окон высотой 15 метров (1113 библейских сцен)",
+     "categoryRu": "Витражное искусство",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      12,
+      16,
+      76,
+      56
+     ],
+     "noteRu": "Около 600 м² витражей 1242–1248 гг., отреставрированных в XXI в.",
+     "originDateRu": "1248"
+    },
+    {
+     "id": "sc-vault",
+     "titleRu": "Звёздный лазурный свод с золотыми лилиями",
+     "categoryRu": "Роспись свода",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      24,
+      4,
+      52,
+      18
+     ],
+     "noteRu": "Восстановлен по следам средневекового пигмента в XIX в.",
+     "originDateRu": "1248 / 1855"
+    }
+   ],
+   "otherArtistsSameRoom": [
+    {
+     "artist": "Филипп Бенуа",
+     "year": 1849,
+     "noteRu": "Литография инаугурации 3 ноября 1849 г. (Paris Musées CC0 — лист #1 нашего объединённого каталога Бенуа)."
+    }
+   ],
+   "peopleInsideRu": "Людовик IX и королевский двор, магистратура Дворца правосудия в XIX в., музыканты камерных концертов.",
+   "buildingConstructionDate": "1242–1248"
+  },
+  {
+   "floorPlanId": null,
+   "linkedMorphId": null,
+   "modernViewMissingReasonRu": null,
+   "id": "paris-pantheon-nave",
+   "cityId": "paris",
+   "countryRu": "Франция",
+   "cityRu": "Париж",
+   "streetRu": "Place du Panthéon, 5e",
+   "buildingNameRu": "Парижский Пантеон",
+   "wikidataQid": "Q188856",
+   "coords": [
+    2.3464,
+    48.8462
+   ],
+   "floorLabelRu": "Основной уровень креста",
+   "roomId": "paris-pantheon-central-crossing",
+   "roomNameRu": "Подкупольное пространство и маятник Фуко",
+   "comparisonCategory": "same_room",
+   "comparisonNoteRu": "ИСПРАВЛЕНО (хронология v8.0): подлинный архитектурный разрез трёхслойного купола 1881 г. (PD) ↔ современная фотография подкупольного пространства 2022 г. (CC BY-SA 4.0); дата постройки 1758–1790 строго отделена.",
+   "exteriorImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Pantheon_wider_centered.jpg/1280px-Pantheon_wider_centered.jpg",
+   "historicalInterior": {
+    "titleRu": "Архитектурный разрез тройного купола Парижского Пантеона (1881)",
+    "artist": "Архитектурный атлас 1881 г.",
+    "year": 1881,
+    "repository": "Wikimedia Commons",
+    "license": "Public Domain",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Coupe-Panth%C3%A9on-Coupoles-Paris-France-1881.jpg",
+    "chronology": {
+     "constructionDate": "1758–1790",
+     "depictedStateYear": 1881,
+     "artworkCreationYear": 1881,
+     "photographyYear": null,
+     "restorationYears": [
+      1791,
+      1851,
+      2013,
+      2022
+     ],
+     "digitalPublicationYear": 2013,
+     "mediaKind": "architectural_drawing",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "modernInterior": {
+    "titleRu": "Подкупольное пространство Парижского Пантеона (совр.)",
+    "year": 2022,
+    "repository": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Pante%C3%B3n%2C_Par%C3%ADs%2C_Francia%2C_2022-10-29%2C_DD_13-15_HDR.jpg/1280px-Pante%C3%B3n%2C_Par%C3%ADs%2C_Francia%2C_2022-10-29%2C_DD_13-15_HDR.jpg",
+    "chronology": {
+     "constructionDate": "1758–1790",
+     "depictedStateYear": 2022,
+     "artworkCreationYear": null,
+     "photographyYear": 2022,
+     "restorationYears": [
+      1791,
+      1851,
+      2013,
+      2022
+     ],
+     "digitalPublicationYear": 2022,
+     "mediaKind": "modern_photograph",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "architecturalChangesRu": "Во время Революции 1791 г. нижние окна были заложены Катрмер-де-Кенси для усиления монументальности светского мавзолея; в 1851 г. Леон Фуко доказал здесь вращение Земли.",
+   "objectsInside": [
+    {
+     "id": "pp-pendulum",
+     "titleRu": "Маятник Фуко (подвес 67 метров)",
+     "categoryRu": "Научный прибор",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      44,
+      52,
+      12,
+      34
+     ],
+     "noteRu": "Впервые продемонстрирован публике Леоном Фуко в марте 1851 г.",
+     "originDateRu": "1851"
+    }
+   ],
+   "otherArtistsSameRoom": [
+    {
+     "artist": "Пьер Пюви де Шаванн",
+     "year": 1878,
+     "noteRu": "Создал настенный цикл о святой Женевьеве."
+    }
+   ],
+   "peopleInsideRu": "Учёные и парижане, наблюдавшие опыт Фуко в 1851 г., участники государственных церемоний.",
+   "buildingConstructionDate": "1758–1790"
+  },
+  {
+   "floorPlanId": "plan-rome-pantheon",
+   "linkedMorphId": "pantheon-interior-4d",
+   "modernViewMissingReasonRu": null,
+   "id": "rome-pantheon-rotunda",
+   "cityId": "rome",
+   "countryRu": "Италия",
+   "cityRu": "Рим и Ватикан",
+   "streetRu": "Piazza della Rotonda",
+   "buildingNameRu": "Римский Пантеон (Pantheon)",
+   "wikidataQid": "Q42885",
+   "coords": [
+    12.4768,
+    41.8986
+   ],
+   "floorLabelRu": "Уровень ротонды",
+   "roomId": "rome-pantheon-rotunda-main",
+   "roomNameRu": "Ротонда, кессонированный купол и окулус",
+   "comparisonCategory": "same_room",
+   "comparisonNoteRu": "То же помещение: Дж. П. Панини (ок. 1734, NGA Washington CC0) ↔ современная фотография ротонды и главного алтаря (Wikimedia CC0).",
+   "exteriorImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Pantheon_Rom_1_cropped.jpg/960px-Pantheon_Rom_1_cropped.jpg",
+   "historicalInterior": {
+    "titleRu": "Interior of the Pantheon, Rome (ок. 1734, NGA CC0)",
+    "artist": "Giovanni Paolo Panini",
+    "year": 1734,
+    "repository": "National Gallery of Art, Washington",
+    "license": "CC0 1.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Giovanni_Paolo_Panini%2C_Interior_of_the_Pantheon%2C_Rome%2C_c._1734%2C_NGA_165.jpg/960px-Giovanni_Paolo_Panini%2C_Interior_of_the_Pantheon%2C_Rome%2C_c._1734%2C_NGA_165.jpg",
+    "chronology": {
+     "constructionDate": "118–126 н.э.",
+     "depictedStateYear": 1734,
+     "artworkCreationYear": 1734,
+     "photographyYear": null,
+     "restorationYears": [
+      609,
+      1747,
+      1883
+     ],
+     "digitalPublicationYear": 2019,
+     "mediaKind": "historical_artwork",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "modernInterior": {
+    "titleRu": "Ротонда и главный алтарь Пантеона (совр., CC0)",
+    "year": 2022,
+    "repository": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Above_main_altar%2C_Pantheon%2C_Rome%2C_Italy.jpg/960px-Above_main_altar%2C_Pantheon%2C_Rome%2C_Italy.jpg",
+    "chronology": {
+     "constructionDate": "118–126 н.э.",
+     "depictedStateYear": 2022,
+     "artworkCreationYear": null,
+     "photographyYear": 2022,
+     "restorationYears": [
+      609,
+      1747,
+      1883
+     ],
+     "digitalPublicationYear": 2022,
+     "mediaKind": "modern_photograph",
+     "commonsPageId": null,
+     "metadataSource": "Museum Open Archive"
+    }
+   },
+   "architecturalChangesRu": "В 1747 г. Паоло Пози перестроил аттиковый ярус (на картине Панини 1734 г. ещё видны подлинные античные мраморные панели, а на современном фото — реконструкция XVIII в. с одним сохранившимся античным участком).",
+   "objectsInside": [
+    {
+     "id": "pan-oculus",
+     "titleRu": "Открытый окулус диаметром 8,9 м и 5 рядов кессонов",
+     "categoryRu": "Световая инженерия",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      32,
+      4,
+      36,
+      20
+     ],
+     "noteRu": "Единственный источник естественного света; солнечный луч движется по куполу как гигантские солнечные часы.",
+     "originDateRu": "126 г. н.э."
+    },
+    {
+     "id": "pan-marble",
+     "titleRu": "Полихромный мраморный пол (порфир, джалло антико, гранит)",
+     "categoryRu": "Античный пол",
+     "identificationStatus": "documented_exact",
+     "boxPct": [
+      20,
+      82,
+      60,
+      14
+     ],
+     "noteRu": "Сохраняет античный рисунок квадратов и кругов со слабым уклоном для отвода дождевой воды.",
+     "originDateRu": "126 г. н.э."
+    }
+   ],
+   "otherArtistsSameRoom": [
+    {
+     "artist": "Джованни Баттиста Пиранези",
+     "year": 1756,
+     "noteRu": "Выполнил серию архитектурных офортов ротонды и разреза купола."
+    }
+   ],
+   "peopleInsideRu": "Римские горожане, художники у гробницы Рафаэля, наблюдатели полуденного солнечного луча 21 апреля.",
+   "buildingConstructionDate": "118–126 н.э."
+  }
+ ]
+}

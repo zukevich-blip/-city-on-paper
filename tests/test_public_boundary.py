@@ -46,6 +46,8 @@ def test_every_image_shipped_with_the_book_is_an_open_confirmed_sheet():
     declared |= {w["image"] for e in ex for w in e["works"]}
     alb = json.loads((ROOT / "book/albums/paris-dans-sa-splendeur.json").read_text(encoding="utf-8"))
     declared |= {p["image"] for p in alb["plates"]} | {c["image"] for c in alb["covers"]}
+    ins = json.loads((ROOT / "book/inside.json").read_text(encoding="utf-8"))["buildings"]
+    declared |= {x["i"] for b in ins for k in ("plan", "section", "extras") for x in b[k]}
     gal = json.loads((ROOT / "book/gallery.json").read_text(encoding="utf-8"))["works"]
     declared |= {w["i"] for w in gal} | {w["th"] for w in gal}
     shipped = {
