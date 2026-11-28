@@ -337,3 +337,6 @@ body.showmode .dock,body.showmode .museum-nav,body.showmode header,body.showmode
 .mag{display:grid;gap:14px;margin:26px 0;align-items:center}.magtext h3{font:400 24px/1.2 var(--lt-serif);margin:4px 0 8px}
 @media(min-width:820px){.mag{grid-template-columns:1.4fr 1fr}.mag.r{grid-template-columns:1fr 1.4fr}.mag.r .exfig{order:2}}
 .loupes{display:grid;grid-template-columns:1fr 1fr;gap:6px}.lp{height:60vh;min-height:280px;background:#eae3d1;touch-action:none;border:1px solid #0003}@media(max-width:560px){.loupes{grid-template-columns:1fr}.lp{height:42vh}}
+.anglesearch{margin:18px 0}.angctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.angctl input[type=range]{flex:1;min-width:120px;min-height:44px}.angctl .btn,.angup{min-height:44px;display:inline-flex;align-items:center}
+.angres{display:grid;gap:8px;margin:8px 0}.angc{display:grid;grid-template-columns:96px 1fr;gap:10px;text-align:left;padding:6px;border:1px solid var(--lt-rule);background:var(--lt-paper-2);cursor:pointer;min-height:64px}.angc img{width:96px;height:72px;object-fit:cover}.angc span{display:flex;flex-direction:column;font-size:13px;line-height:1.35}.angc i{font-style:normal;opacity:.75;font-size:12px}
+.angcmp{margin:10px 0}

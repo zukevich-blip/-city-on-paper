@@ -413,11 +413,14 @@
       ${pl ? `<h2>История места</h2><p><a class="btn ghost" href="#/place/${esc(pl.id)}">${esc(pl.name_ru)}: что стояло, что изменилось →</a></p>` : ""}
       ${placeSection(D.sp[sh.id])}
       ${compareSection(D.sp[sh.id])}
+      ${D.sp[sh.id] && D.sp[sh.id].place && Number.isFinite(D.sp[sh.id].place.lat) ? '<div id="anglesBox" class="anglesearch"></div>' : ""}
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
     wireLens(im); wireDeepZoom(sh.image, sh.title);
     mountPlace(D.sp[sh.id]); wireAngles(D.sp[sh.id]);
+    const pe = D.sp[sh.id] && D.sp[sh.id].place;
+    if (pe && Number.isFinite(pe.lat) && window.CoPBook && window.CoPBook.mountAngles) window.CoPBook.mountAngles(document.getElementById("anglesBox"), { lat: pe.lat, lon: pe.lon, title, image: sh.image, basis: "OpenStreetMap Nominatim, приблизительно" });
   }
 
   const workRow = (w, byImg) => { const sh = w.image && byImg.get(w.image);
