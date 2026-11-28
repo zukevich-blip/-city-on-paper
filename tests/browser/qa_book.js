@@ -171,6 +171,7 @@ const SHEETS = SHEET_LIST.length;
     check(`${v.name}: old atlas map (Allmaps) is requested on the sheet and either loads or says honestly it cannot`, true);
     await page.selectOption("#oldmapSel", "");
     await page.locator("#planBtn").click();
+    await page.waitForSelector(".planimg", { state: "attached", timeout: 15000 });
     await page.locator("#loupeBtn").waitFor({ state: "visible" });
     await page.locator("#loupeBtn").click();
     await page.waitForFunction(() => { const i = document.querySelector(".planimg"); return i && /radial-gradient/.test(i.style.maskImage || i.style.webkitMaskImage || ""); });

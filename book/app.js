@@ -167,13 +167,8 @@
         <span class="sub">${esc(k.cities.slice(0, 4).map((c) => c.name).join(", "))}${k.cities.length > 4 ? " и другие" : ""}</span>${read ? `<span class="bar" aria-label="Просмотрено ${read} из ${k.plates}"><i style="width:${Math.round(100 * read / k.plates)}%"></i></span>` : ""}</a></li>`;
     };
     $app.innerHTML = `<div class="page-enter">
-      <section class="cover">
-        <p class="eyebrow">Книга видов · цифровое издание</p>
-        <h1>${esc(ed.title || "Города на бумаге")}</h1>
-        <p class="lede">${esc(ed.subtitle || "Старые литографии и гравюры городов. У каждого листа есть место на карте, а у некоторых и фотография сегодня.")}</p>
-        <div class="stats"><span><b>${ks.length}</b>${plural(ks.length, "страна", "страны", "стран").replace(/^\d+ /, "")}</span><span><b>${nCities}</b>${plural(nCities, "город", "города", "городов").replace(/^\d+ /, "")}</span><span><b>${D.total}</b>${plural(D.total, "лист", "листа", "листов").replace(/^\d+ /, "")}</span></div>
-        <div class="btn-row"><a class="btn" href="#main">Начать с главных видов ↓</a><a class="btn ghost" href="#toc">Оглавление</a></div>
-      </section>
+      <section class="cover compact"><p class="eyebrow">Музей старых видов городов</p><h1>${esc(ed.title || "Города на бумаге")}</h1></section>
+      <div id="homeTop" class="hometop"></div>
       <section class="preface" aria-label="Предисловие">
         <p class="eyebrow">Предисловие</p>
         ${(ed.preface || ["Когда-то путеводитель вёл читателя за руку: сначала главное, потом город за городом. Мы собрали книгу так же.", "Листайте: у каждого листа сказано, кто его нарисовал и где хранится оригинал. Там, где нашли фото того же места, можно сравнить «тогда» и «сейчас»."]).map((t) => `<p>${esc(t)}</p>`).join("")}
@@ -192,6 +187,7 @@
       <ol class="toc">${top.map(tocItem).join("")}</ol>
       ${rest.length ? `<details class="more-toc"><summary class="btn ghost wide">Ещё ${plural(rest.length, "страна", "страны", "стран")}</summary><ol class="toc">${rest.map(tocItem).join("")}</ol></details>` : ""}
     </div>`;
+    if (window.CoPBook && window.CoPBook.mountHome) window.CoPBook.mountHome(document.getElementById("homeTop"));
   }
 
   function viewCountry(name) {
@@ -417,11 +413,14 @@
       ${pl ? `<h2>История места</h2><p><a class="btn ghost" href="#/place/${esc(pl.id)}">${esc(pl.name_ru)}: что стояло, что изменилось →</a></p>` : ""}
       ${placeSection(D.sp[sh.id])}
       ${compareSection(D.sp[sh.id])}
+      ${D.sp[sh.id] && D.sp[sh.id].place && Number.isFinite(D.sp[sh.id].place.lat) ? '<div id="anglesBox" class="anglesearch"></div>' : ""}
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
     wireLens(im); wireDeepZoom(sh.image, sh.title);
     mountPlace(D.sp[sh.id]); wireAngles(D.sp[sh.id]);
+    const pe = D.sp[sh.id] && D.sp[sh.id].place;
+    if (pe && Number.isFinite(pe.lat) && window.CoPBook && window.CoPBook.mountAngles) window.CoPBook.mountAngles(document.getElementById("anglesBox"), { lat: pe.lat, lon: pe.lon, title, image: sh.image, basis: "OpenStreetMap Nominatim, приблизительно" });
   }
 
   const workRow = (w, byImg) => { const sh = w.image && byImg.get(w.image);
@@ -825,7 +824,7 @@
     $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Залы музея</p><h1>Выставки</h1><p class="lede">Большие темы вокруг наследия Бенуа: Рим, Венеция, исчезнувший Париж. Работы других мастеров открыты музеями, права и источник указаны у каждой.</p></section>
       <div class="exlist">${X.exhibitions.map((e) => `<a class="exhall" href="#/exhibit/${esc(e.id)}"><img src="${esc(e.works[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(e.city)} · ${plural(e.works.length, "работа", "работы", "работ")}</span><b>${esc(e.title)}</b><span class="hook">${esc(e.lede)}</span></span></a>`).join("")}</div>
       <p class="small">Правила: рисунки и гравюры берутся только там, где музей сам указал свободное использование; подпись составляется из записи музея, без домыслов. Работы Бенуа и других художников из книги не смешиваются: у каждого свои роли.</p>
-      ${dock({ href: "#/albums", t: "Альбомы" }, { href: "#/", t: "Оглавление" })}</div>`;
+      ${dock({ href: "#/halls", t: "Все залы" }, { href: "#/", t: "Оглавление" })}</div>`;
   }
   async function viewExhibit(id) {
     let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
@@ -919,10 +918,13 @@
     else if (h[0] === "album") viewAlbum(h[1], h[2]);
     else if (h[0] === "work") viewWork(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
+    else if (window.CoPBook && window.CoPBook.routes && window.CoPBook.routes[h[0]]) window.CoPBook.routes[h[0]](arg);
     else notFound();
+    document.body.classList.toggle("nodock", /^(table|guess|showcase)$/.test(h[0]));
     if (h[0] !== "main" && h[0] !== "toc") window.scrollTo(0, 0);
     $app.focus({ preventScroll: true });
   }
+  window.CoPBook = Object.assign(window.CoPBook || { routes: {} }, { app: () => $app, esc, cut, safe, plural, dock, crumbs, setTitle, notFound, loadOsd });
   window.addEventListener("hashchange", route);
   load().then(route).catch(() => { $app.innerHTML = '<p class="bk-loading">Книга пока не открылась. Попробуйте обновить страницу или откройте <a href="../guides/">путеводители</a>.</p>'; });
 })();
