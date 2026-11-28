@@ -17,7 +17,7 @@ const views = [
   for (const v of views) {
     const ctx = await browser.newContext(v), page = await ctx.newPage(), errors = [];
     page.on("pageerror", (e) => errors.push(String(e)));
-    page.on("console", (m) => { if (m.type() === "error" && !/ERR_|tile\.|wikimedia|geohistoricaldata|gallica|CORS/.test(m.text())) errors.push(m.text()); });
+    page.on("console", (m) => { if (m.type() === "error" && !/ERR_|tile\.|wikimedia|geohistoricaldata|gallica|CORS|api\.nga\.gov|Tile %s|429|Too Many|TileSource/.test(m.text())) errors.push(m.text()); });
     await page.route(/tile\.openstreetmap/, (r) => r.abort());
     const shot = async (n) => { if (shots && v.name !== "ipad-820") await page.screenshot({ path: `${shots}/${v.name}-${n}.png` }); };
     const imgOk = (sel) => page.waitForFunction((s) => { const i = document.querySelector(s); return i && i.complete && i.naturalWidth > 0; }, sel, { timeout: 15000 });
@@ -113,6 +113,12 @@ const views = [
     await page.waitForSelector("#curtain");
     await page.locator("#cRange").fill("20");
     check(`${v.name}: two works can be compared by a curtain without overlay`, (await page.locator("#curtain .cB").evaluate((e) => e.style.clipPath)).includes("20%")); await shot("09-curtain");
+    // 5b. synchronized loupes for two works
+    await page.locator("#tLayout").click();
+    await page.waitForSelector("#lpNote[data-ready]", { timeout: 15000 });
+    const sync = await page.evaluate(() => new Promise((res) => { const [a, b] = window.__lp; a.viewport.zoomTo(a.viewport.getZoom() * 2, null, true); setTimeout(() => res([a.viewport.getZoom(), b.viewport.getZoom()]), 600); }));
+    check(`${v.name}: two museum loupes zoom together`, Math.abs(sync[0] - sync[1]) < 1e-6 && sync[0] > 0, sync.join(" / "));
+    await shot("09b-loupes");
     // 6. guess the city
     await page.goto(base + "#/guess", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".gopt");
@@ -120,6 +126,24 @@ const views = [
     await page.locator(".gopt").first().click();
     await page.waitForSelector("#gnext:not([hidden])");
     check(`${v.name}: guess-the-city shows a fragment, answers, reveals the work`, drawn > 50 && (await page.locator("#gwork").isVisible())); await shot("10-guess");
+    // 6b. IIIF: a holder that answers is used, a holder that does not falls back to the local original
+    const iiifWork = await page.evaluate(async () => { const g = await (await fetch("gallery.json")).json(); return g.works.find((w) => w.iiif && w.iiif.includes("api.nga.gov")).id; });
+    await page.route(/api\.nga\.gov\/iiif\/.*info\.json/, (r) => r.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ "@context": "http://iiif.io/api/image/2/context.json", "@id": "https://api.nga.gov/iiif/mock", protocol: "http://iiif.io/api/image", width: 6196, height: 3882, tiles: [{ width: 512, scaleFactors: [1, 2, 4, 8, 16] }], profile: ["http://iiif.io/api/image/2/level1.json"] }) }));
+    await page.route(/api\.nga\.gov\/iiif\/.*(jpg|png)/, (r) => r.abort());
+    await page.goto(base + "#/art/" + iiifWork, { waitUntil: "domcontentloaded" });
+    await imgOk("#zoomimg");
+    await page.locator("#deepBox > summary").click();
+    await page.waitForFunction(() => /IIIF музея: 6196×3882/.test(document.getElementById("deepNote").textContent), null, { timeout: 15000 });
+    check(`${v.name}: IIIF image service is used when the holder answers`, true);
+    await page.unroute(/api\.nga\.gov\/iiif\/.*info\.json/);
+    await page.route(/api\.nga\.gov\/iiif\/.*info\.json/, (r) => r.fulfill({ status: 429, body: "slow down" }));
+    await page.evaluate(() => { window.__osd && window.__osd.destroy(); });
+    await page.goto(base + "#/gallery", { waitUntil: "domcontentloaded" });
+    await page.goto(base + "#/art/" + iiifWork, { waitUntil: "domcontentloaded" });
+    await imgOk("#zoomimg");
+    await page.locator("#deepBox > summary").click();
+    await page.waitForFunction(() => /локальный оригинал/.test(document.getElementById("deepNote").textContent), null, { timeout: 25000 });
+    check(`${v.name}: HTTP 429 from the IIIF server falls back to the local original`, true);
     // 7. showcase
     await page.goto(base + "#/showcase", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("#show");

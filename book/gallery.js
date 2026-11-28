@@ -57,6 +57,36 @@
     document.getElementById("grand").addEventListener("click", () => { const pool = list.length ? list : all; location.hash = "#/art/" + pool[rnd(pool.length)].id; });
   }
 
+
+  /* real IIIF Image API where the holder offers it (NGA, Art Institute of Chicago, V&A, Rijksmuseum): info.json cached, timeouts and
+   * HTTP 429 retried with back-off, tile requests limited, and the local original always opens if the server does not answer */
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const infoCache = new Map();
+  const iiifInfo = (base) => {
+    if (infoCache.has(base)) return infoCache.get(base);
+    const p = (async () => {
+      for (let a = 0; a < 3; a++) {
+        const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 8000);
+        try { const r = await fetch(base + "/info.json", { signal: ctl.signal }); clearTimeout(t); if (r.status === 429) { await sleep(1200 * (a + 1)); continue; } if (!r.ok) throw new Error("HTTP " + r.status); const j = await r.json(); if (!j.width || !j.height) throw new Error("no size"); return j; }
+        catch (e) { clearTimeout(t); if (a === 2) throw e; await sleep(500 * (a + 1)); }
+      }
+      throw new Error("HTTP 429");
+    })();
+    infoCache.set(base, p); p.catch(() => infoCache.delete(base)); return p;
+  };
+  async function openDeep(host, w, note) {
+    const OSD = await B.loadOsd();
+    let src = { type: "image", url: w.i }, label = `локальный оригинал ${w.w}×${w.h} px (у музея файла больше нет или он не отдаётся)`;
+    if (w.iiif) {
+      try { const info = await iiifInfo(w.iiif); src = w.iiif + "/info.json"; label = `IIIF музея: ${info.width}×${info.height} px, ${new URL(w.iiif).hostname}`; }
+      catch (e) { label = `IIIF музея сейчас не отвечает (${String(e.message).slice(0, 30)}), показан локальный оригинал ${w.w}×${w.h} px`; }
+    }
+    const viewer = OSD({ element: host, showNavigationControl: false, drawer: "canvas", placeholderFillStyle: "#eae3d1", visibilityRatio: 1, maxZoomPixelRatio: 4, imageLoaderLimit: 4, tileRetryMax: 3, tileRetryDelay: 1500, timeout: 20000, tileSources: src });
+    let fell = false;
+    viewer.addHandler("open-failed", () => { if (fell) return; fell = true; note.textContent = `IIIF не открылся, показан локальный оригинал ${w.w}×${w.h} px`; viewer.open({ type: "image", url: w.i }); });
+    note.textContent = label; note.dataset.src = typeof src === "string" ? "iiif" : "local";
+    return viewer;
+  }
   const related = (g, w) => {
     const pick = (f, n) => g.works.filter((x) => x.id !== w.id && f(x)).sort((a, b) => Math.abs(a.y - w.y) - Math.abs(b.y - w.y)).slice(0, n);
     return [["Тот же мастер", pick((x) => x.a === w.a && w.set !== "album", 10)], [`${w.c || "Тот же город"}: другие виды`, w.c ? pick((x) => x.c === w.c && x.a !== w.a, 10) : []], [`${w.kr || "Тот же сюжет"}`, w.k ? pick((x) => x.k === w.k && x.c !== w.c, 10) : []]].filter(([, l]) => l.length);
@@ -72,7 +102,7 @@
         <figcaption class="lt-imprint"><span class="l">${E(B.cut(ruTitle(w), 60))}</span><span class="c">${E(shortA(w))}${w.y ? " · " + w.y : ""}</span><span class="r">${E(w.m)} · ${E(w.r)}</span></figcaption></figure>
       <section class="chead compact"><p class="eyebrow">${E(SET[w.set])}${w.c ? " · " + E(w.c) : ""}${w.kr ? " · " + E(w.kr) : ""}</p><h1>${E(ruTitle(w))}</h1>${w.to && w.to !== ruTitle(w) ? `<p class="small orig"><i>${E(B.cut(w.to, 140))}</i></p>` : ""}</section>
       <div class="lt-tool artctl"><button type="button" class="btn" id="artFull">Во весь экран</button><button type="button" class="btn ghost" id="artRand">Случайный шедевр</button>${w.link ? `<a class="btn ghost" href="${E(w.link)}">В книге →</a>` : ""}<details class="more"><summary class="btn ghost">Ещё</summary><button type="button" class="btn ghost" id="artTable">${onTable ? "Убрать со стола" : "На световой стол"}</button></details></div>
-      <details class="lt-tool" id="deepBox"><summary>Смотреть вблизи</summary><p class="small">Файл не меняется; приближение щипком, двойным касанием или колесом.</p><div id="deepHost" class="deephost"></div></details>
+      <details class="lt-tool" id="deepBox"><summary>Смотреть вблизи${w.iiif ? " (IIIF музея)" : ""}</summary><p class="small" id="deepNote">Файл не меняется; приближение щипком, двойным касанием или колесом.</p><div id="deepHost" class="deephost"></div></details>
       <details class="lt-tool" id="cabBox"><summary>Кабинет деталей: девять фрагментов</summary><div id="cabinet" class="cabinet"></div><div id="cabBig" class="cabbig" hidden></div><p class="small">Фрагменты вырезаны автоматически, подписей деталей пока нет; нажмите фрагмент, чтобы увеличить.</p></details>
       <dl class="facts"><dt>Название</dt><dd>${E(w.to)}</dd><dt>Автор</dt><dd>${E(w.a)}</dd><dt>Дата</dt><dd>${E(w.d || "в записи не указана")}</dd><dt>Музей</dt><dd>${E(w.m)}, ${E(w.n)}</dd><dt>Права</dt><dd>${E(w.r)}</dd><dt>Оригинал</dt><dd><a href="${E(B.safe(w.u))}" target="_blank" rel="noopener">запись в музее ↗</a></dd></dl>
       ${related(g, w).map(([t, l]) => `<h2>${E(t)}</h2><div class="rail" role="list">${l.map((x) => `<a role="listitem" class="gt rt" href="#/art/${E(x.id)}"><img src="${E(x.th)}" alt="${E(ruTitle(x))}" loading="lazy" width="150" height="${Math.round(150 * x.h / x.w)}"><span class="gcap"><b>${E(B.cut(ruTitle(x), 30))}</b></span></a>`).join("")}</div>`).join("")}
@@ -83,8 +113,8 @@
     document.getElementById("artTable").addEventListener("click", (e) => { let t = tbl(); if (t.includes(w.id)) t = t.filter((x) => x !== w.id); else { t.push(w.id); if (t.length > 6) t = t.slice(-6); } saveTbl(t); e.target.textContent = t.includes(w.id) ? "Убрать со стола" : "На световой стол"; });
     document.getElementById("artRand").addEventListener("click", () => { location.hash = "#/art/" + g.works[rnd(g.works.length)].id; });
     document.getElementById("deepBox").addEventListener("toggle", async (e) => {
-      const host = document.getElementById("deepHost"); if (!e.target.open || host.dataset.on) return; host.dataset.on = "1";
-      try { const OSD = await B.loadOsd(); host.classList.add("deep"); window.__osd = OSD({ element: host, showNavigationControl: false, drawer: "canvas", placeholderFillStyle: "#eae3d1", visibilityRatio: 1, maxZoomPixelRatio: 3, tileSources: { type: "image", url: w.i } }); }
+      const host = document.getElementById("deepHost"), note = document.getElementById("deepNote"); if (!e.target.open || host.dataset.on) return; host.dataset.on = "1";
+      try { host.classList.add("deep"); window.__osd = await openDeep(host, w, note); }
       catch (err) { host.textContent = "Просмотр вблизи сейчас недоступен."; }
     });
     document.getElementById("cabBox").addEventListener("toggle", (e) => { if (e.target.open) cabinet(w); });
@@ -109,11 +139,16 @@
     const draw = () => {
       const ws = ids.map((x) => g.by.get(x));
       B.app().innerHTML = `<div class="page-enter"><section class="chead compact"><p class="eyebrow">Куратору</p><h1>Световой стол</h1><p class="small">Положите до шести работ рядом, смените освещение и сравните. Работы показываются как есть, без наложения и подгонки.</p></section>
-        <div class="lt-tool" role="group" aria-label="Освещение">${[["day", "Дневной свет"], ["lamp", "Лампа"], ["night", "Ночь"]].map(([k, t]) => `<button type="button" class="btn ghost lightb" data-l="${k}" aria-pressed="${light === k}">${t}</button>`).join("")}${ws.length >= 2 ? `<button type="button" class="btn ghost" id="tLayout">${layout === "grid" ? "Шторка: две первые" : "Показать сеткой"}</button>` : ""}<button type="button" class="btn ghost" id="tRand">Положить шесть случайных</button>${ws.length ? `<button type="button" class="btn ghost" id="tClear">Очистить</button>` : ""}</div>
-        <div class="board ${light}" id="board">${!ws.length ? `<p class="boardempty">Стол пуст. Откройте работу в галерее и нажмите «На световой стол» или положите шесть случайных.</p>` : layout === "curtain" ? `<div class="curtain" id="curtain"><img class="cA" src="${E(ws[0].i)}" alt="${E(ruTitle(ws[0]))}"><div class="cB"><img src="${E(ws[1].i)}" alt="${E(ruTitle(ws[1]))}"></div><input type="range" id="cRange" min="0" max="100" value="50" aria-label="Шторка между двумя работами"></div><p class="small boardcap">${E(ruTitle(ws[0]))} (слева) и ${E(ruTitle(ws[1]))} (справа): два отдельных кадра, перспективы не совмещаются.</p>` : `<div class="boardgrid">${ws.map((w) => `<figure class="bfig"><a href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}" loading="lazy"></a><figcaption>${E(B.cut(ruTitle(w), 40))}<i>${E(w.a)}</i><button type="button" class="tdel" data-id="${E(w.id)}" aria-label="Убрать со стола">✕</button></figcaption></figure>`).join("")}</div>`}</div>
+        <div class="lt-tool" role="group" aria-label="Освещение">${[["day", "Дневной свет"], ["lamp", "Лампа"], ["night", "Ночь"]].map(([k, t]) => `<button type="button" class="btn ghost lightb" data-l="${k}" aria-pressed="${light === k}">${t}</button>`).join("")}${ws.length >= 2 ? `<button type="button" class="btn ghost" id="tLayout">${{ grid: "Шторка: две первые", curtain: "Две лупы вместе", loupes: "Показать сеткой" }[layout]}</button>` : ""}<button type="button" class="btn ghost" id="tRand">Положить шесть случайных</button>${ws.length ? `<button type="button" class="btn ghost" id="tClear">Очистить</button>` : ""}</div>
+        <div class="board ${light}" id="board">${!ws.length ? `<p class="boardempty">Стол пуст. Откройте работу в галерее и нажмите «На световой стол» или положите шесть случайных.</p>` : layout === "loupes" ? `<div class="loupes"><div class="lp" id="lpA" aria-label="${E(ruTitle(ws[0]))}"></div><div class="lp" id="lpB" aria-label="${E(ruTitle(ws[1]))}"></div></div><p class="small boardcap" id="lpNote">Приближение и сдвиг в одной лупе повторяются в другой: сравнивайте детали двух работ.</p>` : layout === "curtain" ? `<div class="curtain" id="curtain"><img class="cA" src="${E(ws[0].i)}" alt="${E(ruTitle(ws[0]))}"><div class="cB"><img src="${E(ws[1].i)}" alt="${E(ruTitle(ws[1]))}"></div><input type="range" id="cRange" min="0" max="100" value="50" aria-label="Шторка между двумя работами"></div><p class="small boardcap">${E(ruTitle(ws[0]))} (слева) и ${E(ruTitle(ws[1]))} (справа): два отдельных кадра, перспективы не совмещаются.</p>` : `<div class="boardgrid">${ws.map((w) => `<figure class="bfig"><a href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}" loading="lazy"></a><figcaption>${E(B.cut(ruTitle(w), 40))}<i>${E(w.a)}</i><button type="button" class="tdel" data-id="${E(w.id)}" aria-label="Убрать со стола">✕</button></figcaption></figure>`).join("")}</div>`}</div>
         ${B.dock({ href: "#/gallery", t: "Галерея" }, { href: "#/", t: "Оглавление" })}</div>`;
       document.querySelectorAll(".lightb").forEach((b) => b.addEventListener("click", () => { light = b.dataset.l; draw(); }));
-      const lay = document.getElementById("tLayout"); if (lay) lay.addEventListener("click", () => { layout = layout === "grid" ? "curtain" : "grid"; draw(); });
+      const lay = document.getElementById("tLayout"); if (lay) lay.addEventListener("click", () => { layout = { grid: "curtain", curtain: "loupes", loupes: "grid" }[layout]; draw(); });
+      if (layout === "loupes") (async () => {
+        const n = document.getElementById("lpNote"), [a, b] = await Promise.all([openDeep(document.getElementById("lpA"), ws[0], { dataset: {}, set textContent(v) {} }), openDeep(document.getElementById("lpB"), ws[1], { dataset: {}, set textContent(v) {} })]);
+        let lock = false; const mirror = (from, to) => from.addHandler("viewport-change", () => { if (lock) return; lock = true; to.viewport.zoomTo(from.viewport.getZoom(), null, true); to.viewport.panTo(from.viewport.getCenter(), true); lock = false; });
+        mirror(a, b); mirror(b, a); window.__lp = [a, b]; n.dataset.ready = "1";
+      })().catch(() => { const n = document.getElementById("lpNote"); if (n) n.textContent = "Лупа сейчас недоступна."; });
       document.getElementById("tRand").addEventListener("click", () => { ids = []; while (ids.length < 6) { const w = g.works[rnd(g.works.length)]; if (!ids.includes(w.id)) ids.push(w.id); } saveTbl(ids); draw(); });
       const cl = document.getElementById("tClear"); if (cl) cl.addEventListener("click", () => { ids = []; saveTbl(ids); draw(); });
       document.querySelectorAll(".tdel").forEach((b) => b.addEventListener("click", () => { ids = ids.filter((x) => x !== b.dataset.id); saveTbl(ids); draw(); }));

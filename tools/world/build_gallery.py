@@ -50,6 +50,16 @@ KIND = [("interior", "Интерьер", r"Interior|Intérieur|Innen|Inside|Binn
         ("bridge", "Мост", r"Bridge|Ponte|Pont\b|Brug"), ("square", "Площадь и улица", r"Piazza|Square|Place\b|Campo|Street|Rue\b|Via\b|Market|Quay|Quai|Canal|Fountain|Fontana")]
 BAD = re.compile(r"\(verso\)|\(recto\)|Caricature|Costume|Bird|Lyre|Jay|Eagle|Raven|Soldier|Figure studies|Portrait|Dredge|Float|Fish|Horse|Dog|Skull|Hand\b|Studies? of|Sketchbook|Title Page|Frontispiece|Table|Index", re.I)
 FOLDER_SIZES = (1000, 360)
+IIIF_RX = [(r"^(https://api\.nga\.gov/iiif/[0-9a-f-]{36})/", r"\1"), (r"^(https://www\.artic\.edu/iiif/2/[0-9a-f-]{36})/", r"\1"),
+           (r"^(https://framemark\.vam\.ac\.uk/collections/[A-Za-z0-9]+)/", r"\1"), (r"^(https://iiif\.micr\.io/[A-Za-z0-9]+)/", r"\1")]
+
+
+def iiif_base(url: str | None) -> str | None:
+    """IIIF Image API service base derived from a holder's image URL (only hosts whose info.json is known to answer with CORS)."""
+    for rx, rep in IIIF_RX:
+        if url and re.match(rx, url):
+            return re.sub(rx + r".*$", rep, url)
+    return None
 
 
 def classify(title: str, series: str | None) -> tuple[str | None, str | None, str | None]:
@@ -93,12 +103,13 @@ def main() -> int:
         add({"id": f"al-p{p['n']:03d}{'b' if p['bis'] else ''}", "t": p["title"], "to": "Paris dans sa splendeur, " + p["title"], "a": "Издание 1861 г., авторы планш не названы", "ak": "album", "d": "1861", "k": "square", "kr": None,
              "c": "Париж", "set": "album", "m": "Universitätsbibliothek Heidelberg", "n": f"Band {p['volume']}, Planche {p['n']}", "u": p["record_url"], "r": "Public Domain Mark", "src": BOOK / p["image"],
              "link": f"#/album/{alb['id']}/{p['n']}", "img_key": p["image"]})
+    rec_url = {r["record_id"].replace(":", "-"): r["image_url"] for r in json.loads((ROOT / "data/research/authors/other-authors-v1.json").read_text(encoding="utf-8"))["records"] if r.get("image_url")}
     # 3. exhibitions
     for e in json.loads((BOOK / "exhibitions.json").read_text(encoding="utf-8"))["exhibitions"]:
         for w in e["works"]:
             city, kind, kind_ru = classify(w["title"], w.get("series"))
             add({"id": "ex-" + w["id"], "t": w["title"], "to": w["title"], "a": w["artist"], "ak": w["artist"], "d": w["date"], "k": kind, "kr": kind_ru, "c": city or e["city"], "set": "exhibit",
-                 "m": w["institution"], "n": w["accession"], "u": w["record_url"].replace("http://", "https://"), "r": w["rights"], "src": BOOK / w["image"], "link": "#/exwork/" + w["id"], "img_key": "x:" + w["id"], "ex": e["id"]})
+                 "m": w["institution"], "n": w["accession"], "u": w["record_url"].replace("http://", "https://"), "r": w["rights"], "src": BOOK / w["image"], "link": "#/exwork/" + w["id"], "img_key": "x:" + w["id"], "ex": e["id"], "iiif": iiif_base(rec_url.get(w["id"]))})
     # 4. large open-access selection
     recs = [r for r in json.loads((ROOT / "data/research/authors/other-authors-v1.json").read_text(encoding="utf-8"))["records"]
             if r["rights_status"] == "open_confirmed" and r.get("image_url") and r["institution"] in OK_INST and r.get("original_title") and r["artist_id"] in QUOTA]
@@ -131,7 +142,7 @@ def main() -> int:
             continue
         rid = r["record_id"].replace(":", "-")
         add({"id": "oa-" + rid, "t": title[:150], "to": title[:150], "a": ART_RU.get(r["artist_id"], r["author_name"]), "ak": r["artist_id"], "d": r["date_as_stated"], "k": kind, "kr": kind_ru, "c": city, "set": "open",
-             "m": r["institution"], "n": r["accession"], "u": r["record_url"], "r": r["rights_statement"].split(" (")[0][:60], "src": GIMG / (rid + ".jpg"), "link": None, "img_key": "oa:" + rid, "ser": r.get("series")})
+             "m": r["institution"], "n": r["accession"], "u": r["record_url"], "r": r["rights_statement"].split(" (")[0][:60], "src": GIMG / (rid + ".jpg"), "link": None, "img_key": "oa:" + rid, "ser": r.get("series"), "iiif": iiif_base(r["image_url"])})
 
     # 5. Gemini Renaissance V3/V2 archive (LoC photochroms and prints, V&A, Commons, extra Cleveland): rights as stated by the holder
     from tools.world.audit_gemini_v10 import person  # same attribution rules as the V10 audit
@@ -177,7 +188,7 @@ def main() -> int:
         add({"id": ("bx-" if is_ben else "oa-") + rid, "t": title, "to": title, "a": artist, "ak": "benoist" if is_ben else artist, "d": w.get("dateText"), "k": kk, "kr": kr,
              "c": CITY_FIX.get(w.get("city"), w.get("city")) or city, "set": "benoist" if is_ben else "open", "m": w["sourceInstitution"].split(" (")[0][:60], "n": str(w.get("callNumber") or w["id"])[:60],
              "u": w["pageUrl"].replace("http://", "https://"), "r": ("Нет известных ограничений на воспроизведение (LoC)" if "No known" in (w.get("rights") or "") else (w.get("rights") or "")[:60]),
-             "src": GIMG / (rid + ".jpg"), "link": None, "img_key": "v3:" + rid, "src_tag": tag})
+             "src": GIMG / (rid + ".jpg"), "link": None, "img_key": "v3:" + rid, "src_tag": tag, "iiif": iiif_base(w["imageUrl"])})
     out = []
     for it in items:
         src = it.pop("src")
@@ -191,6 +202,9 @@ def main() -> int:
         it["th"] = "img/gallery/t/" + tid
         it["w"], it["h"] = w, h
         it.pop("img_key", None)
+        it.pop("src_tag", None)
+        if not it.get("iiif"):
+            it.pop("iiif", None)
         if w / h >= 2.0:
             it["k"], it["kr"] = "panorama", "Панорама"
         out.append(it)
