@@ -167,13 +167,8 @@
         <span class="sub">${esc(k.cities.slice(0, 4).map((c) => c.name).join(", "))}${k.cities.length > 4 ? " и другие" : ""}</span>${read ? `<span class="bar" aria-label="Просмотрено ${read} из ${k.plates}"><i style="width:${Math.round(100 * read / k.plates)}%"></i></span>` : ""}</a></li>`;
     };
     $app.innerHTML = `<div class="page-enter">
-      <section class="cover">
-        <p class="eyebrow">Книга видов · цифровое издание</p>
-        <h1>${esc(ed.title || "Города на бумаге")}</h1>
-        <p class="lede">${esc(ed.subtitle || "Старые литографии и гравюры городов. У каждого листа есть место на карте, а у некоторых и фотография сегодня.")}</p>
-        <div class="stats"><span><b>${ks.length}</b>${plural(ks.length, "страна", "страны", "стран").replace(/^\d+ /, "")}</span><span><b>${nCities}</b>${plural(nCities, "город", "города", "городов").replace(/^\d+ /, "")}</span><span><b>${D.total}</b>${plural(D.total, "лист", "листа", "листов").replace(/^\d+ /, "")}</span></div>
-        <div class="btn-row"><a class="btn" href="#main">Начать с главных видов ↓</a><a class="btn ghost" href="#toc">Оглавление</a></div>
-      </section>
+      <section class="cover compact"><p class="eyebrow">Музей старых видов городов</p><h1>${esc(ed.title || "Города на бумаге")}</h1></section>
+      <div id="homeTop" class="hometop"></div>
       <section class="preface" aria-label="Предисловие">
         <p class="eyebrow">Предисловие</p>
         ${(ed.preface || ["Когда-то путеводитель вёл читателя за руку: сначала главное, потом город за городом. Мы собрали книгу так же.", "Листайте: у каждого листа сказано, кто его нарисовал и где хранится оригинал. Там, где нашли фото того же места, можно сравнить «тогда» и «сейчас»."]).map((t) => `<p>${esc(t)}</p>`).join("")}
@@ -192,6 +187,7 @@
       <ol class="toc">${top.map(tocItem).join("")}</ol>
       ${rest.length ? `<details class="more-toc"><summary class="btn ghost wide">Ещё ${plural(rest.length, "страна", "страны", "стран")}</summary><ol class="toc">${rest.map(tocItem).join("")}</ol></details>` : ""}
     </div>`;
+    if (window.CoPBook && window.CoPBook.mountHome) window.CoPBook.mountHome(document.getElementById("homeTop"));
   }
 
   function viewCountry(name) {
@@ -919,10 +915,12 @@
     else if (h[0] === "album") viewAlbum(h[1], h[2]);
     else if (h[0] === "work") viewWork(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
+    else if (window.CoPBook && window.CoPBook.routes && window.CoPBook.routes[h[0]]) window.CoPBook.routes[h[0]](arg);
     else notFound();
     if (h[0] !== "main" && h[0] !== "toc") window.scrollTo(0, 0);
     $app.focus({ preventScroll: true });
   }
+  window.CoPBook = Object.assign(window.CoPBook || { routes: {} }, { app: () => $app, esc, cut, safe, plural, dock, crumbs, setTitle, notFound, loadOsd });
   window.addEventListener("hashchange", route);
   load().then(route).catch(() => { $app.innerHTML = '<p class="bk-loading">Книга пока не открылась. Попробуйте обновить страницу или откройте <a href="../guides/">путеводители</a>.</p>'; });
 })();
