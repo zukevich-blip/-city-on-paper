@@ -821,7 +821,7 @@
     $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Залы музея</p><h1>Выставки</h1><p class="lede">Большие темы вокруг наследия Бенуа: Рим, Венеция, исчезнувший Париж. Работы других мастеров открыты музеями, права и источник указаны у каждой.</p></section>
       <div class="exlist">${X.exhibitions.map((e) => `<a class="exhall" href="#/exhibit/${esc(e.id)}"><img src="${esc(e.works[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(e.city)} · ${plural(e.works.length, "работа", "работы", "работ")}</span><b>${esc(e.title)}</b><span class="hook">${esc(e.lede)}</span></span></a>`).join("")}</div>
       <p class="small">Правила: рисунки и гравюры берутся только там, где музей сам указал свободное использование; подпись составляется из записи музея, без домыслов. Работы Бенуа и других художников из книги не смешиваются: у каждого свои роли.</p>
-      ${dock({ href: "#/albums", t: "Альбомы" }, { href: "#/", t: "Оглавление" })}</div>`;
+      ${dock({ href: "#/halls", t: "Все залы" }, { href: "#/", t: "Оглавление" })}</div>`;
   }
   async function viewExhibit(id) {
     let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }

@@ -8,7 +8,7 @@
   const load = () => G || (G = fetch("gallery.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((d) => { d.works.forEach((w, i) => { w.idx = i; w.y = (String(w.d || "").match(/\b(1[5-9]\d\d)\b/) || [])[1] | 0; }); d.by = new Map(d.works.map((w) => [w.id, w])); return d; }));
   const E = (s) => B.esc(s);
   const SET = { benoist: "Листы Бенуа", album: "Альбом 1861", exhibit: "Выставки", open: "Открытые собрания" };
-  const KINDS = { interior: "Интерьеры", panorama: "Панорамы", ruins: "Руины и античность", church: "Храмы", palace: "Дворцы", bridge: "Мосты", square: "Площади и улицы" };
+  const KINDS = { photo: "Фотохромы и фотографии", interior: "Интерьеры", panorama: "Панорамы", ruins: "Руины и античность", church: "Храмы", palace: "Дворцы", bridge: "Мосты", square: "Площади и улицы" };
   const era = (y) => (y ? (y < 1700 ? "XVII и раньше" : y < 1800 ? "XVIII век" : y < 1850 ? "1800–1849" : "1850 и позже") : null);
   const shortA = (w) => { const f = String(w.a).split(";")[0].replace(/\s*\(.*$/, "").trim(); return w.set === "benoist" ? (f && !/роль/.test(f) ? f + " и др." : "Бенуа") : f; };
   const ruTitle = (w) => (w.set === "benoist" || w.set === "album") ? w.t : `${w.kr || "Вид"}${w.c ? ", " + w.c : ""}`;
@@ -25,14 +25,14 @@
   const tile = (w) => `<a class="gt" href="#/art/${E(w.id)}" data-id="${E(w.id)}"><img src="${E(w.th)}" alt="${E(ruTitle(w))}" loading="lazy" width="${Math.round(w.w >= w.h ? 360 : 360 * w.w / w.h)}" height="${Math.round(w.w >= w.h ? 360 * w.h / w.w : 360)}"><span class="gcap"><b>${E(B.cut(ruTitle(w), 40))}</b><span>${E(B.cut(shortA(w), 34))}${w.y ? " · " + w.y : ""}</span></span></a>`;
   const chip = (key, val, label, n, on) => `<button type="button" class="gchip" data-k="${key}" data-v="${E(val)}" aria-pressed="${on}">${E(label)}${n ? ` <i>${n}</i>` : ""}</button>`;
 
-  const LENSES = [["all", "Всё", {}], ["cities", "Города", { c: "*" }], ["masters", "Мастера", { a: "*" }], ["eras", "Эпохи", { e: "*" }], ["interior", "Интерьеры", { k: "interior" }], ["panorama", "Панорамы", { k: "panorama" }], ["ruins", "Античность", { k: "ruins" }], ["benoist", "Бенуа", { set: "benoist" }]];
+  const LENSES = [["all", "Всё", {}], ["cities", "Города", { c: "*" }], ["masters", "Мастера", { a: "*" }], ["eras", "Эпохи", { e: "*" }], ["interior", "Интерьеры", { k: "interior" }], ["panorama", "Панорамы", { k: "panorama" }], ["ruins", "Античность", { k: "ruins" }], ["photo", "Фотохромы", { k: "photo" }], ["benoist", "Бенуа", { set: "benoist" }]];
 
   async function viewGallery() {
     B.setTitle("Галерея"); B.crumbs([{ t: "Книга", href: "#/" }, { t: "Галерея" }]);
     let g; try { g = await load(); } catch (e) { return B.notFound(); }
     const all = g.works, list = filt(g); lastList = list;
     const lensRow = LENSES.map(([id, t, p]) => `<button type="button" class="glens" data-lens="${id}" aria-pressed="${state.lens === id}">${t}</button>`).join("");
-    const facet = state.lens === "masters" ? ["a", count(all, "a").slice(0, 24)] : state.lens === "eras" ? ["e", count(all, (w) => era(w.y))] : state.lens === "cities" || state.lens === "all" ? ["c", count(all, "c").filter(([c, n]) => n >= 10 || state.c === c).slice(0, 12)] : ["k", count(all, "kr").map(([t, n]) => [Object.keys(KINDS).find((k) => KINDS[k] === t || (t === "Площадь и улица" && k === "square")) || t, n])];
+    const facet = state.lens === "masters" ? ["a", count(all, "a").slice(0, 24)] : state.lens === "eras" ? ["e", count(all, (w) => era(w.y))] : state.lens === "cities" || state.lens === "all" ? ["c", count(all, "c").filter(([c, n]) => n >= 10 || state.c === c).slice(0, 12)] : ["k", count(all, "k")];
     const facetChips = facet[1].map(([v, n]) => chip(facet[0], v, facet[0] === "k" ? (KINDS[v] || v) : v, n, state[facet[0]] === v)).join("");
     const setChips = ["benoist", "album", "exhibit", "open"].map((s) => chip("set", s, SET[s], all.filter((w) => w.set === s).length, state.set === s)).join("");
     const shown = list.slice(0, state.take);
@@ -139,10 +139,38 @@
     next();
   }
 
+
+  /* thematic halls from the gallery fund; every hall has its own composition (wall, timeline, magazine, spreads) */
+  let H = null;
+  const loadHalls = () => H || (H = fetch("halls.json").then((r) => r.json()));
+  async function viewHalls() {
+    B.setTitle("Залы и выставки"); B.crumbs([{ t: "Книга", href: "#/" }, { t: "Залы" }]);
+    let g, h, X; try { [g, h] = await Promise.all([load(), loadHalls()]); X = await fetch("exhibitions.json").then((r) => r.json()); } catch (e) { return B.notFound(); }
+    const LAY = { wall: "Стена", timeline: "Лента времени", magazine: "Журнал", spreads: "Развороты" };
+    const cards = h.halls.map((x) => { const w = g.by.get(x.ids[0]); return `<a class="exhall" href="#/hall/${E(x.id)}"><img src="${E(w.i)}" alt="" loading="lazy"><span class="cap"><span class="where">${E(LAY[x.layout])} · ${B.plural(x.ids.length, "работа", "работы", "работ")}</span><b>${E(x.title)}</b><span class="hook">${E(B.cut(x.lede, 130))}</span></span></a>`; });
+    const old = X.exhibitions.map((e) => `<a class="exhall" href="#/exhibit/${E(e.id)}"><img src="${E(e.works[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">Выставка · ${B.plural(e.works.length, "работа", "работы", "работ")}</span><b>${E(e.title)}</b><span class="hook">${E(B.cut(e.lede, 130))}</span></span></a>`);
+    B.app().innerHTML = `<div class="page-enter"><section class="chead compact"><p class="eyebrow">Залы музея</p><h1>Выставки и залы</h1><p class="small">${h.halls.length + X.exhibitions.length} залов. У каждого своя композиция.</p></section><div class="exlist">${[...old, ...cards].join("")}</div>${B.dock({ href: "#/gallery", t: "Галерея" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewHall(id) {
+    let g, h; try { [g, h] = await Promise.all([load(), loadHalls()]); } catch (e) { return B.notFound(); }
+    const hall = h.halls.find((x) => x.id === id); if (!hall) return B.notFound();
+    const ws = hall.ids.map((i) => g.by.get(i)).filter(Boolean);
+    B.setTitle(hall.title); B.crumbs([{ t: "Книга", href: "#/" }, { t: "Залы", href: "#/halls" }, { t: hall.title }]);
+    lastList = ws;
+    const cap = (w) => `<figcaption class="excap"><b>${E(ruTitle(w))}</b><span>${E(shortA(w))}${w.d ? " · " + E(B.cut(String(w.d), 24)) : ""}${w.c ? " · " + E(w.c) : ""}</span><span class="small">${E(w.m)} · ${E(w.r)}</span></figcaption>`;
+    const fig = (w, cls = "") => `<figure class="exfig ${cls}"><a class="eximg" href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}" loading="lazy" width="${w.w}" height="${w.h}"></a>${cap(w)}</figure>`;
+    let body = "";
+    if (hall.layout === "wall") body = `<div class="wall">${ws.map((w, i) => `<a class="wtile${i % 7 === 0 ? " big" : ""}" href="#/art/${E(w.id)}"><img src="${E(i % 7 === 0 ? w.i : w.th)}" alt="${E(ruTitle(w))}" loading="lazy"><span>${E(B.cut(ruTitle(w), 40))}<i>${E(shortA(w))}${w.c ? " · " + E(w.c) : ""}</i></span></a>`).join("")}</div>`;
+    else if (hall.layout === "timeline") { const by = new Map(); ws.forEach((w) => { const k = w.y ? Math.floor(w.y / 10) * 10 + "-е" : "без даты"; (by.get(k) || by.set(k, []).get(k)).push(w); }); body = [...by].map(([k, l]) => `<section class="decade"><h2 class="dec">${E(k)}</h2><div class="gmasonry">${l.map(tile).join("")}</div></section>`).join(""); }
+    else if (hall.layout === "magazine") body = ws.map((w, i) => `<article class="mag ${i % 2 ? "r" : ""}">${fig(w)}<div class="magtext"><p class="eyebrow">${E(w.c || w.kr || "")}${w.y ? " · " + w.y : ""}</p><h3>${E(ruTitle(w))}</h3><p>${E(w.a)}. ${w.to && w.to !== ruTitle(w) ? "Название в музее: " + E(B.cut(w.to, 120)) + "." : ""}</p><p class="btn-row"><a class="btn ghost" href="#/art/${E(w.id)}">Рассмотреть →</a></p></div></article>`).join("");
+    else { const out = []; for (let i = 0; i < ws.length;) { if (i % 5 === 2 || i === ws.length - 1) { out.push(`<section class="spread full">${fig(ws[i])}</section>`); i += 1; } else { out.push(`<section class="spread pair"><div class="pairgrid">${fig(ws[i])}${fig(ws[i + 1])}</div></section>`); i += 2; } } body = out.join(""); }
+    B.app().innerHTML = `<div class="page-enter hall"><section class="chead compact"><p class="eyebrow">Зал · ${B.plural(ws.length, "работа", "работы", "работ")}</p><h1>${E(hall.title)}</h1><p class="lede">${E(hall.lede)}</p><p class="btn-row"><a class="btn" href="#/showcase/${E(hall.id)}">Показ зала на весь экран</a></p></section>${body}${B.dock({ href: "#/halls", t: "Все залы" }, { href: "#/gallery", t: "Галерея" })}</div>`;
+  }
   let showTimer = null;
-  async function viewShowcase() {
+  async function viewShowcase(hallId) {
     let g; try { g = await load(); } catch (e) { return B.notFound(); }
-    const rr = seeded(daySeed()), pick = g.works.filter((w) => w.w >= 700 && w.h >= 500).sort(() => rr() - 0.5).slice(0, 40); let i = 0, play = true;
+    let hall = null; if (hallId) { try { hall = (await loadHalls()).halls.find((x) => x.id === hallId); } catch (e) { /* whole fund */ } }
+    const rr = seeded(daySeed()), pick = hall ? hall.ids.map((x) => g.by.get(x)).filter(Boolean) : g.works.filter((w) => w.w >= 700 && w.h >= 500).sort(() => rr() - 0.5).slice(0, 40); let i = 0, play = true;
     document.body.classList.add("showmode");
     B.app().innerHTML = `<div class="showcase" id="show"><img id="showImg" alt=""><div class="showcap" id="showCap"></div><button type="button" class="showx" id="showX" aria-label="Выйти из показа">✕</button></div>`;
     const show = () => { const w = pick[(i + pick.length) % pick.length], im = document.getElementById("showImg"); im.style.opacity = 0; setTimeout(() => { im.src = w.i; im.alt = ruTitle(w); im.onload = () => { im.style.opacity = 1; }; document.getElementById("showCap").innerHTML = `<a href="#/art/${E(w.id)}">${E(ruTitle(w))}</a><span>${E(w.a)}${w.y ? " · " + w.y : ""} · ${E(w.m)}</span>`; }, 250); };
@@ -161,7 +189,7 @@
     const hero = mix((w) => w.w >= 900 && w.k && w.set !== "album", 5), mosaic = [...mix((w) => w.c === "Рим", 3), ...mix((w) => w.c === "Венеция", 3), ...mix((w) => w.c === "Париж" && w.set !== "album", 3), ...mix((w) => w.k === "interior", 2), ...mix((w) => w.set === "benoist", 3), ...mix((w) => w.k === "panorama", 2)];
     const cities = count(g.works, "c").slice(0, 6);
     host.innerHTML = `<div class="homehero" id="hh">${hero.map((w, i) => `<a class="hslide${i ? "" : " on"}" href="#/art/${E(w.id)}"><img src="${E(w.i)}" alt="${E(ruTitle(w))}"${i ? ' loading="lazy"' : ""}><span class="hcap"><b>${E(ruTitle(w))}</b><i>${E(shortA(w))}${w.y ? " · " + w.y : ""}</i></span></a>`).join("")}</div>
-      <nav class="hdoors" aria-label="Входы в музей"><a class="hdoor" href="#/gallery"><b>${g.count}</b><span>работ в галерее</span></a><a class="hdoor" href="#/exhibitions"><b>3</b><span>выставки</span></a><a class="hdoor" href="#/albums"><b>71</b><span>планша альбома 1861</span></a><a class="hdoor" href="#/benoist"><b>102</b><span>листа Бенуа</span></a><a class="hdoor" href="#/table"><b>◐</b><span>световой стол</span></a><a class="hdoor" href="#/guess"><b>?</b><span>угадай город</span></a></nav>
+      <nav class="hdoors" aria-label="Входы в музей"><a class="hdoor" href="#/gallery"><b>${g.count}</b><span>работ в галерее</span></a><a class="hdoor" href="#/halls"><b>12</b><span>залов и выставок</span></a><a class="hdoor" href="#/albums"><b>71</b><span>планша альбома 1861</span></a><a class="hdoor" href="#/benoist"><b>102</b><span>листа Бенуа</span></a><a class="hdoor" href="#/table"><b>◐</b><span>световой стол</span></a><a class="hdoor" href="#/guess"><b>?</b><span>угадай город</span></a></nav>
       <div class="gmasonry home">${mosaic.map(tile).join("")}</div>
       <p class="btn-row"><button type="button" class="btn" id="hRand">Случайный шедевр</button><a class="btn ghost" href="#/showcase">Показ на весь экран</a><a class="btn ghost" href="#/gallery">Вся галерея</a></p>
       <div class="gchips" role="group" aria-label="Города">${cities.map(([c, n]) => `<a class="gchip" href="#/gallery" data-city="${E(c)}">${E(c)} <i>${n}</i></a>`).join("")}</div>`;
@@ -171,5 +199,5 @@
     if (slides.length > 1) setInterval(() => { if (!document.body.contains(host)) return; slides[k].classList.remove("on"); k = (k + 1) % slides.length; slides[k].classList.add("on"); }, 6000);
   };
 
-  Object.assign(B.routes, { gallery: viewGallery, art: viewArt, table: viewTable, guess: viewGuess, showcase: viewShowcase });
+  Object.assign(B.routes, { gallery: viewGallery, art: viewArt, table: viewTable, guess: viewGuess, showcase: viewShowcase, halls: viewHalls, hall: viewHall });
 })();

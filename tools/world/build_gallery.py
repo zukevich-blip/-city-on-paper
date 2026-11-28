@@ -132,6 +132,52 @@ def main() -> int:
         rid = r["record_id"].replace(":", "-")
         add({"id": "oa-" + rid, "t": title[:150], "to": title[:150], "a": ART_RU.get(r["artist_id"], r["author_name"]), "ak": r["artist_id"], "d": r["date_as_stated"], "k": kind, "kr": kind_ru, "c": city, "set": "open",
              "m": r["institution"], "n": r["accession"], "u": r["record_url"], "r": r["rights_statement"].split(" (")[0][:60], "src": GIMG / (rid + ".jpg"), "link": None, "img_key": "oa:" + rid, "ser": r.get("series")})
+
+    # 5. Gemini Renaissance V3/V2 archive (LoC photochroms and prints, V&A, Commons, extra Cleveland): rights as stated by the holder
+    from tools.world.audit_gemini_v10 import person  # same attribution rules as the V10 audit
+    g3 = ROOT / "data/research/benoist/gemini-v3"
+    arch = json.loads((g3 / "archive.json").read_text(encoding="utf-8"))["works"]
+    adds = json.loads((g3 / "renaissance-v3-additions.json").read_text(encoding="utf-8"))["items"] + json.loads((g3 / "renaissance-v2-additions.json").read_text(encoding="utf-8"))["items"]
+    cand = []
+    for w in arch:
+        if "tile.loc.gov" in w["imageUrl"] or "framemark.vam.ac.uk" in w["imageUrl"]:
+            cand.append(("lc" if "loc.gov" in w["imageUrl"] else "va", w))
+    for w in adds:
+        if w["imageUrl"].startswith("https://thumb.wikimedia.org") or "framemark.vam" in w["imageUrl"] or "clevelandart" in w["imageUrl"]:
+            cand.append(("x3", w))
+    have = {(i["a"], re.sub(r"\W+", "", i["to"].lower())[:40]) for i in items} | {re.sub(r"\W+", "", i["to"].lower())[:40] for i in items}
+    sel3 = []
+    for tag, w in cand:
+        title = re.sub(r"\s+", " ", w["title"]).strip()[:150]
+        key = re.sub(r"\W+", "", title.lower())[:40]
+        if key in have or BAD.search(title):
+            continue
+        have.add(key)
+        sel3.append((tag, w, title))
+    print("archive v3 candidates:", len(sel3))
+    def url3(w):
+        u = w["imageUrl"]
+        u = re.sub(r"/\d+px-", "/1000px-", u) if "thumb.wikimedia.org" in u else u
+        return u
+    with ThreadPoolExecutor(6) as ex:
+        got3 = list(ex.map(lambda t: fetch(url3(t[1]), GIMG / (re.sub(r"[^A-Za-z0-9_-]", "-", t[1]["id"]) + ".jpg"), max_side=1000, quality=78), sel3))
+    CITY_FIX = {"Санкт-Петербург": "Петербург"}
+    KRU = {"photochrom": ("photo", "Фотохром"), "photograph": ("photo", "Фотография")}
+    for (tag, w, title), got in zip(sel3, got3, strict=True):
+        if not got:
+            continue
+        rid = re.sub(r"[^A-Za-z0-9_-]", "-", w["id"])
+        city, kind, kind_ru = classify(title, None)
+        kk, kr = KRU.get(w.get("kind"), (kind, kind_ru))
+        who, basis = person(w.get("artist"), title)
+        is_ben = bool(who) and basis == "named_in_credit_or_title"
+        artist = (who or w.get("artist") or "автор не указан")[:90]
+        if re.fullmatch(r"Benoist\.?", artist.strip()):
+            artist = "Benoist (имя в записи не указано: не Филипп и не Феликс без проверки)"
+        add({"id": ("bx-" if is_ben else "oa-") + rid, "t": title, "to": title, "a": artist, "ak": "benoist" if is_ben else artist, "d": w.get("dateText"), "k": kk, "kr": kr,
+             "c": CITY_FIX.get(w.get("city"), w.get("city")) or city, "set": "benoist" if is_ben else "open", "m": w["sourceInstitution"].split(" (")[0][:60], "n": str(w.get("callNumber") or w["id"])[:60],
+             "u": w["pageUrl"].replace("http://", "https://"), "r": ("Нет известных ограничений на воспроизведение (LoC)" if "No known" in (w.get("rights") or "") else (w.get("rights") or "")[:60]),
+             "src": GIMG / (rid + ".jpg"), "link": None, "img_key": "v3:" + rid, "src_tag": tag})
     out = []
     for it in items:
         src = it.pop("src")

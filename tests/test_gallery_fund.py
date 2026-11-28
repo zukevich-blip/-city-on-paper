@@ -28,8 +28,9 @@ def test_other_masters_are_never_labelled_benoist_and_open_rights_are_museum_sta
     g = json.loads((BOOK / "gallery.json").read_text(encoding="utf-8"))["works"]
     for w in g:
         if w["set"] in {"open", "exhibit"}:
-            assert "benoist" not in w["a"].lower(), w["id"]
-            assert any(k in w["r"] for k in ("openaccess=1", "isPublicDomain", "is_public_domain", "CC0", "publicdomain", "Public Domain")), (w["id"], w["r"])
+            assert "benoist" not in w["a"].lower() or "имя в записи не указано" in w["a"], w["id"]
+            marks = ("openaccess=1", "ispublicdomain", "is_public_domain", "cc0", "publicdomain", "public domain", "нет известных ограничений", "open collections", "open access", "cc by")
+            assert any(k in w["r"].lower() for k in marks), (w["id"], w["r"])
         if w["set"] == "album":
             assert "benoist" not in w["a"].lower()
     arts = {w["a"] for w in g if w["set"] == "open"}

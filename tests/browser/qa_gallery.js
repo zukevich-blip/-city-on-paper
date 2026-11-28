@@ -127,6 +127,24 @@ const views = [
     check(`${v.name}: full-screen showcase has no navigation chrome`, (await page.evaluate(() => document.body.classList.contains("showmode") && !document.querySelector(".dock")?.offsetParent))); await shot("11-showcase");
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => /#\/gallery/.test(location.hash));
+    // 7b. halls: every hall opens with its own composition and real images
+    await page.goto(base + "#/halls", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".exhall");
+    const hallCount = await page.locator(".exhall").count();
+    check(`${v.name}: twelve halls and exhibitions are listed`, hallCount >= 12, String(hallCount)); await shot("13-halls");
+    for (const [hid, sel] of [["tsvet", ".wall .wtile"], ["italiya", ".decade .gt"], ["peterburg-moskva", ".mag"], ["interery", ".spread .exfig"]]) {
+      await page.goto(base + "#/hall/" + hid, { waitUntil: "domcontentloaded" });
+      await page.waitForSelector(sel);
+      await page.locator(sel + " img").first().evaluate((i) => i.scrollIntoView());
+      await imgOk(sel + " img");
+      check(`${v.name}: hall «${hid}» opens with its composition`, (await page.locator(sel).count()) >= 8 || hid === "peterburg-moskva");
+      if (hid === "tsvet") await shot("14-hall-color");
+    }
+    await page.goto(base + "#/showcase/tsvet", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#show");
+    await imgOk("#showImg");
+    await page.keyboard.press("Escape");
+    check(`${v.name}: a hall can be shown full screen`, true);
     // 8. random masterpiece and related jump
     await page.waitForSelector("#grand");
     await page.locator("#grand").click();

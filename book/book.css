@@ -328,3 +328,11 @@ body.showmode .dock,body.showmode .museum-nav,body.showmode header,body.showmode
 .tdel{min-width:44px;min-height:44px}.showcap{opacity:.95;padding-top:46px;background:linear-gradient(transparent,#000e 60%);font-size:15px}.showcap a{font-size:22px}
 .homehero{aspect-ratio:auto;height:min(74vh,640px)}@media(min-width:820px){.homehero{height:min(78vh,680px)}}
 .hdoors{grid-template-columns:repeat(3,1fr)}@media(min-width:820px){.hdoors{grid-template-columns:repeat(6,1fr)}}
+/* halls */
+.wall{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;grid-auto-flow:dense;margin:12px 0}
+.wtile{position:relative;display:block;overflow:hidden;background:#1d1c19;aspect-ratio:4/3;color:#fbf5e4;text-decoration:none}.wtile.big{grid-column:span 2;aspect-ratio:16/9}
+.wtile img{width:100%;height:100%;object-fit:cover;display:block}.wtile span{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;background:linear-gradient(transparent,#000d);font:400 14px var(--lt-serif);display:flex;flex-direction:column}.wtile i{font:400 11px var(--lt-sans);opacity:.85;font-style:normal}
+@media(min-width:820px){.wall{grid-template-columns:repeat(4,1fr)}.wtile.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}}
+.decade{margin:18px 0}.dec{font:400 28px var(--lt-serif);border-bottom:1px solid var(--lt-sepia);padding-bottom:4px}
+.mag{display:grid;gap:14px;margin:26px 0;align-items:center}.magtext h3{font:400 24px/1.2 var(--lt-serif);margin:4px 0 8px}
+@media(min-width:820px){.mag{grid-template-columns:1.4fr 1fr}.mag.r{grid-template-columns:1fr 1.4fr}.mag.r .exfig{order:2}}
