@@ -1,0 +1,425 @@
+{
+ "version": 1,
+ "source": "gemini-v10 documentedInteriors",
+ "rule": "candidates only; nothing is published; no interior is substituted for a missing one",
+ "items": [
+  {
+   "id": "rome-st-peters-nave",
+   "building": "Собор Святого Петра (Basilica di San Pietro)",
+   "room": "Центральный неф и балдахин Бернини",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Giovanni Paolo Panini",
+    "year_claimed": 1731,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Giovanni_Paolo_Panini_-_Interior_of_St._Peter%27s%2C_Rome.jpg",
+    "repository": "Wikimedia Commons / Public Domain"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/StPetersBasilicaInterior.jpg/1280px-StPetersBasilicaInterior.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "rome-pantheon-rotunda",
+   "building": "Римский Пантеон (Pantheon)",
+   "room": "Ротонда, кессонированный купол и окулус",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Giovanni Paolo Panini",
+    "year_claimed": 1734,
+    "licence_claimed": "CC0 1.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Giovanni_Paolo_Panini%2C_Interior_of_the_Pantheon%2C_Rome%2C_c._1734%2C_NGA_165.jpg/960px-Giovanni_Paolo_Panini%2C_Interior_of_the_Pantheon%2C_Rome%2C_c._1734%2C_NGA_165.jpg",
+    "repository": "National Gallery of Art, Washington"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC0 1.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Above_main_altar%2C_Pantheon%2C_Rome%2C_Italy.jpg/960px-Above_main_altar%2C_Pantheon%2C_Rome%2C_Italy.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "rome-pantheon-piranesi-parallel",
+   "building": "Римский Пантеон — офорт Пиранези",
+   "room": "Купол Пантеона в графике Пиранези ↔ совр. свод",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Giovanni Battista Piranesi",
+    "year_claimed": 1756,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Piranesi-1024.jpg",
+    "repository": "Wikimedia Commons / Public Domain"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC0 1.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pantheon_%28Rome%29_-_Dome_interior_%2811640909363%29.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "rome-galleria-borghese",
+   "building": "Галерея Боргезе (Villa Borghese)",
+   "room": "Плафон «Совет богов» и Зал Силена",
+   "category": "same_building_other_room",
+   "historical": {
+    "artist_claimed": "Giovanni Lanfranco",
+    "year_claimed": 2019,
+    "licence_claimed": "CC BY-SA 4.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Ceiling_%22Council_of_the_Gods%22_in_Galleria_Borghese_%28Rome%29.jpg/1280px-Ceiling_%22Council_of_the_Gods%22_in_Galleria_Borghese_%28Rome%29.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY 3.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Roma%2C_galleria_borghese%2C_sala_del_sileno%2C_01.jpg/1280px-Roma%2C_galleria_borghese%2C_sala_del_sileno%2C_01.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "venice-doges-palace-maggior-consiglio",
+   "building": "Дворец Дожей (Palazzo Ducale)",
+   "room": "Зал Большого совета (Sala del Maggior Consiglio)",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Jacopo Tintoretto",
+    "year_claimed": 1588,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/%28Venice%29_Jacopo_Tintoretto_-_Gloria_del_Paradiso_-_Sala_del_Maggior_Consiglio.jpg",
+    "repository": "Palazzo Ducale / Wikimedia PD"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 3.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Interno_della_Sala_del_Maggior_Consiglio_-_Palazzo_Ducale%2C_Venezia.JPG",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "venice-doges-palace-collegio-guardi",
+   "building": "Дворец Дожей — Зал Коллегии",
+   "room": "Зал Коллегии (Аудиенция Дожа)",
+   "category": "same_building_other_room",
+   "historical": {
+    "artist_claimed": "Francesco Guardi",
+    "year_claimed": 1775,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Francesco_Guardi_034.jpg/1280px-Francesco_Guardi_034.jpg",
+    "repository": "Musée du Louvre / Wikimedia PD"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 3.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Interno_della_Sala_del_Maggior_Consiglio_-_Palazzo_Ducale%2C_Venezia.JPG",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "venice-san-marco-interior",
+   "building": "Базилика Сан-Марко (Basilica di San Marco)",
+   "room": "Главный неф и иконостас (Пергола)",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Giovanni Antonio Canal (Canaletto)",
+    "year_claimed": 1755,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Giovanni_Antonio_Canal%2C_il_Canaletto_-_San_Marco_-_the_Interior_-_WGA03959.jpg",
+    "repository": "Royal Collection / Wikimedia PD"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY 2.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Interior_of_Basilica_San_Marco%2C_Venice_%282%29.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "venice-scuola-san-rocco",
+   "building": "Скуола Гранде ди Сан-Рокко",
+   "room": "Верхний зал (Salone Maggiore) с циклом Тинторетто",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Якопо Тинторетто (росписи 1575–1581)",
+    "year_claimed": 2015,
+    "licence_claimed": "CC BY-SA 4.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Scuola_Grande_di_San_Rocco_%28Venice%29.jpg/1280px-Scuola_Grande_di_San_Rocco_%28Venice%29.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Scuola_Grande_di_San_Rocco_%28Venice%29_-_Il_Salone_Maggiore.jpg/1280px-Scuola_Grande_di_San_Rocco_%28Venice%29_-_Il_Salone_Maggiore.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "venice-teatro-la-fenice",
+   "building": "Театр Ла Фениче (Teatro La Fenice)",
+   "room": "Пятиярусный зал и сцена Ла Фениче",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Т. и Дж. Медуна / А. Росси",
+    "year_claimed": 2016,
+    "licence_claimed": "CC BY-SA 4.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Teatro_La_Fenice%2C_Venice.jpg/1280px-Teatro_La_Fenice%2C_Venice.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 3.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Stage_of_Teatro_La_Fenice.jpg/1280px-Stage_of_Teatro_La_Fenice.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "florence-uffizi-tribuna",
+   "building": "Галерея Уффици (Galleria degli Uffizi)",
+   "room": "Восьмиугольная Трибуна Бернардо Буонталенти",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Johann Zoffany",
+    "year_claimed": 1777,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Johan_Zoffany_-_Tribuna_of_the_Uffizi_-_Google_Art_Project.jpg/1280px-Johan_Zoffany_-_Tribuna_of_the_Uffizi_-_Google_Art_Project.jpg",
+    "repository": "Royal Collection / Wikimedia PD"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/03_2015_La_Tribuna-Lottatori-Apollino-Arrotino-Venere_de_Medici_opera_greca_Cleomene_di_Apollodoro-Galleria_degli_Uffizi_%28Firenze%29_Photo_Paolo_Villa_FOTO9235bisimg_0001.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "florence-palazzo-vecchio-cinquecento",
+   "building": "Палаццо Веккьо (Palazzo Vecchio)",
+   "room": "Зал Пятисот (Salone dei Cinquecento)",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Джорджо Вазари (1565)",
+    "year_claimed": 2007,
+    "licence_claimed": "CC BY-SA 2.5",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Firenze-palazzo_vecchio_24.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY 3.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Palazzo_Vecchio_-_grand_hall.jpg/1280px-Palazzo_Vecchio_-_grand_hall.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "florence-duomo-nave",
+   "building": "Собор Санта-Мария-дель-Фьоре",
+   "room": "Центральный неф и подкупольный октагон",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Арнольфо ди Камбио / Ф. Брунеллески",
+    "year_claimed": 2010,
+    "licence_claimed": "CC BY-SA 4.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Firenze_-_Florence_-_Cattedrale_Santa_Maria_del_Fiore_-_View_East_from_the_Central_Nave.jpg/1280px-Firenze_-_Florence_-_Cattedrale_Santa_Maria_del_Fiore_-_View_East_from_the_Central_Nave.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Interior_of_Santa_Maria_del_Fiore_%28Florence%29_20150810.jpg/1280px-Interior_of_Santa_Maria_del_Fiore_%28Florence%29_20150810.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "pompeii-casa-dei-vettii-peristyle",
+   "building": "Дом Веттиев (Casa dei Vettii)",
+   "room": "Перистильный сад и портик Дома Веттиев",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Harvard Univ. Press / Архив Помпей",
+    "year_claimed": 1914,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Vitruvius_the_Ten_Books_on_Architecture_-_The_Peristyle_of_the_house_of_the_Vettii_at_pompeii.jpg/1280px-Vitruvius_the_Ten_Books_on_Architecture_-_The_Peristyle_of_the_house_of_the_Vettii_at_pompeii.jpg",
+    "repository": "Wikimedia Commons / Public Domain"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC0 1.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/House_of_the_Vettii_%28Pompeii%29%2C_Peristyle_%289809081996%29.jpg/1280px-House_of_the_Vettii_%28Pompeii%29%2C_Peristyle_%289809081996%29.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "pompeii-casa-dei-vettii-atrium",
+   "building": "Дом Веттиев — Фрески IV стиля",
+   "room": "Атриум и настенные росписи Дома Веттиев",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Архив раскопок Помпей",
+    "year_claimed": 2009,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Pompeii_-_Casa_dei_Vettii_-_Gorgo.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Casa_dei_vettii%2C_vestibolo%2C_primo_atrio%2C_fanciulle_e_amorini_02.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "naples-teatro-san-carlo",
+   "building": "Королевский театр Сан-Карло",
+   "room": "Зрительный зал Театра Сан-Карло",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Фотоархив XIX в.",
+    "year_claimed": 1885,
+    "licence_claimed": "CC0 1.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Napoli-Interno_del_R._teatro_S._Carlo_montagefoto%2C_RP-F-F16745.jpg/1280px-Napoli-Interno_del_R._teatro_S._Carlo_montagefoto%2C_RP-F-F16745.jpg",
+    "repository": "Rijksmuseum"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 2.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Napoli_-_Teatro_San_CarloInterno.jpg/1280px-Napoli_-_Teatro_San_CarloInterno.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "naples-palazzo-reale-chapel",
+   "building": "Королевский дворец в Неаполе (Palazzo Reale)",
+   "room": "Придворная капелла и парадные покои",
+   "category": "same_building_other_room",
+   "historical": {
+    "artist_claimed": "Живопись начала XIX в.",
+    "year_claimed": 1811,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Carolina_Bonaparte_nel_Palazzo_Reale_di_Napoli_-_1811.jpg/1280px-Carolina_Bonaparte_nel_Palazzo_Reale_di_Napoli_-_1811.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 3.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Napoli_Palazzo_reale_-_altare_cappella_1040776.JPG/1280px-Napoli_Palazzo_reale_-_altare_cappella_1040776.JPG",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "palermo-cappella-palatina",
+   "building": "Палатинская капелла (Cappella Palatina)",
+   "room": "Неф, византийские мозаики и потолок мукарнас",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Фатимидские и византийские мастера (1140)",
+    "year_claimed": 2022,
+    "licence_claimed": "CC BY-SA 4.0",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Palermo_-_Cappella_Palatina_-_5.jpg/1280px-Palermo_-_Cappella_Palatina_-_5.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 4.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Cappella_palatina_palermo_2012.jpg/1280px-Cappella_palatina_palermo_2012.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "herculaneum-house-neptune-amphitrite",
+   "building": "Дом Нептуна и Амфитриты (Геркуланум)",
+   "room": "Летний триклиний со стеклянной мозаикой Нептуна и Амфитриты",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Римские мозаичисты I в. н.э. (фото 2001 г.)",
+    "year_claimed": 2001,
+    "licence_claimed": "CC BY 2.0",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Herculaneum_Neptune_And_Amphitrite_2.jpg",
+    "repository": "Wikimedia Commons"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC0 1.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Neptune_Amphitrite_mosaic_Herculaneum.jpg/960px-Neptune_Amphitrite_mosaic_Herculaneum.jpg",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  },
+  {
+   "id": "sicily-agrigento-temple-concordia",
+   "building": "Храм Согласия (Tempio della Concordia, Агридженто)",
+   "room": "Колоннада и целла Храма Согласия (1778 ↔ 2012)",
+   "category": "same_room",
+   "historical": {
+    "artist_claimed": "Jacob Philipp Hackert",
+    "year_claimed": 1778,
+    "licence_claimed": "Public Domain",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Jacob_Philipp_Hackert_006.jpg/960px-Jacob_Philipp_Hackert_006.jpg",
+    "repository": "Wikimedia Commons (Public Domain)"
+   },
+   "modern": {
+    "artist": null,
+    "license": "CC BY-SA 3.0",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Agrigent_BW_2012-10-07_12-51-18.JPG/960px-Agrigent_BW_2012-10-07_12-51-18.JPG",
+    "recordUrl": null
+   },
+   "by_benoist": false,
+   "status": "candidate_not_verified",
+   "note": "Не работа Бенуа: дополнение к его наследию; права и подпись источника не перечитаны."
+  }
+ ]
+}

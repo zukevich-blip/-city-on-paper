@@ -41,6 +41,11 @@ def test_every_image_shipped_with_the_book_is_an_open_confirmed_sheet():
     sheets = json.loads((ROOT / "book/benoist-sheets.json").read_text(encoding="utf-8"))["sheets"]
     assert all(s["rights"].startswith(("CC0", "Public Domain Mark", "CC BY")) for s in sheets)
     declared = {s["image"] for s in sheets} | {i["image"] for s in sheets for i in s.get("impressions", [])}
+    # exhibitions (museum open-data statements) and the Heidelberg album (Public Domain Mark) declare their own images
+    ex = json.loads((ROOT / "book/exhibitions.json").read_text(encoding="utf-8"))["exhibitions"]
+    declared |= {w["image"] for e in ex for w in e["works"]}
+    alb = json.loads((ROOT / "book/albums/paris-dans-sa-splendeur.json").read_text(encoding="utf-8"))
+    declared |= {p["image"] for p in alb["plates"]} | {c["image"] for c in alb["covers"]}
     shipped = {
         p.relative_to(ROOT / "book").as_posix()
         for p in (ROOT / "book" / "img").rglob("*")

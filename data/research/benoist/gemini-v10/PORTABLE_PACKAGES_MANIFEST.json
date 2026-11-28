@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "city-on-paper-portable-packages.v10.0",
+  "generatedAt": "2026-11-27T13:41:41.335Z",
+  "designPrincipleRu": "15 полностью автономных UI-независимых ESM-модулей (отделение алгоритмов, данных и UI) с готовым примером подключения на чистом HTML/JS (`packages/examples/claude-static-museum-demo.html`) и 100% автоматической проверкой существования всех путей.",
+  "staticHtmlExample": "packages/examples/claude-static-museum-demo.html",
+  "totalPackages": 15,
+  "uiIndependentCount": 15,
+  "staticSiteReadyCount": 15,
+  "packages": [
+    {
+      "id": "pkg-01-museum-data",
+      "name": "@city-on-paper/museum-data",
+      "categoryRu": "Музейные данные",
+      "portableModule": "packages/museum-data/index.mjs",
+      "entryFiles": [
+        "packages/museum-data/index.mjs",
+        "data/chronos/chronos-world-explorer-v8.json",
+        "data/chronos/benoist-legacy-v9.json",
+        "data/collections/grand-museum-curated-v1.json"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "loadMuseumBundle(baseUrl), validateMuseumDataContract(worldData), summarizeMuseumStats() + канонический JSON-контракт.",
+      "limitationsRu": "Внешние изображения открытых музеев (Wikimedia, Paris Musées IIIF, Met) загружаются по HTTPS или через лёгкий прокси.",
+      "claudeIntegrationRu": "Импортируйте `packages/museum-data/index.mjs` в статическом JS Claude Code без сборщика и загружайте JSON через fetch()."
+    },
+    {
+      "id": "pkg-02-benoist-catalog",
+      "name": "@city-on-paper/benoist-catalog",
+      "categoryRu": "Каталог Бенуа (200+ оцифрованных листов)",
+      "portableModule": "packages/benoist-catalog/index.mjs",
+      "entryFiles": [
+        "packages/benoist-catalog/index.mjs",
+        "data/chronos/benoist-legacy-v9.json",
+        "data/chronos/parismusees-benoist-iiif-v10.json",
+        "data/chronos/rijksmuseum-benoist-cc0-v10.json",
+        "data/chronos/benoist-commons-harvest-v10.json",
+        "tools/chronos/v7_modules/floorplans_benoist_v7.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "searchBenoistPlates(), getDigitizedCoverageStats(), findRelatedBenoistEditions() (Jaccard + гео-матчинг тиражей), groupPlatesByAlbum().",
+      "limitationsRu": "11 редких региональных записей (KOG-AA и локальные архивы) честно помечены `bibliographic_reference_no_open_scan` с `imageUrl: null`.",
+      "claudeIntegrationRu": "Подключается напрямую для поиска, фильтрации и обогащения карточек листов Бенуа в статическом музее Claude Code."
+    },
+    {
+      "id": "pkg-03-museum-context",
+      "name": "@city-on-paper/museum-context",
+      "categoryRu": "Единый контекст исследования (эпистемически честный)",
+      "portableModule": "packages/museum-context/index.mjs",
+      "entryFiles": [
+        "packages/museum-context/index.mjs",
+        "packages/examples/claude-static-museum-demo.html"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "createMuseumContextStore(), resolveContextFromBenoistWork(work, worldData) — НИКОГДА не фабрикует Париж/1855/Public Domain при пустых полях (возвращает null + status: 'unknown').",
+      "limitationsRu": "Состояние хранится в памяти и синхронизируется с URL; опционально подключается localStorage.",
+      "claudeIntegrationRu": "Подключите 1 ESM-файл в `<script type=\"module\">` Claude Code — выбор листа Бенуа синхронизирует все панели автоматически."
+    },
+    {
+      "id": "pkg-04-historical-cartography",
+      "name": "@city-on-paper/historical-cartography",
+      "categoryRu": "Историческая картография (Allmaps + TPS + Nolli 1748)",
+      "portableModule": "packages/historical-cartography/index.mjs",
+      "entryFiles": [
+        "packages/historical-cartography/index.mjs",
+        "tools/chronos/georef_tps_engine.mjs",
+        "data/chronos/soduco-5-paris-annotations.json",
+        "data/chronos/paris-georef-tps-report.json"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "buildAllmapsTileConfig(), haversineMeters(), filterSoducoAnnotationsByYear(), getNolliCityPlan() + TPS LOOCV.",
+      "limitationsRu": "Внешние IIIF тайлы Gallica могут иметь сетевую задержку; предусмотрен fallback на метаданные.",
+      "claudeIntegrationRu": "Добавляет исторические слои Allmaps/SODUCO и «Город без крыш» (Нолли 1748) поверх существующей карты Claude Code."
+    },
+    {
+      "id": "pkg-05-temporal-system",
+      "name": "@city-on-paper/temporal-system",
+      "categoryRu": "Временная система и 6-осевая хронология",
+      "portableModule": "packages/temporal-system/index.mjs",
+      "entryFiles": [
+        "packages/temporal-system/index.mjs",
+        "tools/chronos/chronology_validator.mjs",
+        "tools/chronos/v8_modules/interiors_chronology_upgrade_v8.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "formatDualChronologyCaption(), auditEntryChronology(), filterTimelineByYearRange() — строго разделяет 6 дат (постройка ≠ дата фото!).",
+      "limitationsRu": "Неизвестные даты никогда не округляются и остаются `null`.",
+      "claudeIntegrationRu": "Форматирует честные музейные подписи «Постройка / Дата снимка» и проверяет новые карточки в CI."
+    },
+    {
+      "id": "pkg-06-spatial-contours",
+      "name": "@city-on-paper/spatial-contours",
+      "categoryRu": "Пространственные контуры (2 252 GeoJSON Polygon)",
+      "portableModule": "packages/spatial-contours/index.mjs",
+      "entryFiles": [
+        "packages/spatial-contours/index.mjs",
+        "data/chronos/alpage-vasserot-ile-de-la-cite.geojson",
+        "data/chronos/ohm-buildings-ile-de-la-cite.geojson",
+        "data/chronos/ign-modern-buildings-ile-de-la-cite.geojson",
+        "data/chronos/world-cities-building-polygons.geojson.json"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "projectPolygonsToSvg(features, bbox, width, height), computeCityBbox(), filterPolygonsByName() — рендер в чистый SVG без Leaflet/MapLibre!",
+      "limitationsRu": "14 городов имеют полные реальные GeoJSON Polygon; 4 дополнительных города честно помечены `registry`.",
+      "claudeIntegrationRu": "Встраивайте реальные контуры зданий прямо в SVG-карточки статического сайта Claude Code за 5 строк JS."
+    },
+    {
+      "id": "pkg-07-computer-vision",
+      "name": "@city-on-paper/computer-vision",
+      "categoryRu": "Компьютерное зрение и неразрушающая реставрация",
+      "portableModule": "packages/computer-vision/index.mjs",
+      "entryFiles": [
+        "packages/computer-vision/index.mjs",
+        "tools/cv/real_pixel_cv_engine.mjs",
+        "tools/vision/run_gemini_multimodal_experiment.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "RESTORATION_FILTER_PRESETS, applyNonDestructiveCanvasFilter(srcCanvas, outCanvas, preset) — CLAHE/Retinex/UV/IR/Sobel на чистом Canvas 2D без изменения оригинала!",
+      "limitationsRu": "Серверный Gemini Vision OCR опционален и требует `GEMINI_API_KEY`; все клиентские фильтры работают 100% в браузере бесплатно.",
+      "claudeIntegrationRu": "Подключайте реставрационную лупу поверх любого `<img>` литографии Бенуа на статическом сайте Claude Code."
+    },
+    {
+      "id": "pkg-08-morphing",
+      "name": "@city-on-paper/morphing",
+      "categoryRu": "Аналитический Delaunay-морфинг и совместимость пар",
+      "portableModule": "packages/morphing/index.mjs",
+      "entryFiles": [
+        "packages/morphing/index.mjs",
+        "tools/chronos/image_compatibility_gate.mjs",
+        "tools/chronos/real_delaunay_morph_engine.mjs",
+        "data/chronos/paris-real-morph-experiments.json"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "createMorphSliderController(frames), evaluatePairReadiness(pair) + 36 предсгенерированных JPEG-кадров 9 проверенных пар (0 инверсий).",
+      "limitationsRu": "Пары с несовпадающими помещениями (например, интерьер + экстерьер) автоматически блокируются воротами совместимости.",
+      "claudeIntegrationRu": "Подключайте плавный ползунок времени поверх 36 готовых JPEG-кадров в статическом HTML за 10 строк."
+    },
+    {
+      "id": "pkg-09-interiors",
+      "name": "@city-on-paper/interiors",
+      "categoryRu": "Интерьеры и «История одного зала» (50 залов)",
+      "portableModule": "packages/interiors/index.mjs",
+      "entryFiles": [
+        "packages/interiors/index.mjs",
+        "tools/chronos/v8_modules/interiors_chronology_upgrade_v8.mjs",
+        "data/chronos/chronos-world-explorer-v8.json"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "findInteriorsByCity(), getInteriorWithStrictChronology(), listRoomBiographies() — строго 6 честных категорий сопоставления (включая `modern_view_missing`).",
+      "limitationsRu": "Для утраченных залов современное фото честно равно `null`.",
+      "claudeIntegrationRu": "Связывает наружную литографию Бенуа с кнопкой «Войти внутрь здания» в интерфейсе Claude Code."
+    },
+    {
+      "id": "pkg-10-historical-floorplans",
+      "name": "@city-on-paper/historical-floorplans",
+      "categoryRu": "Исторические поэтажные планы и конусы обзора",
+      "portableModule": "packages/historical-floorplans/index.mjs",
+      "entryFiles": [
+        "packages/historical-floorplans/index.mjs",
+        "tools/chronos/v7_modules/floorplans_benoist_v7.mjs",
+        "tools/chronos/v8_modules/world_explorer_modules_v8.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "buildCameraConeSvgPath(x, y, bearingDeg, fovDeg, radius), listFloorPlansByCity() — чистая SVG-геометрия конусов обзора художника.",
+      "limitationsRu": "SVG-координаты откалиброваны под viewBox каждого архивного чертежа.",
+      "claudeIntegrationRu": "Рисует интерактивный конус обзора Филиппа Бенуа прямо поверх архивного плана здания в Claude Code."
+    },
+    {
+      "id": "pkg-11-3d-reconstructions",
+      "name": "@city-on-paper/3d-reconstructions",
+      "categoryRu": "Трёхмерные разрезы (UI-независимые спецификации + Three.js)",
+      "portableModule": "packages/3d-reconstructions/index.mjs",
+      "entryFiles": [
+        "packages/3d-reconstructions/index.mjs",
+        "src/components/ArchitecturalCutaway3DView.tsx",
+        "src/components/Interior3DViewer.tsx",
+        "src/components/NotreDameEnsemble3DView.tsx"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [
+        "three (опционально только для WebGL-рендера)"
+      ],
+      "apiSummaryRu": "computeCutawayClipPlanes(mode, level), listCutawayMonuments(), getEpochVisibility() — чистая математика срезов отделена от React/Three.js!",
+      "limitationsRu": "Схематические 3D-разрезы промаркированы `scientific_reconstruction` и всегда сопровождаются подлинными чертежами; WebGL нужен только для 3D-канвы.",
+      "claudeIntegrationRu": "Математика срезов импортируется без React; 3D-сцена монтируется как изолированный island-виджет Three.js."
+    },
+    {
+      "id": "pkg-12-historical-narratives",
+      "name": "@city-on-paper/historical-narratives",
+      "categoryRu": "Исторические повествования (3 Флагманские истории + 12 глав)",
+      "portableModule": "packages/historical-narratives/index.mjs",
+      "entryFiles": [
+        "packages/historical-narratives/index.mjs",
+        "data/chronos/benoist-legacy-v9.json",
+        "tools/chronos/v8_modules/world_explorer_modules_v8.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "getFlagshipBenoistStories(), getBookChapterStream(), getBeyondTheFrameCompass() — 3 завершённые 8-ступенчатые истории Бенуа + 12 глав + 17-пунктные досье.",
+      "limitationsRu": "Тексты подготовлены на русском языке с сохранением оригинальных французских/итальянских титров и ссылок.",
+      "claudeIntegrationRu": "Идеально ложится в scrollytelling и книжное повествование Claude Code без переписывания его дизайна."
+    },
+    {
+      "id": "pkg-13-audio-and-iiif-albums",
+      "name": "@city-on-paper/audio-and-iiif-albums",
+      "categoryRu": "IIIF 3.0 альбомы, аудиоэкскурсии и KMZ",
+      "portableModule": "packages/album-iiif-viewer/index.mjs",
+      "entryFiles": [
+        "packages/album-iiif-viewer/index.mjs",
+        "tools/geo/export_kmz.mjs",
+        "tools/chronos/export_chronos_earth_tour.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [],
+      "apiSummaryRu": "buildIiifPresentationV3Manifest() (честный IIIF 3.0: 0 placeholder-plate.jpg, 0 фейковых 1600×1160 и 0 авто-PD!), createAlbumController(), buildOpenSeadragonTileSource().",
+      "limitationsRu": "Неоцифрованные библиографические листы честно опускают Image-аннотацию и размеры до получения открытого скана.",
+      "claudeIntegrationRu": "Подключайте перелистыватель альбомов Бенуа в Mirador, OpenSeadragon или напрямую в статическом HTML Claude Code."
+    },
+    {
+      "id": "pkg-14-skills-and-mcp",
+      "name": "@city-on-paper/skills-and-mcp",
+      "categoryRu": "Agent Skills (48) и Read-Only Museum MCP (42 инструмента)",
+      "portableModule": "packages/skills-and-mcp/index.mjs",
+      "entryFiles": [
+        "packages/skills-and-mcp/index.mjs",
+        "skills/ANTIGRAVITY_SKILLS_MANIFEST.json",
+        "skills/AGENT_COMPATIBILITY_MATRIX.json",
+        "mcp/museum_mcp_server.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [
+        "Node.js >= 20"
+      ],
+      "apiSummaryRu": "verifyPortablePackagesManifest(rootDir), loadSkillsRegistry() + 48 SKILL.md + 42 Read-Only MCP инструмента (Claude Code / Codex / Antigravity).",
+      "limitationsRu": "MCP-сервер строго Read-Only по stdio (без сетевых портов и без записи).",
+      "claudeIntegrationRu": "Подключите `mcp/museum_mcp_server.mjs` в `.mcp.json` Claude Code, а `skills/*` — в `.claude/skills/`."
+    },
+    {
+      "id": "pkg-15-automated-tests",
+      "name": "@city-on-paper/automated-tests",
+      "categoryRu": "Воспроизводимые автотесты и регрессионная защита",
+      "portableModule": "packages/automated-tests/index.mjs",
+      "entryFiles": [
+        "packages/automated-tests/index.mjs",
+        "tests/chronos_world_explorer_v8_suite.test.mjs",
+        "tests/benoist_legacy_v9_suite.test.mjs",
+        "tests/benoist_integration_ready_v10_suite.test.mjs",
+        "tests/external_checkpoints_integrity.test.mjs"
+      ],
+      "reactIndependent": true,
+      "staticSiteReady": true,
+      "dependencies": [
+        "Node.js built-in node:test (0 внешних зависимостей)"
+      ],
+      "apiSummaryRu": "assertNoFabricatedMuseumContext(), assertHonestIiifManifest() + полные регрессионные наборы на каждую ошибку из независимого аудита.",
+      "limitationsRu": "Все юнит- и контрактные тесты работают 100% оффлайн внутри распакованного ZIP.",
+      "claudeIntegrationRu": "Запускайте `node --test` в CI основного музея Claude Code для автоматической проверки данных и модулей."
+    }
+  ]
+}

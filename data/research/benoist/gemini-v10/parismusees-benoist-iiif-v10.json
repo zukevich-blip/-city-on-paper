@@ -1,0 +1,1343 @@
+{
+  "schemaVersion": "parismusees-benoist-iiif.v10.0",
+  "harvestedAt": "2026-11-27T12:56:47.187Z",
+  "sourceApi": "https://apicollections.parismusees.paris.fr/iiif/{id}/manifest (CC0 Open Content)",
+  "totalQueried": 72,
+  "totalRecoveredWithImages": 72,
+  "recordsByPlateId": {
+    "sheet-parismusees-320290066": {
+      "plateId": "sheet-parismusees-320290066",
+      "numericId": "320290066",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290066/manifest",
+      "ok": true,
+      "label": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028376_001.jpg?itok=mPji68aW",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028376_001.jpg?itok=-uu_VPj1",
+      "width": 1673,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-0"
+      }
+    },
+    "sheet-parismusees-320291197": {
+      "plateId": "sheet-parismusees-320291197",
+      "numericId": "320291197",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320291197/manifest",
+      "ok": true,
+      "label": "Palais du Luxembourg. / Côté jardin.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029820_001.jpg?itok=Xpe_-m4N",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop029820_001.jpg?itok=ZVAbQONz",
+      "width": 2895,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Illustration de livre",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-jardin"
+      }
+    },
+    "sheet-parismusees-320294285": {
+      "plateId": "sheet-parismusees-320294285",
+      "numericId": "320294285",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320294285/manifest",
+      "ok": true,
+      "label": "Vues de Paris // Le Château d'Eau / Marché aux Fleurs",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030925_001.jpg?itok=e6oqqARB",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030925_001.jpg?itok=66XWL5Fe",
+      "width": 2915,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-chateau-d-eau-marche-aux-fleurs"
+      }
+    },
+    "sheet-parismusees-320291945": {
+      "plateId": "sheet-parismusees-320291945",
+      "numericId": "320291945",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320291945/manifest",
+      "ok": true,
+      "label": "Vues de Paris./ (26)/ Views of Paris./ Notre-Dame./ Cathédrale de Paris./ Notre-Dame/ Paris' Cathedral.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=1rLC2LPq",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop029216_001.jpg?itok=oVou8lnz",
+      "width": 1563,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-26-views-of-paris-notre-dame-cathedrale-de-paris-notre-dame"
+      }
+    },
+    "sheet-parismusees-320290399": {
+      "plateId": "sheet-parismusees-320290399",
+      "numericId": "320290399",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290399/manifest",
+      "ok": true,
+      "label": "Vues de Paris / Galerie d'Orléans, au Palais Royal.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028614_001.jpg?itok=WcXwDfXh",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028614_001.jpg?itok=Cu_9yZjN",
+      "width": 2951,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-galerie-d-orleans-au-palais-royal"
+      }
+    },
+    "sheet-parismusees-320292157": {
+      "plateId": "sheet-parismusees-320292157",
+      "numericId": "320292157",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292157/manifest",
+      "ok": true,
+      "label": "Vues de Paris. (7) / Views of Paris. / Colonne de la place Vendôme. Colomn of the Place Vendome.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028680_001.jpg?itok=P_qD6q63",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028680_001.jpg?itok=cF1JMQim",
+      "width": 1557,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-7-views-of-paris-colonne-de-la-place-vendome-colomn-of-the"
+      }
+    },
+    "sheet-parismusees-320288755": {
+      "plateId": "sheet-parismusees-320288755",
+      "numericId": "320288755",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320288755/manifest",
+      "ok": true,
+      "label": "(Vues de Paris) / Le Louvre achevé et la Nouvelle rue de Rivoli",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027910_001.jpg?itok=VS-Km8PV",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop027910_001.jpg?itok=SL7C4H7v",
+      "width": 2820,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-le-louvre-acheve-et-la-nouvelle-rue-de-rivoli"
+      }
+    },
+    "sheet-parismusees-320290954": {
+      "plateId": "sheet-parismusees-320290954",
+      "numericId": "320290954",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290954/manifest",
+      "ok": true,
+      "label": "Vues de Paris. / Eglise St Sulpice. Eglise St Etienne du Mont.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029652_001.jpg?itok=b3bsHNqd",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop029652_001.jpg?itok=IE1csNF9",
+      "width": 3093,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-eglise-st-sulpice-eglise-st-etienne-du-mont"
+      }
+    },
+    "sheet-parismusees-320291211": {
+      "plateId": "sheet-parismusees-320291211",
+      "numericId": "320291211",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320291211/manifest",
+      "ok": true,
+      "label": "Vues de Paris / Rue de Rivoli / Ministères des Finances et de la Marine.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028655_001.jpg?itok=-B7pJKKK",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028655_001.jpg?itok=zqXsQTv2",
+      "width": 2623,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-rue-de-rivoli-ministeres-des-finances-et-de-la-marine"
+      }
+    },
+    "sheet-parismusees-320291262": {
+      "plateId": "sheet-parismusees-320291262",
+      "numericId": "320291262",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320291262/manifest",
+      "ok": true,
+      "label": "Vues de Paris / (9) / Views of Paris / Bourse et Tribunal de Commerce. / The Bourse and Tribunal of Commerce.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028813_001.jpg?itok=QG5eUjwQ",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028813_001.jpg?itok=ys8rfBL4",
+      "width": 3070,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-9-views-of-paris-bourse-et-tribunal-de-commerce-the-bourse"
+      }
+    },
+    "sheet-parismusees-320291352": {
+      "plateId": "sheet-parismusees-320291352",
+      "numericId": "320291352",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320291352/manifest",
+      "ok": true,
+      "label": "Vues de Paris/ (21.)/ Views of Paris./ Colonnade du Louvre./ Colonnade of the Louvre.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=VsrQ0ubi",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028170_001.jpg?itok=DCJEy2Wh",
+      "width": 2903,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-21-views-of-paris-colonnade-du-louvre-colonnade-of-the-louvre"
+      }
+    },
+    "sheet-parismusees-200009791": {
+      "plateId": "sheet-parismusees-200009791",
+      "numericId": "200009791",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/200009791/manifest",
+      "ok": true,
+      "label": "La Halle et la fontaine des innocents.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/BAL/lpdp_77114-14.jpg?itok=PQ08nK_1",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/BAL/lpdp_77114-14.jpg?itok=0Fw4TBkr",
+      "width": 2920,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Type d'objet": "Arts graphiques",
+        "Datation en siècle": "19e siècle",
+        "Numéro d’inventaire": "BAL 478",
+        "Institution": "Maison de Balzac",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/maison-de-balzac/oeuvres/la-halle-et-la-fontaine-des-innocents"
+      }
+    },
+    "sheet-parismusees-320175609": {
+      "plateId": "sheet-parismusees-320175609",
+      "numericId": "320175609",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320175609/manifest",
+      "ok": true,
+      "label": "Paris dans sa splendeur. - Histoire. / Grand carrousel sous Louis XIV, (5 et 6 juin 1662) / d'après une gravure de cette époque",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg043027_001.jpg?itok=UNVqNnCK",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg043027_001.jpg?itok=Bg_mjmE1",
+      "width": 2960,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Numéro d’inventaire": "G.43027",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-histoire-grand-carrousel-sous-louis-xiv-5-et-6-juin"
+      }
+    },
+    "sheet-parismusees-320262846": {
+      "plateId": "sheet-parismusees-320262846",
+      "numericId": "320262846",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320262846/manifest",
+      "ok": true,
+      "label": "Colonne de Juillet. / sur la place de la Bastille.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052999_001.jpg?itok=r-HYqs1R",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg052999_001.jpg?itok=3vnA-p84",
+      "width": 3139,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">En</span>\n  \n                            <span class=\"year\">1843</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Numéro d’inventaire": "G.52999",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille"
+      }
+    },
+    "sheet-parismusees-320050912": {
+      "plateId": "sheet-parismusees-320050912",
+      "numericId": "320050912",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320050912/manifest",
+      "ok": true,
+      "label": "Paris dans sa splendeur// Eglise St Sulpice et fontaine de la place St Sulpice",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/lpdp_55791-1.jpg?itok=HSbXyWNC",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/lpdp_55791-1.jpg?itok=v6tNrhrb",
+      "width": 3295,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">En</span>\n  \n                            <span class=\"year\">1870</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Numéro d’inventaire": "G.38596",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-eglise-st-sulpice-et-fontaine-de-la-place-st"
+      }
+    },
+    "sheet-parismusees-320074413": {
+      "plateId": "sheet-parismusees-320074413",
+      "numericId": "320074413",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320074413/manifest",
+      "ok": true,
+      "label": "Square du Temple (1881)",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/lpdp_77767-14.jpg?itok=8rUzUFJX",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/lpdp_77767-14.jpg?itok=y2RKSPKB",
+      "width": 3101,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Numéro d’inventaire": "G.39195",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/square-du-temple-1881"
+      }
+    },
+    "sheet-parismusees-320175628": {
+      "plateId": "sheet-parismusees-320175628",
+      "numericId": "320175628",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320175628/manifest",
+      "ok": true,
+      "label": "Paris dans sa splendeur. - Histoire. / Grand carrousel sous Louis XIV, (5 et 6 juin 1662) / d'après une gravure de cette époque",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg043028_001.jpg?itok=UOaNeqGT",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg043028_001.jpg?itok=yoF_qTx3",
+      "width": 3220,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Numéro d’inventaire": "G.43028",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-histoire-grand-carrousel-sous-louis-xiv-5-et-6-0"
+      }
+    },
+    "sheet-parismusees-320150835": {
+      "plateId": "sheet-parismusees-320150835",
+      "numericId": "320150835",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320150835/manifest",
+      "ok": true,
+      "label": "Distribution des récompenses aux Exposants au Palais de l'Industrie (15 Novembre 1855).",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0800_001.jpg?itok=wq90FYBv",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carqb0800_001.jpg?itok=EYvAE6kO",
+      "width": 3094,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Date d’acquisition": "<div class=\"pm-date-precision\">\n  \n                            <span class=\"year\">1911</span>\n        \n  </div>",
+        "Mode d'acquisition": "Legs",
+        "Numéro d’inventaire": "QB.800",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/distribution-des-recompenses-aux-exposants-au-palais-de-l-industrie-15"
+      }
+    },
+    "sheet-parismusees-320209544": {
+      "plateId": "sheet-parismusees-320209544",
+      "numericId": "320209544",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320209544/manifest",
+      "ok": true,
+      "label": "Départ de S.A. la Reine d'Angleterre de Paris le 27 août 1855.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052374_001.jpg?itok=9SHPTEoX",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg052374_001.jpg?itok=4ssLWlP_",
+      "width": 3027,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">Après</span>\n  \n                            <span class=\"year\">1856</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/depart-de-sa-la-reine-d-angleterre-de-paris-le-27-aout-1855"
+      }
+    },
+    "sheet-parismusees-320210218": {
+      "plateId": "sheet-parismusees-320210218",
+      "numericId": "320210218",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320210218/manifest",
+      "ok": true,
+      "label": "Les ruines de Paris 1871.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052476_001.jpg?itok=dozlisD2",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg052476_001.jpg?itok=m5Lz5Ulf",
+      "width": 2998,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">Après</span>\n  \n                            <span class=\"year\">1871</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-ruines-de-paris-1871"
+      }
+    },
+    "sheet-parismusees-320286237": {
+      "plateId": "sheet-parismusees-320286237",
+      "numericId": "320286237",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320286237/manifest",
+      "ok": true,
+      "label": "Promenade dans Paris et ses environs / dessinée d'après nature et lithographiée par Jacottet et Benoist",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027711_001.jpg?itok=B_w_J0H9",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop027711_001.jpg?itok=2sUQmMl5",
+      "width": 1554,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/promenade-dans-paris-et-ses-environs-dessinee-d-apres-nature-et"
+      }
+    },
+    "sheet-parismusees-320298071": {
+      "plateId": "sheet-parismusees-320298071",
+      "numericId": "320298071",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320298071/manifest",
+      "ok": true,
+      "label": "Palais de l'Industrie aux Champs Élysées à Paris / Construit, conformément au decret du 8 mars 1853 par M. Viel arch. d'après les plans et dessins de MM. Cendrier arch. Lorentz et Barrault, ingén.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop031930_001.jpg?itok=5ANeMG_N",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop031930_001.jpg?itok=TtNJJ9Z-",
+      "width": 3840,
+      "height": 1870,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees-a-paris-construit-conformement-au"
+      }
+    },
+    "sheet-parismusees-320298080": {
+      "plateId": "sheet-parismusees-320298080",
+      "numericId": "320298080",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320298080/manifest",
+      "ok": true,
+      "label": "Vue officielle à vol d'oiseau de l'Exposition universelle de 1867.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop031931_001.jpg?itok=ucq0Wkwq",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop031931_001.jpg?itok=DAlRg0XE",
+      "width": 3117,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Changement d'affectation",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-officielle-a-vol-d-oiseau-de-l-exposition-universelle-de-1867"
+      }
+    },
+    "sheet-parismusees-320298085": {
+      "plateId": "sheet-parismusees-320298085",
+      "numericId": "320298085",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320298085/manifest",
+      "ok": true,
+      "label": "Vue officielle à vol d'oiseau de l'Exposition universelle de 1867.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop031932_001.jpg?itok=1nCUmHki",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop031932_001.jpg?itok=0z0cc-gN",
+      "width": 2938,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-officielle-a-vol-d-oiseau-de-l-exposition-universelle-de-1867-0"
+      }
+    },
+    "sheet-parismusees-320299869": {
+      "plateId": "sheet-parismusees-320299869",
+      "numericId": "320299869",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320299869/manifest",
+      "ok": true,
+      "label": "Vues de Paris. / Paris, pris du pont Royal. / Views of Paris. / Paris, from the Royal bridge.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030525_001.jpg?itok=cyEuw04f",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030525_001.jpg?itok=1BWYrVPu",
+      "width": 2916,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-paris-pris-du-pont-royal-views-of-paris-paris-from-the-royal"
+      }
+    },
+    "sheet-parismusees-320295651": {
+      "plateId": "sheet-parismusees-320295651",
+      "numericId": "320295651",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320295651/manifest",
+      "ok": true,
+      "label": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030439_001.jpg?itok=vpEwAWLl",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030439_001.jpg?itok=TJx3HT8H",
+      "width": 2917,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-madeleine-the-madeleine-church-vues-de-paris-6-views-of-paris-0"
+      }
+    },
+    "sheet-parismusees-320295653": {
+      "plateId": "sheet-parismusees-320295653",
+      "numericId": "320295653",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320295653/manifest",
+      "ok": true,
+      "label": "Intérieur de La Madeleine. / Interior of the Church of he Madeleine // Vues de Paris. / (42.) / Views of Paris.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030440_001.jpg?itok=1WvygRM9",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030440_001.jpg?itok=qNvHu9Ki",
+      "width": 2636,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Changement d'affectation",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-la-madeleine-interior-of-the-church-of-he-madeleine-vues-de"
+      }
+    },
+    "sheet-parismusees-320295656": {
+      "plateId": "sheet-parismusees-320295656",
+      "numericId": "320295656",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320295656/manifest",
+      "ok": true,
+      "label": "Intérieur de La Madeleine. / Interior of the Church of he Madeleine // Vues de Paris. / (42.) / Views of Paris.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030441_001.jpg?itok=kDaPek8R",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030441_001.jpg?itok=BMvi0xTv",
+      "width": 2916,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-la-madeleine-interior-of-the-church-of-he-madeleine-vues-de-0"
+      }
+    },
+    "sheet-parismusees-320290166": {
+      "plateId": "sheet-parismusees-320290166",
+      "numericId": "320290166",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290166/manifest",
+      "ok": true,
+      "label": "Chateau des Tuileries / Côté du Carrousel",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028045_001.jpg?itok=_v2xMUN6",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028045_001.jpg?itok=57vzw6mw",
+      "width": 2893,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/chateau-des-tuileries-cote-du-carrousel"
+      }
+    },
+    "sheet-parismusees-320290537": {
+      "plateId": "sheet-parismusees-320290537",
+      "numericId": "320290537",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290537/manifest",
+      "ok": true,
+      "label": "Les grands aspects du nouveau Paris. // Hôtel-de-Ville / Préfecture de la Seine - Vue prise de la rue de Rivoli.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028959_001.jpg?itok=bq78J8Hp",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028959_001.jpg?itok=45a37RkW",
+      "width": 2761,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Datation en siècle": "19e siècle",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-hotel-de-ville-prefecture-de-la-seine"
+      }
+    },
+    "sheet-parismusees-320290060": {
+      "plateId": "sheet-parismusees-320290060",
+      "numericId": "320290060",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290060/manifest",
+      "ok": true,
+      "label": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028375_001.jpg?itok=-2dTSSkz",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028375_001.jpg?itok=feahxbhr",
+      "width": 1697,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Changement d'affectation",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-de"
+      }
+    },
+    "sheet-parismusees-320290108": {
+      "plateId": "sheet-parismusees-320290108",
+      "numericId": "320290108",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290108/manifest",
+      "ok": true,
+      "label": "Vue de la halle centrale de Paris. // Projet présenté à S.M. L'empeureur Napoléon III, / Par Charles Duval, architecte.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028485_001.jpg?itok=KVD7c5o3",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028485_001.jpg?itok=QweZimGK",
+      "width": 2762,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-de-la-halle-centrale-de-paris-projet-presente-a-sm-l-empeureur-napoleon"
+      }
+    },
+    "sheet-parismusees-320288930": {
+      "plateId": "sheet-parismusees-320288930",
+      "numericId": "320288930",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320288930/manifest",
+      "ok": true,
+      "label": "Paris dans sa splendeur. // Cour du Louvre.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028202_001.jpg?itok=VxH46oOl",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028202_001.jpg?itok=iPM5sph9",
+      "width": 3282,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-cour-du-louvre"
+      }
+    },
+    "sheet-parismusees-320290069": {
+      "plateId": "sheet-parismusees-320290069",
+      "numericId": "320290069",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290069/manifest",
+      "ok": true,
+      "label": "La Sainte Chapelle de Paris / Inaugurée pour la Cérémonie de l'Institution de la Magistrature (3 Novembre 1849).",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028377_001.jpg?itok=-vf6Zfy6",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028377_001.jpg?itok=sDcvMRFJ",
+      "width": 1701,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-sainte-chapelle-de-paris-inauguree-pour-la-ceremonie-de-l-institution-1"
+      }
+    },
+    "sheet-parismusees-320288694": {
+      "plateId": "sheet-parismusees-320288694",
+      "numericId": "320288694",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320288694/manifest",
+      "ok": true,
+      "label": "Vue prise au-dessus du Rond-Point des Champs-Elysées",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop027906_001.jpg?itok=ro6A5qK4",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop027906_001.jpg?itok=urkIL9lb",
+      "width": 2819,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-prise-au-dessus-du-rond-point-des-champs-elysees"
+      }
+    },
+    "sheet-parismusees-320289145": {
+      "plateId": "sheet-parismusees-320289145",
+      "numericId": "320289145",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320289145/manifest",
+      "ok": true,
+      "label": "Place et Fontaine du Châtelet / Pont au Change. Théâtre du Châtelet et Théâtre Lyrique.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028406_001.jpg?itok=5Ky1OdbP",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028406_001.jpg?itok=L_hE93D_",
+      "width": 2799,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-et-fontaine-du-chatelet-pont-au-change-theatre-du-chatelet-et-theatre"
+      }
+    },
+    "sheet-parismusees-320289156": {
+      "plateId": "sheet-parismusees-320289156",
+      "numericId": "320289156",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320289156/manifest",
+      "ok": true,
+      "label": "Fontaine du Châtelet / Fontaine Richelieu.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028407_001.jpg?itok=D17xTlgz",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028407_001.jpg?itok=tXlvXk-2",
+      "width": 3095,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/fontaine-du-chatelet-fontaine-richelieu"
+      }
+    },
+    "sheet-parismusees-320295200": {
+      "plateId": "sheet-parismusees-320295200",
+      "numericId": "320295200",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320295200/manifest",
+      "ok": true,
+      "label": "La Madeleine. / The Madeleine (Church). // Vues de Paris. / (6.) / Views of Paris.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030438_001.jpg?itok=ULvvu4-M",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030438_001.jpg?itok=FMS9cx7X",
+      "width": 2712,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Changement d'affectation",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/la-madeleine-the-madeleine-church-vues-de-paris-6-views-of-paris"
+      }
+    },
+    "sheet-parismusees-320293074": {
+      "plateId": "sheet-parismusees-320293074",
+      "numericId": "320293074",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293074/manifest",
+      "ok": true,
+      "label": "Vue générale des expositions / Prise du côté de l'annexe.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030230_001.jpg?itok=UyEDUXLx",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030230_001.jpg?itok=YP6xzkl-",
+      "width": 2949,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Changement d'affectation",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe-0"
+      }
+    },
+    "sheet-parismusees-320293136": {
+      "plateId": "sheet-parismusees-320293136",
+      "numericId": "320293136",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293136/manifest",
+      "ok": true,
+      "label": "Cirque de l'Impératrice / aux Champs-Elysées.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030210_001.jpg?itok=sgVfZ3uH",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030210_001.jpg?itok=C_ASeRbc",
+      "width": 3093,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Illustration de livre",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/cirque-de-l-imperatrice-aux-champs-elysees"
+      }
+    },
+    "sheet-parismusees-320293263": {
+      "plateId": "sheet-parismusees-320293263",
+      "numericId": "320293263",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293263/manifest",
+      "ok": true,
+      "label": "Hôtel des Invalides.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030657_001.jpg?itok=dorf4u5k",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030657_001.jpg?itok=1ngCFjya",
+      "width": 2933,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides"
+      }
+    },
+    "sheet-parismusees-320293264": {
+      "plateId": "sheet-parismusees-320293264",
+      "numericId": "320293264",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293264/manifest",
+      "ok": true,
+      "label": "Hôtel des Invalides.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030658_001.jpg?itok=mXwRAsbf",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030658_001.jpg?itok=1P9hzOgg",
+      "width": 2897,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/hotel-des-invalides-0"
+      }
+    },
+    "sheet-parismusees-320293288": {
+      "plateId": "sheet-parismusees-320293288",
+      "numericId": "320293288",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293288/manifest",
+      "ok": true,
+      "label": "Les grands aspects du nouveau Paris / Nouvel Opéra. / Façade principale sur le Boulevard des Capucines.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030824_001.jpg?itok=QvyueUqY",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030824_001.jpg?itok=yriuSv7b",
+      "width": 2809,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvel-opera-facade-principale-sur-le"
+      }
+    },
+    "sheet-parismusees-320293177": {
+      "plateId": "sheet-parismusees-320293177",
+      "numericId": "320293177",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293177/manifest",
+      "ok": true,
+      "label": "Vues de paris / 5. / Views of Paris /Arc de Triomphe de l'Etoile / côté de Paris , Arc of Triumph (de l'Etoile) / Side of Paris",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030347_001.jpg?itok=W3wkyHn5",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030347_001.jpg?itok=7GQ_yQS-",
+      "width": 2957,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-5-views-of-paris-arc-de-triomphe-de-l-etoile-cote-de-paris"
+      }
+    },
+    "sheet-parismusees-320293500": {
+      "plateId": "sheet-parismusees-320293500",
+      "numericId": "320293500",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293500/manifest",
+      "ok": true,
+      "label": "Colonne de Juillet sur la place de la Bastille / Vues de Paris N° 19",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg033369_001.jpg?itok=D59wW-kX",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg033369_001.jpg?itok=0KnXkfdn",
+      "width": 3190,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">Vers</span>\n  \n                            <span class=\"year\">1840</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Numéro d’inventaire": "G.33369",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/colonne-de-juillet-sur-la-place-de-la-bastille-vues-de-paris-ndeg-19"
+      }
+    },
+    "sheet-parismusees-320293678": {
+      "plateId": "sheet-parismusees-320293678",
+      "numericId": "320293678",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293678/manifest",
+      "ok": true,
+      "label": "Eglise Saint-Laurent / avec sa nouvelle façade et la Gare du Chemin de fer de l'Est",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030905_001.jpg?itok=X3sZ3pQx",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030905_001.jpg?itok=HJ06GoGm",
+      "width": 2747,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/eglise-saint-laurent-avec-sa-nouvelle-facade-et-la-gare-du-chemin-de-fer-de"
+      }
+    },
+    "sheet-parismusees-320293393": {
+      "plateId": "sheet-parismusees-320293393",
+      "numericId": "320293393",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293393/manifest",
+      "ok": true,
+      "label": "Palais de l'Industrie aux Champs Elysées.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030237_001.jpg?itok=LWQ-qwq1",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030237_001.jpg?itok=PF-lf1uD",
+      "width": 3840,
+      "height": 1881,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees"
+      }
+    },
+    "sheet-parismusees-320293396": {
+      "plateId": "sheet-parismusees-320293396",
+      "numericId": "320293396",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293396/manifest",
+      "ok": true,
+      "label": "Vues de Paris // Les Boulevards Saint-Denis et Saint-Martin",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030887_001.jpg?itok=TZaZd7UU",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030887_001.jpg?itok=as9WiTKA",
+      "width": 3009,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-les-boulevards-saint-denis-et-saint-martin"
+      }
+    },
+    "sheet-parismusees-320293399": {
+      "plateId": "sheet-parismusees-320293399",
+      "numericId": "320293399",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293399/manifest",
+      "ok": true,
+      "label": "Palais de l'Industrie aux Champs-Elysées.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030238_001.jpg?itok=6AwVrRF5",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030238_001.jpg?itok=IUL05Q6s",
+      "width": 3840,
+      "height": 2042,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-aux-champs-elysees-0"
+      }
+    },
+    "sheet-parismusees-320289470": {
+      "plateId": "sheet-parismusees-320289470",
+      "numericId": "320289470",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320289470/manifest",
+      "ok": true,
+      "label": "Vues de Paris. // La halle et la fontaine des Innocens. [sic]",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028462_001.jpg?itok=q_2xTmfA",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028462_001.jpg?itok=v5QLlnVN",
+      "width": 3077,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-la-halle-et-la-fontaine-des-innocens-sic"
+      }
+    },
+    "sheet-parismusees-320289647": {
+      "plateId": "sheet-parismusees-320289647",
+      "numericId": "320289647",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320289647/manifest",
+      "ok": true,
+      "label": "Château des Tuileries.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028023_001.jpg?itok=tXKgD5yN",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028023_001.jpg?itok=CKGwMXuM",
+      "width": 2853,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/chateau-des-tuileries-2"
+      }
+    },
+    "sheet-parismusees-320289563": {
+      "plateId": "sheet-parismusees-320289563",
+      "numericId": "320289563",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320289563/manifest",
+      "ok": true,
+      "label": "Paris / Boulevart des Italiens",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=t1L1rWRx",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028732_001.jpg?itok=eH7GMMCG",
+      "width": 2973,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">Vers</span>\n  \n                            <span class=\"year\">1855</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-boulevart-des-italiens"
+      }
+    },
+    "sheet-parismusees-320289583": {
+      "plateId": "sheet-parismusees-320289583",
+      "numericId": "320289583",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320289583/manifest",
+      "ok": true,
+      "label": "Vues de Paris. / (11) / Views of Paris / Le Boulevart des Italiens. / The Boulevart des Italiens.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=FJU76V4F",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop028734_001.jpg?itok=CeEi3wBT",
+      "width": 2748,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-11-views-of-paris-le-boulevart-des-italiens-the-boulevart-des"
+      }
+    },
+    "sheet-parismusees-320292326": {
+      "plateId": "sheet-parismusees-320292326",
+      "numericId": "320292326",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292326/manifest",
+      "ok": true,
+      "label": "Vues du Panthéon.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029719_001.jpg?itok=ZilUKeyu",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop029719_001.jpg?itok=rInRCa95",
+      "width": 2926,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-du-pantheon"
+      }
+    },
+    "sheet-parismusees-320292523": {
+      "plateId": "sheet-parismusees-320292523",
+      "numericId": "320292523",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292523/manifest",
+      "ok": true,
+      "label": "Les grands aspects du nouveau Paris / Nouvelle église de la Trinité / Chaussée d'Antin.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030774_001.jpg?itok=7mMuSmjj",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030774_001.jpg?itok=zAxN18rC",
+      "width": 1658,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-de-la-trinite-chaussee"
+      }
+    },
+    "sheet-parismusees-320292527": {
+      "plateId": "sheet-parismusees-320292527",
+      "numericId": "320292527",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292527/manifest",
+      "ok": true,
+      "label": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030554_001.jpg?itok=bXWTqy8H",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030554_001.jpg?itok=tqoRttXw",
+      "width": 3087,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur"
+      }
+    },
+    "sheet-parismusees-320292536": {
+      "plateId": "sheet-parismusees-320292536",
+      "numericId": "320292536",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292536/manifest",
+      "ok": true,
+      "label": "Vues des Palais d'Orçay / et de la Légion d'honneur",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030555_001.jpg?itok=OXD6dOW7",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030555_001.jpg?itok=4uI5RY7u",
+      "width": 2904,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-des-palais-d-orcay-et-de-la-legion-d-honneur-0"
+      }
+    },
+    "sheet-parismusees-320292641": {
+      "plateId": "sheet-parismusees-320292641",
+      "numericId": "320292641",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292641/manifest",
+      "ok": true,
+      "label": "Vues de Paris / 8 / Eglise Notre Dame de Lorette.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030781_001.jpg?itok=1LLT3TBk",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030781_001.jpg?itok=b0cIugJ9",
+      "width": 1614,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vues-de-paris-8-eglise-notre-dame-de-lorette"
+      }
+    },
+    "sheet-parismusees-320292491": {
+      "plateId": "sheet-parismusees-320292491",
+      "numericId": "320292491",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320292491/manifest",
+      "ok": true,
+      "label": "Place de la Concorde.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030163_001.jpg?itok=CKQjQEm2",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030163_001.jpg?itok=3tTgyNZG",
+      "width": 3030,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/place-de-la-concorde-28"
+      }
+    },
+    "sheet-parismusees-320294429": {
+      "plateId": "sheet-parismusees-320294429",
+      "numericId": "320294429",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320294429/manifest",
+      "ok": true,
+      "label": "Les Grands Aspects du Nouveau Paris/ Nouvelle Eglise St. Augustin./ Boulevard Malesherbes.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030768_001.jpg?itok=brZtG96T",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030768_001.jpg?itok=e6aGHe91",
+      "width": 2822,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-nouvelle-eglise-st-augustin-boulevard"
+      }
+    },
+    "sheet-parismusees-320290970": {
+      "plateId": "sheet-parismusees-320290970",
+      "numericId": "320290970",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320290970/manifest",
+      "ok": true,
+      "label": "Intérieur de l' Eglise de St Etienne du Mont",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029653_001.jpg?itok=HPQlUzql",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop029653_001.jpg?itok=R1yfM70n",
+      "width": 1535,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/interieur-de-l-eglise-de-st-etienne-du-mont"
+      }
+    },
+    "sheet-parismusees-320291273": {
+      "plateId": "sheet-parismusees-320291273",
+      "numericId": "320291273",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320291273/manifest",
+      "ok": true,
+      "label": "Palais du Luxembourg. / Côté du jardin.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop029809_001.jpg?itok=YwHsXesP",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop029809_001.jpg?itok=q8pM3VZP",
+      "width": 2952,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Illustration de livre",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-du-luxembourg-cote-du-jardin"
+      }
+    },
+    "sheet-parismusees-320288322": {
+      "plateId": "sheet-parismusees-320288322",
+      "numericId": "320288322",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320288322/manifest",
+      "ok": true,
+      "label": "Paris et ses ruines. / Square des Buttes Chaumont. / Vue du lac, des grottes et du grand rocher avec le Temple de la Sibylle.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg052948_001.jpg?itok=Mb-_ywTm",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg052948_001.jpg?itok=WBP4IsxP",
+      "width": 3236,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Numéro d’inventaire": "G.52948",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-et-ses-ruines-square-des-buttes-chaumont-vue-du-lac-des-grottes-et-du"
+      }
+    },
+    "sheet-parismusees-320272359": {
+      "plateId": "sheet-parismusees-320272359",
+      "numericId": "320272359",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320272359/manifest",
+      "ok": true,
+      "label": "Paris dans sa splendeur / Ecole Militaire / Façade sur la Place de Fontenoy",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg025178_001.jpg?itok=B8GKjk9P",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg025178_001.jpg?itok=nOU1aoHD",
+      "width": 3000,
+      "height": 2005,
+      "metadata": {
+        "Numéro d’inventaire": "G.25178",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-ecole-militaire-facade-sur-la-place-de-fontenoy"
+      }
+    },
+    "sheet-parismusees-320274915": {
+      "plateId": "sheet-parismusees-320274915",
+      "numericId": "320274915",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320274915/manifest",
+      "ok": true,
+      "label": "Paris dans sa grandeur - Histoire. /Distribuition des aigles au Champ de Mars / (5 décembre 1804) / 84",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carg023169_001.jpg?itok=M_VSamtX",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carg023169_001.jpg?itok=fLYMknWT",
+      "width": 3000,
+      "height": 1969,
+      "metadata": {
+        "Numéro d’inventaire": "G.23169",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-grandeur-histoire-distribuition-des-aigles-au-champ-de-mars-5"
+      }
+    },
+    "sheet-parismusees-320089731": {
+      "plateId": "sheet-parismusees-320089731",
+      "numericId": "320089731",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320089731/manifest",
+      "ok": true,
+      "label": "Exposition universelle de 1867. Vue générale du Champs de Mars, prise à vol d'oiseau du côté de la porte Rapp.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/lpdp_39591-1.jpg?itok=dqlzKzAK",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/lpdp_39591-1.jpg?itok=irlXFAM2",
+      "width": 2938,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date de production": "<div class=\"pm-date-precision\">\n      <span class=\"precision\">En</span>\n  \n                      <span class=\"month\">5</span>\n        <span class=\"separator-month-year\">–</span>\n                    <span class=\"year\">1871</span>\n        \n  </div>",
+        "Datation en siècle": "19e siècle",
+        "Matériaux et techniques": "Lithographie",
+        "Mode d'acquisition": "Mode d'acquisition inconnu",
+        "Numéro d’inventaire": "G.31601",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/exposition-universelle-de-1867-vue-generale-du-champs-de-mars-prise-a-vol-d"
+      }
+    },
+    "sheet-parismusees-320150228": {
+      "plateId": "sheet-parismusees-320150228",
+      "numericId": "320150228",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320150228/manifest",
+      "ok": true,
+      "label": "Paris en 1860. Vue prise à vol d'oiseau au dessus du Rond-point des Ch. Elysées.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0189_001.jpg?itok=7MhdspJv",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carqb0189_001.jpg?itok=QkLzJoyi",
+      "width": 3228,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Date d’acquisition": "<div class=\"pm-date-precision\">\n  \n                            <span class=\"year\">1911</span>\n        \n  </div>",
+        "Mode d'acquisition": "Legs",
+        "Numéro d’inventaire": "QB.189",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-en-1860-vue-prise-a-vol-d-oiseau-au-dessus-du-rond-point-des-ch"
+      }
+    },
+    "sheet-parismusees-320150715": {
+      "plateId": "sheet-parismusees-320150715",
+      "numericId": "320150715",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320150715/manifest",
+      "ok": true,
+      "label": "Vue générale des Expositions, prise du côté de l'annexe.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0735_001.jpg?itok=0AfQtqtT",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carqb0735_001.jpg?itok=vFB0mGhy",
+      "width": 2795,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Date d’acquisition": "<div class=\"pm-date-precision\">\n  \n                            <span class=\"year\">1911</span>\n        \n  </div>",
+        "Mode d'acquisition": "Legs",
+        "Numéro d’inventaire": "QB.735",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/vue-generale-des-expositions-prise-du-cote-de-l-annexe"
+      }
+    },
+    "sheet-parismusees-320150718": {
+      "plateId": "sheet-parismusees-320150718",
+      "numericId": "320150718",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320150718/manifest",
+      "ok": true,
+      "label": "Palais de l'Industrie.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_carqb0736_001.jpg?itok=gstDQVGJ",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_carqb0736_001.jpg?itok=0tCvP-3E",
+      "width": 3236,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Date d’acquisition": "<div class=\"pm-date-precision\">\n  \n                            <span class=\"year\">1911</span>\n        \n  </div>",
+        "Mode d'acquisition": "Legs",
+        "Numéro d’inventaire": "QB.736",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/palais-de-l-industrie-4"
+      }
+    },
+    "sheet-parismusees-320295801": {
+      "plateId": "sheet-parismusees-320295801",
+      "numericId": "320295801",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320295801/manifest",
+      "ok": true,
+      "label": "Les Buttes Chaumont / Vue générale à vol d'oiseau, du nouveau square, prise du dessus du lac.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop031402_001.jpg?itok=eeR_v_m3",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop031402_001.jpg?itok=t69qVU9F",
+      "width": 2767,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Plan, coupe, élévation",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-buttes-chaumont-vue-generale-a-vol-d-oiseau-du-nouveau-square-prise-du"
+      }
+    },
+    "sheet-parismusees-320293986": {
+      "plateId": "sheet-parismusees-320293986",
+      "numericId": "320293986",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320293986/manifest",
+      "ok": true,
+      "label": "Les Grands Aspects du Nouveau Paris./ Parc de Monceaux/ Vue générale, à vol d'oiseau, prise du côté du Boulevard Malesherbes.",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030750_001.jpg?itok=eZdKdVlL",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030750_001.jpg?itok=IAn6ms0E",
+      "width": 2758,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/les-grands-aspects-du-nouveau-paris-parc-de-monceaux-vue-generale-a-vol-d"
+      }
+    },
+    "sheet-parismusees-320294396": {
+      "plateId": "sheet-parismusees-320294396",
+      "numericId": "320294396",
+      "manifestUrl": "https://apicollections.parismusees.paris.fr/iiif/320294396/manifest",
+      "ok": true,
+      "label": "Paris dans sa splendeur./ 51./ Parc de Monceaux./ (La Naumachie)",
+      "attribution": "Paris Musées / Musée Carnavalet (CC0)",
+      "imageUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/4k/collections/atoms/images/CAR/aze_cargtop030764_001.jpg?itok=ML7MfHEp",
+      "thumbnailUrl": "https://apicollections.parismusees.paris.fr/sites/default/files/styles/thumbnail/collections/atoms/images/CAR/aze_cargtop030764_001.jpg?itok=xYQ1h8Pb",
+      "width": 3241,
+      "height": 2160,
+      "metadata": {
+        "Dénomination": "Estampe",
+        "Matériaux et techniques": "Lithographie",
+        "Institution": "Musée Carnavalet, Histoire de Paris",
+        "Catalogue des œuvres de Paris Musées": "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/paris-dans-sa-splendeur-51-parc-de-monceaux-la-naumachie"
+      }
+    }
+  }
+}

@@ -107,6 +107,7 @@ jobs:
         run: |
           mkdir -p /tmp/city-on-paper-screens
           node tests/browser/qa_compare.js http://127.0.0.1:8765/poc/compare/ /tmp/city-on-paper-screens
+          node tests/browser/qa_morph.js http://127.0.0.1:8765/poc/compare/
           node tests/browser/qa_journeys.js http://127.0.0.1:8765/journeys/ /tmp/city-on-paper-screens
           node tests/browser/qa_antique_atlas.js http://127.0.0.1:8765/atlas-prototype/ /tmp/city-on-paper-screens
           node tests/browser/qa_eras.js http://127.0.0.1:8765/ /tmp/city-on-paper-screens
@@ -346,6 +347,28 @@ jobs:
           name: then-now-qa-screenshots
           path: /tmp/city-on-paper-screens
           retention-days: 7
+
+  webkit-smoke:
+    name: WebKit smoke (Safari engine, not a physical device)
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright WebKit
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps webkit
+      - name: Serve local museum
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/city-http.log 2>&1 &
+          sleep 3
+      - name: WebKit smoke test
+        run: node tests/browser/qa_webkit.js http://127.0.0.1:8765/
 
   publish-pages:
     name: Publish source-checked museum preview (GitHub Pages)

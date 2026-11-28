@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "rule": "research tier: links and read facts only. No image is published without the holder's stated open terms. 'read' means the page was read in this project; 'not_read' means the page was not reachable (blocked or unavailable) and nothing was taken from it.",
+  "parts": [
+    {"id": "antique-rome", "title_ru": "Античный Рим", "leads": [
+      {"title": "Rome dans sa grandeur, том об античном Риме (Champagny, Paris, 1869)", "kind": "album", "status": "to_verify_order",
+       "note": "Раздел «Античный, христианский и современный Рим» в описании Gemini; порядок листов по первичному каталогу не подтверждён."},
+      {"title": "Пиранези, Вази, Юбер Робер, Сильвестр: открытые офорты для контекста", "kind": "context_exhibition", "status": "published_in_book",
+       "where": "book/exhibitions.json, выставка «Рим во всём его величии»"}
+    ]},
+    {"id": "christian-rome", "title_ru": "Христианский Рим", "leads": [
+      {"title": "Интерьер базилики Сант-Аньезе, Рим (печатный лист)", "kind": "print", "url": "https://www.lombardiabeniculturali.it/stampe/schede/H0080-00170/",
+       "source_status": "not_read", "reason": "сервер недоступен из сессии 2026-11-28", "status": "to_verify", "rights": "unknown"},
+      {"title": "Philippe Benoist, La cour de l'Octogone du Vatican à Rome (рисунок)", "kind": "drawing", "url": "https://www.christies.com/en/lot/lot-5880596",
+       "source_status": "read", "status": "link_only", "rights": "not_open (аукционная карточка, изображение не берём)",
+       "facts": {"holder_or_seller": "Christie's, Live Auction 4015, lot 80", "medium": "mine de plomb, estompe", "size_cm": "34 x 48.5", "inscription": "Cour octagone au Vatican",
+                 "role": "preparatory drawing (with some differences) for the lithograph in F. de Champagny, Rome dans sa grandeur, Paris, 1869, vol. III, p. 11",
+                 "attribution_in_source": "PHILIPPE BENOIST (GENÈVE 1813-CIRCA 1905)", "exhibited": "Amsterdam, Amsterdams Historisch Museum, 1995, no. 80 (catalogued there as Anonyme)"}}
+    ]},
+    {"id": "rome-19th-century", "title_ru": "Рим XIX века", "leads": [
+      {"title": "Rome dans sa grandeur: vues, monuments anciens et modernes... Dessins d'après nature par Philippe Benoist et Félix Benoist (Champagny, Paris, 1869)", "kind": "album",
+       "url": "https://www.christies.com/en/lot/lot-3845680", "source_status": "page_read_no_details", "status": "to_verify_order", "rights": "not_open"},
+      {"title": "Philippe Benoist, Piazza San Marco, Венеция (выставка Салона)", "kind": "salon_record", "url": "https://salons.musee-orsay.fr/Detail/entities/39889",
+       "source_status": "not_read", "reason": "защита Cloudflare (HTTP 403) в сессии 2026-11-28", "status": "to_verify", "rights": "not_applicable (запись о выставке)"}
+    ]}
+  ],
+  "gemini_v10_italian_interiors": "data/research/benoist/gemini-v10-italy-interiors.json (19 кандидатов, ни один не Бенуа)"
+}

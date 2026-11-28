@@ -182,6 +182,8 @@
       ${featured.length ? `<h2 id="main">Главные виды</h2><div class="strip" role="list">${featured.map(({ p, hook, pair }) => pair
         ? `<a class="feat pairc" role="listitem" href="../poc/compare/?journey=1#${esc(pair.id)}"><img src="../poc/compare/pairs/${esc(pair.image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(pair.city)} · тогда и сейчас</span><b>${esc(pair.name)}</b><span class="hook">${esc(hook || "")}</span></span></a>`
         : `<a class="feat" role="listitem" href="${plateLink(p)}">${img(p.image, p.title, "", 600)}<span class="cap"><span class="where">${esc(D.cities.get(p.city).name)}${p.date ? " · " + esc(p.date) : ""}</span><b>${esc(p.title)}</b><span class="hook">${esc(hook || "")}</span></span></a>`).join("")}</div>` : '<span id="main"></span>'}
+      <a class="theme" href="#/exhibitions"><span class="lt-small">Залы</span><b>Выставки</b><span>Рим, Венеция, исчезнувший Париж: сорок с лишним работ Пиранези, Каналетто, Мерьона и других, все открыты музеями.</span></a>
+      <a class="theme" href="#/albums"><span class="lt-small">Книги целиком</span><b>Исторические альбомы</b><span>«Paris dans sa splendeur» (1861): 71 планша в порядке издания, с обложкой и ссылкой на страницу библиотеки.</span></a>
       <a class="theme" href="#/benoist"><span class="lt-small">Тема издания</span><b>Листы Бенуа</b><span>Как читать подпись литографии, где есть листы Филиппа и Феликса Бенуа и как сравнить их с фото сегодня.</span></a>
       <a class="theme" href="#/catalog"><span class="lt-small">Реестр</span><b>Собрание</b><span>Все найденные листы Бенуа по авторам, сериям, странам и городам: сколько найдено, сколько проверено и сколько можно показать.</span></a>
       <a class="theme" href="#/timeline"><span class="lt-small">По годам</span><b>Хронология</b><span>Листы от 1790-х до 1880-х: двигайте ползунки и смотрите, что печатали в каждое десятилетие.</span></a>
@@ -344,6 +346,52 @@
 
   // ---------- one sheet, large, with a zoom slider and neighbours
   const ARTIST = { "philippe-benoist": "Филипп Бенуа", "felix-benoist": "Феликс Бенуа", "uncertain-benoist": "Бенуа, имя не уточнено", other: "Другие авторы" };
+  // display-only looks for a sheet (edge kernel adapted from the Gemini "computer-vision" portable package, v10)
+  function sobelEdges(src) {
+    const { width: w, height: h, data } = src, g = new Float32Array(w * h), out = new Uint8ClampedArray(data.length).fill(255);
+    for (let p = 0; p < w * h; p++) { const i = p * 4; g[p] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]; }
+    for (let y = 1; y < h - 1; y++) for (let x = 1; x < w - 1; x++) {
+      const p = y * w + x;
+      const gx = -g[p - w - 1] + g[p - w + 1] - 2 * g[p - 1] + 2 * g[p + 1] - g[p + w - 1] + g[p + w + 1];
+      const gy = -g[p - w - 1] - 2 * g[p - w] - g[p - w + 1] + g[p + w - 1] + 2 * g[p + w] + g[p + w + 1];
+      const v = Math.max(0, Math.min(255, Math.round(255 - Math.hypot(gx, gy) * 1.2))), i = p * 4;
+      out[i] = out[i + 1] = out[i + 2] = v;
+    }
+    return new ImageData(out, w, h);
+  }
+  function wireLens(im) {
+    const btns = document.querySelectorAll(".lensbtn"); if (!btns.length) return;
+    let cv = null;
+    const press = (k) => btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lens === k)));
+    const set = (k) => {
+      press(k);
+      im.style.filter = k === "contrast" ? "contrast(1.4)" : k === "shadow" ? "brightness(1.18) contrast(1.08)" : "";
+      if (cv) { cv.remove(); cv = null; }
+      im.style.display = "";
+      if (k !== "edges") return;
+      const draw = () => {
+        try {
+          const c = document.createElement("canvas"), w = im.naturalWidth, h = im.naturalHeight; c.width = w; c.height = h;
+          const x = c.getContext("2d"); x.drawImage(im, 0, 0); x.putImageData(sobelEdges(x.getImageData(0, 0, w, h)), 0, 0);
+          c.style.cssText = "display:block;max-width:none;height:auto;width:" + (im.style.width || "100%"); c.setAttribute("role", "img"); c.setAttribute("aria-label", "Контуры листа, показ на экране");
+          cv = c; im.style.display = "none"; im.parentNode.append(c);
+        } catch (e) { press("orig"); }
+      };
+      im.complete && im.naturalWidth ? draw() : im.addEventListener("load", draw, { once: true });
+    };
+    btns.forEach((b) => b.addEventListener("click", () => set(b.dataset.lens)));
+    document.getElementById("zoomrange").addEventListener("input", () => { if (cv) cv.style.width = im.style.width; });
+  }
+  // outside <-> inside of one building, only from sheets the book really has (no interior is ever borrowed from another hall)
+  const isInterior = (x) => /int[eé]rieur|interior|innen|binnen|galerie d/i.test(x.title);
+  function insideOutside(sh) {
+    const pid = ((D.sp[sh.id] || {}).place || {}).id; if (!pid) return "";
+    const kin = D.sheets.filter((x) => x.id !== sh.id && ((D.sp[x.id] || {}).place || {}).id === pid && isInterior(x) !== isInterior(sh)).slice(0, 4);
+    if (!kin.length) return "";
+    const inside = isInterior(sh);
+    return `<h2>${inside ? "Снаружи того же здания" : "Войти внутрь"}</h2><p class="small">${inside ? "Этот лист показывает внутреннее помещение. Фасад и город вокруг — на листах ниже." : "Для этого здания в книге есть лист с интерьером. Современный снимок помещения показан только там, где он действительно из этого зала."}</p>
+      <div class="plates">${kin.map((x) => `<a class="pl" href="#/sheet/${esc(x.id)}"><img src="${esc(x.image)}" alt="" loading="lazy" width="400"><span class="t">${esc(cut(x.title.split(" / ")[0], 40))}</span><span class="s">${esc(x.holder)}</span></a>`).join("")}</div>`;
+  }
   const placeForSheet = (sh) => D.places.find((x) => (x.related_sheet_ids || []).includes(sh.id)) || null;
   function viewSheet(id) {
     const i = D.sheets.findIndex((x) => x.id === id), sh = D.sheets[i];
@@ -359,16 +407,20 @@
       <section class="chead"><p class="eyebrow">Лист ${i + 1} из ${D.sheets.length} · ${esc(sh.holder)}</p><h1>${esc(title)}</h1></section>
       <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Лист крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(sh.image)}" alt="${esc(sh.title)}" width="1280"></div>
         <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        ${deepControls}
+        <details class="lt-tool lens"><summary>Рассмотреть иначе: контраст, тени, контур</summary><div class="lensrow" role="group" aria-label="Как рассмотреть лист">${[["orig", "Оригинал"], ["contrast", "Контраст"], ["shadow", "Тени"], ["edges", "Контур"]].map(([k, t]) => `<button type="button" class="btn ghost lensbtn" data-lens="${k}" aria-pressed="${k === "orig"}">${t}</button>`).join("")}</div><p class="small">Только показ на экране: файл не меняется. Это не научный снимок и не «реставрация».</p></details>
         <figcaption class="lt-imprint"><span class="l">${esc(sh.holder)}</span><span class="c">${esc(sh.rights)}</span><span class="r">${esc(sh.accession)}</span></figcaption></figure>
       <h2>Кто сделал лист</h2><ul class="facts-list">${who}</ul>
       <h2>Что известно</h2><dl class="facts"><dt>Техника</dt><dd>${esc(sh.technique || "в записи не указана")}</dd><dt>Права</dt><dd><a href="${esc(safe(sh.rights_url))}" target="_blank" rel="noopener">${esc(sh.rights)}</a></dd>
         <dt>Оригинал</dt><dd><a href="${esc(safe(sh.record_url))}" target="_blank" rel="noopener">карточка в собрании ↗</a></dd>${more ? `<dt>Другие экземпляры</dt><dd>${more}</dd>` : ""}</dl>
+      ${insideOutside(sh)}
       ${pl ? `<h2>История места</h2><p><a class="btn ghost" href="#/place/${esc(pl.id)}">${esc(pl.name_ru)}: что стояло, что изменилось →</a></p>` : ""}
-      ${compareSection(D.sp[sh.id])}
       ${placeSection(D.sp[sh.id])}
+      ${compareSection(D.sp[sh.id])}
       ${dock(next ? { href: "#/sheet/" + next.id, t: cut(next.title.split(" / ")[0], 26), small: "Следующий лист" } : { href: "#/benoist", t: "Все листы Бенуа" }, prev ? { href: "#/sheet/" + prev.id, t: cut(prev.title.split(" / ")[0], 22) } : { href: "#/benoist", t: "Листы Бенуа" })}</div>`;
     const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
     range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+    wireLens(im); wireDeepZoom(sh.image, sh.title);
     mountPlace(D.sp[sh.id]); wireAngles(D.sp[sh.id]);
   }
 
@@ -446,6 +498,81 @@
       document.getElementById("angmeta").innerHTML = angleMeta(q);
     }));
   }
+  // georeferenced atlas sheets of the SODUCO project (Allmaps annotations are read from their repository at the visitor's request;
+  // the map images come from the libraries' IIIF servers; we copy neither). Terms of use stay with the sources.
+  const SODUCO = [
+    { year: 1789, title: "Atlas Verniquet, BnF", annId: "bnf_verniquet_37", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bnf_verniquet/annotation_bnf_verniquet.json" },
+    { year: 1836, title: "Atlas Jacoubet, BHVP", annId: "bhvp_jacoubet_32", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhvp_jacoubet/annotation_bhvp_jacoubet.json" },
+    { year: 1868, title: "Atlas municipal, BHdV", annId: "atlas_municipal_1868_bhdv_2", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhdv_atlas_municipal_1868/annotation_bhdv_atlas_municipal_1868.json" },
+    { year: 1888, title: "Atlas municipal, BHdV", annId: "atlas_municipal_1888_bhdv_2", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhdv_atlas_municipal_1888/annotation_bhdv_atlas_municipal_1888.json" },
+    { year: 1900, title: "Atlas municipal, BHdV", annId: "atlas_municipal_1900_bhdv_2", url: "https://raw.githubusercontent.com/soduco/allmaps_annotations/main/output/bhdv_atlas_municipal_1900/annotation_bhdv_atlas_municipal_1900.json" },
+  ];
+  const CITE = { s: 48.8512, n: 48.8576, w: 2.3418, e: 2.3532 }; // extent of the open Île de la Cité contour layers
+  const inCite = (p) => p && p.lat >= CITE.s && p.lat <= CITE.n && p.lon >= CITE.w && p.lon <= CITE.e;
+  const gmaps = (p) => `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
+  const gstreet = (p) => `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${p.lat},${p.lon}`;
+  const gearth = (p) => `https://earth.google.com/web/search/${p.lat},${p.lon}`;
+  const inRing = (r, x, y) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > y) !== (r[j][1] > y) && x < ((r[j][0] - r[i][0]) * (y - r[i][1])) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; };
+  const centroid = (r) => [r.reduce((a, q) => a + q[0], 0) / r.length, r.reduce((a, q) => a + q[1], 0) / r.length];
+  const geoCache = {};
+  const loadGeo = (k) => geoCache[k] || (geoCache[k] = fetch(`geo/cite-${k}.json`).then((r) => r.json()));
+  function mountLayers(map, e) {
+    const box = document.querySelector(".layers"); if (!box || !inCite(e.place)) return;
+    const yr = document.getElementById("yearRange"), yv = document.getElementById("yearVal"), note = document.getElementById("layNote"), lost = document.getElementById("lostList");
+    const grp = { ohm: L.layerGroup(), vas: L.layerGroup(), ign: L.layerGroup() }, on = { ohm: true, vas: false, ign: false };
+    const op = (k) => Number(box.querySelector(`.layop[data-k="${k}"]`).value) / 100;
+    const style = { ohm: { color: "#355a43", fill: "#355a43" }, vas: { color: "#6b4a8a", fill: "#6b4a8a" }, ign: { color: "#1f4f8a", fill: "#1f4f8a" } };
+    let data = {}, modern = [];
+    const draw = () => {
+      const y = Number(yr.value); yv.textContent = y;
+      for (const k of ["ohm", "vas", "ign"]) { grp[k].clearLayers(); if (!on[k] || !data[k]) continue; }
+      let shown = 0, gone = [];
+      const add = (k, r, extra) => L.polygon(r.map(([x, yy]) => [yy, x]), { weight: 1, color: extra || style[k].color, fillColor: extra || style[k].fill, fillOpacity: op(k) * 0.55, opacity: op(k) }).addTo(grp[k]);
+      if (on.ohm && data.ohm) for (const f of data.ohm) {
+        if (f.s != null && f.s > y) continue; if (f.e != null && f.e <= y) continue; shown++;
+        const [cx, cy] = centroid(f.r), missing = modern.length && !modern.some((m) => cx >= m.b[0] && cx <= m.b[2] && cy >= m.b[1] && cy <= m.b[3] && inRing(m.r, cx, cy));
+        add("ohm", f.r, missing ? "#8d4b36" : null).bindTooltip((f.n || "здание") + (f.s ? ", с " + f.s : "") + (missing ? ": сегодня здания на этом месте нет" : ""));
+        if (missing && f.n) gone.push(f.n + (f.e ? " (контур до " + f.e + ")" : ""));
+      }
+      if (on.vas && data.vas) for (const f of data.vas) if (y >= 1810 && y <= 1865) add("vas", f.r);
+      if (on.ign && data.ign) for (const f of data.ign) add("ign", f.r);
+      note.textContent = on.ohm ? `${plural(shown, "контур", "контура", "контуров")} в ${y} году.` + (on.vas && (y < 1810 || y > 1865) ? " Участки Вассеро показываются только для 1810–1865." : "") : "";
+      lost.innerHTML = [...new Set(gone)].slice(0, 12).map((t) => `<li>${esc(t)}</li>`).join("") || "<li>В выбранном году именованных контуров без здания на месте сегодня не найдено.</li>";
+    };
+    const need = ["ohm", "vasserot", "ign"];
+    let loaded = false;
+    box.addEventListener("toggle", async () => {
+      if (!box.open || loaded) return; loaded = true; note.textContent = "Загружаю контуры…";
+      try {
+        const [o, v, g] = await Promise.all(need.map(loadGeo));
+        data = { ohm: o.features, vas: v.features, ign: g.features };
+        modern = g.features.map((f) => ({ r: f.r, b: [Math.min(...f.r.map((q) => q[0])), Math.min(...f.r.map((q) => q[1])), Math.max(...f.r.map((q) => q[0])), Math.max(...f.r.map((q) => q[1]))] }));
+        for (const k of ["ohm", "vas", "ign"]) grp[k].addTo(map);
+        draw();
+      } catch (err) { note.textContent = "Контуры сейчас недоступны."; loaded = false; }
+    });
+    let warped = null;
+    const sel = document.getElementById("oldmapSel"), opr = document.getElementById("oldmapOp"), onote = document.getElementById("oldmapNote");
+    sel.addEventListener("change", async () => {
+      if (warped) { map.removeLayer(warped); warped = null; }
+      if (sel.value === "") { onote.textContent = ""; return; }
+      const m = SODUCO[Number(sel.value)]; onote.textContent = "Загружаю привязку карты…";
+      try {
+        const [{ WarpedMapLayer }, page] = await Promise.all([import("../eras/vendor/allmaps-leaflet-beta55/layer.js"), fetch(m.url).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })]);
+        const ann = (page.items || []).find((x) => x.id === m.annId); if (!ann) throw new Error("no annotation");
+        const layer = new WarpedMapLayer(undefined, { opacity: Number(opr.value) / 100, zIndex: 250 });
+        const res = layer.addGeoreferenceAnnotation(ann);
+        if (!res.length || res.every((x) => x instanceof Error)) throw new Error("bad annotation");
+        if (Number(sel.value) !== SODUCO.indexOf(m)) return;
+        warped = layer; layer.addTo(map);
+        onote.textContent = `${m.year}: ${m.title}. Привязка проекта SODUCO (Allmaps), изображение с сервера библиотеки; точность по опорным точкам, не геодезическая. Если карта не появилась, сервер библиотеки сейчас недоступен.`;
+      } catch (err) { onote.textContent = "Эту карту сейчас загрузить не удалось (сервер привязки или библиотеки недоступен). Остальные слои работают."; }
+    });
+    opr.addEventListener("input", () => { if (warped && warped.setOpacity) warped.setOpacity(Number(opr.value) / 100); });
+    yr.addEventListener("input", draw);
+    box.querySelectorAll(".laychk").forEach((c) => c.addEventListener("change", () => { on[c.dataset.k] = c.checked; draw(); }));
+    box.querySelectorAll(".layop").forEach((c) => c.addEventListener("input", draw));
+  }
   function placeSection(e) {
     if (!e || !e.place) {
       return `<h2>Где это</h2><div class="lt-tool" role="note"><span class="lt-legend">Место</span><p>Здание на этом листе мы пока не привязали к карте: название не позволяет назвать место без догадок.</p></div>`;
@@ -457,6 +584,19 @@
       <div class="lt-tool placectl"><button type="button" class="btn ghost" id="planBtn" aria-pressed="false"${plan ? "" : " hidden"}>Старый план Парижа 1878</button>
         <label for="planRange" id="planRangeL" hidden><span class="lt-legend">Прозрачность плана</span></label><input id="planRange" type="range" min="10" max="100" value="70" hidden>
         <p class="small" id="planNote" role="status"></p></div>
+      ${inCite(e.place) ? `<details class="layers"><summary class="btn ghost">История места по годам: здания, участки, лупа</summary>
+        <div class="lt-tool">
+          <label for="yearRange"><span class="lt-legend">Эпоха</span> <b id="yearVal">1843</b></label><input id="yearRange" type="range" min="1200" max="2025" step="1" value="1843">
+          <p class="small">Показаны контуры, которые на карте существовали в этом году (OpenHistoricalMap; даты вносят волонтёры). <span style="color:#8d4b36">Красным</span>: на месте центра контура сегодня нет здания (по IGN). Это эвристика, не доказательство сноса.</p>
+          ${[["ohm", "Здания в выбранный год", 70], ["vas", "Участки Вассеро 1810–1836", 45], ["ign", "Здания сегодня (IGN)", 60]].map(([k, t, v]) => `<div class="layrow"><label><input type="checkbox" class="laychk" data-k="${k}"${k === "ohm" ? " checked" : ""}> ${t}</label><input type="range" class="layop" data-k="${k}" min="10" max="100" value="${v}" aria-label="Прозрачность: ${t}"></div>`).join("")}
+          <div class="layrow"><label for="oldmapSel">Старая карта эпохи (Allmaps)</label><select id="oldmapSel"><option value="">нет</option>${SODUCO.map((m, i) => `<option value="${i}">${m.year}: ${esc(m.title)}</option>`).join("")}</select><input type="range" id="oldmapOp" min="10" max="100" value="75" aria-label="Прозрачность старой карты"></div>
+          <p class="small" id="oldmapNote" role="status"></p>
+          ${inPlan(e.place) ? `<button type="button" class="btn ghost" id="loupeBtn" aria-pressed="false" hidden>Лупа: старый план в круге</button>` : ""}
+          <p class="small" id="layNote" role="status"></p>
+          <details class="lost"><summary>Что исчезло к сегодняшнему дню</summary><ul id="lostList" class="facts-list"></ul></details>
+          <p class="small">Источники: © ALPAGE (ODbL, Arch. nat. F31 73-96 – Arch. Paris), OpenHistoricalMap (CC0), © IGN BD TOPO (Licence Ouverte 2.0).</p>
+        </div></details>` : ""}
+      <p class="small mapext">Открыть это место: <a href="${esc(gmaps(e.place))}" target="_blank" rel="noopener">Google Карты ↗</a> · <a href="${esc(gstreet(e.place))}" target="_blank" rel="noopener">Street View ↗</a> · <a href="${esc(gearth(e.place))}" target="_blank" rel="noopener">Google Earth ↗</a>. Откроется на сайте Google, наши данные туда не передаются.</p>
       <p class="small">${e.pairs.some((q) => q.photo && q.photo.lat) ? "Зелёный клин: куда смотрит современная фотография (положение камеры из данных Panoramax, направление по компасу снимка)." : "Современной фотографии для этого места пока нет, поэтому направление взгляда не показано."}${est ? " Где стоял художник, известно только как оценка по рисунку: " + esc(est) + "." : " Где стоял художник, мы не знаем: измерить это по рисунку без догадок нельзя."}</p>`;
   }
   let planData = null;
@@ -475,6 +615,7 @@
       pts.push([q.photo.lat, q.photo.lon]);
     }
     if (pts.length > 1) map.fitBounds(pts, { padding: [30, 30], maxZoom: 17 }); else map.setView(pts[0], 16);
+    mountLayers(map, e);
     const btn = document.getElementById("planBtn"), range = document.getElementById("planRange"), rl = document.getElementById("planRangeL"), note = document.getElementById("planNote");
     if (!btn || btn.hidden) return;
     let layer = null;
@@ -484,10 +625,19 @@
         this.image.style.clipPath = `polygon(${data.clip})`; this.image.style.opacity = String(range.value / 100);
         this.update = () => {
           const [tl, tr, , bl] = data.corners.map((c) => m.latLngToLayerPoint(c));
-          this.image.style.transform = `matrix(${(tr.x - tl.x) / 2000},${(tr.y - tl.y) / 2000},${(bl.x - tl.x) / 1448},${(bl.y - tl.y) / 1448},${tl.x},${tl.y})`;
+          this.m = [(tr.x - tl.x) / 2000, (tr.y - tl.y) / 2000, (bl.x - tl.x) / 1448, (bl.y - tl.y) / 1448, tl.x, tl.y];
+          this.image.style.transform = `matrix(${this.m.join(",")})`;
+          if (this.loupeAt) this.maskAt(this.loupeAt);
         };
         m.getPane("overlayPane").append(this.image); m.on("move zoom viewreset", this.update); this.update();
       },
+      maskAt(pt) { // circular window onto the old plan; the radius is 90 screen pixels whatever the plan scale
+        const [a, b2, c, d, e0, f0] = this.m, det = a * d - b2 * c; if (!det) return;
+        const u = (d * (pt.x - e0) - c * (pt.y - f0)) / det, v = (-b2 * (pt.x - e0) + a * (pt.y - f0)) / det, r = 90 / Math.sqrt(Math.abs(det));
+        const g = `radial-gradient(circle ${r}px at ${u}px ${v}px, #000 94%, transparent 100%)`;
+        this.image.style.webkitMaskImage = g; this.image.style.maskImage = g;
+      },
+      setLoupe(on) { this.loupeAt = on ? this.loupeAt || map.latLngToLayerPoint(map.getCenter()) : null; if (!on) { this.image.style.webkitMaskImage = this.image.style.maskImage = "none"; } else this.maskAt(this.loupeAt); },
       onRemove(m) { this.image.remove(); m.off("move zoom viewreset", this.update); },
     }))();
     btn.addEventListener("click", async () => {
@@ -501,6 +651,18 @@
       } catch (err) { note.textContent = "План сейчас недоступен."; btn.setAttribute("aria-pressed", "false"); }
     });
     range.addEventListener("input", () => { if (layer && layer.image) layer.image.style.opacity = String(range.value / 100); });
+    const lb = document.getElementById("loupeBtn");
+    if (lb) {
+      const move = (ev) => { if (layer && layer.loupeAt) { layer.loupeAt = map.mouseEventToLayerPoint(ev.touches ? ev.touches[0] : ev); layer.maskAt(layer.loupeAt); } };
+      lb.hidden = false;
+      lb.addEventListener("click", () => {
+        if (!layer || !map.hasLayer(layer)) { note.textContent = "Сначала включите «Старый план Парижа 1878» выше."; return; }
+        const on = lb.getAttribute("aria-pressed") !== "true"; lb.setAttribute("aria-pressed", String(on));
+        if (on) { map.dragging.disable(); range.value = 100; layer.image.style.opacity = "1"; } else map.dragging.enable();
+        layer.setLoupe(on);
+      });
+      el.addEventListener("mousemove", move); el.addEventListener("touchstart", move, { passive: true }); el.addEventListener("touchmove", move, { passive: true });
+    }
   }
 
   // ---------- the story of a place: every statement points to its source, unknowns are said aloud
@@ -625,6 +787,117 @@
     if (focus) map.setView(group[0], 16); else map.fitBounds(group, { padding: [24, 24], maxZoom: 15 });
   }
 
+
+  // deep zoom with OpenSeadragon (BSD-3-Clause, eras/vendor/openseadragon-6.1.1): pinch, double tap, wheel, keys; the image file is never changed
+  let osdLoad = null;
+  const loadOsd = () => osdLoad || (osdLoad = new Promise((res, rej) => {
+    if (window.OpenSeadragon) return res(window.OpenSeadragon);
+    const sc = document.createElement("script"); sc.src = "../eras/vendor/openseadragon-6.1.1/openseadragon.min.js";
+    sc.onload = () => res(window.OpenSeadragon); sc.onerror = () => { osdLoad = null; rej(new Error("osd")); }; document.head.append(sc);
+  }));
+  function wireDeepZoom(url, label) {
+    const btn = document.getElementById("deepBtn"), wrap = document.getElementById("zoomwrap"), ctl = document.querySelector(".zoomctl"); if (!btn || !wrap) return;
+    let viewer = null; const keep = document.getElementById("zoomimg"); // the same element comes back, so the lens and slider keep working
+    const restore = () => { wrap.innerHTML = ""; wrap.append(keep); wrap.classList.remove("deep"); ctl.hidden = false; btn.setAttribute("aria-pressed", "false"); document.getElementById("deepCtl").hidden = true; };
+    btn.addEventListener("click", async () => {
+      if (viewer) { viewer.destroy(); viewer = null; restore(); return; }
+      btn.disabled = true;
+      try {
+        const OSD = await loadOsd(); wrap.innerHTML = ""; wrap.classList.add("deep"); ctl.hidden = true;
+        viewer = OSD({ element: wrap, showNavigationControl: false, drawer: "canvas", placeholderFillStyle: "#eae3d1", visibilityRatio: 1, maxZoomPixelRatio: 3, gestureSettingsTouch: { pinchToZoom: true, clickToZoom: false, dblClickToZoom: true }, tileSources: { type: "image", url } });
+        viewer.addHandler("open-failed", () => { if (viewer) { viewer.destroy(); viewer = null; } restore(); document.getElementById("deepNote").textContent = "Не удалось открыть просмотр вблизи; рассмотрите лист ползунком."; });
+        document.getElementById("deepCtl").hidden = false; btn.setAttribute("aria-pressed", "true");
+        const z = (f) => { viewer.viewport.zoomBy(f); viewer.viewport.applyConstraints(); };
+        document.getElementById("deepIn").onclick = () => z(1.5); document.getElementById("deepOut").onclick = () => z(1 / 1.5); document.getElementById("deepHome").onclick = () => viewer.viewport.goHome();
+        window.__osd = viewer;
+      } catch (e) { restore(); document.getElementById("deepNote").textContent = "Просмотр вблизи сейчас недоступен: рассмотрите лист ползунком ниже."; }
+      finally { btn.disabled = false; }
+    });
+  }
+  const deepControls = '<div class="lt-tool deepctl"><button type="button" class="btn ghost" id="deepBtn" aria-pressed="false">Смотреть вблизи: щипок и двойное касание</button><span id="deepCtl" hidden><button type="button" class="btn ghost" id="deepIn" aria-label="Приблизить">+</button><button type="button" class="btn ghost" id="deepOut" aria-label="Отдалить">−</button><button type="button" class="btn ghost" id="deepHome">Весь лист</button></span><p class="small" id="deepNote" role="status">Файл не меняется; приближение только на экране.</p></div>';
+  // ---------- exhibitions and the historical album reader (rights come from the museums' own open-data feeds)
+  const lazyJson = {};
+  const getJson = (u) => lazyJson[u] || (lazyJson[u] = fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }));
+  const exCap = (w) => `<figcaption class="excap"><b>${esc(w.title)}</b><span>${esc(w.artist)}${w.role ? ", " + esc(w.role) : ""}${w.date ? " · " + esc(w.date) : ""}${w.technique ? " · " + esc(cut(w.technique, 60)) : ""}</span><span class="small">${esc(w.credit)} · <a href="${esc(safe(w.record_url))}" target="_blank" rel="noopener">запись музея ↗</a></span></figcaption>`;
+  async function viewExhibitions() {
+    setTitle("Выставки"); crumbs([{ t: "Книга", href: "#/" }, { t: "Выставки" }]);
+    let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
+    $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Залы музея</p><h1>Выставки</h1><p class="lede">Большие темы вокруг наследия Бенуа: Рим, Венеция, исчезнувший Париж. Работы других мастеров открыты музеями, права и источник указаны у каждой.</p></section>
+      <div class="exlist">${X.exhibitions.map((e) => `<a class="exhall" href="#/exhibit/${esc(e.id)}"><img src="${esc(e.works[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(e.city)} · ${plural(e.works.length, "работа", "работы", "работ")}</span><b>${esc(e.title)}</b><span class="hook">${esc(e.lede)}</span></span></a>`).join("")}</div>
+      <p class="small">Правила: рисунки и гравюры берутся только там, где музей сам указал свободное использование; подпись составляется из записи музея, без домыслов. Работы Бенуа и других художников из книги не смешиваются: у каждого свои роли.</p>
+      ${dock({ href: "#/albums", t: "Альбомы" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewExhibit(id) {
+    let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
+    const ex = X.exhibitions.find((e) => e.id === id); if (!ex) return notFound();
+    setTitle(ex.title); crumbs([{ t: "Книга", href: "#/" }, { t: "Выставки", href: "#/exhibitions" }, { t: ex.title }]);
+    const ws = ex.works, fig = (w, cls = "") => `<figure class="exfig ${cls}"><a class="eximg" href="#/exwork/${esc(w.id)}"><img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" width="${w.w}" height="${w.h}"></a>${exCap(w)}</figure>`;
+    const parts = []; let i = 1; const rest = ws.slice(1, ws.length - 6 > 1 ? ws.length - 6 : ws.length);
+    let k = 0;
+    while (k < rest.length) {
+      const a = rest[k], b = rest[k + 1], kind = k % 5;
+      if (kind === 2 || !b) { parts.push(`<section class="spread full"><p class="eyebrow">Полноэкранное произведение</p>${fig(a)}</section>`); k += 1; }
+      else { const dialog = a.artist !== b.artist; parts.push(`<section class="spread pair"><p class="eyebrow">${dialog ? "Диалог: " + esc(a.artist) + " и " + esc(b.artist) : "Две связанные работы"}</p><div class="pairgrid">${fig(a)}${fig(b)}</div></section>`); k += 2; }
+      i++;
+    }
+    const tail = ws.slice(rest.length + 1);
+    $app.innerHTML = `<div class="page-enter exhibit"><section class="spread hero">${fig(ws[0], "heroimg")}<div class="herotext"><p class="eyebrow">${esc(ex.city)}</p><h1>${esc(ex.title)}</h1><p class="lede">${esc(ex.lede)}</p><p class="small">${plural(ws.length, "работа", "работы", "работ")} · ${[...new Set(ws.map((w) => w.artist))].map(esc).join(", ")}</p></div></section>
+      ${parts.join("")}
+      ${tail.length ? `<section class="spread mosaic"><p class="eyebrow">Музейная галерея</p><div class="mosaicgrid">${tail.map((w) => `<a class="mtile" href="#/exwork/${esc(w.id)}"><img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy"><span>${esc(cut(w.title, 46))}</span></a>`).join("")}</div></section>` : ""}
+      <p class="small">Все работы открыты музеями (Метрополитен, Национальная галерея искусства, Институт искусств Чикаго, Кливленд, Рейксмюзеум); условия указаны под каждой работой.</p>
+      ${dock({ href: "#/exhibitions", t: "Все выставки" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewExWork(id) {
+    let X; try { X = await getJson("exhibitions.json"); } catch (e) { return notFound(); }
+    let ex, w; for (const e of X.exhibitions) { const f = e.works.find((x) => x.id === id); if (f) { ex = e; w = f; } }
+    if (!w) return notFound();
+    setTitle(w.title); crumbs([{ t: "Книга", href: "#/" }, { t: "Выставки", href: "#/exhibitions" }, { t: ex.title, href: "#/exhibit/" + ex.id }, { t: cut(w.title, 28) }]);
+    const i = ex.works.indexOf(w), nx = ex.works[i + 1], pv = ex.works[i - 1];
+    $app.innerHTML = `<div class="page-enter plate"><section class="chead"><p class="eyebrow">${esc(ex.title)} · ${i + 1} из ${ex.works.length}</p><h1>${esc(w.title)}</h1></section>
+      <figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Работа крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(w.image)}" alt="${esc(w.title)}" width="${w.w}"></div>
+        <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        ${deepControls}
+        <figcaption class="lt-imprint"><span class="l">${esc(w.institution)}</span><span class="c">${esc(cut(w.rights, 60))}</span><span class="r">${esc(w.accession)}</span></figcaption></figure>
+      <dl class="facts"><dt>Автор</dt><dd>${esc(w.artist)}${w.role ? ", " + esc(w.role) : ""}</dd><dt>Дата</dt><dd>${esc(w.date || "в записи не указана")}</dd><dt>Техника</dt><dd>${esc(w.technique || "в записи не указана")}</dd>${w.series ? `<dt>Серия</dt><dd>${esc(w.series)}</dd>` : ""}<dt>Музей</dt><dd>${esc(w.institution)}, ${esc(w.accession)}</dd><dt>Права</dt><dd>${esc(w.rights)}</dd><dt>Оригинал</dt><dd><a href="${esc(safe(w.record_url))}" target="_blank" rel="noopener">запись в музее ↗</a></dd></dl>
+      ${dock(nx ? { href: "#/exwork/" + nx.id, t: cut(nx.title, 26), small: "Дальше" } : { href: "#/exhibit/" + ex.id, t: "К выставке" }, pv ? { href: "#/exwork/" + pv.id, t: cut(pv.title, 22) } : { href: "#/exhibit/" + ex.id, t: "К выставке" })}</div>`;
+    const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval");
+    range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; });
+    wireDeepZoom(w.image, w.title);
+  }
+  async function viewAlbums() {
+    setTitle("Исторические альбомы"); crumbs([{ t: "Книга", href: "#/" }, { t: "Альбомы" }]);
+    let A; try { A = await getJson("albums/paris-dans-sa-splendeur.json"); } catch (e) { return notFound(); }
+    $app.innerHTML = `<div class="page-enter"><section class="chead"><p class="eyebrow">Книги целиком</p><h1>Исторические альбомы</h1><p class="lede">Листы в том порядке, в каком их напечатали, а не в нашей подборке. Каждый лист ведёт к странице библиотеки.</p></section>
+      <a class="exhall" href="#/album/${esc(A.id)}/0"><img src="${esc(A.covers[0].image)}" alt="" loading="lazy"><span class="cap"><span class="where">${esc(A.years)} · ${esc(A.publisher)}</span><b>${esc(A.title)}</b><span class="hook">${plural(A.plates.length, "планша", "планши", "планш")} из изданий в оцифровке ${esc(A.holder)}. Порядок: ${esc(A.order_basis)}</span></span></a>
+      <div class="lt-tool" role="note"><span class="lt-legend">Что ещё готовится</span><p>«La Bretagne contemporaine» (BnF), «Rome dans sa grandeur» и «Vues de Paris»: оригинальный порядок листов пока не подтверждён первичными каталогами. Пока они не открыты как альбомы, чтобы не выдать нашу подборку за порядок издания.</p></div>
+      ${dock({ href: "#/exhibitions", t: "Выставки" }, { href: "#/", t: "Оглавление" })}</div>`;
+  }
+  async function viewAlbum(id, nStr) {
+    let A; try { A = await getJson("albums/paris-dans-sa-splendeur.json"); } catch (e) { return notFound(); }
+    if (id !== A.id) return notFound();
+    const n = Math.max(0, Math.min(A.plates.length, Number(nStr) || 0)), total = A.plates.length;
+    setTitle(A.title); crumbs([{ t: "Книга", href: "#/" }, { t: "Альбомы", href: "#/albums" }, { t: A.title }]);
+    const go = (k) => `#/album/${esc(A.id)}/${k}`;
+    const p = n ? A.plates[n - 1] : null;
+    const body = !p ? `<section class="spread albumcover"><p class="eyebrow">Обложка и титул</p><div class="coverrow">${A.covers.map((c) => `<figure class="exfig"><img src="${esc(c.image)}" alt="${esc(c.title)}" loading="lazy" width="${c.w}" height="${c.h}"><figcaption class="excap"><b>${esc(c.title)}</b><span class="small"><a href="${esc(safe(c.record_url))}" target="_blank" rel="noopener">страница библиотеки ↗</a></span></figcaption></figure>`).join("")}</div>
+        <p>${esc(A.full_title)}. ${esc(A.publisher)}, ${esc(A.years)}.</p><p class="small">${esc(A.attribution_note)}</p><p class="small">${esc(A.coverage.note)} ${esc(A.order_basis)}</p>
+        <p class="btn-row"><a class="btn" href="${go(1)}">Открыть первую планшу →</a></p></section>`
+      : `<section class="spread albumplate"><figure class="lt-sheet"><div class="zoomwrap" id="zoomwrap" tabindex="0" aria-label="Планша крупно. Прокручивайте, чтобы рассмотреть детали"><img id="zoomimg" src="${esc(p.image)}" alt="${esc(p.title)}" width="${p.w}"></div>
+        <div class="lt-tool zoomctl"><label for="zoomrange"><span class="lt-legend">Увеличение</span> <b id="zoomval">100%</b></label><input id="zoomrange" type="range" min="100" max="300" step="10" value="100"></div>
+        <figcaption class="lt-imprint"><span class="l">Том ${p.volume}</span><span class="c">${esc(p.rights)}</span><span class="r">${esc(A.years)}</span></figcaption></figure>
+        <p class="small">Подпись, название и имя художника напечатаны на самой планше: приблизьте её. Библиотека автора отдельной планши не называет. <a href="${esc(safe(p.record_url))}" target="_blank" rel="noopener">Страница библиотеки ↗</a></p></section>`;
+    $app.innerHTML = `<div class="page-enter albumview"><section class="chead"><p class="eyebrow">${esc(A.title)} · ${esc(A.years)}</p><h1>${p ? esc(p.title) + " из " + total : "Альбом"}</h1></section>${body}
+      <div class="lt-tool albumnav"><label for="albumRange"><span class="lt-legend">Планша</span> <b id="albumVal">${n || "обложка"}</b></label><input id="albumRange" type="range" min="0" max="${total}" value="${n}" aria-label="Номер планши"></div>
+      <div class="thumbrail" role="list" aria-label="Все планши">${A.plates.map((q, i) => `<a role="listitem" class="th2" href="${go(i + 1)}"${i + 1 === n ? ' aria-current="true"' : ""}><img src="${esc(q.image)}" alt="${esc(q.title)}" loading="lazy" width="80"><span>${q.n}${q.bis ? "b" : ""}</span></a>`).join("")}</div>
+      ${dock(n < total ? { href: go(n + 1), t: n ? "Планша " + (n + 1) : "Первая планша", small: "Дальше" } : { href: "#/albums", t: "Все альбомы" }, n > 0 ? { href: go(n - 1), t: n > 1 ? "Планша " + (n - 1) : "Обложка" } : { href: "#/albums", t: "Альбомы" })}</div>`;
+    const rail = document.querySelector(".thumbrail [aria-current]"); if (rail && rail.scrollIntoView) rail.scrollIntoView({ inline: "center", block: "nearest" });
+    const rg = document.getElementById("albumRange"); rg.addEventListener("change", () => { location.hash = go(Number(rg.value)); });
+    if (p) { const range = document.getElementById("zoomrange"), im = document.getElementById("zoomimg"), val = document.getElementById("zoomval"); range.addEventListener("input", () => { im.style.width = range.value + "%"; val.textContent = range.value + "%"; }); }
+    window.__albumKey && document.removeEventListener("keydown", window.__albumKey);
+    window.__albumKey = (e) => { if (!/^#\/album\//.test(location.hash) || /INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || "")) return; if (e.key === "ArrowRight" && n < total) location.hash = go(n + 1); if (e.key === "ArrowLeft" && n > 0) location.hash = go(n - 1); };
+    document.addEventListener("keydown", window.__albumKey);
+  }
+
   // ---------- router
   function route() {
     if (!D) return;
@@ -639,6 +912,11 @@
     else if (h[0] === "places") viewPlaces();
     else if (h[0] === "catalog") viewCatalog(arg);
     else if (h[0] === "timeline") viewTimeline();
+    else if (h[0] === "exhibitions") viewExhibitions();
+    else if (h[0] === "exhibit") viewExhibit(arg);
+    else if (h[0] === "exwork") viewExWork(arg);
+    else if (h[0] === "albums") viewAlbums();
+    else if (h[0] === "album") viewAlbum(h[1], h[2]);
     else if (h[0] === "work") viewWork(arg);
     else if (!h[0] || h[0] === "main" || h[0] === "toc") { viewHome(); if (h[0]) setTimeout(() => (document.getElementById(h[0]) || {}).scrollIntoView && document.getElementById(h[0]).scrollIntoView(), 30); }
     else notFound();
