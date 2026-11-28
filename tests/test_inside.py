@@ -24,3 +24,15 @@ def test_inside_dossiers_are_real_and_honest():
         assert b["missing"], b["id"]
     mad = next(b for b in d if b["id"] == "madeleine")
     assert mad["journey"]["door"] and len(mad["modern"]) == 2 and mad["plan"]
+
+
+def test_stories_use_existing_works_and_sourced_events():
+    st = json.loads((BOOK / "stories.json").read_text(encoding="utf-8"))["stories"]
+    ids = {w["id"] for w in json.loads((BOOK / "gallery.json").read_text(encoding="utf-8"))["works"]}
+    assert {s["layout"] for s in st} == {"scenes", "dialogue", "biography"}
+    for s in st:
+        for x in s.get("scenes", []) + s.get("turns", []) + s.get("pieces", []):
+            if "work" in x:
+                assert x["work"] in ids, x
+        for e in s.get("events", []):
+            assert e["source"].startswith("https://") and e["text"], e

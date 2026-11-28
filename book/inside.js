@@ -17,7 +17,9 @@
     const cover = (b) => { const w = g.by.get(b.facade[0]); return w ? w.i : (b.extras[0] || b.plan[0] || {}).i; };
     B.app().innerHTML = `<div class="page-enter"><section class="chead compact"><p class="eyebrow">Здания изнутри</p><h1>Внутри истории</h1><p class="lede">От фасада на литографии к двери, интерьеру, плану, разрезу и сегодняшнему состоянию. Только подлинные материалы: чего нет, то названо.</p></section>
       <div class="exlist">${d.buildings.map((b) => `<a class="exhall" href="#/inside/${E(b.id)}"><img src="${E(cover(b))}" alt="" loading="lazy"><span class="cap"><span class="where">${E(b.city)} · ${[b.interior.length + b.extras.length ? "интерьер" : "", b.plan.length ? "план" : "", b.section.length ? "разрез" : "", b.modern.length ? "сегодня" : ""].filter(Boolean).join(" · ") || "фасад"}</span><b>${E(b.title)}</b><span class="hook">${E(B.cut(b.lede, 130))}</span></span></a>`).join("")}</div>
+      <h2>Истории</h2><div class="exlist" id="storyList"></div>
       ${B.dock({ href: "#/halls", t: "Залы" }, { href: "#/", t: "Оглавление" })}</div>`;
+    try { const S = await loadStories(); document.getElementById("storyList").innerHTML = S.stories.map((x) => { const f = (x.scenes && x.scenes[0] && x.scenes[0].work) || (x.turns && x.turns[0].work) || (x.pieces && x.pieces[0].work); const w = g.by.get(f); return `<a class="exhall" href="#/story/${E(x.id)}"><img src="${E(w ? w.i : "")}" alt="" loading="lazy"><span class="cap"><span class="where">${E(x.city)} · ${{ scenes: "сцены", dialogue: "диалог", biography: "биография здания" }[x.layout]}</span><b>${E(x.title)}</b><span class="hook">${E(B.cut(x.lede, 120))}</span></span></a>`; }).join(""); } catch (e) { /* stories are optional */ }
   }
 
   function journey(b) {
@@ -58,5 +60,27 @@
     wireDoor();
     document.querySelectorAll("[data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); const t = document.getElementById(a.dataset.go === "today" ? "today" : a.dataset.go); if (t && t.scrollIntoView) t.scrollIntoView({ behavior: "smooth", block: "start" }); }));
   }
-  Object.assign(B.routes, { inside: (arg) => (arg ? viewBuilding(arg) : viewList()) });
+
+  /* three illustrated stories, three compositions */
+  let ST = null;
+  const loadStories = () => ST || (ST = fetch("stories.json").then((r) => r.json()));
+  const resolve = (it, g, d) => {
+    if (it.work) { const w = g.by.get(it.work); return w && { i: w.i, th: w.th, w: w.w, h: w.h, title: ruTitle(w), sub: `${String(w.a).split(";")[0].replace(/\s*\(.*$/, "")}${w.d ? " · " + w.d : ""}`, credit: `${w.m} · ${w.r}`, link: "#/art/" + w.id }; }
+    const b = d.buildings.find((x) => x.id === (it.extra || it.modern || {}).building); if (!b) return null;
+    if (it.extra) { const pool = b.extras.concat(b.plan, b.section).filter((x) => !it.extra.kind || x.kind === it.extra.kind), x = pool[it.extra.n || 0]; return x && { i: x.i, title: x.caption, sub: x.credit, credit: x.licence, link: null }; }
+    const m = b.modern[it.modern.n || 0]; return m && { i: m.i, title: m.caption, sub: m.credit, credit: m.licence, link: null };
+  };
+  const plate = (x, cls = "") => x ? `<figure class="exfig insfig ${cls}">${x.link ? `<a class="eximg" href="${E(x.link)}">` : '<div class="eximg">'}<img src="${E(x.i)}" alt="${E(x.title)}" loading="lazy">${x.link ? "</a>" : "</div>"}<figcaption class="excap"><b>${E(x.title)}</b><span>${E(x.sub)}</span><span class="small">${E(x.credit)}</span></figcaption></figure>` : "";
+  async function viewStory(id) {
+    let S, g, d; try { [S, g, d] = await Promise.all([loadStories(), B.loadGallery(), load()]); } catch (e) { return B.notFound(); }
+    const st = S.stories.find((x) => x.id === id); if (!st) return B.notFound();
+    B.setTitle(st.title); B.crumbs([{ t: "Книга", href: "#/" }, { t: "Внутри истории", href: "#/inside" }, { t: st.title }]);
+    let body = "";
+    if (st.layout === "scenes") body = st.scenes.map((s, n) => { const x = resolve(s, g, d); return x ? `<section class="scene" style="--n:${n}"><p class="eyebrow">${E(s.kicker)}</p>${plate(x, "sceneimg")}</section>` : ""; }).join("");
+    else if (st.layout === "dialogue") body = `<div class="dialog">${st.turns.map((t) => { const x = resolve(t, g, d); return x ? `<div class="turn ${t.side}">${plate(x)}</div>` : ""; }).join("")}</div>`;
+    else body = `<ol class="bio">${st.events.map((e, n) => `<li class="bioev"><span class="when">${E(e.date)}</span><p>${E(e.text)}</p><a class="src" href="${E(B.safe(e.source))}" target="_blank" rel="noopener">${E(e.source_name)} ↗</a>${st.pieces.filter((p) => p.after === n).map((p) => `<div class="piece">${plate(resolve(p, g, d))}<p class="small">${E(p.label)}</p></div>`).join("")}</li>`).join("")}</ol>`;
+    const idx = S.stories.indexOf(st), nx = S.stories[idx + 1], pv = S.stories[idx - 1];
+    B.app().innerHTML = `<div class="page-enter story story-${E(st.layout)}"><section class="chead compact"><p class="eyebrow">${E(st.city)} · история</p><h1>${E(st.title)}</h1><p class="lede">${E(st.lede)}</p></section>${body}<p class="small closing">${E(st.closing)}</p>${B.dock(nx ? { href: "#/story/" + nx.id, t: nx.title, small: "Следующая история" } : { href: "#/inside", t: "Здания" }, pv ? { href: "#/story/" + pv.id, t: pv.title } : { href: "#/inside", t: "Здания" })}</div>`;
+  }
+  Object.assign(B.routes, { inside: (arg) => (arg ? viewBuilding(arg) : viewList()), story: viewStory });
 })();

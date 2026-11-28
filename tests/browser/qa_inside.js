@@ -16,7 +16,7 @@ const check = (name, ok, detail = "") => { results.push(ok); console.log(`${ok ?
     const loaded = (sel) => page.waitForFunction((s) => { const a = [...document.querySelectorAll(s)]; return a.length > 0 && a.every((i) => i.complete && i.naturalWidth > 0); }, sel, { timeout: 20000 });
     await page.goto(base + "#/inside", { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".exhall");
-    check(`${v.name}: five buildings are listed`, (await page.locator(".exhall").count()) === 5); await shot("20-inside-list");
+    check(`${v.name}: five buildings are listed`, (await page.locator(".exlist:not(#storyList) .exhall").count()) === 5); await shot("20-inside-list");
     await page.goto(base + "#/inside/madeleine", { waitUntil: "domcontentloaded" });
     await page.waitForSelector("#doorStage");
     await page.locator("#facade img").first().evaluate((i) => i.scrollIntoView());
@@ -42,6 +42,19 @@ const check = (name, ok, detail = "") => { results.push(ok); console.log(`${ok ?
     await page.waitForSelector("#plan");
     await page.locator("#plan").scrollIntoViewIfNeeded(); await loaded("#plan img");
     check(`${v.name}: Roman Pantheon has facade views, Panini interior, two plans`, (await page.locator("#facade .rt").count()) >= 3 && (await page.locator("#plan .insfig").count()) === 2 && (await page.locator("#interior .insfig").count()) === 1);
+    await page.goto(base + "#/inside", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#storyList .exhall");
+    check(`${v.name}: three stories with three different compositions are offered`, (await page.locator("#storyList .exhall").count()) === 3);
+    for (const [sid, sel, min] of [["prazdniki-venetsii", ".scene .sceneimg img", 5], ["dialog-panteon", ".turn img", 6], ["biografiya-madlen", ".bioev", 7]]) {
+      await page.goto(base + "#/story/" + sid, { waitUntil: "domcontentloaded" });
+      await page.waitForSelector(sel);
+      await page.waitForFunction(([s, m]) => document.querySelectorAll(s).length >= m, [sel, min]);
+      if (sid !== "biografiya-madlen") { await page.locator(sel).first().evaluate((i) => i.scrollIntoView()); await loaded(sel + ":nth-of-type(1)").catch(() => {}); }
+      check(`${v.name}: story ${sid} renders its composition`, (await page.locator(sel).count()) >= min);
+      if (sid === "dialog-panteon") await shot("25-story-dialogue");
+      if (sid === "biografiya-madlen") { check(`${v.name}: biography events all carry a source link`, (await page.locator(".bioev .src[href^=http]").count()) === 7); await shot("26-story-biography"); }
+      if (sid === "prazdniki-venetsii") await shot("27-story-scenes");
+    }
     check(`${v.name}: no horizontal scroll and no page errors`, (await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4)) && errs.length === 0, errs.join("|"));
     await ctx.close();
   }

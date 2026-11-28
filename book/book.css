@@ -347,3 +347,8 @@ body.showmode .dock,body.showmode .museum-nav,body.showmode header,body.showmode
 .door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}.door .dA{transform-origin:var(--dx) var(--dy)}.door .dB{opacity:0}
 .dmark{position:absolute;left:var(--dx);top:var(--dy);width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #fff9;border-radius:50%;pointer-events:none;animation:dm 1.6s ease-in-out infinite}@keyframes dm{50%{transform:scale(1.8);opacity:.2}}
 @media(prefers-reduced-motion:reduce){.dmark{animation:none}}
+/* stories */
+.scene{margin:28px 0;min-height:60vh;display:flex;flex-direction:column;justify-content:center}.scene .sceneimg img{max-height:78vh;object-fit:contain;margin:0 auto;display:block}.scene .sceneimg{background:#1d1c19;color:#f4ead2;padding:10px}.scene .excap{color:#f4ead2}
+.dialog{display:grid;gap:18px;margin:18px 0}.turn{max-width:92%}.turn.r{margin-left:auto}.turn.l{margin-right:auto}@media(min-width:820px){.dialog{grid-template-columns:1fr 1fr;gap:26px 20px}.turn{max-width:none}.turn.r{margin-top:48px}}
+.bio{list-style:none;margin:16px 0;padding:0 0 0 18px;border-left:3px solid var(--lt-sepia)}.bioev{position:relative;margin:0 0 22px;padding-left:12px}.bioev::before{content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--lt-brick)}
+.bioev .when{font:600 12px var(--lt-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--lt-brick)}.bioev p{margin:2px 0 4px}.piece{margin:12px 0;max-width:520px}.closing{margin:20px 0}
