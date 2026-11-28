@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "rule": "an album is shown as an album only when its original order is confirmed by a primary source; otherwise it stays a lead.",
+  "albums": [
+    {"id": "paris-dans-sa-splendeur", "status": "restored_in_book", "where": "book/albums/paris-dans-sa-splendeur.json", "source": "Universitätsbibliothek Heidelberg",
+     "order_basis": "plate number in the library's page title", "plates_read": 71, "attribution_note": "title page credits 18 artists, plates are not attributed one by one"},
+    {"id": "la-bretagne-contemporaine", "status": "lead", "catalogue": "https://catalogue.bnf.fr/ark:/12148/cb36586188p", "source_status": "read",
+     "facts": {"title": "La Bretagne contemporaine, sites pittoresques, monuments, costumes... des cinq départements de cette province",
+               "publication_in_catalogue": "Nantes : H. Charpentier, 1864-1865", "extent": "3 vol. : pl. ; Gd. in-fol.",
+               "roles": {"dessinateur": "Félix Benoist (1818-1896)", "préfacier": "Arthur Le Moyne de La Borderie (1827-1901)", "postfacier": "Théodore Hersart de La Villemarqué (1815-1895)"}},
+     "discrepancy": "Gemini V10 ставит 1865–1867; каталог BnF называет 1864-1865. Верим каталогу.",
+     "next": "найти оцифровку (Gallica доступа из сессии нет) и список планшей; не выдавать подборку Commons за порядок издания"},
+    {"id": "rome-dans-sa-grandeur", "status": "lead", "source_status": "read_partially", "facts": {"editor_and_year": "F. de Champagny, Paris, 1869 (по карточке Christie's)", "title_credit": "Dessins d'après nature par Philippe Benoist et Félix Benoist"},
+     "next": "первичный каталог (BnF/Gallica) и порядок планшей"}
+  ]
+}
