@@ -30,6 +30,7 @@ const check = (name, ok, detail = "") => { results.push(ok); console.log(`${ok ?
     check(`${name}: no horizontal scroll`, await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 4));
     await page.goto(base + "poc/compare/#notre-dame-benoist-carnavalet", { waitUntil: "networkidle" });
     await page.waitForFunction(() => { const b = document.getElementById("morphBox"); return b && b.dataset.pair === "notre-dame-benoist-carnavalet" && /^live-/.test(b.dataset.state || ""); }, null, { timeout: 15000 });
+    await page.locator("#morphBox > summary").click();
     await page.locator("#morphT").fill("100");
     check(`${name}: local morph canvas works`, true);
     check(`${name}: no page errors`, errs.length === 0, errs.slice(0, 2).join(" | "));

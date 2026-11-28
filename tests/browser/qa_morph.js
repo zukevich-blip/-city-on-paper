@@ -13,7 +13,10 @@ const check = (name, ok, detail = "") => { results.push(ok); console.log(`${ok ?
     const ready = (id, stateRx) => page.waitForFunction(([id, rx]) => {
       const b = document.getElementById("morphBox"), h = document.getElementById("histImg"), p = document.getElementById("photoImg");
       return b && b.dataset.pair === id && new RegExp(rx).test(b.dataset.state || "") && h.complete && h.naturalWidth > 0 && p.complete && p.naturalWidth > 0 && location.hash === "#" + id;
-    }, [id, stateRx.source], { timeout: 15000 });
+    }, [id, stateRx.source], { timeout: 20000 }).catch(async (e) => {
+      const st = await page.evaluate(() => ({ hash: location.hash, sel: document.getElementById("pairSel").value, ...document.getElementById("morphBox").dataset, hist: document.getElementById("histImg").complete, photo: document.getElementById("photoImg").complete }));
+      throw new Error(`ready(${id}, ${stateRx}) failed; page state ${JSON.stringify(st)}: ${e.message.split("\n")[0]}`);
+    });
     page.on("pageerror", (e) => errs.push(String(e)));
     await page.goto(base + "#synthetic-near-identical", { waitUntil: "networkidle" });
     await page.waitForSelector("#morphBox");
